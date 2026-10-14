@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import Reveal from "../../components/Reveal";
 import { guides } from "../../lib/guides";
 
@@ -22,7 +23,7 @@ export default function GuidesPage() {
             <article className="card">
               <span className="badge gold">{g.verdictLabel}</span>
               <h3 className="guide-card-title">
-                <a href={`/guides/${g.slug}`}>{g.title}</a>
+                <Link href={`/guides/${g.slug}`}>{g.title}</Link>
               </h3>
               <p className="code-meta">{g.description}</p>
               <p className="updated">Published {g.publishedAt}</p>

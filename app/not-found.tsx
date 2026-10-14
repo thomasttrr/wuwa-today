@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function NotFound() {
   return (
     <>
@@ -6,7 +8,7 @@ export default function NotFound() {
         That page doesn't exist — maybe it expired like a livestream code.
       </p>
       <p>
-        <a href="/">Back to today's dashboard →</a>
+        <Link href="/">Back to today's dashboard →</Link>
       </p>
     </>
   );

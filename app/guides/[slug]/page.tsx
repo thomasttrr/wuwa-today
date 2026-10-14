@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getGuide, guides, renderBody } from "../../../lib/guides";
 import { banners } from "../../../lib/data";
@@ -61,7 +62,7 @@ export default function GuidePage({ params }: { params: { slug: string } }) {
       ))}
 
       <p className="guide-back">
-        <a href="/guides">← All pull guides</a>
+        <Link href="/guides">← All pull guides</Link>
       </p>
     </article>
   );

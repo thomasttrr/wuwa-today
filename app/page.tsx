@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import BannerCard from "../components/BannerCard";
 import CodeRow from "../components/CodeRow";
 import EventCard from "../components/EventCard";
@@ -38,9 +39,9 @@ function SectionHead({
         {blurb && <p className="section-blurb">{blurb}</p>}
       </div>
       {linkHref && linkText && (
-        <a className="section-link" href={linkHref}>
+        <Link className="section-link" href={linkHref}>
           {linkText} →
-        </a>
+        </Link>
       )}
     </div>
   );
