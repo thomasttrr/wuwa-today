@@ -1,1 +1,248 @@
-{"_meta":{"comment":"Evergreen pull guides. Each guide is editorial opinion — verdicts must be labeled as opinion, never presented as data. One guide per featured 5-star, published at banner launch and refreshed if the meta shifts.","updatedAt":"2026-10-13T22:30:00-04:00"},"guides":[{"authorNote":"Editorial opinion based on kit analysis and community consensus at banner launch. Pull value depends on your account — read the 'who should pull' section, not just the verdict.","bannerId":"3.7-phase-1","character":"Hsin","description":"Is Hsin worth your Astrite? Pull value breakdown for Wuthering Waves 3.7 Phase 1: who she fits, team notes, and the honest math.","publishedAt":"2026-10-13","sections":[{"body":"Hsin is the first playable Sentinel and a 5-star Electro Rectifier main DPS built around her Fractal Proliferation mechanic — she splits into tethered Fractal Forms that share sensation, then folds back into one body. In practice: an Electro hypercarry with two combat phases and two Resonance Modes.","heading":"The short version"},{"body":"- You want a top-tier Electro main DPS and don't have one built (or yours is outdated).\n- You enjoy stance/phase-based kits and don't mind a learning curve.\n- You're pulling in Phase 1 anyway and want the strongest unit on the three featured banners.\n- Skip or wait if: you're saving for Suoming (Phase 2) and can't guarantee both, or your Electro teams are already complete.","heading":"Who should pull"},{"body":"Hsin wants teammates that can feed her field time and Electro-aligned buffs. As a Rectifier DPS she pairs naturally with controllers and sustain units you likely already own. Exact best-in-slot teams will settle after the theorycrafting community finishes testing — this section gets updated when consensus forms.","heading":"Team notes (early)"},{"body":"Version 3.7 is one of the densest pull patches of the year: Hsin now, Suoming on Oct 22, plus the returning Moonlit Path 5-star selector (Carlotta / Shorekeeper / Phoebe at the 980-ring tier) for spenders. Free-to-play income across the patch is roughly 90-110 pulls if you clear everything, so most accounts can guarantee ONE featured 5-star from zero pity — not two. If Hsin and Suoming both tempt you, pick the one that fills the bigger hole in your roster and commit.","heading":"The pull math"}],"slug":"is-hsin-worth-pulling","title":"Is Hsin Worth Pulling? (WuWa 3.7 Phase 1)","verdict":"Strong pull for accounts missing an Electro DPS; skippable if your Electro teams are already complete or you're committed to Suoming in Phase 2.","verdictLabel":"Worth it — with conditions"}]}
+{
+  "_meta": {
+    "comment": "Evergreen guides: pull verdicts for every featured 5-star, plus build and team guides. Verdicts are editorial opinion — never presented as data. Pull guides publish at banner launch; build/team guides follow as the meta settles.",
+    "updatedAt": "2026-10-14T14:00:00-04:00"
+  },
+  "guides": [
+    {
+      "authorNote": "Editorial opinion based on kit analysis and community consensus at banner launch. Pull value depends on your account — read the 'who should pull' section, not just the verdict.",
+      "bannerId": "3.7-phase-1",
+      "character": "Hsin",
+      "description": "Is Hsin worth your Astrite? Pull value breakdown for Wuthering Waves 3.7 Phase 1: who she fits, team notes, and the honest math.",
+      "publishedAt": "2026-10-13",
+      "sections": [
+        {
+          "body": "Hsin is the first playable Sentinel and a 5-star Electro Rectifier main DPS with two Resonance Modes — Electro Flare (stack-and-detonate damage) and Unison (quick-swap play). In practice: an Electro hypercarry who either detonates Flare stacks for big bursts or flows through rapid team swaps.",
+          "heading": "The short version"
+        },
+        {
+          "body": "- You want a top-tier Electro main DPS and don't have one built (or yours is outdated).\n- You enjoy stance/phase-based kits and don't mind a learning curve.\n- You're pulling in Phase 1 anyway and want the strongest unit on the three featured banners.\n- Skip or wait if: you're saving for Suoming (Phase 2) and can't guarantee both, or your Electro teams are already complete.",
+          "heading": "Who should pull"
+        },
+        {
+          "body": "Hsin wants teammates that can feed her field time and Electro-aligned buffs. As a Rectifier DPS she pairs naturally with controllers and sustain units you likely already own. Exact best-in-slot teams will settle after the theorycrafting community finishes testing — this section gets updated when consensus forms.",
+          "heading": "Team notes (early)"
+        },
+        {
+          "body": "Version 3.7 is one of the densest pull patches of the year: Hsin now, Suoming on Oct 22, plus the returning Moonlit Path 5-star selector (Carlotta / Shorekeeper / Phoebe at the 980-ring tier) for spenders. Free-to-play income across the patch is roughly 90-110 pulls if you clear everything, so most accounts can guarantee ONE featured 5-star from zero pity — not two. If Hsin and Suoming both tempt you, pick the one that fills the bigger hole in your roster and commit.",
+          "heading": "The pull math"
+        }
+      ],
+      "slug": "is-hsin-worth-pulling",
+      "title": "Is Hsin Worth Pulling? (WuWa 3.7 Phase 1)",
+      "verdict": "Strong pull for accounts missing an Electro DPS; skippable if your Electro teams are already complete or you're committed to Suoming in Phase 2.",
+      "verdictLabel": "Worth it — with conditions"
+    },
+    {
+      "slug": "is-iuno-worth-pulling",
+      "character": "Iuno",
+      "title": "Is Iuno Worth Pulling? (WuWa 3.7 Rerun)",
+      "description": "Is Iuno worth your Astrite on rerun? Pull value breakdown for Wuthering Waves 3.7 Phase 1: who she fits, team notes, and the honest math.",
+      "bannerId": "3.7-phase-1",
+      "publishedAt": "2026-10-14",
+      "authorNote": "Editorial opinion based on kit analysis and community consensus at the 3.7 rerun. Pull value depends on your account — read the 'who should pull' section, not just the verdict.",
+      "verdict": "The best rerun of Phase 1 for most accounts: a flexible Aero healer/buffer whose Heavy Attack amplification is still premium — but a luxury if you already own her or your sustain slots are full.",
+      "verdictLabel": "Worth it — with conditions",
+      "sections": [
+        {
+          "heading": "The short version",
+          "body": "Iuno is a 5-star Aero Gauntlets hybrid: part healer, part shielder, part sub-DPS. Her kit revolves around the Lunar Cycle — two moon stances she flows between — and her headline buff is a 50% Heavy Attack DMG Amplification handed to the next character via her Outro skill, plus healing and stamina restoration from her Full Moon Domain. She debuted back in Version 2.6 and has only grown more valuable as Heavy Attack carries (Augusta, Jingran) took over the meta."
+        },
+        {
+          "heading": "Who should pull (and who should skip)",
+          "body": "- You don't have a premium hybrid sustain/buffer and your teams lean on Shorekeeper or Verina for everything.\n- You play Augusta or Jingran — Iuno is their best partner by a wide margin, feeding both the Heavy Attack buff and the shield synergies their kits want.\n- You want one flexible unit who can heal, buff, and deal respectable damage herself across many teams.\n- Skip if: you already own her — extra copies are a luxury, not account-changing. Skip too if you're committed to Suoming in Phase 2 and can't guarantee both, or if your sustain slots are already covered and you don't run Heavy Attack carries."
+        },
+        {
+          "heading": "How she fits the 3.7 meta",
+          "body": "Iuno is the universal pick of Phase 1. Hsin is the shiny new Electro DPS, but she demands a team built around her; Chisa is excellent yet niche, built for Negative Status squads. Iuno slots into teams you already own and makes them better — community tier lists and damage simulations both still rank her near the top of the support roster. Her one caveat: part of her buff ceiling is tied to shield generation, which only Augusta and Jingran fully exploit today. Everywhere else she's still very good, just not at her absolute peak."
+        },
+        {
+          "heading": "The pull math",
+          "body": "Version 3.7 is one of the densest pull patches of the year: Hsin and Chisa now, Suoming plus Lynae and Lucilla on Oct 22. Free-to-play income across the patch is roughly 90-110 pulls if you clear everything, so most accounts can guarantee ONE featured 5-star from zero pity — not two. If you're choosing between Phase 1 banners: Hsin if you need an Electro DPS, Iuno if you want the most flexible long-term support. She'll rerun again — her history is roughly every three to four months — but the next one is a long wait."
+        }
+      ]
+    },
+    {
+      "slug": "is-chisa-worth-pulling",
+      "character": "Chisa",
+      "title": "Is Chisa Worth Pulling? (WuWa 3.7 Rerun)",
+      "description": "Is Chisa worth your Astrite on her 3.7 rerun? Pull value breakdown for the Havoc support: who she fits, the Hsin comparison, and the honest math.",
+      "bannerId": "3.7-phase-1",
+      "publishedAt": "2026-10-14",
+      "authorNote": "Editorial opinion based on kit analysis and community consensus at the 3.7 rerun. Pull value depends on your account — read the 'who should pull' section, not just the verdict.",
+      "verdict": "One of the best supports for Negative Status teams, finally in her element — worth it if you're building around Hsin or status squads; an easy skip if your sustain slots are already covered.",
+      "verdictLabel": "Niche but excellent",
+      "sections": [
+        {
+          "heading": "The short version",
+          "body": "Chisa is a 5-star Havoc Broadblade support who debuted in version 2.8. Her kit revolves around Chainsaw Mode: she marks enemies with Unseen Snare, then tears through them dealing Havoc damage while stacking Havoc Bane — a debuff that shreds enemy DEF for the whole team — plus team healing and shields from her Resonance Liberation. At launch she was niche because Negative Status teams barely existed. In 3.7 that has flipped: with Hsin's Electro Flare and a real status ecosystem, she's now rated one of the best supports for those teams. She is not a main DPS and not a universal support — she is a specialist, and a very good one."
+        },
+        {
+          "heading": "Who should pull (and who should skip)",
+          "body": "- Pull if you're going for Hsin and lack a dedicated status support — Chisa is one of her best enablers.\n- Pull if you play Negative Status teams (Aero Erosion, Spectro Frazzle, Havoc Bane) — she's arguably best-in-slot there.\n- Pull if your sustain slot is empty: she heals and shields while contributing damage.\n- Skip if Verina, Shorekeeper, Suisui, or another sustain already covers your teams.\n- Skip if you don't play status teams at all — for you, this banner is a trap.\n- Skip if you're saving for Suoming (Phase 2, ~Oct 22) and can't guarantee both."
+        },
+        {
+          "heading": "Hsin vs Chisa: which Phase 1 DPS",
+          "body": "Small correction to the framing: Chisa isn't a DPS, she's the enabler — so this isn't really a contest. Hsin is the new premier Electro main DPS and the consensus priority pick of Phase 1. Where Chisa wins is as Hsin's partner: if you pull Hsin and don't have Suisui, Chisa is one of the best supports for her Electro Flare team. Rule of thumb: if you can only take home one 5-star, take Hsin unless your account needs a status support more than it needs a DPS. Between the two reruns, Iuno is the more flexible all-rounder; Chisa has the higher ceiling but only inside status teams."
+        },
+        {
+          "heading": "The pull math",
+          "body": "Version 3.7 is one of the densest pull patches of the year: Hsin now, Suoming on Oct 22, plus the returning Moonlit Path 5-star selector (Carlotta / Shorekeeper / Phoebe at the 980-ring tier) for spenders. Free-to-play income across the patch is roughly 90-110 pulls if you clear everything, so most accounts can guarantee ONE featured 5-star from zero pity — not two. Chisa is a rerun, which means she'll be back again: there's no FOMO here. Pull her now if she completes a team you're building today; otherwise she can wait for a future rerun without costing you anything."
+        }
+      ]
+    },
+    {
+      "slug": "is-suoming-worth-pulling",
+      "character": "Suoming",
+      "title": "Is Suoming Worth Pulling? (WuWa 3.7 Phase 2)",
+      "description": "Suoming is Phase 2's new 5-star Electro Sword — Hsin's designed partner and a flexible sub-DPS or on-field carry. This pre-release guide covers her kit, the Hsin pairing, and the pull math.",
+      "bannerId": "3.7-phase-2",
+      "publishedAt": "2026-10-14",
+      "authorNote": "Pre-release guide based on officially revealed kit info and community analysis; details will be updated after launch. Editorial opinion, not data.",
+      "verdict": "If you pulled Hsin, Suoming is her best partner and a strong pull. Everyone else should wait for launch-day numbers before deciding.",
+      "verdictLabel": "Yes with Hsin, wait otherwise",
+      "sections": [
+        {
+          "heading": "The short version",
+          "body": "Suoming is the Phase 2 (Oct 22 → Nov 11) new 5-star: an Electro Sword hybrid built around three systems — Delusion (a Forte gauge capped at 800), three Mind states, and the new Unison mechanic. Nearly all her personal damage counts as Basic Attack DMG, including her Forte attacks. Each rotation she chooses one of two modes: swap out while holding Unison to buff the next character (Aligned Seals: 20% Electro DMG amp, plus 25% Resonance Skill DMG amp in Unison windows, with coordinated Thunder Crest strikes while off-field), or stay on-field and spend Unison on Seal Master for a 12-second personal DPS window (+40% multipliers, +80% Crit DMG in beta text). Community consensus: she is complete at S0, with S2 as the first real stopping point. Important: every number here comes from pre-release testing and can still change before launch."
+        },
+        {
+          "heading": "Who should pull (and who should skip)",
+          "body": "Pull if you have Hsin — Suoming is quite literally the partner her kit was written around, and the Hsin/Suoming/Shorekeeper core is the patch's premium Electro team. Pull if you want a flexible Electro unit: the two Unison modes mean she slots into more teams than a pure hypercarry. Skip if you're free-to-play and saving for 3.8 or beyond — one featured 5-star can eat most of a patch's income if you lose the 50/50. Skip if you already run Hsin comfortably with Jinhsi and Shorekeeper; that team works today and doesn't need Phase 2. And skip if you dislike swap-heavy rotations: Delusion only builds while she's on the field, so both of her modes demand real field time — she is not a fire-and-forget sub-DPS."
+        },
+        {
+          "heading": "The Hsin pairing question",
+          "body": "This is the headline combo of 3.7 and the main reason to pull. Suoming's Outro hands Hsin 20% Electro DMG amplification (plus 25% Resonance Skill DMG amp when Hsin holds Unison Boon), her Thunder Crest coordinated attacks keep striking while Hsin is on-field, and Unison Boon stacks glue the swap loop together — both characters take turns in short field bursts rather than one hypercarry hogging the stage. Without Hsin, Suoming is a harder sell: she's still a functional on-field DPS via Seal Master, but you're paying full price for half the design. Budget alternative if you have Hsin but not Suoming: Hsin + Electro Rover + Buling clears content, and Jinhsi can hand Hsin Unison if you already own her."
+        },
+        {
+          "heading": "The pull math",
+          "body": "Phase 2 runs Oct 22 → Nov 11 with Lynae and Lucilla rerunning alongside her — three 5-stars competing for the same wallet, so decide your priority before the banner opens. Rough F2P income across all of 3.7 is ~90–110 pulls; guaranteeing one featured 5-star can take up to two full pities if luck is bad. If you already went deep on Hsin in Phase 1, be honest about what's left before committing. If you skipped Phase 1 entirely, you can comfortably afford to chase her. Either way, hold the final decision until launch: pre-farm her materials (beta sources point to Howler Cores and Crit/Basic Attack investment), but let day-one testing confirm the numbers first."
+        }
+      ]
+    },
+    {
+      "slug": "is-lynae-worth-pulling",
+      "character": "Lynae",
+      "title": "Is Lynae Worth Pulling? (WuWa 3.7 Rerun)",
+      "description": "Lynae returns in the 3.7 Phase 2 banner (Oct 22 – Nov 11). An honest breakdown of her kit, her place in the 3.7 meta, who should pull, and how she fits a free-to-play pull budget.",
+      "bannerId": "3.7-phase-2",
+      "publishedAt": "2026-10-14",
+      "authorNote": "Editorial opinion based on kit analysis and community consensus. Pull advice is written for free-to-play and low-spend players; treat the verdict as a starting point, not gospel.",
+      "verdict": "The safest rerun of 3.7 — pull her if you don't own her.",
+      "verdictLabel": "Safest rerun pick",
+      "sections": [
+        {
+          "heading": "The short version",
+          "body": "Lynae is a 5-star Spectro pistol user, and one of the most flexible supports in the game. She deals respectable damage from off-field (while she's not your active character), but her real value is amplification: she drives the Tune Break mechanic and buffs the whole team's damage, including a big boost to Resonance Liberation bursts.\n\nHer kit is simple to use, she works well with just one copy and free-to-play weapons, and she slots into more teams than almost any other character on this patch. Gurugamer's 3.7 banner-value guide calls her the best overall rerun of the entire patch — and the default pick if you can only afford one rerun."
+        },
+        {
+          "heading": "Who should pull (and who should skip)",
+          "body": "Pull if you don't own her, full stop. Pull if your teams are missing a premium off-field buffer, or if you want one character who fits nearly anywhere — she's famously team-flexible and doesn't demand her signature weapon to perform.\n\nSkip if you already own her; community guidance is consistent that one copy is enough for most accounts. Skip if you're a brand-new player still building a first team, or if you're saving every pull for Suoming and genuinely can't afford both."
+        },
+        {
+          "heading": "Where she stands in the 3.7 meta",
+          "body": "Lynae is a Tune Break driver and Liberation support, which keeps her relevant as long as those mechanics matter — and in 3.7, they matter a lot. She pairs naturally with heavy Liberation hitters like Iuno and Augusta, and her signature weapon, Spectrum Blaster, can stack up to +24% team-wide damage through her Tune Shifting debuff.\n\nCompared to Lucilla, the other Phase 2 rerun, Lynae is the broader pick. Lucilla is excellent but narrower, aimed squarely at Glacio and Echo Skill teams. Lynae goes almost anywhere."
+        },
+        {
+          "heading": "The pull math",
+          "body": "Phase 2 runs Oct 22 – Nov 11 with three 5-stars: the new unit Suoming plus Lynae and Lucilla reruns. A free-to-play account earns roughly 90–110 pulls across the patch — about one guaranteed 5-star per phase with average luck.\n\nPriority order: secure Suoming first if she's your most-wanted, then take Lynae as the default rerun pick. Skip the weapon banner unless Lynae is your only Phase 2 target and you already use her everywhere — for low spenders, a second limited character almost always beats a first signature weapon."
+        }
+      ]
+    },
+    {
+      "slug": "is-lucilla-worth-pulling",
+      "character": "Lucilla",
+      "title": "Is Lucilla Worth Pulling? (WuWa 3.7 Rerun)",
+      "description": "Should you pull Lucilla on her Version 3.7 rerun? An honest breakdown of her Glacio Chafe and Echo Skill support kit, who she's actually for, the Carlotta selector question, and Phase 2 pull math.",
+      "bannerId": "3.7-phase-2",
+      "publishedAt": "2026-10-14",
+      "authorNote": "Editorial opinion based on kit analysis and community consensus. Pull advice is roster-dependent — read the 'who should skip' section before deciding.",
+      "verdict": "Pull Lucilla if you have Hiyuki, a Glacio DPS, or Echo Skill carries — she's arguably their best support. Otherwise skip: she's niche, not a generalist.",
+      "verdictLabel": "Great for her teams",
+      "sections": [
+        {
+          "heading": "The short version",
+          "body": "First, a correction to expectations: Lucilla is not a main DPS. She's a 5-star Glacio Rectifier who works as a sub-DPS and support hybrid — she buffs your team, does decent damage herself, but won't carry a team alone at low investment. Her kit has two modes you swap between: a Glacio Chafe mode that shreds enemy Glacio resistance and stacks the Chafe debuff (making her the best partner for Hiyuki), and an Echo mode that amplifies Echo Skill damage for carries like Sigrika, Galbrena, and Phrolova. Inside those two team types she's excellent — fast rotations, strong buffs, easy to build. Outside them, she does almost nothing for your account. She's been consistently rated this way since her debut in Version 3.4 (June 2026), and nothing in the 3.7 meta has changed that assessment."
+        },
+        {
+          "heading": "Who should pull (and who should skip)",
+          "body": "Pull if you own Hiyuki — Lucilla is widely considered her best teammate and the synergy is the whole point of the character. Pull if you run a Glacio team around Carlotta or another Glacio carry, or if you field Echo Skill damage dealers who want her buffs. Pull if you already own Lynae and want a second premium off-field support. Skip if you have no Glacio DPS and no Echo Skill carries to plug her into — a support with nobody to support is a wasted guarantee. Skip if what you actually need is a main DPS or a generalist who fits anywhere; on that front, Lynae is the safer rerun of this patch by most accounts. New players should prioritize a carry first."
+        },
+        {
+          "heading": "Lucilla vs the Moonlit Path selector",
+          "body": "This is the question everyone asks, and the answer is counterintuitive: Carlotta and Lucilla don't compete — they combine. The Moonlit Path spending track lets you pick Carlotta (a Glacio DPS) at the 980-ring tier, and Lucilla's kit directly buffs Glacio carries like her. So if you're taking Carlotta from the selector, Lucilla becomes more attractive, not less — she completes that team. The real decision is: are you building a Glacio team at all? If yes (Carlotta via selector, Hiyuki from before, or another Glacio carry), Lucilla is a strong pickup. If you're not spending and have no Glacio DPS lined up, skip her without regret."
+        },
+        {
+          "heading": "The pull math",
+          "body": "Phase 2 (Oct 22 – Nov 11) runs three 5-stars: the new Suoming plus Lynae and Lucilla reruns. A full 3.7 gives free-to-play accounts roughly 90–110 pulls — enough for about one guaranteed 5-star with some change, not three. So pick one lane: Lynae if you're missing a premium off-field support (she fits the most teams), Lucilla if you have her Glacio or Echo Skill teams waiting, Suoming if you want the new unit. Don't split pity across all three banners hoping to get lucky. And skip the weapon banner unless Lucilla is already a locked-in main: her signature Freeze Frame is owner-specific, and for most accounts a second limited character beats a first signature."
+        }
+      ]
+    },
+    {
+      "slug": "hsin-build-guide",
+      "character": "Hsin",
+      "title": "Hsin Build Guide: Best Weapons, Echoes & Stats (WuWa 3.7)",
+      "description": "How to build Hsin in Wuthering Waves 3.7: best weapons ranked, the Heart of Sworn Vigil echo set, 4-3-3-1-1 stat priorities, talent order, and which sequences are worth it.",
+      "bannerId": "3.7-phase-1",
+      "publishedAt": "2026-10-14",
+      "authorNote": "Build recommendations based on kit analysis and community theorycrafting; numbers will be refined as testing settles.",
+      "verdict": "Build her once: 5-pc Heart of Sworn Vigil with a 4-3-3-1-1 layout covers both of her modes, and her signature weapon is the single biggest upgrade you can give her.",
+      "verdictLabel": "Set first, signature second",
+      "sections": [
+        {
+          "heading": "The short version",
+          "body": "Hsin is a 5-star Electro Rectifier main DPS and the first playable Sentinel, released in 3.7 Phase 1. Her kit runs in two Resonance Modes: Electro Flare (detonation damage, paired with characters who apply Electro Flare like Electro Rover) and Unison (quick-swap play, paired with Suoming or Jinhsi). The good news: her dedicated echo set works for both modes, so one build covers everything.\n\nFast path: Blooming Jadehaven (or Lethean Elegy / Stringmaster) + 5-piece Heart of Sworn Vigil in a 4-3-3-1-1 layout. Aim for a Crit DMG 4-cost, Electro DMG 3-costs, ATK% 1-costs, and roughly 120% Energy Regen. Level her Forte Circuit first."
+        },
+        {
+          "heading": "Best weapons, ranked",
+          "body": "Ranked best to worst. Her signature is ahead by a clear margin; everything else is a backup plan.\n\n1. Blooming Jadehaven (5-star signature) - Crit Rate substat. Grants All-Attribute DMG, big Resonance Skill DMG amplification, and boosts Electro Flare damage. Best in slot.\n2. Lethean Elegy (5-star) - the strongest non-signature alternative.\n3. Stringmaster (5-star) - another strong premium option.\n4. Waltz in Masquerade (4-star) - the recommended 4-star pick.\n5. Fusion Accretion (4-star) - energy-focused, easy to obtain.\n6. Augment / Radiant Dawn (4-star) - both carry a Crit Rate secondary stat, which smooths out her Crit balance.\n7. Cosmic Ripples (4-star) - serviceable budget filler until something better drops."
+        },
+        {
+          "heading": "Echo sets & costs",
+          "body": "Best set: 5-piece Heart of Sworn Vigil. The 2-piece gives +10% Electro DMG; the 5-piece grants +15% Crit Rate and +22.5% Electro DMG for 30 seconds whenever she inflicts Electro Flare, gains Unison, or triggers a Unison Response. Both of her modes activate it, so it stays live through her whole damage window.\n\nMain Echo: Reminiscence: Suhsin the Inevitable, farmed from the Ordinance of the Inevitable weekly boss (unlocked through the 3.7 main story). In the main slot it gives +10% Electro DMG, plus another +10% for 30s on Flare / Unison / Response. Running her as a sub-DPS instead? Use Soulfrayer, which buffs the incoming Resonator's Electro DMG through her Outro.\n\nAlternatives: 5-piece Flash of Electric Reflection for sub-DPS or support-oriented Electro Flare builds. While farming, a 5-piece Void Thunder or a mixed 2-piece Electro + 2-piece ATK setup works as a placeholder.\n\nCost layout: 4-3-3-1-1 (one 4-cost main Echo, two 3-costs, two 1-costs)."
+        },
+        {
+          "heading": "Stat priority",
+          "body": "4-cost: Crit DMG if you run her signature or another Crit weapon (the set, her passives, and Crit weapons already supply plenty of Crit Rate); Crit Rate if your substats are lacking it.\n\n3-cost: Electro DMG Bonus on both is the default. The second piece can be ATK% if its substats are clearly better, and Electro Flare mode is fine with one Electro% + one ATK%.\n\n1-cost: ATK% on both.\n\nSubstat priority: Crit Rate / Crit DMG first, then ATK%, then Resonance Skill DMG Bonus, then flat ATK. Keep Energy Regen around 118-125% so her Liberation and finisher are ready every rotation.\n\nRough targets: about 75%+ Crit Rate and 220%+ Crit DMG once the set bonus is active. Community targets vary a little, so keep strong pieces over chasing exact numbers."
+        },
+        {
+          "heading": "Talent & sequence priority",
+          "body": "Talent order: Forte Circuit first, then Resonance Skill and Resonance Liberation (guides differ on which of the two comes second depending on whether you play Electro Flare or Unison - level the one your mode leans on), then Basic Attack, then Intro Skill. Level Intro earlier if you commit to Unison quick-swap, since entrance hits become a bigger share of team damage.\n\nSequences (duplicates): S0 is a complete kit - none of these are required. The sensible stopping points are S2 (first big damage spike: +60% enhanced Heavy Attack DMG in both forms, plus rotation comfort), S3 (stronger Liberation finisher and extra Flare detonation - where most spenders stop), and S6 (endgame ceiling). S1 is comfort (interruption immunity), S4 is team support, S5 is survivability. If funds are tight, S0 plus her signature weapon beats chasing S1."
+        }
+      ]
+    },
+    {
+      "slug": "hsin-team-guide",
+      "character": "Hsin",
+      "title": "Best Hsin Teams: Premium & F2P Comps (WuWa 3.7)",
+      "description": "Hsin's two Resonance Modes — Unison and Electro Flare — decide her team, not just her rotation. Here are the best premium and free-to-play comps for each mode, what every teammate actually does, and simple rotations to run them.",
+      "bannerId": "3.7-phase-1",
+      "publishedAt": "2026-10-14",
+      "authorNote": "Team recommendations based on kit synergy analysis and community testing; comps will be updated as the meta settles.",
+      "verdict": "Run Electro Flare with Electro Rover plus Suisui or Buling today; move to the Hsin + Suoming + Shorekeeper Unison team once Suoming arrives in Phase 2.",
+      "verdictLabel": "Flare now, Unison later",
+      "sections": [
+        {
+          "heading": "The short version",
+          "body": "Hsin has two Resonance Modes and you commit to one per fight, which decides the whole team. Electro Flare is the day-one route: Hsin + Electro Rover + Suisui (or Buling for a fully free team). It needs no new 5-stars and reaches most of her damage ceiling. Unison is the long-term premium route: Hsin + Suoming + Shorekeeper, built around rapid swaps — but Suoming only arrives in the Phase 2 banner (Oct 21), so treat Unison as the upgrade path, not the starting point."
+        },
+        {
+          "heading": "Unison & Electro Flare, explained simply",
+          "body": "Unison is a swap mechanic. When Hsin casts her Resonance Liberation (her ultimate), she gains Unison for a few seconds. Switching characters during that window triggers her Outro Skill (her swap-out attack) and the incoming character's Intro Skill (their swap-in attack) without spending Concerto Energy — the meter you normally fill to enable those swap combos. Her next Intro Skill also comes back empowered. The gameplan is constant swapping: Hsin sets up, a partner takes a turn, Hsin comes back swinging.\n\nElectro Flare is a stack-and-detonate mechanic and part of the Negative Status family (damage-over-time debuffs, like the ones Cartethyia's teams use). Teammates apply Electro Flare stacks to enemies; Hsin converts them into Heart of Thunder (up to 100 stacks), then her Resonance Skill (her regular skill) spends it for a big burst of Flare damage. Her Liberation also spreads Flare to nearby enemies. The gameplan is simpler: teammates stack, Hsin detonates.\n\nWhy it matters: the two modes want completely different teammates. Unison wants a swap partner who also plays the Unison game (Suoming). Electro Flare wants stack applicators (Electro Rover). Pick the mode first, then the team."
+        },
+        {
+          "heading": "Best premium teams",
+          "body": "Hsin + Suoming + Shorekeeper — the headline Unison team and the consensus best-in-slot across community guides. Suoming (5-star Electro Sword, Phase 2) is built for the same swap playstyle: her kit buffs Hsin's Resonance Skill damage and her Thunder Crest coordinated attacks (automatic off-field follow-up hits) keep damaging enemies while she's benched. Shorekeeper is the sustain (healer): she heals and hands out broad offensive buffs while barely needing field time, so she never interrupts the Hsin–Suoming swap rhythm.\n\nOne honest caveat: Suoming's banner hasn't dropped yet, so this comp rests on kit analysis and pre-release testing rather than months of live play. It is the overwhelming community consensus, but expect fine-tuning once everyone has her.\n\nBudget-premium alternative: Hsin + Jinhsi + Shorekeeper (or Verina). Jinhsi can anchor the Unison swaps through her own kit interactions, but she can't receive Unison's damage buffs the way Suoming can, so the ceiling is lower. Use this only if you already own Jinhsi and are skipping Suoming."
+        },
+        {
+          "heading": "Best F2P teams",
+          "body": "Hsin + Electro Rover + Suisui — the best Electro Flare team and the one most build guides recommend. Electro Rover is the engine: he applies Electro Flare stacks in bulk, and Hsin's kit specifically interacts with his Intro Skill so both of them gain an Electro damage bonus when paired. Rover was given free as a 5-star, so most accounts already own him. Suisui sustains the team (heals) while raising the maximum Electro Flare and Electro Rage stack caps and providing long-lasting team buffs.\n\nFully free variant: Hsin + Electro Rover + Buling. Buling is a 4-star rate-up on Hsin's own Phase 1 banner, so she's easy to pick up while pulling for Hsin, and she covers the sustain slot with Flare application of her own.\n\nChisa note: Chisa (also rate-up on Phase 1) works as a Suisui alternative — she raises the stack cap the same way, heals, and adds DEF ignore for Negative Status damage. She's the more debuff-oriented pick; Suisui is the more buff-oriented one."
+        },
+        {
+          "heading": "How to play them (rotations)",
+          "body": "Electro Flare rotation (Hsin + Electro Rover + Suisui/Buling): open with your sustain to apply the first Flare stacks, then bring in Electro Rover to pile on more stacks and trigger his Intro interaction with Hsin. Swap to Hsin, build her resources with basic attacks and her skill, then spend everything: empowered heavy attack into Resonance Liberation (Pillars Across Heaven) to detonate. Don't swap-cancel her Resonance Skill mid-cast — cutting it short wastes the Flare damage. Aim for about 120% Energy Regen so her Liberation is ready every cycle.\n\nUnison rotation (Hsin + Suoming + Shorekeeper): enter with Hsin's Intro Skill, build into her Liberation to trigger the Unison window, then swap immediately — her Outro and Suoming's Intro fire for free. Let Suoming take her field segment, then swap back to Hsin through another Intro (it will be empowered). Shorekeeper only comes in briefly to heal and refresh buffs. The key skill is timing: the free-swap window lasts a few seconds, so swap promptly, but missing it doesn't break the rotation — just continue normally and set up the next window."
+        }
+      ]
+    }
+  ]
+}

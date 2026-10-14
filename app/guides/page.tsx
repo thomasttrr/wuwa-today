@@ -4,18 +4,18 @@ import Reveal from "../../components/Reveal";
 import { guides } from "../../lib/guides";
 
 export const metadata: Metadata = {
-  title: "Wuthering Waves Pull Guides — Is X Worth Pulling?",
+  title: "Wuthering Waves Guides — Pull Guides, Builds & Teams",
   description:
-    "Honest, no-hype pull guides for every Wuthering Waves banner: verdicts, who should pull, team notes, and the Astrite math.",
+    "Honest, no-hype Wuthering Waves guides: pull verdicts for every banner, character builds, and team compositions.",
 };
 
 export default function GuidesPage() {
   return (
     <>
-      <h1>Pull guides</h1>
+      <h1>Guides</h1>
       <p className="lede">
-        One evergreen page per featured 5-star: verdict, who should pull, and
-        the Astrite math.
+        Pull verdicts for every featured 5-star, plus build guides and team
+        compositions — verdict first, no hype.
       </p>
       <div className="grid grid-2 guides-grid">
         {guides.map((g, i) => (

@@ -33,7 +33,7 @@
           "isNew": false,
           "name": "Chisa",
           "rarity": 5,
-          "role": "Main DPS",
+          "role": "Support / Sub-DPS",
           "status": "rerun",
           "weaponType": "Broadblade",
           "sprite": "/images/chisa-sprite.webp"
@@ -117,7 +117,7 @@
           "isNew": false,
           "name": "Lynae",
           "rarity": 5,
-          "role": "Main DPS",
+          "role": "Sub-DPS / Support",
           "status": "rerun",
           "weaponType": "Pistols"
         },
@@ -126,7 +126,7 @@
           "isNew": false,
           "name": "Lucilla",
           "rarity": 5,
-          "role": "Main DPS",
+          "role": "Sub-DPS / Support",
           "status": "rerun",
           "weaponType": "Rectifier"
         },
