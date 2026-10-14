@@ -27,6 +27,7 @@ const NAV = [
   { href: "/codes", label: "Codes" },
   { href: "/events", label: "Events" },
   { href: "/guides", label: "Guides" },
+  { href: "/tier-list", label: "Tier List" },
 ];
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

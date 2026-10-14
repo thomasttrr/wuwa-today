@@ -6,6 +6,16 @@ import { getGuide, guides, renderBody } from "../../../lib/guides";
 import { banners } from "../../../lib/data";
 import TeamCard from "../../../components/TeamCard";
 
+/** Verified portrait slugs for guide subject characters without banner sprites. */
+const PORTRAITS: Record<string, string> = {
+  Hsin: "hsin",
+  Iuno: "iuno",
+  Chisa: "chisa",
+  Suoming: "suoming",
+  Lynae: "lynae",
+  Lucilla: "lucilla",
+};
+
 export function generateStaticParams() {
   return guides.map((g) => ({ slug: g.slug }));
 }
@@ -30,7 +40,10 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
   // renders when the banner data carries a verified sprite path.
   const banner = banners.find((b) => b.id === guide.bannerId);
   const subject = banner?.characters.find((c) => c.name === guide.character);
-  const thumb = subject?.sprite;
+  // Fall back to the verified character portrait when the banner carries no
+  // sprite for the subject (e.g. Phase 2 five-stars not yet on a sprite banner).
+  const thumb =
+    subject?.sprite ?? (PORTRAITS[guide.character] ? `/images/chars/${PORTRAITS[guide.character]}.png` : undefined);
 
   return (
     <article className="guide-body">

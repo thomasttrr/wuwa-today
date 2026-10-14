@@ -904,6 +904,204 @@
           "tag": "Alternative"
         }
       ]
+    },
+    {
+      "slug": "iuno-build-guide",
+      "character": "Iuno",
+      "title": "Iuno Build Guide: Best Weapons, Echoes & Stats (WuWa 3.7)",
+      "description": "How to build Iuno in Wuthering Waves 3.7: best weapons ranked, the Crown of Valor echo setup, 4-3-3-1-1 stat priorities, talent order, and sequence value.",
+      "bannerId": "3.7-phase-1",
+      "publishedAt": "2026-10-14",
+      "authorNote": "Build recommendations based on kit analysis and community theorycrafting; numbers will be refined as testing settles.",
+      "verdict": "Moongazer's Sigil is the single biggest upgrade you can give her, and 3-piece Crown of Valor is the non-negotiable foundation underneath it.",
+      "verdictLabel": "Signature + Valor set",
+      "sections": [
+        {
+          "heading": "The short version",
+          "body": "Iuno is a 5-star Aero Gauntlets hybrid — sub-DPS, healer, and the game's best Heavy Attack buffer — who cycles between her Lunar Cycle moon stances (Half Moon and New Moon) and shields herself constantly. That shield generation is the key to her build: it powers both her signature weapon and her best echo set.\n\nFast path: Moongazer's Sigil (or Verity's Handle) + 3-piece Crown of Valor / 2-piece Sierra Gale in a 4-3-3-1-1 layout, Lady of the Sea as the main Echo. Aim for a Crit 4-cost, Aero DMG 3-costs, ATK% 1-costs, and roughly 120% Energy Regen. Level her Forte Circuit first."
+        },
+        {
+          "heading": "Best weapons, ranked",
+          "body": "Ranked best to worst. Her signature is ahead by a clear margin; everything else is a backup plan.\n\n1. Moongazer's Sigil (5-star signature) - 36% Crit Rate substat. Grants +12% ATK, +20% Resonance Liberation DMG on Intro/Liberation casts, and up to 36% DEF ignore on her Liberation as she generates shields. Best in slot by a wide margin.\n2. Verity's Handle (5-star) - 24.3% Crit Rate substat. Grants +12% All-Attribute DMG and +48% Resonance Liberation DMG for 8s after casting Liberation. The strongest non-signature option.\n3. Blazing Justice (5-star) - ATK% substat. Grants DEF ignore that applies broadly across her kit. Usable but weaker than Verity's Handle.\n4. Solsworn Ciphers (5-star) - serviceable premium filler.\n5. Tragic Comedy (5-star) - ATK% substat. Grants +48% Heavy Attack DMG on Basic/Intro casts; helps her Heavy Attack buff loop but not her Liberation ceiling.\n6. Aether Strike (4-star, battle pass) - Crit Rate substat with extra ATK% and Liberation DMG on Liberation casts. The recommended 4-star pick.\n7. Stonard (4-star, battle pass) - nearly identical to Aether Strike: Crit Rate plus Liberation DMG.\n8. Legend of Drunken Hero (4-star) - the best free-to-play option: builds ATK% buffs while hitting debuffed enemies.\n9. Celestial Spiral (4-star) - free-to-play filler: helps Liberation uptime and grants ATK% on Skill casts."
+        },
+        {
+          "heading": "Echo sets & costs",
+          "body": "Best setup: 3-piece Crown of Valor + 2-piece Sierra Gale. Crown of Valor stacks ATK and Crit DMG as the wearer gains shields — Iuno shields herself constantly, so she keeps it fully stacked with no effort. Sierra Gale supplies the 2-piece Aero DMG bonus.\n\nMain Echo: Lady of the Sea — gives Aero DMG Bonus and Resonance Liberation DMG Bonus in the main slot and belongs to the Crown of Valor set, so it completes the 3-piece.\n\nAlternatives: swap Sierra Gale for Gusts of Welkin or Windward Pilgrimage (any 2-piece Aero DMG set works). Building her as a pure support instead? 5-piece Moonlit Clouds trades her personal damage for Energy Regen and a 22.5% ATK buff to the incoming Resonator — a fine early-game option before you can farm her proper set.\n\nCost layout: 4-3-3-1-1 (one 4-cost main Echo, two 3-costs, two 1-costs)."
+        },
+        {
+          "heading": "Stat priority",
+          "body": "4-cost: Crit DMG if your Crit Rate is healthy from substats and weapon; Crit Rate if it isn't. Aim for roughly 70-80% Crit Rate overall.\n\n3-cost: Aero DMG Bonus on both is the default. One can be ATK% if its substats are clearly better, at a small damage loss.\n\n1-cost: ATK% on both.\n\nSubstat priority: Crit Rate first, then Crit DMG, then Resonance Liberation DMG Bonus, then ATK%, then Energy Regen, then flat ATK. Keep Energy Regen around 120-125% so her Liberation is ready every rotation.\n\nRough targets: about 70-80% Crit Rate and 250%+ Crit DMG. Community targets vary a little, so keep strong pieces over chasing exact numbers."
+        },
+        {
+          "heading": "Talent & sequence priority",
+          "body": "Talent order: Forte Circuit first — it's the core of her damage and buffs. Then Resonance Liberation and Resonance Skill (guides differ slightly on which comes second; level the one you lean on), then Intro Skill, then Basic Attack last.\n\nSequences (duplicates): S0 is a complete kit — she shines at zero sequences as one of the best sub-DPS supports in the game. Her sequences improve her damage and buffs further, but none are required and there is no widely agreed must-have stopping point; treat extra copies as a luxury, not a requirement."
+        }
+      ]
+    },
+    {
+      "slug": "chisa-build-guide",
+      "character": "Chisa",
+      "title": "Chisa Build Guide: Best Weapons, Echoes & Stats (WuWa 3.7)",
+      "description": "How to build Chisa in Wuthering Waves 3.7: best weapons ranked, echo sets, stat priorities, talent order — built as the Negative Status support she is.",
+      "bannerId": "3.7-phase-1",
+      "publishedAt": "2026-10-14",
+      "authorNote": "Build recommendations based on kit analysis and community theorycrafting; numbers will be refined as testing settles.",
+      "verdict": "Get her Liberation firing on cooldown: 3-piece Thread of Severed Fate plus ~125% Energy Regen matters more than chasing perfect crit stats.",
+      "verdictLabel": "Energy first, crit second",
+      "sections": [
+        {
+          "heading": "The short version",
+          "body": "Chisa is a 5-star Havoc Broadblade support, not a carry — build her for uptime, not peak damage. Her Resonance Liberation heals the team and her Chainsaw Mode attacks count as Liberation DMG, so everything funnels through getting her ultimate back fast.\n\nFast path: Lustrous Razor (free) or Kumokiri (signature) + 3-pc Thread of Severed Fate / 2-pc Midnight Veil in a 4-3-3-1-1 layout. Aim for ~125% Energy Regen, Crit on the 4-cost, Havoc DMG on the 3-costs, ATK% on the 1-costs. Level Liberation first."
+        },
+        {
+          "heading": "Best weapons, ranked",
+          "body": "Ranked best to worst. Her signature is clearly ahead; the free standard 5-star keeps her fully functional.\n\n1. Kumokiri (5-star signature) - Crit Rate substat. +12% ATK; Intro Skill or inflicting Negative Status stacks +8% Liberation DMG up to 3 times, and at max stacks grants the team 24% All-Attribute DMG for 15s. Best in slot by a clear margin.\n2. Wildfire Mark (5-star) - Crit DMG substat. +12% ATK; Intro or Liberation grants +24% Liberation DMG for 6s (extended by heavy attacks). Strong second place.\n3. Lustrous Razor (5-star, standard) - ATK substat. Free from the standard Convene; high ATK plus Liberation DMG and energy for ultimate uptime. The budget king — community testing puts it within a few percent of the signature for team contribution.\n\nNo 4-star broadblade stands out in community testing. Use any 4-star with ATK% or Crit substats as a placeholder until one of the above drops."
+        },
+        {
+          "heading": "Echo sets & costs",
+          "body": "Best set: 3-piece Thread of Severed Fate + 2-piece Midnight Veil (Sun-sinking Eclipse or Havoc Eclipse work as the 2-pc). The 3-pc gives +20% ATK and +30% Resonance Liberation DMG for 5s whenever she inflicts Havoc Bane — tailor-made for her kit.\n\nMain Echo: Reminiscence: Threnodian – Leviathan. In the main slot it gives +12% Havoc DMG and +12% Resonance Liberation DMG, and its damage is amplified against enemies afflicted with Havoc Bane.\n\nHealer alternative: 5-piece Rejuvenating Glow with Fallacy of No Return as the main Echo (+10% energy for her, +10% ATK for the team). Take this only if you run her as a pure sustain; you give up a lot of her offensive utility.\n\nCost layout: 4-3-3-1-1 (one 4-cost main Echo, two 3-costs, two 1-costs)."
+        },
+        {
+          "heading": "Stat priority",
+          "body": "4-cost: Crit Rate, or Crit DMG if your substats already cover rate.\n\n3-cost: Havoc DMG Bonus on both is the default; the second piece can be ATK% if its substats are clearly better.\n\n1-cost: ATK% on both.\n\nSubstat priority: Energy Regen first until you hit ~125% (her Liberation must be ready every rotation), then Crit Rate / Crit DMG, then ATK%, then Resonance Liberation DMG Bonus, then flat ATK."
+        },
+        {
+          "heading": "Talent & sequence priority",
+          "body": "No single consensus talent order is published; this follows what her kit actually scales on. Talent order: Resonance Liberation first (it heals the team and her Chainsaw Mode attacks count as Liberation DMG, so levels scale both damage and sustain), then Forte Circuit (Chainsaw damage and Thread of Bane DEF ignore), then Resonance Skill (Serrated Loop is her Chainsaw entry), then Basic Attack, then Intro Skill.\n\nSequences (duplicates): S0 is a complete support — none of these are required. The sensible stopping point is S2 if you want more buff power; beyond that is luxury. If funds are tight, her signature weapon is a bigger single upgrade than chasing S1."
+        }
+      ]
+    },
+    {
+      "slug": "suoming-build-guide",
+      "character": "Suoming",
+      "title": "Suoming Build Guide: Best Weapons, Echoes & Stats (WuWa 3.7)",
+      "description": "PRE-RELEASE: how to plan Suoming's build in Wuthering Waves 3.7 — best weapons, echo sets, stats. Theorycraft until launch testing confirms it.",
+      "bannerId": "3.7-phase-2",
+      "publishedAt": "2026-10-14",
+      "authorNote": "PRE-RELEASE guide based on officially revealed kit info and community theorycrafting; numbers will be confirmed after launch. Editorial opinion, not data.",
+      "verdict": "One build covers both of her modes: 5-pc Heart of Sworn Vigil with Unspoken Rue, built around Crit and Basic Attack DMG — but she isn't playable yet, so treat every recommendation as theorycraft until launch.",
+      "verdictLabel": "Signature + Vigil set",
+      "sections": [
+        {
+          "heading": "The short version",
+          "body": "Suoming is a 5-star Electro Sword who works as either an on-field Basic Attack carry or an off-field Unison buffer — nearly all of her personal damage counts as Basic Attack DMG. She arrives in Phase 2 (Oct 22), so nothing below is battle-tested; it's kit analysis and pre-release theorycraft, and multipliers can still change.\n\nFast path: Unspoken Rue (or Emerald of Genesis / a Crit sword) + 5-piece Heart of Sworn Vigil in a 4-3-3-1-1 layout. Crit DMG 4-cost, Electro DMG 3-costs, ATK% 1-costs. Level her Forte Circuit first."
+        },
+        {
+          "heading": "Best weapons, ranked",
+          "body": "Ranked best to worst, per pre-release theorycraft. Her signature is the clear best-in-slot.\n\n1. Unspoken Rue (5-star signature) - 588 ATK, 24.3% Crit Rate substat. Interacts with her Unison mechanics for both her personal damage and her support role. Confirmed by name in the 3.7 broadcast.\n2. Red Spring (5-star) - identical 588 ATK / 24.3% Crit Rate stats and boosts normal attack strings; the best alternative for extended on-field windows.\n3. Emerald of Genesis (5-star standard) - 24.3% Crit Rate, ATK boosts, plus Energy Regen that eases Echo stat requirements. Widely owned and dependable.\n4. Unflickering Valor (5-star) - 413 ATK, 77.04% Energy Regen, +8% Crit Rate passive; its Liberation-triggered Basic Attack DMG bonus feeds the same combo that builds her Delusion gauge.\n5. Lumingloss / Commando of Conviction (4-star) - free-to-play options that buff Basic Attack DMG after a Resonance Skill cast, matching her natural combat cadence. Workable while farming better pieces."
+        },
+        {
+          "heading": "Echo sets & costs",
+          "body": "Best set: 5-piece Heart of Sworn Vigil. The 2-piece gives +10% Electro DMG; the 5-piece grants +15% Crit Rate and +22.5% Electro DMG for 30 seconds when she inflicts Electro Flare, gains Unison, or triggers a Unison Response. She triggers these conditions in both of her modes, so the set stays live through either playstyle.\n\nMain Echo: Reminiscence: Suhsin the Inevitable. Consensus 3-costs are Formrender and Soulfrayer; 1-costs are Kernel Puppet: Joy and Fog Lionarch: Body.\n\nAlternatives: Flash of Electric Reflection if you run her purely as Hsin's buffer (theorycraft disagrees on whether she applies Electro Flare reliably — don't farm this first). Void Thunder works as a temporary leftover set while farming.\n\nCost layout: 4-3-3-1-1."
+        },
+        {
+          "heading": "Stat priority",
+          "body": "4-cost: Crit DMG if you run her signature or another Crit sword (the weapon plus her ascension bonuses supply plenty of Crit Rate); Crit Rate if your substats are lacking it.\n\n3-cost: Electro DMG Bonus on both is the default across every source.\n\n1-cost: ATK% on both.\n\nSubstat priority: Crit Rate and Crit DMG first, then Basic Attack DMG and ATK% (sources differ slightly on which of those two comes first — both are close), then Energy Regen, then flat ATK. Build enough Energy Regen that her Liberation is ready every Deep Mind cycle; Energy Regen is comfort, not the main stat chase."
+        },
+        {
+          "heading": "Talent & sequence priority",
+          "body": "Talent order: Forte Circuit first, then Basic Attack, then Resonance Skill and Resonance Liberation, then Intro Skill. The Forte Circuit and Basic Attack top the list in every pre-release source.\n\nSequences (duplicates): S0 is a complete kit per community theorycraft — none of these are required. The sensible stopping point is S2, widely cited as the first real stopping point (a strong support-power spike). Beyond that, higher sequences are luxury. If funds are tight, S0 plus her signature weapon beats chasing sequences."
+        }
+      ]
+    },
+    {
+      "slug": "lynae-build-guide",
+      "character": "Lynae",
+      "title": "Lynae Build Guide: Best Weapons, Echoes & Stats (WuWa 3.7)",
+      "description": "How to build Lynae in Wuthering Waves 3.7: best weapons ranked, echo sets, 4-3-3-1-1 stat priorities, talent order.",
+      "bannerId": "3.7-phase-2",
+      "publishedAt": "2026-10-14",
+      "authorNote": "Build recommendations based on kit analysis and community theorycrafting; numbers will be refined as testing settles.",
+      "verdict": "Her signature weapon and Pact of Neonlight Leap are the two decisions that matter — everything else is fine-tuning, since S0 Lynae is already complete as a buffer.",
+      "verdictLabel": "Signature + Neonlight Leap",
+      "sections": [
+        {
+          "heading": "The short version",
+          "body": "Lynae is a 5-star Spectro Pistols sub-DPS and support — she is easy to build because her value comes from buffs, not raw multipliers, and she works well at S0 with free-to-play weapons.\n\nFast path: Spectrum Blaster (or Static Mist) + 5-piece Pact of Neonlight Leap with Hyvatia in the main slot, 4-3-3-1-1 layout. Main stats: Crit on the 4-cost, Spectro DMG on the 3-costs, ATK% on the 1-costs. Level her Forte Circuit first."
+        },
+        {
+          "heading": "Best weapons, ranked",
+          "body": "Ranked best to worst. Her signature is the clear best-in-slot; the standard 5-stars are close behind.\n\n1. Spectrum Blaster (5-star signature) - Crit Rate. Basic Attack DMG +36% on Intro/Basic hits, and inflicting Tune Rupture/Strain grants the whole team up to 24% All DMG. Best in slot by a clear margin.\n2. Phasic Homogenizer (5-star standard) - Crit DMG. ATK +12% and 20% All-Attribute DMG Bonus when a teammate casts a Tune Break skill. The strongest non-signature option.\n3. Static Mist (5-star standard) - Energy Regen. The support-oriented pick: smoother Liberation uptime and an ATK buff for the next character via her Outro.\n4. Solar Flame (4-star) - the recommended budget pick; stacks ATK and Heavy Attack DMG.\n5. Cadenza / Relativistic Jet (4-star) - serviceable fillers; Relativistic Jet helps Energy Regen for smoother rotations."
+        },
+        {
+          "heading": "Echo sets & costs",
+          "body": "Best set: 5-piece Pact of Neonlight Leap. The 2-piece gives +10% Spectro DMG; the 5-piece grants the next character 30% ATK and 10% All-Type DMG after Lynae casts her Outro Skill — the core of her buffer identity.\n\nMain Echo: Hyvatia. Using her Intro Skill grants the next Resonator 10% All-Type DMG Bonus. Running her as a sub-DPS instead? Use Twin Nova - Nebulous Cannon, which boosts her own Basic Attack and Spectro DMG.\n\nAlternatives: 5-piece Moonlit Clouds as a placeholder (Energy Regen plus an ATK buff for the next character). For a main-DPS Lynae build, 5-piece Rite of Gilded Revelation: Basic Attack hits stack Spectro DMG up to 3 times, and at max stacks her Liberation gains +40% Basic Attack DMG Bonus.\n\nCost layout: 4-3-3-1-1 (one 4-cost main Echo, two 3-costs, two 1-costs)."
+        },
+        {
+          "heading": "Stat priority",
+          "body": "4-cost: Crit Rate or Crit DMG (pick whichever balances your substats — Crit Rate if below ~70%).\n\n3-cost: Spectro DMG Bonus on both is the default; Energy Regen on one piece if her Liberation isn't ready every rotation.\n\n1-cost: ATK% on both.\n\nSubstat priority: Crit Rate / Crit DMG first, then ATK%, then Energy Regen, then flat ATK. She is not demanding about Energy Regen — most guides list it as a comfort stat rather than a breakpoint, unlike main-DPS carries."
+        },
+        {
+          "heading": "Talent & sequence priority",
+          "body": "Talent order: Forte Circuit first (it enables her entire kit), then Resonance Liberation (her team buff window), then Normal Attack (her damage strings), then Resonance Skill, then Intro Skill last. On a tight budget, the first three are enough — her Intro and Skill add little to her buffs.\n\nSequences (duplicates): S0 is a complete kit and the community consensus is that one copy is enough for most accounts. The sensible stopping point is S2: it adds 25% All-DMG Amplification and makes her Outro grant the incoming character 25% All-DMG Amplification — directly strengthening her support role. S1 (Polychrome Leap damage and interruption immunity) is comfort. If funds are tight, S0 plus her signature weapon beats chasing sequences."
+        }
+      ]
+    },
+    {
+      "slug": "lucilla-build-guide",
+      "character": "Lucilla",
+      "title": "Lucilla Build Guide: Best Weapons, Echoes & Stats (WuWa 3.7)",
+      "description": "How to build Lucilla in Wuthering Waves 3.7: best weapons ranked, echo sets for both her Chafe and Echo modes, stat priorities, and talent order.",
+      "bannerId": "3.7-phase-2",
+      "publishedAt": "2026-10-14",
+      "authorNote": "Build recommendations based on kit analysis and community theorycrafting; numbers will be refined as testing settles.",
+      "verdict": "Pick her resonance mode before farming a single Echo — Chafe mode wants Wishes of Quiet Snowfall, Echo mode wants Moonlit Clouds; her weapon and main stats stay the same either way.",
+      "verdictLabel": "Mode first, then gear",
+      "sections": [
+        {
+          "heading": "The short version",
+          "body": "Lucilla is a 5-star Glacio Rectifier support/sub-DPS with two resonance modes: Glacio Chafe (resistance shred + debuff stacking, her damage counts as Basic Attack DMG) and Echo (amplifies Echo Skill DMG). One flexible core covers both: Freeze Frame + 4-3-3-1-1 with a Crit 4-cost, Glacio DMG 3-costs, and ATK% 1-costs. The only thing that changes between modes is the 5-piece echo set and the main Echo — everything else is shared.\n\nFast path: Freeze Frame (or Stringmaster) + 5-piece Wishes of Quiet Snowfall (Chafe) or Moonlit Clouds (Echo). No Energy Regen needed — her Liberation comes up without it."
+        },
+        {
+          "heading": "Best weapons, ranked",
+          "body": "Ranked best to worst. Her signature is the clear best-in-slot; everything else is a backup.\n\n1. Freeze Frame (5-star signature) - Crit Rate substat. +12% ATK; inflicting Glacio Chafe grants 30% Glacio DMG Bonus for 12s and 24% ATK to the whole team for 30s. Works in both modes.\n2. Stringmaster (5-star) - Crit Rate substat. Strong ATK and Resonance Skill DMG stacks; the best general-purpose alternative.\n3. Whispers of Sirens (5-star) - Crit DMG substat. Up to 40% Basic Attack DMG buff, which fits her Chafe mode damage type.\n4. Cosmic Ripples (5-star standard) - ATK% substat. Reliable ATK and Basic Attack DMG; the stable free-ish 5-star pick.\n5. Lethean Elegy (5-star) - best pick specifically for Echo mode builds, with Echo Skill DMG amplification.\n6. Augment (4-star battle pass) - Crit Rate substat. ATK buff on Liberation; the recommended 4-star pick.\n7. Waltz in Masquerade (4-star craftable) - ATK% substat. Stacks ATK against enemies with Negative Statuses like Chafe; easy to obtain."
+        },
+        {
+          "heading": "Echo sets & costs",
+          "body": "Glacio Chafe mode: 5-piece Wishes of Quiet Snowfall. 2-piece gives +10% Glacio DMG; 5-piece grants +10% Glacio DMG plus the Snowfall effect on inflicting Chafe — dealing Liberation DMG then gives +25% Crit Rate, and her Outro grants +25% Glacio DMG Bonus to the incoming Resonator. Main Echo: Glommoth (3-cost), which deals Glacio DMG and passes a Glacio DMG bonus on Outro.\n\nEcho mode: 5-piece Moonlit Clouds. 2-piece gives +10% Energy Regen; 5-piece grants +22.5% ATK to the incoming Resonator for 15s after her Outro. Main Echo: Impermanence Heron, which buffs the incoming character's damage when she uses her Outro after the Echo skill.\n\nAlternative while farming: 5-piece Freezing Frost as a transitional Glacio set.\n\nCost layout: 4-3-3-1-1 for both modes (one 4-cost main stat piece, two 3-costs, two 1-costs)."
+        },
+        {
+          "heading": "Stat priority",
+          "body": "4-cost: Crit Rate or Crit DMG — pick whichever your substats lack.\n\n3-cost: Glacio DMG Bonus on both is the default; ATK% is fine if the piece has clearly better substats.\n\n1-cost: ATK% on both.\n\nSubstat priority: Crit Rate first, then Crit DMG, then ATK%. In Chafe mode, value Basic Attack DMG Bonus next (it's her damage type there); in Echo mode, prefer Resonance Liberation DMG instead. Skip Energy Regen entirely — multiple guides agree she doesn't need it to keep her Liberation available."
+        },
+        {
+          "heading": "Talent & sequence priority",
+          "body": "Talent order: Forte Circuit and Resonance Liberation are the top two (guides split on which comes first — level both early), then Resonance Skill, then Basic Attack and Intro Skill last.\n\nSequences (duplicates): S0 is a complete kit — her support value (Chafe application, buffs, healing) works with zero duplicates. The sensible stopping points are S2 (doubles her Outro power: bigger Chafe amplification in Chafe mode, bigger Echo Skill DMG amp in Echo mode) and S6 (endgame ceiling). If funds are tight, S0 plus Freeze Frame beats chasing S1."
+        }
+      ]
+    },
+    {
+      "slug": "moonlit-path-selector",
+      "character": "Moonlit Path",
+      "title": "Moonlit Path Selector: Who Should You Pick? (WuWa 3.7)",
+      "description": "Carlotta, Shorekeeper, or Phoebe? A no-hype chooser for the 3.7 Moonlit Path 5-star selector — who each pick is for, and the common questions answered.",
+      "bannerId": "3.7-phase-2",
+      "publishedAt": "2026-10-14",
+      "authorNote": "Editorial opinion based on kit analysis and community consensus. Pull advice is roster-dependent.",
+      "verdict": "Pick Shorekeeper unless you specifically need a Glacio DPS (Carlotta) or are building around Spectro Frazzle (Phoebe) — she is the only one of the three who fits almost any account.",
+      "verdictLabel": "Shorekeeper by default",
+      "sections": [
+        {
+          "heading": "The short version",
+          "body": "Moonlit Path is 3.7's spending event (Sep 30 – Nov 11, 2026): qualifying purchases earn Moonlit Rings, and at 980 rings you choose one 5-star — Shorekeeper, Carlotta, or Phoebe — or take 8 Transducers instead. The default pick is Shorekeeper: every source agrees she is the best universal support in the game and the only one of the three who slots into nearly any team. The exception: pick Carlotta if your account needs a Glacio damage dealer."
+        },
+        {
+          "heading": "Pick Shorekeeper if…",
+          "body": "You want the safest, most future-proof choice. Shorekeeper has been a top-tier sustain and buffer since her debut — she heals, hands out Crit and damage buffs, and fits into virtually every team composition, including upcoming ones like Hsin and Suoming. Pick her if you don't own her, full stop. Even if you already own her, an extra Waveband on the game's best support is rarely wasted."
+        },
+        {
+          "heading": "Pick Carlotta if…",
+          "body": "You specifically need a Glacio DPS. Carlotta is a Glacio hypercarry who pairs naturally with Lucilla's Chafe support — if you're building that team (or taking Lucilla from the 3.7 banners), Carlotta gives it a carry. She has been overtaken by Hiyuki as the premier Glacio DPS, so don't pick her expecting the best-in-slot — pick her because she fills your Glacio slot or because you want her Resonance Chain breakpoint."
+        },
+        {
+          "heading": "Pick Phoebe if…",
+          "body": "You are building around Spectro Frazzle. Phoebe is a niche pick: her value is tied to the Spectro Frazzle Negative Status, which the current meta does not revolve around. For most accounts she is the weakest of the three picks. Only take her if you already run a Frazzle team and know exactly what she adds to it."
+        },
+        {
+          "heading": "Common questions",
+          "body": "Can I pick a character I already own? The only verified restriction is max Waveband: a Resonator already at maximum Waveband cannot be selected (Game8). Owning the character at lower Wavebands is not blocked by any stated rule, so picking a duplicate for an extra Waveband is allowed.\n\nWhat about leftover rings? One source (u7buy) states rings expire when the event ends and don't convert into anything — unconfirmed by a second source, so spend them while the event is live to be safe.\n\nWhen is the deadline? November 11, 2026. Unclaimed rewards are reissued by in-game mail within 30 days after the event — log in during that window or they're gone."
+        }
+      ]
     }
   ]
 }
