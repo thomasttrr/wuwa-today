@@ -28,8 +28,8 @@ export default function GuidePage({ params }: { params: { slug: string } }) {
       </p>
 
       <section className="card" aria-label="Verdict">
-        <h2 style={{ marginTop: 0 }}>Verdict</h2>
-        <p style={{ fontSize: "1.1rem", marginBottom: 0 }}>{guide.verdict}</p>
+        <h2 className="verdict-title">Verdict</h2>
+        <p className="verdict-text">{guide.verdict}</p>
       </section>
 
       {guide.sections.map((s) => (
@@ -39,7 +39,7 @@ export default function GuidePage({ params }: { params: { slug: string } }) {
         </section>
       ))}
 
-      <p style={{ marginTop: "2.5rem" }}>
+      <p className="guide-back">
         <a href="/guides">← All pull guides</a>
       </p>
     </article>

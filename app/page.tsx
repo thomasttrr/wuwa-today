@@ -46,8 +46,6 @@ function SectionHead({
 }
 
 export default function HomePage() {
-  const endingSoon = activeEvents.filter((e) => e.endsAt).length;
-
   return (
     <>
       <section className="hero" aria-label="About this site">
@@ -57,25 +55,6 @@ export default function HomePage() {
         <h1 className="hero-title">
           Today in <span>Wuthering Waves</span>
         </h1>
-        <p className="lede hero-lede">
-          Everything time-sensitive in one place: who's on banner and when it
-          ends, which redeem codes still work, what events are live — refreshed
-          daily so you never miss a pull or a freebie.
-        </p>
-        <div className="hero-stats">
-          <div className="hero-stat">
-            <strong>{activeBanners.length}</strong>
-            <span>live banner{activeBanners.length === 1 ? "" : "s"}</span>
-          </div>
-          <div className="hero-stat">
-            <strong>{activeCodes.length}</strong>
-            <span>working code{activeCodes.length === 1 ? "" : "s"}</span>
-          </div>
-          <div className="hero-stat">
-            <strong>{endingSoon}</strong>
-            <span>timed event{endingSoon === 1 ? "" : "s"}</span>
-          </div>
-        </div>
         <nav className="hero-nav" aria-label="Jump to sections">
           <a href="#banners">Banners</a>
           <a href="#codes">Codes</a>
@@ -93,8 +72,13 @@ export default function HomePage() {
         linkText="All banners, upcoming phases & history"
       />
       <div className="grid grid-2">
-        {activeBanners.map((b) => (
-          <BannerCard key={b.id} banner={b} />
+        {activeBanners.map((b, i) => (
+          <BannerCard
+            key={b.id}
+            banner={b}
+            featured={i === 0}
+            events={i === 0 ? activeEvents : undefined}
+          />
         ))}
       </div>
 

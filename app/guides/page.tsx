@@ -16,11 +16,11 @@ export default function GuidesPage() {
         pull, and the honest math. Editorial opinion, clearly labeled — your
         account, your call.
       </p>
-      <div className="grid grid-2" style={{ marginTop: "1.5rem" }}>
+      <div className="grid grid-2 guides-grid">
         {guides.map((g) => (
           <article className="card" key={g.slug}>
             <span className="badge gold">{g.verdictLabel}</span>
-            <h3 style={{ marginTop: "0.5rem" }}>
+            <h3 className="guide-card-title">
               <a href={`/guides/${g.slug}`}>{g.title}</a>
             </h3>
             <p className="code-meta">{g.description}</p>
@@ -28,11 +28,6 @@ export default function GuidesPage() {
           </article>
         ))}
       </div>
-      <p className="updated" style={{ marginTop: "1.5rem" }}>
-        New guides are published at each banner launch — add them in{" "}
-        <span className="mono">data/guides.json</span>. Template and rules in{" "}
-        <span className="mono">data/README.md</span>.
-      </p>
     </>
   );
 }

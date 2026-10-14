@@ -14,11 +14,11 @@ export default function EventCard({ event }: { event: GameEvent }) {
     <article className="card" aria-label={`Event: ${event.name}`}>
       <div>
         <span className="badge">{TYPE_LABELS[event.type] ?? event.type}</span>
-        {event.status === "upcoming" && <span className="badge purple">Upcoming</span>}
+        {event.status === "upcoming" && <span className="badge dim">Upcoming</span>}
         {event.timeNote && <span className="badge dim">Dates estimated</span>}
       </div>
-      <h3 style={{ marginTop: "0.5rem" }}>{event.name}</h3>
-      <p style={{ margin: "0.4rem 0" }}>{event.description}</p>
+      <h3 className="event-title">{event.name}</h3>
+      <p className="event-desc">{event.description}</p>
       <p className="event-meta">
         <strong>Rewards:</strong> {event.rewards}
       </p>

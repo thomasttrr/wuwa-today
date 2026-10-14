@@ -58,10 +58,6 @@ export default function BannersPage() {
         </tbody>
       </table>
       </div>
-      <p className="updated">
-        History is abbreviated in this MVP — extend <span className="mono">data/banners.json</span> →
-        <span className="mono"> history</span> to grow the archive.
-      </p>
     </>
   );
 }

@@ -1,5 +1,11 @@
 import Countdown from "./Countdown";
-import { formatDateWithNote, type Banner, type GameCharacter } from "../lib/data";
+import PhaseRail from "./PhaseRail";
+import {
+  formatDateWithNote,
+  type Banner,
+  type GameCharacter,
+  type GameEvent,
+} from "../lib/data";
 
 function stars(rarity: number): string {
   return "★".repeat(rarity);
@@ -43,9 +49,13 @@ function CharacterChip({ c }: { c: GameCharacter }) {
 export default function BannerCard({
   banner,
   showCountdown = true,
+  featured = false,
+  events = [],
 }: {
   banner: Banner;
   showCountdown?: boolean;
+  featured?: boolean;
+  events?: GameEvent[];
 }) {
   const fiveStars = banner.characters.filter((c) => c.rarity === 5);
   const fourStars = banner.characters.filter((c) => c.rarity === 4);
@@ -69,12 +79,12 @@ export default function BannerCard({
           {banner.status === "active" ? (
             <span className="badge green">Live now</span>
           ) : (
-            <span className="badge purple">Upcoming</span>
+            <span className="badge dim">Upcoming</span>
           )}
           {banner.timeNote && <span className="badge dim">Dates estimated</span>}
         </div>
         <h3 className="banner-headline">
-          {fiveStars.map((c) => `${c.name}${c.isNew ? " (NEW)" : ""}`).join(" · ")}
+          {fiveStars.map((c) => c.name).join(" · ")}
         </h3>
         {showCountdown && (
           <Countdown
@@ -83,6 +93,13 @@ export default function BannerCard({
               banner.status === "active" ? banner.endsAt : banner.startsAt,
               banner.timeNote
             )}`}
+          />
+        )}
+        {featured && banner.status === "active" && (
+          <PhaseRail
+            startsAt={banner.startsAt}
+            endsAt={banner.endsAt}
+            events={events}
           />
         )}
         <ul className="char-chip-list">

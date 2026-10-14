@@ -18,9 +18,9 @@ export default function ResetTimers() {
 
   return (
     <div className="card">
-      <div style={{ display: "flex", alignItems: "center", gap: "0.75rem", flexWrap: "wrap" }}>
-        <h3 style={{ margin: 0 }}>Reset timers</h3>
-        <label style={{ marginLeft: "auto", fontSize: "0.85rem", color: "var(--text-dim)" }}>
+      <div className="reset-head">
+        <h3 className="reset-title">Reset timers</h3>
+        <label className="reset-server-label">
           Server{" "}
           <select
             className="server-select"
@@ -36,7 +36,7 @@ export default function ResetTimers() {
           </select>
         </label>
       </div>
-      <div className="grid grid-2" style={{ marginTop: "0.9rem" }}>
+      <div className="grid grid-2 reset-timers-grid">
         <Countdown target={daily} label="Daily reset (04:00 server time)" />
         <Countdown target={weekly} label="Weekly reset (Mon 04:00 server time)" />
       </div>

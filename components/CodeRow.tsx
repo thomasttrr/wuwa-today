@@ -4,7 +4,7 @@ import { formatDate, type RedeemCode } from "../lib/data";
 
 export default function CodeRow({ code }: { code: RedeemCode }) {
   return (
-    <article className="card" aria-label={`Redeem code ${code.code}`}>
+    <article className="code-row-item" aria-label={`Redeem code ${code.code}`}>
       <div className="code-row">
         <span className="code-value">{code.code}</span>
         <CopyButton text={code.code} />
