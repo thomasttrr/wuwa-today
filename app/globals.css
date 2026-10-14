@@ -84,6 +84,9 @@ h1 { font-size: 2rem; margin: 0 0 0.5rem; letter-spacing: -0.01em; font-weight: 
 h2 { font-size: 1.35rem; margin: 2.25rem 0 0.9rem; letter-spacing: -0.01em; font-weight: 700; }
 h3 { font-size: 1.05rem; margin: 1.25rem 0 0.5rem; font-weight: 700; }
 .lede { color: var(--text-2); margin-top: 0; max-width: 62ch; }
+
+/* Friendly fallback shown when a section has no data between patches. */
+.empty-state { color: var(--text-2); font-size: 0.95rem; }
 .updated { color: var(--text-3); font-size: 0.85rem; }
 
 .grid { display: grid; gap: 1rem; }
