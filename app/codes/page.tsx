@@ -3,7 +3,7 @@ import CodeRow from "../../components/CodeRow";
 import Reveal from "../../components/Reveal";
 import ShareButton from "../../components/ShareButton";
 import UpdatedStamp from "../../components/UpdatedStamp";
-import { activeCodes, expiredCodes, formatDate } from "../../lib/data";
+import { activeCodes, expiredCodes, formatServerDate } from "../../lib/data";
 
 export const metadata: Metadata = {
   title: "Wuthering Waves Redeem Codes — Working Codes (October 2026)",
@@ -57,7 +57,7 @@ export default function CodesPage() {
           {expiredCodes.map((c) => (
             <tr key={c.code}>
               <td className="mono">{c.code}</td>
-              <td>{c.expiredAt ? formatDate(c.expiredAt) : "—"}</td>
+              <td>{c.expiredAt ? formatServerDate(c.expiredAt) : "—"}</td>
               <td>{c.notes ?? "—"}</td>
             </tr>
           ))}

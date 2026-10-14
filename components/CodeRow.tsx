@@ -1,6 +1,6 @@
 import CopyButton from "./CopyButton";
 import Countdown from "./Countdown";
-import { formatDate, type RedeemCode } from "../lib/data";
+import { formatServerDate, type RedeemCode } from "../lib/data";
 
 export default function CodeRow({ code }: { code: RedeemCode }) {
   return (
@@ -9,7 +9,7 @@ export default function CodeRow({ code }: { code: RedeemCode }) {
         <span className="code-value">{code.code}</span>
         <CopyButton text={code.code} />
         {code.expiresAt ? (
-          <span className="badge red">Expires {formatDate(code.expiresAt)}</span>
+          <span className="badge red">Expires {formatServerDate(code.expiresAt)}</span>
         ) : (
           <span className="badge green">No expiry announced</span>
         )}

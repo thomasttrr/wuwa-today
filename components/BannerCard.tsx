@@ -2,7 +2,7 @@ import Countdown from "./Countdown";
 import PhaseRail from "./PhaseRail";
 import ArtCardSheen from "./ArtCardSheen";
 import {
-  formatDateWithNote,
+  formatServerDateWithNote,
   type Banner,
   type GameCharacter,
   type GameEvent,
@@ -93,7 +93,7 @@ export default function BannerCard({
         {showCountdown && (
           <Countdown
             target={banner.endsAt}
-            label={`${banner.status === "active" ? "Ends" : "Starts"} ${formatDateWithNote(
+            label={`${banner.status === "active" ? "Ends" : "Starts"} ${formatServerDateWithNote(
               banner.status === "active" ? banner.endsAt : banner.startsAt,
               banner.timeNote
             )}`}

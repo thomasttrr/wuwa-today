@@ -1,5 +1,5 @@
 import Countdown from "./Countdown";
-import { formatDateWithNote, type GameEvent } from "../lib/data";
+import { formatServerDateWithNote, type GameEvent } from "../lib/data";
 
 const TYPE_LABELS: Record<string, string> = {
   limited: "Limited event",
@@ -25,7 +25,7 @@ export default function EventCard({ event }: { event: GameEvent }) {
       {event.endsAt ? (
         <Countdown
           target={event.status === "active" ? event.endsAt : event.startsAt}
-          label={`${event.status === "active" ? "Ends" : "Starts"} ${formatDateWithNote(
+          label={`${event.status === "active" ? "Ends" : "Starts"} ${formatServerDateWithNote(
             event.status === "active" ? event.endsAt : event.startsAt,
             event.timeNote
           )}`}
