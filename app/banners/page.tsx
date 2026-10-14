@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import BannerCard from "../../components/BannerCard";
 import Reveal from "../../components/Reveal";
+import ShareButton from "../../components/ShareButton";
 import UpdatedStamp from "../../components/UpdatedStamp";
 import { activeBanners, upcomingBanners, bannerHistory, formatDate } from "../../lib/data";
 
@@ -18,7 +19,10 @@ export default function BannersPage() {
         Current and upcoming Convene banners. Anything not confirmed by Kuro
         Games is labeled as a leak or estimate — never presented as fact.
       </p>
-      <UpdatedStamp />
+      <div className="page-meta-row">
+        <UpdatedStamp />
+        <ShareButton />
+      </div>
 
       <h2>Live now</h2>
       <div className="grid grid-2">

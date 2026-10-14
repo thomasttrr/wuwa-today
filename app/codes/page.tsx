@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import CodeRow from "../../components/CodeRow";
 import Reveal from "../../components/Reveal";
+import ShareButton from "../../components/ShareButton";
 import UpdatedStamp from "../../components/UpdatedStamp";
 import { activeCodes, expiredCodes, formatDate } from "../../lib/data";
 
@@ -20,7 +21,10 @@ export default function CodesPage() {
         Settings → Redemption Code (requires Union Level 2). Rewards arrive via
         in-game mail.
       </p>
-      <UpdatedStamp />
+      <div className="page-meta-row">
+        <UpdatedStamp />
+        <ShareButton />
+      </div>
 
       <h2>Working codes</h2>
       {activeCodes.length === 0 ? (
