@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import EventCard from "../../components/EventCard";
 import Reveal from "../../components/Reveal";
+import ShareButton from "../../components/ShareButton";
 import UpdatedStamp from "../../components/UpdatedStamp";
 import { activeEvents, upcomingEvents } from "../../lib/data";
 
@@ -18,7 +19,10 @@ export default function EventsPage() {
         What's running now, what ends soonest, and what's on the horizon.
         Limited events are ordered by end date — finish the top ones first.
       </p>
-      <UpdatedStamp />
+      <div className="page-meta-row">
+        <UpdatedStamp />
+        <ShareButton />
+      </div>
 
       <h2>Active</h2>
       <div className="grid grid-2">
