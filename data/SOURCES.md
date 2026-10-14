@@ -12,6 +12,25 @@ Every fact in `data/` was checked against these sources. Banner/code data last c
 
 Known uncertainty: the third Phase 2 4-star rate-up is Chixia per most sources; one source lists Yangyang. Flagged in `banners.json` (`uncertainFields`). Phase boundary dates are community-tracker estimates (~Oct 21–22, ~Nov 10–12).
 
+## Guides (published 2026-10-14)
+
+All 8 guides were drafted from research verified against at least 2 independent sources each (official program/patch notes preferred for pre-release content). Verdicts are editorial opinion, labeled as such in each guide authorNote field.
+
+- Hsin pull guide: special-program reveal coverage, community kit analysis
+- Iuno pull guide: kit analysis plus community tier lists at the 3.7 rerun
+- Chisa pull guide: official 2.8 patch notes, GamerOrg, EarlyGame, LDShop blog, Gurugamer 3.7 banner-value guide
+- Suoming pull guide: officially revealed kit info plus community pre-release analysis (explicitly labeled pre-release; numbers may change at launch)
+- Lynae pull guide: Gurugamer 3.7 banner-value guide, Nerdschalk, DTGre, Game8
+- Lucilla pull guide: 3.4 debut coverage plus 3.7 banner-value comparisons
+- Hsin build guide: TheGamersCut, Game8, PocketTactics, AllThingsHow, Gurugamer, Sportskeeda, MemuPlay, Wuthering Wiki, Slyraf, Keygold
+- Hsin team guide: kit synergy analysis plus community testing
+
+Role corrections applied to banners.json during this batch (roles verified against sources, contradicting our prior labels):
+- Chisa: Main DPS to Support / Sub-DPS (LDShop blog, Buffget, Sportskeeda, Gurugamer)
+- Lynae: Main DPS to Sub-DPS / Support (Nerdschalk, DTGre, Game8)
+- Lucilla: Main DPS to Sub-DPS / Support (2-source kit research)
+
+Removed the unverified term Fractal Proliferation from the Hsin pull guide: no source used the term; replaced with the verified two-Resonance-Modes framing.
 ## Redeem codes
 
 Verified active (2+ sources each):
