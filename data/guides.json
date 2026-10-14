@@ -1,7 +1,7 @@
 {
   "_meta": {
     "comment": "Evergreen guides: pull verdicts for every featured 5-star, plus build and team guides. Verdicts are editorial opinion — never presented as data. Pull guides publish at banner launch; build/team guides follow as the meta settles.",
-    "updatedAt": "2026-10-14T14:00:00-04:00"
+    "updatedAt": "2026-10-14T14:25:00-04:00"
   },
   "guides": [
     {
@@ -241,6 +241,151 @@
         {
           "heading": "How to play them (rotations)",
           "body": "Electro Flare rotation (Hsin + Electro Rover + Suisui/Buling): open with your sustain to apply the first Flare stacks, then bring in Electro Rover to pile on more stacks and trigger his Intro interaction with Hsin. Swap to Hsin, build her resources with basic attacks and her skill, then spend everything: empowered heavy attack into Resonance Liberation (Pillars Across Heaven) to detonate. Don't swap-cancel her Resonance Skill mid-cast — cutting it short wastes the Flare damage. Aim for about 120% Energy Regen so her Liberation is ready every cycle.\n\nUnison rotation (Hsin + Suoming + Shorekeeper): enter with Hsin's Intro Skill, build into her Liberation to trigger the Unison window, then swap immediately — her Outro and Suoming's Intro fire for free. Let Suoming take her field segment, then swap back to Hsin through another Intro (it will be empowered). Shorekeeper only comes in briefly to heal and refresh buffs. The key skill is timing: the free-swap window lasts a few seconds, so swap promptly, but missing it doesn't break the rotation — just continue normally and set up the next window."
+        }
+      ]
+    },
+    {
+      "slug": "best-iuno-teams",
+      "character": "Iuno",
+      "title": "Best Iuno Teams: Premium & F2P Comps (WuWa 3.7)",
+      "description": "The best Iuno team compositions in Wuthering Waves 3.7: the premium Augusta core, a free-to-play Mortefi team, and a hypercarry Iuno alternative — with each character's role and simple rotations.",
+      "bannerId": "3.7-phase-1",
+      "publishedAt": "2026-10-14",
+      "authorNote": "Team recommendations based on kit synergy analysis and community testing; comps will be updated as the meta settles.",
+      "verdict": "Run Augusta + Iuno + Shorekeeper as the best-in-slot core; on a budget, Iuno + Mortefi + Verina covers the same Heavy Attack gameplan for free.",
+      "verdictLabel": "Augusta core, flexible elsewhere",
+      "sections": [
+        {
+          "heading": "The short version",
+          "body": "Iuno wants two things from a team: a Heavy Attack carry who benefits from her Outro (a 50% Heavy Attack DMG buff handed to whoever swaps in next), and shield generation to stack her Full Moon Domain buff — allies who gain shields build an All-DMG buff up to 40%. That makes Augusta her dream partner, with Jingran a close second. She can also go on-field herself as a hypercarry if the team is built to feed her buffs instead."
+        },
+        {
+          "heading": "Premium: Augusta + Iuno + Shorekeeper",
+          "body": "Augusta is the main DPS and Iuno's best teammate across every source. She's a Heavy Attack carry who generates shields constantly, which feeds Iuno's shield-stack damage buff while cashing in the full 50% Heavy Attack amplification from Iuno's Outro. Iuno plays sub-DPS and hybrid support: she cycles her Lunar Cycle moon stances, drops her Full Moon Domain (an AoE zone that heals and restores stamina), and swaps out with her buff-loaded Outro right before Augusta's damage window. Shorekeeper is the sustain: she heals, hands out Crit and All-DMG buffs through her Stellarealm field, and asks for almost no field time.\n\nRotation: open with Shorekeeper to build Concerto Energy (the meter that enables swap combos), cast her Liberation, then swap to Iuno. Run Iuno's Lunar Cycle — Skill into New Moon stance, Liberation, basics and skills, then a Heavy Attack to plant the Full Moon Domain — and swap to Augusta the moment her Intro Skill (the swap-in attack) is ready. Burn through Augusta's window, then loop back to Shorekeeper to refresh."
+        },
+        {
+          "heading": "Budget: Iuno + Mortefi + Verina",
+          "body": "The free-to-play answer to the same gameplan. Iuno takes more field time here as the primary damage dealer and sustain in one: her full Lunar Cycle rotation does real damage while her Domain keeps everyone healed, and her Outro still feeds Heavy Attack amplification to the team. Mortefi is the 4-star sub-DPS: his Outro buffs Heavy Attack damage and his coordinated attacks (automatic off-field follow-up hits) keep chipping in while he's benched, making him the cheapest Heavy Attack battery in the game. Verina is the free sustain: healing, ATK buffs, and general team support with minimal investment.\n\nRotation: open with Verina for buffs and her Liberation, swap to Mortefi to build Concerto and fire his Outro, then bring Iuno in for an extended Lunar Cycle rotation — Skill, Liberation, basics, Heavy Attack for the Domain — before looping back. It won't match the premium team's ceiling, but every piece is free or 4-star and the buff layering works the same way."
+        },
+        {
+          "heading": "Alternative: Hypercarry Iuno + Lynae + Mornye",
+          "body": "A different playstyle entirely: Iuno stays on-field as the main DPS instead of supporting one. Iuno runs her full extended rotation — Intro, Skill, Liberation, basics and enhanced skills through the Lunar Cycle — dealing the team's damage herself while her Domain covers sustain. Lynae is the sub-DPS and buffer: her Liberation grants team-wide All-DMG, her Outro amplifies the next character's damage and Liberation bursts, and she feeds Iuno's big windows. Mornye holds the sustain slot: healing plus team-wide damage buffs so Iuno never has to leave the field to survive.\n\nRotation: Lynae first for her Liberation and Outro buffs, a quick Mornye stop for heals and buffs, then Iuno for a long on-field Lunar Cycle stretch. Swap out only to refresh Lynae's buffs when they expire. Pick this if you enjoy playing Iuno herself rather than treating her as a buff bot — community testing rates it as a genuinely viable main-DPS comp, not a meme."
+        }
+      ]
+    },
+    {
+      "slug": "best-chisa-teams",
+      "character": "Chisa",
+      "title": "Best Chisa Teams: Where She Fits Best (WuWa 3.7)",
+      "description": "Chisa is a support, not a carry — these are the three teams she actually belongs in: the 3.7 Hsin Electro Flare team, the classic Aero Erosion trio, and a free-to-play starter. Each teammate's job and a simple rotation, explained.",
+      "bannerId": "3.7-phase-1",
+      "publishedAt": "2026-10-14",
+      "authorNote": "Team recommendations based on kit synergy analysis and community testing; comps will be updated as the meta settles.",
+      "verdict": "Chisa's best home right now is Hsin's Electro Flare team; her Aero Erosion team with Cartethyia and Ciaccona is the proven classic that still holds up.",
+      "verdictLabel": "Status teams only",
+      "sections": [
+        {
+          "heading": "The short version",
+          "body": "Chisa is a support who wants one thing: a team built around Negative Statuses — damage-over-time debuffs like Electro Flare, Aero Erosion, or Spectro Frazzle. Her kit raises the maximum stacks those debuffs can reach (via her Outro, her swap-out attack), shreds enemy defense with Havoc Bane, and heals and shields the team. She doesn't need a team built around her; she needs a carry who cashes in the debuffs she amplifies. The three teams below are where community guides consistently place her."
+        },
+        {
+          "heading": "Hsin Electro Flare team — 3.7's top pick",
+          "body": "Team: Hsin + Electro Rover + Chisa. This is the team 3.7 created for her: Hsin is the main DPS who detonates Electro Flare stacks for her big bursts. Electro Rover is the sub-DPS engine — he applies Flare stacks in bulk, and his kit has a unique interaction with Hsin that gives both of them an Electro damage bonus. Chisa is the support: her Outro raises the Flare stack cap so Hsin's detonations hit harder, her Havoc Bane shreds enemy defense, and she covers healing and shielding.\n\nOne honest note: most guides list Suisui as the smoother default support here, and Chisa as the alternative — her version of the rotation is more hands-on. Run Chisa if you already have her built; she brings more offensive utility from the support slot. Do not run Chisa and Suisui together: their stack-cap effects do not stack.\n\nRotation: open with Electro Rover to lay down Flare stacks, bring Chisa in briefly to apply Unseen Snare (her debuff mark) and heal, then swap to Hsin — build resources, then detonate with her Resonance Liberation (her ultimate). Use Chisa's Outro into Hsin before her big damage window."
+        },
+        {
+          "heading": "Aero Erosion team — the proven classic",
+          "body": "Team: Cartethyia + Ciaccona + Chisa. This was Chisa's premier team at her debut and is still rated as Cartethyia's best team across community guides. Cartethyia is the main DPS: her ultimate consumes Aero Erosion stacks on the enemy for bonus damage per stack, so more stacks means bigger hits. Ciaccona is the sub-DPS who applies and maintains Aero Erosion off-field (while she's benched) and adds Aero damage buffs — she's effectively required for Cartethyia at low investment. Chisa is the support: she raises the Erosion stack cap by 3 via her Outro, adds defense shred, and heals and shields more consistently than the free alternative, Aero Rover.\n\nRotation: start with Chisa to apply Unseen Snare, switch to Ciaccona to build up Erosion stacks, then fire Chisa's Outro into Cartethyia and unleash her Liberation at maximum stacks. If you don't have Chisa, Aero Rover fills the same support slot for free — but Chisa is the upgrade."
+        },
+        {
+          "heading": "F2P starter: Spectro Rover team",
+          "body": "Team: Spectro Rover + Chisa + Verina. Pulled Chisa but don't own Hsin or Cartethyia? This is the accessible way to use her. Spectro Rover is the on-field damage dealer — he's a free 5-star who applies Spectro Frazzle (a Negative Status), which triggers Chisa's defense shred and benefits from her stack-cap raise. Chisa plays her usual support role: defense shred, healing, shielding, and stack amplification. Verina is the healer and buffer — she tops up the team's health and hands out team-wide damage buffs so Rover hits harder.\n\nRotation: open with Verina for buffs, tag in Chisa to apply Unseen Snare, then stay on Spectro Rover for the damage phase — swap Chisa back in to heal or fire her Outro whenever Rover's Frazzle stacks are maxed. This team won't match the ceilings of the two teams above, but it clears all content while you save for a premier carry."
+        }
+      ]
+    },
+    {
+      "slug": "best-suoming-teams",
+      "character": "Suoming",
+      "title": "Best Suoming Teams: Premium & F2P Comps (WuWa 3.7)",
+      "description": "The best pre-release team comps for Suoming in Wuthering Waves 3.7: the premium Hsin Unison team, an on-field hypercarry setup, and a budget variant — with each character's role explained.",
+      "bannerId": "3.7-phase-2",
+      "publishedAt": "2026-10-14",
+      "authorNote": "PRE-RELEASE guide based on officially revealed kit info and community theorycrafting; teams will be updated after launch. Editorial opinion, not data.",
+      "verdict": "The Hsin + Suoming + Shorekeeper Unison team is the consensus premium comp — but Suoming isn't playable yet, so treat every team here as theorycraft until launch testing confirms it.",
+      "verdictLabel": "Hsin pairing, pre-release",
+      "sections": [
+        {
+          "heading": "The short version",
+          "body": "Suoming arrives in Phase 2 (Oct 22), so nothing below is battle-tested — it's all kit analysis and community theorycraft. What she wants in a team is simple: either a Unison partner to swap with (Unison is her swap mechanic — swapping during its window triggers free swap attacks), or a Basic Attack buffer plus a healer if she's the on-field carry. Her third slot is flexible: guides agree any short-field healer or battery works there.\n\nThree comps below: the premium Hsin Unison team, an on-field hypercarry team without Hsin, and a budget version of it."
+        },
+        {
+          "heading": "Premium: Hsin / Suoming / Shorekeeper (Unison quick-swap)",
+          "body": "The consensus best team across every pre-release guide — the comp Suoming's kit was designed around.\n\nHsin (main DPS): the Electro Rectifier hypercarry. She takes the field during the Unison window and spends it on her Resonance Skill burst, amplified by Suoming's buffs.\n\nSuoming (sub-DPS / Unison buffer): the engine of the team. She builds her Delusion gauge in Deep Mind (her enhanced state), fires her Liberation to gain Unison, then swaps out — handing Hsin Electro DMG and Resonance Skill DMG amplification while her Thunder Crest coordinated attacks (automatic off-field follow-up hits) keep striking.\n\nShorekeeper (sustain / universal buffer): heals and hands out Crit buffs while barely needing field time, so she never breaks the Hsin–Suoming swap rhythm.\n\nRotation: Shorekeeper opens with buffs and healing, then Suoming enters via her Intro Skill (her swap-in attack), builds Delusion, and casts Liberation for Unison. Swap to Hsin immediately — her Outro (swap-out attack) and the free Intro fire without spending Concerto Energy. Play Hsin's window under the buffs, then swap back when Hsin holds Unison to trigger a Unison Response, and repeat. Variant: Suisui can replace Shorekeeper if she brings healing plus Electro Flare support."
+        },
+        {
+          "heading": "On-field carry: Suoming / Sanhua / Shorekeeper (no Hsin)",
+          "body": "For players who skipped Hsin — Suoming becomes the main DPS herself by spending Unison on Seal Master instead of handing it away.\n\nSuoming (main DPS): stays on-field in her Seal Master window, where nearly all her damage counts as Basic Attack DMG. She keeps her Unison for herself rather than swapping out with it.\n\nSanhua (Basic Attack buffer): the key partner. Her Outro Skill boosts Basic Attack DMG for the incoming character — which covers Suoming's enhanced Basic Attacks and Whirling Thunder. She's a 4-star, so she's cheap to obtain.\n\nShorekeeper (sustain / buffer): keeps the team alive and boosts Suoming's Crit stats, making the long on-field window more forgiving to play.\n\nRotation: Sanhua opens to apply her Outro buff, Shorekeeper refreshes heals and buffs, then Suoming takes the field for the long haul — Liberation into Rift Cleaver into Seal Master, then her enhanced attack string. Don't swap her out mid-window; her damage is all in the uninterrupted barrage."
+        },
+        {
+          "heading": "Budget: Suoming / Sanhua / Verina (F2P-friendly)",
+          "body": "The same on-field plan as above, with the premium healer swapped for one you likely already own. Pre-release guides explicitly note the third slot is flexible — any short-field healer works — so this is the honest budget adaptation, not a separately tested comp.\n\nSuoming (main DPS): identical on-field Seal Master role as above — she is still the carry.\n\nSanhua (Basic Attack buffer): same Outro buff duty; free from the login event, so most accounts have her.\n\nVerina (sustain / buffer): the standard-pool healer — pickable from the Beginner's Choice Convene — who heals and buffs team damage with short field time. Baizhi works as the fully free alternative if you never picked Verina.\n\nRotation: identical to the on-field team — Sanhua buffs, Verina heals and buffs, Suoming stays on-field through her window. You lose Shorekeeper's Crit buffs, so expect a lower ceiling, but the core loop is intact and costs almost nothing beyond Suoming herself."
+        }
+      ]
+    },
+    {
+      "slug": "best-lynae-teams",
+      "character": "Lynae",
+      "title": "Best Lynae Teams: Where She Fits Best (WuWa 3.7)",
+      "description": "Lynae's best team compositions in Wuthering Waves 3.7: the premium Off-Tune Tune Rupture core, a Liberation-burst carry team, and a budget option — with what every character actually does in each team.",
+      "bannerId": "3.7-phase-2",
+      "publishedAt": "2026-10-14",
+      "authorNote": "Team recommendations based on kit synergy analysis and community testing; comps will be updated as the meta settles.",
+      "verdict": "Lynae is at her best in Off-Tune/Tune Break teams, but her Liberation DMG amplification is universal enough that nearly any burst carry wants her — she is the rare sub-DPS who fits almost anywhere.",
+      "verdictLabel": "Fits almost anywhere",
+      "sections": [
+        {
+          "heading": "The short version",
+          "body": "Lynae wants two things from a team: a carry who deals damage in big bursts (ideally through Resonance Liberation, their ultimate) and, when available, partners who feed the Off-Tune system. Off-Tune is a team-wide mechanic where enemies accumulate a gauge and then suffer a Tune Break — a big burst of bonus damage; Lynae accelerates that gauge and boosts Tune Break damage. She never needs to be the main damage dealer: she buffs, amplifies, and contributes off-field hits while the carry takes the spotlight."
+        },
+        {
+          "heading": "Team 1 — Tune Rupture core: Aemeath + Lynae + Mornye",
+          "body": "The consensus best Lynae team across Game8, Sportskeeda, and FandomWire — a premium Off-Tune comp built around Tune Rupture (an Off-Tune variant that forces enemies to take bonus damage). Aemeath (5-star Fusion Sword) is the main DPS: she triggers Tune Rupture for massive damage, and both she and Lynae must be set to Tune Rupture Mode in the character menu for the team to work. Lynae (5-star Spectro Pistols) is the sub-DPS and buffer: she applies Tune Rupture to feed Aemeath's stacks, grants All DMG buffs and Tune Break Boost, and her Outro — the attack she fires when swapping out — hands Aemeath a big Resonance Liberation DMG boost right before Aemeath's ultimate. Mornye (5-star Fusion Broadblade) is the support and healer: she heals, amplifies team-wide damage, and boosts the Off-Tune buildup rate so Tune Breaks land more often. Basic rotation: open with Mornye to heal and apply buffs, swap through Lynae (skill, then Liberation, then Outro into Aemeath), and let Aemeath take her long on-field window to detonate the Tune Rupture setups. Repeat — the buff windows are long enough that the order matters more than the speed."
+        },
+        {
+          "heading": "Team 2 — Liberation burst: Iuno + Lynae + Mornye (or Shorekeeper)",
+          "body": "A general-purpose carry team for accounts without Aemeath — recommended by Game8, Nerdschalk, and BlueStacks. Iuno (5-star Aero Gauntlets) is the main DPS: her burst-heavy playstyle leans on Resonance Liberation, which is exactly what Lynae amplifies, and her own kit adds healing that keeps the team healthy. Lynae (5-star Spectro Pistols) is the sub-DPS and buffer: her Liberation grants a team-wide damage buff and her Outro feeds Iuno both All DMG Amplification and Liberation DMG amplification — she is, per BlueStacks, the ideal partner for Iuno's burst windows. Mornye (5-star Fusion Broadblade) is the support: team-wide damage amp, healing, and interruption resistance for a comfortable rotation; Shorekeeper or Verina slot in here fine if you don't own Mornye. Basic rotation: Mornye first for buffs and healing, then Lynae's skill into her Liberation, then her Outro directly into Iuno — Iuno takes the field, spends her Liberation under the full stack of buffs, and heals the team while doing it."
+        },
+        {
+          "heading": "Team 3 — Budget: Lynae + Sanhua + Verina",
+          "body": "A low-investment team from Nerdschalk's budget section for players who own Lynae but lack premium carries. Lynae (5-star Spectro Pistols) stays the sub-DPS and buffer — the team's entire engine: her All DMG and Liberation buffs lift Sanhua's damage far beyond what a 4-star could reach alone, and her own off-field hits keep damage flowing while she waits offstage. Sanhua (4-star Glacio Sword) is the main DPS: a strong free/standard 4-star who takes the field, deals quick sword combos, and hands control back to Lynae between windows. Verina (5-star Spectro Rectifier, from the standard banner) is the sustain: heals and buffs with minimal field time, and her coordinated attacks chip in damage without stealing Sanhua's spotlight. Basic rotation: Verina for heals and her damage buff, Lynae for skill into Liberation and Outro, then Sanhua's full field segment — the same buff-then-carry rhythm as the premium teams, just cheaper. This team won't match the Tune Rupture core's ceiling, but it clears comfortably for its cost."
+        }
+      ]
+    },
+    {
+      "slug": "best-lucilla-teams",
+      "character": "Lucilla",
+      "title": "Best Lucilla Teams: Where She Fits Best (WuWa 3.7)",
+      "description": "Lucilla is a support, not a carry — these are the three teams where she actually earns her slot: Hiyuki's premium Glacio Chafe team, a Carlotta Glacio fallback, and Sigrika's Echo Skill team.",
+      "bannerId": "3.7-phase-2",
+      "publishedAt": "2026-10-14",
+      "authorNote": "Team recommendations based on kit synergy analysis and community testing; comps will be updated as the meta settles.",
+      "verdict": "Lucilla shines in Hiyuki's Glacio Chafe team and Sigrika's Echo Skill team, with a solid Carlotta fallback — but if you own no Glacio or Echo Skill carry, she has no team to join.",
+      "verdictLabel": "Glacio & Echo teams",
+      "sections": [
+        {
+          "heading": "The short version",
+          "body": "Lucilla is a sub-DPS and support — she buffs a carry, she never replaces one. Her two resonance modes decide the team: Glacio Chafe mode wants a Glacio carry (Hiyuki first, Carlotta second), and Echo mode wants an Echo Skill carry like Sigrika. Every team below gives her a carry to enable and a sustain in the third slot. Pick the mode that matches your main DPS before starting combat, then build around it."
+        },
+        {
+          "heading": "Team 1: Hiyuki Glacio Chafe (premium)",
+          "body": "Hiyuki + Lucilla + Chisa — the consensus best Lucilla team across nearly every community guide.\n\nHiyuki (Main DPS): the Glacio hypercarry and the reason this team exists. She stacks Glacio Chafe on enemies — a debuff that shreds Glacio resistance — then consumes the stacks through her unique mechanic, converting them into Glacio Bite for massive damage. She wants as much Chafe application as possible, which is the entire team plan.\n\nLucilla (Sub-DPS / support): the Chafe engine. She applies Glacio Chafe stacks fast, shreds enemy Glacio resistance, and amplifies Chafe damage. Her Resonance Liberation (her ultimate) hits hard — in Chafe mode it counts as Basic Attack DMG — and her Outro Skill (her swap-out attack) makes enemies take extra damage from the negative effect.\n\nChisa (Healer / support): sustain plus utility. She heals and shields, shreds enemy DEF through her own Havoc Bane debuff, and her Outro raises the maximum stack limit of Negative Statuses — more Chafe stacks, more damage. Suisui is the popular alternative here: she also raises the Chafe stack cap and specializes in Negative Status teams.\n\nRotation: start with Chisa and run her Forte cycle (her special gauge combo) until her Outro is ready, then swap to Lucilla. Use Lucilla's Resonance Skill to build Photo Stacks, fire her Liberation for burst, then swap to Hiyuki: cast her Liberation, build Forte in her Foreclaimed Self state, enter the Iai stance, then three Basic Attacks into a Heavy Slash before recasting Liberation."
+        },
+        {
+          "heading": "Team 2: Carlotta Glacio (no Hiyuki)",
+          "body": "Carlotta + Lucilla + Shorekeeper — the stable fallback for players who skipped Hiyuki.\n\nCarlotta (Main DPS): the Glacio carry. She deals consistent Glacio damage that scales directly with Lucilla's Glacio buffs. If you're picking Carlotta from the Moonlit Path selector, this team gives her an immediate home.\n\nLucilla (Sub-DPS / support): the same Chafe and Glacio support package — her 25% Glacio DMG Outro buff is the headline for Carlotta. Chafe stacks still add damage even without Hiyuki's consumption mechanic.\n\nShorekeeper (Sustain): healing, Crit Rate buffs, and her Stellarealm damage field, plus a one-time death prevention that keeps Carlotta safe through long field windows.\n\nRotation: Shorekeeper opens with heals and buffs, then Lucilla applies Chafe, bursts, and swaps out through her Outro — then Carlotta takes an extended field window with the Glacio buffs active. Repeat. Verina works as a free-to-play Shorekeeper stand-in."
+        },
+        {
+          "heading": "Team 3: Sigrika Echo Skill team",
+          "body": "Sigrika + Lucilla (Echo mode) + Shorekeeper — Lucilla's second home, for accounts with no Glacio carry.\n\nSigrika (Main DPS): an Echo Skill damage dealer — her damage comes from Echo Skills (special attacks tied to equipped Echoes), which is exactly what Lucilla's Echo mode amplifies.\n\nLucilla (Sub-DPS, Echo mode): set her resonance mode to Echo before combat. She supplies multiple Echo Skill casts of her own and buffs the team's Echo Skill DMG; her Liberation counts as Echo Skill DMG in this mode. Community shorthand for this role: a budget Qiuyuan.\n\nShorekeeper (Sustain): the same package — healing plus team-wide damage buffs so Sigrika's Echo Skill windows hit harder.\n\nRotation: Shorekeeper sets up buffs, then Lucilla fires her Echo Skills and swaps out through her Outro — then Sigrika takes the Echo Skill damage window. Repeat. Galbrena or Phrolova can take Sigrika's slot with the same structure."
         }
       ]
     }
