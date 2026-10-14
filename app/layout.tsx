@@ -62,7 +62,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             </p>
             <p>
               Banner dates marked "estimated" come from community trackers —
-              always confirm in-game. Codes are verified against multiple
+              always confirm in-game. All banner and event dates are shown in
+              server time (UTC+8). Codes are verified against multiple
               sources before publishing.
             </p>
           </div>

@@ -123,6 +123,31 @@ export function formatDateWithNote(iso: string | null, note?: string): string {
   return note ? `${base} — ${note}` : base;
 }
 
+/** Server time zone for the game's Asia/TW/HK/MO servers (UTC+8, no DST). */
+export const SERVER_TIME_ZONE = "Asia/Shanghai";
+
+/**
+ * Format a game date in server time, e.g. "Oct 26, 2026".
+ * Game dates are authored in server time, so they must be pinned to the
+ * server zone — rendering in the viewer's timezone shifts them by a day.
+ */
+export function formatServerDate(iso: string | null): string {
+  if (!iso) return "No expiry announced";
+  const d = new Date(iso);
+  return d.toLocaleDateString("en-US", {
+    month: "short",
+    day: "numeric",
+    year: "numeric",
+    timeZone: SERVER_TIME_ZONE,
+  });
+}
+
+/** Format a game date in server time + note, e.g. "Oct 26, 2026 (estimated)". */
+export function formatServerDateWithNote(iso: string | null, note?: string): string {
+  const base = formatServerDate(iso);
+  return note ? `${base} — ${note}` : base;
+}
+
 // ---------------------------------------------------------------------------
 // Reset timers. WuWa resets daily at 04:00 server time. Server offsets (hours
 // from UTC): America -5, Europe +1, Asia/TW/HK/MO +8, (SEA servers vary).

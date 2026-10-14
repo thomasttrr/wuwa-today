@@ -3,7 +3,7 @@ import BannerCard from "../../components/BannerCard";
 import Reveal from "../../components/Reveal";
 import ShareButton from "../../components/ShareButton";
 import UpdatedStamp from "../../components/UpdatedStamp";
-import { activeBanners, upcomingBanners, bannerHistory, formatDate } from "../../lib/data";
+import { activeBanners, upcomingBanners, bannerHistory, formatServerDate } from "../../lib/data";
 
 export const metadata: Metadata = {
   title: "Wuthering Waves Banners — Current, Upcoming & History",
@@ -59,7 +59,7 @@ export default function BannersPage() {
               <td>{h.version}</td>
               <td>{h.phase}</td>
               <td>
-                {formatDate(h.startsAt)} – {formatDate(h.endsAt)}
+                {formatServerDate(h.startsAt)} – {formatServerDate(h.endsAt)}
               </td>
               <td>{h.note}</td>
             </tr>
