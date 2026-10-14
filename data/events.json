@@ -1,1 +1,194 @@
-{"_meta":{"comment":"Active and upcoming in-game events. Times in server time (UTC+8) unless noted; end dates from community coverage are estimates — mark timeNote accordingly.","updatedAt":"2026-10-14T06:35:00-04:00"},"events":[{"description":"Limited-time combat event: clear waves of enemies with special bonuses. Ends ~16 days before Version 3.7 closes — finish it early.","endsAt":"2026-10-26T03:59:00+08:00","id":"artisans-search","name":"Artisan's Search","rewards":"Astrite, character upgrade materials","startsAt":"2026-10-08T04:00:00+08:00","status":"active","timeNote":"Exact daily boundary (03:59) from official Version 3.7 patch notes; reward totals from community coverage.","type":"limited"},{"description":"Leisure event with Encore and the Second Coming of Solaris: stage Cubie battles with magical items on the Wooly Stage.","endsAt":"2026-11-11T11:59:00+08:00","id":"cubie-wars","name":"Cubie Wars","rewards":"Astrite, event items (verify in-game)","startsAt":"2026-09-30T10:00:00+08:00","status":"active","timeNote":"Dates/times from the official Version 3.7 patch notes as reported by coverage; verify in-game.","type":"leisure"},{"description":"Area exploration event: uncover the Heart Realms of the Simulacrum Nexus of Mengzhou and follow the stories of its people.","endsAt":"2026-11-11T03:59:00+08:00","id":"dreams-in-the-capsule","name":"Dreams in the Capsule","rewards":"Exploration rewards, Astrite (verify in-game)","startsAt":"2026-09-30T10:00:00+08:00","status":"active","timeNote":"Dates from the official Version 3.7 patch notes as reported by coverage; verify in-game.","type":"exploration"},{"description":"7-day login event during Version 3.7: log in daily to claim that day's reward from the event page.","endsAt":"2026-11-11T03:59:00+08:00","id":"gifts-of-waking-moon","name":"Gifts of Waking Moon","rewards":"Daily login rewards (verify in-game)","startsAt":"2026-09-30T10:00:00+08:00","status":"active","timeNote":"Dates from the official Version 3.7 patch notes as reported by coverage; verify in-game.","type":"login"},{"description":"Returning-player web event during Version 3.7.","endsAt":"2026-11-11T03:59:00+08:00","id":"back-to-solaris","name":"Back to Solaris","rewards":"Web-event rewards (verify in-game)","startsAt":"2026-09-30T10:00:00+08:00","status":"active","timeNote":"Listed as a current 3.7 web event by Game8; dates are estimates — verify in-game.","type":"web"},{"description":"Photo collection event: Hsin has arranged a task for Suoming — join her to record the sights of the Simulacrum Nexus of Mengzhou and draw out the long-sealed memories of the Ten Seals Covenant.","endsAt":null,"id":"past-dreams-traced-seals","name":"Past Dreams, Traced Seals","rewards":"Photo collection rewards (verify in-game)","startsAt":"2026-09-30T10:00:00+08:00","status":"active","timeNote":"Permanently available after the 3.7 update, per the official patch notes.","type":"permanent"},{"description":"Login events across Version 3.7: Gifts of Waking Moon 7-day login (Sep 30 – Nov 11) plus Gifts of Singing Drizzle (Oct 22 – Nov 11) — see those entries for verified reward details. Community coverage also reports extra Lustrous Tides in the early weeks.","endsAt":"2026-11-11T04:00:00+08:00","id":"3.7-login-tides","name":"Version 3.7 Login Events","rewards":"Radiant Tides, Lustrous Tides (per community coverage)","startsAt":"2026-09-30T10:00:00+08:00","status":"active","timeNote":"Reward counts from community coverage (gurugamer.com); verified entries below carry official details.","type":"login"},{"description":"Spending milestone track. At the 980-ring tier, pick one of Carlotta, Shorekeeper, or Phoebe. Not a substitute for a featured Convene, but valuable for accounts missing a universal support or Glacio DPS.","endsAt":"2026-11-11T04:00:00+08:00","id":"moonlit-path","name":"Moonlit Path (returns)","rewards":"5★ selector: Carlotta / Shorekeeper / Phoebe (980-ring tier)","startsAt":"2026-09-30T10:00:00+08:00","status":"active","timeNote":"Details from leak/community coverage; verify the milestone track in-game before spending.","type":"spending"},{"description":"Permanent event added in Version 3.7. No expiry — work through it at your own pace.","endsAt":null,"id":"blooms-for-the-shadow","name":"Blooms for the Shadow","rewards":"Event rewards (see in-game)","startsAt":"2026-09-30T10:00:00+08:00","status":"active","type":"permanent"},{"description":"Limited-time double leveling material drops. Short one-week window.","endsAt":"2026-10-22T03:59:00+08:00","id":"bountiful-crescendo","name":"Bountiful Crescendo","rewards":"Double leveling material drops","startsAt":"2026-10-15T04:00:00+08:00","status":"upcoming","timeNote":"Dates from Game8's event schedule; exact start time verify in-game.","type":"limited"},{"description":"Web event: a mysterious stall appears at the Waking Moon Festival — take on the fishing challenge, unlock Fishing Index entries for Astrites, and complete event tasks for Advanced Sealed Tubes.","endsAt":"2026-11-01T03:59:00+08:00","id":"waking-moon-fishing","name":"Waking Moon Fishing","rewards":"Astrite, Advanced Sealed Tubes, event items","startsAt":"2026-10-15T04:00:00+08:00","status":"upcoming","timeNote":"Web event; dates from coverage — verify in-game.","type":"web"},{"description":"Leisure event from the Second Coming of Solaris: move Echo Pieces around the board to clear matching echoes and recharge Resonator skills.","endsAt":"2026-11-09T03:59:00+08:00","id":"echo-erase","name":"Echo Erase","rewards":"Astrite, event items (verify in-game)","startsAt":"2026-10-22T10:00:00+08:00","status":"upcoming","timeNote":"Dates/times from the official Version 3.7 patch notes as reported by coverage; verify in-game.","type":"leisure"},{"description":"Cumulative login event starting with Phase 2: log in 1 day total for Radiant Tide x5 + Premium Tuner x100; 3 days total for Radiant Tide x5 + Crystal Solvent x5 (10 Radiant Tides total).","endsAt":"2026-11-11T03:59:00+08:00","id":"gifts-of-singing-drizzle","name":"Gifts of Singing Drizzle","rewards":"10 Radiant Tides, 100 Premium Tuner, 5 Crystal Solvent","startsAt":"2026-10-22T10:00:00+08:00","status":"upcoming","timeNote":"Reward breakdown from the official Version 3.7 patch notes as reported by coverage; verify in-game.","type":"login"},{"description":"Featured exploration event: complete daily event tasks to obtain Adventure Logs, then exchange each log for an Adventure Package.","endsAt":"2026-11-11T03:59:00+08:00","id":"beyond-the-waves-xuanfang","name":"Beyond the Waves: Land of Xuanfang","rewards":"Astrite, Lustrous Tide, Crystal Solvent, Premium Tuner, event materials (per Game8 guide)","startsAt":"2026-10-29T04:00:00+08:00","status":"upcoming","timeNote":"Dates from the official Version 3.7 patch notes as reported by coverage; verify in-game.","type":"exploration"},{"description":"Limited-time double Echo and Echo leveling material drops for the final week of the patch.","endsAt":"2026-11-11T03:59:00+08:00","id":"chord-cleansing","name":"Chord Cleansing","rewards":"Double Echo drops, double Echo leveling materials","startsAt":"2026-11-04T04:00:00+08:00","status":"upcoming","timeNote":"Dates from Game8's event schedule; verify in-game.","type":"limited"},{"description":"Official community contest: create a Wuthering Waves combat video and post it publicly on X, YouTube Shorts, or TikTok with #WutheringWaves and #WuwaBattle. Headline prize is Astrite x2,000; 10 extra winners receive $50 Amazon Gift Cards.","endsAt":"2026-10-28T23:59:00-07:00","id":"battle-rush","name":"Battle Rush (community contest)","rewards":"Astrite x2,000 (main winners), $50 Amazon Gift Card (10 extra winners)","startsAt":"2026-09-30T00:00:00-07:00","status":"active","timeNote":"Covered by earlygg.com; confirm the rules on the official announcement before entering.","type":"community"}]}
+{
+  "_meta": {
+    "comment": "Active and upcoming in-game events. Times in server time (UTC+8) unless noted; end dates from community coverage are estimates — mark timeNote accordingly.",
+    "updatedAt": "2026-10-14T12:30:00-04:00"
+  },
+  "events": [
+    {
+      "description": "Limited-time combat event: clear waves of enemies with special bonuses. Ends ~16 days before Version 3.7 closes — finish it early.",
+      "endsAt": "2026-10-26T03:59:00+08:00",
+      "id": "artisans-search",
+      "name": "Artisan's Search",
+      "rewards": "Astrite, character upgrade materials",
+      "startsAt": "2026-10-08T04:00:00+08:00",
+      "status": "active",
+      "timeNote": "Exact daily boundary (03:59) from official Version 3.7 patch notes; reward totals from community coverage.",
+      "type": "limited"
+    },
+    {
+      "description": "Leisure event with Encore and the Second Coming of Solaris: stage Cubie battles with magical items on the Wooly Stage.",
+      "endsAt": "2026-11-11T11:59:00+08:00",
+      "id": "cubie-wars",
+      "name": "Cubie Wars",
+      "rewards": "Astrite, event items (verify in-game)",
+      "startsAt": "2026-09-30T10:00:00+08:00",
+      "status": "active",
+      "timeNote": "Dates/times from the official Version 3.7 patch notes as reported by coverage; verify in-game.",
+      "type": "leisure"
+    },
+    {
+      "description": "Area exploration event: uncover the Heart Realms of the Simulacrum Nexus of Mengzhou and follow the stories of its people.",
+      "endsAt": "2026-11-11T03:59:00+08:00",
+      "id": "dreams-in-the-capsule",
+      "name": "Dreams in the Capsule",
+      "rewards": "Exploration rewards, Astrite (verify in-game)",
+      "startsAt": "2026-09-30T10:00:00+08:00",
+      "status": "active",
+      "timeNote": "Dates from the official Version 3.7 patch notes as reported by coverage; verify in-game.",
+      "type": "exploration"
+    },
+    {
+      "description": "7-day login event during Version 3.7: log in daily to claim that day's reward from the event page.",
+      "endsAt": "2026-11-11T03:59:00+08:00",
+      "id": "gifts-of-waking-moon",
+      "name": "Gifts of Waking Moon",
+      "rewards": "Daily login rewards (verify in-game)",
+      "startsAt": "2026-09-30T10:00:00+08:00",
+      "status": "active",
+      "timeNote": "Dates from the official Version 3.7 patch notes as reported by coverage; verify in-game.",
+      "type": "login"
+    },
+    {
+      "description": "Returning-player web event during Version 3.7.",
+      "endsAt": "2026-11-11T03:59:00+08:00",
+      "id": "back-to-solaris",
+      "name": "Back to Solaris",
+      "rewards": "Web-event rewards (verify in-game)",
+      "startsAt": "2026-09-30T10:00:00+08:00",
+      "status": "active",
+      "timeNote": "Listed as a current 3.7 web event by Game8; dates are estimates — verify in-game.",
+      "type": "web"
+    },
+    {
+      "description": "Photo collection event: Hsin has arranged a task for Suoming — join her to record the sights of the Simulacrum Nexus of Mengzhou and draw out the long-sealed memories of the Ten Seals Covenant.",
+      "endsAt": null,
+      "id": "past-dreams-traced-seals",
+      "name": "Past Dreams, Traced Seals",
+      "rewards": "Photo collection rewards (verify in-game)",
+      "startsAt": "2026-09-30T10:00:00+08:00",
+      "status": "active",
+      "timeNote": "Permanently available after the 3.7 update, per the official patch notes.",
+      "type": "permanent"
+    },
+    {
+      "description": "Login events across Version 3.7: Gifts of Waking Moon 7-day login (Sep 30 – Nov 11) plus Gifts of Singing Drizzle (Oct 22 – Nov 11) — see those entries for verified reward details. Community coverage also reports extra Lustrous Tides in the early weeks.",
+      "endsAt": "2026-11-11T04:00:00+08:00",
+      "id": "3.7-login-tides",
+      "name": "Version 3.7 Login Events",
+      "rewards": "Radiant Tides, Lustrous Tides (per community coverage)",
+      "startsAt": "2026-09-30T10:00:00+08:00",
+      "status": "active",
+      "timeNote": "Reward counts from community coverage (gurugamer.com); verified entries below carry official details.",
+      "type": "login"
+    },
+    {
+      "description": "Spending milestone track. At the 980-ring tier, pick one of Carlotta, Shorekeeper, or Phoebe. Not a substitute for a featured Convene, but valuable for accounts missing a universal support or Glacio DPS.",
+      "endsAt": "2026-11-11T04:00:00+08:00",
+      "id": "moonlit-path",
+      "name": "Moonlit Path (returns)",
+      "rewards": "5★ selector: Carlotta / Shorekeeper / Phoebe (980-ring tier)",
+      "startsAt": "2026-09-30T10:00:00+08:00",
+      "status": "active",
+      "timeNote": "Details from leak/community coverage; verify the milestone track in-game before spending.",
+      "type": "spending"
+    },
+    {
+      "description": "Permanent event added in Version 3.7. No expiry — work through it at your own pace.",
+      "endsAt": null,
+      "id": "blooms-for-the-shadow",
+      "name": "Blooms for the Shadow",
+      "rewards": "Event rewards (see in-game)",
+      "startsAt": "2026-09-30T10:00:00+08:00",
+      "status": "active",
+      "type": "permanent"
+    },
+    {
+      "description": "Limited-time double leveling material drops. Short one-week window.",
+      "endsAt": "2026-10-22T03:59:00+08:00",
+      "id": "bountiful-crescendo",
+      "name": "Bountiful Crescendo",
+      "rewards": "Double leveling material drops",
+      "startsAt": "2026-10-15T04:00:00+08:00",
+      "status": "upcoming",
+      "timeNote": "Dates from Game8's event schedule; exact start time verify in-game.",
+      "type": "limited"
+    },
+    {
+      "description": "Web event: a mysterious stall appears at the Waking Moon Festival — take on the fishing challenge, unlock Fishing Index entries for Astrites, and complete event tasks for Advanced Sealed Tubes.",
+      "endsAt": "2026-11-01T03:59:00+08:00",
+      "id": "waking-moon-fishing",
+      "name": "Waking Moon Fishing",
+      "rewards": "Astrite, Advanced Sealed Tubes, event items",
+      "startsAt": "2026-10-15T04:00:00+08:00",
+      "status": "upcoming",
+      "timeNote": "Web event; dates from coverage — verify in-game.",
+      "type": "web"
+    },
+    {
+      "description": "Leisure event from the Second Coming of Solaris: move Echo Pieces around the board to clear matching echoes and recharge Resonator skills.",
+      "endsAt": "2026-11-09T03:59:00+08:00",
+      "id": "echo-erase",
+      "name": "Echo Erase",
+      "rewards": "Astrite, event items (verify in-game)",
+      "startsAt": "2026-10-22T10:00:00+08:00",
+      "status": "upcoming",
+      "timeNote": "Dates/times from the official Version 3.7 patch notes as reported by coverage; verify in-game.",
+      "type": "leisure"
+    },
+    {
+      "description": "Cumulative login event starting with Phase 2: log in 1 day total for Radiant Tide x5 + Premium Tuner x100; 3 days total for Radiant Tide x5 + Crystal Solvent x5 (10 Radiant Tides total).",
+      "endsAt": "2026-11-11T03:59:00+08:00",
+      "id": "gifts-of-singing-drizzle",
+      "name": "Gifts of Singing Drizzle",
+      "rewards": "10 Radiant Tides, 100 Premium Tuner, 5 Crystal Solvent",
+      "startsAt": "2026-10-22T10:00:00+08:00",
+      "status": "upcoming",
+      "timeNote": "Reward breakdown from the official Version 3.7 patch notes as reported by coverage; verify in-game.",
+      "type": "login"
+    },
+    {
+      "description": "Featured exploration event: complete daily event tasks to obtain Adventure Logs, then exchange each log for an Adventure Package.",
+      "endsAt": "2026-11-11T03:59:00+08:00",
+      "id": "beyond-the-waves-xuanfang",
+      "name": "Beyond the Waves: Land of Xuanfang",
+      "rewards": "Astrite, Lustrous Tide, Crystal Solvent, Premium Tuner, event materials (per Game8 guide)",
+      "startsAt": "2026-10-29T04:00:00+08:00",
+      "status": "upcoming",
+      "timeNote": "Dates from the official Version 3.7 patch notes as reported by coverage; verify in-game.",
+      "type": "exploration"
+    },
+    {
+      "description": "Limited-time double Echo and Echo leveling material drops for the final week of the patch.",
+      "endsAt": "2026-11-11T03:59:00+08:00",
+      "id": "chord-cleansing",
+      "name": "Chord Cleansing",
+      "rewards": "Double Echo drops, double Echo leveling materials",
+      "startsAt": "2026-11-04T04:00:00+08:00",
+      "status": "upcoming",
+      "timeNote": "Dates from Game8's event schedule; verify in-game.",
+      "type": "limited"
+    },
+    {
+      "description": "Official community contest: create a Wuthering Waves combat video and post it publicly on X, YouTube Shorts, or TikTok with #WutheringWaves and #WuwaBattle. Headline prize is Astrite x2,000; 10 extra winners receive $50 Amazon Gift Cards.",
+      "endsAt": "2026-10-28T23:59:00-07:00",
+      "id": "battle-rush",
+      "name": "Battle Rush (community contest)",
+      "rewards": "Astrite x2,000 (main winners), $50 Amazon Gift Card (10 extra winners)",
+      "startsAt": "2026-09-30T00:00:00-07:00",
+      "status": "active",
+      "timeNote": "Covered by earlygg.com; confirm the rules on the official announcement before entering.",
+      "type": "community"
+    },
+    {
+      "description": "Recurring character-trial event: test the current 3.7 featured Resonators in dedicated trial stages. Each completed trial grants Astrite plus upgrade materials. Phase 1 trials (Hsin, Chisa, Iuno, Buling, Youhu, Taoqi) refresh for the Phase 2 lineup (Suoming, Lynae, Lucilla, Lumi, Chixia, Danjin) at the banner flip.",
+      "endsAt": "2026-11-11T03:59:00+08:00",
+      "id": "ascendant-aces",
+      "name": "Ascendant Aces",
+      "rewards": "Astrite x20 per trial, Advanced/Medium Resonance Potions, Energy Cores, Shell Credits (claimable once per trial Resonator)",
+      "startsAt": "2026-09-30T10:00:00+08:00",
+      "status": "active",
+      "timeNote": "Sep 30 - Nov 11 per Game8's event guide and event schedule; unlocked by default, no Union Level requirement.",
+      "type": "trial"
+    }
+  ]
+}
