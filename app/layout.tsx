@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -37,14 +38,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </a>
         <header className="site-header">
           <div className="container">
-            <a className="brand" href="/" aria-label="WuWa Today home">
+            <Link className="brand" href="/" aria-label="WuWa Today home">
               WuWa <span>Today</span>
-            </a>
+            </Link>
             <nav className="site-nav" aria-label="Primary">
               {NAV.map((item) => (
-                <a key={item.href} href={item.href}>
+                <Link key={item.href} href={item.href}>
                   {item.label}
-                </a>
+                </Link>
               ))}
             </nav>
           </div>
