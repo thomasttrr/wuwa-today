@@ -74,16 +74,23 @@ export default function HomePage() {
         linkText="All banners, upcoming phases & history"
       />
       <div className="grid grid-2">
-        {activeBanners.map((b, i) => (
-          <Reveal key={b.id} delay={i * 70}>
-            <BannerCard
-              banner={b}
-              featured={i === 0}
-              priority={i === 0}
-              events={i === 0 ? activeEvents : undefined}
-            />
-          </Reveal>
-        ))}
+        {activeBanners.length === 0 ? (
+          <p className="empty-state">
+            No live banners right now — check back after the next version
+            livestream.
+          </p>
+        ) : (
+          activeBanners.map((b, i) => (
+            <Reveal key={b.id} delay={i * 70}>
+              <BannerCard
+                banner={b}
+                featured={i === 0}
+                priority={i === 0}
+                events={i === 0 ? activeEvents : undefined}
+              />
+            </Reveal>
+          ))
+        )}
       </div>
 
       <SectionHead
@@ -109,11 +116,18 @@ export default function HomePage() {
         linkText="Full event calendar"
       />
       <div className="grid grid-2">
-        {activeEvents.map((e, i) => (
-          <Reveal key={e.id} delay={i * 70}>
-            <EventCard event={e} />
-          </Reveal>
-        ))}
+        {activeEvents.length === 0 ? (
+          <p className="empty-state">
+            No active events right now — check back after the next version
+            livestream.
+          </p>
+        ) : (
+          activeEvents.map((e, i) => (
+            <Reveal key={e.id} delay={i * 70}>
+              <EventCard event={e} />
+            </Reveal>
+          ))
+        )}
       </div>
 
       <SectionHead

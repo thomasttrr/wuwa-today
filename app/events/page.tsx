@@ -25,13 +25,20 @@ export default function EventsPage() {
       </div>
 
       <h2>Active</h2>
-      <div className="grid grid-2">
-        {activeEvents.map((e, i) => (
-          <Reveal key={e.id} delay={i * 70}>
-            <EventCard event={e} />
-          </Reveal>
-        ))}
-      </div>
+      {activeEvents.length === 0 ? (
+        <p className="empty-state">
+          No active events right now — check back after the next version
+          livestream.
+        </p>
+      ) : (
+        <div className="grid grid-2">
+          {activeEvents.map((e, i) => (
+            <Reveal key={e.id} delay={i * 70}>
+              <EventCard event={e} />
+            </Reveal>
+          ))}
+        </div>
+      )}
 
       {upcomingEvents.length > 0 && (
         <>
