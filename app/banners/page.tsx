@@ -34,6 +34,7 @@ export default function BannersPage() {
       </div>
 
       <h2>Banner history</h2>
+      <div className="table-scroll">
       <table className="data">
         <thead>
           <tr>
@@ -56,6 +57,7 @@ export default function BannersPage() {
           ))}
         </tbody>
       </table>
+      </div>
       <p className="updated">
         History is abbreviated in this MVP — extend <span className="mono">data/banners.json</span> →
         <span className="mono"> history</span> to grow the archive.

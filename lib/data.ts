@@ -95,7 +95,13 @@ export const eventsMeta = (eventsRaw as { _meta: { updatedAt: string } })._meta;
 
 export const activeBanners = banners.filter((b) => b.status === "active");
 export const upcomingBanners = banners.filter((b) => b.status === "upcoming");
-export const activeEvents = events.filter((e) => e.status === "active");
+export const activeEvents = events
+  .filter((e) => e.status === "active")
+  .sort((a, b) => {
+    if (!a.endsAt) return 1;
+    if (!b.endsAt) return -1;
+    return a.endsAt < b.endsAt ? -1 : 1;
+  });
 export const upcomingEvents = events.filter((e) => e.status === "upcoming");
 
 /** Site-wide "last verified" stamp: the most recent data-file update. */

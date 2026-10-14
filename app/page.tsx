@@ -3,7 +3,6 @@ import BannerCard from "../components/BannerCard";
 import CodeRow from "../components/CodeRow";
 import EventCard from "../components/EventCard";
 import ResetTimers from "../components/ResetTimers";
-import NewsletterSignup from "../components/NewsletterSignup";
 import UpdatedStamp from "../components/UpdatedStamp";
 import {
   activeBanners,
@@ -102,7 +101,7 @@ export default function HomePage() {
       <SectionHead
         id="codes"
         title="Working redeem codes"
-        blurb="Every code verified against multiple sources before it lands here. Redeem in-game via Terminal → Settings → Redemption Code."
+        blurb="Every code verified against multiple sources before it lands here."
         linkHref="/codes"
         linkText="All codes & expired archive"
       />
@@ -131,8 +130,6 @@ export default function HomePage() {
         blurb="Daily and weekly resets, shown for your server region."
       />
       <ResetTimers />
-
-      <NewsletterSignup />
     </>
   );
 }

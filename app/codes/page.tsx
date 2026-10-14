@@ -37,6 +37,7 @@ export default function CodesPage() {
         Listed so you don't waste time trying them. Moved here the day they're
         confirmed dead.
       </p>
+      <div className="table-scroll">
       <table className="data">
         <thead>
           <tr>
@@ -55,6 +56,7 @@ export default function CodesPage() {
           ))}
         </tbody>
       </table>
+      </div>
     </>
   );
 }
