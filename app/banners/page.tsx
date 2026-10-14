@@ -24,7 +24,7 @@ export default function BannersPage() {
       <div className="grid grid-2">
         {activeBanners.map((b, i) => (
           <Reveal key={b.id} delay={i * 70}>
-            <BannerCard banner={b} />
+            <BannerCard banner={b} priority={i === 0} />
           </Reveal>
         ))}
       </div>

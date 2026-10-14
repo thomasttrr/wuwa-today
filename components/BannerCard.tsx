@@ -52,11 +52,13 @@ export default function BannerCard({
   showCountdown = true,
   featured = false,
   events = [],
+  priority = false,
 }: {
   banner: Banner;
   showCountdown?: boolean;
   featured?: boolean;
   events?: GameEvent[];
+  priority?: boolean;
 }) {
   const fiveStars = banner.characters.filter((c) => c.rarity === 5);
   const fourStars = banner.characters.filter((c) => c.rarity === 4);
@@ -64,10 +66,14 @@ export default function BannerCard({
   return (
     <ArtCardSheen label={`${banner.version} ${banner.phase} banner`}>
       {banner.image && (
-        <div
+        <img
           className="banner-art-bg"
+          src={banner.image}
+          alt=""
           aria-hidden="true"
-          style={{ backgroundImage: `url(${banner.image})` }}
+          loading={priority ? "eager" : "lazy"}
+          decoding="async"
+          fetchPriority={priority ? "high" : "low"}
         />
       )}
       <div className="banner-art-content">
