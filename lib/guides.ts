@@ -5,6 +5,21 @@ export interface GuideSection {
   body: string;
 }
 
+export interface TeamMember {
+  name: string;
+  slug: string;
+  role: string;
+  element: string;
+  note: string;
+}
+
+export interface Team {
+  name: string;
+  tag: string;
+  members: TeamMember[];
+  rotation: string;
+}
+
 export interface Guide {
   slug: string;
   title: string;
@@ -16,6 +31,7 @@ export interface Guide {
   verdictLabel: string;
   authorNote: string;
   sections: GuideSection[];
+  teams?: Team[];
 }
 
 export const guides = (guidesRaw as { guides: Guide[] }).guides;

@@ -1,7 +1,7 @@
 {
   "_meta": {
     "comment": "Evergreen guides: pull verdicts for every featured 5-star, plus build and team guides. Verdicts are editorial opinion — never presented as data. Pull guides publish at banner launch; build/team guides follow as the meta settles.",
-    "updatedAt": "2026-10-14T14:25:00-04:00"
+    "updatedAt": "2026-10-14T14:50:00-04:00"
   },
   "guides": [
     {
@@ -242,6 +242,92 @@
           "heading": "How to play them (rotations)",
           "body": "Electro Flare rotation (Hsin + Electro Rover + Suisui/Buling): open with your sustain to apply the first Flare stacks, then bring in Electro Rover to pile on more stacks and trigger his Intro interaction with Hsin. Swap to Hsin, build her resources with basic attacks and her skill, then spend everything: empowered heavy attack into Resonance Liberation (Pillars Across Heaven) to detonate. Don't swap-cancel her Resonance Skill mid-cast — cutting it short wastes the Flare damage. Aim for about 120% Energy Regen so her Liberation is ready every cycle.\n\nUnison rotation (Hsin + Suoming + Shorekeeper): enter with Hsin's Intro Skill, build into her Liberation to trigger the Unison window, then swap immediately — her Outro and Suoming's Intro fire for free. Let Suoming take her field segment, then swap back to Hsin through another Intro (it will be empowered). Shorekeeper only comes in briefly to heal and refresh buffs. The key skill is timing: the free-swap window lasts a few seconds, so swap promptly, but missing it doesn't break the rotation — just continue normally and set up the next window."
         }
+      ],
+      "teams": [
+        {
+          "members": [
+            {
+              "element": "Electro",
+              "name": "Hsin",
+              "note": "The Electro hypercarry. Takes the field during Unison windows and spends them on her Resonance Skill burst, amplified by Suoming's buffs.",
+              "role": "Main DPS",
+              "slug": "hsin"
+            },
+            {
+              "element": "Electro",
+              "name": "Suoming",
+              "note": "The Unison engine. Builds Delusion, fires her Liberation to gain Unison, then swaps out — handing Hsin Electro DMG and Resonance Skill DMG amplification while her Thunder Crest coordinated attacks keep striking off-field.",
+              "role": "Sub-DPS",
+              "slug": "suoming"
+            },
+            {
+              "element": "Spectro",
+              "name": "Shorekeeper",
+              "note": "The sustain. Heals and hands out broad offensive buffs while barely needing field time, so she never interrupts the Hsin-Suoming swap rhythm.",
+              "role": "Support",
+              "slug": "shorekeeper"
+            }
+          ],
+          "name": "Premium: Hsin + Suoming + Shorekeeper",
+          "rotation": "Enter with Hsin's Intro Skill, build into her Liberation to trigger the Unison window, then swap immediately — her Outro and Suoming's Intro fire for free. Let Suoming take her field segment, then swap back to Hsin through another (empowered) Intro. Shorekeeper only comes in briefly to heal and refresh buffs.",
+          "tag": "Premium"
+        },
+        {
+          "members": [
+            {
+              "element": "Electro",
+              "name": "Hsin",
+              "note": "Detonates Electro Flare stacks for her big bursts. Don't swap-cancel her Resonance Skill mid-cast — cutting it short wastes the Flare damage.",
+              "role": "Main DPS",
+              "slug": "hsin"
+            },
+            {
+              "element": "Electro",
+              "name": "Electro Rover",
+              "note": "The Flare engine. Applies Electro Flare stacks in bulk, and his kit interacts with Hsin's Intro Skill so both gain an Electro damage bonus. Free 5-star most accounts own.",
+              "role": "Sub-DPS",
+              "slug": "electro-rover"
+            },
+            {
+              "element": "Glacio",
+              "name": "Suisui",
+              "note": "Sustains the team with heals while raising the maximum Electro Flare and Electro Rage stack caps and providing long-lasting team buffs.",
+              "role": "Support",
+              "slug": "suisui"
+            }
+          ],
+          "name": "Budget: Hsin + Electro Rover + Suisui",
+          "rotation": "Open with Suisui to apply the first Flare stacks, then bring in Electro Rover to pile on more stacks and trigger his Intro interaction with Hsin. Swap to Hsin, build resources with basic attacks and her skill, then spend everything: empowered heavy attack into Resonance Liberation to detonate. Aim for about 120% Energy Regen.",
+          "tag": "Budget"
+        },
+        {
+          "members": [
+            {
+              "element": "Electro",
+              "name": "Hsin",
+              "note": "Same Flare-detonation carry role as the budget team — builds resources, then spends them on empowered heavy into Liberation for the big burst.",
+              "role": "Main DPS",
+              "slug": "hsin"
+            },
+            {
+              "element": "Electro",
+              "name": "Electro Rover",
+              "note": "Same Flare-stack engine: applies stacks in bulk and triggers the Intro interaction that gives both him and Hsin an Electro damage bonus.",
+              "role": "Sub-DPS",
+              "slug": "electro-rover"
+            },
+            {
+              "element": "Electro",
+              "name": "Buling",
+              "note": "The fully free sustain option. A 4-star rate-up on Hsin's own Phase 1 banner, covering the healer slot with Flare application of her own.",
+              "role": "Support",
+              "slug": "buling"
+            }
+          ],
+          "name": "Alternative: Hsin + Electro Rover + Buling",
+          "rotation": "Same Electro Flare loop as the Suisui version: Buling opens with the first Flare stacks, Electro Rover piles on more and triggers the Intro interaction, then Hsin builds and detonates with her Liberation. Keep her Resonance Skill casts uninterrupted.",
+          "tag": "Alternative"
+        }
       ]
     },
     {
@@ -270,6 +356,92 @@
         {
           "heading": "Alternative: Hypercarry Iuno + Lynae + Mornye",
           "body": "A different playstyle entirely: Iuno stays on-field as the main DPS instead of supporting one. Iuno runs her full extended rotation — Intro, Skill, Liberation, basics and enhanced skills through the Lunar Cycle — dealing the team's damage herself while her Domain covers sustain. Lynae is the sub-DPS and buffer: her Liberation grants team-wide All-DMG, her Outro amplifies the next character's damage and Liberation bursts, and she feeds Iuno's big windows. Mornye holds the sustain slot: healing plus team-wide damage buffs so Iuno never has to leave the field to survive.\n\nRotation: Lynae first for her Liberation and Outro buffs, a quick Mornye stop for heals and buffs, then Iuno for a long on-field Lunar Cycle stretch. Swap out only to refresh Lynae's buffs when they expire. Pick this if you enjoy playing Iuno herself rather than treating her as a buff bot — community testing rates it as a genuinely viable main-DPS comp, not a meme."
+        }
+      ],
+      "teams": [
+        {
+          "members": [
+            {
+              "element": "Electro",
+              "name": "Augusta",
+              "note": "Iuno's best teammate across every source. A Heavy Attack carry who generates shields constantly — feeding Iuno's shield-stack damage buff while cashing in the full 50% Heavy Attack amplification from Iuno's Outro.",
+              "role": "Main DPS",
+              "slug": "augusta"
+            },
+            {
+              "element": "Aero",
+              "name": "Iuno",
+              "note": "Hybrid sub-DPS and support. Cycles her Lunar Cycle moon stances, drops her Full Moon Domain (heals and restores stamina), and swaps out with her buff-loaded Outro right before Augusta's damage window.",
+              "role": "Sub-DPS",
+              "slug": "iuno"
+            },
+            {
+              "element": "Spectro",
+              "name": "Shorekeeper",
+              "note": "The sustain. Heals and hands out Crit and All-DMG buffs through her Stellarealm field while asking for almost no field time.",
+              "role": "Support",
+              "slug": "shorekeeper"
+            }
+          ],
+          "name": "Premium: Augusta + Iuno + Shorekeeper",
+          "rotation": "Open with Shorekeeper to build Concerto Energy, cast her Liberation, then swap to Iuno. Run Iuno's Lunar Cycle — Skill into New Moon stance, Liberation, basics and skills, then a Heavy Attack to plant the Full Moon Domain — and swap to Augusta the moment her Intro Skill is ready. Burn through Augusta's window, then loop back to Shorekeeper to refresh.",
+          "tag": "Premium"
+        },
+        {
+          "members": [
+            {
+              "element": "Aero",
+              "name": "Iuno",
+              "note": "Takes more field time here as the primary damage dealer and sustain in one: her full Lunar Cycle rotation deals real damage while her Domain keeps everyone healed, and her Outro still feeds Heavy Attack amplification to the team.",
+              "role": "Main DPS",
+              "slug": "iuno"
+            },
+            {
+              "element": "Fusion",
+              "name": "Mortefi",
+              "note": "The 4-star Heavy Attack battery. His Outro buffs Heavy Attack damage and his coordinated attacks keep chipping in while he's benched — the cheapest Heavy Attack support in the game.",
+              "role": "Sub-DPS",
+              "slug": "mortefi"
+            },
+            {
+              "element": "Spectro",
+              "name": "Verina",
+              "note": "The free sustain: healing, ATK buffs, and general team support with minimal investment.",
+              "role": "Support",
+              "slug": "verina"
+            }
+          ],
+          "name": "Budget: Iuno + Mortefi + Verina",
+          "rotation": "Open with Verina for buffs and her Liberation, swap to Mortefi to build Concerto and fire his Outro, then bring Iuno in for an extended Lunar Cycle rotation — Skill, Liberation, basics, Heavy Attack for the Domain — before looping back. Every piece is free or 4-star and the buff layering works the same way.",
+          "tag": "Budget"
+        },
+        {
+          "members": [
+            {
+              "element": "Aero",
+              "name": "Iuno",
+              "note": "Stays on-field as the carry instead of supporting one. Runs her full extended Lunar Cycle rotation — Intro, Skill, Liberation, basics and enhanced skills — dealing the team's damage herself while her Domain covers sustain.",
+              "role": "Main DPS",
+              "slug": "iuno"
+            },
+            {
+              "element": "Spectro",
+              "name": "Lynae",
+              "note": "The buffer. Her Liberation grants team-wide All-DMG, her Outro amplifies the next character's damage and Liberation bursts, and she feeds Iuno's big windows.",
+              "role": "Sub-DPS",
+              "slug": "lynae"
+            },
+            {
+              "element": "Fusion",
+              "name": "Mornye",
+              "note": "Holds the sustain slot: healing plus team-wide damage buffs so Iuno never has to leave the field to survive.",
+              "role": "Support",
+              "slug": "mornye"
+            }
+          ],
+          "name": "Alternative: Hypercarry Iuno + Lynae + Mornye",
+          "rotation": "Lynae first for her Liberation and Outro buffs, a quick Mornye stop for heals and buffs, then Iuno for a long on-field Lunar Cycle stretch. Swap out only to refresh Lynae's buffs when they expire. Community testing rates it as a genuinely viable main-DPS comp.",
+          "tag": "Alternative"
         }
       ]
     },
@@ -300,6 +472,92 @@
           "heading": "F2P starter: Spectro Rover team",
           "body": "Team: Spectro Rover + Chisa + Verina. Pulled Chisa but don't own Hsin or Cartethyia? This is the accessible way to use her. Spectro Rover is the on-field damage dealer — he's a free 5-star who applies Spectro Frazzle (a Negative Status), which triggers Chisa's defense shred and benefits from her stack-cap raise. Chisa plays her usual support role: defense shred, healing, shielding, and stack amplification. Verina is the healer and buffer — she tops up the team's health and hands out team-wide damage buffs so Rover hits harder.\n\nRotation: open with Verina for buffs, tag in Chisa to apply Unseen Snare, then stay on Spectro Rover for the damage phase — swap Chisa back in to heal or fire her Outro whenever Rover's Frazzle stacks are maxed. This team won't match the ceilings of the two teams above, but it clears all content while you save for a premier carry."
         }
+      ],
+      "teams": [
+        {
+          "members": [
+            {
+              "element": "Electro",
+              "name": "Hsin",
+              "note": "The main DPS who detonates Electro Flare stacks for her big bursts. Fire Chisa's Outro into Hsin right before her big damage window.",
+              "role": "Main DPS",
+              "slug": "hsin"
+            },
+            {
+              "element": "Electro",
+              "name": "Electro Rover",
+              "note": "The sub-DPS engine — applies Flare stacks in bulk, and his kit has a unique interaction with Hsin that gives both of them an Electro damage bonus.",
+              "role": "Sub-DPS",
+              "slug": "electro-rover"
+            },
+            {
+              "element": "Havoc",
+              "name": "Chisa",
+              "note": "The support: her Outro raises the Flare stack cap so Hsin's detonations hit harder, her Havoc Bane shreds enemy defense, and she covers healing and shielding. (Suisui is the smoother default here; Chisa is the more hands-on, more offensive alternative.)",
+              "role": "Support",
+              "slug": "chisa"
+            }
+          ],
+          "name": "Hsin Electro Flare team — 3.7's top pick",
+          "rotation": "Open with Electro Rover to lay down Flare stacks, bring Chisa in briefly to apply Unseen Snare and heal, then swap to Hsin — build resources, then detonate with her Resonance Liberation. Use Chisa's Outro into Hsin before her big damage window. Don't run Chisa and Suisui together: their stack-cap effects don't stack.",
+          "tag": "Premium"
+        },
+        {
+          "members": [
+            {
+              "element": "Aero",
+              "name": "Cartethyia",
+              "note": "The main DPS: her ultimate consumes Aero Erosion stacks on the enemy for bonus damage per stack, so more stacks means bigger hits. Still rated as her best team across community guides.",
+              "role": "Main DPS",
+              "slug": "cartethyia"
+            },
+            {
+              "element": "Aero",
+              "name": "Ciaccona",
+              "note": "Applies and maintains Aero Erosion off-field while adding Aero damage buffs — effectively required for Cartethyia at low investment.",
+              "role": "Sub-DPS",
+              "slug": "ciaccona"
+            },
+            {
+              "element": "Havoc",
+              "name": "Chisa",
+              "note": "Raises the Erosion stack cap by 3 via her Outro, adds defense shred, and heals and shields more consistently than the free alternative, Aero Rover.",
+              "role": "Support",
+              "slug": "chisa"
+            }
+          ],
+          "name": "Aero Erosion team — the proven classic",
+          "rotation": "Start with Chisa to apply Unseen Snare, switch to Ciaccona to build up Erosion stacks, then fire Chisa's Outro into Cartethyia and unleash her Liberation at maximum stacks.",
+          "tag": "Alternative"
+        },
+        {
+          "members": [
+            {
+              "element": "Spectro",
+              "name": "Spectro Rover",
+              "note": "The free 5-star on-field damage dealer. Applies Spectro Frazzle, which triggers Chisa's defense shred and benefits from her stack-cap raise.",
+              "role": "Main DPS",
+              "slug": "spectro-rover"
+            },
+            {
+              "element": "Havoc",
+              "name": "Chisa",
+              "note": "Her usual support role: defense shred, healing, shielding, and stack amplification for Rover's Frazzle.",
+              "role": "Support",
+              "slug": "chisa"
+            },
+            {
+              "element": "Spectro",
+              "name": "Verina",
+              "note": "The healer and buffer — tops up the team's health and hands out team-wide damage buffs so Rover hits harder.",
+              "role": "Support",
+              "slug": "verina"
+            }
+          ],
+          "name": "F2P starter: Spectro Rover team",
+          "rotation": "Open with Verina for buffs, tag in Chisa to apply Unseen Snare, then stay on Spectro Rover for the damage phase — swap Chisa back in to heal or fire her Outro whenever Rover's Frazzle stacks are maxed.",
+          "tag": "Budget"
+        }
       ]
     },
     {
@@ -328,6 +586,92 @@
         {
           "heading": "Budget: Suoming / Sanhua / Verina (F2P-friendly)",
           "body": "The same on-field plan as above, with the premium healer swapped for one you likely already own. Pre-release guides explicitly note the third slot is flexible — any short-field healer works — so this is the honest budget adaptation, not a separately tested comp.\n\nSuoming (main DPS): identical on-field Seal Master role as above — she is still the carry.\n\nSanhua (Basic Attack buffer): same Outro buff duty; free from the login event, so most accounts have her.\n\nVerina (sustain / buffer): the standard-pool healer — pickable from the Beginner's Choice Convene — who heals and buffs team damage with short field time. Baizhi works as the fully free alternative if you never picked Verina.\n\nRotation: identical to the on-field team — Sanhua buffs, Verina heals and buffs, Suoming stays on-field through her window. You lose Shorekeeper's Crit buffs, so expect a lower ceiling, but the core loop is intact and costs almost nothing beyond Suoming herself."
+        }
+      ],
+      "teams": [
+        {
+          "members": [
+            {
+              "element": "Electro",
+              "name": "Hsin",
+              "note": "The Electro hypercarry. Takes the field during the Unison window and spends it on her Resonance Skill burst, amplified by Suoming's buffs.",
+              "role": "Main DPS",
+              "slug": "hsin"
+            },
+            {
+              "element": "Electro",
+              "name": "Suoming",
+              "note": "The engine of the team. Builds her Delusion gauge in Deep Mind, fires her Liberation to gain Unison, then swaps out — handing Hsin Electro DMG and Resonance Skill DMG amplification while her Thunder Crest coordinated attacks keep striking.",
+              "role": "Sub-DPS",
+              "slug": "suoming"
+            },
+            {
+              "element": "Spectro",
+              "name": "Shorekeeper",
+              "note": "Heals and hands out Crit buffs while barely needing field time, so she never breaks the Hsin-Suoming swap rhythm. (Suisui can sub in with healing plus Electro Flare support.)",
+              "role": "Support",
+              "slug": "shorekeeper"
+            }
+          ],
+          "name": "Premium: Hsin / Suoming / Shorekeeper (Unison quick-swap)",
+          "rotation": "Shorekeeper opens with buffs and healing, then Suoming enters via her Intro Skill, builds Delusion, and casts Liberation for Unison. Swap to Hsin immediately — her Outro and the free Intro fire without spending Concerto Energy. Play Hsin's window under the buffs, then swap back when Hsin holds Unison to trigger a Unison Response, and repeat. Pre-release theorycraft — unconfirmed until launch.",
+          "tag": "Premium"
+        },
+        {
+          "members": [
+            {
+              "element": "Electro",
+              "name": "Suoming",
+              "note": "The on-field carry. Spends Unison on Seal Master instead of handing it away — nearly all her damage in this window counts as Basic Attack DMG.",
+              "role": "Main DPS",
+              "slug": "suoming"
+            },
+            {
+              "element": "Glacio",
+              "name": "Sanhua",
+              "note": "The key partner: her Outro Skill boosts Basic Attack DMG for the incoming character, covering Suoming's enhanced Basic Attacks and Whirling Thunder. A cheap 4-star.",
+              "role": "Sub-DPS",
+              "slug": "sanhua"
+            },
+            {
+              "element": "Spectro",
+              "name": "Shorekeeper",
+              "note": "Keeps the team alive and boosts Suoming's Crit stats, making the long on-field window more forgiving to play.",
+              "role": "Support",
+              "slug": "shorekeeper"
+            }
+          ],
+          "name": "On-field carry: Suoming / Sanhua / Shorekeeper (no Hsin)",
+          "rotation": "Sanhua opens to apply her Outro buff, Shorekeeper refreshes heals and buffs, then Suoming takes the field for the long haul — Liberation into Rift Cleaver into Seal Master, then her enhanced attack string. Don't swap her out mid-window; her damage is all in the uninterrupted barrage.",
+          "tag": "Alternative"
+        },
+        {
+          "members": [
+            {
+              "element": "Electro",
+              "name": "Suoming",
+              "note": "Identical on-field Seal Master carry role — she is still the carry, spending Unison on her own Basic-Attack window.",
+              "role": "Main DPS",
+              "slug": "suoming"
+            },
+            {
+              "element": "Glacio",
+              "name": "Sanhua",
+              "note": "Same Outro Basic Attack buff duty; free from the login event, so most accounts have her.",
+              "role": "Sub-DPS",
+              "slug": "sanhua"
+            },
+            {
+              "element": "Spectro",
+              "name": "Verina",
+              "note": "The standard-pool healer — pickable from the Beginner's Choice Convene — who heals and buffs team damage with short field time. Baizhi works as the fully free alternative.",
+              "role": "Support",
+              "slug": "verina"
+            }
+          ],
+          "name": "Budget: Suoming / Sanhua / Verina (F2P-friendly)",
+          "rotation": "Identical to the on-field team: Sanhua buffs, Verina heals and buffs, Suoming stays on-field through her window. You lose Shorekeeper's Crit buffs, so expect a lower ceiling, but the core loop is intact and costs almost nothing beyond Suoming herself.",
+          "tag": "Budget"
         }
       ]
     },
@@ -358,6 +702,92 @@
           "heading": "Team 3 — Budget: Lynae + Sanhua + Verina",
           "body": "A low-investment team from Nerdschalk's budget section for players who own Lynae but lack premium carries. Lynae (5-star Spectro Pistols) stays the sub-DPS and buffer — the team's entire engine: her All DMG and Liberation buffs lift Sanhua's damage far beyond what a 4-star could reach alone, and her own off-field hits keep damage flowing while she waits offstage. Sanhua (4-star Glacio Sword) is the main DPS: a strong free/standard 4-star who takes the field, deals quick sword combos, and hands control back to Lynae between windows. Verina (5-star Spectro Rectifier, from the standard banner) is the sustain: heals and buffs with minimal field time, and her coordinated attacks chip in damage without stealing Sanhua's spotlight. Basic rotation: Verina for heals and her damage buff, Lynae for skill into Liberation and Outro, then Sanhua's full field segment — the same buff-then-carry rhythm as the premium teams, just cheaper. This team won't match the Tune Rupture core's ceiling, but it clears comfortably for its cost."
         }
+      ],
+      "teams": [
+        {
+          "members": [
+            {
+              "element": "Fusion",
+              "name": "Aemeath",
+              "note": "The main DPS: triggers Tune Rupture for massive damage. Both she and Lynae must be set to Tune Rupture Mode in the character menu for the team to work.",
+              "role": "Main DPS",
+              "slug": "aemeath"
+            },
+            {
+              "element": "Spectro",
+              "name": "Lynae",
+              "note": "The sub-DPS and buffer: applies Tune Rupture to feed Aemeath's stacks, grants All DMG buffs and Tune Break Boost, and her Outro hands Aemeath a big Resonance Liberation DMG boost right before her ultimate.",
+              "role": "Sub-DPS",
+              "slug": "lynae"
+            },
+            {
+              "element": "Fusion",
+              "name": "Mornye",
+              "note": "The support and healer: heals, amplifies team-wide damage, and boosts the Off-Tune buildup rate so Tune Breaks land more often.",
+              "role": "Support",
+              "slug": "mornye"
+            }
+          ],
+          "name": "Team 1 — Tune Rupture core: Aemeath + Lynae + Mornye",
+          "rotation": "Open with Mornye to heal and apply buffs, swap through Lynae (skill, then Liberation, then Outro into Aemeath), and let Aemeath take her long on-field window to detonate the Tune Rupture setups. Repeat — the buff windows are long enough that the order matters more than the speed.",
+          "tag": "Premium"
+        },
+        {
+          "members": [
+            {
+              "element": "Aero",
+              "name": "Iuno",
+              "note": "The main DPS: her burst-heavy playstyle leans on Resonance Liberation, which is exactly what Lynae amplifies, and her own kit adds healing that keeps the team healthy.",
+              "role": "Main DPS",
+              "slug": "iuno"
+            },
+            {
+              "element": "Spectro",
+              "name": "Lynae",
+              "note": "Her Liberation grants a team-wide damage buff and her Outro feeds Iuno both All DMG Amplification and Liberation DMG amplification — the ideal partner for Iuno's burst windows.",
+              "role": "Sub-DPS",
+              "slug": "lynae"
+            },
+            {
+              "element": "Fusion",
+              "name": "Mornye",
+              "note": "Team-wide damage amp, healing, and interruption resistance for a comfortable rotation. Shorekeeper or Verina slot in fine if you don't own Mornye.",
+              "role": "Support",
+              "slug": "mornye"
+            }
+          ],
+          "name": "Team 2 — Liberation burst: Iuno + Lynae + Mornye",
+          "rotation": "Mornye first for buffs and healing, then Lynae's skill into her Liberation, then her Outro directly into Iuno — Iuno takes the field, spends her Liberation under the full stack of buffs, and heals the team while doing it.",
+          "tag": "Alternative"
+        },
+        {
+          "members": [
+            {
+              "element": "Spectro",
+              "name": "Lynae",
+              "note": "The team's entire engine: her All DMG and Liberation buffs lift Sanhua's damage far beyond what a 4-star could reach alone, and her own off-field hits keep damage flowing while she waits offstage.",
+              "role": "Sub-DPS",
+              "slug": "lynae"
+            },
+            {
+              "element": "Glacio",
+              "name": "Sanhua",
+              "note": "The main DPS: a strong free/standard 4-star who takes the field, deals quick sword combos, and hands control back to Lynae between windows.",
+              "role": "Main DPS",
+              "slug": "sanhua"
+            },
+            {
+              "element": "Spectro",
+              "name": "Verina",
+              "note": "The sustain: heals and buffs with minimal field time, and her coordinated attacks chip in damage without stealing Sanhua's spotlight.",
+              "role": "Support",
+              "slug": "verina"
+            }
+          ],
+          "name": "Team 3 — Budget: Lynae + Sanhua + Verina",
+          "rotation": "Verina for heals and her damage buff, Lynae for skill into Liberation and Outro, then Sanhua's full field segment — the same buff-then-carry rhythm as the premium teams, just cheaper.",
+          "tag": "Budget"
+        }
       ]
     },
     {
@@ -386,6 +816,92 @@
         {
           "heading": "Team 3: Sigrika Echo Skill team",
           "body": "Sigrika + Lucilla (Echo mode) + Shorekeeper — Lucilla's second home, for accounts with no Glacio carry.\n\nSigrika (Main DPS): an Echo Skill damage dealer — her damage comes from Echo Skills (special attacks tied to equipped Echoes), which is exactly what Lucilla's Echo mode amplifies.\n\nLucilla (Sub-DPS, Echo mode): set her resonance mode to Echo before combat. She supplies multiple Echo Skill casts of her own and buffs the team's Echo Skill DMG; her Liberation counts as Echo Skill DMG in this mode. Community shorthand for this role: a budget Qiuyuan.\n\nShorekeeper (Sustain): the same package — healing plus team-wide damage buffs so Sigrika's Echo Skill windows hit harder.\n\nRotation: Shorekeeper sets up buffs, then Lucilla fires her Echo Skills and swaps out through her Outro — then Sigrika takes the Echo Skill damage window. Repeat. Galbrena or Phrolova can take Sigrika's slot with the same structure."
+        }
+      ],
+      "teams": [
+        {
+          "members": [
+            {
+              "element": "Glacio",
+              "name": "Hiyuki",
+              "note": "The Glacio hypercarry and the reason this team exists. Stacks Glacio Chafe on enemies, then consumes the stacks through her unique mechanic, converting them into Glacio Bite for massive damage.",
+              "role": "Main DPS",
+              "slug": "hiyuki"
+            },
+            {
+              "element": "Glacio",
+              "name": "Lucilla",
+              "note": "The Chafe engine. Applies Glacio Chafe stacks fast, shreds enemy Glacio resistance, and amplifies Chafe damage. Her Liberation hits hard (counts as Basic Attack DMG in Chafe mode) and her Outro makes enemies take extra damage from the negative effect.",
+              "role": "Sub-DPS",
+              "slug": "lucilla"
+            },
+            {
+              "element": "Havoc",
+              "name": "Chisa",
+              "note": "Sustain plus utility: heals and shields, shreds enemy DEF through Havoc Bane, and her Outro raises the maximum Negative Status stack limit — more Chafe stacks, more damage. Suisui is the popular alternative.",
+              "role": "Support",
+              "slug": "chisa"
+            }
+          ],
+          "name": "Team 1: Hiyuki Glacio Chafe (premium)",
+          "rotation": "Start with Chisa and run her Forte cycle until her Outro is ready, then swap to Lucilla. Use Lucilla's Resonance Skill to build Photo Stacks, fire her Liberation for burst, then swap to Hiyuki: cast her Liberation, build Forte in her Foreclaimed Self state, enter the Iai stance, then three Basic Attacks into a Heavy Slash before recasting Liberation.",
+          "tag": "Premium"
+        },
+        {
+          "members": [
+            {
+              "element": "Glacio",
+              "name": "Carlotta",
+              "note": "The Glacio carry. Deals consistent Glacio damage that scales directly with Lucilla's Glacio buffs — and gives Moonlit Path selector Carlotta an immediate home.",
+              "role": "Main DPS",
+              "slug": "carlotta"
+            },
+            {
+              "element": "Glacio",
+              "name": "Lucilla",
+              "note": "The same Chafe and Glacio support package — her 25% Glacio DMG Outro buff is the headline for Carlotta. Chafe stacks still add damage even without Hiyuki's consumption mechanic.",
+              "role": "Sub-DPS",
+              "slug": "lucilla"
+            },
+            {
+              "element": "Spectro",
+              "name": "Shorekeeper",
+              "note": "Healing, Crit Rate buffs, and her Stellarealm damage field, plus a one-time death prevention that keeps Carlotta safe through long field windows. Verina works as a free-to-play stand-in.",
+              "role": "Support",
+              "slug": "shorekeeper"
+            }
+          ],
+          "name": "Team 2: Carlotta Glacio (no Hiyuki)",
+          "rotation": "Shorekeeper opens with heals and buffs, then Lucilla applies Chafe, bursts, and swaps out through her Outro — then Carlotta takes an extended field window with the Glacio buffs active. Repeat.",
+          "tag": "Alternative"
+        },
+        {
+          "members": [
+            {
+              "element": "Aero",
+              "name": "Sigrika",
+              "note": "An Echo Skill damage dealer — her damage comes from Echo Skills, which is exactly what Lucilla's Echo mode amplifies. Galbrena or Phrolova can take her slot with the same structure.",
+              "role": "Main DPS",
+              "slug": "sigrika"
+            },
+            {
+              "element": "Glacio",
+              "name": "Lucilla",
+              "note": "Set her resonance mode to Echo before combat. Supplies multiple Echo Skill casts of her own and buffs the team's Echo Skill DMG; her Liberation counts as Echo Skill DMG in this mode. Community shorthand: a budget Qiuyuan.",
+              "role": "Sub-DPS",
+              "slug": "lucilla"
+            },
+            {
+              "element": "Spectro",
+              "name": "Shorekeeper",
+              "note": "Healing plus team-wide damage buffs so Sigrika's Echo Skill windows hit harder.",
+              "role": "Support",
+              "slug": "shorekeeper"
+            }
+          ],
+          "name": "Team 3: Sigrika Echo Skill team",
+          "rotation": "Shorekeeper sets up buffs, then Lucilla fires her Echo Skills and swaps out through her Outro — then Sigrika takes the Echo Skill damage window. Repeat.",
+          "tag": "Alternative"
         }
       ]
     }

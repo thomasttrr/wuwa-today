@@ -457,3 +457,66 @@ table.data td.mono { color: var(--text); }
   html { scroll-behavior: auto; }
   *, *::before, *::after { transition: none !important; animation: none !important; }
 }
+
+/* ---------- visual team cards ---------- */
+
+.team-card { margin-top: 1.25rem; }
+.team-card-head {
+  display: flex; align-items: center; gap: 0.7rem;
+  margin-bottom: 1rem; flex-wrap: wrap;
+}
+.team-card-title { margin: 0; font-size: 1.1rem; }
+
+/* Portrait row: the first thing the eye hits. */
+.team-slots {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem; margin-bottom: 1.1rem;
+}
+.team-slot {
+  background: var(--bg-raised);
+  border-radius: 12px;
+  padding: 0.85rem 0.5rem 0.7rem;
+  text-align: center;
+}
+.team-portrait {
+  width: 88px; height: 88px; object-fit: cover;
+  border-radius: 12px; background: var(--bg-card);
+}
+.team-slot-name { font-weight: 700; margin: 0.5rem 0 0.15rem; font-size: 0.95rem; }
+.team-slot-role {
+  margin: 0; font-size: 0.72rem; font-weight: 700;
+  letter-spacing: 0.04em; text-transform: uppercase; color: var(--text-2);
+}
+.team-slot-element {
+  margin: 0.25rem 0 0; font-size: 0.8rem; color: var(--text-2);
+  display: flex; align-items: center; justify-content: center; gap: 0.35rem;
+}
+.element-dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; }
+
+/* Compact role notes. */
+.team-roles { list-style: none; padding: 0; margin: 0 0 1rem; display: grid; gap: 0.7rem; }
+.team-role-row { display: flex; gap: 0.75rem; align-items: flex-start; }
+.team-role-thumb {
+  width: 44px; height: 44px; border-radius: 10px; object-fit: cover;
+  background: var(--bg-raised); flex-shrink: 0;
+}
+.team-role-name { font-weight: 700; margin: 0 0 0.15rem; font-size: 0.92rem; }
+.team-role-name span { font-weight: 400; color: var(--text-2); }
+.team-role-note { margin: 0; color: var(--text-2); font-size: 0.92rem; }
+
+/* Rotation box. */
+.team-rotation {
+  background: var(--bg-raised); border-radius: 12px;
+  padding: 0.8rem 1rem;
+}
+.team-rotation p { margin: 0; font-size: 0.92rem; color: var(--text-2); }
+.team-rotation-label {
+  font-family: var(--mono); font-size: 0.72rem; font-weight: 700;
+  letter-spacing: 0.06em; text-transform: uppercase; color: var(--gold);
+  margin: 0 0 0.35rem !important;
+}
+
+@media (max-width: 520px) {
+  .team-portrait { width: 72px; height: 72px; }
+  .team-slot-name { font-size: 0.85rem; }
+}

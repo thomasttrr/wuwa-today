@@ -4,6 +4,7 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import { getGuide, guides, renderBody } from "../../../lib/guides";
 import { banners } from "../../../lib/data";
+import TeamCard from "../../../components/TeamCard";
 
 export function generateStaticParams() {
   return guides.map((g) => ({ slug: g.slug }));
@@ -57,12 +58,28 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
         <p className="verdict-text">{guide.verdict}</p>
       </section>
 
-      {guide.sections.map((s) => (
-        <section key={s.heading}>
-          <h2>{s.heading}</h2>
-          <div dangerouslySetInnerHTML={{ __html: renderBody(s.body) }} />
-        </section>
-      ))}
+      {guide.teams ? (
+        <>
+          {guide.sections.length > 0 && (
+            <section>
+              <h2>{guide.sections[0].heading}</h2>
+              <div
+                dangerouslySetInnerHTML={{ __html: renderBody(guide.sections[0].body) }}
+              />
+            </section>
+          )}
+          {guide.teams.map((t) => (
+            <TeamCard key={t.name} team={t} />
+          ))}
+        </>
+      ) : (
+        guide.sections.map((s) => (
+          <section key={s.heading}>
+            <h2>{s.heading}</h2>
+            <div dangerouslySetInnerHTML={{ __html: renderBody(s.body) }} />
+          </section>
+        ))
+      )}
 
       <p className="guide-back">
         <Link href="/guides">← All pull guides</Link>
