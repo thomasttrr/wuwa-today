@@ -1,17 +1,41 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Countdown from "./Countdown";
 import CycleProgress from "./CycleProgress";
 import { SERVER_OPTIONS, nextDailyReset, nextWeeklyReset } from "../lib/data";
+
+const STORAGE_KEY = "wuwa-today:server-id";
 
 /**
  * Daily + weekly reset timers. WuWa resets at 04:00 server time; the visitor
  * picks their server region and the countdowns adjust.
  */
 export default function ResetTimers() {
-  const [serverId, setServerId] = useState(SERVER_OPTIONS[0].id);
+  const [serverId, setServerId] = useState<string>(SERVER_OPTIONS[0].id);
   const server = SERVER_OPTIONS.find((s) => s.id === serverId) ?? SERVER_OPTIONS[0];
+
+  // Restore the saved region after hydration so the server render never
+  // touches window.localStorage (and there's no hydration mismatch).
+  useEffect(() => {
+    try {
+      const stored = window.localStorage.getItem(STORAGE_KEY);
+      if (stored && SERVER_OPTIONS.some((s) => s.id === stored)) {
+        setServerId(stored);
+      }
+    } catch {
+      // localStorage unavailable (private mode, etc.) — keep the default.
+    }
+  }, []);
+
+  function selectServer(id: string) {
+    setServerId(id);
+    try {
+      window.localStorage.setItem(STORAGE_KEY, id);
+    } catch {
+      // Persisting failed — the selection still works for this visit.
+    }
+  }
 
   // Recompute each render; Countdown ticks every second on its own.
   const daily = nextDailyReset(server.offsetHours).toISOString();
@@ -26,7 +50,7 @@ export default function ResetTimers() {
           <select
             className="server-select"
             value={serverId}
-            onChange={(e) => setServerId(e.target.value)}
+            onChange={(e) => selectServer(e.target.value)}
             aria-label="Server region for reset timers"
           >
             {SERVER_OPTIONS.map((s) => (
