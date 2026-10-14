@@ -78,6 +78,7 @@ export default function HomePage() {
             <BannerCard
               banner={b}
               featured={i === 0}
+              priority={i === 0}
               events={i === 0 ? activeEvents : undefined}
             />
           </Reveal>
