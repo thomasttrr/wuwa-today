@@ -45,6 +45,11 @@ Full 3.7 event calendar added, from the official Version 3.7 patch notes as repo
 - https://game8.co/games/Wuthering-Waves/archives/484720 — Game8 Beyond the Waves guide: event rewards (Astrite, Lustrous Tide, Crystal Solvent, Premium Tuner)
 - https://earlygg.com/news/wuthering-waves-battle-rush-event-rewards-rules — Battle Rush community contest (Sep 30–Oct 28, Astrite x2,000 + 10x $50 Amazon gift cards)
 
+## Events (refreshed 2026-10-14, midday)
+
+- https://game8.co/games/Wuthering-Waves/archives/456482 — Ascendant Aces event guide (character trials for the current banners, Sep 30 – Nov 11; Phase 2 trial roster lists Suoming, Lynae, Lucilla, Lumi, Chixia, Danjin — corroborates Chixia as the third Phase 2 4★ rate-up, resolving the Chixia-vs-Yangyang question in `banners.json`)
+- http://game8.co/games/wuthering-waves/archives/453473 — Game8 event schedule (re-checked 2026-10-14): Ascendant Aces confirmed on the current calendar; no other new events since the morning check
+
 ## Redemption instructions
 
 In-game only (no verified global web redemption page): Terminal menu → Settings → Other Settings → Redemption Code. Requires Union Level 2. Rewards arrive via in-game mail.
