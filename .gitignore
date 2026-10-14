@@ -11,3 +11,4 @@ out/
 
 # logs
 npm-debug.log*
+hidden_files/perf-log.txt

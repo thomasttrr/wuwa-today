@@ -1,1 +1,0 @@
-2026-10-14 18:31 UTC | client-js-total 649.5 kB (14 chunks; metric: sum of .next/static/chunks JS — Next 16 Turbopack build omits the First Load JS table)
