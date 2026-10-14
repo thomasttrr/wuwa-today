@@ -1,5 +1,6 @@
 import Countdown from "./Countdown";
 import PhaseRail from "./PhaseRail";
+import ArtCardSheen from "./ArtCardSheen";
 import {
   formatDateWithNote,
   type Banner,
@@ -61,10 +62,7 @@ export default function BannerCard({
   const fourStars = banner.characters.filter((c) => c.rarity === 4);
 
   return (
-    <article
-      className="card banner-art-card"
-      aria-label={`${banner.version} ${banner.phase} banner`}
-    >
+    <ArtCardSheen label={`${banner.version} ${banner.phase} banner`}>
       {banner.image && (
         <div
           className="banner-art-bg"
@@ -128,6 +126,6 @@ export default function BannerCard({
           <p className="img-credit">{banner.imageCredit}</p>
         )}
       </div>
-    </article>
+    </ArtCardSheen>
   );
 }
