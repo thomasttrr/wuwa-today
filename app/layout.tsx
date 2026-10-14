@@ -61,7 +61,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               with or endorsed by Kuro Games.
             </p>
             <p>
-              Banner dates marked "estimated" come from community trackers —
+              Banner dates marked &quot;estimated&quot; come from community trackers —
               always confirm in-game. All banner and event dates are shown in
               server time (UTC+8). Codes are verified against multiple
               sources before publishing.

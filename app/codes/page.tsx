@@ -41,7 +41,7 @@ export default function CodesPage() {
 
       <h2>Expired codes</h2>
       <p className="lede">
-        Listed so you don't waste time trying them. Moved here the day they're
+        Listed so you don&apos;t waste time trying them. Moved here the day they&apos;re
         confirmed dead.
       </p>
       <div className="table-scroll">

@@ -20,6 +20,7 @@ export default function CycleProgress({
   const [now, setNow] = useState<number | null>(null);
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- intentional client-only clock sync: the static export renders a placeholder, the effect swaps in live time after mount to stay hydration-safe.
     setNow(Date.now());
     const id = setInterval(() => setNow(Date.now()), 10_000);
     return () => clearInterval(id);

@@ -3,6 +3,8 @@ import { guides } from "../lib/guides";
 
 const BASE = "https://wuwa-today.vercel.app";
 
+export const dynamic = "force-static";
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticPages = ["", "/banners", "/codes", "/events", "/guides"].map((p) => ({
     url: `${BASE}${p}`,

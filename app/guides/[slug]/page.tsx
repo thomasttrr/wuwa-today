@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import { getGuide, guides, renderBody } from "../../../lib/guides";
 import { banners } from "../../../lib/data";
@@ -8,8 +9,9 @@ export function generateStaticParams() {
   return guides.map((g) => ({ slug: g.slug }));
 }
 
-export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
-  const guide = getGuide(params.slug);
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params;
+  const guide = getGuide(slug);
   if (!guide) return { title: "Guide not found" };
   return {
     title: guide.title,
@@ -17,8 +19,9 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
   };
 }
 
-export default function GuidePage({ params }: { params: { slug: string } }) {
-  const guide = getGuide(params.slug);
+export default async function GuidePage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const guide = getGuide(slug);
   if (!guide) notFound();
 
   // Stage 3: small header thumb of the guide's subject character, resolved
@@ -32,7 +35,7 @@ export default function GuidePage({ params }: { params: { slug: string } }) {
     <article className="guide-body">
       <header className="guide-head">
         {thumb && (
-          <img
+          <Image
             src={thumb}
             alt={`${guide.character} official character art`}
             className="guide-thumb"
