@@ -1,6 +1,6 @@
 # Sources
 
-Every fact in `data/` was checked against these sources on **2026-10-13**. Source URLs are also stored per-record in the JSON files.
+Every fact in `data/` was checked against these sources. Banner/code data last checked on **2026-10-14**; event schedule refreshed on **2026-10-14**. Source URLs are also stored per-record in the JSON files.
 
 ## Banners (Version 3.7)
 
@@ -27,11 +27,23 @@ Deliberately excluded (see `codes.json` → `excluded` for reasons):
 - `STARRYSTAGE2`, `KEEPONSHINING` — single source (axeetech.com), expiry window already passed
 - `DARKSIDE`, `RABBITHOLE`, `RUNEREADER` — one stale source lists active, multiple others list expired
 
+2026-10-14 re-check: no new codes. WUTHERINGGIFT still the only verified active code (confirmed by urgametips.com, gachago.com, axeetech.com, shanethegamer.com, lootbar.com, topuplive.com). Excluded set unchanged.
+
 ## Events
 
-- https://www.morganyte.com/wuthering-waves-artisans-search-event-offers-astrite-rewards/ — Artisan's Search: Oct 8–26, 2026
+- https://www.morganyte.com/wuthering-waves-artisans-search-event-offers-astrite-rewards/ — Artisan's Search: Oct 8–26, 2026 (also mentions Echo Erase Oct 22, Beyond the Waves Oct 29, Cubie Wars / Dreams in the Capsule longer windows)
 - https://gurugamer.com/pc-console/wuthering-waves-3-7-banner-value-guide-27328 — 3.7 login events (Radiant/Lustrous Tides), Moonlit Path 5★ selector (Carlotta / Shorekeeper / Phoebe at 980-ring tier)
 - https://club.jollymax.com/wuthering-waves-3-7-update/ — "Blooms for the Shadow" permanent event, 10 Radiant Tides login rewards
+
+## Events (refreshed 2026-10-14)
+
+Full 3.7 event calendar added, from the official Version 3.7 patch notes as reported by coverage plus Game8's event schedule:
+- https://www.sportskeeda.com/esports/wuwa-3-7-patch-notes-wuthering-waves-new-characters-location-events — official 3.7 patch notes content: Cubie Wars, Dreams in the Capsule, Past Dreams Traced Seals, Artisan's Search, Echo Erase, Beyond the Waves: Land of Xuanfang, Gifts of Waking Moon (exact server times)
+- https://openrss.org/wutheringwaves.kurogames.com/en/main — mirror of the official Kuro Games news feed (crawled 2026-10-13): confirms event times, Gifts of Singing Drizzle rewards (Radiant Tide x5 + Premium Tuner x100 at 1 day; Radiant Tide x5 + Crystal Solvent x5 at 3 days)
+- https://finalweapon.net/2026/09/19/wuthering-waves-version-3-7-prisms-illusion-hearts-illumination-release-date/ — release-date writeup: Gifts of Singing Drizzle 10 Radiant Tides total, Back to Solaris / Waking Moon Fishing web events
+- http://game8.co/games/wuthering-waves/archives/453473 — Game8 event schedule (updated 2026-10-09): current + upcoming events with dates (Bountiful Crescendo Oct 15–22, Waking Moon Fishing Oct 15–Nov 1, Chord Cleansing Nov 4–11)
+- https://game8.co/games/Wuthering-Waves/archives/484720 — Game8 Beyond the Waves guide: event rewards (Astrite, Lustrous Tide, Crystal Solvent, Premium Tuner)
+- https://earlygg.com/news/wuthering-waves-battle-rush-event-rewards-rules — Battle Rush community contest (Sep 30–Oct 28, Astrite x2,000 + 10x $50 Amazon gift cards)
 
 ## Redemption instructions
 
