@@ -5,10 +5,10 @@ export default function NotFound() {
     <>
       <h1>Page not found</h1>
       <p className="lede">
-        That page doesn't exist — maybe it expired like a livestream code.
+        That page doesn&apos;t exist — maybe it expired like a livestream code.
       </p>
       <p>
-        <Link href="/">Back to today's dashboard →</Link>
+        <Link href="/">Back to today&apos;s dashboard →</Link>
       </p>
     </>
   );

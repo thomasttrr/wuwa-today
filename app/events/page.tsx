@@ -16,7 +16,7 @@ export default function EventsPage() {
     <>
       <h1>Wuthering Waves events</h1>
       <p className="lede">
-        What's running now, what ends soonest, and what's on the horizon.
+        What&apos;s running now, what ends soonest, and what&apos;s on the horizon.
         Limited events are ordered by end date — finish the top ones first.
       </p>
       <div className="page-meta-row">

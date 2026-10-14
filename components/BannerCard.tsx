@@ -1,6 +1,7 @@
 import Countdown from "./Countdown";
 import PhaseRail from "./PhaseRail";
 import ArtCardSheen from "./ArtCardSheen";
+import Image from "next/image";
 import {
   formatServerDateWithNote,
   type Banner,
@@ -16,7 +17,7 @@ function CharacterChip({ c }: { c: GameCharacter }) {
   return (
     <li className="char-chip">
       {c.sprite && (
-        <img
+        <Image
           src={c.sprite}
           alt={`${c.name} official character art`}
           loading="lazy"
@@ -66,6 +67,7 @@ export default function BannerCard({
   return (
     <ArtCardSheen label={`${banner.version} ${banner.phase} banner`}>
       {banner.image && (
+        // eslint-disable-next-line @next/next/no-img-element -- decorative CSS-positioned art layer (masked/faded via .banner-art-bg); next/image's wrapper spans would break the art-mask styling, and images are unoptimized in this static export so next/image adds nothing.
         <img
           className="banner-art-bg"
           src={banner.image}

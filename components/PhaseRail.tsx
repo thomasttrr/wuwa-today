@@ -20,12 +20,16 @@ export default function PhaseRail({
   endsAt: string;
   events: GameEvent[];
 }) {
-  const [mounted, setMounted] = useState(false);
+  // Client-only timestamp, read once after mount: the static export renders
+  // a placeholder, then the effect swaps in the live rail. Reading Date.now()
+  // here (not during render) keeps the render pure and hydration-safe.
+  const [nowMs, setNowMs] = useState<number | null>(null);
   useEffect(() => {
-    setMounted(true);
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- intentional post-mount sync: the server render must not read the clock, so the timestamp is captured after mount to stay hydration-safe.
+    setNowMs(Date.now());
   }, []);
 
-  if (!mounted) {
+  if (nowMs === null) {
     return <div className="phase-rail" aria-hidden="true" />;
   }
 
@@ -33,7 +37,7 @@ export default function PhaseRail({
   const end = new Date(endsAt).getTime();
   const pct =
     end > start
-      ? Math.min(100, Math.max(0, ((Date.now() - start) / (end - start)) * 100))
+      ? Math.min(100, Math.max(0, ((nowMs - start) / (end - start)) * 100))
       : 0;
 
   const ticks = events

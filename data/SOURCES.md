@@ -1,6 +1,6 @@
 # Sources
 
-Every fact in `data/` was checked against these sources. Banner/code data last checked on **2026-10-14**; event schedule refreshed on **2026-10-14**. Source URLs are also stored per-record in the JSON files.
+Every fact in `data/` was checked against these sources. Banner/code data last checked on **2026-10-14**; event schedule refreshed on **2026-10-14** (midday). Source URLs are also stored per-record in the JSON files.
 
 ## Banners (Version 3.7)
 

@@ -21,6 +21,7 @@ export default function ResetTimers() {
     try {
       const stored = window.localStorage.getItem(STORAGE_KEY);
       if (stored && SERVER_OPTIONS.some((s) => s.id === stored)) {
+        // eslint-disable-next-line react-hooks/set-state-in-effect -- intentional post-hydration restore: the server render must never touch localStorage, so the saved region is applied after mount to stay hydration-safe.
         setServerId(stored);
       }
     } catch {
