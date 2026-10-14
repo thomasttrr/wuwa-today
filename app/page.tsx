@@ -3,6 +3,7 @@ import BannerCard from "../components/BannerCard";
 import CodeRow from "../components/CodeRow";
 import EventCard from "../components/EventCard";
 import ResetTimers from "../components/ResetTimers";
+import Reveal from "../components/Reveal";
 import UpdatedStamp from "../components/UpdatedStamp";
 import {
   activeBanners,
@@ -73,12 +74,13 @@ export default function HomePage() {
       />
       <div className="grid grid-2">
         {activeBanners.map((b, i) => (
-          <BannerCard
-            key={b.id}
-            banner={b}
-            featured={i === 0}
-            events={i === 0 ? activeEvents : undefined}
-          />
+          <Reveal key={b.id} delay={i * 70}>
+            <BannerCard
+              banner={b}
+              featured={i === 0}
+              events={i === 0 ? activeEvents : undefined}
+            />
+          </Reveal>
         ))}
       </div>
 
@@ -90,8 +92,10 @@ export default function HomePage() {
         linkText="All codes & expired archive"
       />
       <div className="grid">
-        {activeCodes.map((c) => (
-          <CodeRow key={c.code} code={c} />
+        {activeCodes.map((c, i) => (
+          <Reveal key={c.code} delay={Math.min(i, 3) * 60}>
+            <CodeRow code={c} />
+          </Reveal>
         ))}
       </div>
 
@@ -103,8 +107,10 @@ export default function HomePage() {
         linkText="Full event calendar"
       />
       <div className="grid grid-2">
-        {activeEvents.map((e) => (
-          <EventCard key={e.id} event={e} />
+        {activeEvents.map((e, i) => (
+          <Reveal key={e.id} delay={i * 70}>
+            <EventCard event={e} />
+          </Reveal>
         ))}
       </div>
 

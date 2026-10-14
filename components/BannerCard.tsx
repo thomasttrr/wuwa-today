@@ -72,10 +72,10 @@ export default function BannerCard({
       )}
       <div className="banner-art-content">
         <div>
-          <span className="badge gold">{banner.version}</span>
-          <span className="badge">{banner.phase}</span>
+          <span className="badge dim">{banner.version}</span>
+          <span className="badge dim">{banner.phase}</span>
           {banner.status === "active" ? (
-            <span className="badge green">Live now</span>
+            <span className="badge live">Live now</span>
           ) : (
             <span className="badge dim">Upcoming</span>
           )}

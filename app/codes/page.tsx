@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import CodeRow from "../../components/CodeRow";
+import Reveal from "../../components/Reveal";
 import UpdatedStamp from "../../components/UpdatedStamp";
 import { activeCodes, expiredCodes, formatDate } from "../../lib/data";
 
@@ -26,8 +27,10 @@ export default function CodesPage() {
         <p>No verified working codes right now — check back after the next livestream.</p>
       ) : (
         <div className="grid">
-          {activeCodes.map((c) => (
-            <CodeRow key={c.code} code={c} />
+          {activeCodes.map((c, i) => (
+            <Reveal key={c.code} delay={Math.min(i, 3) * 60}>
+              <CodeRow code={c} />
+            </Reveal>
           ))}
         </div>
       )}

@@ -18,6 +18,12 @@ function breakdown(target: Date, now: Date): string {
 /**
  * Live countdown to an ISO-8601 target. Renders a static fallback on the
  * server so the page is SEO-friendly, then ticks client-side.
+ *
+ * Digit transitions: each character renders in its own span, keyed by
+ * position AND value — when a digit changes, React remounts just that span
+ * and the CSS plays a 200ms slide. Unchanged digits keep their key and
+ * never re-animate. (Animation itself is gated behind
+ * prefers-reduced-motion in CSS.)
  */
 export default function Countdown({ target, label }: { target: string; label: string }) {
   const [now, setNow] = useState<Date | null>(null);
@@ -29,11 +35,16 @@ export default function Countdown({ target, label }: { target: string; label: st
   }, []);
 
   const targetDate = new Date(target);
+  const text = now ? breakdown(targetDate, now) : "--d --h --m --s";
 
   return (
     <div>
       <div className="countdown" aria-live="off">
-        {now ? breakdown(targetDate, now) : "--d --h --m --s"}
+        {text.split("").map((ch, i) => (
+          <span key={`${i}-${ch}`} className="cd-ch">
+            {ch === " " ? " " : ch}
+          </span>
+        ))}
       </div>
       <div className="countdown-label">{label}</div>
     </div>

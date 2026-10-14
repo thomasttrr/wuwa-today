@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import EventCard from "../../components/EventCard";
+import Reveal from "../../components/Reveal";
 import UpdatedStamp from "../../components/UpdatedStamp";
 import { activeEvents, upcomingEvents } from "../../lib/data";
 
@@ -21,8 +22,10 @@ export default function EventsPage() {
 
       <h2>Active</h2>
       <div className="grid grid-2">
-        {activeEvents.map((e) => (
-          <EventCard key={e.id} event={e} />
+        {activeEvents.map((e, i) => (
+          <Reveal key={e.id} delay={i * 70}>
+            <EventCard event={e} />
+          </Reveal>
         ))}
       </div>
 
@@ -30,8 +33,10 @@ export default function EventsPage() {
         <>
           <h2>Upcoming</h2>
           <div className="grid grid-2">
-            {upcomingEvents.map((e) => (
-              <EventCard key={e.id} event={e} />
+            {upcomingEvents.map((e, i) => (
+              <Reveal key={e.id} delay={i * 70}>
+                <EventCard event={e} />
+              </Reveal>
             ))}
           </div>
         </>

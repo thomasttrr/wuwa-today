@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import BannerCard from "../../components/BannerCard";
+import Reveal from "../../components/Reveal";
 import UpdatedStamp from "../../components/UpdatedStamp";
 import { activeBanners, upcomingBanners, bannerHistory, formatDate } from "../../lib/data";
 
@@ -21,15 +22,19 @@ export default function BannersPage() {
 
       <h2>Live now</h2>
       <div className="grid grid-2">
-        {activeBanners.map((b) => (
-          <BannerCard key={b.id} banner={b} />
+        {activeBanners.map((b, i) => (
+          <Reveal key={b.id} delay={i * 70}>
+            <BannerCard banner={b} />
+          </Reveal>
         ))}
       </div>
 
       <h2>Upcoming</h2>
       <div className="grid grid-2">
-        {upcomingBanners.map((b) => (
-          <BannerCard key={b.id} banner={b} />
+        {upcomingBanners.map((b, i) => (
+          <Reveal key={b.id} delay={i * 70}>
+            <BannerCard banner={b} />
+          </Reveal>
         ))}
       </div>
 

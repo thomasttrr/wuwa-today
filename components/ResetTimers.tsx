@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Countdown from "./Countdown";
+import CycleProgress from "./CycleProgress";
 import { SERVER_OPTIONS, nextDailyReset, nextWeeklyReset } from "../lib/data";
 
 /**
@@ -37,8 +38,14 @@ export default function ResetTimers() {
         </label>
       </div>
       <div className="grid grid-2 reset-timers-grid">
-        <Countdown target={daily} label="Daily reset (04:00 server time)" />
-        <Countdown target={weekly} label="Weekly reset (Mon 04:00 server time)" />
+        <div>
+          <Countdown target={daily} label="Daily reset (04:00 server time)" />
+          <CycleProgress target={daily} cycleMs={86_400_000} label="Daily reset cycle" />
+        </div>
+        <div>
+          <Countdown target={weekly} label="Weekly reset (Mon 04:00 server time)" />
+          <CycleProgress target={weekly} cycleMs={7 * 86_400_000} label="Weekly reset cycle" />
+        </div>
       </div>
     </div>
   );
