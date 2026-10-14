@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import tierList from "@/data/tier-list.json";
+import { characterSlugs } from "@/lib/characters";
 
 export const metadata: Metadata = {
   title: "Character Tier List (3.7) — WuWa Today",
@@ -16,6 +17,7 @@ const TIER_STYLES: Record<string, { badge: string; label: string }> = {
 };
 
 export default function TierListPage() {
+  const hubSlugs = new Set(characterSlugs());
   return (
     <div className="page">
       <div className="page-hero">
@@ -33,8 +35,9 @@ export default function TierListPage() {
               <span className="tier-label">{row.label}</span>
             </div>
             <ul className="tier-members">
-              {row.members.map((m) => (
-                <li key={m.slug} className="tier-member">
+              {row.members.map((m) => {
+                const inHub = hubSlugs.has(m.slug);
+                const face = (
                   <Image
                     src={`/images/chars/${m.slug}.png`}
                     alt={m.name}
@@ -43,12 +46,29 @@ export default function TierListPage() {
                     className="tier-face"
                     loading="lazy"
                   />
-                  <div className="tier-info">
-                    <span className="tier-name">{m.name}</span>
-                    <span className="tier-note">{m.note}</span>
-                  </div>
-                </li>
-              ))}
+                );
+                return (
+                  <li key={m.slug} className="tier-member">
+                    {inHub ? (
+                      <Link href={`/characters/${m.slug}`} aria-label={`${m.name} — character page`}>
+                        {face}
+                      </Link>
+                    ) : (
+                      face
+                    )}
+                    <div className="tier-info">
+                      {inHub ? (
+                        <Link href={`/characters/${m.slug}`} className="tier-name">
+                          {m.name}
+                        </Link>
+                      ) : (
+                        <span className="tier-name">{m.name}</span>
+                      )}
+                      <span className="tier-note">{m.note}</span>
+                    </div>
+                  </li>
+                );
+              })}
             </ul>
           </section>
         );
@@ -57,8 +77,8 @@ export default function TierListPage() {
       <div className="tier-foot">
         <p>
           Want the details?{" "}
-          <Link href="/guides">Browse the build guides</Link> for each featured
-          five-star.
+          <Link href="/characters">Browse the character hub</Link> for builds,
+          weapons, echo sets, and team comps.
         </p>
       </div>
     </div>

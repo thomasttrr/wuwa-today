@@ -1,16 +1,8 @@
 import Image from "next/image";
 import type { Team } from "../lib/guides";
+import { ELEMENT_COLORS } from "../lib/elements";
 
-/** Game-element accent colors (dots, rings, pills — the page stays dark). */
-const ELEMENT_COLORS: Record<string, string> = {
-  Electro: "#a78bfa",
-  Aero: "#6ee7a0",
-  Havoc: "#f472b6",
-  Spectro: "#e879f9",
-  Glacio: "#7dd3fc",
-  Fusion: "#fb923c",
-};
-
+/** Tag badge styles for team cards. */
 const TAG_BADGE: Record<string, string> = {
   Premium: "badge gold",
   Budget: "badge green",

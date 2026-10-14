@@ -1,0 +1,237 @@
+{
+  "slug": "ciaccona",
+  "name": "Ciaccona",
+  "game_version": "3.7",
+  "profile": {
+    "portrait_url": "/images/chars/ciaccona.png",
+    "element": "Aero",
+    "weapon_type": "Pistols",
+    "rarity": 5,
+    "role": "Sub-DPS",
+    "role_note": "Premier Aero Erosion enabler; also applies Spectro Frazzle in off-element teams.",
+    "uncertain_or_prerelease": false
+  },
+  "pull_verdict": {
+    "verdict_label": "No active banner",
+    "banner_id": "no-active-banner",
+    "published_at": "2026-10-14",
+    "source_guide": "research: community build sources (no site pull guide exists)",
+    "uncertain_or_prerelease": false,
+    "verdict": "Essential enabler for Cartethyia's Aero Erosion team and a good general Aero buffer; pull her if you're investing in Aero, less value otherwise."
+  },
+  "build": {
+    "fast_path": "Fast path: Woodland Aria (or Phasic Homogenizer / Static Mist) + 5-piece Gusts of Welkin in a 4-3-3-1-1 layout with Reminiscence: Fleurdelys in the main slot. Aim for a Crit 4-cost, Aero DMG 3-costs, ATK% 1-costs, and enough Energy Regen to keep her Liberation cycling.",
+    "ranked_weapons": [
+      {
+        "rank": 1,
+        "name": "Woodland Aria",
+        "rarity": 5,
+        "signature": true,
+        "note": "Her signature. ATK%, Aero DMG on Erosion application, and Aero RES shred. Tailor-made for her."
+      },
+      {
+        "rank": 2,
+        "name": "Phasic Homogenizer",
+        "rarity": 5,
+        "signature": false,
+        "note": "3.0 standard pistol; universal ATK and All-Attribute DMG buffs. A close second."
+      },
+      {
+        "rank": 3,
+        "name": "Static Mist",
+        "rarity": 5,
+        "signature": false,
+        "note": "Energy Regen plus ATK buff to the incoming Resonator on Outro."
+      },
+      {
+        "rank": 4,
+        "name": "Lux & Umbra",
+        "rarity": 5,
+        "signature": false,
+        "note": "Echo Skill / Heavy Attack DMG amplification with DEF ignore when both are active."
+      },
+      {
+        "rank": 5,
+        "name": "Spectrum Blaster",
+        "rarity": 5,
+        "signature": false,
+        "note": "ATK% and Tune Shifting team DMG buffs on Basic Attacks."
+      },
+      {
+        "rank": 6,
+        "name": "The Last Dance",
+        "rarity": 5,
+        "signature": false,
+        "note": "ATK% and Resonance Skill DMG; usable stat stick."
+      },
+      {
+        "rank": 7,
+        "name": "Romance in Farewell",
+        "rarity": 4,
+        "signature": false,
+        "note": "Craftable F2P option; ATK buff on hitting enemies with Negative Statuses."
+      },
+      {
+        "rank": 8,
+        "name": "Relativistic Jet",
+        "rarity": 4,
+        "signature": false,
+        "note": "Resonance Energy and ATK after casting skill; decent 4-star."
+      },
+      {
+        "rank": 9,
+        "name": "Cadenza",
+        "rarity": 4,
+        "signature": false,
+        "note": "Concerto Energy on Resonance Skill; budget rotation smoother."
+      }
+    ],
+    "echo_sets": [
+      {
+        "name": "Gusts of Welkin",
+        "pieces": "5-pc",
+        "usage": "best-in-slot",
+        "main_echo": "Reminiscence: Fleurdelys",
+        "note": "Tailor-made for her: inflicting Aero Erosion grants 15% Aero DMG to the whole team (30% for her). Fleurdelys is the set's only 4-cost echo."
+      },
+      {
+        "name": "Moonlit Clouds",
+        "pieces": "5-pc",
+        "usage": "alternative",
+        "main_echo": "Impermanence Heron",
+        "note": "Best set when she's in Spectro Frazzle teams; ATK and DMG buffs for the next Resonator plus Energy Regen."
+      },
+      {
+        "name": "Gusts of Welkin + Sierra Gale",
+        "pieces": "2-pc + 2-pc",
+        "usage": "placeholder",
+        "main_echo": "Nightmare: Feilian Beringal",
+        "note": "Early-game placeholder; buffs only Ciaccona herself."
+      }
+    ],
+    "cost_layout": "4-3-3-1-1",
+    "stat_priorities": [
+      {
+        "piece": "4-cost",
+        "main_stat": "Crit Rate or Crit DMG",
+        "alternates": [
+          "Crit Rate",
+          "Crit DMG"
+        ],
+        "note": "Balance Crit; her own damage is non-negligible."
+      },
+      {
+        "piece": "3-cost",
+        "main_stat": "Aero DMG Bonus",
+        "alternates": [],
+        "note": "Aero DMG on both 3-costs."
+      },
+      {
+        "piece": "1-cost",
+        "main_stat": "ATK%",
+        "alternates": [],
+        "note": "ATK% on both."
+      }
+    ],
+    "substat_priority": [
+      "Crit Rate",
+      "Crit DMG",
+      "Energy Regen",
+      "Resonance Liberation DMG Bonus",
+      "ATK%",
+      "flat ATK"
+    ],
+    "energy_regen_target": "not published by Game8; community guides suggest ~150%",
+    "uncertain_or_prerelease": false
+  },
+  "teams": [
+    {
+      "name": "Premium: Cartethyia + Ciaccona + Chisa",
+      "tag": "Premium",
+      "members": [
+        {
+          "name": "Cartethyia",
+          "slug": "cartethyia",
+          "role": "Main DPS",
+          "element": "Aero",
+          "note": "Aero Erosion hypercarry; reliant on Ciaccona's stacks and buffs at S0."
+        },
+        {
+          "name": "Ciaccona",
+          "slug": "ciaccona",
+          "role": "Sub-DPS",
+          "element": "Aero",
+          "note": "The Erosion enabler: stacks, Aero buffs, and team-wide Aero DMG from Gusts of Welkin."
+        },
+        {
+          "name": "Chisa",
+          "slug": "chisa",
+          "role": "Support",
+          "element": "Havoc",
+          "note": "Raises the Erosion stack cap and reduces enemy DEF with Havoc Bane."
+        }
+      ],
+      "rotation": "Chisa opens with her Forte combo, Ciaccona applies Erosion and team buffs, then Cartethyia stacks Erosion and transforms into Fleurdelys for the burst."
+    },
+    {
+      "name": "Alternative: Jiyan + Ciaccona + Verina",
+      "tag": "Alternative",
+      "members": [
+        {
+          "name": "Jiyan",
+          "slug": "jiyan",
+          "role": "Main DPS",
+          "element": "Aero",
+          "note": "Launch-era Aero AoE carry; benefits from Ciaccona's general Aero DMG buffs."
+        },
+        {
+          "name": "Ciaccona",
+          "slug": "ciaccona",
+          "role": "Sub-DPS",
+          "element": "Aero",
+          "note": "Works as a general Aero DMG buffer for DPS units like Jiyan and Sigrika, per Game8."
+        },
+        {
+          "name": "Verina",
+          "slug": "verina",
+          "role": "Support",
+          "element": "Spectro",
+          "note": "Free universal healer and buffer; her Outro deepens all-type DMG."
+        }
+      ],
+      "rotation": "Verina keeps the team healthy and buffed, Ciaccona quick-swaps in to apply Erosion and drop her Outro, then Jiyan takes an extended AoE on-field window."
+    }
+  ],
+  "teams_meta": {
+    "source_guide": "research: community team recommendations",
+    "uncertain_or_prerelease": false
+  },
+  "tier_badge": {
+    "tier": "A",
+    "label": "Excellent",
+    "note": "Essential Aero Erosion enabler; her support value keeps her high.",
+    "uncertain_or_prerelease": false
+  },
+  "sources": [
+    {
+      "file": "http://game8.co/games/Wuthering-Waves/archives/507924",
+      "record": "Ciaccona Best Builds and Teams",
+      "type": "build_guide"
+    },
+    {
+      "file": "https://Www.Thegamer.com/wuthering-waves-ciaccona-build-team-weapon-echoes-strategy-guide/",
+      "record": "Ciaccona build guide",
+      "type": "build_guide"
+    },
+    {
+      "file": "https://digitalphablet.com/gaming/completing-the-ultimate-ciaccona-build-weapon-and-team-guide-in-wuthering-waves/",
+      "record": "Ciaccona build guide",
+      "type": "build_guide"
+    },
+    {
+      "file": "data/tier-list.json",
+      "record": "ciaccona",
+      "type": "tier_list"
+    }
+  ]
+}

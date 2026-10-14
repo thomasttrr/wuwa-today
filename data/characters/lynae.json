@@ -1,0 +1,233 @@
+{
+  "slug": "lynae",
+  "name": "Lynae",
+  "game_version": "3.7",
+  "profile": {
+    "portrait_url": "/images/chars/lynae.png",
+    "element": "Spectro",
+    "weapon_type": "Pistols",
+    "rarity": 5,
+    "role": "Sub-DPS",
+    "role_note": "Spectro sub-DPS and support; universal Liberation amplifier for burst teams; strong at S0.",
+    "uncertain_or_prerelease": false
+  },
+  "pull_verdict": {
+    "verdict": "The safest rerun of 3.7 — pull her if you don't own her.",
+    "verdict_label": "Safest rerun pick",
+    "banner_id": "3.7-phase-2",
+    "published_at": "2026-10-14",
+    "source_guide": "is-lynae-worth-pulling",
+    "uncertain_or_prerelease": false
+  },
+  "build": {
+    "fast_path": "Fast path: Spectrum Blaster (or Static Mist) + 5-piece Pact of Neonlight Leap with Hyvatia in the main slot, 4-3-3-1-1 layout. Main stats: Crit on the 4-cost, Spectro DMG on the 3-costs, ATK% on the 1-costs. Level her Forte Circuit first.",
+    "ranked_weapons": [
+      {
+        "rank": 1,
+        "name": "Spectrum Blaster",
+        "rarity": 5,
+        "signature": true,
+        "note": "Crit Rate. Basic Attack DMG +36% on Intro/Basic hits, and inflicting Tune Rupture/Strain grants the whole team up to 24% All DMG. Best in slot by a clear margin."
+      },
+      {
+        "rank": 2,
+        "name": "Phasic Homogenizer",
+        "rarity": 5,
+        "signature": false,
+        "note": "Crit DMG. ATK +12% and 20% All-Attribute DMG Bonus when a teammate casts a Tune Break skill. The strongest non-signature option."
+      },
+      {
+        "rank": 3,
+        "name": "Static Mist",
+        "rarity": 5,
+        "signature": false,
+        "note": "Energy Regen. The support-oriented pick: smoother Liberation uptime and an ATK buff for the next character via her Outro."
+      },
+      {
+        "rank": 4,
+        "name": "Solar Flame",
+        "rarity": 4,
+        "signature": false,
+        "note": "the recommended budget pick; stacks ATK and Heavy Attack DMG."
+      },
+      {
+        "rank": 5,
+        "name": "Cadenza / Relativistic Jet",
+        "rarity": 4,
+        "signature": false,
+        "note": "serviceable fillers; Relativistic Jet helps Energy Regen for smoother rotations."
+      }
+    ],
+    "echo_sets": [
+      {
+        "name": "Pact of Neonlight Leap",
+        "pieces": "5-pc",
+        "usage": "best-in-slot",
+        "main_echo": "Hyvatia",
+        "note": "2-pc: +10% Spectro DMG. 5-pc: grants the next character 30% ATK and 10% All-Type DMG after Lynae casts her Outro Skill — the core of her buffer identity. Hyvatia: using her Intro Skill grants the next Resonator 10% All-Type DMG Bonus. Sub-DPS alternative main Echo: Twin Nova - Nebulous Cannon (boosts her own Basic Attack and Spectro DMG)."
+      },
+      {
+        "name": "Moonlit Clouds",
+        "pieces": "5-pc",
+        "usage": "placeholder",
+        "note": "Placeholder while farming: Energy Regen plus an ATK buff for the next character."
+      },
+      {
+        "name": "Rite of Gilded Revelation",
+        "pieces": "5-pc",
+        "usage": "alternative",
+        "note": "For a main-DPS Lynae build: Basic Attack hits stack Spectro DMG up to 3 times, and at max stacks her Liberation gains +40% Basic Attack DMG Bonus."
+      }
+    ],
+    "cost_layout": "4-3-3-1-1",
+    "stat_priorities": [
+      {
+        "piece": "4-cost",
+        "main_stat": "Crit Rate or Crit DMG",
+        "alternates": [],
+        "note": "Pick whichever balances your substats — Crit Rate if below ~70%."
+      },
+      {
+        "piece": "3-cost",
+        "main_stat": "Spectro DMG Bonus",
+        "alternates": [
+          "Energy Regen"
+        ],
+        "note": "Spectro DMG Bonus on both by default; Energy Regen on one piece if her Liberation isn't ready every rotation."
+      },
+      {
+        "piece": "1-cost",
+        "main_stat": "ATK%",
+        "alternates": [],
+        "note": "ATK% on both."
+      }
+    ],
+    "substat_priority": [
+      "Crit Rate",
+      "Crit DMG",
+      "ATK%",
+      "Energy Regen",
+      "flat ATK"
+    ],
+    "energy_regen_target": "Comfort stat, not a breakpoint — most guides don't list a target",
+    "uncertain_or_prerelease": false
+  },
+  "teams": [
+    {
+      "name": "Team 1 — Tune Rupture core: Aemeath + Lynae + Mornye",
+      "tag": "Premium",
+      "members": [
+        {
+          "name": "Aemeath",
+          "slug": "aemeath",
+          "role": "Main DPS",
+          "element": "Fusion",
+          "note": "The main DPS: triggers Tune Rupture for massive damage. Both she and Lynae must be set to Tune Rupture Mode in the character menu for the team to work."
+        },
+        {
+          "name": "Lynae",
+          "slug": "lynae",
+          "role": "Sub-DPS",
+          "element": "Spectro",
+          "note": "The sub-DPS and buffer: applies Tune Rupture to feed Aemeath's stacks, grants All DMG buffs and Tune Break Boost, and her Outro hands Aemeath a big Resonance Liberation DMG boost right before her ultimate."
+        },
+        {
+          "name": "Mornye",
+          "slug": "mornye",
+          "role": "Support",
+          "element": "Fusion",
+          "note": "The support and healer: heals, amplifies team-wide damage, and boosts the Off-Tune buildup rate so Tune Breaks land more often."
+        }
+      ],
+      "rotation": "Open with Mornye to heal and apply buffs, swap through Lynae (skill, then Liberation, then Outro into Aemeath), and let Aemeath take her long on-field window to detonate the Tune Rupture setups. Repeat — the buff windows are long enough that the order matters more than the speed."
+    },
+    {
+      "name": "Team 2 — Liberation burst: Iuno + Lynae + Mornye",
+      "tag": "Alternative",
+      "members": [
+        {
+          "name": "Iuno",
+          "slug": "iuno",
+          "role": "Main DPS",
+          "element": "Aero",
+          "note": "The main DPS: her burst-heavy playstyle leans on Resonance Liberation, which is exactly what Lynae amplifies, and her own kit adds healing that keeps the team healthy."
+        },
+        {
+          "name": "Lynae",
+          "slug": "lynae",
+          "role": "Sub-DPS",
+          "element": "Spectro",
+          "note": "Her Liberation grants a team-wide damage buff and her Outro feeds Iuno both All DMG Amplification and Liberation DMG amplification — the ideal partner for Iuno's burst windows."
+        },
+        {
+          "name": "Mornye",
+          "slug": "mornye",
+          "role": "Support",
+          "element": "Fusion",
+          "note": "Team-wide damage amp, healing, and interruption resistance for a comfortable rotation. Shorekeeper or Verina slot in fine if you don't own Mornye."
+        }
+      ],
+      "rotation": "Mornye first for buffs and healing, then Lynae's skill into her Liberation, then her Outro directly into Iuno — Iuno takes the field, spends her Liberation under the full stack of buffs, and heals the team while doing it."
+    },
+    {
+      "name": "Team 3 — Budget: Lynae + Sanhua + Verina",
+      "tag": "Budget",
+      "members": [
+        {
+          "name": "Lynae",
+          "slug": "lynae",
+          "role": "Sub-DPS",
+          "element": "Spectro",
+          "note": "The team's entire engine: her All DMG and Liberation buffs lift Sanhua's damage far beyond what a 4-star could reach alone, and her own off-field hits keep damage flowing while she waits offstage."
+        },
+        {
+          "name": "Sanhua",
+          "slug": "sanhua",
+          "role": "Main DPS",
+          "element": "Glacio",
+          "note": "The main DPS: a strong free/standard 4-star who takes the field, deals quick sword combos, and hands control back to Lynae between windows."
+        },
+        {
+          "name": "Verina",
+          "slug": "verina",
+          "role": "Support",
+          "element": "Spectro",
+          "note": "The sustain: heals and buffs with minimal field time, and her coordinated attacks chip in damage without stealing Sanhua's spotlight."
+        }
+      ],
+      "rotation": "Verina for heals and her damage buff, Lynae for skill into Liberation and Outro, then Sanhua's full field segment — the same buff-then-carry rhythm as the premium teams, just cheaper."
+    }
+  ],
+  "teams_meta": {
+    "source_guide": "best-lynae-teams",
+    "uncertain_or_prerelease": false
+  },
+  "tier_badge": {
+    "tier": "S",
+    "label": "Meta-defining",
+    "note": "Premier Spectro sub-DPS; a universal Liberation amplifier for burst teams.",
+    "uncertain_or_prerelease": false
+  },
+  "sources": [
+    {
+      "file": "data/guides.json",
+      "record": "is-lynae-worth-pulling",
+      "type": "pull_guide"
+    },
+    {
+      "file": "data/guides.json",
+      "record": "lynae-build-guide",
+      "type": "build_guide"
+    },
+    {
+      "file": "data/guides.json",
+      "record": "best-lynae-teams",
+      "type": "team_guide"
+    },
+    {
+      "file": "data/tier-list.json",
+      "record": "lynae",
+      "type": "tier_list"
+    }
+  ]
+}

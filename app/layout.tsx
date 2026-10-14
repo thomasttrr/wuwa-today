@@ -26,7 +26,7 @@ const NAV = [
   { href: "/banners", label: "Banners" },
   { href: "/codes", label: "Codes" },
   { href: "/events", label: "Events" },
-  { href: "/guides", label: "Guides" },
+  { href: "/characters", label: "Characters" },
   { href: "/tier-list", label: "Tier List" },
 ];
 

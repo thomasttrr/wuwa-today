@@ -1,0 +1,249 @@
+{
+  "slug": "hsin",
+  "name": "Hsin",
+  "game_version": "3.7",
+  "profile": {
+    "portrait_url": "/images/chars/hsin.png",
+    "element": "Electro",
+    "weapon_type": "Rectifier",
+    "rarity": 5,
+    "role": "Main DPS",
+    "role_note": "Two Resonance Modes: Electro Flare (stack-and-detonate) and Unison (quick-swap).",
+    "uncertain_or_prerelease": false
+  },
+  "pull_verdict": {
+    "verdict": "Strong pull for accounts missing an Electro DPS; skippable if your Electro teams are already complete or you're committed to Suoming in Phase 2.",
+    "verdict_label": "Worth it — with conditions",
+    "banner_id": "3.7-phase-1",
+    "published_at": "2026-10-13",
+    "source_guide": "is-hsin-worth-pulling",
+    "uncertain_or_prerelease": false
+  },
+  "build": {
+    "fast_path": "Fast path: Blooming Jadehaven (or Lethean Elegy / Stringmaster) + 5-piece Heart of Sworn Vigil in a 4-3-3-1-1 layout. Aim for a Crit DMG 4-cost, Electro DMG 3-costs, ATK% 1-costs, and roughly 120% Energy Regen. Level her Forte Circuit first.",
+    "ranked_weapons": [
+      {
+        "rank": 1,
+        "name": "Blooming Jadehaven",
+        "rarity": 5,
+        "signature": true,
+        "note": "Crit Rate substat. Grants All-Attribute DMG, big Resonance Skill DMG amplification, and boosts Electro Flare damage. Best in slot."
+      },
+      {
+        "rank": 2,
+        "name": "Lethean Elegy",
+        "rarity": 5,
+        "signature": false,
+        "note": "the strongest non-signature alternative."
+      },
+      {
+        "rank": 3,
+        "name": "Stringmaster",
+        "rarity": 5,
+        "signature": false,
+        "note": "another strong premium option."
+      },
+      {
+        "rank": 4,
+        "name": "Waltz in Masquerade",
+        "rarity": 4,
+        "signature": false,
+        "note": "the recommended 4-star pick."
+      },
+      {
+        "rank": 5,
+        "name": "Fusion Accretion",
+        "rarity": 4,
+        "signature": false,
+        "note": "energy-focused, easy to obtain."
+      },
+      {
+        "rank": 6,
+        "name": "Augment / Radiant Dawn",
+        "rarity": 4,
+        "signature": false,
+        "note": "both carry a Crit Rate secondary stat, which smooths out her Crit balance."
+      },
+      {
+        "rank": 7,
+        "name": "Cosmic Ripples",
+        "rarity": 4,
+        "signature": false,
+        "note": "serviceable budget filler until something better drops."
+      }
+    ],
+    "echo_sets": [
+      {
+        "name": "Heart of Sworn Vigil",
+        "pieces": "5-pc",
+        "usage": "best-in-slot",
+        "main_echo": "Reminiscence: Suhsin the Inevitable",
+        "note": "2-pc: +10% Electro DMG. 5-pc: +15% Crit Rate and +22.5% Electro DMG for 30s when she inflicts Electro Flare, gains Unison, or triggers a Unison Response. Both modes activate it, so it stays live through her whole damage window. For sub-DPS use Soulfrayer (buffs incoming Resonator's Electro DMG through her Outro)."
+      },
+      {
+        "name": "Flash of Electric Reflection",
+        "pieces": "5-pc",
+        "usage": "alternative",
+        "note": "For sub-DPS or support-oriented Electro Flare builds."
+      },
+      {
+        "name": "Void Thunder or mixed 2-pc Electro + 2-pc ATK",
+        "pieces": "5-pc / mixed",
+        "usage": "placeholder",
+        "note": "While farming her proper set."
+      }
+    ],
+    "cost_layout": "4-3-3-1-1",
+    "stat_priorities": [
+      {
+        "piece": "4-cost",
+        "main_stat": "Crit DMG",
+        "alternates": [
+          "Crit Rate"
+        ],
+        "note": "Crit DMG if running her signature or another Crit weapon (set, passives, and Crit weapons already supply plenty of Crit Rate); Crit Rate if substats lack it."
+      },
+      {
+        "piece": "3-cost",
+        "main_stat": "Electro DMG Bonus",
+        "alternates": [
+          "ATK%"
+        ],
+        "note": "Electro DMG Bonus on both by default. The second piece can be ATK% if its substats are clearly better; Electro Flare mode is fine with one Electro% + one ATK%."
+      },
+      {
+        "piece": "1-cost",
+        "main_stat": "ATK%",
+        "alternates": [],
+        "note": "ATK% on both."
+      }
+    ],
+    "substat_priority": [
+      "Crit Rate",
+      "Crit DMG",
+      "ATK%",
+      "Resonance Skill DMG Bonus",
+      "flat ATK"
+    ],
+    "energy_regen_target": "118-125%",
+    "uncertain_or_prerelease": false
+  },
+  "teams": [
+    {
+      "name": "Premium: Hsin + Suoming + Shorekeeper",
+      "tag": "Premium",
+      "members": [
+        {
+          "name": "Hsin",
+          "slug": "hsin",
+          "role": "Main DPS",
+          "element": "Electro",
+          "note": "The Electro hypercarry. Takes the field during Unison windows and spends them on her Resonance Skill burst, amplified by Suoming's buffs."
+        },
+        {
+          "name": "Suoming",
+          "slug": "suoming",
+          "role": "Sub-DPS",
+          "element": "Electro",
+          "note": "The Unison engine. Builds Delusion, fires her Liberation to gain Unison, then swaps out — handing Hsin Electro DMG and Resonance Skill DMG amplification while her Thunder Crest coordinated attacks keep striking off-field."
+        },
+        {
+          "name": "Shorekeeper",
+          "slug": "shorekeeper",
+          "role": "Support",
+          "element": "Spectro",
+          "note": "The sustain. Heals and hands out broad offensive buffs while barely needing field time, so she never interrupts the Hsin-Suoming swap rhythm."
+        }
+      ],
+      "rotation": "Enter with Hsin's Intro Skill, build into her Liberation to trigger the Unison window, then swap immediately — her Outro and Suoming's Intro fire for free. Let Suoming take her field segment, then swap back to Hsin through another (empowered) Intro. Shorekeeper only comes in briefly to heal and refresh buffs."
+    },
+    {
+      "name": "Budget: Hsin + Electro Rover + Suisui",
+      "tag": "Budget",
+      "members": [
+        {
+          "name": "Hsin",
+          "slug": "hsin",
+          "role": "Main DPS",
+          "element": "Electro",
+          "note": "Detonates Electro Flare stacks for her big bursts. Don't swap-cancel her Resonance Skill mid-cast — cutting it short wastes the Flare damage."
+        },
+        {
+          "name": "Electro Rover",
+          "slug": "electro-rover",
+          "role": "Sub-DPS",
+          "element": "Electro",
+          "note": "The Flare engine. Applies Electro Flare stacks in bulk, and his kit interacts with Hsin's Intro Skill so both gain an Electro damage bonus. Free 5-star most accounts own."
+        },
+        {
+          "name": "Suisui",
+          "slug": "suisui",
+          "role": "Support",
+          "element": "Glacio",
+          "note": "Sustains the team with heals while raising the maximum Electro Flare and Electro Rage stack caps and providing long-lasting team buffs."
+        }
+      ],
+      "rotation": "Open with Suisui to apply the first Flare stacks, then bring in Electro Rover to pile on more stacks and trigger his Intro interaction with Hsin. Swap to Hsin, build resources with basic attacks and her skill, then spend everything: empowered heavy attack into Resonance Liberation to detonate. Aim for about 120% Energy Regen."
+    },
+    {
+      "name": "Alternative: Hsin + Electro Rover + Buling",
+      "tag": "Alternative",
+      "members": [
+        {
+          "name": "Hsin",
+          "slug": "hsin",
+          "role": "Main DPS",
+          "element": "Electro",
+          "note": "Same Flare-detonation carry role as the budget team — builds resources, then spends them on empowered heavy into Liberation for the big burst."
+        },
+        {
+          "name": "Electro Rover",
+          "slug": "electro-rover",
+          "role": "Sub-DPS",
+          "element": "Electro",
+          "note": "Same Flare-stack engine: applies stacks in bulk and triggers the Intro interaction that gives both him and Hsin an Electro damage bonus."
+        },
+        {
+          "name": "Buling",
+          "slug": "buling",
+          "role": "Support",
+          "element": "Electro",
+          "note": "The fully free sustain option. A 4-star rate-up on Hsin's own Phase 1 banner, covering the healer slot with Flare application of her own."
+        }
+      ],
+      "rotation": "Same Electro Flare loop as the Suisui version: Buling opens with the first Flare stacks, Electro Rover piles on more and triggers the Intro interaction, then Hsin builds and detonates with her Liberation. Keep her Resonance Skill casts uninterrupted."
+    }
+  ],
+  "teams_meta": {
+    "source_guide": "hsin-team-guide",
+    "uncertain_or_prerelease": false
+  },
+  "tier_badge": {
+    "tier": "S",
+    "label": "Meta-defining",
+    "note": "The new premier Electro DPS; defines 3.7's Unison and Electro Flare meta.",
+    "uncertain_or_prerelease": false
+  },
+  "sources": [
+    {
+      "file": "data/guides.json",
+      "record": "is-hsin-worth-pulling",
+      "type": "pull_guide"
+    },
+    {
+      "file": "data/guides.json",
+      "record": "hsin-build-guide",
+      "type": "build_guide"
+    },
+    {
+      "file": "data/guides.json",
+      "record": "hsin-team-guide",
+      "type": "team_guide"
+    },
+    {
+      "file": "data/tier-list.json",
+      "record": "hsin",
+      "type": "tier_list"
+    }
+  ]
+}

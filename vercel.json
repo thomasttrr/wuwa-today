@@ -1,0 +1,104 @@
+{
+  "redirects": [
+    {
+      "source": "/guides",
+      "destination": "/characters",
+      "permanent": true
+    },
+    {
+      "source": "/guides/best-chisa-teams",
+      "destination": "/characters/chisa",
+      "permanent": true
+    },
+    {
+      "source": "/guides/best-iuno-teams",
+      "destination": "/characters/iuno",
+      "permanent": true
+    },
+    {
+      "source": "/guides/best-lucilla-teams",
+      "destination": "/characters/lucilla",
+      "permanent": true
+    },
+    {
+      "source": "/guides/best-lynae-teams",
+      "destination": "/characters/lynae",
+      "permanent": true
+    },
+    {
+      "source": "/guides/best-suoming-teams",
+      "destination": "/characters/suoming",
+      "permanent": true
+    },
+    {
+      "source": "/guides/chisa-build-guide",
+      "destination": "/characters/chisa",
+      "permanent": true
+    },
+    {
+      "source": "/guides/hsin-build-guide",
+      "destination": "/characters/hsin",
+      "permanent": true
+    },
+    {
+      "source": "/guides/hsin-team-guide",
+      "destination": "/characters/hsin",
+      "permanent": true
+    },
+    {
+      "source": "/guides/is-chisa-worth-pulling",
+      "destination": "/characters/chisa",
+      "permanent": true
+    },
+    {
+      "source": "/guides/is-hsin-worth-pulling",
+      "destination": "/characters/hsin",
+      "permanent": true
+    },
+    {
+      "source": "/guides/is-iuno-worth-pulling",
+      "destination": "/characters/iuno",
+      "permanent": true
+    },
+    {
+      "source": "/guides/is-lucilla-worth-pulling",
+      "destination": "/characters/lucilla",
+      "permanent": true
+    },
+    {
+      "source": "/guides/is-lynae-worth-pulling",
+      "destination": "/characters/lynae",
+      "permanent": true
+    },
+    {
+      "source": "/guides/is-suoming-worth-pulling",
+      "destination": "/characters/suoming",
+      "permanent": true
+    },
+    {
+      "source": "/guides/iuno-build-guide",
+      "destination": "/characters/iuno",
+      "permanent": true
+    },
+    {
+      "source": "/guides/lucilla-build-guide",
+      "destination": "/characters/lucilla",
+      "permanent": true
+    },
+    {
+      "source": "/guides/lynae-build-guide",
+      "destination": "/characters/lynae",
+      "permanent": true
+    },
+    {
+      "source": "/guides/moonlit-path-selector",
+      "destination": "/characters",
+      "permanent": true
+    },
+    {
+      "source": "/guides/suoming-build-guide",
+      "destination": "/characters/suoming",
+      "permanent": true
+    }
+  ]
+}

@@ -1,0 +1,247 @@
+{
+  "slug": "lucilla",
+  "name": "Lucilla",
+  "game_version": "3.7",
+  "profile": {
+    "portrait_url": "/images/chars/lucilla.png",
+    "element": "Glacio",
+    "weapon_type": "Rectifier",
+    "rarity": 5,
+    "role": "Support",
+    "role_note": "Support/sub-DPS with two resonance modes: Glacio Chafe and Echo.",
+    "uncertain_or_prerelease": false
+  },
+  "pull_verdict": {
+    "verdict": "Pull Lucilla if you have Hiyuki, a Glacio DPS, or Echo Skill carries — she's arguably their best support. Otherwise skip: she's niche, not a generalist.",
+    "verdict_label": "Great for her teams",
+    "banner_id": "3.7-phase-2",
+    "published_at": "2026-10-14",
+    "source_guide": "is-lucilla-worth-pulling",
+    "uncertain_or_prerelease": false
+  },
+  "build": {
+    "fast_path": "Fast path: Freeze Frame (or Stringmaster) + 5-piece Wishes of Quiet Snowfall (Chafe) or Moonlit Clouds (Echo). No Energy Regen needed — her Liberation comes up without it. Cost layout: 4-3-3-1-1 for both modes.",
+    "ranked_weapons": [
+      {
+        "rank": 1,
+        "name": "Freeze Frame",
+        "rarity": 5,
+        "signature": true,
+        "note": "Crit Rate substat. +12% ATK; inflicting Glacio Chafe grants 30% Glacio DMG Bonus for 12s and 24% ATK to the whole team for 30s. Works in both modes."
+      },
+      {
+        "rank": 2,
+        "name": "Stringmaster",
+        "rarity": 5,
+        "signature": false,
+        "note": "Crit Rate substat. Strong ATK and Resonance Skill DMG stacks; the best general-purpose alternative."
+      },
+      {
+        "rank": 3,
+        "name": "Whispers of Sirens",
+        "rarity": 5,
+        "signature": false,
+        "note": "Crit DMG substat. Up to 40% Basic Attack DMG buff, which fits her Chafe mode damage type."
+      },
+      {
+        "rank": 4,
+        "name": "Cosmic Ripples",
+        "rarity": 5,
+        "signature": false,
+        "note": "ATK% substat. Reliable ATK and Basic Attack DMG; the stable free-ish 5-star pick."
+      },
+      {
+        "rank": 5,
+        "name": "Lethean Elegy",
+        "rarity": 5,
+        "signature": false,
+        "note": "best pick specifically for Echo mode builds, with Echo Skill DMG amplification."
+      },
+      {
+        "rank": 6,
+        "name": "Augment",
+        "rarity": 4,
+        "signature": false,
+        "note": "Crit Rate substat. ATK buff on Liberation; the recommended 4-star pick."
+      },
+      {
+        "rank": 7,
+        "name": "Waltz in Masquerade",
+        "rarity": 4,
+        "signature": false,
+        "note": "ATK% substat. Stacks ATK against enemies with Negative Statuses like Chafe; easy to obtain."
+      }
+    ],
+    "echo_sets": [
+      {
+        "name": "Wishes of Quiet Snowfall",
+        "pieces": "5-pc",
+        "usage": "Glacio Chafe mode",
+        "main_echo": "Glommoth",
+        "note": "2-pc: +10% Glacio DMG. 5-pc: +10% Glacio DMG plus the Snowfall effect on inflicting Chafe — dealing Liberation DMG then gives +25% Crit Rate, and her Outro grants +25% Glacio DMG Bonus to the incoming Resonator. Glommoth (3-cost) deals Glacio DMG and passes a Glacio DMG bonus on Outro."
+      },
+      {
+        "name": "Moonlit Clouds",
+        "pieces": "5-pc",
+        "usage": "Echo mode",
+        "main_echo": "Impermanence Heron",
+        "note": "2-pc: +10% Energy Regen. 5-pc: +22.5% ATK to the incoming Resonator for 15s after her Outro. Impermanence Heron buffs the incoming character's damage when she uses her Outro after the Echo skill."
+      },
+      {
+        "name": "Freezing Frost",
+        "pieces": "5-pc",
+        "usage": "placeholder",
+        "note": "Alternative while farming: transitional Glacio set."
+      }
+    ],
+    "cost_layout": "4-3-3-1-1",
+    "stat_priorities": [
+      {
+        "piece": "4-cost",
+        "main_stat": "Crit Rate or Crit DMG",
+        "alternates": [],
+        "note": "Pick whichever your substats lack."
+      },
+      {
+        "piece": "3-cost",
+        "main_stat": "Glacio DMG Bonus",
+        "alternates": [
+          "ATK%"
+        ],
+        "note": "Glacio DMG Bonus on both by default; ATK% is fine if the piece has clearly better substats."
+      },
+      {
+        "piece": "1-cost",
+        "main_stat": "ATK%",
+        "alternates": [],
+        "note": "ATK% on both."
+      }
+    ],
+    "substat_priority": [
+      "Crit Rate",
+      "Crit DMG",
+      "ATK%",
+      "Basic Attack DMG Bonus (Chafe mode) / Resonance Liberation DMG (Echo mode)"
+    ],
+    "energy_regen_target": "Not needed — multiple guides agree she keeps Liberation available without it",
+    "uncertain_or_prerelease": false
+  },
+  "teams": [
+    {
+      "name": "Team 1: Hiyuki Glacio Chafe (premium)",
+      "tag": "Premium",
+      "members": [
+        {
+          "name": "Hiyuki",
+          "slug": "hiyuki",
+          "role": "Main DPS",
+          "element": "Glacio",
+          "note": "The Glacio hypercarry and the reason this team exists. Stacks Glacio Chafe on enemies, then consumes the stacks through her unique mechanic, converting them into Glacio Bite for massive damage."
+        },
+        {
+          "name": "Lucilla",
+          "slug": "lucilla",
+          "role": "Sub-DPS",
+          "element": "Glacio",
+          "note": "The Chafe engine. Applies Glacio Chafe stacks fast, shreds enemy Glacio resistance, and amplifies Chafe damage. Her Liberation hits hard (counts as Basic Attack DMG in Chafe mode) and her Outro makes enemies take extra damage from the negative effect."
+        },
+        {
+          "name": "Chisa",
+          "slug": "chisa",
+          "role": "Support",
+          "element": "Havoc",
+          "note": "Sustain plus utility: heals and shields, shreds enemy DEF through Havoc Bane, and her Outro raises the maximum Negative Status stack limit — more Chafe stacks, more damage. Suisui is the popular alternative."
+        }
+      ],
+      "rotation": "Start with Chisa and run her Forte cycle until her Outro is ready, then swap to Lucilla. Use Lucilla's Resonance Skill to build Photo Stacks, fire her Liberation for burst, then swap to Hiyuki: cast her Liberation, build Forte in her Foreclaimed Self state, enter the Iai stance, then three Basic Attacks into a Heavy Slash before recasting Liberation."
+    },
+    {
+      "name": "Team 2: Carlotta Glacio (no Hiyuki)",
+      "tag": "Alternative",
+      "members": [
+        {
+          "name": "Carlotta",
+          "slug": "carlotta",
+          "role": "Main DPS",
+          "element": "Glacio",
+          "note": "The Glacio carry. Deals consistent Glacio damage that scales directly with Lucilla's Glacio buffs — and gives Moonlit Path selector Carlotta an immediate home."
+        },
+        {
+          "name": "Lucilla",
+          "slug": "lucilla",
+          "role": "Sub-DPS",
+          "element": "Glacio",
+          "note": "The same Chafe and Glacio support package — her 25% Glacio DMG Outro buff is the headline for Carlotta. Chafe stacks still add damage even without Hiyuki's consumption mechanic."
+        },
+        {
+          "name": "Shorekeeper",
+          "slug": "shorekeeper",
+          "role": "Support",
+          "element": "Spectro",
+          "note": "Healing, Crit Rate buffs, and her Stellarealm damage field, plus a one-time death prevention that keeps Carlotta safe through long field windows. Verina works as a free-to-play stand-in."
+        }
+      ],
+      "rotation": "Shorekeeper opens with heals and buffs, then Lucilla applies Chafe, bursts, and swaps out through her Outro — then Carlotta takes an extended field window with the Glacio buffs active. Repeat."
+    },
+    {
+      "name": "Team 3: Sigrika Echo Skill team",
+      "tag": "Alternative",
+      "members": [
+        {
+          "name": "Sigrika",
+          "slug": "sigrika",
+          "role": "Main DPS",
+          "element": "Aero",
+          "note": "An Echo Skill damage dealer — her damage comes from Echo Skills, which is exactly what Lucilla's Echo mode amplifies. Galbrena or Phrolova can take her slot with the same structure."
+        },
+        {
+          "name": "Lucilla",
+          "slug": "lucilla",
+          "role": "Sub-DPS",
+          "element": "Glacio",
+          "note": "Set her resonance mode to Echo before combat. Supplies multiple Echo Skill casts of her own and buffs the team's Echo Skill DMG; her Liberation counts as Echo Skill DMG in this mode. Community shorthand: a budget Qiuyuan."
+        },
+        {
+          "name": "Shorekeeper",
+          "slug": "shorekeeper",
+          "role": "Support",
+          "element": "Spectro",
+          "note": "Healing plus team-wide damage buffs so Sigrika's Echo Skill windows hit harder."
+        }
+      ],
+      "rotation": "Shorekeeper sets up buffs, then Lucilla fires her Echo Skills and swaps out through her Outro — then Sigrika takes the Echo Skill damage window. Repeat."
+    }
+  ],
+  "teams_meta": {
+    "source_guide": "best-lucilla-teams",
+    "uncertain_or_prerelease": false
+  },
+  "tier_badge": {
+    "tier": "S",
+    "label": "Meta-defining",
+    "note": "Best-in-slot Glacio Chafe support; niche, but unmatched inside her teams.",
+    "uncertain_or_prerelease": false
+  },
+  "sources": [
+    {
+      "file": "data/guides.json",
+      "record": "is-lucilla-worth-pulling",
+      "type": "pull_guide"
+    },
+    {
+      "file": "data/guides.json",
+      "record": "lucilla-build-guide",
+      "type": "build_guide"
+    },
+    {
+      "file": "data/guides.json",
+      "record": "best-lucilla-teams",
+      "type": "team_guide"
+    },
+    {
+      "file": "data/tier-list.json",
+      "record": "lucilla",
+      "type": "tier_list"
+    }
+  ]
+}
