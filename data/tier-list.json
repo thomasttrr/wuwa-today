@@ -4,9 +4,50 @@
   "note": "Rankings reflect the 3.7 meta; editorial opinion based on community tier lists.",
   "tiers": [
     {
-      "tier": "S",
+      "tier": "SS",
       "label": "Meta-defining",
       "members": [
+        {
+          "name": "Denia",
+          "slug": "denia",
+          "note": "SS overall on the Game8 3.7 tier list (SS in both ToA and WhiWa); the premier sub-DPS for Fusion Burst and Tune Strain comps."
+        },
+        {
+          "name": "Galbrena",
+          "slug": "galbrena",
+          "note": "Placed in the top DPS tier across current tier lists for her split Heavy/Echo scaling and extremely high damage output."
+        },
+        {
+          "name": "Phrolova",
+          "slug": "phrolova",
+          "note": "Most October 2026 lists keep her at the top (SS on Beebom 3.7, SS on PocketTactics, S on MMO Culture 3.6), but GachaGo's October 2026 update demoted her to A."
+        },
+        {
+          "name": "Qingxiao",
+          "slug": "qingxiao",
+          "note": "SS overall, SS in ToA and S+ in WhiWa on the Game8 3.7 tier list; the premier Aero Tune Strain DPS."
+        },
+        {
+          "name": "Yangyang Xuanling",
+          "slug": "yangyang-xuanling",
+          "note": "SS overall on the Game8 3.7 tier list; one of the strongest 3.x DPS units with some of the highest DMG multipliers in the game."
+        }
+      ]
+    },
+    {
+      "tier": "S",
+      "label": "Excellent",
+      "members": [
+        {
+          "name": "Aemeath",
+          "slug": "aemeath",
+          "note": "Premier Fusion carry with one of the highest damage ceilings in 3.7."
+        },
+        {
+          "name": "Hiyuki",
+          "slug": "hiyuki",
+          "note": "Elite Glacio hypercarry; the Chafe mechanic's best payoff."
+        },
         {
           "name": "Hsin",
           "slug": "hsin",
@@ -18,9 +59,14 @@
           "note": "Top-tier Heavy Attack buffer and healer; core of the best Fusion and Aero teams."
         },
         {
-          "name": "Lynae",
-          "slug": "lynae",
-          "note": "Premier Spectro sub-DPS; a universal Liberation amplifier for burst teams."
+          "name": "Jingran",
+          "slug": "jingran",
+          "note": "Premier Fusion Heavy Attack hypercarry; anchors a top meta team."
+        },
+        {
+          "name": "Jiyan",
+          "slug": "jiyan",
+          "note": "S overall on the Game8 3.7 tier list (S+ in Tower of Adversity as of the Oct 12 update); best-in-class WhiWa AoE clearer."
         },
         {
           "name": "Lucilla",
@@ -28,9 +74,24 @@
           "note": "Best-in-slot Glacio Chafe support; niche, but unmatched inside her teams."
         },
         {
-          "name": "Shorekeeper",
-          "slug": "shorekeeper",
-          "note": "Still the game's best sustain; Crit buffs that fit literally every team."
+          "name": "Lucy",
+          "slug": "lucy",
+          "note": "Game8 rates her S as a Main DPS / Tower of Adversity unit and Beebom's October 2026 tier list places her in S, citing high front-loaded damage gated by team options tied to Rebecca. MMO Culture's 3.6 list instead ranks her in A, noting a damage ceiling below newer 3.x DPS; tier is therefore marked uncertain."
+        },
+        {
+          "name": "Lupa",
+          "slug": "lupa",
+          "note": "S-tier sub-DPS/support — the buffer that defines and enables premium mono-Fusion teams."
+        },
+        {
+          "name": "Luuk Herssen",
+          "slug": "luuk-herssen",
+          "note": "Sustained aerial Tune Strain DPS with top-tier boss damage, but very dependent on Lynae and Mornye."
+        },
+        {
+          "name": "Lynae",
+          "slug": "lynae",
+          "note": "Premier Spectro sub-DPS; a universal Liberation amplifier for burst teams."
         },
         {
           "name": "Mornye",
@@ -38,14 +99,14 @@
           "note": "Top Fusion support; heals, buffs, and accelerates Off-Tune teams."
         },
         {
-          "name": "Aemeath",
-          "slug": "aemeath",
-          "note": "Premier Fusion carry with one of the highest damage ceilings in 3.7."
+          "name": "Rebecca",
+          "slug": "rebecca",
+          "note": "S in Beebom's October 2026 (3.7) tier list and S-rank Sub-DPS on Game8's role ranking; MMO Culture's September (3.6) list had her at A, largely because her best teams are tied to Lucy."
         },
         {
-          "name": "Hiyuki",
-          "slug": "hiyuki",
-          "note": "Elite Glacio hypercarry; the Chafe mechanic's best payoff."
+          "name": "Shorekeeper",
+          "slug": "shorekeeper",
+          "note": "Still the game's best sustain; Crit buffs that fit literally every team."
         },
         {
           "name": "Sigrika",
@@ -58,25 +119,35 @@
           "note": "The Negative Status support; raises stack caps for every status team."
         },
         {
-          "name": "Jingran",
-          "slug": "jingran",
-          "note": "Premier Fusion Heavy Attack hypercarry; anchors a top meta team."
+          "name": "Zani",
+          "slug": "zani",
+          "note": "Sources disagree on her current standing: Beebom's October 2026 version 3.7 tier list keeps Zani in S, while GachaGo's October 2026 list dropped her to C (from B) citing newer competition, and MMO Culture's v3.6 list has her at A. She remains strong in dedicated Frazzle teams but is no longer a universal top pick."
         }
       ]
     },
     {
       "tier": "A",
-      "label": "Excellent",
+      "label": "Strong",
       "members": [
-        {
-          "name": "Chisa",
-          "slug": "chisa",
-          "note": "Best Havoc Bane support for status teams, but needs the right team around her."
-        },
         {
           "name": "Augusta",
           "slug": "augusta",
           "note": "Devastating Electro DPS; slightly edged out by newer carries."
+        },
+        {
+          "name": "Camellya",
+          "slug": "camellya",
+          "note": "Recent lists place her mostly at A (Beebom 3.7, Pocket Gamer); power creep and her long rotation have pushed the former meta carry down from her peak."
+        },
+        {
+          "name": "Cantarella",
+          "slug": "cantarella",
+          "note": "Game8 (updated Aug 2026) rates her S inside the Havoc Echo Skill comp with Phrolova. Consensus across lists (Beebom 3.7, MMO Culture, Pocket Gamer) is A — treat her as A overall, S-level inside her signature comp."
+        },
+        {
+          "name": "Carlotta",
+          "slug": "carlotta",
+          "note": "Solid Glacio DPS, but Hiyuki has taken her crown."
         },
         {
           "name": "Cartethyia",
@@ -84,9 +155,39 @@
           "note": "Still an elite Aero Erosion DPS; power-crept but far from dead."
         },
         {
+          "name": "Changli",
+          "slug": "changli",
+          "note": "Solid Fusion sub-DPS and quickswap option; outpaced by newer DPS units but still viable with investment."
+        },
+        {
+          "name": "Chisa",
+          "slug": "chisa",
+          "note": "Best Havoc Bane support for status teams, but needs the right team around her."
+        },
+        {
           "name": "Ciaccona",
           "slug": "ciaccona",
           "note": "Essential Aero Erosion enabler; her support value keeps her high."
+        },
+        {
+          "name": "Electro Rover",
+          "slug": "electro-rover",
+          "note": "Shot up the ranks in 3.7 as Hsin's best Electro Flare battery."
+        },
+        {
+          "name": "Phoebe",
+          "slug": "phoebe",
+          "note": "A-tier in Beebom's Oct 2026 (Version 3.7) and MMO Culture's Sep 2026 (Version 3.6) tier lists. Launch-era lists had her S; the current meta no longer revolves around Spectro Frazzle, but she remains Zani's best partner."
+        },
+        {
+          "name": "Qiuyuan",
+          "slug": "qiuyuan",
+          "note": "Best-in-slot for top Echo-skill teams but replaceable by Lucilla/Shorekeeper elsewhere."
+        },
+        {
+          "name": "Sanhua",
+          "slug": "sanhua",
+          "note": "Best free 4-star sub-DPS; a great buffer, outscaled by limited 5-stars."
         },
         {
           "name": "Verina",
@@ -94,9 +195,14 @@
           "note": "Free, universal healer and buffer; every account's safety net."
         },
         {
-          "name": "Electro Rover",
-          "slug": "electro-rover",
-          "note": "Shot up the ranks in 3.7 as Hsin's best Electro Flare battery."
+          "name": "Xiangli Yao",
+          "slug": "xiangli-yao",
+          "note": "Beebom's Oct 2026 v3.7 list and Game8's endgame ranks place him at A; MMO Culture (3.6) and Pocket Gamer rank him B. Outclassed by newer DPS like Augusta."
+        },
+        {
+          "name": "Zhezhi",
+          "slug": "zhezhi",
+          "note": "Current v3.6-3.7 lists (Beebom Oct 2026, MMO Culture, Game8) all place her at A; older 1.x-era lists had her at S. Her ceiling is higher on favorable Glacio/ToA cycles."
         }
       ]
     },
@@ -105,14 +211,19 @@
       "label": "Situational",
       "members": [
         {
-          "name": "Carlotta",
-          "slug": "carlotta",
-          "note": "Solid Glacio DPS, but Hiyuki has taken her crown."
+          "name": "Buling",
+          "slug": "buling",
+          "note": "Handy Electro Flare support for Hsin teams on a budget."
         },
         {
-          "name": "Sanhua",
-          "slug": "sanhua",
-          "note": "Best free 4-star sub-DPS; a great buffer, outscaled by limited 5-stars."
+          "name": "Encore",
+          "slug": "encore",
+          "note": "Still a strong standard-banner Fusion carry with a fun quickswap kit, but power-crept by newer Fusion DPS."
+        },
+        {
+          "name": "Jinhsi",
+          "slug": "jinhsi",
+          "note": "Former queen of the meta; now needs heavy investment to keep up."
         },
         {
           "name": "Mortefi",
@@ -120,19 +231,9 @@
           "note": "Budget Heavy Attack buffer; does the job for free."
         },
         {
-          "name": "Buling",
-          "slug": "buling",
-          "note": "Handy Electro Flare support for Hsin teams on a budget."
-        },
-        {
           "name": "Spectro Rover",
           "slug": "spectro-rover",
           "note": "Free and flexible; replaced once limited options arrive."
-        },
-        {
-          "name": "Jinhsi",
-          "slug": "jinhsi",
-          "note": "Former queen of the meta; now needs heavy investment to keep up."
         }
       ]
     }
