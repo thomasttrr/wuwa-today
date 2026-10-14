@@ -540,3 +540,45 @@
   .pn-name { font-size: 0.85rem; }
   .char-prevnext img { width: 44px; height: 44px; }
 }
+
+/* ---------- iPhone / touch refinements ---------- */
+
+/* Kill the gray iOS tap flash and the 300ms tap delay on hub controls. */
+.char-tile,
+.char-chip,
+.char-prevnext a,
+.char-showmore summary,
+.char-back {
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+/* Keep iOS from auto-inflating the small meta labels unevenly. */
+.char-grid,
+.char-filters {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+/* Horizontal filter scroll: momentum on old iOS, and don't let a sideways
+   swipe hijack into Safari's back/forward navigation. */
+.char-filter-groups {
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-x: contain;
+}
+
+/* Larger touch target for the weapon "show more" toggle. */
+.char-showmore summary {
+  padding: 0.65rem 0.25rem;
+  margin: -0.35rem 0 -0.35rem -0.25rem;
+  min-height: 44px;
+}
+
+/* iPhone SE / mini: keep three portrait columns without crowding. */
+@media (max-width: 380px) {
+  .char-grid {
+    grid-template-columns: repeat(auto-fill, minmax(96px, 1fr));
+    gap: 0.6rem;
+  }
+  .char-tile-name { font-size: 0.88rem; }
+}

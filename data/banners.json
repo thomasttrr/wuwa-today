@@ -147,12 +147,12 @@
           "weaponType": "Sword"
         },
         {
-          "element": "Fusion",
+          "element": "Aero",
           "isNew": false,
-          "name": "Chixia",
+          "name": "Yangyang",
           "rarity": 4,
           "status": "rate-up",
-          "weaponType": "Pistols"
+          "weaponType": "Sword"
         }
       ],
       "confidence": "high",
@@ -163,11 +163,12 @@
         "https://gurugamer.com/pc-console/wuthering-waves-3-7-banner-value-guide-27328",
         "https://fandomwire.com/wuthering-waves-reveals-hsin-suoming-version-3-7/",
         "https://themagicrain.com/2026/10/wuthering-waves-version-3-7-prisms-illusion-hearts-illumination-now-available/",
-        "https://game8.co/games/Wuthering-Waves/archives/456482"
+        "https://game8.co/games/Wuthering-Waves/archives/456482",
+        "https://game8.co/games/wuthering-waves"
       ],
       "startsAt": "2026-10-22T04:00:00+08:00",
       "status": "upcoming",
-      "timeNote": "Start/end dates are estimates (~Oct 22 - Nov 10/12). The third Phase 2 4-star rate-up is Chixia: reported by most banner sources and corroborated by Game8's Ascendant Aces Phase 2 trial roster (Lumi/Chixia/Danjin).",
+      "timeNote": "Phase 2 4-star rate-ups per Game8 wiki (updated Oct 13, 2026): Lumi, Danjin, Yangyang. An older Game8 banner page still lists Chixia; treat the 4-star lineup as tracker-based until the in-game Convene notice confirms.",
       "uncertainFields": [
         "startsAt",
         "endsAt"
