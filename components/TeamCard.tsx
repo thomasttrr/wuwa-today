@@ -45,12 +45,18 @@ export default function TeamCard({ team }: { team: Team }) {
                 />
                 <p className="team-slot-name">{m.name}</p>
                 <p className="team-role-pill">
-                  <span
-                    className="element-dot"
-                    style={{ background: el }}
-                    aria-hidden
-                  />
-                  {m.role} · {m.element}
+                  <span className="pill-role">{m.role}</span>
+                  <span className="pill-sep" aria-hidden="true">
+                    ·
+                  </span>
+                  <span className="pill-el">
+                    <span
+                      className="element-dot"
+                      style={{ background: el }}
+                      aria-hidden
+                    />
+                    {m.element}
+                  </span>
                 </p>
               </div>
               {i < team.members.length - 1 && (

@@ -552,7 +552,8 @@ table.data td.mono { color: var(--text); }
 .team-slot-name { font-weight: 700; margin: 0.6rem 0 0.35rem; font-size: 0.98rem; }
 .team-role-pill {
   margin: 0;
-  display: inline-flex; align-items: center; gap: 0.35rem;
+  display: inline-flex; align-items: center; justify-content: center; gap: 0.4rem;
+  max-width: 100%;
   font-size: 0.68rem; font-weight: 700;
   letter-spacing: 0.05em; text-transform: uppercase;
   padding: 0.28rem 0.6rem; border-radius: 999px;
@@ -560,6 +561,11 @@ table.data td.mono { color: var(--text); }
   background: color-mix(in srgb, var(--el) 13%, transparent);
   border: 1px solid color-mix(in srgb, var(--el) 32%, transparent);
   backdrop-filter: blur(4px);
+}
+.pill-role { white-space: nowrap; }
+.pill-sep { opacity: 0.6; }
+.pill-el {
+  display: inline-flex; align-items: center; gap: 0.3rem;
   white-space: nowrap;
 }
 .element-dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; flex-shrink: 0; }
@@ -603,7 +609,12 @@ table.data td.mono { color: var(--text); }
   .team-portrait { width: 72px; height: 72px; border-radius: 18px; }
   .team-slot { padding: 0.75rem 0.35rem 0.7rem; border-radius: 14px; }
   .team-slot-name { font-size: 0.85rem; }
-  .team-role-pill { font-size: 0.6rem; padding: 0.22rem 0.45rem; }
+  /* Stack pill content on narrow screens so nothing clips. */
+  .team-role-pill {
+    flex-direction: column; gap: 0.2rem;
+    font-size: 0.6rem; padding: 0.35rem 0.45rem; line-height: 1.35;
+  }
+  .pill-sep { display: none; }
   .team-flow { font-size: 1.2rem; }
 }
 
