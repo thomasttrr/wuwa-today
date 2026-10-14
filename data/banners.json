@@ -1,1 +1,219 @@
-{"_meta":{"comment":"Banner schedule. All phase boundary dates are ESTIMATES based on community trackers unless the in-game notice gives an exact time — mark them as such. Server flip happens at daily reset on the boundary day.","updatedAt":"2026-10-13T22:30:00-04:00","version":"3.7","versionTitle":"Prism's Illusion, Heart's Illumination"},"banners":[{"characters":[{"element":"Electro","isNew":true,"name":"Hsin","rarity":5,"role":"Main DPS","status":"new","weaponType":"Rectifier"},{"element":"Aero","isNew":false,"name":"Iuno","rarity":5,"role":"Support / Sub-DPS","status":"rerun","weaponType":"Gauntlets"},{"element":"Havoc","isNew":false,"name":"Chisa","rarity":5,"role":"Main DPS","status":"rerun","weaponType":"Broadblade"},{"element":"Electro","isNew":false,"name":"Buling","rarity":4,"status":"rate-up","weaponType":"Rectifier"},{"element":"Havoc","isNew":false,"name":"Taoqi","rarity":4,"status":"rate-up","weaponType":"Broadblade"},{"element":"Glacio","isNew":false,"name":"Youhu","rarity":4,"status":"rate-up","weaponType":"Gauntlets"}],"confidence":"high","endsAt":"2026-10-22T04:00:00+08:00","id":"3.7-phase-1","phase":"Phase 1","sources":["https://gurugamer.com/pc-console/wuthering-waves-3-7-banner-value-guide-27328","https://fandomwire.com/wuthering-waves-reveals-hsin-suoming-version-3-7/","https://themagicrain.com/2026/10/wuthering-waves-version-3-7-prisms-illusion-hearts-illumination-now-available/"],"startsAt":"2026-09-30T10:00:00+08:00","status":"active","timeNote":"End date is an estimate based on community trackers (~Oct 21-22). Verify against the in-game Convene notice.","version":"3.7","weapons":[{"featuredFor":"Hsin","name":"Blooming Jadehaven","rarity":5,"type":"Rectifier"},{"featuredFor":"Chisa","name":"Kumokiri","rarity":5,"type":"Broadblade"},{"featuredFor":"Iuno","name":"Moongazer's Sigil","rarity":5,"type":"Gauntlets"}]},{"characters":[{"element":"Electro","isNew":true,"name":"Suoming","rarity":5,"role":"Sub-DPS / Support","status":"new","weaponType":"Sword"},{"element":"Spectro","isNew":false,"name":"Lynae","rarity":5,"role":"Main DPS","status":"rerun","weaponType":"Pistols"},{"element":"Glacio","isNew":false,"name":"Lucilla","rarity":5,"role":"Main DPS","status":"rerun","weaponType":"Rectifier"},{"element":"Electro","isNew":false,"name":"Lumi","rarity":4,"status":"rate-up","weaponType":"Broadblade"},{"element":"Havoc","isNew":false,"name":"Danjin","rarity":4,"status":"rate-up","weaponType":"Sword"},{"element":"Fusion","isNew":false,"name":"Chixia","rarity":4,"status":"rate-up","weaponType":"Pistols"}],"confidence":"high","endsAt":"2026-11-11T04:00:00+08:00","id":"3.7-phase-2","phase":"Phase 2","sources":["https://gurugamer.com/pc-console/wuthering-waves-3-7-banner-value-guide-27328","https://fandomwire.com/wuthering-waves-reveals-hsin-suoming-version-3-7/","https://themagicrain.com/2026/10/wuthering-waves-version-3-7-prisms-illusion-hearts-illumination-now-available/"],"startsAt":"2026-10-22T04:00:00+08:00","status":"upcoming","timeNote":"Start/end dates are estimates (~Oct 22 - Nov 10/12). The third 4-star rate-up is reported as Chixia by most sources; one source lists Yangyang instead — flagged as uncertain.","uncertainFields":["characters[5] (Chixia vs Yangyang)","startsAt","endsAt"],"version":"3.7","weapons":[{"featuredFor":"Suoming","name":"Unspoken Rue","rarity":5,"type":"Sword"},{"featuredFor":"Lucilla","name":"Freeze Frame","rarity":5,"type":"Rectifier"},{"featuredFor":"Lynae","name":"Spectrum Blaster","rarity":5,"type":"Pistols"}]}],"history":[{"endsAt":"2026-09-30T10:00:00+08:00","id":"3.6-phase-2","note":"Jingran (new, 5★ Fusion Broadblade) with Hiyuki and Mornye reruns.","phase":"Phase 2","startsAt":"2026-09-10T04:00:00+08:00","version":"3.6"},{"endsAt":"2026-09-10T04:00:00+08:00","id":"3.6-phase-1","note":"Qingxiao (new, 5★ Aero Sword) with Denia rerun.","phase":"Phase 1","startsAt":"2026-08-20T10:00:00+08:00","version":"3.6"}]}
+{
+  "_meta": {
+    "comment": "Banner schedule. All phase boundary dates are ESTIMATES based on community trackers unless the in-game notice gives an exact time — mark them as such. Server flip happens at daily reset on the boundary day.",
+    "updatedAt": "2026-10-13T22:30:00-04:00",
+    "version": "3.7",
+    "versionTitle": "Prism's Illusion, Heart's Illumination"
+  },
+  "banners": [
+    {
+      "characters": [
+        {
+          "element": "Electro",
+          "isNew": true,
+          "name": "Hsin",
+          "rarity": 5,
+          "role": "Main DPS",
+          "status": "new",
+          "weaponType": "Rectifier",
+          "sprite": "/images/hsin-sprite.webp"
+        },
+        {
+          "element": "Aero",
+          "isNew": false,
+          "name": "Iuno",
+          "rarity": 5,
+          "role": "Support / Sub-DPS",
+          "status": "rerun",
+          "weaponType": "Gauntlets",
+          "sprite": "/images/iuno-sprite.webp"
+        },
+        {
+          "element": "Havoc",
+          "isNew": false,
+          "name": "Chisa",
+          "rarity": 5,
+          "role": "Main DPS",
+          "status": "rerun",
+          "weaponType": "Broadblade",
+          "sprite": "/images/chisa-sprite.webp"
+        },
+        {
+          "element": "Electro",
+          "isNew": false,
+          "name": "Buling",
+          "rarity": 4,
+          "status": "rate-up",
+          "weaponType": "Rectifier"
+        },
+        {
+          "element": "Havoc",
+          "isNew": false,
+          "name": "Taoqi",
+          "rarity": 4,
+          "status": "rate-up",
+          "weaponType": "Broadblade"
+        },
+        {
+          "element": "Glacio",
+          "isNew": false,
+          "name": "Youhu",
+          "rarity": 4,
+          "status": "rate-up",
+          "weaponType": "Gauntlets"
+        }
+      ],
+      "confidence": "high",
+      "endsAt": "2026-10-22T04:00:00+08:00",
+      "id": "3.7-phase-1",
+      "phase": "Phase 1",
+      "sources": [
+        "https://gurugamer.com/pc-console/wuthering-waves-3-7-banner-value-guide-27328",
+        "https://fandomwire.com/wuthering-waves-reveals-hsin-suoming-version-3-7/",
+        "https://themagicrain.com/2026/10/wuthering-waves-version-3-7-prisms-illusion-hearts-illumination-now-available/"
+      ],
+      "startsAt": "2026-09-30T10:00:00+08:00",
+      "status": "active",
+      "timeNote": "End date is an estimate based on community trackers (~Oct 21-22). Verify against the in-game Convene notice.",
+      "version": "3.7",
+      "weapons": [
+        {
+          "featuredFor": "Hsin",
+          "name": "Blooming Jadehaven",
+          "rarity": 5,
+          "type": "Rectifier"
+        },
+        {
+          "featuredFor": "Chisa",
+          "name": "Kumokiri",
+          "rarity": 5,
+          "type": "Broadblade"
+        },
+        {
+          "featuredFor": "Iuno",
+          "name": "Moongazer's Sigil",
+          "rarity": 5,
+          "type": "Gauntlets"
+        }
+      ],
+      "image": "/images/hsin-splash.webp",
+      "imageAlt": "Official splash art of Hsin, the featured 5-star Resonator",
+      "imageCredit": "Art: Kuro Games, via Wuthering Waves Wiki"
+    },
+    {
+      "characters": [
+        {
+          "element": "Electro",
+          "isNew": true,
+          "name": "Suoming",
+          "rarity": 5,
+          "role": "Sub-DPS / Support",
+          "status": "new",
+          "weaponType": "Sword",
+          "sprite": "/images/suoming-splash.webp"
+        },
+        {
+          "element": "Spectro",
+          "isNew": false,
+          "name": "Lynae",
+          "rarity": 5,
+          "role": "Main DPS",
+          "status": "rerun",
+          "weaponType": "Pistols"
+        },
+        {
+          "element": "Glacio",
+          "isNew": false,
+          "name": "Lucilla",
+          "rarity": 5,
+          "role": "Main DPS",
+          "status": "rerun",
+          "weaponType": "Rectifier"
+        },
+        {
+          "element": "Electro",
+          "isNew": false,
+          "name": "Lumi",
+          "rarity": 4,
+          "status": "rate-up",
+          "weaponType": "Broadblade"
+        },
+        {
+          "element": "Havoc",
+          "isNew": false,
+          "name": "Danjin",
+          "rarity": 4,
+          "status": "rate-up",
+          "weaponType": "Sword"
+        },
+        {
+          "element": "Fusion",
+          "isNew": false,
+          "name": "Chixia",
+          "rarity": 4,
+          "status": "rate-up",
+          "weaponType": "Pistols"
+        }
+      ],
+      "confidence": "high",
+      "endsAt": "2026-11-11T04:00:00+08:00",
+      "id": "3.7-phase-2",
+      "phase": "Phase 2",
+      "sources": [
+        "https://gurugamer.com/pc-console/wuthering-waves-3-7-banner-value-guide-27328",
+        "https://fandomwire.com/wuthering-waves-reveals-hsin-suoming-version-3-7/",
+        "https://themagicrain.com/2026/10/wuthering-waves-version-3-7-prisms-illusion-hearts-illumination-now-available/"
+      ],
+      "startsAt": "2026-10-22T04:00:00+08:00",
+      "status": "upcoming",
+      "timeNote": "Start/end dates are estimates (~Oct 22 - Nov 10/12). The third 4-star rate-up is reported as Chixia by most sources; one source lists Yangyang instead — flagged as uncertain.",
+      "uncertainFields": [
+        "characters[5] (Chixia vs Yangyang)",
+        "startsAt",
+        "endsAt"
+      ],
+      "version": "3.7",
+      "weapons": [
+        {
+          "featuredFor": "Suoming",
+          "name": "Unspoken Rue",
+          "rarity": 5,
+          "type": "Sword"
+        },
+        {
+          "featuredFor": "Lucilla",
+          "name": "Freeze Frame",
+          "rarity": 5,
+          "type": "Rectifier"
+        },
+        {
+          "featuredFor": "Lynae",
+          "name": "Spectrum Blaster",
+          "rarity": 5,
+          "type": "Pistols"
+        }
+      ],
+      "image": "/images/suoming-splash.webp",
+      "imageAlt": "Official splash art of Suoming, the upcoming 5-star Resonator",
+      "imageCredit": "Art: Kuro Games, via Wuthering Waves Wiki"
+    }
+  ],
+  "history": [
+    {
+      "endsAt": "2026-09-30T10:00:00+08:00",
+      "id": "3.6-phase-2",
+      "note": "Jingran (new, 5★ Fusion Broadblade) with Hiyuki and Mornye reruns.",
+      "phase": "Phase 2",
+      "startsAt": "2026-09-10T04:00:00+08:00",
+      "version": "3.6"
+    },
+    {
+      "endsAt": "2026-09-10T04:00:00+08:00",
+      "id": "3.6-phase-1",
+      "note": "Qingxiao (new, 5★ Aero Sword) with Denia rerun.",
+      "phase": "Phase 1",
+      "startsAt": "2026-08-20T10:00:00+08:00",
+      "version": "3.6"
+    }
+  ]
+}

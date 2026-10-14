@@ -13,6 +13,8 @@ export interface GameCharacter {
   status: CharacterStatus;
   isNew?: boolean;
   role?: string;
+  /** Local path to the character's official full-sprite art, e.g. "/images/hsin-sprite.webp". */
+  sprite?: string;
 }
 
 export interface BannerWeapon {
@@ -35,6 +37,10 @@ export interface Banner {
   characters: GameCharacter[];
   weapons: BannerWeapon[];
   sources: string[];
+  /** Local path to official key/splash art used as the card backdrop, e.g. "/images/hsin-splash.webp". */
+  image?: string;
+  imageAlt?: string;
+  imageCredit?: string;
 }
 
 export interface BannerHistoryEntry {

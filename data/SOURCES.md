@@ -36,3 +36,19 @@ Deliberately excluded (see `codes.json` → `excluded` for reasons):
 ## Redemption instructions
 
 In-game only (no verified global web redemption page): Terminal menu → Settings → Other Settings → Redemption Code. Requires Union Level 2. Rewards arrive via in-game mail.
+
+## Images
+
+All artwork is official Kuro Games art (splash art and full sprites as released for each Resonator), sourced from the Wuthering Waves Wiki gallery pages, which host the official assets. Downloaded 2026-10-14 into `site/public/images/`, converted to WebP for web delivery. No hotlinking — all files served locally.
+
+| File | Depicts | Source page | Direct file URL |
+|---|---|---|---|
+| `hsin-splash.webp` | Hsin splash art | https://wutheringwaves.fandom.com/wiki/Hsin/Gallery | https://static.wikia.nocookie.net/wutheringwaves/images/c/cb/Hsin_Splash_Art.png |
+| `hsin-sprite.webp` | Hsin full sprite | https://wutheringwaves.fandom.com/wiki/Hsin/Gallery | https://static.wikia.nocookie.net/wutheringwaves/images/0/08/Hsin_Full_Sprite.png |
+| `iuno-sprite.webp` | Iuno full sprite | https://wutheringwaves.fandom.com/wiki/Iuno/Gallery | https://static.wikia.nocookie.net/wutheringwaves/images/2/20/Iuno_Full_Sprite.png |
+| `chisa-sprite.webp` | Chisa full sprite | https://wutheringwaves.fandom.com/wiki/Chisa/Gallery | https://static.wikia.nocookie.net/wutheringwaves/images/8/8a/Chisa_Full_Sprite.png |
+| `suoming-splash.webp` | Suoming splash art (upcoming Phase 2) | https://wutheringwaves.fandom.com/wiki/Suoming/Gallery | https://static.wikia.nocookie.net/wutheringwaves/images/f/f9/Suoming_Splash_Art.png |
+
+Hsin's splash art was also officially revealed by Kuro Games on the official Wuthering Waves X account (@Wuthering_Waves), August 26, 2026. Art credit "Kuro Games" is shown under each banner card that uses splash art.
+
+Deliberately not added: event-section artwork (no official event key art found on the wiki for the current events — skipped rather than guessing); 4-star rate-up character sprites (Buling, Taoqi, Youhu) to keep the initial image set focused on the 5-star headliners.
