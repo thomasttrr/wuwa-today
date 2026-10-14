@@ -168,12 +168,19 @@
   align-items: center;
   justify-content: center;
   gap: 0.35rem;
-  font-size: 0.72rem;
+  font-size: 0.68rem;
   font-weight: 600;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.03em;
   text-transform: uppercase;
   color: var(--text-3);
   white-space: nowrap;
+  max-width: 100%;
+}
+.char-tile-meta > span:first-child,
+.char-tile-meta > span:last-child {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 /* PC hover: lift + portrait zoom + ring brighten (fine pointers only). */

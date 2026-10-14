@@ -11,7 +11,8 @@ export const metadata: Metadata = {
 };
 
 const TIER_STYLES: Record<string, { badge: string; label: string }> = {
-  S: { badge: "tier-badge tier-s", label: "Meta-defining" },
+  SS: { badge: "tier-badge tier-ss", label: "Meta-defining" },
+  S: { badge: "tier-badge tier-s", label: "Excellent" },
   A: { badge: "tier-badge tier-a", label: "Excellent" },
   B: { badge: "tier-badge tier-b", label: "Situational" },
 };

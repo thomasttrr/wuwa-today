@@ -74,6 +74,19 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
   border-bottom: 2px solid var(--text); padding-bottom: 2px;
 }
 
+@media (max-width: 640px) {
+  .brand { white-space: nowrap; font-size: 1.05rem; }
+  .site-header .container { gap: 1rem; padding-top: 0.7rem; padding-bottom: 0.7rem; }
+  .site-nav {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scrollbar-width: none;
+    gap: 0.95rem;
+  }
+  .site-nav::-webkit-scrollbar { display: none; }
+  .site-nav a { white-space: nowrap; font-size: 0.88rem; }
+}
+
 main { padding: 2rem 0 4rem; min-height: 60vh; }
 
 .site-footer {
@@ -655,6 +668,11 @@ table.data td.mono { color: var(--text); }
   color: #e8c877;
   border: 1px solid rgba(214, 178, 90, 0.4);
 }
+.tier-ss {
+  background: rgba(232, 180, 79, 0.18);
+  color: #f0c969;
+  border: 1px solid rgba(232, 180, 79, 0.55);
+}
 .tier-a {
   background: rgba(110, 190, 140, 0.1);
   color: #8fd6a4;
@@ -705,6 +723,7 @@ table.data td.mono { color: var(--text); }
 .tier-name {
   font-weight: 700;
 }
+.tier-name:visited { text-decoration: none; color: var(--text); }
 .tier-note {
   font-size: 0.8rem;
   opacity: 0.75;
@@ -713,6 +732,16 @@ table.data td.mono { color: var(--text); }
 .tier-foot {
   margin-top: 1.5rem;
   opacity: 0.85;
+}
+@media (max-width: 640px) {
+  .tier-row { flex-direction: column; gap: 0.7rem; }
+  .tier-side {
+    flex-direction: row;
+    align-items: center;
+    min-width: 0;
+    gap: 0.7rem;
+  }
+  .tier-badge { width: 44px; height: 44px; font-size: 1.25rem; }
 }
 
 /* Ranked build-guide lists: weapon/stat rows, not paragraphs */
