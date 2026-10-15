@@ -165,7 +165,7 @@ export default function PullPlannerPage() {
               <p className="og-pick-desc">
                 5-stars: <strong>Suoming</strong> (new, Sub-DPS / Support),{" "}
                 <strong>Lynae</strong> (rerun), <strong>Lucilla</strong> (rerun).
-                4-star rate-ups: Lumi, Danjin, Yangyang.
+                4-star rate-ups: Lumi, Danjin, Chixia.
               </p>
             </section>
           </Reveal>
