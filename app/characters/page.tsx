@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import ObsidianCharactersExplorer from "@/components/ObsidianCharactersExplorer";
 import {
   characters,
+  toCharacterHubTile,
   CHARACTER_ELEMENTS,
   CHARACTER_RARITIES,
   CHARACTER_ROLES,
@@ -29,7 +30,7 @@ export default function CharactersPage() {
         </p>
       </div>
       <ObsidianCharactersExplorer
-        chars={characters}
+        chars={characters.map(toCharacterHubTile)}
         elements={CHARACTER_ELEMENTS}
         weapons={CHARACTER_WEAPONS}
         rarities={CHARACTER_RARITIES}

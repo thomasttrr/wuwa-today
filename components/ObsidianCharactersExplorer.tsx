@@ -6,7 +6,7 @@ import ObsidianCharFilters, {
   type CharFilterState,
 } from "./ObsidianCharFilters";
 import ObsidianCharGrid from "./ObsidianCharGrid";
-import type { CharacterRecordLoose } from "@/lib/characters";
+import type { CharacterHubTile } from "@/lib/characters";
 
 const FLIP_MS = 350;
 const FLIP_EASING = "cubic-bezier(0.22, 1, 0.36, 1)";
@@ -27,7 +27,7 @@ export default function ObsidianCharactersExplorer({
   rarities,
   roles,
 }: {
-  chars: CharacterRecordLoose[];
+  chars: CharacterHubTile[];
   elements: string[];
   weapons: string[];
   rarities: number[];
@@ -45,10 +45,10 @@ export default function ObsidianCharactersExplorer({
   );
 
   const filtered = chars.filter((c) => {
-    if (filters.element && c.profile.element !== filters.element) return false;
-    if (filters.weapon && c.profile.weapon_type !== filters.weapon) return false;
-    if (filters.rarity && c.profile.rarity !== filters.rarity) return false;
-    if (filters.role && c.profile.role !== filters.role) return false;
+    if (filters.element && c.element !== filters.element) return false;
+    if (filters.weapon && c.weapon_type !== filters.weapon) return false;
+    if (filters.rarity && c.rarity !== filters.rarity) return false;
+    if (filters.role && c.role !== filters.role) return false;
     return true;
   });
 

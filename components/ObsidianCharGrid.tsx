@@ -2,7 +2,7 @@
 
 import Reveal from "./Reveal";
 import ObsidianCharTile from "./ObsidianCharTile";
-import type { CharacterRecordLoose } from "@/lib/characters";
+import type { CharacterHubTile } from "@/lib/characters";
 
 const INITIAL_STAGGER_CAP = 12;
 const INITIAL_STAGGER_MS = 55;
@@ -20,7 +20,7 @@ export default function ObsidianCharGrid({
   filterSig,
   onCellRef,
 }: {
-  chars: CharacterRecordLoose[];
+  chars: CharacterHubTile[];
   /** Bumps on every filter change; entering tiles use the tighter stagger. */
   filterSig: number;
   onCellRef: (slug: string, el: HTMLDivElement | null) => void;

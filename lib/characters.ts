@@ -201,6 +201,35 @@ export function isPreRelease(c: CharacterRecordLoose): boolean {
   );
 }
 
+/**
+ * Slim DTO for the character-hub client boundary. Carries only what the
+ * filter/grid/tile UI renders; per-character build/team/verdict text never
+ * crosses to the client. Built server-side in app/characters/page.tsx.
+ */
+export interface CharacterHubTile {
+  slug: string;
+  name: string;
+  portrait_url: string;
+  element: string;
+  weapon_type: string;
+  rarity: number;
+  role: string;
+  preRelease: boolean;
+}
+
+export function toCharacterHubTile(c: CharacterRecordLoose): CharacterHubTile {
+  return {
+    slug: c.slug,
+    name: c.name,
+    portrait_url: c.profile.portrait_url,
+    element: c.profile.element,
+    weapon_type: c.profile.weapon_type,
+    rarity: c.profile.rarity,
+    role: c.profile.role,
+    preRelease: isPreRelease(c),
+  };
+}
+
 export type { CharacterRecord, CharacterBuild, EchoSetEntry, TeamsMeta };
 export type {
   CharacterProfile,
