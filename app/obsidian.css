@@ -661,7 +661,7 @@ body.og { overflow-x: clip; }
 .og-hero-cta { align-self: flex-start; }
 
 @media (max-width: 640px) {
-  .og-hero { margin-top: -1.25rem; height: 37rem; }
+  .og-hero { margin-top: -1.25rem; height: min(37rem, 80svh); }
   .og-hero-art { object-position: 50% 18%; } /* portrait-safe focal point */
 }
 
