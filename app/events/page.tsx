@@ -39,7 +39,7 @@ export default function EventsPage() {
 
       <div className="og-section">
         <div className="og-section-head" id="active">
-          <h2 className="og-display og-h2">Active</h2>
+          <h2 className="og-h2">Active</h2>
         </div>
         {activeEvents.length === 0 ? (
           <p className="og-empty">
@@ -60,7 +60,7 @@ export default function EventsPage() {
       {upcomingEvents.length > 0 && (
         <div className="og-section">
           <div className="og-section-head" id="upcoming">
-            <h2 className="og-display og-h2">Upcoming</h2>
+            <h2 className="og-h2">Upcoming</h2>
           </div>
           <div className="grid grid-2">
             {upcomingEvents.map((e, i) => (

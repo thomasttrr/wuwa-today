@@ -38,7 +38,7 @@ export default function BannersPage() {
 
       <div className="og-section">
         <div className="og-section-head" id="live">
-          <h2 className="og-display og-h2">Live now</h2>
+          <h2 className="og-h2">Live now</h2>
         </div>
         <div className="grid grid-2">
           {activeBanners.map((b, i) => (
@@ -51,7 +51,7 @@ export default function BannersPage() {
 
       <div className="og-section">
         <div className="og-section-head" id="upcoming">
-          <h2 className="og-display og-h2">Upcoming</h2>
+          <h2 className="og-h2">Upcoming</h2>
         </div>
         <div className="grid grid-2">
           {upcomingBanners.map((b, i) => (
@@ -65,7 +65,7 @@ export default function BannersPage() {
       <div className="og-section">
         <div className="og-section-head" id="history">
           <div>
-            <h2 className="og-display og-h2">Banner history</h2>
+            <h2 className="og-h2">Banner history</h2>
             <p className="og-section-blurb">
               Every phase on record, all dates in server time (UTC+8).
             </p>

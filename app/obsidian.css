@@ -323,10 +323,10 @@ body.og main { padding-top: 5.75rem; }
 .og-char-tile-flag {
   position: absolute; top: 0.55rem; left: 0.55rem;
   font-family: var(--og-display); font-weight: 600; font-size: 0.62rem;
-  text-transform: uppercase; letter-spacing: 0.1em;
+  letter-spacing: 0.04em;
   background: rgba(0, 0, 0, 0.65);
-  color: var(--og-gold);
-  border: 1px solid rgba(232, 180, 79, 0.4);
+  color: var(--og-muted); /* not time/live — no gold */
+  border: 1px solid var(--og-hairline);
   border-radius: var(--og-radius-pill);
   padding: 0.25rem 0.6rem;
 }
@@ -393,7 +393,7 @@ body.og main { padding-top: 5.75rem; }
 .og-live {
   display: inline-flex; align-items: center; gap: 0.45rem;
   font-size: 0.72rem; font-weight: 700;
-  letter-spacing: 0.08em; text-transform: uppercase;
+  letter-spacing: 0.04em;
   color: var(--og-gold);
 }
 .og-live::before {
@@ -497,8 +497,7 @@ body.og { overflow-x: clip; }
   font-family: var(--og-display);
   font-weight: 600;
   font-size: 0.68rem;
-  text-transform: uppercase;
-  letter-spacing: 0.09em;
+  letter-spacing: 0.02em;
   color: var(--og-muted);
   border: 1px solid var(--og-hairline);
   border-radius: var(--og-radius-pill);
@@ -512,12 +511,11 @@ body.og { overflow-x: clip; }
   background: var(--og-gold-soft);
 }
 /* Dim kicker for non-time labels: gold is rationed, so content labels
-   stay muted white. */
+   stay muted white. Caps discipline: no uppercase outside display heads. */
 .og-kicker-dim {
   font-family: var(--og-display);
   font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.06em;
   font-size: 0.72rem;
   color: var(--og-muted);
 }
@@ -655,8 +653,7 @@ body.og { overflow-x: clip; }
   font-family: var(--og-display);
   font-weight: 600;
   font-size: 0.78rem;
-  text-transform: uppercase;
-  letter-spacing: 0.07em;
+  letter-spacing: 0.03em;
   white-space: nowrap;
   transition: color var(--og-d1) ease, background-color var(--og-d1) ease;
 }
@@ -701,7 +698,6 @@ body.og { overflow-x: clip; }
 .og-banner-headline {
   font-family: var(--og-display);
   font-weight: 700;
-  text-transform: uppercase;
   letter-spacing: -0.01em;
   font-size: 1.45rem;
   line-height: 1.15;
@@ -759,7 +755,6 @@ body.og { overflow-x: clip; }
 .og-event-title {
   font-family: var(--og-display);
   font-weight: 700;
-  text-transform: uppercase;
   letter-spacing: -0.01em;
   font-size: 1.25rem;
   line-height: 1.2;
@@ -815,7 +810,7 @@ body.og { overflow-x: clip; }
 }
 .og-reset-title {
   font-family: var(--og-display);
-  font-weight: 700; text-transform: uppercase; letter-spacing: -0.01em;
+  font-weight: 700; letter-spacing: -0.01em;
   font-size: 1.2rem; margin: 0; color: var(--og-ink);
 }
 .og-select {
@@ -851,7 +846,7 @@ body.og { overflow-x: clip; }
 .og-table th {
   font-family: var(--og-display);
   font-weight: 600; font-size: 0.7rem;
-  text-transform: uppercase; letter-spacing: 0.1em;
+  letter-spacing: 0.02em;
   color: var(--og-muted);
   text-align: left;
   padding: 0.85rem 1rem;
@@ -880,7 +875,7 @@ body.og { overflow-x: clip; }
 }
 .og-pick-card h3 {
   font-family: var(--og-display);
-  font-weight: 700; text-transform: uppercase; letter-spacing: -0.01em;
+  font-weight: 700; letter-spacing: -0.01em;
   font-size: 1.3rem; line-height: 1.2;
   margin: 0.55rem 0 0.6rem; color: var(--og-ink);
 }
@@ -907,7 +902,7 @@ body.og { overflow-x: clip; }
 .og-pick-label {
   font-family: var(--og-display);
   font-weight: 600; font-size: 0.7rem;
-  text-transform: uppercase; letter-spacing: 0.12em;
+  letter-spacing: 0.06em;
   color: var(--og-muted);
   margin: 1rem 0 0.55rem;
 }

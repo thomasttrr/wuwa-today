@@ -143,7 +143,7 @@ export default function PullPlannerPage() {
 
       <div className="og-section">
         <div className="og-section-head" id="schedule">
-          <h2 className="og-display og-h2">Banner schedule</h2>
+          <h2 className="og-h2">Banner schedule</h2>
         </div>
         <div className="grid grid-2">
           <Reveal>
@@ -173,7 +173,7 @@ export default function PullPlannerPage() {
 
       <div className="og-section">
         <div className="og-section-head" id="questions">
-          <h2 className="og-display og-h2">The big questions</h2>
+          <h2 className="og-h2">The big questions</h2>
         </div>
         <div className="grid grid-2">
           <QuestionCard question="Question 1" title="Pull Hsin or save for Suoming?" delay={0}>
@@ -275,7 +275,7 @@ export default function PullPlannerPage() {
 
       <div className="og-section">
         <div className="og-section-head" id="accounts">
-          <h2 className="og-display og-h2">Pick by your account</h2>
+          <h2 className="og-h2">Pick by your account</h2>
         </div>
         <div className="grid grid-2">
           <ProfileCard
@@ -351,7 +351,7 @@ export default function PullPlannerPage() {
       <div className="og-section">
         <div className="og-section-head" id="verdicts">
           <div>
-            <h2 className="og-display og-h2">Every 5-star, verdict at a glance</h2>
+            <h2 className="og-h2">Every 5-star, verdict at a glance</h2>
             <p className="og-section-blurb">
               The source of truth behind every pick above. Verdicts are published
               per character and re-checked when banner data changes.

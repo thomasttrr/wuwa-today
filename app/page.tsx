@@ -37,7 +37,7 @@ function SectionHead({
   return (
     <div className="og-section-head" id={id}>
       <div>
-        <h2 className="og-display og-h2">{title}</h2>
+        <h2 className="og-h2">{title}</h2>
         {blurb && <p className="og-section-blurb">{blurb}</p>}
       </div>
       {linkHref && linkText && (
@@ -71,7 +71,7 @@ export default function HomePage() {
           decoding="async"
         />
         <div className="og-hero-inner">
-          <p className="og-kicker">
+          <p className="og-kicker-dim">
             Version {bannerMeta.version} — {bannerMeta.versionTitle}
           </p>
           <h1 className="og-display og-hero-title">Today in Wuthering Waves</h1>

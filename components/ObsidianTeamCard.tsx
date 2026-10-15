@@ -16,7 +16,7 @@ export default function ObsidianTeamCard({ team }: { team: Team }) {
     <section className="og-team-card" aria-label={team.name}>
       <div className="og-team-head">
         <span className={tagClass}>{team.tag}</span>
-        <h3 className="og-team-title og-display">{team.name}</h3>
+        <h3 className="og-team-title">{team.name}</h3>
       </div>
 
       {/* Visual team row: portraits first, with flow chevrons. */}

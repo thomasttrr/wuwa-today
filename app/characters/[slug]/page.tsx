@@ -51,7 +51,7 @@ function SectionHead({ title, blurb }: { title: string; blurb?: string }) {
   return (
     <Reveal>
       <div>
-        <h2 className="og-section-h og-display">{title}</h2>
+        <h2 className="og-section-h">{title}</h2>
         {blurb && <p className="og-section-blurb">{blurb}</p>}
       </div>
     </Reveal>
