@@ -90,3 +90,25 @@ All artwork is official Kuro Games art (splash art and full sprites as released 
 Hsin's splash art was also officially revealed by Kuro Games on the official Wuthering Waves X account (@Wuthering_Waves), August 26, 2026. Art credit "Kuro Games" is shown under each banner card that uses splash art.
 
 Deliberately not added: event-section artwork (no official event key art found on the wiki for the current events — skipped rather than guessing); 4-star rate-up character sprites (Buling, Taoqi, Youhu) to keep the initial image set focused on the 5-star headliners.
+
+## Pre-farm guides (published 2026-10-15 — branch kit/prefarm-suoming)
+
+Routes: /pre-farm, /pre-farm/suoming, /pre-farm/lynae, /pre-farm/lucilla. Material tables render from data/characters/<slug>.json (source of truth); guide framing (banner timing, farm-now/wait lists, priorities) lives in data/prefarm.json. 2-source rule applied to every material name and quantity.
+
+- Suoming (pre-release; banner opens ~Oct 22, 2026, 3.7 Phase 2):
+  - https://game8.co/games/Wuthering-Waves/archives/605306 — Game8 Suoming page: full ascension + forte quantities (Howler Cores 4/12/12/4 + 25/28/40/57; Forged Empyrean's Sigh x46; Miasmic Branch x60; Wing Polarizers 25/28/55/67; Remnant of the Wheel x26; credits 170k/2.03M)
+  - https://www.sportskeeda.com/esports/wuwa-suoming-materials-wuthering-waves — same numbers, plus Howler Core farming (Howler Tacet Discords, Jinzhou)
+  - https://www.u7buy.com/blog/wuwa-suoming-materials-guide/ — same numbers; routes: Calamity Effigy at Verdant Court (western Xuanfang Hold), unlock via Ch.4 Act III "Song of the Heart Sword"; Miasmic Branch ~63 nodes in Simulacrum Nexus of Mengzhou + Huaxu Apothecary; Wing Polarizers from Forgery Challenge: Fallen Sanctum (Etching Plains); Remnant of the Wheel shares the weekly boss with Hsin
+  - https://www.sportskeeda.com/esports/wuwa-miasmic-branch-location-farming-guide-wuthering-waves — Miasmic Branch node route (second route source)
+  - Note: gamingonphone's Suoming totals section disagrees on some combined figures (50 Miasmic Branch, 87 Layered Wing) — per-category numbers match; combined figures treated as that source's error and not used.
+- Lynae (live, 3.0; featured on 3.7 Phase 2):
+  - https://www.sportskeeda.com/esports/wuthering-waves-lynae-ascension-materials-guide — full quantities (Exoswarm 4/12/12/4 + 25/28/40/57; Suncoveter's Reach x46; Rimewisp x60; Combustors 25/28/55/67; Dreamless Feather x26)
+  - https://game8.co/games/Wuthering-Waves/archives/520345 — material names cross-check (Rimewisp, Suncoveter's Reach, Dreamless Feather, Exoswarm Cores, Combustors)
+  - https://www.sportskeeda.com/esports/wuthering-waves-wuwa-rimewisp-locations-farming-guide — Rimewisp routes (~40 overworld nodes + N.A.N.A. Resonator Nursing Unit 15/week at 3,000 credits each)
+- Lucilla (live, 3.4; featured on 3.7 Phase 2):
+  - https://game8.co/games/Wuthering-Waves/archives/568207 — Game8 Lucilla page: per-rank breakdown (Mech Cores 4/12/12/4 + 25/28/40/57; Suncoveter's Reach x46; Forget-Me-Not x60; Strings 25/28/55/67; We Who Question x26; credits 170k/2.03M)
+  - https://buffbuff.com/blog/wuthering-waves-lucilla-build — same quantities (second quantity source)
+  - Strings farm location corrected to "Lesson in Sunset Forgery Challenge, Etching Plains" per sportskeeda (Suisui + Denia + Hsin pre-farm articles) and u7buy (Suisui guide) — prior site data said "Forgery Challenge, Lahai-Roi" (superseded)
+  - Mech Cores: Clamorling Tacet Discords, Lahai-Roi (gamsgo Denia guide + sportskeeda Mornye article)
+  - We Who Question: Denia weekly challenge, Seed of Illusory Origin, Dimmr Plains (sportskeeda Qingxiao article + u7buy Hiyuki guide)
+  - Note: a few guides (gamingonphone, gamemarket) mislabel Lucilla's cores as "Exoswarm" — quantities match Mech Core totals; Game8 + buffbuff confirm Mech Cores.

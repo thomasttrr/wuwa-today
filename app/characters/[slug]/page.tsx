@@ -14,6 +14,7 @@ import {
   type RankedWeapon,
 } from "@/lib/characters";
 import { elementColor } from "@/lib/elements";
+import { getPrefarmGuide } from "@/lib/prefarm";
 
 export const dynamicParams = false;
 
@@ -341,6 +342,13 @@ export default async function CharacterPage({
           />
           <Reveal>
             <MaterialsSection materials={char.materials} />
+            {getPrefarmGuide(slug) && (
+              <p style={{ marginTop: "1rem" }}>
+                <Link href={`/pre-farm/${slug}`} className="og-chip">
+                  Full pre-farm guide with farming priorities →
+                </Link>
+              </p>
+            )}
           </Reveal>
         </section>
       )}
