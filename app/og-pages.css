@@ -678,11 +678,19 @@
 .og-material:first-child { border-top: none; }
 .og-material-top {
   display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 0.75rem;
+  align-items: center;
+  gap: 0.6rem;
 }
-.og-material-name { color: var(--og-ink); font-weight: 600; min-width: 0; }
+.og-material-name { color: var(--og-ink); font-weight: 600; min-width: 0; flex: 1; }
+.og-material-icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  flex: none;
+  object-fit: cover;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--og-hairline-soft);
+}
 .og-material-qty {
   font-family: var(--og-mono);
   font-variant-numeric: tabular-nums;
@@ -725,11 +733,11 @@
 .og-ready-list > li:first-child { border-top: none; }
 .og-ready-top {
   display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 0.75rem;
+  align-items: center;
+  gap: 0.6rem;
   color: var(--og-ink);
 }
+.og-ready-top > span:nth-child(2) { flex: 1; min-width: 0; }
 
 /* --- pre-farm breakdown accordions (native details, no JS) ------------------- */
 

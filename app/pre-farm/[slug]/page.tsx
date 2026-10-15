@@ -55,6 +55,40 @@ function SectionHead({ title, blurb }: { title: string; blurb?: string }) {
 
 type MaterialEntry = { name: string; qty: string; farm: string };
 
+/** Base material name → item icon (Game8 item pages, verified).
+ *  Tiered rows ("LF / MF / HF / FF Howler Core") use the highest-tier icon. */
+const MATERIAL_ICONS: Record<string, string> = {
+  "Howler Core": "/images/items/ff-howler-core.png",
+  "Wing Polarizer": "/images/items/layered-wing-polarizer.png",
+  "Forged Empyrean's Sigh": "/images/items/forged-empyreans-sigh.png",
+  "Miasmic Branch": "/images/items/miasmic-branch.png",
+  "Remnant of the Wheel": "/images/items/remnant-of-the-wheel.png",
+  "Shell Credits": "/images/items/shell-credit.png",
+  "Exoswarm Core": "/images/items/ff-exoswarm-core.png",
+  Combustor: "/images/items/reverb-combustor.png",
+  "Dreamless Feather": "/images/items/dreamless-feather.png",
+  "Forget-Me-Not": "/images/items/forget-me-not.png",
+  Rimewisp: "/images/items/rimewisp.png",
+  "Mech Core": "/images/items/ff-mech-core.png",
+  String: "/images/items/melodic-string.png",
+  "Suncoveter's Reach": "/images/items/suncoveters-reach.png",
+  "We Who Question": "/images/items/we-who-question.png",
+};
+
+function MaterialIcon({ name }: { name: string }) {
+  const src = MATERIAL_ICONS[name];
+  if (!src) return null;
+  return (
+    <Image
+      src={src}
+      alt=""
+      width={30}
+      height={30}
+      className="og-material-icon"
+    />
+  );
+}
+
 type TieredMaterial = {
   base: string;
   tiers: { label: string; qty: string }[];
@@ -109,6 +143,7 @@ function MaterialTable({ entries }: { entries: MaterialEntry[] }) {
             return (
               <li key={m.name} className="og-material">
                 <div className="og-material-top">
+                  <MaterialIcon name={t ? t.base : m.name} />
                   <span className="og-material-name">
                     {t ? t.base : m.name}
                   </span>
@@ -184,6 +219,7 @@ function ReadyList({
           return (
             <li key={m.name}>
               <div className="og-ready-top">
+                <MaterialIcon name={t ? t.base : m.name} />
                 <span>{t ? t.base : m.name}</span>
                 <span className="og-material-qty">×{t ? t.total : m.qty}</span>
               </div>
