@@ -654,7 +654,7 @@
   color: var(--og-ink);
 }
 
-/* --- pre-farm materials: solid tables --------------------------------------- */
+/* --- pre-farm materials: mobile-first stacked rows ------------------------------ */
 
 .og-materials {
   display: grid;
@@ -671,23 +671,98 @@
 .og-materials-group h3 { font-size: 0.95rem; margin: 0 0 0.5rem; color: var(--og-ink); }
 .og-materials-list { list-style: none; margin: 0; padding: 0; }
 .og-material {
-  display: flex;
-  align-items: baseline;
-  gap: 0.7rem;
-  padding: 0.55rem 0;
+  padding: 0.7rem 0;
   border-top: 1px solid var(--og-hairline-soft);
   font-size: 0.9rem;
-  min-width: 0;
 }
-.og-material-name { color: var(--og-ink); flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.og-material:first-child { border-top: none; }
+.og-material-top {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+.og-material-name { color: var(--og-ink); font-weight: 600; min-width: 0; }
 .og-material-qty {
   font-family: var(--og-mono);
   font-variant-numeric: tabular-nums;
   font-weight: 700;
   color: var(--og-ink);
   flex: none;
+  white-space: nowrap;
 }
-.og-material-farm { color: var(--og-muted); font-size: 0.78rem; flex: none; max-width: 45%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.og-material-tiers {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-top: 0.45rem;
+}
+.og-tier-chip {
+  font-family: var(--og-mono);
+  font-variant-numeric: tabular-nums;
+  font-size: 0.75rem;
+  line-height: 1.5;
+  padding: 0.1rem 0.55rem;
+  border: 1px solid var(--og-hairline-soft);
+  border-radius: 999px;
+  color: var(--og-muted);
+  white-space: nowrap;
+}
+.og-material-farm {
+  color: var(--og-muted);
+  font-size: 0.8rem;
+  line-height: 1.5;
+  margin-top: 0.35rem;
+}
+
+/* --- pre-farm "farm now / wait" lists ---------------------------------------- */
+
+.og-ready-list { list-style: none; margin: 0.5rem 0 0; padding: 0; }
+.og-ready-list > li {
+  padding: 0.45rem 0;
+  border-top: 1px solid var(--og-hairline-soft);
+}
+.og-ready-list > li:first-child { border-top: none; }
+.og-ready-top {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.75rem;
+  color: var(--og-ink);
+}
+
+/* --- pre-farm breakdown accordions (native details, no JS) ------------------- */
+
+.og-breakdown {
+  border: 1px solid var(--og-hairline-soft);
+  border-radius: var(--og-radius-card);
+  background: var(--og-surface);
+  margin: 0 0 0.75rem;
+}
+.og-breakdown summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 1rem 1.25rem;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--og-ink);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  min-height: 44px;
+}
+.og-breakdown summary::-webkit-details-marker { display: none; }
+.og-breakdown summary::after {
+  content: "+";
+  color: var(--og-muted);
+  font-size: 1.25rem;
+  font-weight: 400;
+  line-height: 1;
+  flex: none;
+}
+.og-breakdown[open] summary::after { content: "–"; }
+.og-breakdown .og-materials { padding: 0 1.25rem 1.1rem; }
 
 /* --- team cards: solid surface, visual-first -------------------------------- */
 

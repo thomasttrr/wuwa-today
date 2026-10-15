@@ -55,20 +55,74 @@ function SectionHead({ title, blurb }: { title: string; blurb?: string }) {
 
 type MaterialEntry = { name: string; qty: string; farm: string };
 
+type TieredMaterial = {
+  base: string;
+  tiers: { label: string; qty: string }[];
+  total: string;
+};
+
+/** "LF / MF / HF / FF Howler Core" + "4 / 12 / 12 / 4"
+ *  → { base: "Howler Core", tiers: [{LF,4},{MF,12},…], total: "32" }.
+ *  Returns null when the entry isn't tiered or quantities aren't numeric. */
+function parseTiers(name: string, qty: string): TieredMaterial | null {
+  if (!name.includes(" / ") || !qty.includes(" / ")) return null;
+  const nParts = name.split(" / ").map((s) => s.trim());
+  const qParts = qty.split(" / ").map((s) => s.trim());
+  if (nParts.length !== qParts.length || nParts.length < 2) return null;
+  if (qParts.some((q) => Number.isNaN(parseInt(q.replace(/,/g, ""), 10))))
+    return null;
+  const lastTokens = nParts[nParts.length - 1].split(/\s+/);
+  if (lastTokens.length < 2) return null;
+  const base = lastTokens.slice(1).join(" ");
+  const labels = nParts.map((p, i) =>
+    i === nParts.length - 1 ? lastTokens[0] : p
+  );
+  const total = qParts
+    .reduce((s, q) => s + parseInt(q.replace(/,/g, ""), 10), 0)
+    .toLocaleString("en-US");
+  return {
+    base,
+    tiers: labels.map((label, i) => ({ label, qty: qParts[i] })),
+    total,
+  };
+}
+
+function TierChips({ tiers }: { tiers: { label: string; qty: string }[] }) {
+  return (
+    <div className="og-material-tiers" aria-label="Per-tier quantities">
+      {tiers.map((t) => (
+        <span key={t.label} className="og-tier-chip">
+          {t.label} ×{t.qty}
+        </span>
+      ))}
+    </div>
+  );
+}
+
 function MaterialTable({ entries }: { entries: MaterialEntry[] }) {
   return (
     <div className="og-materials">
       <div className="og-materials-group">
         <ol className="og-materials-list">
-          {entries.map((m) => (
-            <li key={m.name} className="og-material">
-              <span className="og-material-name">{m.name}</span>
-              <span className="og-material-qty">×{m.qty}</span>
-              {m.farm !== "—" && (
-                <span className="og-material-farm">{m.farm}</span>
-              )}
-            </li>
-          ))}
+          {entries.map((m) => {
+            const t = parseTiers(m.name, m.qty);
+            return (
+              <li key={m.name} className="og-material">
+                <div className="og-material-top">
+                  <span className="og-material-name">
+                    {t ? t.base : m.name}
+                  </span>
+                  <span className="og-material-qty">
+                    ×{t ? t.total : m.qty}
+                  </span>
+                </div>
+                {t && <TierChips tiers={t.tiers} />}
+                {m.farm !== "—" && (
+                  <div className="og-material-farm">{m.farm}</div>
+                )}
+              </li>
+            );
+          })}
         </ol>
       </div>
     </div>
@@ -124,12 +178,19 @@ function ReadyList({
       <p>
         <strong>{title}</strong>
       </p>
-      <ul style={{ margin: "0.5rem 0 0", paddingLeft: "1.1rem" }}>
-        {items.map((m) => (
-          <li key={m.name} style={{ margin: "0.25rem 0" }}>
-            {m.name} <span className="og-muted">×{m.qty}</span>
-          </li>
-        ))}
+      <ul className="og-ready-list">
+        {items.map((m) => {
+          const t = parseTiers(m.name, m.qty);
+          return (
+            <li key={m.name}>
+              <div className="og-ready-top">
+                <span>{t ? t.base : m.name}</span>
+                <span className="og-material-qty">×{t ? t.total : m.qty}</span>
+              </div>
+              {t && <TierChips tiers={t.tiers} />}
+            </li>
+          );
+        })}
       </ul>
     </div>
   );
@@ -260,38 +321,36 @@ export default async function PrefarmPage({
         </div>
       </section>
 
-      {/* Ascension */}
-      <section className="og-section" aria-label="Ascension materials">
-        <SectionHead
-          title="Ascension 0 → 90"
-          blurb="Level-up costs with farm locations."
-        />
-        <Reveal>
-          <MaterialTable entries={materials.ascension} />
-        </Reveal>
-      </section>
-
-      {/* Forte */}
-      <section className="og-section" aria-label="Forte materials">
-        <SectionHead
-          title="Forte — full tree"
-          blurb="Skill upgrade costs with farm locations."
-        />
-        <Reveal>
-          <MaterialTable entries={materials.forte} />
-        </Reveal>
-      </section>
-
-      {/* Full checklist */}
+      {/* Full checklist — the main shopping list */}
       <section className="og-section" aria-label="Full checklist">
         <SectionHead
           title="Full checklist"
-          blurb="Ascension + forte combined — the complete shopping list."
+          blurb="Ascension + forte combined — everything you need, with per-tier totals."
         />
         <Reveal>
           <MaterialTable entries={totals} />
         </Reveal>
         {materials.note && <Caveat>{materials.note}</Caveat>}
+      </section>
+
+      {/* Breakdown — per-phase detail, tucked into accordions */}
+      <section className="og-section" aria-label="Material breakdown">
+        <SectionHead
+          title="Breakdown"
+          blurb="Per-phase costs, if you want the detail."
+        />
+        <Reveal>
+          <details className="og-breakdown">
+            <summary>Ascension 0 → 90</summary>
+            <MaterialTable entries={materials.ascension} />
+          </details>
+        </Reveal>
+        <Reveal>
+          <details className="og-breakdown">
+            <summary>Forte — full tree</summary>
+            <MaterialTable entries={materials.forte} />
+          </details>
+        </Reveal>
       </section>
 
       {/* Farming priorities */}
