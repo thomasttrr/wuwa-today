@@ -102,7 +102,7 @@ function QuestionCard({
       <section className="og-pick-card" aria-label={title}>
         <span className="og-kicker-dim">{question}</span>
         <h3>{title}</h3>
-        <p className="og-pick-desc">{children}</p>
+        <div className="og-pick-desc">{children}</div>
       </section>
     </Reveal>
   );
@@ -178,48 +178,96 @@ export default function PullPlannerPage() {
         <div className="grid grid-2">
           <QuestionCard question="Question 1" title="Pull Hsin or save for Suoming?" delay={0}>
             <>
-              They pair together. The Suoming verdict reads:{" "}
-              <em>
-                “If you pulled Hsin, Suoming is her best partner and a strong
-                pull. Everyone else should wait for launch-day numbers before
-                deciding.”
-              </em>{" "}
-              If you already have or pull Hsin, Suoming is her best partner —
-              budget for both. If you skipped Hsin, save and wait: Suoming’s
-              numbers are still pre-release data.{" "}
-              <Link href="/characters/hsin">Hsin verdict</Link> ·{" "}
-              <Link href="/characters/suoming">Suoming verdict</Link>
+              <ul className="og-q-list">
+                <li>
+                  <strong>They pair together.</strong> The Suoming verdict
+                  reads:{" "}
+                  <em>
+                    “If you pulled Hsin, Suoming is her best partner and a
+                    strong pull. Everyone else should wait for launch-day
+                    numbers before deciding.”
+                  </em>
+                </li>
+                <li>
+                  <strong>Already have or pull Hsin?</strong> Suoming is her
+                  best partner — budget for both.
+                </li>
+                <li>
+                  <strong>Skipped Hsin?</strong> Save and wait: Suoming’s
+                  numbers are still pre-release data.
+                </li>
+              </ul>
+              <p className="og-q-links">
+                <Link href="/characters/hsin">Hsin verdict</Link> ·{" "}
+                <Link href="/characters/suoming">Suoming verdict</Link>
+              </p>
             </>
           </QuestionCard>
           <QuestionCard question="Question 2" title="F2P with one guarantee: who?" delay={70}>
             <>
-              Make it count. If you’re missing an Electro DPS,{" "}
-              <strong>Hsin</strong> is “a strong pull for accounts missing an
-              Electro DPS”. If your Electro slots are covered, hold for{" "}
-              <strong>Lynae</strong> in Phase 2 — she’s “the safest rerun of 3.7”.
-              The Phase 1 order of value is Hsin &gt; Chisa &gt; Iuno for most
-              accounts. <Link href="/characters/hsin">Hsin verdict</Link> ·{" "}
-              <Link href="/characters/lynae">Lynae verdict</Link>
+              <ul className="og-q-list">
+                <li>
+                  <strong>Make it count:</strong> if you’re missing an Electro
+                  DPS, <strong>Hsin</strong> is “a strong pull for accounts
+                  missing an Electro DPS”.
+                </li>
+                <li>
+                  <strong>Electro slots covered?</strong> Hold for{" "}
+                  <strong>Lynae</strong> in Phase 2 — she’s “the safest rerun
+                  of 3.7”.
+                </li>
+                <li>
+                  <strong>Phase 1 value order:</strong> Hsin &gt; Chisa &gt;
+                  Iuno for most accounts.
+                </li>
+              </ul>
+              <p className="og-q-links">
+                <Link href="/characters/hsin">Hsin verdict</Link> ·{" "}
+                <Link href="/characters/lynae">Lynae verdict</Link>
+              </p>
             </>
           </QuestionCard>
           <QuestionCard question="Question 3" title="Do I need the Lynae / Lucilla reruns?" delay={0}>
             <>
-              Lynae: “the safest rerun of 3.7 — pull her if you don’t own her.”
-              Lucilla is conditional: pull her if you run Hiyuki, a Glacio DPS,
-              or Echo Skill carries — “she’s arguably their best support”.
-              Otherwise she’s niche, not a generalist, and safe to skip.{" "}
-              <Link href="/characters/lynae">Lynae verdict</Link> ·{" "}
-              <Link href="/characters/lucilla">Lucilla verdict</Link>
+              <ul className="og-q-list">
+                <li>
+                  <strong>Lynae:</strong> “the safest rerun of 3.7 — pull her
+                  if you don’t own her.”
+                </li>
+                <li>
+                  <strong>Lucilla is conditional:</strong> pull her if you run
+                  Hiyuki, a Glacio DPS, or Echo Skill carries — “she’s arguably
+                  their best support”.
+                </li>
+                <li>
+                  <strong>Otherwise:</strong> she’s niche, not a generalist,
+                  and safe to skip.
+                </li>
+              </ul>
+              <p className="og-q-links">
+                <Link href="/characters/lynae">Lynae verdict</Link> ·{" "}
+                <Link href="/characters/lucilla">Lucilla verdict</Link>
+              </p>
             </>
           </QuestionCard>
           <QuestionCard question="Question 4" title="What about Chisa and Iuno?" delay={70}>
             <>
-              Chisa is “one of the best supports for Negative Status teams —
-              worth it if you’re building around Hsin or status squads”.
-              Iuno is Phase 1’s third pick: a flexible Aero healer/buffer, but
-              “a luxury if your sustain slots are full”.{" "}
-              <Link href="/characters/chisa">Chisa verdict</Link> ·{" "}
-              <Link href="/characters/iuno">Iuno verdict</Link>
+              <ul className="og-q-list">
+                <li>
+                  <strong>Chisa</strong> is “one of the best supports for
+                  Negative Status teams — worth it if you’re building around
+                  Hsin or status squads”.
+                </li>
+                <li>
+                  <strong>Iuno</strong> is Phase 1’s third pick: a flexible
+                  Aero healer/buffer, but “a luxury if your sustain slots are
+                  full”.
+                </li>
+              </ul>
+              <p className="og-q-links">
+                <Link href="/characters/chisa">Chisa verdict</Link> ·{" "}
+                <Link href="/characters/iuno">Iuno verdict</Link>
+              </p>
             </>
           </QuestionCard>
         </div>

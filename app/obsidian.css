@@ -72,6 +72,9 @@ body.og main { padding-top: 5.75rem; }
 /* --- display typography: Space Grotesk, semibold/bold, uppercase,
    tight tracking. Applied per-element via .og-display. --- */
 .og-display {
+  /* RESERVED: short display headlines only (page titles, hero). Every
+     other uppercase use has been demoted per caps discipline — do not
+     re-add text-transform to functional UI. */
   font-family: var(--og-display);
   font-weight: 700;
   text-transform: uppercase;
@@ -79,11 +82,19 @@ body.og main { padding-top: 5.75rem; }
   line-height: 1.05;
   color: var(--og-ink);
 }
+/* Title-case display heading for section heads: Space Grotesk voice
+   without the all-caps shout. */
+.og-h2 {
+  font-family: var(--og-display);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.15;
+  color: var(--og-ink);
+}
 .og-kicker {
   font-family: var(--og-display);
   font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.08em;
   font-size: 0.72rem;
   color: var(--og-gold); /* gold is allowed here: it's a time/urgency signal */
 }
@@ -103,7 +114,13 @@ body.og main { padding-top: 5.75rem; }
   align-items: center;
   gap: 0.4rem;
   border-radius: var(--og-radius-pill);
-  background: var(--og-glass);
+  /* Neutral tint control: a dark monochrome veil under the glass tint so
+     the saturate(180%) backdrop stays neutral over busy/bright art
+     (e.g. yellow splash swooshes) instead of picking up a yellow-green
+     cast. Blur + glint are unchanged. */
+  background:
+    linear-gradient(180deg, rgba(8, 8, 10, 0.30), rgba(8, 8, 10, 0.30)),
+    var(--og-glass);
   -webkit-backdrop-filter: saturate(180%) blur(24px);
   backdrop-filter: saturate(180%) blur(24px);
   border: 1px solid var(--og-hairline);
@@ -206,8 +223,7 @@ body.og main { padding-top: 5.75rem; }
   font-family: var(--og-display);
   font-weight: 600;
   font-size: 0.82rem;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.02em;
   border-radius: var(--og-radius-pill);
   padding: 0.7rem 1.5rem;
   cursor: pointer;
@@ -287,6 +303,16 @@ body.og main { padding-top: 5.75rem; }
   display: block;
   /* The card lifts on hover. The image never scales. */
   transform: none !important;
+}
+.og-char-tile-art::after {
+  /* Bottom fade: mutes the bright yellow swooshes baked into the bottom
+     strip of the portrait art (~35% yellow pixels on some tiles) without
+     touching the image files. Paints above the art, below the tile flag. */
+  content: "";
+  position: absolute; inset: auto 0 0 0;
+  height: 45%;
+  background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.68));
+  pointer-events: none;
 }
 .og-char-tile-mono {
   position: absolute; inset: 0;
@@ -519,15 +545,18 @@ body.og { overflow-x: clip; }
 }
 .og-hero::after {
   /* Monochrome dark scrim: top shade for nav legibility, deep shade
-     at the bottom where the copy sits. */
+     through the bottom copy zone so headline + subtext stay legible
+     even over the brightest banner art (Hsin's splash). Art stays
+     visible through the mid-range — never buried. */
   content: "";
   position: absolute; inset: 0;
   background: linear-gradient(
     180deg,
     rgba(0, 0, 0, 0.62) 0%,
-    rgba(0, 0, 0, 0.18) 42%,
-    rgba(0, 0, 0, 0.55) 72%,
-    rgba(0, 0, 0, 0.9) 100%
+    rgba(0, 0, 0, 0.20) 38%,
+    rgba(0, 0, 0, 0.52) 58%,
+    rgba(0, 0, 0, 0.76) 76%,
+    rgba(0, 0, 0, 0.90) 100%
   );
   pointer-events: none;
 }
@@ -538,11 +567,26 @@ body.og { overflow-x: clip; }
   display: flex; flex-direction: column; justify-content: flex-end;
   padding-bottom: clamp(2.5rem, 6vh, 4rem);
 }
+.og-hero-inner::before {
+  /* Subtle copy backplate: soft dark bloom behind the headline block so
+     the brightest art never meets bare text. Static, motion-free. */
+  content: "";
+  position: absolute; z-index: -1;
+  inset: 40% -2.5rem 0 -2.5rem;
+  background: radial-gradient(130% 100% at 50% 100%, rgba(0, 0, 0, 0.5), transparent 72%);
+  pointer-events: none;
+}
 .og-hero-title {
   font-size: clamp(2.9rem, 8vw, 6rem);
   margin: 0.9rem 0 1rem;
   max-width: 14ch;
   text-wrap: balance;
+  /* Layered shadow keeps the white headline on top of bright art
+     (21:1 ink vs. the near-opaque scrim behind it). */
+  text-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.9),
+    0 4px 14px rgba(0, 0, 0, 0.85),
+    0 10px 34px rgba(0, 0, 0, 0.7);
 }
 .og-hero-sub {
   color: rgba(255, 255, 255, 0.82);
@@ -550,6 +594,16 @@ body.og { overflow-x: clip; }
   max-width: 46ch;
   margin: 0 0 1.75rem;
   line-height: 1.55;
+  text-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.95),
+    0 3px 10px rgba(0, 0, 0, 0.8);
+}
+.og-hero-inner .og-kicker {
+  /* Gold kicker over bright art gets the same shadow stack so the
+     time/version signal stays legible. */
+  text-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.95),
+    0 3px 10px rgba(0, 0, 0, 0.8);
 }
 .og-hero-cta { align-self: flex-start; }
 
@@ -574,7 +628,11 @@ body.og { overflow-x: clip; }
   margin: 0 0 1.5rem;
   padding: 0.4rem;
   border-radius: var(--og-radius-pill);
-  background: var(--og-glass);
+  /* Same neutral tint control as .og-nav: dark veil keeps the
+     saturate(180%) backdrop neutral over bright art. */
+  background:
+    linear-gradient(180deg, rgba(8, 8, 10, 0.30), rgba(8, 8, 10, 0.30)),
+    var(--og-glass);
   -webkit-backdrop-filter: saturate(180%) blur(24px);
   backdrop-filter: saturate(180%) blur(24px);
   border: 1px solid var(--og-hairline);
@@ -693,9 +751,9 @@ body.og { overflow-x: clip; }
 
 .og-event-card {
   background: var(--og-surface);
-  border: 1px solid var(--og-hairline-soft);
+  border: 1px solid var(--og-hairline);
   border-radius: var(--og-radius-card);
-  padding: 1.15rem 1.25rem 1.3rem;
+  padding: 1.4rem 1.5rem 1.5rem;
   display: flex; flex-direction: column; gap: 0.6rem;
 }
 .og-event-title {
@@ -718,10 +776,10 @@ body.og { overflow-x: clip; }
 
 .og-code-row {
   background: var(--og-surface);
-  border: 1px solid var(--og-hairline-soft);
+  border: 1px solid var(--og-hairline);
   border-radius: var(--og-radius-card);
-  padding: 1rem 1.25rem 1.2rem;
-  display: flex; flex-direction: column; gap: 0.6rem;
+  padding: 1.4rem 1.5rem 1.5rem;
+  display: flex; flex-direction: column; gap: 0.75rem;
 }
 .og-code-top { display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap; }
 .og-code-value {
@@ -731,6 +789,12 @@ body.og { overflow-x: clip; }
   font-size: 1.15rem;
   letter-spacing: 0.04em;
   color: var(--og-ink);
+  background: var(--og-surface-raised);
+  border: 1px solid var(--og-hairline);
+  border-radius: 10px;
+  padding: 0.45rem 0.85rem;
+  display: inline-flex;
+  align-items: center;
 }
 .og-code-meta { margin: 0; color: var(--og-muted); font-size: 0.9rem; }
 
@@ -740,9 +804,9 @@ body.og { overflow-x: clip; }
 
 .og-reset {
   background: var(--og-surface);
-  border: 1px solid var(--og-hairline-soft);
+  border: 1px solid var(--og-hairline);
   border-radius: var(--og-radius-card);
-  padding: 1.15rem 1.25rem 1.35rem;
+  padding: 1.4rem 1.5rem 1.5rem;
 }
 .og-reset-head {
   display: flex; align-items: center; justify-content: space-between;
@@ -810,9 +874,9 @@ body.og { overflow-x: clip; }
 
 .og-pick-card {
   background: var(--og-surface);
-  border: 1px solid var(--og-hairline-soft);
+  border: 1px solid var(--og-hairline);
   border-radius: var(--og-radius-card);
-  padding: 1.15rem 1.25rem 1.3rem;
+  padding: 1.4rem 1.5rem 1.5rem;
 }
 .og-pick-card h3 {
   font-family: var(--og-display);
@@ -824,6 +888,22 @@ body.og { overflow-x: clip; }
 .og-pick-desc { color: var(--og-muted); margin: 0; font-size: 0.95rem; line-height: 1.6; }
 .og-pick-desc a, .og-pick-also a { font-weight: 600; }
 .og-pick-desc strong { color: var(--og-ink); }
+/* --- scannable question bullets: <ul> + bolded keywords, same verified copy --- */
+.og-q-list {
+  list-style: disc;
+  margin: 0.9rem 0 0;
+  padding-left: 1.25rem;
+  display: flex; flex-direction: column; gap: 0.55rem;
+}
+.og-q-list li {
+  color: var(--og-muted);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+.og-q-list li::marker { color: var(--og-muted); }
+.og-q-list strong { color: var(--og-ink); font-weight: 600; }
+.og-q-links { margin: 0.85rem 0 0; font-size: 0.9rem; line-height: 1.6; }
+.og-q-links a { font-weight: 600; }
 .og-pick-label {
   font-family: var(--og-display);
   font-weight: 600; font-size: 0.7rem;
@@ -851,7 +931,7 @@ body.og { overflow-x: clip; }
 .og-pick-also {
   color: var(--og-muted); font-size: 0.93rem; line-height: 1.6;
   margin: 0.9rem 0 0; padding-top: 0.85rem;
-  border-top: 1px solid var(--og-hairline-soft);
+  border-top: 1px solid var(--og-hairline);
 }
 .og-pick-also p { margin: 0; }
 .og-pick-also strong { color: var(--og-ink); }
