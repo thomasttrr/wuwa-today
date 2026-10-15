@@ -1,6 +1,5 @@
-import Countdown from "./Countdown";
+import ObsidianCountdown from "./ObsidianCountdown";
 import PhaseRail from "./PhaseRail";
-import ArtCardSheen from "./ArtCardSheen";
 import Image from "next/image";
 import {
   formatServerDateWithNote,
@@ -15,7 +14,7 @@ function stars(rarity: number): string {
 
 function CharacterChip({ c }: { c: GameCharacter }) {
   return (
-    <li className="char-chip">
+    <li className="og-char-chip">
       {c.sprite && (
         <Image
           src={c.sprite}
@@ -25,21 +24,21 @@ function CharacterChip({ c }: { c: GameCharacter }) {
           height={96}
         />
       )}
-      <div className="char-chip-body">
-        <div className="char-chip-name">
-          <span className="stars" aria-label={`${c.rarity} star`}>
+      <div className="og-char-chip-body">
+        <div className="og-char-chip-name">
+          <span className="og-stars" aria-label={`${c.rarity} star`}>
             {stars(c.rarity)}
           </span>{" "}
           <strong>{c.name}</strong>
           {c.status === "new" ? (
-            <span className="badge gold">New</span>
+            <span className="og-badge">New</span>
           ) : c.status === "rerun" ? (
-            <span className="badge dim">Rerun</span>
+            <span className="og-badge">Rerun</span>
           ) : (
-            <span className="badge dim">Rate-up</span>
+            <span className="og-badge">Rate-up</span>
           )}
         </div>
-        <div className="char-chip-sub">
+        <div className="og-char-chip-sub">
           {c.element} {c.weaponType}
           {c.role ? ` — ${c.role}` : ""}
         </div>
@@ -48,6 +47,12 @@ function CharacterChip({ c }: { c: GameCharacter }) {
   );
 }
 
+/**
+ * Obsidian banner card. Solid #101014 content surface (never glass): the
+ * key art is a fixed 16/9 strip on top that melts into the surface via a
+ * monochrome fade; countdown is gold mono tabular with digit-roll
+ * (gold because it is time); the phase rail stays for the featured card.
+ */
 export default function BannerCard({
   banner,
   showCountdown = true,
@@ -65,37 +70,45 @@ export default function BannerCard({
   const fourStars = banner.characters.filter((c) => c.rarity === 4);
 
   return (
-    <ArtCardSheen label={`${banner.version} ${banner.phase} banner`}>
+    <article
+      className={`og-banner-card${featured ? " og-banner-card-featured" : ""}`}
+      aria-label={`${banner.version} ${banner.phase} banner`}
+    >
       {banner.image && (
-        // eslint-disable-next-line @next/next/no-img-element -- decorative CSS-positioned art layer (masked/faded via .banner-art-bg); next/image's wrapper spans would break the art-mask styling, and images are unoptimized in this static export so next/image adds nothing.
-        <img
-          className="banner-art-bg"
-          src={banner.image}
-          alt=""
-          aria-hidden="true"
-          loading={priority ? "eager" : "lazy"}
-          decoding="async"
-          fetchPriority={priority ? "high" : "low"}
-        />
-      )}
-      <div className="banner-art-content">
-        <div>
-          <span className="badge dim">{banner.version}</span>
-          <span className="badge dim">{banner.phase}</span>
-          {banner.status === "active" ? (
-            <span className="badge live">Live now</span>
-          ) : (
-            <span className="badge dim">Upcoming</span>
-          )}
-          {banner.timeNote && <span className="badge dim">Dates estimated</span>}
+        <div className="og-banner-art">
+          {/* eslint-disable-next-line @next/next/no-img-element -- decorative key-art strip: next/image's wrapper spans would break the fade-mask styling, and images are unoptimized in this static export so next/image adds nothing. */}
+          <img
+            src={banner.image}
+            alt=""
+            aria-hidden="true"
+            loading={priority ? "eager" : "lazy"}
+            decoding="async"
+            fetchPriority={priority ? "high" : "low"}
+          />
         </div>
-        <h3 className="banner-headline">
+      )}
+      <div className="og-banner-body">
+        <div className="og-badge-row">
+          <span className="og-badge">{banner.version}</span>
+          <span className="og-badge">{banner.phase}</span>
+          {banner.status === "active" ? (
+            <span className="og-live">Live now</span>
+          ) : (
+            <span className="og-badge">Upcoming</span>
+          )}
+          {banner.timeNote && (
+            <span className="og-badge">Dates estimated</span>
+          )}
+        </div>
+        <h3 className="og-banner-headline">
           {fiveStars.map((c) => c.name).join(" · ")}
         </h3>
         {showCountdown && (
-          <Countdown
-            target={banner.endsAt}
-            label={`${banner.status === "active" ? "Ends" : "Starts"} ${formatServerDateWithNote(
+          <ObsidianCountdown
+            target={banner.status === "active" ? banner.endsAt : banner.startsAt}
+            label={`${
+              banner.status === "active" ? "Ends" : "Starts"
+            } ${formatServerDateWithNote(
               banner.status === "active" ? banner.endsAt : banner.startsAt,
               banner.timeNote
             )}`}
@@ -108,22 +121,22 @@ export default function BannerCard({
             events={events}
           />
         )}
-        <ul className="char-chip-list">
+        <ul className="og-char-chip-list">
           {fiveStars.map((c) => (
             <CharacterChip key={c.name} c={c} />
           ))}
         </ul>
         {fourStars.length > 0 && (
-          <p className="four-star-line">
-            <span className="stars" aria-label="4 star">
+          <p className="og-four-star">
+            <span className="og-stars" aria-label="4 star">
               {stars(4)}
             </span>{" "}
             {fourStars.map((c) => c.name).join(" · ")}{" "}
-            <span className="badge dim">Rate-up</span>
+            <span className="og-badge">Rate-up</span>
           </p>
         )}
         {banner.weapons.length > 0 && (
-          <p className="weapon-line">
+          <p className="og-weapon-line">
             <strong>Featured weapons:</strong>{" "}
             {banner.weapons
               .map((w) => `${w.name} (${w.type} — ${w.featuredFor})`)
@@ -131,9 +144,9 @@ export default function BannerCard({
           </p>
         )}
         {banner.imageCredit && (
-          <p className="img-credit">{banner.imageCredit}</p>
+          <p className="og-credit">{banner.imageCredit}</p>
         )}
       </div>
-    </ArtCardSheen>
+    </article>
   );
 }

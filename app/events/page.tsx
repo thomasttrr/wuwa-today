@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import EventCard from "../../components/EventCard";
+import ObsidianToolbar from "../../components/ObsidianToolbar";
 import Reveal from "../../components/Reveal";
 import ShareButton from "../../components/ShareButton";
 import UpdatedStamp from "../../components/UpdatedStamp";
@@ -14,35 +15,53 @@ export const metadata: Metadata = {
 export default function EventsPage() {
   return (
     <>
-      <h1>Wuthering Waves events</h1>
-      <p className="lede">
-        What&apos;s running now, what ends soonest, and what&apos;s on the horizon.
-        Limited events are ordered by end date — finish the top ones first.
-      </p>
-      <div className="page-meta-row">
-        <UpdatedStamp />
-        <ShareButton />
+      <div className="og-page-head">
+        <h1 className="og-display og-h1">Wuthering Waves events</h1>
+        <p className="og-lede">
+          What&apos;s running now, what ends soonest, and what&apos;s on the horizon.
+          Limited events are ordered by end date — finish the top ones first.
+        </p>
+        <div className="og-meta-row">
+          <UpdatedStamp />
+          <ShareButton />
+        </div>
       </div>
 
-      <h2>Active</h2>
-      {activeEvents.length === 0 ? (
-        <p className="empty-state">
-          No active events right now — check back after the next version
-          livestream.
-        </p>
-      ) : (
-        <div className="grid grid-2">
-          {activeEvents.map((e, i) => (
-            <Reveal key={e.id} delay={i * 70}>
-              <EventCard event={e} />
-            </Reveal>
-          ))}
+      <ObsidianToolbar
+        label="Event sections"
+        items={[
+          { href: "#active", label: "Active" },
+          ...(upcomingEvents.length > 0
+            ? [{ href: "#upcoming", label: "Upcoming" }]
+            : []),
+        ]}
+      />
+
+      <div className="og-section">
+        <div className="og-section-head" id="active">
+          <h2 className="og-display og-h2">Active</h2>
         </div>
-      )}
+        {activeEvents.length === 0 ? (
+          <p className="og-empty">
+            No active events right now — check back after the next version
+            livestream.
+          </p>
+        ) : (
+          <div className="grid grid-2">
+            {activeEvents.map((e, i) => (
+              <Reveal key={e.id} delay={i * 70}>
+                <EventCard event={e} />
+              </Reveal>
+            ))}
+          </div>
+        )}
+      </div>
 
       {upcomingEvents.length > 0 && (
-        <>
-          <h2>Upcoming</h2>
+        <div className="og-section">
+          <div className="og-section-head" id="upcoming">
+            <h2 className="og-display og-h2">Upcoming</h2>
+          </div>
           <div className="grid grid-2">
             {upcomingEvents.map((e, i) => (
               <Reveal key={e.id} delay={i * 70}>
@@ -50,7 +69,7 @@ export default function EventsPage() {
               </Reveal>
             ))}
           </div>
-        </>
+        </div>
       )}
     </>
   );

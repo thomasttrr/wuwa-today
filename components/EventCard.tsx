@@ -1,4 +1,4 @@
-import Countdown from "./Countdown";
+import ObsidianCountdown from "./ObsidianCountdown";
 import { formatServerDateWithNote, type GameEvent } from "../lib/data";
 
 const TYPE_LABELS: Record<string, string> = {
@@ -9,29 +9,39 @@ const TYPE_LABELS: Record<string, string> = {
   web: "Web event",
 };
 
+/**
+ * Obsidian event card. Solid #101014 surface; gold mono countdown with
+ * digit-roll (gold because it is time); gold live dot for active events.
+ */
 export default function EventCard({ event }: { event: GameEvent }) {
   return (
-    <article className="card" aria-label={`Event: ${event.name}`}>
-      <div>
-        <span className="badge">{TYPE_LABELS[event.type] ?? event.type}</span>
-        {event.status === "upcoming" && <span className="badge dim">Upcoming</span>}
-        {event.timeNote && <span className="badge dim">Dates estimated</span>}
+    <article className="og-event-card" aria-label={`Event: ${event.name}`}>
+      <div className="og-badge-row">
+        <span className="og-badge">{TYPE_LABELS[event.type] ?? event.type}</span>
+        {event.status === "active" ? (
+          <span className="og-live">Live</span>
+        ) : (
+          <span className="og-badge">Upcoming</span>
+        )}
+        {event.timeNote && <span className="og-badge">Dates estimated</span>}
       </div>
-      <h3 className="event-title">{event.name}</h3>
-      <p className="event-desc">{event.description}</p>
-      <p className="event-meta">
+      <h3 className="og-event-title">{event.name}</h3>
+      <p className="og-event-desc">{event.description}</p>
+      <p className="og-event-meta">
         <strong>Rewards:</strong> {event.rewards}
       </p>
       {event.endsAt ? (
-        <Countdown
+        <ObsidianCountdown
           target={event.status === "active" ? event.endsAt : event.startsAt}
-          label={`${event.status === "active" ? "Ends" : "Starts"} ${formatServerDateWithNote(
+          label={`${
+            event.status === "active" ? "Ends" : "Starts"
+          } ${formatServerDateWithNote(
             event.status === "active" ? event.endsAt : event.startsAt,
             event.timeNote
           )}`}
         />
       ) : (
-        <p className="event-meta">No end date — take your time.</p>
+        <p className="og-event-meta">No end date — take your time.</p>
       )}
     </article>
   );

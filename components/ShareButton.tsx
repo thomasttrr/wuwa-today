@@ -2,7 +2,10 @@
 
 import { useState } from "react";
 
-/** Share this page: native Web Share sheet when available, copy-link otherwise. */
+/**
+ * Share this page: native Web Share sheet when available, copy-link otherwise.
+ * Styled as a small glass HUD button (chrome, not content).
+ */
 export default function ShareButton() {
   const [copied, setCopied] = useState(false);
 
@@ -27,7 +30,11 @@ export default function ShareButton() {
   }
 
   return (
-    <button type="button" className="share-btn" onClick={handleShare}>
+    <button
+      type="button"
+      className="og-btn og-btn-glass og-btn-sm"
+      onClick={handleShare}
+    >
       {copied ? "Link copied!" : "Share this page"}
     </button>
   );
