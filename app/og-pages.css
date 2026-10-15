@@ -1018,5 +1018,4 @@ a.og-tier-name:hover { text-decoration: underline; }
     align-items: center;
     gap: 0.8rem;
   }
-  .og-tier-badge { min-width: 52px; height: 52px; font-size: 1.2rem; border-radius: 14px; }
 }
