@@ -61,11 +61,13 @@ export default function TierListPage() {
       <ObsidianToolbar
         label="Tier rows"
         items={[
-          ...rows.map((row) => ({
-            href: `#tier-${row.tier.toLowerCase()}`,
-            label: row.tier,
-          })),
-          ...(unranked.length > 0 ? [{ href: "#unranked", label: "Unranked" }] : []),
+          { href: "#tier-ss", label: "SS" },
+          { href: "#tier-s", label: "S" },
+          { href: "#tier-a", label: "A" },
+          { href: "#tier-b", label: "B" },
+          ...(unranked.length > 0
+            ? [{ href: "#unranked", label: "Unranked" }]
+            : []),
         ]}
       />
 

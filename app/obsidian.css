@@ -707,6 +707,8 @@ body.og { overflow-x: clip; }
 @media (min-width: 641px) {
   /* desktop: 4 links → single row of 4 */
   .og-toolbar-links:has(> :nth-child(4):last-child) { grid-template-columns: repeat(4, 1fr); }
+  /* desktop: 5 links → single row of 5 (tier list + Unranked) */
+  .og-toolbar-links:has(> :nth-child(5):last-child) { grid-template-columns: repeat(5, 1fr); }
 }
 .og-toolbar-links a {
   position: relative;
