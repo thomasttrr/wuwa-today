@@ -147,12 +147,12 @@
           "weaponType": "Sword"
         },
         {
-          "element": "Aero",
+          "element": "Fusion",
           "isNew": false,
-          "name": "Yangyang",
+          "name": "Chixia",
           "rarity": 4,
           "status": "rate-up",
-          "weaponType": "Sword"
+          "weaponType": "Pistols"
         }
       ],
       "confidence": "high",
@@ -168,7 +168,7 @@
       ],
       "startsAt": "2026-10-22T04:00:00+08:00",
       "status": "upcoming",
-      "timeNote": "Phase 2 4-star rate-ups per Game8 wiki (updated Oct 13, 2026): Lumi, Danjin, Yangyang. An older Game8 banner page still lists Chixia; treat the 4-star lineup as tracker-based until the in-game Convene notice confirms.",
+      "timeNote": "Phase 2 4-star rate-ups per current aggregator consensus (Game8 banner page, sportskeeda, fandomwire, gurugamer — Oct 2026): Lumi, Danjin, Chixia. An earlier Game8 wiki snapshot listed Yangyang instead; corrected Oct 15, 2026. Still awaiting the in-game Convene notice for official confirmation.",
       "uncertainFields": [
         "startsAt",
         "endsAt"
