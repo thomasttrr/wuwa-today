@@ -10,7 +10,7 @@ Every fact in `data/` was checked against these sources. Code data last checked 
 - https://fandomwire.com/all-upcoming-wuthering-waves-3-7-banners/ — pre-release banner estimates (used for cross-checking dates only)
 - https://club.jollymax.com/wuthering-waves-3-7-update/ — version contents: new area, permanent event, free tides
 
-Known uncertainty: the third Phase 2 4-star rate-up is Chixia per most sources; one source lists Yangyang. Flagged in `banners.json` (`uncertainFields`). Phase boundary dates are community-tracker estimates (~Oct 21–22, ~Nov 10–12).
+Resolved Oct 15, 2026: the third Phase 2 4-star rate-up is Chixia per current aggregator consensus (Game8 banner page, sportskeeda, fandomwire, gurugamer); an earlier Game8 wiki snapshot had listed Yangyang. Still awaiting the in-game Convene notice for official confirmation. Phase boundary dates are community-tracker estimates (~Oct 21–22, ~Nov 10–12).
 
 ## Guides (published 2026-10-14)
 
