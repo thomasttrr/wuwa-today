@@ -1,7 +1,7 @@
 {
   "_meta": {
     "comment": "Banner schedule. All phase boundary dates are ESTIMATES based on community trackers unless the in-game notice gives an exact time — mark them as such. Server flip happens at daily reset on the boundary day.",
-    "updatedAt": "2026-10-14T12:30:00-04:00",
+    "updatedAt": "2026-10-15T18:30:00-04:00",
     "version": "3.7",
     "versionTitle": "Prism's Illusion, Heart's Illumination"
   },
@@ -161,10 +161,12 @@
       "phase": "Phase 2",
       "sources": [
         "https://gurugamer.com/pc-console/wuthering-waves-3-7-banner-value-guide-27328",
+        "https://gurugamer.com/pc-console/wuthering-waves-3-7-phase-2-banner-pull-value-guide-27440",
+        "https://www.sportskeeda.com/esports/wuwa-3-7-banners-schedule-wuthering-waves",
+        "https://www.sportskeeda.com/esports/wuwa-3-7-livestream-summary-release-date-banners-codes-everything-new-wuthering-waves",
         "https://fandomwire.com/wuthering-waves-reveals-hsin-suoming-version-3-7/",
         "https://themagicrain.com/2026/10/wuthering-waves-version-3-7-prisms-illusion-hearts-illumination-now-available/",
-        "https://game8.co/games/Wuthering-Waves/archives/456482",
-        "https://game8.co/games/wuthering-waves"
+        "https://game8.co/games/Wuthering-Waves/archives/456482"
       ],
       "startsAt": "2026-10-22T04:00:00+08:00",
       "status": "upcoming",

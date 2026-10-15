@@ -12,6 +12,21 @@ Every fact in `data/` was checked against these sources. Code data last checked 
 
 Resolved Oct 15, 2026: the third Phase 2 4-star rate-up is Chixia per current aggregator consensus (Game8 banner page, sportskeeda, fandomwire, gurugamer); an earlier Game8 wiki snapshot had listed Yangyang. Still awaiting the in-game Convene notice for official confirmation. Phase boundary dates are community-tracker estimates (~Oct 21–22, ~Nov 10–12).
 
+## Banners (Version 3.7, re-checked 2026-10-15, evening)
+
+- https://gurugamer.com/pc-console/wuthering-waves-3-7-phase-2-banner-pull-value-guide-27440 — Phase 2 pull value guide (updated ~Oct 14): Suoming/Lynae/Lucilla with Lumi, Danjin, Chixia 4★ rate-ups; Phase 2 ~Oct 22 – ~Nov 11
+- https://www.sportskeeda.com/esports/wuwa-3-7-banners-schedule-wuthering-waves — Phase 2 4★: Lumi, Danjin, Chixia
+- https://www.sportskeeda.com/esports/wuwa-3-7-livestream-summary-release-date-banners-codes-everything-new-wuthering-waves — Phase 2 4★: Lumi, Danjin, Chixia
+- Note: `banners.json` Phase 2 sources now include the three URLs above (they replaced the older game8.co/games/wuthering-waves snapshot link); the evening content-refresh run independently confirmed the same Chixia correction Grace applied earlier today.
+
+## Codes (re-checked 2026-10-15, evening)
+
+No new codes. `WUTHERINGGIFT` still the only code listed by shanethegamer.com (Oct 12), urgametips.com (checked Oct 15), gachago.com, beebom.com. `DVME2MOHOQJT` still listed as permanent active by supercheats.com (last checked Oct 14) and beebom.com — remains published per the two-source rule. axeetech.com still stale (lists expired STARRYSTAGE2/KEEPONSHINING as active). Next codes expected with the Version 3.8 Preview Special Broadcast, estimated ~Oct 31–Nov 1 (Kuro has not confirmed).
+
+## Events (re-checked 2026-10-15, evening)
+
+Official patch notes (via https://openrss.org/wutheringwaves.kurogames.com/en/main, re-checked this evening) confirm the full event calendar matches `events.json`: Artisan's Search Oct 8–26 (03:59), Echo Erase Oct 22–Nov 9, Beyond the Waves Oct 29–Nov 11, Waking Moon Fishing Oct 15–Nov 1, Gifts of Singing Drizzle Oct 22–Nov 11. No new events announced. News search (Oct 15) surfaced no new banners, codes, or events — the 3.8 preview broadcast is still unannounced.
+
 ## Guides (published 2026-10-14)
 
 All 8 guides were drafted from research verified against at least 2 independent sources each (official program/patch notes preferred for pre-release content). Verdicts are editorial opinion, labeled as such in each guide authorNote field.
