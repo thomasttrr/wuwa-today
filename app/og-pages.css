@@ -1030,6 +1030,8 @@
   border-radius: 20px;
   padding: 1.25rem 1.4rem;
   margin: 0 0 1rem;
+  /* Anchor target for the toolbar — same offset as .og-section. */
+  scroll-margin-top: 9rem;
 }
 .og-tier-side {
   display: flex;
@@ -1122,6 +1124,8 @@ a.og-tier-name:hover { text-decoration: underline; }
   color: var(--og-muted);
   font-size: 0.88rem;
   line-height: 1.55;
+  /* Anchor target for the toolbar — same offset as .og-section. */
+  scroll-margin-top: 9rem;
 }
 .og-tier-unranked strong { color: var(--og-ink); }
 .og-tier-unranked a { color: var(--og-ink); font-weight: 600; }
