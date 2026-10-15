@@ -35,6 +35,7 @@ export async function generateMetadata({
     description:
       `${char.name} (${p.element} ${p.weapon_type}) build guide for version ${char.game_version}: ` +
       `${char.pull_verdict.verdict_label}. Ranked weapons, echo sets, stat priorities, and team comps.`,
+    alternates: { canonical: `/characters/${slug}` },
   };
 }
 
@@ -393,7 +394,7 @@ export default async function CharacterPage({
             <span className="og-pn-dir" aria-hidden="true">‹</span>
             <Image
               src={prev.profile.portrait_url}
-              alt=""
+              alt={`${prev.name} portrait`}
               width={128}
               height={128}
               loading="lazy"
@@ -415,7 +416,7 @@ export default async function CharacterPage({
             </span>
             <Image
               src={next.profile.portrait_url}
-              alt=""
+              alt={`${next.name} portrait`}
               width={128}
               height={128}
               loading="lazy"

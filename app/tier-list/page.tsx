@@ -9,6 +9,7 @@ export const metadata: Metadata = {
   title: "Character Tier List (3.7) — WuWa Today",
   description:
     "Who's actually worth building in Wuthering Waves 3.7? Our meta tier list for the current patch, updated for the featured five-stars.",
+  alternates: { canonical: "/tier-list" },
 };
 
 const TIER_BADGE_CLASS: Record<string, string> = {
@@ -53,10 +54,10 @@ export default function TierListPage() {
         const badgeClass = TIER_BADGE_CLASS[row.tier] ?? "og-tier-badge tier-B";
         return (
           <section key={row.tier} className="og-tier-row" aria-label={`Tier ${row.tier}`}>
-            <div className="og-tier-side">
+            <h2 className="og-tier-side" style={{ margin: 0 }}>
               <span className={badgeClass}>{row.tier}</span>
               <span className="og-tier-label">{row.label}</span>
-            </div>
+            </h2>
             <ul className="og-tier-members">
               {row.members.map((m) => {
                 const inHub = hubSlugs.has(m.slug);

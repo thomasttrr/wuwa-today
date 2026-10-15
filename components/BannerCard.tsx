@@ -76,11 +76,10 @@ export default function BannerCard({
     >
       {banner.image && (
         <div className="og-banner-art">
-          {/* eslint-disable-next-line @next/next/no-img-element -- decorative key-art strip: next/image's wrapper spans would break the fade-mask styling, and images are unoptimized in this static export so next/image adds nothing. */}
+          {/* eslint-disable-next-line @next/next/no-img-element -- key-art strip: next/image's wrapper spans would break the fade-mask styling, and images are unoptimized in this static export so next/image adds nothing. */}
           <img
             src={banner.image}
-            alt=""
-            aria-hidden="true"
+            alt={`Official key art for the ${banner.version} ${banner.phase} banner${fiveStars.length > 0 ? `, featuring ${fiveStars.map((c) => c.name).join(" and ")}` : ""}`}
             loading={priority ? "eager" : "lazy"}
             decoding="async"
             fetchPriority={priority ? "high" : "low"}
