@@ -128,8 +128,8 @@ export default async function PrefarmPage({
   if (!guide || !char?.materials) {
     return (
       <>
-        <Link href="/characters" className="og-back">
-          ← Characters
+        <Link href="/pre-farm" className="og-back">
+          ← Pre-farm guides
         </Link>
         <h1 className="og-display">Pre-farm guide not found</h1>
       </>
@@ -144,8 +144,8 @@ export default async function PrefarmPage({
 
   return (
     <>
-      <Link href="/characters" className="og-back">
-        ← Characters
+      <Link href="/pre-farm" className="og-back">
+        ← Pre-farm guides
       </Link>
 
       {/* Hero */}
