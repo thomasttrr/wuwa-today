@@ -231,6 +231,13 @@ body.og main {
   /* The pill jumps instantly — no glide. */
   .og-tabbar-pill { transition: none; }
 }
+/* P-7: on small phones (≤430px) tighten tab padding to reclaim ~67px
+   across the 7 tabs, so ~4 full-label tabs are reachable instead of
+   ~3.5. Labels stay complete (white-space: nowrap) — only the padding
+   shrinks. */
+@media (max-width: 430px) {
+  .og-tabbar-tabs a { padding: 0.5rem 0.7rem; }
+}
 
 /* Screen-reader-only text: announced by assistive tech, never painted. */
 .og-visually-hidden {
