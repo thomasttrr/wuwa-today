@@ -10,6 +10,7 @@ export const metadata: Metadata = {
   title: "Wuthering Waves Events — Active & Upcoming",
   description:
     "Every active Wuthering Waves event with end-date countdowns, plus what's coming next. Never miss limited rewards again.",
+  alternates: { canonical: "/events" },
 };
 
 export default function EventsPage() {

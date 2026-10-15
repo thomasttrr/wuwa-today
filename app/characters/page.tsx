@@ -12,6 +12,7 @@ export const metadata: Metadata = {
   title: "Characters — Builds, Weapons, Echoes & Teams",
   description:
     "Every Wuthering Waves character in one hub: builds, ranked weapons, echo sets, stat priorities, team comps, pull verdicts, and tier placements — current as of version 3.7.",
+  alternates: { canonical: "/characters" },
 };
 
 export default function CharactersPage() {
