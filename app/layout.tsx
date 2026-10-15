@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import Link from "next/link";
 import { Space_Grotesk } from "next/font/google";
 import ObsidianNav from "@/components/ObsidianNav";
+import ScrollTop from "@/components/ScrollTop";
 import "./globals.css";
 import "./obsidian.css";
 import "./og-pages.css";
@@ -75,6 +76,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             </p>
           </div>
         </footer>
+        <ScrollTop />
       </body>
     </html>
   );

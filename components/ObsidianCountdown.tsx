@@ -39,11 +39,15 @@ export default function ObsidianCountdown({
   }, []);
 
   const targetDate = new Date(target);
-  const text = now ? breakdown(targetDate, now) : "--d --h --m --s";
+  const ended = now ? now.getTime() >= targetDate.getTime() : false;
+  const text = !now ? "--d --h --m --s" : ended ? "Ended" : breakdown(targetDate, now);
 
   return (
     <div>
-      <div className="og-countdown" aria-live="off">
+      <div
+        className={`og-countdown${ended ? " og-countdown-ended" : ""}`}
+        aria-live="off"
+      >
         {text.split("").map((ch, i) => (
           <span key={`${i}-${ch}`} className="og-cd-roll" aria-hidden="true">
             <span>{ch === " " ? "\u00A0" : ch}</span>

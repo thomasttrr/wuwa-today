@@ -401,6 +401,11 @@ body.og main { padding-top: 5.75rem; }
   color: var(--og-muted);
   margin-top: 0.25rem;
 }
+/* terminal state: gold is rationed to live time — ended timers go quiet */
+.og-countdown-ended {
+  color: var(--og-muted);
+  letter-spacing: 0.08em;
+}
 .og-cd-roll {
   display: inline-block;
   overflow: hidden;
