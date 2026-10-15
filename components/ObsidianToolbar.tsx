@@ -21,11 +21,13 @@ export default function ObsidianToolbar({
       <span className="og-toolbar-label" aria-hidden="true">
         {label}
       </span>
-      {items.map((item) => (
-        <a key={item.href} href={item.href}>
-          {item.label}
-        </a>
-      ))}
+      <div className="og-toolbar-links">
+        {items.map((item) => (
+          <a key={item.href} href={item.href}>
+            {item.label}
+          </a>
+        ))}
+      </div>
     </nav>
   );
 }

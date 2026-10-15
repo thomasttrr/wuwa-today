@@ -655,12 +655,10 @@ body.og { overflow-x: clip; }
   position: sticky;
   top: 5.5rem;
   z-index: 40;
-  display: flex; gap: 0.35rem; flex-wrap: wrap;
-  align-items: center;
   width: fit-content; max-width: 100%;
   margin: 0 0 1.5rem;
-  padding: 0.4rem;
-  border-radius: var(--og-radius-pill);
+  padding: 0.85rem;
+  border-radius: 22px;
   /* Same neutral tint control as .og-nav: dark veil keeps the
      saturate(180%) backdrop neutral over bright art. */
   background:
@@ -678,11 +676,15 @@ body.og { overflow-x: clip; }
   background: linear-gradient(90deg, transparent, var(--og-glint), transparent);
   pointer-events: none;
 }
-.og-toolbar a {
+.og-toolbar-links { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+.og-toolbar-links a {
   position: relative;
-  display: inline-flex; align-items: center;
+  flex: 1 1 100px;
+  min-width: 0;
+  display: inline-flex; align-items: center; justify-content: center;
+  text-align: center;
   min-height: 44px;
-  padding: 0.55rem 1.05rem;
+  padding: 0.55rem 0.75rem;
   border-radius: var(--og-radius-pill);
   color: var(--og-muted);
   font-family: var(--og-display);
@@ -692,16 +694,18 @@ body.og { overflow-x: clip; }
   white-space: nowrap;
   transition: color var(--og-d1) ease, background-color var(--og-d1) ease;
 }
-.og-toolbar a:hover { color: var(--og-ink); background: rgba(255, 255, 255, 0.07); text-decoration: none; }
+.og-toolbar-links a:hover { color: var(--og-ink); background: rgba(255, 255, 255, 0.07); text-decoration: none; }
 /* Visible in-page label: the toolbar is anchor jumps, not page nav.
-   Sentence case, never uppercase (caps discipline). */
+   Sentence case, never uppercase (caps discipline). Own quiet row so
+   the link cells below always distribute evenly. */
 .og-toolbar-label {
+  display: block;
   font-family: var(--og-display);
   font-weight: 600;
   font-size: 0.72rem;
   letter-spacing: 0.05em;
   color: var(--og-muted);
-  padding: 0 0.2rem 0 0.7rem;
+  padding: 0 0.35rem 0.6rem;
   white-space: nowrap;
 }
 @media (prefers-reduced-transparency: reduce) {
