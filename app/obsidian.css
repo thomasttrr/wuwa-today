@@ -188,6 +188,17 @@ body.og main { padding-top: 5.75rem; }
   border-radius: var(--og-radius-pill);
 }
 
+/* Screen-reader-only text: announced by assistive tech, never painted. */
+.og-visually-hidden {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 @media (max-width: 640px) {
   .og-nav {
     top: auto;

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 /**
  * Copy-to-clipboard button for redeem codes. Morphs to a check on copy.
@@ -8,6 +8,13 @@ import { useState } from "react";
  */
 export default function CopyButton({ text }: { text: string }) {
   const [copied, setCopied] = useState(false);
+  const timer = useRef<number | null>(null);
+
+  useEffect(() => {
+    return () => {
+      if (timer.current !== null) window.clearTimeout(timer.current);
+    };
+  }, []);
 
   async function copy() {
     try {
@@ -22,7 +29,8 @@ export default function CopyButton({ text }: { text: string }) {
       document.body.removeChild(ta);
     }
     setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
+    if (timer.current !== null) window.clearTimeout(timer.current);
+    timer.current = window.setTimeout(() => setCopied(false), 2000);
   }
 
   return (
@@ -54,6 +62,11 @@ export default function CopyButton({ text }: { text: string }) {
         </span>
       ) : (
         "Copy"
+      )}
+      {copied && (
+        <span className="og-visually-hidden" role="status" aria-live="polite">
+          Copied!
+        </span>
       )}
     </button>
   );

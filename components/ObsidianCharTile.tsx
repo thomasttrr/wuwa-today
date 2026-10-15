@@ -26,7 +26,7 @@ export default function ObsidianCharTile({ char }: { char: CharacterRecordLoose 
         </span>
         <Image
           src={char.profile.portrait_url}
-          alt=""
+          alt={`${char.name} portrait`}
           width={256}
           height={256}
           loading="lazy"

@@ -19,6 +19,7 @@ export const metadata: Metadata = {
   title: "WuWa Today — Wuthering Waves Banners, Codes & Events",
   description:
     "Today in Wuthering Waves: live banners with countdowns, working redeem codes, active events, and daily/weekly reset timers. Updated daily.",
+  alternates: { canonical: "/" },
 };
 
 function SectionHead({
@@ -64,8 +65,7 @@ export default function HomePage() {
         <img
           className="og-hero-art"
           src={heroArt}
-          alt=""
-          aria-hidden="true"
+          alt={`Official key art for the Wuthering Waves version ${bannerMeta.version} featured banner`}
           loading="eager"
           fetchPriority="high"
           decoding="async"

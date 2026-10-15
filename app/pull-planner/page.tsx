@@ -12,6 +12,7 @@ export const metadata: Metadata = {
   title: "Pull Planner — Who to Pull in Version 3.7",
   description:
     "Version 3.7 pull planner: pull Hsin or save for Suoming, F2P guarantee priorities, and whether Lynae and Lucilla are worth it — every pick traced to a verified pull verdict.",
+  alternates: { canonical: "/pull-planner" },
 };
 
 const FIVE_STARS = ["hsin", "iuno", "chisa", "suoming", "lynae", "lucilla"] as const;
@@ -373,12 +374,12 @@ export default function PullPlannerPage() {
                       className="og-pick-portrait"
                     />
                     <div className="og-pick-body">
-                      <p className="og-pick-name">
+                      <h3 className="og-pick-name">
                         <Link href={`/characters/${v.slug}`}>{v.name}</Link>
                         {v.prerelease && (
                           <span className="og-badge">pre-release data</span>
                         )}
-                      </p>
+                      </h3>
                       <p className="og-pick-why">{v.text}</p>
                       <p className="og-pick-verdict">
                         <span className="og-badge">{v.label}</span>
