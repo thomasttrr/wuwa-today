@@ -305,14 +305,15 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-width: 60px;
-  height: 60px;
-  padding: 0 0.9rem;
-  border-radius: 16px;
+  min-width: 44px;
+  height: 28px;
+  padding: 0 0.65rem;
+  border-radius: 999px;
   font-family: var(--og-display);
   font-weight: 700;
-  font-size: 1.45rem;
-  letter-spacing: 0.02em;
+  font-size: 0.72rem; /* ~11.5px */
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
   border: 1px solid transparent;
   flex: none;
 }
@@ -322,12 +323,12 @@
   color: #14100a; /* ~9.4:1 on gold */
 }
 .og-tier-badge.tier-S {
-  background: rgba(255, 255, 255, 0.92);
-  border-color: #ffffff;
-  color: #0b0b0d;
+  background: rgba(255, 255, 255, 0.14);
+  border-color: var(--og-hairline);
+  color: var(--og-ink);
 }
 .og-tier-badge.tier-A {
-  background: rgba(255, 255, 255, 0.1);
+  background: transparent;
   border-color: var(--og-hairline);
   color: var(--og-ink);
 }
