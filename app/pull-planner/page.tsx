@@ -7,6 +7,7 @@ import ShareButton from "../../components/ShareButton";
 import UpdatedStamp from "../../components/UpdatedStamp";
 import { activeBanners, upcomingBanners, formatServerDate } from "../../lib/data";
 import { getCharacter } from "../../lib/characters";
+import { getPrefarmGuide } from "../../lib/prefarm";
 
 export const metadata: Metadata = {
   title: "Pull Planner — Who to Pull in Version 3.7",
@@ -362,6 +363,7 @@ export default function PullPlannerPage() {
         <div className="grid grid-2">
           {FIVE_STARS.map((slug, i) => {
             const v = getVerdict(slug);
+            const hasPrefarm = Boolean(getPrefarmGuide(slug));
             return (
               <Reveal key={slug} delay={(i % 2) * 70}>
                 <section className="og-pick-card" aria-label={`${v.name} pull verdict`}>
@@ -387,6 +389,13 @@ export default function PullPlannerPage() {
                           Published {v.published}
                         </span>
                       </p>
+                      {hasPrefarm && (
+                        <p className="og-q-links">
+                          <Link href={`/pre-farm/${slug}`}>
+                            Pre-farm {v.name} →
+                          </Link>
+                        </p>
+                      )}
                     </div>
                   </div>
                 </section>

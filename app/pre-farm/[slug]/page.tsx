@@ -325,9 +325,19 @@ export default async function PrefarmPage({
         Data current as of game version {char.game_version}.
       </p>
 
-      <div style={{ marginTop: "1.5rem", display: "flex", gap: "0.75rem" }}>
+      <div
+        style={{
+          marginTop: "1.5rem",
+          display: "flex",
+          gap: "0.75rem",
+          flexWrap: "wrap",
+        }}
+      >
         <Link href={`/characters/${char.slug}`} className="og-chip">
           Full {char.name} build guide →
+        </Link>
+        <Link href="/pull-planner" className="og-chip">
+          Still deciding? See the Pull Planner
         </Link>
       </div>
     </>
