@@ -10,7 +10,7 @@
   --hairline-soft: rgba(255, 255, 255, 0.05);
   --text: #ffffff;             /* primary label */
   --text-2: #a3a3a8;           /* secondary label */
-  --text-3: #6e6e73;           /* tertiary label */
+  --text-3: #8a8a90;           /* tertiary label — 6.1:1 on black, 5.0:1 on cards */
   --gold: #e8b44f;             /* time, urgency, live — the only accent */
   --gold-soft: rgba(232, 180, 79, 0.14);
   --green: #30d158;
