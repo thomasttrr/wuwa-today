@@ -357,6 +357,19 @@ body.og main { padding-top: 5.75rem; }
 }
 .og-char-tile-meta > span { overflow: hidden; text-overflow: ellipsis; }
 
+/* Phones: compact tiles to match the dense 3-column grid. Labels stay
+   centered and ellipsis-locked; tiles remain well above the 44px
+   touch-target floor. */
+@media (max-width: 640px) {
+  .og-char-tile-body { padding: 0.45rem 0.5rem 0.55rem; }
+  .og-char-tile-name { font-size: 0.84rem; }
+  .og-char-tile-meta { font-size: 0.7rem; margin-top: 0.35rem; gap: 0.3rem; }
+  .og-char-tile-flag {
+    top: 0.4rem; left: 0.4rem;
+    font-size: 0.56rem; padding: 0.2rem 0.45rem;
+  }
+}
+
 /* ==========================================================================
    ObsidianCountdown — mono tabular-nums gold countdown with digit roll.
    Gold because it IS time. Digit roll: each changed char remounts (key

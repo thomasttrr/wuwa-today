@@ -50,9 +50,15 @@
   margin: 0 0 1.6rem;
   padding: 0.85rem 1.1rem;
   border-radius: 20px;
-  background: var(--og-glass);
-  -webkit-backdrop-filter: saturate(180%) blur(24px);
-  backdrop-filter: saturate(180%) blur(24px);
+  /* Neutral-dark base under the glass: the blur samples whatever art is
+     behind the bar, and saturate(180%) amplified bright portrait yellows
+     into an olive tint. The opaque dark layer + gentler saturation keeps
+     the chrome neutral dark over busy art. */
+  background:
+    linear-gradient(180deg, rgba(8, 8, 10, 0.55), rgba(8, 8, 10, 0.55)),
+    var(--og-glass);
+  -webkit-backdrop-filter: saturate(130%) blur(24px);
+  backdrop-filter: saturate(130%) blur(24px);
   border: 1px solid var(--og-hairline);
   box-shadow: 0 12px 40px -12px rgba(0, 0, 0, 0.7);
 }
@@ -167,7 +173,8 @@
 .og-grid {
   display: grid;
   /* 195px min keeps large screens at 4-5 roomy columns (1080px container
-     yields 5) and lets smaller widths settle gracefully. */
+     yields 5). Phones get their own tiers below — the desktop rule must
+     never apply to them. */
   grid-template-columns: repeat(auto-fill, minmax(195px, 1fr));
   gap: 1rem;
   margin: 0 0 3rem;
@@ -185,8 +192,21 @@
 }
 .og-char-empty p { margin: 0; }
 
-@media (max-width: 400px) {
-  .og-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
+/* Phones: dense 3-column roster so many characters fit one screen.
+   (Root cause of the giant-tile bug: the old single <=400px breakpoint
+   left 390-430pt phones — the most common iPhones — on the desktop
+   minmax(195px) rule, which only fits one column in ~390px of content.) */
+@media (max-width: 640px) {
+  .og-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.65rem;
+  }
+}
+/* Very narrow phones: 2 columns so tiles stay legible. */
+@media (max-width: 340px) {
+  .og-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 /* --- character detail: back link ----------------------------------------- */
