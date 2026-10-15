@@ -75,23 +75,8 @@ h2 { font-size: 1.35rem; margin: 2.25rem 0 0.9rem; letter-spacing: -0.01em; font
 h3 { font-size: 1.05rem; margin: 1.25rem 0 0.5rem; font-weight: 700; }
 .lede { color: var(--text-2); margin-top: 0; max-width: 62ch; }
 
-/* Friendly fallback shown when a section has no data between patches. */
-.empty-state { color: var(--text-2); font-size: 0.95rem; }
 .updated { color: var(--text-3); font-size: 0.85rem; }
 
-/* UpdatedStamp + ShareButton row under page headings. */
-.page-meta-row {
-  display: flex; align-items: center; justify-content: space-between;
-  gap: 0.75rem; flex-wrap: wrap; margin-bottom: 0.5rem;
-}
-.page-meta-row .updated { margin: 0; }
-.share-btn {
-  font: inherit; font-size: 0.85rem; cursor: pointer;
-  color: var(--text-1); background: var(--bg-card);
-  border: 1px solid rgba(255, 255, 255, 0.14); border-radius: 999px;
-  padding: 0.4rem 0.85rem;
-}
-.share-btn:hover { border-color: rgba(255, 255, 255, 0.3); }
 
 .grid { display: grid; gap: 1rem; }
 .grid-2 { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
@@ -114,7 +99,6 @@ h3 { font-size: 1.05rem; margin: 1.25rem 0 0.5rem; font-weight: 700; }
 }
 .badge.gold { background: rgba(255, 255, 255, 0.08); color: var(--text-2); } /* gold rationed to time — legacy badge stays neutral */
 .badge.green { background: var(--green-soft); color: var(--green); }
-.badge.red { background: var(--red-soft); color: var(--red); }
 .badge.dim { background: rgba(255, 255, 255, 0.06); color: var(--text-3); }
 
 /* Live indicator: gold, with a breathing dot — never a glow. */
@@ -173,87 +157,12 @@ h3 { font-size: 1.05rem; margin: 1.25rem 0 0.5rem; font-weight: 700; }
 
 /* ---------- specific components ---------- */
 
-.code-row {
-  display: flex; align-items: center; gap: 0.9rem; flex-wrap: wrap;
-}
-.code-value {
-  font-family: var(--mono); font-variant-numeric: tabular-nums;
-  font-weight: 700; font-size: 1.05rem;
-  background: var(--bg-raised);
-  padding: 0.35rem 0.7rem; border-radius: 8px;
-  letter-spacing: 0.05em;
-}
-.copy-btn {
-  cursor: pointer;
-  background: rgba(255, 255, 255, 0.1); color: var(--text);
-  border: none; border-radius: 8px;
-  font: inherit; font-size: 0.85rem; font-weight: 700;
-  padding: 0.5rem 0.9rem;
-  transition: background-color 0.15s ease, transform 0.15s ease;
-}
-.copy-btn:hover { background: rgba(255, 255, 255, 0.17); }
-.copy-btn:active { transform: scale(0.96); }
-.copy-btn.copied {
-  background: var(--green-soft); color: var(--green);
-}
-.copy-done {
-  display: inline-flex; align-items: center; gap: 0.35rem;
-}
-@media (prefers-reduced-motion: no-preference) {
-  .copy-done { animation: copy-pop 0.28s cubic-bezier(0.2, 0.9, 0.3, 1.35); }
-}
-@keyframes copy-pop {
-  0% { transform: scale(0.82); }
-  100% { transform: scale(1); }
-}
 
-.char-list, .weapon-list { list-style: none; padding: 0; margin: 0.5rem 0; display: grid; gap: 0.35rem; }
-.char-list li, .weapon-list li { display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; }
 .stars { color: var(--text-2); font-size: 0.8rem; letter-spacing: 0.1em; }
 
-.event-meta, .code-meta { color: var(--text-2); font-size: 0.9rem; margin: 0.35rem 0; }
 
-select.server-select {
-  background: var(--bg-raised); color: var(--text);
-  border: none; border-radius: 8px;
-  font: inherit; font-size: 0.9rem; padding: 0.4rem 0.55rem;
-}
 
-/* ---------- inlined-style replacements (named classes) ---------- */
 
-.reset-head { display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap; }
-.reset-title { margin: 0; }
-.reset-server-label { margin-left: auto; font-size: 0.85rem; color: var(--text-2); }
-.reset-timers-grid { margin-top: 0.9rem; }
-.event-title { margin-top: 0.5rem; }
-.event-desc { margin: 0.4rem 0; color: var(--text-2); }
-.guides-grid { margin-top: 1.5rem; }
-.guide-card-title { margin-top: 0.5rem; }
-.verdict-title { margin-top: 0; }
-.verdict-text { font-size: 1.1rem; margin-bottom: 0; }
-.guide-back { margin-top: 2.5rem; }
-
-/* Guide header with subject character thumb */
-.guide-head {
-  display: flex;
-  gap: 1.1rem;
-  align-items: center;
-  margin-bottom: 1rem;
-}
-.guide-thumb {
-  width: 92px;
-  height: 92px;
-  object-fit: cover;
-  object-position: top center;
-  border-radius: 14px;
-  background: var(--bg-raised);
-  flex-shrink: 0;
-}
-.guide-head-text h1 { margin-bottom: 0.35rem; }
-.guide-head-text .updated { margin: 0; }
-@media (max-width: 480px) {
-  .guide-thumb { width: 72px; height: 72px; border-radius: 12px; }
-}
 
 table.data { width: 100%; border-collapse: collapse; font-size: 0.92rem; }
 table.data th, table.data td { text-align: left; padding: 0.55rem 0.7rem; border-bottom: 1px solid var(--hairline); }
@@ -261,9 +170,6 @@ table.data th { color: var(--text-3); font-weight: 600; font-size: 0.82rem; lett
 table.data td { color: var(--text-2); }
 table.data td.mono { color: var(--text); }
 
-.guide-body p, .guide-body li { max-width: 68ch; }
-.guide-body ul { padding-left: 1.25rem; }
-.guide-body a { text-decoration: underline; text-underline-offset: 3px; }
 
 .skip-link {
   position: absolute; left: -9999px; top: 0;
@@ -283,42 +189,8 @@ table.data td.mono { color: var(--text); }
   padding: 1.5rem 0 0.5rem;
   margin-bottom: 0.5rem;
 }
-.hero-kicker {
-  margin: 0 0 0.4rem;
-  font-size: 0.8rem; font-weight: 700; letter-spacing: 0.08em;
-  color: var(--text-3); /* gold rationed to time — legacy kicker stays neutral */
-}
-.hero-title { font-size: 2.6rem; line-height: 1.08; margin: 0 0 0.75rem; letter-spacing: -0.02em; font-weight: 700; }
-.hero-nav { display: flex; gap: 0.6rem; flex-wrap: wrap; margin: 1.1rem 0 0.9rem; }
-.hero-nav a {
-  border-radius: 999px;
-  padding: 0.4rem 1rem; font-size: 0.88rem; font-weight: 700;
-  color: var(--text); background: rgba(255, 255, 255, 0.08);
-  transition: background-color 0.15s ease;
-}
-.hero-nav a:hover { background: rgba(255, 255, 255, 0.15); text-decoration: none; }
 
-/* ---------- section headers ---------- */
 
-.section-head {
-  display: flex; align-items: flex-end; justify-content: space-between; gap: 1rem;
-  margin: 2.5rem 0 1.1rem;
-  padding-bottom: 0.6rem;
-  border-bottom: 1px solid var(--hairline);
-  scroll-margin-top: 5.5rem; /* clears the floating capsule nav on anchor jumps */
-}
-.section-head h2 { margin: 0; font-size: 1.5rem; letter-spacing: -0.01em; }
-.section-blurb { margin: 0.25rem 0 0; color: var(--text-2); font-size: 0.92rem; max-width: 60ch; }
-.section-link { white-space: nowrap; font-weight: 700; font-size: 0.92rem; }
-
-/* ---------- code list rows ---------- */
-
-.code-row-item {
-  background: var(--bg-card);
-  border-radius: 12px;
-  padding: 0.7rem 0.9rem;
-}
-.code-row-item .code-meta:last-child { margin-bottom: 0; }
 
 /* ---------- banner art cards ---------- */
 
@@ -330,12 +202,6 @@ table.data td.mono { color: var(--text); }
 /* Pointer parallax lives on the art layer only (desktop, fine pointers).
    translate ~6px + 1.5deg tilt, scale bump hides the edges. */
 @media (hover: hover) and (pointer: fine) {
-  .banner-art-bg {
-    transform: translate(calc(var(--px, 0) * 6px), calc(var(--py, 0) * 6px))
-      rotate(calc(var(--px, 0) * 1.5deg)) scale(1.08);
-    transition: transform 0.35s ease-out;
-    will-change: transform;
-  }
   .banner-art-card::after {
     content: "";
     position: absolute; inset: 0;
@@ -350,32 +216,13 @@ table.data td.mono { color: var(--text); }
     pointer-events: none;
   }
   .banner-art-card:hover::after { opacity: 1; }
-  .banner-art-content { position: relative; z-index: 1; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .banner-art-bg { transform: none; transition: none; }
   .banner-art-card::after { display: none; }
-}
-.banner-art-bg {
-  position: absolute; inset: 0;
-  width: 100%; height: 100%;
-  object-fit: cover; object-position: center 20%;
-  opacity: 0.5;
-  -webkit-mask-image: linear-gradient(180deg, #000 30%, transparent 95%);
-  mask-image: linear-gradient(180deg, #000 30%, transparent 95%);
-}
-.banner-art-content { position: relative; padding: 1.35rem 1.4rem 1.2rem; }
-.banner-headline {
-  font-size: 1.6rem; margin: 0.55rem 0 0.35rem; letter-spacing: -0.01em; font-weight: 700;
-  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.7);
 }
 .banner-art-card .countdown { font-size: 2rem; text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6); }
 .banner-art-card .countdown-label { margin-bottom: 0.4rem; }
 
-.char-chip-list {
-  list-style: none; padding: 0; margin: 0.9rem 0 0.4rem;
-  display: grid; gap: 0.55rem;
-}
 .char-chip {
   display: flex; align-items: center; gap: 0.8rem;
   background: rgba(0, 0, 0, 0.5);
@@ -387,12 +234,6 @@ table.data td.mono { color: var(--text); }
   width: 56px; height: 56px; object-fit: cover; object-position: top;
   border-radius: 8px; background: var(--bg-raised); flex: none;
 }
-.char-chip-body { min-width: 0; }
-.char-chip-name { display: flex; align-items: center; gap: 0.45rem; flex-wrap: wrap; }
-.char-chip-sub { color: var(--text-2); font-size: 0.85rem; }
-.four-star-line, .weapon-line { font-size: 0.92rem; color: var(--text-2); margin: 0.5rem 0 0; }
-.weapon-line strong { color: var(--text); font-weight: 600; }
-.img-credit { font-size: 0.72rem; color: var(--text-3); margin: 0.7rem 0 0; }
 
 /* ---------- phase rail ----------
    3px track beneath the featured banner's countdown: phase elapsed vs.
@@ -428,19 +269,14 @@ table.data td.mono { color: var(--text); }
 
 /* ---------- card polish ---------- */
 
-.event-meta strong, .code-meta strong { color: var(--text); }
-
 @media (max-width: 640px) {
   .hero { padding: 1rem 0 0.25rem; }
-  .hero-title { font-size: 2rem; }
   .banner-art-card .countdown { font-size: 1.6rem; }
-  .section-head { flex-direction: column; align-items: flex-start; }
 }
 
 /* ---------- accessibility (Stage 1, extended to new effects) ---------- */
 
 :focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
-.table-scroll { overflow-x: auto; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { transition: none !important; animation: none !important; }
@@ -606,150 +442,4 @@ table.data td.mono { color: var(--text); }
   .team-flow { font-size: 1.2rem; }
 }
 
-/* Tier list */
-.tier-row {
-  display: flex;
-  gap: 1.25rem;
-  align-items: flex-start;
-  padding: 1.25rem 0;
-  border-bottom: 1px solid var(--line, rgba(255, 255, 255, 0.08));
-}
-.tier-side {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.4rem;
-  min-width: 88px;
-}
-.tier-badge {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 52px;
-  height: 52px;
-  border-radius: 14px;
-  font-size: 1.5rem;
-  font-weight: 800;
-  font-family: var(--og-display);
-}
-.tier-s {
-  background: rgba(214, 178, 90, 0.14);
-  color: #e8c877;
-  border: 1px solid rgba(214, 178, 90, 0.4);
-}
-.tier-ss {
-  background: rgba(232, 180, 79, 0.18);
-  color: #f0c969;
-  border: 1px solid rgba(232, 180, 79, 0.55);
-}
-.tier-a {
-  background: rgba(110, 190, 140, 0.1);
-  color: #8fd6a4;
-  border: 1px solid rgba(110, 190, 140, 0.35);
-}
-.tier-b {
-  background: rgba(150, 160, 180, 0.08);
-  color: #9aa4b8;
-  border: 1px solid rgba(150, 160, 180, 0.3);
-}
-.tier-label {
-  font-size: 0.75rem;
-  letter-spacing: 0.08em;
-  opacity: 0.7;
-}
-.tier-members {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  gap: 0.75rem;
-  flex: 1;
-}
-.tier-member {
-  display: flex;
-  gap: 0.75rem;
-  align-items: center;
-  padding: 0.6rem;
-  border-radius: 12px;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid var(--line, rgba(255, 255, 255, 0.08));
-}
-.tier-face {
-  width: 56px;
-  height: 56px;
-  border-radius: 10px;
-  object-fit: cover;
-  flex-shrink: 0;
-}
-.tier-info {
-  display: flex;
-  flex-direction: column;
-  gap: 0.15rem;
-  min-width: 0;
-}
-.tier-name {
-  font-weight: 700;
-}
-.tier-name:visited { text-decoration: none; color: var(--text); }
-.tier-note {
-  font-size: 0.8rem;
-  opacity: 0.75;
-  line-height: 1.35;
-}
-.tier-foot {
-  margin-top: 1.5rem;
-  opacity: 0.85;
-}
-@media (max-width: 640px) {
-  .tier-row { flex-direction: column; gap: 0.7rem; }
-  .tier-side {
-    flex-direction: row;
-    align-items: center;
-    min-width: 0;
-    gap: 0.7rem;
-  }
-  .tier-badge { width: 44px; height: 44px; font-size: 1.25rem; }
-}
 
-/* Ranked build-guide lists: weapon/stat rows, not paragraphs */
-.guide-body ol {
-  list-style: none;
-  margin: 0 0 1rem;
-  padding: 0;
-  counter-reset: rank;
-  display: flex;
-  flex-direction: column;
-  gap: 0.6rem;
-}
-.guide-body ol li {
-  counter-increment: rank;
-  display: block;
-  padding: 0.65rem 0.85rem 0.65rem 3rem;
-  position: relative;
-  border-radius: 10px;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid var(--line, rgba(255, 255, 255, 0.08));
-  font-size: 0.9rem;
-  line-height: 1.45;
-}
-.guide-body ol li::before {
-  content: counter(rank);
-  position: absolute;
-  left: 0.85rem;
-  top: 0.65rem;
-  width: 1.5rem;
-  height: 1.5rem;
-  border-radius: 8px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.8rem;
-  font-weight: 700;
-  background: rgba(214, 178, 90, 0.14);
-  color: #e8c877;
-  border: 1px solid rgba(214, 178, 90, 0.35);
-}
-.guide-body ol li p {
-  margin: 0;
-}
