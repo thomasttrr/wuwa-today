@@ -778,7 +778,7 @@
 .og-scrolltop {
   position: fixed;
   right: 1rem;
-  bottom: calc(max(0.9rem, env(safe-area-inset-bottom)) + 4.25rem);
+  bottom: calc(max(0.9rem, env(safe-area-inset-bottom)) + 5rem);
   z-index: 55;
   width: 44px;
   height: 44px;

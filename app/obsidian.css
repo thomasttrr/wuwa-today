@@ -64,7 +64,8 @@
 
 body.og main {
   padding-top: 1.25rem;
-  padding-bottom: calc(4.75rem + env(safe-area-inset-bottom));
+  /* Clears the 71px bottom tab bar with breathing room. */
+  padding-bottom: calc(5.5rem + env(safe-area-inset-bottom));
 }
 
 /* --- display typography: Space Grotesk, semibold/bold, uppercase,
@@ -137,11 +138,22 @@ body.og main {
 .og-tabbar-inner {
   max-width: 760px;
   margin: 0 auto;
+  /* 8px padding + 55px tabs + 8px padding = 71px bar height
+     (18% taller than the original 60px). */
   padding: 0.5rem;
 }
 .og-tabbar-tabs {
   position: relative;
   display: flex;
+  /* The strip scrolls horizontally (swipe) when tabs overflow —
+     labels are never truncated. Scrollbar hidden for a clean look. */
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* legacy Edge */
+}
+.og-tabbar-tabs::-webkit-scrollbar {
+  display: none; /* Chrome / Safari */
 }
 .og-tabbar-pill {
   position: absolute;
@@ -178,18 +190,18 @@ body.og main {
 .og-tabbar-tabs a {
   position: relative;
   z-index: 1;
-  flex: 1 1 0;
-  min-width: 0;
+  /* Tabs size to their full labels; the strip scrolls on overflow. */
+  flex: 0 0 auto;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 44px;
-  padding: 0.5rem 0.25rem;
+  min-height: 55px; /* 44px minimum touch target, with room */
+  padding: 0.5rem 1rem;
   border-radius: var(--og-radius-pill);
   color: var(--og-muted);
   font-family: var(--og-display);
   font-weight: 600;
-  font-size: clamp(0.625rem, 2.9vw, 0.8rem);
+  font-size: 0.8125rem; /* 13px — bumped from 11px */
   letter-spacing: 0.02em;
   white-space: nowrap;
   -webkit-tap-highlight-color: transparent;
@@ -197,8 +209,7 @@ body.og main {
   transition: color var(--og-d1) ease, background-color var(--og-d1) ease;
 }
 .og-tabbar-tabs a > span {
-  overflow: hidden;
-  text-overflow: ellipsis;
+  white-space: nowrap; /* full labels, never truncated */
 }
 .og-tabbar-tabs a:hover {
   color: var(--og-ink);
@@ -215,15 +226,6 @@ body.og main {
   outline: 2px solid #ffffff;
   outline-offset: 2px;
   border-radius: var(--og-radius-pill);
-}
-/* Tight screens: "Pull Planner" shortens to "Planner" so all 7 tabs
-   fit at 360px without wrapping. Full label returns above 480px. */
-.og-tab-label-short { display: none; }
-@media (max-width: 480px) {
-  .og-tabbar-tabs a:has(> .og-tab-label-short) > .og-tab-label {
-    display: none;
-  }
-  .og-tab-label-short { display: inline; }
 }
 @media (prefers-reduced-motion: reduce) {
   /* The pill jumps instantly — no glide. */
