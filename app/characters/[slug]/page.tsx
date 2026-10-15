@@ -4,6 +4,8 @@ import Image from "next/image";
 import Link from "next/link";
 import Reveal from "@/components/Reveal";
 import ObsidianTeamCard from "@/components/ObsidianTeamCard";
+import { MaterialRows } from "@/components/MaterialTable";
+import type { MaterialEntry } from "@/lib/character-schema";
 import {
   characterSlugs,
   getCharacter,
@@ -65,7 +67,7 @@ function MaterialsSection({
 }: {
   materials: NonNullable<CharacterRecordLoose["materials"]>;
 }) {
-  const groups: { title: string; entries: { name: string; qty: string; farm: string }[] }[] = [
+  const groups: { title: string; entries: MaterialEntry[] }[] = [
     { title: "Ascension 0 → 90", entries: materials.ascension },
     { title: "Forte — full tree", entries: materials.forte },
   ];
@@ -75,13 +77,7 @@ function MaterialsSection({
         <div key={g.title} className="og-materials-group">
           <h3>{g.title}</h3>
           <ol className="og-materials-list">
-            {g.entries.map((m) => (
-              <li key={m.name} className="og-material">
-                <span className="og-material-name">{m.name}</span>
-                <span className="og-material-qty">×{m.qty}</span>
-                {m.farm !== "—" && <span className="og-material-farm">{m.farm}</span>}
-              </li>
-            ))}
+            <MaterialRows entries={g.entries} />
           </ol>
         </div>
       ))}
