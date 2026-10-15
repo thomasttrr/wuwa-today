@@ -6,7 +6,7 @@ import ObsidianCharFilters, {
   type CharFilterState,
 } from "./ObsidianCharFilters";
 import ObsidianCharGrid from "./ObsidianCharGrid";
-import type { CharacterRecordLoose } from "@/lib/characters";
+import { isPreRelease, type CharacterRecordLoose } from "@/lib/characters";
 
 const FLIP_MS = 350;
 const FLIP_EASING = "cubic-bezier(0.22, 1, 0.36, 1)";
@@ -45,6 +45,7 @@ export default function ObsidianCharactersExplorer({
   );
 
   const filtered = chars.filter((c) => {
+    if (filters.upcoming && !isPreRelease(c)) return false;
     if (filters.element && c.profile.element !== filters.element) return false;
     if (filters.weapon && c.profile.weapon_type !== filters.weapon) return false;
     if (filters.rarity && c.profile.rarity !== filters.rarity) return false;
