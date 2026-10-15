@@ -191,6 +191,7 @@
   color: var(--og-muted);
 }
 .og-char-empty p { margin: 0; }
+.og-char-empty .og-btn { margin-top: 1rem; }
 
 /* Phones: dense 3-column roster so many characters fit one screen.
    (Root cause of the giant-tile bug: the old single <=400px breakpoint

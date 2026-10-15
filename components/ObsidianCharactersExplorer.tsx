@@ -107,7 +107,12 @@ export default function ObsidianCharactersExplorer({
         shown={filtered.length}
         total={chars.length}
       />
-      <ObsidianCharGrid chars={filtered} filterSig={filterSig} onCellRef={handleCellRef} />
+      <ObsidianCharGrid
+        chars={filtered}
+        filterSig={filterSig}
+        onCellRef={handleCellRef}
+        onClear={() => handleFilterChange(EMPTY_FILTERS)}
+      />
     </>
   );
 }
