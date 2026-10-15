@@ -60,6 +60,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <Link href="/banners">Banners</Link>
               <Link href="/events">Events</Link>
               <Link href="/characters">Characters</Link>
+              <Link href="/pre-farm">Pre-Farm</Link>
               <Link href="/pull-planner">Pull Planner</Link>
               <Link href="/tier-list">Tier List</Link>
             </nav>
