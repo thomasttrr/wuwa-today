@@ -58,15 +58,13 @@
 }
 
 /* ==========================================================================
-   Obsidian body scope: activates the preview layout on this branch.
-   Desktop: floating detached nav needs headroom. Mobile: bottom thumb bar
-   needs safe-area clearance.
+   Obsidian body scope. The primary nav is a fixed bottom tab bar on all
+   viewports, so main clears it at the bottom and needs no top headroom.
    ========================================================================== */
 
-body.og main { padding-top: 5.75rem; }
-
-@media (max-width: 640px) {
-  body.og main { padding-top: 1.25rem; padding-bottom: 7rem; }
+body.og main {
+  padding-top: 1.25rem;
+  padding-bottom: calc(4.75rem + env(safe-area-inset-bottom));
 }
 
 /* --- display typography: Space Grotesk, semibold/bold, uppercase,
@@ -101,91 +99,135 @@ body.og main { padding-top: 5.75rem; }
 .og-mono { font-family: var(--og-mono); font-variant-numeric: tabular-nums; }
 
 /* ==========================================================================
-   ObsidianNav — floating DETACHED glass capsule.
-   Desktop: top-center. Mobile: bottom thumb-reach bar.
-   Glass chrome: frosted tint + blur, specular top-edge glint,
-   soft BLACK shadow only under the floating glass.
+   ObsidianNav — solid full-width bottom tab bar (ALL viewports).
+   One bar, one sliding glass pill, one springy ease. The pill glides
+   behind the active tab, measured from the tab's real position/size.
+   Glass chrome: frosted tint + blur, specular top-edge glint.
+   No glow clichés, no blue, no gold (gold is rationed to time/urgency).
    ========================================================================== */
 
-.og-nav {
+.og-tabbar {
   position: fixed;
   z-index: 60;
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
-  border-radius: var(--og-radius-pill);
-  /* Neutral tint control: a dark monochrome veil under the glass tint so
-     the saturate(180%) backdrop stays neutral over busy/bright art
-     (e.g. yellow splash swooshes) instead of picking up a yellow-green
-     cast. Blur + glint are unchanged. */
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding-bottom: env(safe-area-inset-bottom);
+  /* Solid dark bar: monochrome veil keeps the backdrop neutral over
+     bright art instead of picking up a color cast. */
   background:
-    linear-gradient(180deg, rgba(8, 8, 10, 0.30), rgba(8, 8, 10, 0.30)),
+    linear-gradient(180deg, rgba(10, 10, 13, 0.88), rgba(10, 10, 13, 0.94)),
     var(--og-glass);
-  -webkit-backdrop-filter: saturate(180%) blur(24px);
-  backdrop-filter: saturate(180%) blur(24px);
-  border: 1px solid var(--og-hairline);
-  box-shadow: 0 12px 40px -12px rgba(0, 0, 0, 0.7);
-  /* Specular rim: light traces the glass edge. */
+  -webkit-backdrop-filter: saturate(160%) blur(24px);
+  backdrop-filter: saturate(160%) blur(24px);
+  border-top: 1px solid var(--og-hairline);
   overflow: hidden;
-  top: 1rem;
-  left: 50%;
-  transform: translateX(-50%);
-  max-width: min(720px, calc(100vw - 2rem));
-  padding: 0.45rem 0.55rem;
 }
-.og-nav::before {
-  /* Specular top-edge glint — required on every glass element. */
+.og-tabbar::before {
+  /* Specular top-edge glint — the glass signature. */
   content: "";
   position: absolute;
-  inset: 0 0 auto 0;
+  top: 0;
+  left: 0;
+  right: 0;
   height: 1px;
   background: linear-gradient(90deg, transparent, var(--og-glint), transparent);
   pointer-events: none;
 }
-.og-nav-brand {
-  font-family: var(--og-display);
-  font-weight: 700;
-  font-size: 0.95rem;
-  letter-spacing: 0.02em;
-  color: var(--og-ink);
-  padding: 0.45rem 0.9rem 0.45rem 1.05rem;
-  white-space: nowrap;
-  /* 44px minimum touch target; iPhone-safe glass control. */
-  display: inline-flex;
-  align-items: center;
-  min-height: 44px;
-  -webkit-tap-highlight-color: transparent;
-  touch-action: manipulation;
+.og-tabbar-inner {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0.5rem;
 }
-.og-nav-brand:hover { text-decoration: none; }
-.og-nav-links { display: flex; align-items: center; gap: 0.15rem; }
-.og-nav-links a {
-  color: var(--og-muted);
-  font-size: 0.88rem;
-  font-weight: 600;
-  padding: 0.5rem 0.85rem;
+.og-tabbar-tabs {
+  position: relative;
+  display: flex;
+}
+.og-tabbar-pill {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
   border-radius: var(--og-radius-pill);
-  white-space: nowrap;
-  /* 44px minimum touch target; iPhone-safe glass control. */
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  pointer-events: none;
+  /* The magic-pill glide: springy overshoot, 300ms. */
+  transition:
+    transform 300ms cubic-bezier(0.41, -0.09, 0.55, 1.09),
+    width 300ms cubic-bezier(0.41, -0.09, 0.55, 1.09);
+}
+.og-tabbar-pill::before {
+  /* Glint traces the pill's top edge. */
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 14%;
+  right: 14%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.5),
+    transparent
+  );
+  border-radius: 1px;
+  pointer-events: none;
+}
+.og-tabbar-tabs a {
+  position: relative;
+  z-index: 1;
+  flex: 1 1 0;
+  min-width: 0;
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   min-height: 44px;
+  padding: 0.5rem 0.25rem;
+  border-radius: var(--og-radius-pill);
+  color: var(--og-muted);
+  font-family: var(--og-display);
+  font-weight: 600;
+  font-size: clamp(0.625rem, 2.9vw, 0.8rem);
+  letter-spacing: 0.02em;
+  white-space: nowrap;
   -webkit-tap-highlight-color: transparent;
   touch-action: manipulation;
   transition: color var(--og-d1) ease, background-color var(--og-d1) ease;
 }
-.og-nav-links a:hover { color: var(--og-ink); background: rgba(255, 255, 255, 0.07); text-decoration: none; }
-.og-nav-links a[aria-current="page"] {
+.og-tabbar-tabs a > span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.og-tabbar-tabs a:hover {
   color: var(--og-ink);
-  background: rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.06);
   text-decoration: none;
 }
-/* Keyboard / focus states on glass controls: pill-following ring. */
-.og-nav a:focus-visible,
+.og-tabbar-tabs a[aria-current="page"] {
+  color: var(--og-ink);
+  text-decoration: none;
+}
+/* Keyboard / focus states on glass controls. */
+.og-tabbar a:focus-visible,
 .og-btn:focus-visible {
   outline: 2px solid #ffffff;
-  outline-offset: 3px;
+  outline-offset: 2px;
   border-radius: var(--og-radius-pill);
+}
+/* Tight screens: "Pull Planner" shortens to "Planner" so all 7 tabs
+   fit at 360px without wrapping. Full label returns above 480px. */
+.og-tab-label-short { display: none; }
+@media (max-width: 480px) {
+  .og-tabbar-tabs a:has(> .og-tab-label-short) > .og-tab-label {
+    display: none;
+  }
+  .og-tab-label-short { display: inline; }
+}
+@media (prefers-reduced-motion: reduce) {
+  /* The pill jumps instantly — no glide. */
+  .og-tabbar-pill { transition: none; }
 }
 
 /* Screen-reader-only text: announced by assistive tech, never painted. */
@@ -197,27 +239,6 @@ body.og main { padding-top: 5.75rem; }
   clip: rect(0 0 0 0);
   white-space: nowrap;
   border: 0;
-}
-
-@media (max-width: 640px) {
-  .og-nav {
-    top: auto;
-    bottom: max(0.9rem, env(safe-area-inset-bottom));
-    left: 0.9rem; right: 0.9rem;
-    transform: none;
-    max-width: none;
-    padding: 0.4rem;
-    justify-content: flex-start;
-  }
-  .og-nav-brand { padding: 0.45rem 0.6rem 0.45rem 0.9rem; font-size: 0.9rem; }
-  .og-nav-links {
-    flex: 1;
-    overflow-x: auto;
-    scrollbar-width: none;
-    gap: 0.1rem;
-  }
-  .og-nav-links::-webkit-scrollbar { display: none; }
-  .og-nav-links a { font-size: 0.83rem; padding: 0.5rem 0.7rem; }
 }
 
 /* ==========================================================================
@@ -456,12 +477,12 @@ body.og main { padding-top: 5.75rem; }
 /* Reduced transparency: glass degrades to solid #101014. Glint stays,
    dimmed, as a hairline accent. */
 @media (prefers-reduced-transparency: reduce) {
-  .og-nav, .og-btn-glass {
+  .og-tabbar, .og-btn-glass {
     background: var(--og-surface);
     -webkit-backdrop-filter: none;
     backdrop-filter: none;
   }
-  .og-nav::before, .og-btn-glass::before { opacity: 0.3; }
+  .og-tabbar::before, .og-btn-glass::before { opacity: 0.3; }
 }
 
 /* ==========================================================================
@@ -475,7 +496,6 @@ body.og { overflow-x: clip; }
 
 /* --- 44px touch targets --- */
 .og-btn { min-height: 44px; }
-.og-nav-links a { padding: 0.72rem 0.85rem; }
 
 /* --- page head: Space Grotesk display title + muted lede + meta row --- */
 .og-page-head { padding: 1.5rem 0 0.25rem; }
@@ -659,7 +679,7 @@ body.og { overflow-x: clip; }
   margin: 0 0 1.5rem;
   padding: 0.85rem;
   border-radius: 22px;
-  /* Same neutral tint control as .og-nav: dark veil keeps the
+  /* Same neutral tint control as .og-tabbar: dark veil keeps the
      saturate(180%) backdrop neutral over bright art. */
   background:
     linear-gradient(180deg, rgba(8, 8, 10, 0.30), rgba(8, 8, 10, 0.30)),
