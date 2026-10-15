@@ -1,7 +1,7 @@
 {
   "_meta": {
     "comment": "Active and upcoming in-game events. Times in server time (UTC+8) unless noted; end dates from community coverage are estimates — mark timeNote accordingly.",
-    "updatedAt": "2026-10-14T12:30:00-04:00"
+    "updatedAt": "2026-10-15T06:50:00-04:00"
   },
   "events": [
     {
@@ -50,13 +50,13 @@
     },
     {
       "description": "Returning-player web event during Version 3.7.",
-      "endsAt": "2026-11-11T03:59:00+08:00",
+      "endsAt": "2026-11-11T23:59:00+08:00",
       "id": "back-to-solaris",
       "name": "Back to Solaris",
       "rewards": "Web-event rewards (verify in-game)",
       "startsAt": "2026-09-30T10:00:00+08:00",
       "status": "active",
-      "timeNote": "Listed as a current 3.7 web event by Game8; dates are estimates — verify in-game.",
+      "timeNote": "End date from the official Version 3.7 patch notes (2026-11-11 23:59 UTC+8); start date is an estimate — verify in-game.",
       "type": "web"
     },
     {
@@ -115,13 +115,13 @@
     },
     {
       "description": "Web event: a mysterious stall appears at the Waking Moon Festival — take on the fishing challenge, unlock Fishing Index entries for Astrites, and complete event tasks for Advanced Sealed Tubes.",
-      "endsAt": "2026-11-01T03:59:00+08:00",
+      "endsAt": "2026-11-01T09:59:00+08:00",
       "id": "waking-moon-fishing",
       "name": "Waking Moon Fishing",
       "rewards": "Astrite, Advanced Sealed Tubes, event items",
-      "startsAt": "2026-10-15T04:00:00+08:00",
+      "startsAt": "2026-10-15T10:00:00+08:00",
       "status": "active",
-      "timeNote": "Web event; dates from coverage — verify in-game.",
+      "timeNote": "Times from the official Version 3.7 patch notes (2026-10-15 10:00 – 2026-11-01 09:59 UTC+8).",
       "type": "web"
     },
     {

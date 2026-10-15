@@ -1,6 +1,6 @@
 # Sources
 
-Every fact in `data/` was checked against these sources. Code data last checked on **2026-10-15**; banner data last checked on **2026-10-14**; event schedule refreshed on **2026-10-14** (midday), spot-verified **2026-10-15** (Bountiful Crescendo Oct 15–22 confirmed). Source URLs are also stored per-record in the JSON files.
+Every fact in `data/` was checked against these sources. Code data last checked on **2026-10-15** (morning); banner data last checked on **2026-10-14**; event schedule refreshed on **2026-10-15** (morning, official patch-note times for Waking Moon Fishing and Back to Solaris). Source URLs are also stored per-record in the JSON files.
 
 ## Banners (Version 3.7)
 
@@ -70,6 +70,14 @@ Full 3.7 event calendar added, from the official Version 3.7 patch notes as repo
 
 - https://game8.co/games/Wuthering-Waves/archives/456482 — Ascendant Aces event guide (character trials for the current banners, Sep 30 – Nov 11; Phase 2 trial roster lists Suoming, Lynae, Lucilla, Lumi, Chixia, Danjin — corroborates Chixia as the third Phase 2 4★ rate-up, resolving the Chixia-vs-Yangyang question in `banners.json`)
 - http://game8.co/games/wuthering-waves/archives/453473 — Game8 event schedule (re-checked 2026-10-14): Ascendant Aces confirmed on the current calendar; no other new events since the morning check
+
+## Events (refreshed 2026-10-15, morning)
+
+- https://openrss.org/wutheringwaves.kurogames.com/en/main — official Version 3.7 patch notes: Waking Moon Fishing web event exact times (2026-10-15 10:00 – 2026-11-01 09:59 UTC+8; was estimated 04:00/03:59 in `events.json`) and Back to Solaris end (2026-11-11 23:59 UTC+8; was estimated 03:59). Both corrected in `events.json`; no other schedule changes.
+
+## Codes (re-checked 2026-10-15, morning)
+
+No new codes. `WUTHERINGGIFT` still the only verified active code (confirmed by urgametips.com Oct 15, shanethegamer.com Oct 12, gachago.com, topuplive.com, lootbar.com/lootbar.gg). `DVME2MOHOQJT` still single-source (beebom.com only) — excluded per the two-source rule. axeetech.com page is stale (still shows the expired STARRYSTAGE2 / KEEPONSHINING as active; both expired Oct 13 per keygold.gg). Next codes expected with the Version 3.8 Preview Special Broadcast, estimated ~Oct 31–Nov 1 (Kuro has not confirmed).
 
 ## Redemption instructions
 
