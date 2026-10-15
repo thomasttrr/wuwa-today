@@ -312,7 +312,6 @@
   font-family: var(--og-display);
   font-weight: 700;
   font-size: 0.72rem; /* ~11.5px */
-  text-transform: uppercase;
   letter-spacing: 0.09em;
   border: 1px solid transparent;
   flex: none;

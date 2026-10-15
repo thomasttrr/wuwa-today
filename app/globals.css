@@ -107,12 +107,12 @@ h3 { font-size: 1.05rem; margin: 1.25rem 0 0.5rem; font-weight: 700; }
 
 .badge {
   display: inline-block;
-  font-size: 0.72rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase;
+  font-size: 0.72rem; font-weight: 700; letter-spacing: 0.02em;
   padding: 0.18rem 0.55rem; border-radius: 999px;
   background: rgba(255, 255, 255, 0.08); color: var(--text-2);
   margin-right: 0.4rem; margin-bottom: 0.25rem;
 }
-.badge.gold { background: var(--gold-soft); color: var(--gold); }
+.badge.gold { background: rgba(255, 255, 255, 0.08); color: var(--text-2); } /* gold rationed to time — legacy badge stays neutral */
 .badge.green { background: var(--green-soft); color: var(--green); }
 .badge.red { background: var(--red-soft); color: var(--red); }
 .badge.dim { background: rgba(255, 255, 255, 0.06); color: var(--text-3); }
@@ -209,7 +209,7 @@ h3 { font-size: 1.05rem; margin: 1.25rem 0 0.5rem; font-weight: 700; }
 
 .char-list, .weapon-list { list-style: none; padding: 0; margin: 0.5rem 0; display: grid; gap: 0.35rem; }
 .char-list li, .weapon-list li { display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; }
-.stars { color: var(--gold); font-size: 0.8rem; letter-spacing: 0.1em; }
+.stars { color: var(--text-2); font-size: 0.8rem; letter-spacing: 0.1em; }
 
 .event-meta, .code-meta { color: var(--text-2); font-size: 0.9rem; margin: 0.35rem 0; }
 
@@ -257,7 +257,7 @@ select.server-select {
 
 table.data { width: 100%; border-collapse: collapse; font-size: 0.92rem; }
 table.data th, table.data td { text-align: left; padding: 0.55rem 0.7rem; border-bottom: 1px solid var(--hairline); }
-table.data th { color: var(--text-3); font-weight: 600; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.04em; }
+table.data th { color: var(--text-3); font-weight: 600; font-size: 0.82rem; letter-spacing: 0.02em; }
 table.data td { color: var(--text-2); }
 table.data td.mono { color: var(--text); }
 
@@ -285,8 +285,8 @@ table.data td.mono { color: var(--text); }
 }
 .hero-kicker {
   margin: 0 0 0.4rem;
-  font-size: 0.8rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
-  color: var(--gold);
+  font-size: 0.8rem; font-weight: 700; letter-spacing: 0.08em;
+  color: var(--text-3); /* gold rationed to time — legacy kicker stays neutral */
 }
 .hero-title { font-size: 2.6rem; line-height: 1.08; margin: 0 0 0.75rem; letter-spacing: -0.02em; font-weight: 700; }
 .hero-nav { display: flex; gap: 0.6rem; flex-wrap: wrap; margin: 1.1rem 0 0.9rem; }
@@ -472,7 +472,7 @@ table.data td.mono { color: var(--text); }
     box-shadow 0.35s ease,
     border-color 0.35s ease;
 }
-/* Hairline gold accent across the top edge. */
+/* Hairline neutral accent across the top edge. */
 .team-card::before {
   content: "";
   position: absolute;
@@ -481,7 +481,7 @@ table.data td.mono { color: var(--text); }
   background: linear-gradient(
     90deg,
     transparent,
-    color-mix(in srgb, var(--gold) 45%, transparent),
+    var(--line),
     transparent
   );
   pointer-events: none;
@@ -489,7 +489,7 @@ table.data td.mono { color: var(--text); }
 .team-card:hover {
   transform: translateY(-3px);
   box-shadow: 0 18px 44px -22px rgba(0, 0, 0, 0.7);
-  border-color: color-mix(in srgb, var(--gold) 28%, var(--line));
+  border-color: var(--line);
 }
 .team-card-head {
   display: flex; align-items: center; gap: 0.7rem;
@@ -543,7 +543,7 @@ table.data td.mono { color: var(--text); }
   display: inline-flex; align-items: center; justify-content: center; gap: 0.4rem;
   max-width: 100%;
   font-size: 0.68rem; font-weight: 700;
-  letter-spacing: 0.05em; text-transform: uppercase;
+  letter-spacing: 0.05em;
   padding: 0.28rem 0.6rem; border-radius: 999px;
   color: var(--text-1);
   background: color-mix(in srgb, var(--el) 13%, transparent);
@@ -584,12 +584,12 @@ table.data td.mono { color: var(--text); }
 .team-rotation {
   background: var(--bg-raised); border-radius: 12px;
   padding: 0.8rem 1rem;
-  border-left: 2px solid color-mix(in srgb, var(--gold) 55%, transparent);
+  border-left: 2px solid var(--hairline);
 }
 .team-rotation p { margin: 0; font-size: 0.92rem; color: var(--text-2); line-height: 1.55; }
 .team-rotation-label {
   font-family: var(--mono); font-size: 0.72rem; font-weight: 700;
-  letter-spacing: 0.06em; text-transform: uppercase; color: var(--gold);
+  letter-spacing: 0.06em; color: var(--text-3);
   margin: 0 0 0.35rem !important;
 }
 
@@ -654,7 +654,6 @@ table.data td.mono { color: var(--text); }
 }
 .tier-label {
   font-size: 0.75rem;
-  text-transform: uppercase;
   letter-spacing: 0.08em;
   opacity: 0.7;
 }

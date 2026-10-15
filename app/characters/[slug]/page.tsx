@@ -174,7 +174,7 @@ export default async function CharacterPage({
   const showTierBadge = tier !== null && tier.tier !== "UNKNOWN";
   const { prev, next } = prevNextCharacter(slug);
 
-  const kicker = `${p.element} · ${p.weapon_type} · ${"★".repeat(p.rarity)}`.toUpperCase();
+  const kicker = `${p.element} · ${p.weapon_type} · ${"★".repeat(p.rarity)}`;
 
   const visibleWeapons = build.ranked_weapons.slice(0, 4);
   const extraWeapons = build.ranked_weapons.slice(4);
