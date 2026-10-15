@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import Reveal from "@/components/Reveal";
+import ObsidianSectionHead from "@/components/ObsidianSectionHead";
 import MaterialTable, {
   MaterialIcon,
   TierChips,
@@ -45,17 +46,6 @@ function Caveat({ children }: { children: ReactNode }) {
     <p className="og-caveat" role="note">
       {children}
     </p>
-  );
-}
-
-function SectionHead({ title, blurb }: { title: string; blurb?: string }) {
-  return (
-    <Reveal>
-      <div>
-        <h2 className="og-section-h">{title}</h2>
-        {blurb && <p className="og-section-blurb">{blurb}</p>}
-      </div>
-    </Reveal>
   );
 }
 
@@ -222,7 +212,7 @@ export default async function PrefarmPage({
 
       {/* Start here: farm now vs wait */}
       <section className="og-section" aria-label="Where to start">
-        <SectionHead
+        <ObsidianSectionHead
           title="Start here"
           blurb="What you can stockpile today, and what unlocks with the patch."
         />
@@ -254,7 +244,7 @@ export default async function PrefarmPage({
 
       {/* Full checklist — the main shopping list */}
       <section className="og-section" aria-label="Full checklist">
-        <SectionHead
+        <ObsidianSectionHead
           title="Full checklist"
           blurb="Ascension + forte combined — everything you need, with per-tier totals."
         />
@@ -266,7 +256,7 @@ export default async function PrefarmPage({
 
       {/* Breakdown — per-phase detail, tucked into accordions */}
       <section className="og-section" aria-label="Material breakdown">
-        <SectionHead
+        <ObsidianSectionHead
           title="Breakdown"
           blurb="Per-phase costs, if you want the detail."
         />
@@ -286,7 +276,7 @@ export default async function PrefarmPage({
 
       {/* Farming priorities */}
       <section className="og-section" aria-label="Farming priorities">
-        <SectionHead
+        <ObsidianSectionHead
           title="Farming priorities"
           blurb="How to spend your Waveplates and time before the banner."
         />
@@ -302,7 +292,7 @@ export default async function PrefarmPage({
 
       {/* Sources */}
       <section className="og-section" aria-label="Sources">
-        <SectionHead title="Sources" blurb="Every number verified twice." />
+        <ObsidianSectionHead title="Sources" blurb="Every number verified twice." />
         <Reveal>
           <ul style={{ margin: 0, paddingLeft: "1.1rem" }}>
             {guide.sources.map((s) => (

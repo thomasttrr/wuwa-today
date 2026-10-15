@@ -401,30 +401,8 @@
 .og-notice p { margin: 0; color: var(--og-muted); font-size: 0.92rem; line-height: 1.55; }
 .og-notice strong { color: var(--og-ink); }
 
-/* --- sections: hairline rule + display heading ----------------------------- */
+/* --- sub-headings ------------------------------------------------------------ */
 
-.og-section {
-  margin: 2.75rem 0 0;
-  border-top: 1px solid var(--og-hairline-soft);
-  padding-top: 1.75rem;
-}
-.og-section-h {
-  font-family: var(--og-display);
-  font-weight: 700;
-  letter-spacing: -0.01em;
-  line-height: 1.2;
-  color: var(--og-ink);
-  margin: 0 0 0.4rem;
-  font-size: 1.35rem;
-}
-.og-section-blurb {
-  color: var(--og-muted);
-  font-weight: 500;
-  font-size: 1rem;
-  margin: 0 0 1.3rem;
-  max-width: 66ch;
-  line-height: 1.6;
-}
 .og-sub-h {
   font-size: 1rem;
   font-weight: 700;
@@ -674,7 +652,7 @@
   padding: 1.1rem 1.25rem;
   min-width: 0;
 }
-.og-materials-group h3 { font-size: 0.95rem; margin: 0 0 0.5rem; color: var(--og-ink); }
+.og-materials-group .og-sub-h { font-size: 0.95rem; margin: 0 0 0.5rem; color: var(--og-ink); }
 .og-materials-list { list-style: none; margin: 0; padding: 0; }
 .og-material {
   padding: 0.7rem 0;

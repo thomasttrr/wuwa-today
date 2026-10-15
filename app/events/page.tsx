@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import EventCard from "../../components/EventCard";
+import ObsidianSectionHead from "../../components/ObsidianSectionHead";
 import ObsidianToolbar from "../../components/ObsidianToolbar";
 import OgPageHero from "../../components/OgPageHero";
 import Reveal from "../../components/Reveal";
@@ -40,9 +41,7 @@ export default function EventsPage() {
       />
 
       <div className="og-section">
-        <div className="og-section-head" id="active">
-          <h2 className="og-h2">Active</h2>
-        </div>
+        <ObsidianSectionHead id="active" title="Active" />
         {activeEvents.length === 0 ? (
           <p className="og-empty">
             No active events right now — check back after the next version
@@ -61,9 +60,7 @@ export default function EventsPage() {
 
       {upcomingEvents.length > 0 && (
         <div className="og-section">
-          <div className="og-section-head" id="upcoming">
-            <h2 className="og-h2">Upcoming</h2>
-          </div>
+          <ObsidianSectionHead id="upcoming" title="Upcoming" />
           <div className="grid grid-2">
             {upcomingEvents.map((e, i) => (
               <Reveal key={e.id} delay={i * 70}>

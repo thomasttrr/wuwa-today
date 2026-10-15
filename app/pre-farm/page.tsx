@@ -58,7 +58,7 @@ export default function PrefarmIndex() {
                 <p className="og-char-kicker">
                   {p.element} · {p.weapon_type} · {"★".repeat(p.rarity)}
                 </p>
-                <h2 className="og-section-h" style={{ margin: "0.25rem 0" }}>
+                <h2 className="og-h2" style={{ margin: "0.25rem 0" }}>
                   {g.character} pre-farm
                 </h2>
                 <p className="og-section-blurb">{g.banner}</p>
