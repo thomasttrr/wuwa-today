@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import Link from "next/link";
 import { Space_Grotesk } from "next/font/google";
 import ObsidianNav from "@/components/ObsidianNav";
 import "./globals.css";
@@ -53,6 +54,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </main>
         <footer className="site-footer">
           <div className="container">
+            <nav className="site-footer-nav" aria-label="Site">
+              <Link href="/">Today</Link>
+              <Link href="/banners">Banners</Link>
+              <Link href="/events">Events</Link>
+              <Link href="/characters">Characters</Link>
+              <Link href="/pull-planner">Pull Planner</Link>
+              <Link href="/tier-list">Tier List</Link>
+            </nav>
             <p>
               <strong>WuWa Today</strong> is an unofficial fan project. Wuthering
               Waves is a trademark of Kuro Games. This site is not affiliated

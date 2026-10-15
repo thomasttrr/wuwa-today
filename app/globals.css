@@ -68,6 +68,12 @@ main { padding: 2rem 0 4rem; min-height: 60vh; }
 }
 .site-footer p { margin: 0.25rem 0; }
 
+/* Footer hub navigation: one quiet row of plain text links. */
+.site-footer-nav {
+  display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem;
+  margin: 0 0 1rem; font-weight: 600;
+}
+
 /* ---------- type & helpers ---------- */
 
 h1 { font-size: 2rem; margin: 0 0 0.5rem; letter-spacing: -0.01em; font-weight: 700; }
