@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Space_Grotesk } from "next/font/google";
 import ObsidianNav from "@/components/ObsidianNav";
 import "./globals.css";
@@ -12,6 +12,14 @@ const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
   variable: "--font-space-grotesk",
 });
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  /* viewport-fit=cover engages the iPhone notch/home-indicator safe-area
+     insets so env(safe-area-inset-bottom) on the floating nav is real. */
+  viewportFit: "cover",
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://wuwa-today.vercel.app"),
