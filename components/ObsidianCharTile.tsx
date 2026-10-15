@@ -32,7 +32,11 @@ export default function ObsidianCharTile({ char }: { char: CharacterRecordLoose 
           loading="lazy"
           decoding="async"
         />
-        {preRelease && <span className="og-char-tile-flag">Pre-release</span>}
+        {preRelease && (
+          <span className="og-char-tile-flag">
+            Unreleased · {char.game_version}
+          </span>
+        )}
       </span>
       <span className="og-char-tile-body">
         <span className="og-char-tile-name">{char.name}</span>
