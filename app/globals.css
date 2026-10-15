@@ -55,8 +55,8 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
 
 .container { max-width: 1080px; margin: 0 auto; padding: 0 1.25rem; }
 
-/* The floating Obsidian glass capsule nav (.og-nav) replaced the old
-   sticky header. Its styles live in obsidian.css. */
+/* The solid bottom tab bar (.og-tabbar) replaced the old sticky header
+   and the floating capsule nav. Its styles live in obsidian.css. */
 
 main { padding: 2rem 0 4rem; min-height: 60vh; }
 
