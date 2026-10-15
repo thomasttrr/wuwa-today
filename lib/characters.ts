@@ -71,6 +71,24 @@ import c_xiangli_yao from "@/data/characters/xiangli-yao.json";
 import c_yangyang_xuanling from "@/data/characters/yangyang-xuanling.json";
 import c_zani from "@/data/characters/zani.json";
 import c_zhezhi from "@/data/characters/zhezhi.json";
+import c_brant from "@/data/characters/brant.json";
+import c_calcharo from "@/data/characters/calcharo.json";
+import c_jianxin from "@/data/characters/jianxin.json";
+import c_lingyang from "@/data/characters/lingyang.json";
+import c_roccia from "@/data/characters/roccia.json";
+import c_yinlin from "@/data/characters/yinlin.json";
+import c_aalto from "@/data/characters/aalto.json";
+import c_baizhi from "@/data/characters/baizhi.json";
+import c_chixia from "@/data/characters/chixia.json";
+import c_danjin from "@/data/characters/danjin.json";
+import c_lumi from "@/data/characters/lumi.json";
+import c_taoqi from "@/data/characters/taoqi.json";
+import c_yangyang from "@/data/characters/yangyang.json";
+import c_youhu from "@/data/characters/youhu.json";
+import c_yuanwu from "@/data/characters/yuanwu.json";
+import c_aero_rover from "@/data/characters/aero-rover.json";
+import c_havoc_rover from "@/data/characters/havoc-rover.json";
+import c_lily from "@/data/characters/lily.json";
 
 const ALL: CharacterRecordLoose[] = [
   c_hsin as CharacterRecordLoose,
@@ -115,10 +133,28 @@ const ALL: CharacterRecordLoose[] = [
   c_encore as CharacterRecordLoose,
   c_changli as CharacterRecordLoose,
   c_camellya as CharacterRecordLoose,
-  c_zhezhi as CharacterRecordLoose,
+  c_zhezhi as CharacterRecordLoose,  c_brant as CharacterRecordLoose,
+  c_calcharo as CharacterRecordLoose,
+  c_jianxin as CharacterRecordLoose,
+  c_lingyang as CharacterRecordLoose,
+  c_roccia as CharacterRecordLoose,
+  c_yinlin as CharacterRecordLoose,
+  c_aalto as CharacterRecordLoose,
+  c_baizhi as CharacterRecordLoose,
+  c_chixia as CharacterRecordLoose,
+  c_danjin as CharacterRecordLoose,
+  c_lumi as CharacterRecordLoose,
+  c_taoqi as CharacterRecordLoose,
+  c_yangyang as CharacterRecordLoose,
+  c_youhu as CharacterRecordLoose,
+  c_yuanwu as CharacterRecordLoose,
+  c_aero_rover as CharacterRecordLoose,
+  c_havoc_rover as CharacterRecordLoose,
+  c_lily as CharacterRecordLoose,
+
 ];
 
-/** All 43 characters in roster order. */
+/** All characters in roster order. */
 export const characters: CharacterRecordLoose[] = ALL;
 
 /** Slug -> record lookup. */

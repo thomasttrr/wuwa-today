@@ -236,8 +236,8 @@ export default async function CharacterPage({
           <div className="og-notice" role="note">
             <p>
               <strong>Pre-release data.</strong> {char.name} hasn&apos;t launched
-              yet (Phase 2) — builds, teams, and verdicts below are theorycraft
-              and may change at launch.
+              yet — anything below is based on pre-release information and may
+              change at launch.
             </p>
           </div>
         </Reveal>

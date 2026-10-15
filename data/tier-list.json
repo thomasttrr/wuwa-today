@@ -1,6 +1,6 @@
 {
   "version": "3.7",
-  "updatedAt": "2026-10-14",
+  "updatedAt": "2026-10-15",
   "note": "Rankings reflect the 3.7 meta; editorial opinion based on community tier lists.",
   "tiers": [
     {
@@ -203,6 +203,36 @@
           "name": "Zhezhi",
           "slug": "zhezhi",
           "note": "Current v3.6-3.7 lists (Beebom Oct 2026, MMO Culture, Game8) all place her at A; older 1.x-era lists had her at S. Her ceiling is higher on favorable Glacio/ToA cycles."
+        },
+        {
+          "name": "Brant",
+          "slug": "brant",
+          "note": "Game8 rates Brant A overall (S as Sub-DPS and in Tower of Adversity); Beebom's 3.7 tier list also places him in A."
+        },
+        {
+          "name": "Roccia",
+          "slug": "roccia",
+          "note": "Game8's 3.7 tier list rates Roccia A overall (A as a Sub-DPS, A in both Tower of Adversity and Whimpering Wastes); Beebom's 3.7 list places her in B."
+        },
+        {
+          "name": "Baizhi",
+          "slug": "baizhi",
+          "note": "Game8's 3.7 tier list rates Baizhi A overall (A as a Support, A in both Tower of Adversity and Whimpering Wastes); Beebom's 3.7 list places her in B."
+        },
+        {
+          "name": "Danjin",
+          "slug": "danjin",
+          "note": "Game8 rates her A as both a Main DPS and Sub-DPS (A in both Tower of Adversity and Whimpering Wastes); Beebom's 3.7 tier list places her in B — the premier 4-star Havoc DPS for skilled players."
+        },
+        {
+          "name": "Aero Rover",
+          "slug": "aero-rover",
+          "note": "Game8 rates them A overall (S in Tower of Adversity) and Beebom's October 2026 3.7 tier list places them at A — the only unit that raises the Aero Erosion stack cap, making them the free backbone of every Cartethyia team; niche outside Erosion comps."
+        },
+        {
+          "name": "Havoc Rover",
+          "slug": "havoc-rover",
+          "note": "Game8 rates them A overall as a Main DPS and PocketGamer lists Havoc Rover as S/A situational — a free carry with a huge Liberation-into-Dreamless nuke; Beebom's 3.7 list is more conservative at B as newer Havoc DPS arrive."
         }
       ]
     },
@@ -234,6 +264,61 @@
           "name": "Spectro Rover",
           "slug": "spectro-rover",
           "note": "Free and flexible; replaced once limited options arrive."
+        },
+        {
+          "name": "Calcharo",
+          "slug": "calcharo",
+          "note": "Beebom's 3.7 tier list places Calcharo in B; MMO Culture's 3.6 list also rates him B. Game8's tier-list page itself could not be verified."
+        },
+        {
+          "name": "Jianxin",
+          "slug": "jianxin",
+          "note": "Beebom's 3.7 tier list places Jianxin in B; Game8's own character page rates her C overall (C in both ToA and WhiWa)."
+        },
+        {
+          "name": "Lingyang",
+          "slug": "lingyang",
+          "note": "Game8 rates Lingyang B overall (Main DPS B, ToA/WhiWa B); Beebom's 3.7 tier list places him in C."
+        },
+        {
+          "name": "Yinlin",
+          "slug": "yinlin",
+          "note": "Both Game8's 3.7 tier list (B overall, B as a Sub-DPS) and Beebom's 3.7 list place Yinlin in B — outclassed by newer sub-DPS options."
+        },
+        {
+          "name": "Aalto",
+          "slug": "aalto",
+          "note": "Game8's 3.7 list rates Aalto B overall (A as a Sub-DPS, C as a Main DPS); Beebom's 3.7 list places him in C."
+        },
+        {
+          "name": "Chixia",
+          "slug": "chixia",
+          "note": "Game8 rates her Overall B as a Main DPS (A in Tower of Adversity this cycle); Beebom's 3.7 tier list places her in C — a solid early-game carry, outclassed in the current meta."
+        },
+        {
+          "name": "Lumi",
+          "slug": "lumi",
+          "note": "Game8 rates her Overall B as a Sub-DPS (B in Tower of Adversity, C in Whimpering Wastes); Beebom's 3.7 tier list places her in C — a usable niche Hybrid buffer, outclassed in serious endgame teams."
+        },
+        {
+          "name": "Taoqi",
+          "slug": "taoqi",
+          "note": "Game8 rates her Overall C as a Sub-DPS (C in both Tower of Adversity and Whimpering Wastes); Beebom's 3.7 tier list also places her in C — niche defensive value, outscaled as a general support."
+        },
+        {
+          "name": "Yangyang",
+          "slug": "yangyang",
+          "note": "Game8 rates her C overall (Sub-DPS) and Beebom's October 2026 3.7 tier list places her at C — a free, universal energy battery with a unique grouping tool, but no DMG buffs at S0 so dedicated buffers outclass her."
+        },
+        {
+          "name": "Youhu",
+          "slug": "youhu",
+          "note": "Game8 rates her C overall and Beebom's October 2026 3.7 tier list places her at C — a solid but RNG-gated coordinated-attack specialist; her healing is consistent but Baizhi does the generalist job for free."
+        },
+        {
+          "name": "Yuanwu",
+          "slug": "yuanwu",
+          "note": "Game8 rates him B overall as a Sub-DPS and Beebom's October 2026 3.7 tier list places him at B — a free, low-investment off-field Electro sub-DPS with a unique Vibration Strength shred, held back by a small wedge AoE and swap-heavy playstyle."
         }
       ]
     }
