@@ -1,9 +1,20 @@
 {
   "_meta": {
     "comment": "Active = verified working by at least 2 independent aggregator sources checked on updatedAt, OR by an official Kuro Games post. Never add a code from a single aggregator without a second source.",
-    "updatedAt": "2026-10-15T06:50:00-04:00"
+    "updatedAt": "2026-10-15T07:00:00-04:00"
   },
   "active": [
+    {
+      "addedAt": "2026-10-15",
+      "code": "DVME2MOHOQJT",
+      "expiresAt": null,
+      "notes": "Aggregator-reported code (no official Kuro announcement found). Listed as NEW permanent active code by two independent sources. No announced end date.",
+      "rewards": "20 Astrite, 20,000 Shell Credit",
+      "verifiedBy": [
+        "https://beebom.com/wuthering-waves-redeem-codes/",
+        "http://www.supercheats.com/wuthering-waves-codes"
+      ]
+    },
     {
       "addedAt": "2024-05-23",
       "code": "WUTHERINGGIFT",
@@ -19,10 +30,6 @@
     }
   ],
   "excluded": [
-    {
-      "code": "DVME2MOHOQJT",
-      "reason": "Listed as NEW by a single source (beebom.com, ~Oct 4). No second source confirms it. Left out per the two-source rule."
-    },
     {
       "code": "DARKSIDE / RABBITHOLE / RUNEREADER",
       "reason": "Listed as active by one stale source (levelgeeks.net, updated Oct 6) but marked EXPIRED by multiple others. Left out as likely expired."

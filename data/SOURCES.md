@@ -35,15 +35,15 @@ Removed the unverified term Fractal Proliferation from the Hsin pull guide: no s
 
 Verified active (2+ sources each):
 - `WUTHERINGGIFT` — confirmed active Oct 12–13, 2026 by: shanethegamer.com, axeetech.com, urgametips.com, gachago.com, topuplive.com, beebom.com, lootbar.com, levelgeeks.net, game8.co. Standing public code, no announced expiry.
+- `DVME2MOHOQJT` — listed as NEW permanent active code by beebom.com (checked Oct 5) and supercheats.com (rechecked Oct 14, 2026). Reward: 20 Astrite, 20,000 Shell Credit. No official Kuro announcement found; aggregator-reported.
 
 Verified expired (multiple sources agree):
 - `FALLINGSANCTUM`, `FINDSENTINEL`, `WAKINGMOON` — 3.7 livestream codes, expired Sept 21, 2026
 - `HEARTOFSWORD`, `ETERNALFLAME`, `THEANSWER` — 3.6 codes, expired Aug 9, 2026
 - `WUWA4PC`, `F5F4D3B2A2` — 3.5 / collab codes, expired
+- `STARRYSTAGE2`, `KEEPONSHINING` — expired Oct 13, 2026 at 23:59 UTC+8 (keygold.gg, checked Oct 14)
 
 Deliberately excluded (see `codes.json` → `excluded` for reasons):
-- `DVME2MOHOQJT` — single source (beebom.com)
-- `STARRYSTAGE2`, `KEEPONSHINING` — single source (axeetech.com), expiry window already passed
 - `DARKSIDE`, `RABBITHOLE`, `RUNEREADER` — one stale source lists active, multiple others list expired
 
 2026-10-14 re-check: no new codes. WUTHERINGGIFT still the only verified active code (confirmed by urgametips.com, gachago.com, axeetech.com, shanethegamer.com, lootbar.com, topuplive.com). Excluded set unchanged.
