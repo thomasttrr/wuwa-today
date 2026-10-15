@@ -28,8 +28,8 @@
 
   /* --- ink --- */
   --og-ink: #ffffff;                       /* primary text — 21:1 on canvas */
-  --og-muted: #a8a8b0;                     /* secondary text — ~7.5:1 on #101014.
-                                             Clears 4.5:1. Never #6e6e73. */
+  --og-muted: #b6b6be;                     /* secondary text — ~9.4:1 on #101014.
+                                             Measured ≥4.5:1 on all surfaces. */
 
   /* --- gold: time, countdowns, live ONLY --- */
   --og-gold: #e8b44f;                      /* ~11:1 on canvas, ~9.4:1 on #101014 */
@@ -305,13 +305,17 @@ body.og main { padding-top: 5.75rem; }
   transform: none !important;
 }
 .og-char-tile-art::after {
-  /* Bottom fade: mutes the bright yellow swooshes baked into the bottom
-     strip of the portrait art (~35% yellow pixels on some tiles) without
-     touching the image files. Paints above the art, below the tile flag. */
+  /* Full-width dark bar over the art's bottom strip: baked-in name text
+     (present on some portraits) reads white-on-dark at high contrast, and
+     the bright yellow swooshes are muted — without touching image files.
+     Paints above the art, below the tile flag. */
   content: "";
   position: absolute; inset: auto 0 0 0;
   height: 45%;
-  background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.68));
+  background: linear-gradient(180deg,
+    transparent 0%,
+    rgba(0, 0, 0, 0.55) 55%,
+    rgba(0, 0, 0, 0.88) 100%);
   pointer-events: none;
 }
 .og-char-tile-mono {
@@ -330,7 +334,7 @@ body.og main { padding-top: 5.75rem; }
   border-radius: var(--og-radius-pill);
   padding: 0.25rem 0.6rem;
 }
-.og-char-tile-body { padding: 0.7rem 0.85rem 0.85rem; }
+.og-char-tile-body { padding: 0.7rem 0.85rem 0.85rem; text-align: center; }
 .og-char-tile-name {
   display: block;
   font-weight: 700;
@@ -338,10 +342,12 @@ body.og main { padding-top: 5.75rem; }
   white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
 }
 .og-char-tile-meta {
-  display: flex; align-items: center; gap: 0.4rem;
-  margin-top: 0.3rem;
-  color: var(--og-muted);
+  display: flex; align-items: center; justify-content: center; gap: 0.4rem;
+  margin-top: 0.55rem;
+  /* Stronger secondary for label separation: ~11:1 on the tile surface. */
+  color: #c6c6ce;
   font-size: 0.8rem;
+  font-weight: 500;
   white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
   max-width: 100%;
 }
@@ -658,6 +664,17 @@ body.og { overflow-x: clip; }
   transition: color var(--og-d1) ease, background-color var(--og-d1) ease;
 }
 .og-toolbar a:hover { color: var(--og-ink); background: rgba(255, 255, 255, 0.07); text-decoration: none; }
+/* Visible in-page label: the toolbar is anchor jumps, not page nav.
+   Sentence case, never uppercase (caps discipline). */
+.og-toolbar-label {
+  font-family: var(--og-display);
+  font-weight: 600;
+  font-size: 0.72rem;
+  letter-spacing: 0.05em;
+  color: var(--og-muted);
+  padding: 0 0.2rem 0 0.7rem;
+  white-space: nowrap;
+}
 @media (prefers-reduced-transparency: reduce) {
   .og-toolbar { background: var(--og-surface); -webkit-backdrop-filter: none; backdrop-filter: none; }
 }
@@ -764,6 +781,57 @@ body.og { overflow-x: clip; }
 .og-event-desc { color: var(--og-muted); margin: 0; font-size: 0.95rem; line-height: 1.6; }
 .og-event-meta { margin: 0; color: var(--og-muted); font-size: 0.9rem; }
 .og-event-meta strong { color: var(--og-ink); font-weight: 600; }
+
+/* Compact event card (home page): countdown + rewards are promoted,
+   the body is truncated to two lines, and full details expand on tap.
+   Instant toggle — no motion, so prefers-reduced-motion needs nothing. */
+.og-event-card-compact { gap: 0.55rem; }
+.og-event-card-compact .og-countdown { font-size: 1.5rem; }
+.og-event-rewards {
+  margin: 0;
+  color: var(--og-ink);
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.5;
+}
+.og-event-rewards strong { font-weight: 700; }
+.og-event-card-compact .og-event-desc {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.og-event-card-compact .og-event-desc[data-expanded="true"] {
+  display: block;
+  -webkit-line-clamp: unset;
+  overflow: visible;
+}
+.og-event-expand {
+  align-self: flex-start;
+  min-height: 44px;
+  padding: 0.55rem 0.1rem;
+  margin: -0.15rem 0 -0.4rem;
+  background: none;
+  border: none;
+  color: var(--og-muted);
+  font: inherit;
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+.og-event-expand:hover { color: var(--og-ink); }
+
+/* Verification footer block: the data-verified stamp as a proper block
+   at the bottom of the page, not a faint line under the toolbar. */
+.og-verify-block {
+  margin: 3rem 0 0;
+  padding: 1.25rem 1.5rem;
+  background: var(--og-surface);
+  border: 1px solid var(--og-hairline);
+  border-radius: var(--og-radius-card);
+  text-align: center;
+}
+.og-verify-block .og-updated { font-size: 0.85rem; line-height: 1.6; }
 
 /* ==========================================================================
    .og-code-row — solid surface code row, mono code value, gold expiry.

@@ -55,7 +55,6 @@
   backdrop-filter: saturate(180%) blur(24px);
   border: 1px solid var(--og-hairline);
   box-shadow: 0 12px 40px -12px rgba(0, 0, 0, 0.7);
-  overflow: hidden;
 }
 .og-filterbar::before {
   content: "";
@@ -137,13 +136,17 @@
     top: 0.75rem; /* mobile nav is a bottom bar; no top clearance needed */
     padding: 0.7rem 0.85rem;
     border-radius: 18px;
+    /* No overflow:hidden — it clips grid/count content on iOS. The glint
+       bar is inset within bounds and needs no clipping context. */
+    overflow: visible;
   }
   .og-filter-groups {
     flex-wrap: nowrap;
     overflow-x: auto;
     scrollbar-width: none;
-    margin: 0 -0.85rem;
-    padding: 0 0.85rem;
+    /* Negative-margin bleed removed — it pushed the first column/count
+       off-screen on iOS. scroll-padding keeps scrolled chips aligned. */
+    scroll-padding-inline: 0.85rem;
   }
   .og-filter-groups::-webkit-scrollbar { display: none; }
   .og-filter-group { flex-wrap: nowrap; }
@@ -163,7 +166,9 @@
 
 .og-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  /* 195px min keeps large screens at 4-5 roomy columns (1080px container
+     yields 5) and lets smaller widths settle gracefully. */
+  grid-template-columns: repeat(auto-fill, minmax(195px, 1fr));
   gap: 1rem;
   margin: 0 0 3rem;
   padding: 0;
@@ -388,6 +393,8 @@
 }
 .og-section-blurb {
   color: var(--og-muted);
+  font-weight: 500;
+  font-size: 1rem;
   margin: 0 0 1.3rem;
   max-width: 66ch;
   line-height: 1.6;

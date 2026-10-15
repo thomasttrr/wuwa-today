@@ -89,18 +89,17 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* In-page anchor jumps only — labels mirror the section headings
+          below so they never read as a duplicate of the main page nav. */}
       <ObsidianToolbar
-        label="Today sections"
+        label="On this page"
         items={[
-          { href: "#banners", label: "Banners" },
-          { href: "#events", label: "Events" },
-          { href: "#resets", label: "Resets" },
-          { href: "#codes", label: "Codes" },
+          { href: "#banners", label: "Live banners" },
+          { href: "#events", label: "Active events" },
+          { href: "#resets", label: "Reset timers" },
+          { href: "#codes", label: "Redeem codes" },
         ]}
       />
-      <div className="og-meta-row">
-        <UpdatedStamp />
-      </div>
 
       <div className="og-section">
         <SectionHead
@@ -148,7 +147,7 @@ export default function HomePage() {
           ) : (
             activeEvents.map((e, i) => (
               <Reveal key={e.id} delay={i * 70}>
-                <EventCard event={e} />
+                <EventCard event={e} compact />
               </Reveal>
             ))
           )}
@@ -184,6 +183,11 @@ export default function HomePage() {
             ))
           )}
         </div>
+      </div>
+
+      {/* Verification stamp as a proper footer block — not a faint line. */}
+      <div className="og-verify-block">
+        <UpdatedStamp />
       </div>
     </>
   );
