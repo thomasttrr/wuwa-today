@@ -893,7 +893,7 @@
   flex: none;
   display: inline-block;
 }
-.og-team-role > span { overflow: hidden; text-overflow: ellipsis; }
+.og-team-role > span { overflow: hidden; text-overflow: ellipsis; min-width: 0; }
 .og-team-notes {
   list-style: none;
   margin: 1.15rem 0 0;
