@@ -1,6 +1,6 @@
 # Sources
 
-Every fact in `data/` was checked against these sources. Banner/code data last checked on **2026-10-14**; event schedule refreshed on **2026-10-14** (midday). Source URLs are also stored per-record in the JSON files.
+Every fact in `data/` was checked against these sources. Code data last checked on **2026-10-15**; banner data last checked on **2026-10-14**; event schedule refreshed on **2026-10-14** (midday), spot-verified **2026-10-15** (Bountiful Crescendo Oct 15–22 confirmed). Source URLs are also stored per-record in the JSON files.
 
 ## Banners (Version 3.7)
 
@@ -47,6 +47,8 @@ Deliberately excluded (see `codes.json` → `excluded` for reasons):
 - `DARKSIDE`, `RABBITHOLE`, `RUNEREADER` — one stale source lists active, multiple others list expired
 
 2026-10-14 re-check: no new codes. WUTHERINGGIFT still the only verified active code (confirmed by urgametips.com, gachago.com, axeetech.com, shanethegamer.com, lootbar.com, topuplive.com). Excluded set unchanged.
+
+2026-10-15 00:35 EDT re-check: no new codes. WUTHERINGGIFT still the only verified active code (confirmed by urgametips.com Oct 14, shanethegamer.com, gachago.com, keygold.gg, topuplive.com). STARRYSTAGE2 and KEEPONSHINING confirmed expired Oct 13 at 23:59 UTC+8 (keygold.gg, checked Oct 14) — moved from `excluded` to `expired` in `codes.json`. DVME2MOHOQJT still single-source (beebom.com only), excluded. Next codes expected with the Version 3.8 Preview Special Broadcast, estimated ~Oct 31–Nov 1 (per keygold.gg; Kuro has not confirmed).
 
 ## Events
 

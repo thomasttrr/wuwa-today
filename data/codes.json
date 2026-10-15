@@ -1,7 +1,7 @@
 {
   "_meta": {
     "comment": "Active = verified working by at least 2 independent aggregator sources checked on updatedAt, OR by an official Kuro Games post. Never add a code from a single aggregator without a second source.",
-    "updatedAt": "2026-10-14T12:30:00-04:00"
+    "updatedAt": "2026-10-15T00:35:00-04:00"
   },
   "active": [
     {
@@ -24,19 +24,21 @@
       "reason": "Listed as NEW by a single source (beebom.com, ~Oct 4). No second source confirms it. Left out per the two-source rule."
     },
     {
-      "code": "STARRYSTAGE2",
-      "reason": "Reported by one source (axeetech.com) with an expiry of 'tonight 23:59 PKT' around Oct 11-12 — almost certainly expired. Left out."
-    },
-    {
-      "code": "KEEPONSHINING",
-      "reason": "Same as STARRYSTAGE2 — single source, expired window. Left out."
-    },
-    {
       "code": "DARKSIDE / RABBITHOLE / RUNEREADER",
       "reason": "Listed as active by one stale source (levelgeeks.net, updated Oct 6) but marked EXPIRED by multiple others. Left out as likely expired."
     }
   ],
   "expired": [
+    {
+      "code": "STARRYSTAGE2",
+      "expiredAt": "2026-10-13",
+      "notes": "Solaris Starry Stage Season 2 code; 80 Astrite; expired 23:59 (UTC+8) Oct 13"
+    },
+    {
+      "code": "KEEPONSHINING",
+      "expiredAt": "2026-10-13",
+      "notes": "Solaris Starry Stage Season 2 code; 80 Astrite; expired 23:59 (UTC+8) Oct 13"
+    },
     {
       "code": "FALLINGSANCTUM",
       "expiredAt": "2026-09-21",
