@@ -9,6 +9,7 @@ import {
   getCharacter,
   isPreRelease,
   prevNextCharacter,
+  type CharacterRecordLoose,
   type EchoSetLoose,
   type RankedWeapon,
 } from "@/lib/characters";
@@ -66,15 +67,57 @@ function SectionHead({ title, blurb }: { title: string; blurb?: string }) {
   );
 }
 
+function MaterialsSection({
+  materials,
+}: {
+  materials: NonNullable<CharacterRecordLoose["materials"]>;
+}) {
+  const groups: { title: string; entries: { name: string; qty: string; farm: string }[] }[] = [
+    { title: "Ascension 0 → 90", entries: materials.ascension },
+    { title: "Forte — full tree", entries: materials.forte },
+  ];
+  return (
+    <div className="char-materials">
+      {groups.map((g) => (
+        <div key={g.title} className="char-materials-group">
+          <h3>{g.title}</h3>
+          <ol className="char-materials-list">
+            {g.entries.map((m) => (
+              <li key={m.name} className="char-material">
+                <span className="char-material-name">{m.name}</span>
+                <span className="char-material-qty">×{m.qty}</span>
+                {m.farm !== "—" && <span className="char-material-farm">{m.farm}</span>}
+              </li>
+            ))}
+          </ol>
+        </div>
+      ))}
+      {materials.note && <Caveat>{materials.note}</Caveat>}
+    </div>
+  );
+}
+
 function WeaponPlate({ weapon, bis }: { weapon: RankedWeapon; bis: boolean }) {
   return (
     <li className={bis ? "char-weapon char-weapon-bis" : "char-weapon"}>
-      <span className="char-weapon-name">
-        {weapon.name}
-        {weapon.signature && <span className="char-sig">Signature</span>}
-      </span>
-      <span className="stars" aria-label={`${weapon.rarity} star`}>
-        {"★".repeat(weapon.rarity)}
+      <span className="char-weapon-head">
+        {weapon.icon && (
+          <Image
+            src={weapon.icon}
+            alt={`${weapon.name} icon`}
+            width={44}
+            height={44}
+            className="char-weapon-icon"
+            loading="lazy"
+          />
+        )}
+        <span className="char-weapon-name">
+          {weapon.name}
+          {weapon.signature && <span className="char-sig">Signature</span>}
+        </span>
+        <span className="stars" aria-label={`${weapon.rarity} star`}>
+          {"★".repeat(weapon.rarity)}
+        </span>
       </span>
       <p className="char-weapon-note">{weapon.note}</p>
     </li>
@@ -292,6 +335,19 @@ export default async function CharacterPage({
           </p>
         </Reveal>
       </div>
+
+      {/* Pre-farm materials */}
+      {char.materials && (
+        <>
+          <SectionHead
+            title="Pre-farm materials"
+            blurb="Ascension + forte costs with farm locations."
+          />
+          <Reveal>
+            <MaterialsSection materials={char.materials} />
+          </Reveal>
+        </>
+      )}
 
       {/* Teams */}
       <SectionHead title="Teams" blurb="Tested comps with rotations." />

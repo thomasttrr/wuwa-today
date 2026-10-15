@@ -589,3 +589,47 @@
   }
   .char-tile-name { font-size: 0.88rem; }
 }
+
+/* Weapon icons in ranked weapon plates. */
+.char-weapon-head {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+.char-weapon-head .stars { margin-left: auto; flex: none; }
+.char-weapon-icon {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--hairline);
+  flex: none;
+}
+
+/* Pre-farm materials. */
+.char-materials { display: grid; gap: 1.1rem; }
+.char-materials-group h3 {
+  font-family: var(--font-display, Georgia, serif);
+  font-size: 1rem;
+  color: var(--text-2);
+  margin: 0 0 0.55rem;
+}
+.char-materials-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.45rem; }
+.char-material {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.35rem 0.7rem;
+  padding: 0.6rem 0.85rem;
+  background: var(--bg-card);
+  border: 1px solid var(--hairline);
+  border-radius: 10px;
+}
+.char-material-name { font-weight: 600; color: var(--text); }
+.char-material-qty {
+  font-family: var(--font-mono, ui-monospace, monospace);
+  color: var(--gold, #d8a94e);
+  font-weight: 700;
+}
+.char-material-farm { flex-basis: 100%; font-size: 0.85rem; color: var(--text-2); }
