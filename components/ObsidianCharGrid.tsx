@@ -45,7 +45,7 @@ export default function ObsidianCharGrid({
         );
       })}
       {chars.length === 0 && (
-        <div className="og-empty" role="status">
+        <div className="og-char-empty" role="status">
           <p>No characters match these filters.</p>
         </div>
       )}

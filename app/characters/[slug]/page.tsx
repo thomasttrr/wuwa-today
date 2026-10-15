@@ -211,11 +211,11 @@ export default async function CharacterPage({
                   {tier.tier}
                 </span>
               ) : (
-                <span className="og-badge og-badge-dim">Pre-release · Not ranked</span>
+                <span className="og-char-badge og-char-badge-dim">Pre-release · Not ranked</span>
               )}
-              {showTierBadge && <span className="og-badge">{tier.label}</span>}
-              <span className="og-badge">{p.role}</span>
-              <span className="og-badge">
+              {showTierBadge && <span className="og-char-badge">{tier.label}</span>}
+              <span className="og-char-badge">{p.role}</span>
+              <span className="og-char-badge">
                 <span className="element-dot" style={{ background: el }} aria-hidden="true" />{" "}
                 {p.element}
               </span>

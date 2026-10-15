@@ -169,7 +169,7 @@
   padding: 0;
 }
 .og-cell { min-width: 0; }
-.og-empty {
+.og-char-empty {
   grid-column: 1 / -1;
   background: var(--og-surface);
   border: 1px solid var(--og-hairline-soft);
@@ -178,7 +178,7 @@
   text-align: center;
   color: var(--og-muted);
 }
-.og-empty p { margin: 0; }
+.og-char-empty p { margin: 0; }
 
 @media (max-width: 400px) {
   .og-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
@@ -268,9 +268,11 @@
   .og-char-art { border-radius: 16px; }
 }
 
-/* --- badges (content, not chrome): solid, restrained ---------------------- */
+/* --- character-page badges (content, not chrome): solid, restrained --------
+   NOTE: named .og-char-badge (not .og-badge) — app/obsidian.css owns
+   .og-badge for the home/data pages. Same for .og-char-empty above. ------ */
 
-.og-badge {
+.og-char-badge {
   display: inline-flex;
   align-items: center;
   gap: 0.45rem;
@@ -284,14 +286,14 @@
   color: var(--og-ink);
   white-space: nowrap;
 }
-.og-badge .element-dot {
+.og-char-badge .element-dot {
   width: 8px;
   height: 8px;
   border-radius: 50%;
   flex: none;
   display: inline-block;
 }
-.og-badge-dim {
+.og-char-badge-dim {
   background: transparent;
   border-color: var(--og-hairline-soft);
   color: var(--og-muted);
