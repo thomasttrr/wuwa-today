@@ -112,3 +112,6 @@ Routes: /pre-farm, /pre-farm/suoming, /pre-farm/lynae, /pre-farm/lucilla. Materi
   - Mech Cores: Clamorling Tacet Discords, Lahai-Roi (gamsgo Denia guide + sportskeeda Mornye article)
   - We Who Question: Denia weekly challenge, Seed of Illusory Origin, Dimmr Plains (sportskeeda Qingxiao article + u7buy Hiyuki guide)
   - Note: a few guides (gamingonphone, gamemarket) mislabel Lucilla's cores as "Exoswarm" — quantities match Mech Core totals; Game8 + buffbuff confirm Mech Cores.
+
+## Pre-farm material icons (2026-10-15)
+- 15 item icons in `public/images/items/` (FF Howler Core, Layered Wing Polarizer, Forged Empyrean's Sigh, Miasmic Branch, Remnant of the Wheel, Shell Credit, FF Exoswarm Core, Reverb Combustor, Dreamless Feather, Forget-Me-Not, Rimewisp, FF Mech Core, Melodic String, Suncoveter's Reach, We Who Question) downloaded from Game8 item pages (img.game8.co), matched by item name on the page; tiered materials use the highest-tier icon. 120×120 PNGs.
