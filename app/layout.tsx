@@ -3,6 +3,7 @@ import { Space_Grotesk } from "next/font/google";
 import ObsidianNav from "@/components/ObsidianNav";
 import "./globals.css";
 import "./obsidian.css";
+import "./og-pages.css";
 
 /* Obsidian Glass display type: Space Grotesk, semibold/bold, uppercase,
    tight tracking. Body stays system sans; data stays tabular mono. */

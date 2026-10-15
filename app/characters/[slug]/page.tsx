@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import Reveal from "@/components/Reveal";
-import TeamCard from "@/components/TeamCard";
+import ObsidianTeamCard from "@/components/ObsidianTeamCard";
 import {
   characterSlugs,
   getCharacter,
@@ -38,17 +38,10 @@ export async function generateMetadata({
   };
 }
 
-const TIER_BADGE_CLASS: Record<string, string> = {
-  SS: "tier-badge tier-ss",
-  S: "tier-badge tier-s",
-  A: "tier-badge tier-a",
-  B: "tier-badge tier-b",
-};
-
 /** Small honest caveat for uncertain / pre-release sections. */
 function Caveat({ children }: { children: ReactNode }) {
   return (
-    <p className="char-caveat" role="note">
+    <p className="og-caveat" role="note">
       {children}
     </p>
   );
@@ -57,11 +50,9 @@ function Caveat({ children }: { children: ReactNode }) {
 function SectionHead({ title, blurb }: { title: string; blurb?: string }) {
   return (
     <Reveal>
-      <div className="section-head">
-        <div>
-          <h2>{title}</h2>
-          {blurb && <p className="section-blurb">{blurb}</p>}
-        </div>
+      <div>
+        <h2 className="og-section-h og-display">{title}</h2>
+        {blurb && <p className="og-section-blurb">{blurb}</p>}
       </div>
     </Reveal>
   );
@@ -77,16 +68,16 @@ function MaterialsSection({
     { title: "Forte — full tree", entries: materials.forte },
   ];
   return (
-    <div className="char-materials">
+    <div className="og-materials">
       {groups.map((g) => (
-        <div key={g.title} className="char-materials-group">
+        <div key={g.title} className="og-materials-group">
           <h3>{g.title}</h3>
-          <ol className="char-materials-list">
+          <ol className="og-materials-list">
             {g.entries.map((m) => (
-              <li key={m.name} className="char-material">
-                <span className="char-material-name">{m.name}</span>
-                <span className="char-material-qty">×{m.qty}</span>
-                {m.farm !== "—" && <span className="char-material-farm">{m.farm}</span>}
+              <li key={m.name} className="og-material">
+                <span className="og-material-name">{m.name}</span>
+                <span className="og-material-qty">×{m.qty}</span>
+                {m.farm !== "—" && <span className="og-material-farm">{m.farm}</span>}
               </li>
             ))}
           </ol>
@@ -99,27 +90,34 @@ function MaterialsSection({
 
 function WeaponPlate({ weapon, bis }: { weapon: RankedWeapon; bis: boolean }) {
   return (
-    <li className={bis ? "char-weapon char-weapon-bis" : "char-weapon"}>
-      <span className="char-weapon-head">
-        {weapon.icon && (
-          <Image
-            src={weapon.icon}
-            alt={`${weapon.name} icon`}
-            width={64}
-            height={64}
-            className="char-weapon-icon"
-            loading="lazy"
-          />
-        )}
-        <span className="char-weapon-name">
-          {weapon.name}
-          {weapon.signature && <span className="char-sig">Signature</span>}
-        </span>
-        <span className="stars" aria-label={`${weapon.rarity} star`}>
-          {"★".repeat(weapon.rarity)}
-        </span>
+    <li className={bis ? "og-weapon og-weapon-bis" : "og-weapon"}>
+      <span className="og-weapon-rank" aria-label={`Rank ${weapon.rank}`}>
+        {String(weapon.rank).padStart(2, "0")}
       </span>
-      <p className="char-weapon-note">{weapon.note}</p>
+      {weapon.icon ? (
+        <Image
+          src={weapon.icon}
+          alt={`${weapon.name} icon`}
+          width={64}
+          height={64}
+          className="og-weapon-icon"
+          loading="lazy"
+          decoding="async"
+        />
+      ) : (
+        <span className="og-weapon-icon" aria-hidden="true" />
+      )}
+      <div className="og-weapon-main">
+        <div className="og-weapon-head">
+          <span className="og-weapon-name">{weapon.name}</span>
+          {bis && <span className="og-bis-pill">BiS</span>}
+          {weapon.signature && <span className="og-sig">Signature</span>}
+          <span className="og-stars" aria-label={`${weapon.rarity} star`}>
+            {"★".repeat(weapon.rarity)}
+          </span>
+        </div>
+        <p className="og-weapon-note">{weapon.note}</p>
+      </div>
     </li>
   );
 }
@@ -127,13 +125,15 @@ function WeaponPlate({ weapon, bis }: { weapon: RankedWeapon; bis: boolean }) {
 function EchoPlate({ set }: { set: EchoSetLoose }) {
   const bis = set.usage === "best-in-slot";
   return (
-    <div className={bis ? "echo-plate echo-plate-bis" : "echo-plate"}>
-      <div className="echo-plate-head">
-        <span className="echo-plate-name">{set.name}</span>
-        <span className="echo-plate-cost">{set.pieces}</span>
+    <div className={bis ? "og-echo-plate og-echo-plate-bis" : "og-echo-plate"}>
+      <div className="og-echo-head">
+        <span className="og-echo-name">{set.name}</span>
+        <span className="og-echo-cost">{set.pieces}</span>
       </div>
-      <p className="echo-usage">
-        <span className={bis ? "badge gold" : "badge dim"}>{set.usage}</span>
+      <p className="og-echo-usage">
+        <span className={bis ? "og-usage-pill og-usage-bis" : "og-usage-pill og-usage-alt"}>
+          {set.usage}
+        </span>
       </p>
       {set.main_echo ? (
         <p>
@@ -158,10 +158,10 @@ export default async function CharacterPage({
   if (!char) {
     return (
       <>
-        <Link href="/characters" className="char-back">
+        <Link href="/characters" className="og-back">
           ← Characters
         </Link>
-        <h1>Character not found</h1>
+        <h1 className="og-display">Character not found</h1>
       </>
     );
   }
@@ -174,7 +174,6 @@ export default async function CharacterPage({
   const showTierBadge = tier !== null && tier.tier !== "UNKNOWN";
   const { prev, next } = prevNextCharacter(slug);
 
-  const heroStyle = { "--el": el } as CSSProperties;
   const kicker = `${p.element} · ${p.weapon_type} · ${"★".repeat(p.rarity)}`.toUpperCase();
 
   const visibleWeapons = build.ranked_weapons.slice(0, 4);
@@ -182,19 +181,19 @@ export default async function CharacterPage({
 
   return (
     <>
-      <Link href="/characters" className="char-back">
+      <Link href="/characters" className="og-back">
         ← Characters
       </Link>
 
-      {/* Hero: 4-step cascade (portrait → kicker/title → badges → verdict). */}
-      <header className="char-hero" style={heroStyle}>
+      {/* Hero: portrait plate, kicker/title, badges, verdict. */}
+      <header className="og-char-hero" style={{ "--el": el } as CSSProperties}>
         <Reveal>
-          <div className="char-hero-art">
+          <div className="og-char-art">
             <Image
               src={p.portrait_url}
               alt={`${char.name} portrait`}
-              width={352}
-              height={352}
+              width={600}
+              height={600}
               priority
               decoding="async"
             />
@@ -202,29 +201,29 @@ export default async function CharacterPage({
         </Reveal>
         <div>
           <Reveal delay={60}>
-            <p className="char-kicker">{kicker}</p>
-            <h1>{char.name}</h1>
+            <p className="og-char-kicker">{kicker}</p>
+            <h1 className="og-char-name og-display">{char.name}</h1>
           </Reveal>
           <Reveal delay={120}>
-            <div className="char-badges">
+            <div className="og-char-badges">
               {showTierBadge ? (
-                <span className={TIER_BADGE_CLASS[tier.tier] ?? "tier-badge"}>
+                <span className={`og-tier-badge tier-${tier.tier}`}>
                   {tier.tier}
                 </span>
               ) : (
-                <span className="badge dim">Pre-release · Not ranked</span>
+                <span className="og-badge og-badge-dim">Pre-release · Not ranked</span>
               )}
-              {showTierBadge && <span className="badge">{tier.label}</span>}
-              <span className="badge">{p.role}</span>
-              <span className="badge">
+              {showTierBadge && <span className="og-badge">{tier.label}</span>}
+              <span className="og-badge">{p.role}</span>
+              <span className="og-badge">
                 <span className="element-dot" style={{ background: el }} aria-hidden="true" />{" "}
                 {p.element}
               </span>
             </div>
           </Reveal>
           <Reveal delay={180}>
-            <p className="char-verdict-line">{char.pull_verdict.verdict_label}</p>
-            {p.role_note && <p className="char-verdict-line updated">{p.role_note}</p>}
+            <p className="og-hero-verdict">{char.pull_verdict.verdict_label}</p>
+            {p.role_note && <p className="og-hero-note">{p.role_note}</p>}
             {tier?.uncertain_or_prerelease && !preRelease && (
               <Caveat>Tier sources disagree — treat this placement as approximate.</Caveat>
             )}
@@ -234,7 +233,7 @@ export default async function CharacterPage({
 
       {preRelease && (
         <Reveal>
-          <div className="char-prerelease" role="note">
+          <div className="og-notice" role="note">
             <p>
               <strong>Pre-release data.</strong> {char.name} hasn&apos;t launched
               yet (Phase 2) — builds, teams, and verdicts below are theorycraft
@@ -245,100 +244,97 @@ export default async function CharacterPage({
       )}
 
       {/* Build */}
-      <SectionHead
-        title="Build"
-        blurb={build.fast_path}
-      />
-      <div className="char-build">
-        {build.uncertain_or_prerelease && !preRelease && (
-          <Caveat>Some build details are uncertain — check the source guides.</Caveat>
-        )}
-
-        <Reveal>
-          <h3>Weapons</h3>
-          <ol className="char-weapons">
-            {visibleWeapons.map((w) => (
-              <WeaponPlate key={w.rank} weapon={w} bis={w.rank === 1} />
-            ))}
-          </ol>
-          {extraWeapons.length > 0 && (
-            <details className="char-showmore">
-              <summary>Show all {build.ranked_weapons.length} ranked weapons</summary>
-              <ol className="char-weapons">
-                {extraWeapons.map((w) => (
-                  <WeaponPlate key={w.rank} weapon={w} bis={false} />
-                ))}
-              </ol>
-            </details>
+      <section className="og-section" aria-label="Build">
+        <SectionHead title="Build" blurb={build.fast_path} />
+        <div>
+          {build.uncertain_or_prerelease && !preRelease && (
+            <Caveat>Some build details are uncertain — check the source guides.</Caveat>
           )}
-        </Reveal>
 
-        <Reveal>
-          <h3>Echo sets</h3>
-          <p className="updated mono">Cost layout: {build.cost_layout}</p>
-          <div
-            className={
-              build.echo_sets.length > 1 ? "echo-plates echo-plates-2" : "echo-plates"
-            }
-          >
-            {build.echo_sets.map((s) => (
-              <EchoPlate key={s.name} set={s} />
-            ))}
-          </div>
-        </Reveal>
+          <Reveal>
+            <h3 className="og-sub-h">Weapons</h3>
+            <ol className="og-weapons">
+              {visibleWeapons.map((w) => (
+                <WeaponPlate key={w.rank} weapon={w} bis={w.rank === 1} />
+              ))}
+            </ol>
+            {extraWeapons.length > 0 && (
+              <details className="og-showmore">
+                <summary>Show all {build.ranked_weapons.length} ranked weapons</summary>
+                <ol className="og-weapons">
+                  {extraWeapons.map((w) => (
+                    <WeaponPlate key={w.rank} weapon={w} bis={false} />
+                  ))}
+                </ol>
+              </details>
+            )}
+          </Reveal>
 
-        <Reveal>
-          <h3>Stat priorities</h3>
-          <ul className="stat-bars">
-            {build.stat_priorities.map((sp, i) => (
-              <li key={sp.piece}>
-                <div className="stat-bar-head">
-                  <span className="stat-bar-label">
-                    <span className="stat-piece">{sp.piece}</span> · {sp.main_stat}
-                  </span>
-                  <span className="stat-bar-rank">Priority {i + 1}</span>
-                </div>
-                <div className="stat-track" aria-hidden="true">
-                  <div
-                    className="stat-fill"
-                    style={{ "--w": `${BAR_WIDTHS[i] ?? 28}%` } as CSSProperties}
-                  />
-                </div>
-                {(sp.alternates?.length || sp.note) && (
-                  <p className="stat-bar-note">
-                    {sp.alternates?.length ? (
-                      <>
-                        Also: <span className="stat-alt">{sp.alternates.join(" / ")}</span>
-                        {sp.note ? " — " : ""}
-                      </>
-                    ) : null}
-                    {sp.note}
-                  </p>
-                )}
-              </li>
-            ))}
-          </ul>
-        </Reveal>
+          <Reveal>
+            <h3 className="og-sub-h">Echo sets</h3>
+            <p className="og-mono-line">Cost layout: {build.cost_layout}</p>
+            <div className="og-echo-plates">
+              {build.echo_sets.map((s) => (
+                <EchoPlate key={s.name} set={s} />
+              ))}
+            </div>
+          </Reveal>
 
-        <Reveal>
-          <h3>Substats</h3>
-          <ol className="char-substats">
-            {build.substat_priority.map((s, i) => (
-              <li key={s} className="char-substat">
-                <span className="sub-rank">{i + 1}</span>
-                {s}
-              </li>
-            ))}
-          </ol>
-          <p className="char-er">
-            Energy Regen target: <strong>{build.energy_regen_target}</strong>
-          </p>
-        </Reveal>
-      </div>
+          <Reveal>
+            <h3 className="og-sub-h">Stat priorities</h3>
+            <div className="og-stat-panel">
+              <ul className="og-stat-bars">
+                {build.stat_priorities.map((sp, i) => (
+                  <li key={sp.piece}>
+                    <div className="og-stat-head">
+                      <span className="og-stat-label">
+                        <strong>{sp.piece}</strong> · {sp.main_stat}
+                      </span>
+                      <span className="og-stat-rank">Priority {i + 1}</span>
+                    </div>
+                    <div className="og-stat-track" aria-hidden="true">
+                      <div
+                        className="og-stat-fill"
+                        style={{ "--w": `${BAR_WIDTHS[i] ?? 28}%` } as CSSProperties}
+                      />
+                    </div>
+                    {(sp.alternates?.length || sp.note) && (
+                      <p className="og-stat-note">
+                        {sp.alternates?.length ? (
+                          <>
+                            Also: <span className="og-stat-alt">{sp.alternates.join(" / ")}</span>
+                            {sp.note ? " — " : ""}
+                          </>
+                        ) : null}
+                        {sp.note}
+                      </p>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </Reveal>
+
+          <Reveal>
+            <h3 className="og-sub-h">Substats</h3>
+            <ol className="og-substats">
+              {build.substat_priority.map((s, i) => (
+                <li key={s} className="og-substat">
+                  <span className="og-sub-rank">{i + 1}</span>
+                  {s}
+                </li>
+              ))}
+            </ol>
+            <p className="og-er">
+              Energy Regen target: <strong>{build.energy_regen_target}</strong>
+            </p>
+          </Reveal>
+        </div>
+      </section>
 
       {/* Pre-farm materials */}
       {char.materials && (
-        <>
+        <section className="og-section" aria-label="Pre-farm materials">
           <SectionHead
             title="Pre-farm materials"
             blurb="Ascension + forte costs with farm locations."
@@ -346,85 +342,89 @@ export default async function CharacterPage({
           <Reveal>
             <MaterialsSection materials={char.materials} />
           </Reveal>
-        </>
+        </section>
       )}
 
       {/* Teams */}
-      <SectionHead title="Teams" blurb="Tested comps with rotations." />
-      {char.teams.map((team) => (
-        <Reveal key={team.name}>
-          <TeamCard team={team} />
-        </Reveal>
-      ))}
-      <div className="char-teams-note">
-        {char.teams_meta.note && <Caveat>{char.teams_meta.note}</Caveat>}
-        {char.teams_meta.uncertain_or_prerelease && !preRelease && !char.teams_meta.note && (
-          <Caveat>Team data is provisional — sources differ on the best comps.</Caveat>
-        )}
-        {preRelease && (
-          <Caveat>Team comps are pre-release theorycraft — unconfirmed until launch.</Caveat>
-        )}
-      </div>
-
-      {/* Pull verdict */}
-      <SectionHead title="Pull verdict" />
-      <Reveal>
-        <div className="char-verdict">
-          <p className="char-verdict-kicker">Pull verdict</p>
-          <span className="badge gold verdict-label">{char.pull_verdict.verdict_label}</span>
-          <p className="char-verdict-text">{char.pull_verdict.verdict}</p>
-          <p className="char-verdict-meta">
-            Banner {char.pull_verdict.banner_id} · Published {char.pull_verdict.published_at}
-          </p>
-          {char.pull_verdict.uncertain_or_prerelease && !preRelease && (
-            <Caveat>This verdict is based on uncertain or incomplete data.</Caveat>
+      <section className="og-section" aria-label="Teams">
+        <SectionHead title="Teams" blurb="Tested comps with rotations." />
+        {char.teams.map((team) => (
+          <Reveal key={team.name}>
+            <ObsidianTeamCard team={team} />
+          </Reveal>
+        ))}
+        <div>
+          {char.teams_meta.note && <Caveat>{char.teams_meta.note}</Caveat>}
+          {char.teams_meta.uncertain_or_prerelease && !preRelease && !char.teams_meta.note && (
+            <Caveat>Team data is provisional — sources differ on the best comps.</Caveat>
+          )}
+          {preRelease && (
+            <Caveat>Team comps are pre-release theorycraft — unconfirmed until launch.</Caveat>
           )}
         </div>
-      </Reveal>
+      </section>
 
-      <p className="char-version-note">
+      {/* Pull verdict */}
+      <section className="og-section" aria-label="Pull verdict">
+        <SectionHead title="Pull verdict" />
+        <Reveal>
+          <div className="og-verdict-card">
+            <p className="og-verdict-kicker">Pull verdict</p>
+            <span className="og-verdict-label">{char.pull_verdict.verdict_label}</span>
+            <p className="og-verdict-text">{char.pull_verdict.verdict}</p>
+            <p className="og-verdict-meta">
+              Banner {char.pull_verdict.banner_id} · Published {char.pull_verdict.published_at}
+            </p>
+            {char.pull_verdict.uncertain_or_prerelease && !preRelease && (
+              <Caveat>This verdict is based on uncertain or incomplete data.</Caveat>
+            )}
+          </div>
+        </Reveal>
+      </section>
+
+      <p className="og-version-note">
         Data current as of game version {char.game_version}.
       </p>
 
       {/* Prev / next */}
-      <nav className="char-prevnext" aria-label="More characters">
+      <nav className="og-prevnext" aria-label="More characters">
         {prev ? (
           <Link href={`/characters/${prev.slug}`}>
-            <span className="pn-dir" aria-hidden="true">‹</span>
+            <span className="og-pn-dir" aria-hidden="true">‹</span>
             <Image
               src={prev.profile.portrait_url}
               alt=""
-              width={112}
-              height={112}
+              width={128}
+              height={128}
               loading="lazy"
               decoding="async"
             />
-            <span>
-              <span className="pn-label">Previous</span>
-              <span className="pn-name">{prev.name}</span>
+            <span className="og-pn-text">
+              <span className="og-pn-label">Previous</span>
+              <span className="og-pn-name">{prev.name}</span>
             </span>
           </Link>
         ) : (
-          <span aria-hidden="true" style={{ flex: "1 1 0" }} />
+          <span className="og-pn-spacer" aria-hidden="true" />
         )}
         {next ? (
-          <Link href={`/characters/${next.slug}`} className="pn-next">
-            <span>
-              <span className="pn-label">Next</span>
-              <span className="pn-name">{next.name}</span>
+          <Link href={`/characters/${next.slug}`} className="og-pn-next">
+            <span className="og-pn-text">
+              <span className="og-pn-label">Next</span>
+              <span className="og-pn-name">{next.name}</span>
             </span>
             <Image
               src={next.profile.portrait_url}
               alt=""
-              width={112}
-              height={112}
+              width={128}
+              height={128}
               loading="lazy"
               decoding="async"
             />
-            <span className="pn-dir" aria-hidden="true">›</span>
+            <span className="og-pn-dir" aria-hidden="true">›</span>
           </Link>
         ) : (
-          <span aria-hidden="true" style={{ flex: "1 1 0" }} />
+          <span className="og-pn-spacer" aria-hidden="true" />
         )}
       </nav>
     </>
