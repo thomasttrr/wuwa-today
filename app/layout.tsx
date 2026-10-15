@@ -27,6 +27,7 @@ const NAV = [
   { href: "/codes", label: "Codes" },
   { href: "/events", label: "Events" },
   { href: "/characters", label: "Characters" },
+  { href: "/pull-planner", label: "Pull Planner" },
   { href: "/tier-list", label: "Tier List" },
 ];
 
