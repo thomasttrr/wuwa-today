@@ -7,6 +7,8 @@ export interface CharFilterState {
   weapon: string | null;
   rarity: number | null;
   role: string | null;
+  /** Show only pre-release / upcoming characters (e.g. Lily, 3.8). */
+  upcoming: boolean;
 }
 
 export const EMPTY_FILTERS: CharFilterState = {
@@ -14,10 +16,17 @@ export const EMPTY_FILTERS: CharFilterState = {
   weapon: null,
   rarity: null,
   role: null,
+  upcoming: false,
 };
 
 export function filtersActive(f: CharFilterState): boolean {
-  return f.element !== null || f.weapon !== null || f.rarity !== null || f.role !== null;
+  return (
+    f.element !== null ||
+    f.weapon !== null ||
+    f.rarity !== null ||
+    f.role !== null ||
+    f.upcoming
+  );
 }
 
 function Chip({
@@ -79,6 +88,14 @@ export default function ObsidianCharFilters({
   return (
     <div className="og-filterbar">
       <div className="og-filter-groups" role="group" aria-label="Filter characters">
+        <div className="og-filter-group" role="group" aria-label="Status">
+          <span className="og-filter-label" aria-hidden="true">Status</span>
+          <Chip
+            label="Upcoming"
+            active={value.upcoming}
+            onToggle={() => onChange({ ...value, upcoming: !value.upcoming })}
+          />
+        </div>
         <div className="og-filter-group" role="group" aria-label="Element">
           <span className="og-filter-label" aria-hidden="true">Element</span>
           {elements.map((e) => (

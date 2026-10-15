@@ -1,0 +1,440 @@
+import type { CSSProperties, ReactNode } from "react";
+import type { Metadata } from "next";
+import Image from "next/image";
+import Link from "next/link";
+import Reveal from "@/components/Reveal";
+import {
+  getCharacter,
+  type CharacterRecordLoose,
+} from "@/lib/characters";
+import {
+  getPrefarmGuide,
+  prefarmSlugs,
+  type PrefarmGuide,
+} from "@/lib/prefarm";
+import { elementColor } from "@/lib/elements";
+
+export const dynamicParams = false;
+
+export function generateStaticParams() {
+  return prefarmSlugs().map((slug) => ({ slug }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const guide = getPrefarmGuide(slug);
+  if (!guide) return { title: "Pre-farm guide not found" };
+  return {
+    title: `${guide.character} Pre-Farm Guide — Materials & Farming Routes | WuWa Today`,
+    description: guide.description,
+  };
+}
+
+function Caveat({ children }: { children: ReactNode }) {
+  return (
+    <p className="og-caveat" role="note">
+      {children}
+    </p>
+  );
+}
+
+function SectionHead({ title, blurb }: { title: string; blurb?: string }) {
+  return (
+    <Reveal>
+      <div>
+        <h2 className="og-section-h">{title}</h2>
+        {blurb && <p className="og-section-blurb">{blurb}</p>}
+      </div>
+    </Reveal>
+  );
+}
+
+type MaterialEntry = { name: string; qty: string; farm: string };
+
+/** Base material name → item icon (Game8 item pages, verified).
+ *  Tiered rows ("LF / MF / HF / FF Howler Core") use the highest-tier icon. */
+const MATERIAL_ICONS: Record<string, string> = {
+  "Howler Core": "/images/items/ff-howler-core.png",
+  "Wing Polarizer": "/images/items/layered-wing-polarizer.png",
+  "Forged Empyrean's Sigh": "/images/items/forged-empyreans-sigh.png",
+  "Miasmic Branch": "/images/items/miasmic-branch.png",
+  "Remnant of the Wheel": "/images/items/remnant-of-the-wheel.png",
+  "Shell Credits": "/images/items/shell-credit.png",
+  "Exoswarm Core": "/images/items/ff-exoswarm-core.png",
+  Combustor: "/images/items/reverb-combustor.png",
+  "Dreamless Feather": "/images/items/dreamless-feather.png",
+  "Forget-Me-Not": "/images/items/forget-me-not.png",
+  Rimewisp: "/images/items/rimewisp.png",
+  "Mech Core": "/images/items/ff-mech-core.png",
+  String: "/images/items/melodic-string.png",
+  "Suncoveter's Reach": "/images/items/suncoveters-reach.png",
+  "We Who Question": "/images/items/we-who-question.png",
+};
+
+function MaterialIcon({ name }: { name: string }) {
+  const src = MATERIAL_ICONS[name];
+  if (!src) return null;
+  return (
+    <Image
+      src={src}
+      alt=""
+      width={30}
+      height={30}
+      className="og-material-icon"
+    />
+  );
+}
+
+type TieredMaterial = {
+  base: string;
+  tiers: { label: string; qty: string }[];
+  total: string;
+};
+
+/** "LF / MF / HF / FF Howler Core" + "4 / 12 / 12 / 4"
+ *  → { base: "Howler Core", tiers: [{LF,4},{MF,12},…], total: "32" }.
+ *  Returns null when the entry isn't tiered or quantities aren't numeric. */
+function parseTiers(name: string, qty: string): TieredMaterial | null {
+  if (!name.includes(" / ") || !qty.includes(" / ")) return null;
+  const nParts = name.split(" / ").map((s) => s.trim());
+  const qParts = qty.split(" / ").map((s) => s.trim());
+  if (nParts.length !== qParts.length || nParts.length < 2) return null;
+  if (qParts.some((q) => Number.isNaN(parseInt(q.replace(/,/g, ""), 10))))
+    return null;
+  const lastTokens = nParts[nParts.length - 1].split(/\s+/);
+  if (lastTokens.length < 2) return null;
+  const base = lastTokens.slice(1).join(" ");
+  const labels = nParts.map((p, i) =>
+    i === nParts.length - 1 ? lastTokens[0] : p
+  );
+  const total = qParts
+    .reduce((s, q) => s + parseInt(q.replace(/,/g, ""), 10), 0)
+    .toLocaleString("en-US");
+  return {
+    base,
+    tiers: labels.map((label, i) => ({ label, qty: qParts[i] })),
+    total,
+  };
+}
+
+function TierChips({ tiers }: { tiers: { label: string; qty: string }[] }) {
+  return (
+    <div className="og-material-tiers" aria-label="Per-tier quantities">
+      {tiers.map((t) => (
+        <span key={t.label} className="og-tier-chip">
+          {t.label} ×{t.qty}
+        </span>
+      ))}
+    </div>
+  );
+}
+
+function MaterialTable({ entries }: { entries: MaterialEntry[] }) {
+  return (
+    <div className="og-materials">
+      <div className="og-materials-group">
+        <ol className="og-materials-list">
+          {entries.map((m) => {
+            const t = parseTiers(m.name, m.qty);
+            return (
+              <li key={m.name} className="og-material">
+                <div className="og-material-top">
+                  <MaterialIcon name={t ? t.base : m.name} />
+                  <span className="og-material-name">
+                    {t ? t.base : m.name}
+                  </span>
+                  <span className="og-material-qty">
+                    ×{t ? t.total : m.qty}
+                  </span>
+                </div>
+                {t && <TierChips tiers={t.tiers} />}
+                {m.farm !== "—" && (
+                  <div className="og-material-farm">{m.farm}</div>
+                )}
+              </li>
+            );
+          })}
+        </ol>
+      </div>
+    </div>
+  );
+}
+
+/** Merge ascension + forte quantities into one shopping list. Tier strings
+ *  ("4 / 12 / 12 / 4") sum element-wise; single numbers (Shell Credits) sum
+ *  numerically. */
+function combinedTotals(
+  materials: NonNullable<CharacterRecordLoose["materials"]>
+): MaterialEntry[] {
+  const tiers = new Map<string, { qty: number[]; farm: string }>();
+  const add = (e: MaterialEntry) => {
+    const q = e.qty
+      .split("/")
+      .map((t) => parseInt(t.replace(/,/g, "").trim(), 10))
+      .filter((n) => !Number.isNaN(n));
+    const cur = tiers.get(e.name);
+    if (cur) {
+      cur.qty = cur.qty.map((v, i) => v + (q[i] ?? 0));
+    } else {
+      tiers.set(e.name, { qty: q, farm: e.farm });
+    }
+  };
+  materials.ascension.forEach(add);
+  materials.forte.forEach(add);
+  return [...tiers.entries()].map(([name, v]) => ({
+    name,
+    qty:
+      v.qty.length > 1
+        ? v.qty.join(" / ")
+        : v.qty[0].toLocaleString("en-US"),
+    farm: v.farm,
+  }));
+}
+
+function ReadyList({
+  title,
+  names,
+  materials,
+}: {
+  title: string;
+  names: string[];
+  materials: NonNullable<CharacterRecordLoose["materials"]>;
+}) {
+  const all = [...materials.ascension, ...materials.forte];
+  const items = names
+    .map((n) => all.find((e) => e.name === n))
+    .filter((e): e is MaterialEntry => Boolean(e));
+  return (
+    <div className="og-notice" role="note">
+      <p>
+        <strong>{title}</strong>
+      </p>
+      <ul className="og-ready-list">
+        {items.map((m) => {
+          const t = parseTiers(m.name, m.qty);
+          return (
+            <li key={m.name}>
+              <div className="og-ready-top">
+                <MaterialIcon name={t ? t.base : m.name} />
+                <span>{t ? t.base : m.name}</span>
+                <span className="og-material-qty">×{t ? t.total : m.qty}</span>
+              </div>
+              {t && <TierChips tiers={t.tiers} />}
+            </li>
+          );
+        })}
+      </ul>
+    </div>
+  );
+}
+
+export default async function PrefarmPage({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
+  const guide: PrefarmGuide | undefined = getPrefarmGuide(slug);
+  const char = getCharacter(slug);
+  if (!guide || !char?.materials) {
+    return (
+      <>
+        <Link href="/characters" className="og-back">
+          ← Characters
+        </Link>
+        <h1 className="og-display">Pre-farm guide not found</h1>
+      </>
+    );
+  }
+
+  const p = char.profile;
+  const el = elementColor(p.element);
+  const materials = char.materials;
+  const totals = combinedTotals(materials);
+  const kicker = `Pre-farm guide · ${p.element} · ${p.weapon_type} · ${"★".repeat(p.rarity)}`;
+
+  return (
+    <>
+      <Link href="/characters" className="og-back">
+        ← Characters
+      </Link>
+
+      {/* Hero */}
+      <header className="og-char-hero" style={{ "--el": el } as CSSProperties}>
+        <Reveal>
+          <div className="og-char-art">
+            <Image
+              src={p.portrait_url}
+              alt={`${char.name} portrait`}
+              width={600}
+              height={600}
+              priority
+              decoding="async"
+            />
+          </div>
+        </Reveal>
+        <div>
+          <Reveal delay={60}>
+            <p className="og-char-kicker">{kicker}</p>
+            <h1 className="og-char-name og-display">
+              {guide.character} pre-farm
+            </h1>
+          </Reveal>
+          <Reveal delay={120}>
+            <div className="og-char-badges">
+              <span className="og-char-badge">{p.role}</span>
+              <span className="og-char-badge">
+                <span
+                  className="element-dot"
+                  style={{ background: el }}
+                  aria-hidden="true"
+                />{" "}
+                {p.element}
+              </span>
+              {guide.prerelease && (
+                <span className="og-char-badge og-char-badge-dim">
+                  Pre-release
+                </span>
+              )}
+            </div>
+          </Reveal>
+          <Reveal delay={180}>
+            <p className="og-hero-note">{guide.banner}</p>
+            <p className="og-hero-note og-muted">
+              Published {guide.publishedAt} · every material verified against
+              two or more independent sources.
+            </p>
+          </Reveal>
+        </div>
+      </header>
+
+      {guide.prerelease && (
+        <Reveal>
+          <div className="og-notice" role="note">
+            <p>
+              <strong>Pre-release data.</strong> {guide.character} hasn&apos;t
+              launched yet — quantities below were verified against multiple
+              pre-release sources but may still change on patch day. This guide
+              is updated if anything moves.
+            </p>
+          </div>
+        </Reveal>
+      )}
+
+      {/* Start here: farm now vs wait */}
+      <section className="og-section" aria-label="Where to start">
+        <SectionHead
+          title="Start here"
+          blurb="What you can stockpile today, and what unlocks with the patch."
+        />
+        <div
+          style={{
+            display: "grid",
+            gap: "1rem",
+            gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
+          }}
+        >
+          <Reveal>
+            <ReadyList
+              title="Farm right now"
+              names={guide.farmNow}
+              materials={materials}
+            />
+          </Reveal>
+          {guide.waitForLaunch.length > 0 && (
+            <Reveal delay={80}>
+              <ReadyList
+                title="Wait for launch"
+                names={guide.waitForLaunch}
+                materials={materials}
+              />
+            </Reveal>
+          )}
+        </div>
+      </section>
+
+      {/* Full checklist — the main shopping list */}
+      <section className="og-section" aria-label="Full checklist">
+        <SectionHead
+          title="Full checklist"
+          blurb="Ascension + forte combined — everything you need, with per-tier totals."
+        />
+        <Reveal>
+          <MaterialTable entries={totals} />
+        </Reveal>
+        {materials.note && <Caveat>{materials.note}</Caveat>}
+      </section>
+
+      {/* Breakdown — per-phase detail, tucked into accordions */}
+      <section className="og-section" aria-label="Material breakdown">
+        <SectionHead
+          title="Breakdown"
+          blurb="Per-phase costs, if you want the detail."
+        />
+        <Reveal>
+          <details className="og-breakdown">
+            <summary>Ascension 0 → 90</summary>
+            <MaterialTable entries={materials.ascension} />
+          </details>
+        </Reveal>
+        <Reveal>
+          <details className="og-breakdown">
+            <summary>Forte — full tree</summary>
+            <MaterialTable entries={materials.forte} />
+          </details>
+        </Reveal>
+      </section>
+
+      {/* Farming priorities */}
+      <section className="og-section" aria-label="Farming priorities">
+        <SectionHead
+          title="Farming priorities"
+          blurb="How to spend your Waveplates and time before the banner."
+        />
+        {guide.tips.map((tip, i) => (
+          <Reveal key={tip.heading} delay={Math.min(i * 60, 240)}>
+            <h3 className="og-sub-h">{tip.heading}</h3>
+            <p className="og-section-blurb" style={{ maxWidth: "65ch" }}>
+              {tip.body}
+            </p>
+          </Reveal>
+        ))}
+      </section>
+
+      {/* Sources */}
+      <section className="og-section" aria-label="Sources">
+        <SectionHead title="Sources" blurb="Every number verified twice." />
+        <Reveal>
+          <ul style={{ margin: 0, paddingLeft: "1.1rem" }}>
+            {guide.sources.map((s) => (
+              <li key={s.url} style={{ margin: "0.35rem 0" }}>
+                <a
+                  href={s.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="og-muted"
+                >
+                  {s.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </Reveal>
+      </section>
+
+      <p className="og-version-note">
+        Data current as of game version {char.game_version}.
+      </p>
+
+      <div style={{ marginTop: "1.5rem", display: "flex", gap: "0.75rem" }}>
+        <Link href={`/characters/${char.slug}`} className="og-chip">
+          Full {char.name} build guide →
+        </Link>
+      </div>
+    </>
+  );
+}

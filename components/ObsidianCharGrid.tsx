@@ -19,11 +19,14 @@ export default function ObsidianCharGrid({
   chars,
   filterSig,
   onCellRef,
+  onClear,
 }: {
   chars: CharacterHubTile[];
   /** Bumps on every filter change; entering tiles use the tighter stagger. */
   filterSig: number;
   onCellRef: (slug: string, el: HTMLDivElement | null) => void;
+  /** Resets filters to EMPTY_FILTERS; wired to the empty-state button. */
+  onClear: () => void;
 }) {
   return (
     <div className="og-grid" role="list" aria-label="Characters">
@@ -47,6 +50,13 @@ export default function ObsidianCharGrid({
       {chars.length === 0 && (
         <div className="og-char-empty" role="status">
           <p>No characters match these filters.</p>
+          <button
+            type="button"
+            className="og-btn og-btn-glass og-btn-sm"
+            onClick={onClear}
+          >
+            Clear filters
+          </button>
         </div>
       )}
     </div>

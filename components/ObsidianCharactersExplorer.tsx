@@ -45,6 +45,7 @@ export default function ObsidianCharactersExplorer({
   );
 
   const filtered = chars.filter((c) => {
+    if (filters.upcoming && !c.preRelease) return false;
     if (filters.element && c.element !== filters.element) return false;
     if (filters.weapon && c.weapon_type !== filters.weapon) return false;
     if (filters.rarity && c.rarity !== filters.rarity) return false;
@@ -107,7 +108,12 @@ export default function ObsidianCharactersExplorer({
         shown={filtered.length}
         total={chars.length}
       />
-      <ObsidianCharGrid chars={filtered} filterSig={filterSig} onCellRef={handleCellRef} />
+      <ObsidianCharGrid
+        chars={filtered}
+        filterSig={filterSig}
+        onCellRef={handleCellRef}
+        onClear={() => handleFilterChange(EMPTY_FILTERS)}
+      />
     </>
   );
 }

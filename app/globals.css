@@ -68,6 +68,24 @@ main { padding: 2rem 0 4rem; min-height: 60vh; }
 }
 .site-footer p { margin: 0.25rem 0; }
 
+/* Footer hub navigation: an even grid on small screens (never a ragged
+   wrap), one quiet row on desktop. */
+.site-footer-nav {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.25rem 1rem;
+  margin: 0 0 1rem; font-weight: 600;
+}
+.site-footer-nav a {
+  display: inline-flex; align-items: center;
+  min-height: 44px;
+}
+@media (min-width: 640px) {
+  .site-footer-nav {
+    display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem;
+  }
+}
+
 /* ---------- type & helpers ---------- */
 
 h1 { font-size: 2rem; margin: 0 0 0.5rem; letter-spacing: -0.01em; font-weight: 700; }
