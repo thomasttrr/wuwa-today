@@ -1,6 +1,16 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import { Space_Grotesk } from "next/font/google";
+import ObsidianNav from "@/components/ObsidianNav";
 import "./globals.css";
+import "./obsidian.css";
+
+/* Obsidian Glass display type: Space Grotesk, semibold/bold, uppercase,
+   tight tracking. Body stays system sans; data stays tabular mono. */
+const spaceGrotesk = Space_Grotesk({
+  weight: ["500", "600", "700"],
+  subsets: ["latin"],
+  variable: "--font-space-grotesk",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://wuwa-today.vercel.app"),
@@ -21,36 +31,14 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
 };
 
-const NAV = [
-  { href: "/", label: "Today" },
-  { href: "/banners", label: "Banners" },
-  { href: "/events", label: "Events" },
-  { href: "/characters", label: "Characters" },
-  { href: "/pull-planner", label: "Pull Planner" },
-  { href: "/tier-list", label: "Tier List" },
-];
-
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
-      <body>
+    <html lang="en" className={spaceGrotesk.variable}>
+      <body className="og">
         <a className="skip-link" href="#main">
           Skip to content
         </a>
-        <header className="site-header">
-          <div className="container">
-            <Link className="brand" href="/" aria-label="WuWa Today home">
-              WuWa <span>Today</span>
-            </Link>
-            <nav className="site-nav" aria-label="Primary">
-              {NAV.map((item) => (
-                <Link key={item.href} href={item.href}>
-                  {item.label}
-                </Link>
-              ))}
-            </nav>
-          </div>
-        </header>
+        <ObsidianNav />
         <main id="main">
           <div className="container">{children}</div>
         </main>
