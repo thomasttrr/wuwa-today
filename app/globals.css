@@ -3,6 +3,7 @@
    monochrome chrome, warm gold reserved for time. No frameworks. */
 
 :root {
+  color-scheme: dark; /* dark-only theme: native controls render dark */
   --bg: #000000;
   --bg-card: #1c1c1e;          /* iOS secondary system background */
   --bg-raised: #2c2c2e;        /* raised / inset elements */
@@ -40,6 +41,7 @@ body {
   line-height: 1.55;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+  overflow-x: clip; /* guard: full-bleed heroes use the 50vw breakout technique */
 }
 
 ::selection { background: rgba(232, 180, 79, 0.32); color: #fff; }
@@ -53,39 +55,8 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
 
 .container { max-width: 1080px; margin: 0 auto; padding: 0 1.25rem; }
 
-.site-header {
-  position: sticky; top: 0; z-index: 50;
-  background: rgba(0, 0, 0, 0.72);
-  -webkit-backdrop-filter: saturate(180%) blur(20px);
-  backdrop-filter: saturate(180%) blur(20px);
-  border-bottom: 1px solid var(--hairline);
-}
-.site-header .container {
-  display: flex; align-items: center; gap: 1.5rem;
-  padding-top: 0.8rem; padding-bottom: 0.8rem;
-}
-.brand { font-weight: 800; font-size: 1.15rem; color: var(--text); letter-spacing: -0.01em; }
-.brand:hover { text-decoration: none; }
-.site-nav { display: flex; gap: 1.1rem; margin-left: auto; flex-wrap: wrap; }
-.site-nav a { color: var(--text-2); font-weight: 600; font-size: 0.95rem; }
-.site-nav a:hover { color: var(--text); text-decoration: none; }
-.site-nav a[aria-current="page"] {
-  color: var(--text); text-decoration: none;
-  border-bottom: 2px solid var(--text); padding-bottom: 2px;
-}
-
-@media (max-width: 640px) {
-  .brand { white-space: nowrap; font-size: 1.05rem; }
-  .site-header .container { gap: 1rem; padding-top: 0.7rem; padding-bottom: 0.7rem; }
-  .site-nav {
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    scrollbar-width: none;
-    gap: 0.95rem;
-  }
-  .site-nav::-webkit-scrollbar { display: none; }
-  .site-nav a { white-space: nowrap; font-size: 0.88rem; }
-}
+/* The floating Obsidian glass capsule nav (.og-nav) replaced the old
+   sticky header. Its styles live in obsidian.css. */
 
 main { padding: 2rem 0 4rem; min-height: 60vh; }
 
@@ -303,8 +274,6 @@ table.data td.mono { color: var(--text); }
 
 @media (max-width: 640px) {
   h1 { font-size: 1.6rem; }
-  .site-header .container { gap: 0.9rem; }
-  .site-nav { gap: 0.8rem; }
 }
 
 /* ---------- hero ----------
@@ -336,7 +305,7 @@ table.data td.mono { color: var(--text); }
   margin: 2.5rem 0 1.1rem;
   padding-bottom: 0.6rem;
   border-bottom: 1px solid var(--hairline);
-  scroll-margin-top: 4.5rem;
+  scroll-margin-top: 5.5rem; /* clears the floating capsule nav on anchor jumps */
 }
 .section-head h2 { margin: 0; font-size: 1.5rem; letter-spacing: -0.01em; }
 .section-blurb { margin: 0.25rem 0 0; color: var(--text-2); font-size: 0.92rem; max-width: 60ch; }
@@ -661,7 +630,7 @@ table.data td.mono { color: var(--text); }
   border-radius: 14px;
   font-size: 1.5rem;
   font-weight: 800;
-  font-family: var(--font-display, serif);
+  font-family: var(--og-display);
 }
 .tier-s {
   background: rgba(214, 178, 90, 0.14);

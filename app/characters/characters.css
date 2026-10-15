@@ -610,7 +610,7 @@
 /* Pre-farm materials. */
 .char-materials { display: grid; gap: 1.1rem; }
 .char-materials-group h3 {
-  font-family: var(--font-display, Georgia, serif);
+  font-family: var(--og-display);
   font-size: 1rem;
   color: var(--text-2);
   margin: 0 0 0.55rem;
