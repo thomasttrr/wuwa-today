@@ -94,21 +94,6 @@ export default function HomePage() {
       </div>
 
       <SectionHead
-        id="codes"
-        title="Working redeem codes"
-        blurb="Every code verified against multiple sources before it lands here."
-        linkHref="/codes"
-        linkText="All codes & expired archive"
-      />
-      <div className="grid">
-        {activeCodes.map((c, i) => (
-          <Reveal key={c.code} delay={Math.min(i, 3) * 60}>
-            <CodeRow code={c} />
-          </Reveal>
-        ))}
-      </div>
-
-      <SectionHead
         id="events"
         title="Active events"
         blurb="What's live right now and when each one closes."
@@ -136,6 +121,26 @@ export default function HomePage() {
         blurb="Daily and weekly resets, shown for your server region."
       />
       <ResetTimers />
+
+      <SectionHead
+        id="codes"
+        title="Working redeem codes"
+        blurb="Every code verified against multiple sources before it lands here."
+      />
+      <div className="grid">
+        {activeCodes.length === 0 ? (
+          <p className="empty-state">
+            No verified working codes right now — check back after the next
+            livestream.
+          </p>
+        ) : (
+          activeCodes.map((c, i) => (
+            <Reveal key={c.code} delay={Math.min(i, 3) * 60}>
+              <CodeRow code={c} />
+            </Reveal>
+          ))
+        )}
+      </div>
     </>
   );
 }
