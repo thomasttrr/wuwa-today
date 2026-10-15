@@ -676,10 +676,20 @@ body.og { overflow-x: clip; }
   background: linear-gradient(90deg, transparent, var(--og-glint), transparent);
   pointer-events: none;
 }
-.og-toolbar-links { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+/* Deterministic grid — every row is always full, orphans impossible.
+   Mobile-first: 4 links → perfect 2×2. Column count adapts to the
+   actual number of links via :has(). */
+.og-toolbar-links { display: grid; gap: 0.35rem; grid-template-columns: repeat(2, 1fr); }
+/* exactly 3 links → 3 across, one row */
+.og-toolbar-links:has(> :nth-child(3):last-child) { grid-template-columns: repeat(3, 1fr); }
+/* exactly 1 link → full width */
+.og-toolbar-links:has(> :nth-child(1):last-child) { grid-template-columns: 1fr; }
+@media (min-width: 641px) {
+  /* desktop: 4 links → single row of 4 */
+  .og-toolbar-links:has(> :nth-child(4):last-child) { grid-template-columns: repeat(4, 1fr); }
+}
 .og-toolbar-links a {
   position: relative;
-  flex: 1 1 100px;
   min-width: 0;
   display: inline-flex; align-items: center; justify-content: center;
   text-align: center;
@@ -692,6 +702,8 @@ body.og { overflow-x: clip; }
   font-size: 0.78rem;
   letter-spacing: 0.03em;
   white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   transition: color var(--og-d1) ease, background-color var(--og-d1) ease;
 }
 .og-toolbar-links a:hover { color: var(--og-ink); background: rgba(255, 255, 255, 0.07); text-decoration: none; }
