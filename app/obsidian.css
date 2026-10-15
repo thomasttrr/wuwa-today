@@ -499,17 +499,8 @@ body.og { overflow-x: clip; }
 /* --- 44px touch targets --- */
 .og-btn { min-height: 44px; }
 
-/* --- page head: Space Grotesk display title + muted lede + meta row --- */
-.og-page-head { padding: 1.5rem 0 0.25rem; }
-.og-h1 { font-size: clamp(2rem, 5vw, 3.25rem); margin: 0 0 0.75rem; }
+/* --- meta row (UpdatedStamp + ShareButton), used in the canonical index hero --- */
 .og-h2 { font-size: clamp(1.35rem, 3vw, 1.9rem); margin: 0; }
-.og-lede {
-  color: var(--og-muted);
-  font-size: 1.02rem;
-  line-height: 1.6;
-  max-width: 62ch;
-  margin: 0 0 1rem;
-}
 .og-meta-row {
   display: flex; align-items: center; justify-content: space-between;
   gap: 1rem; flex-wrap: wrap;

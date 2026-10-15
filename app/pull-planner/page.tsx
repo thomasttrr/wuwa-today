@@ -2,10 +2,11 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import ObsidianToolbar from "../../components/ObsidianToolbar";
+import OgPageHero from "../../components/OgPageHero";
 import Reveal from "../../components/Reveal";
 import ShareButton from "../../components/ShareButton";
 import UpdatedStamp from "../../components/UpdatedStamp";
-import { activeBanners, upcomingBanners, formatServerDate } from "../../lib/data";
+import { activeBanners, upcomingBanners, bannerMeta, formatServerDate } from "../../lib/data";
 import { getCharacter } from "../../lib/characters";
 import { getPrefarmGuide } from "../../lib/prefarm";
 
@@ -119,19 +120,17 @@ export default function PullPlannerPage() {
 
   return (
     <>
-      <div className="og-page-head">
-        <h1 className="og-display og-h1">Pull planner — Version 3.7</h1>
-        <p className="og-lede">
-          Who to pull while 3.7 runs, answered per account type. Every pick below
-          is traced to a verified pull verdict on this site — nothing is invented,
-          and pre-release picks (Suoming) are marked as uncertain until launch-day
-          numbers land.
-        </p>
-        <div className="og-meta-row">
-          <UpdatedStamp />
-          <ShareButton />
-        </div>
-      </div>
+      <OgPageHero
+        kicker={`Version ${bannerMeta.version} · Pull strategy`}
+        title="Pull planner"
+        lede="Who to pull while 3.7 runs, answered per account type. Every pick below is traced to a verified pull verdict on this site — nothing is invented, and pre-release picks (Suoming) are marked as uncertain until launch-day numbers land."
+        meta={
+          <>
+            <UpdatedStamp />
+            <ShareButton />
+          </>
+        }
+      />
 
       <ObsidianToolbar
         label="Pull planner sections"

@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import EventCard from "../../components/EventCard";
 import ObsidianToolbar from "../../components/ObsidianToolbar";
+import OgPageHero from "../../components/OgPageHero";
 import Reveal from "../../components/Reveal";
 import ShareButton from "../../components/ShareButton";
 import UpdatedStamp from "../../components/UpdatedStamp";
-import { activeEvents, upcomingEvents } from "../../lib/data";
+import { activeEvents, upcomingEvents, bannerMeta } from "../../lib/data";
 
 export const metadata: Metadata = {
   title: "Wuthering Waves Events — Active & Upcoming",
@@ -16,17 +17,17 @@ export const metadata: Metadata = {
 export default function EventsPage() {
   return (
     <>
-      <div className="og-page-head">
-        <h1 className="og-display og-h1">Wuthering Waves events</h1>
-        <p className="og-lede">
-          What&apos;s running now, what ends soonest, and what&apos;s on the horizon.
-          Limited events are ordered by end date — finish the top ones first.
-        </p>
-        <div className="og-meta-row">
-          <UpdatedStamp />
-          <ShareButton />
-        </div>
-      </div>
+      <OgPageHero
+        kicker={`Version ${bannerMeta.version} · Active & upcoming`}
+        title="Wuthering Waves events"
+        lede="What’s running now, what ends soonest, and what’s on the horizon. Limited events are ordered by end date — finish the top ones first."
+        meta={
+          <>
+            <UpdatedStamp />
+            <ShareButton />
+          </>
+        }
+      />
 
       <ObsidianToolbar
         label="Event sections"

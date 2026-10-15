@@ -37,6 +37,11 @@
   max-width: 62ch;
   margin: 0.85rem 0 0;
 }
+/* Optional freshness row inside the hero: sits after the lede with no
+   trailing margin — the hero's own bottom padding sets the rhythm. */
+.og-page-hero .og-meta-row {
+  margin: 1.25rem 0 0;
+}
 
 /* --- character hub: filter toolbar (chrome -> glass is allowed) --------- */
 

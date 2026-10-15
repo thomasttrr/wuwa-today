@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import BannerCard from "../../components/BannerCard";
 import ObsidianToolbar from "../../components/ObsidianToolbar";
+import OgPageHero from "../../components/OgPageHero";
 import Reveal from "../../components/Reveal";
 import ShareButton from "../../components/ShareButton";
 import UpdatedStamp from "../../components/UpdatedStamp";
-import { activeBanners, upcomingBanners, bannerHistory, formatServerDate } from "../../lib/data";
+import { activeBanners, upcomingBanners, bannerHistory, bannerMeta, formatServerDate } from "../../lib/data";
 
 export const metadata: Metadata = {
   title: "Wuthering Waves Banners — Current, Upcoming & History",
@@ -16,17 +17,17 @@ export const metadata: Metadata = {
 export default function BannersPage() {
   return (
     <>
-      <div className="og-page-head">
-        <h1 className="og-display og-h1">Wuthering Waves banners</h1>
-        <p className="og-lede">
-          Current and upcoming Convene banners. Anything not confirmed by Kuro
-          Games is labeled as a leak or estimate — never presented as fact.
-        </p>
-        <div className="og-meta-row">
-          <UpdatedStamp />
-          <ShareButton />
-        </div>
-      </div>
+      <OgPageHero
+        kicker={`Version ${bannerMeta.version} · Current & upcoming`}
+        title="Wuthering Waves banners"
+        lede="Current and upcoming Convene banners. Anything not confirmed by Kuro Games is labeled as a leak or estimate — never presented as fact."
+        meta={
+          <>
+            <UpdatedStamp />
+            <ShareButton />
+          </>
+        }
+      />
 
       <ObsidianToolbar
         label="Banner sections"
