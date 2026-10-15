@@ -471,5 +471,203 @@
     "portrait_url": "https://img.game8.co/4303164/70347b40bffde1069c152034415c161b.png/show",
     "portrait_verified": true,
     "portrait_source": "Game8 character icon (HTTP 200, image/png, verified 2026-10-14)"
+  },
+  {
+    "slug": "brant",
+    "name": "Brant",
+    "rarity": 5,
+    "element": "Fusion",
+    "weapon": "Sword",
+    "role": "Sub-DPS",
+    "portrait_url": "/images/chars/brant.png",
+    "portrait_verified": true,
+    "portrait_source": "Game8 character icon (HTTP 200, image/png, verified 2026-10-15)"
+  },
+  {
+    "slug": "calcharo",
+    "name": "Calcharo",
+    "rarity": 5,
+    "element": "Electro",
+    "weapon": "Broadblade",
+    "role": "Main DPS",
+    "portrait_url": "/images/chars/calcharo.png",
+    "portrait_verified": true,
+    "portrait_source": "Game8 character icon (HTTP 200, image/png, verified 2026-10-15)"
+  },
+  {
+    "slug": "jianxin",
+    "name": "Jianxin",
+    "rarity": 5,
+    "element": "Aero",
+    "weapon": "Gauntlets",
+    "role": "Sub-DPS",
+    "portrait_url": "/images/chars/jianxin.png",
+    "portrait_verified": true,
+    "portrait_source": "Game8 character icon (HTTP 200, image/png, verified 2026-10-15)"
+  },
+  {
+    "slug": "lingyang",
+    "name": "Lingyang",
+    "rarity": 5,
+    "element": "Glacio",
+    "weapon": "Gauntlets",
+    "role": "Main DPS",
+    "portrait_url": "/images/chars/lingyang.png",
+    "portrait_verified": true,
+    "portrait_source": "Game8 character icon (HTTP 200, image/png, verified 2026-10-15)"
+  },
+  {
+    "slug": "roccia",
+    "name": "Roccia",
+    "rarity": 5,
+    "element": "Havoc",
+    "weapon": "Gauntlets",
+    "role": "Sub-DPS",
+    "portrait_url": "/images/chars/roccia.png",
+    "portrait_verified": true,
+    "portrait_source": "Game8 character icon (HTTP 200, image/png, verified 2026-10-15)"
+  },
+  {
+    "slug": "yinlin",
+    "name": "Yinlin",
+    "rarity": 5,
+    "element": "Electro",
+    "weapon": "Rectifier",
+    "role": "Sub-DPS",
+    "portrait_url": "/images/chars/yinlin.png",
+    "portrait_verified": true,
+    "portrait_source": "Game8 character icon (HTTP 200, image/png, verified 2026-10-15)"
+  },
+  {
+    "slug": "aalto",
+    "name": "Aalto",
+    "rarity": 4,
+    "element": "Aero",
+    "weapon": "Pistols",
+    "role": "Sub-DPS",
+    "portrait_url": "/images/chars/aalto.png",
+    "portrait_verified": true,
+    "portrait_source": "Game8 character icon (HTTP 200, image/png, verified 2026-10-15)"
+  },
+  {
+    "slug": "baizhi",
+    "name": "Baizhi",
+    "rarity": 4,
+    "element": "Glacio",
+    "weapon": "Rectifier",
+    "role": "Support",
+    "portrait_url": "/images/chars/baizhi.png",
+    "portrait_verified": true,
+    "portrait_source": "Game8 character icon (HTTP 200, image/png, verified 2026-10-15)"
+  },
+  {
+    "slug": "chixia",
+    "name": "Chixia",
+    "rarity": 4,
+    "element": "Fusion",
+    "weapon": "Pistols",
+    "role": "Main DPS",
+    "portrait_url": "/images/chars/chixia.png",
+    "portrait_verified": true,
+    "portrait_source": "Game8 character icon (HTTP 200, image/png, verified 2026-10-15)"
+  },
+  {
+    "slug": "danjin",
+    "name": "Danjin",
+    "rarity": 4,
+    "element": "Havoc",
+    "weapon": "Sword",
+    "role": "Main DPS",
+    "portrait_url": "/images/chars/danjin.png",
+    "portrait_verified": true,
+    "portrait_source": "Game8 character icon (HTTP 200, image/png, verified 2026-10-15)"
+  },
+  {
+    "slug": "lumi",
+    "name": "Lumi",
+    "rarity": 4,
+    "element": "Electro",
+    "weapon": "Broadblade",
+    "role": "Sub-DPS",
+    "portrait_url": "/images/chars/lumi.png",
+    "portrait_verified": true,
+    "portrait_source": "Game8 character icon (HTTP 200, image/png, verified 2026-10-15)"
+  },
+  {
+    "slug": "taoqi",
+    "name": "Taoqi",
+    "rarity": 4,
+    "element": "Havoc",
+    "weapon": "Broadblade",
+    "role": "Support",
+    "portrait_url": "/images/chars/taoqi.png",
+    "portrait_verified": true,
+    "portrait_source": "Game8 character icon (HTTP 200, image/png, verified 2026-10-15)"
+  },
+  {
+    "slug": "yangyang",
+    "name": "Yangyang",
+    "rarity": 4,
+    "element": "Aero",
+    "weapon": "Sword",
+    "role": "Sub-DPS",
+    "portrait_url": "/images/chars/yangyang.png",
+    "portrait_verified": true,
+    "portrait_source": "Game8 character icon (HTTP 200, image/png, verified 2026-10-15)"
+  },
+  {
+    "slug": "youhu",
+    "name": "Youhu",
+    "rarity": 4,
+    "element": "Glacio",
+    "weapon": "Gauntlets",
+    "role": "Support",
+    "portrait_url": "/images/chars/youhu.png",
+    "portrait_verified": true,
+    "portrait_source": "Game8 character icon (HTTP 200, image/png, verified 2026-10-15)"
+  },
+  {
+    "slug": "yuanwu",
+    "name": "Yuanwu",
+    "rarity": 4,
+    "element": "Electro",
+    "weapon": "Gauntlets",
+    "role": "Sub-DPS",
+    "portrait_url": "/images/chars/yuanwu.png",
+    "portrait_verified": true,
+    "portrait_source": "Game8 character icon (HTTP 200, image/png, verified 2026-10-15)"
+  },
+  {
+    "slug": "aero-rover",
+    "name": "Aero Rover",
+    "rarity": 5,
+    "element": "Aero",
+    "weapon": "Sword",
+    "role": "Support",
+    "portrait_url": "/images/chars/aero-rover.png",
+    "portrait_verified": true,
+    "portrait_source": "Game8 character icon (HTTP 200, image/png, verified 2026-10-15)"
+  },
+  {
+    "slug": "havoc-rover",
+    "name": "Havoc Rover",
+    "rarity": 5,
+    "element": "Havoc",
+    "weapon": "Sword",
+    "role": "Main DPS",
+    "portrait_url": "/images/chars/havoc-rover.png",
+    "portrait_verified": true,
+    "portrait_source": "Game8 character icon (HTTP 200, image/png, verified 2026-10-15)"
+  },
+  {
+    "slug": "lily",
+    "name": "Lily",
+    "rarity": 5,
+    "element": "Spectro",
+    "weapon": "Pistols",
+    "role": "Support",
+    "portrait_url": "/images/chars/lily.png",
+    "portrait_verified": true,
+    "portrait_source": "Game8 Lily drip-marketing art center-crop (official Kuro art, verified 2026-10-15); replace with icon when available"
   }
 ]

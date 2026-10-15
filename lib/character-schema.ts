@@ -13,6 +13,19 @@
  * JSON Schema equivalent: character-schema.json.
  */
 
+export interface MaterialEntry {
+  name: string;
+  qty: string;
+  farm: string;
+}
+
+export interface CharacterMaterials {
+  /** Optional caveat, e.g. pre-release sourcing. */
+  note?: string;
+  ascension: MaterialEntry[];
+  forte: MaterialEntry[];
+}
+
 export interface CharacterRecord {
   /** URL-safe character identifier, e.g. "hsin". */
   slug: string;
@@ -23,6 +36,8 @@ export interface CharacterRecord {
   profile: CharacterProfile;
   pull_verdict: PullVerdict;
   build: CharacterBuild;
+  /** Ascension + forte material lists; present only when researched. */
+  materials?: CharacterMaterials;
   /** Team comps, verbatim from the team guide — TeamCard compatible. */
   teams: CharacterTeam[];
   teams_meta: TeamsMeta;
@@ -64,6 +79,8 @@ export interface RankedWeapon {
   name: string;
   rarity: 4 | 5;
   signature: boolean;
+  /** Local verified weapon icon, e.g. "/images/weapons/variation.png". */
+  icon?: string;
   /** Why this weapon ranks here, condensed from the guide. */
   note: string;
 }

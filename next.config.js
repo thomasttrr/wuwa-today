@@ -7,12 +7,16 @@ const nextConfig = {
   images: { unoptimized: true },
   // The old /guides model is retired. Every legacy guide URL (and the /guides
   // index itself) permanently redirects to its replacement in the character hub.
+  // The /codes index is also retired (active codes live on the homepage now)
+  // and redirects to the homepage.
   // Note: static export cannot apply redirects at runtime, so the production
   // static host (Vercel) applies the same mapping via vercel.json. This config
   // stays the canonical, single-source-of-truth list and applies in `next dev`
   // and any non-export build.
   async redirects() {
     return [
+      // Retired /codes index -> homepage (codes live on the Today section now).
+      { source: "/codes", destination: "/", permanent: true },
       // Retired /guides index -> character hub.
       { source: "/guides", destination: "/characters", permanent: true },
       // Pull guides -> character pages.

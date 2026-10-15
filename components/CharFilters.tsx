@@ -70,12 +70,18 @@ export default function CharFilters({
   shown: number;
   total: number;
 }) {
-  const [top, setTop] = useState(64);
+  const [top, setTop] = useState(90);
 
   useEffect(() => {
     const measure = () => {
-      const header = document.querySelector(".site-header");
-      if (header) setTop(Math.ceil(header.getBoundingClientRect().height));
+      // Mobile: the capsule nav is a bottom thumb bar, so the sticky
+      // filter bar can sit near the top of the viewport.
+      if (window.innerWidth <= 640) {
+        setTop(8);
+        return;
+      }
+      const nav = document.querySelector(".og-nav");
+      if (nav) setTop(Math.ceil(nav.getBoundingClientRect().bottom) + 16);
     };
     measure();
     window.addEventListener("resize", measure);

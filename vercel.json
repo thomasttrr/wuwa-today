@@ -1,6 +1,11 @@
 {
   "redirects": [
     {
+      "source": "/codes",
+      "destination": "/",
+      "permanent": true
+    },
+    {
       "source": "/guides",
       "destination": "/characters",
       "permanent": true

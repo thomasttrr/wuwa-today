@@ -3,6 +3,7 @@
    monochrome chrome, warm gold reserved for time. No frameworks. */
 
 :root {
+  color-scheme: dark; /* dark-only theme: native controls render dark */
   --bg: #000000;
   --bg-card: #1c1c1e;          /* iOS secondary system background */
   --bg-raised: #2c2c2e;        /* raised / inset elements */
@@ -10,7 +11,7 @@
   --hairline-soft: rgba(255, 255, 255, 0.05);
   --text: #ffffff;             /* primary label */
   --text-2: #a3a3a8;           /* secondary label */
-  --text-3: #6e6e73;           /* tertiary label */
+  --text-3: #8a8a90;           /* tertiary label — 6.1:1 on black, 5.0:1 on cards */
   --gold: #e8b44f;             /* time, urgency, live — the only accent */
   --gold-soft: rgba(232, 180, 79, 0.14);
   --green: #30d158;
@@ -40,6 +41,7 @@ body {
   line-height: 1.55;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+  overflow-x: clip; /* guard: full-bleed heroes use the 50vw breakout technique */
 }
 
 ::selection { background: rgba(232, 180, 79, 0.32); color: #fff; }
@@ -53,39 +55,8 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
 
 .container { max-width: 1080px; margin: 0 auto; padding: 0 1.25rem; }
 
-.site-header {
-  position: sticky; top: 0; z-index: 50;
-  background: rgba(0, 0, 0, 0.72);
-  -webkit-backdrop-filter: saturate(180%) blur(20px);
-  backdrop-filter: saturate(180%) blur(20px);
-  border-bottom: 1px solid var(--hairline);
-}
-.site-header .container {
-  display: flex; align-items: center; gap: 1.5rem;
-  padding-top: 0.8rem; padding-bottom: 0.8rem;
-}
-.brand { font-weight: 800; font-size: 1.15rem; color: var(--text); letter-spacing: -0.01em; }
-.brand:hover { text-decoration: none; }
-.site-nav { display: flex; gap: 1.1rem; margin-left: auto; flex-wrap: wrap; }
-.site-nav a { color: var(--text-2); font-weight: 600; font-size: 0.95rem; }
-.site-nav a:hover { color: var(--text); text-decoration: none; }
-.site-nav a[aria-current="page"] {
-  color: var(--text); text-decoration: none;
-  border-bottom: 2px solid var(--text); padding-bottom: 2px;
-}
-
-@media (max-width: 640px) {
-  .brand { white-space: nowrap; font-size: 1.05rem; }
-  .site-header .container { gap: 1rem; padding-top: 0.7rem; padding-bottom: 0.7rem; }
-  .site-nav {
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    scrollbar-width: none;
-    gap: 0.95rem;
-  }
-  .site-nav::-webkit-scrollbar { display: none; }
-  .site-nav a { white-space: nowrap; font-size: 0.88rem; }
-}
+/* The floating Obsidian glass capsule nav (.og-nav) replaced the old
+   sticky header. Its styles live in obsidian.css. */
 
 main { padding: 2rem 0 4rem; min-height: 60vh; }
 
@@ -136,12 +107,12 @@ h3 { font-size: 1.05rem; margin: 1.25rem 0 0.5rem; font-weight: 700; }
 
 .badge {
   display: inline-block;
-  font-size: 0.72rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase;
+  font-size: 0.72rem; font-weight: 700; letter-spacing: 0.02em;
   padding: 0.18rem 0.55rem; border-radius: 999px;
   background: rgba(255, 255, 255, 0.08); color: var(--text-2);
   margin-right: 0.4rem; margin-bottom: 0.25rem;
 }
-.badge.gold { background: var(--gold-soft); color: var(--gold); }
+.badge.gold { background: rgba(255, 255, 255, 0.08); color: var(--text-2); } /* gold rationed to time — legacy badge stays neutral */
 .badge.green { background: var(--green-soft); color: var(--green); }
 .badge.red { background: var(--red-soft); color: var(--red); }
 .badge.dim { background: rgba(255, 255, 255, 0.06); color: var(--text-3); }
@@ -238,7 +209,7 @@ h3 { font-size: 1.05rem; margin: 1.25rem 0 0.5rem; font-weight: 700; }
 
 .char-list, .weapon-list { list-style: none; padding: 0; margin: 0.5rem 0; display: grid; gap: 0.35rem; }
 .char-list li, .weapon-list li { display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; }
-.stars { color: var(--gold); font-size: 0.8rem; letter-spacing: 0.1em; }
+.stars { color: var(--text-2); font-size: 0.8rem; letter-spacing: 0.1em; }
 
 .event-meta, .code-meta { color: var(--text-2); font-size: 0.9rem; margin: 0.35rem 0; }
 
@@ -286,7 +257,7 @@ select.server-select {
 
 table.data { width: 100%; border-collapse: collapse; font-size: 0.92rem; }
 table.data th, table.data td { text-align: left; padding: 0.55rem 0.7rem; border-bottom: 1px solid var(--hairline); }
-table.data th { color: var(--text-3); font-weight: 600; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.04em; }
+table.data th { color: var(--text-3); font-weight: 600; font-size: 0.82rem; letter-spacing: 0.02em; }
 table.data td { color: var(--text-2); }
 table.data td.mono { color: var(--text); }
 
@@ -303,8 +274,6 @@ table.data td.mono { color: var(--text); }
 
 @media (max-width: 640px) {
   h1 { font-size: 1.6rem; }
-  .site-header .container { gap: 0.9rem; }
-  .site-nav { gap: 0.8rem; }
 }
 
 /* ---------- hero ----------
@@ -316,8 +285,8 @@ table.data td.mono { color: var(--text); }
 }
 .hero-kicker {
   margin: 0 0 0.4rem;
-  font-size: 0.8rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
-  color: var(--gold);
+  font-size: 0.8rem; font-weight: 700; letter-spacing: 0.08em;
+  color: var(--text-3); /* gold rationed to time — legacy kicker stays neutral */
 }
 .hero-title { font-size: 2.6rem; line-height: 1.08; margin: 0 0 0.75rem; letter-spacing: -0.02em; font-weight: 700; }
 .hero-nav { display: flex; gap: 0.6rem; flex-wrap: wrap; margin: 1.1rem 0 0.9rem; }
@@ -336,7 +305,7 @@ table.data td.mono { color: var(--text); }
   margin: 2.5rem 0 1.1rem;
   padding-bottom: 0.6rem;
   border-bottom: 1px solid var(--hairline);
-  scroll-margin-top: 4.5rem;
+  scroll-margin-top: 5.5rem; /* clears the floating capsule nav on anchor jumps */
 }
 .section-head h2 { margin: 0; font-size: 1.5rem; letter-spacing: -0.01em; }
 .section-blurb { margin: 0.25rem 0 0; color: var(--text-2); font-size: 0.92rem; max-width: 60ch; }
@@ -503,7 +472,7 @@ table.data td.mono { color: var(--text); }
     box-shadow 0.35s ease,
     border-color 0.35s ease;
 }
-/* Hairline gold accent across the top edge. */
+/* Hairline neutral accent across the top edge. */
 .team-card::before {
   content: "";
   position: absolute;
@@ -512,7 +481,7 @@ table.data td.mono { color: var(--text); }
   background: linear-gradient(
     90deg,
     transparent,
-    color-mix(in srgb, var(--gold) 45%, transparent),
+    var(--line),
     transparent
   );
   pointer-events: none;
@@ -520,7 +489,7 @@ table.data td.mono { color: var(--text); }
 .team-card:hover {
   transform: translateY(-3px);
   box-shadow: 0 18px 44px -22px rgba(0, 0, 0, 0.7);
-  border-color: color-mix(in srgb, var(--gold) 28%, var(--line));
+  border-color: var(--line);
 }
 .team-card-head {
   display: flex; align-items: center; gap: 0.7rem;
@@ -574,7 +543,7 @@ table.data td.mono { color: var(--text); }
   display: inline-flex; align-items: center; justify-content: center; gap: 0.4rem;
   max-width: 100%;
   font-size: 0.68rem; font-weight: 700;
-  letter-spacing: 0.05em; text-transform: uppercase;
+  letter-spacing: 0.05em;
   padding: 0.28rem 0.6rem; border-radius: 999px;
   color: var(--text-1);
   background: color-mix(in srgb, var(--el) 13%, transparent);
@@ -615,12 +584,12 @@ table.data td.mono { color: var(--text); }
 .team-rotation {
   background: var(--bg-raised); border-radius: 12px;
   padding: 0.8rem 1rem;
-  border-left: 2px solid color-mix(in srgb, var(--gold) 55%, transparent);
+  border-left: 2px solid var(--hairline);
 }
 .team-rotation p { margin: 0; font-size: 0.92rem; color: var(--text-2); line-height: 1.55; }
 .team-rotation-label {
   font-family: var(--mono); font-size: 0.72rem; font-weight: 700;
-  letter-spacing: 0.06em; text-transform: uppercase; color: var(--gold);
+  letter-spacing: 0.06em; color: var(--text-3);
   margin: 0 0 0.35rem !important;
 }
 
@@ -661,7 +630,7 @@ table.data td.mono { color: var(--text); }
   border-radius: 14px;
   font-size: 1.5rem;
   font-weight: 800;
-  font-family: var(--font-display, serif);
+  font-family: var(--og-display);
 }
 .tier-s {
   background: rgba(214, 178, 90, 0.14);
@@ -685,7 +654,6 @@ table.data td.mono { color: var(--text); }
 }
 .tier-label {
   font-size: 0.75rem;
-  text-transform: uppercase;
   letter-spacing: 0.08em;
   opacity: 0.7;
 }

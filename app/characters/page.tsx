@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import CharactersExplorer from "@/components/CharactersExplorer";
+import ObsidianCharactersExplorer from "@/components/ObsidianCharactersExplorer";
 import {
   characters,
   CHARACTER_ELEMENTS,
@@ -17,15 +17,17 @@ export const metadata: Metadata = {
 export default function CharactersPage() {
   return (
     <>
-      <div className="hero">
-        <p className="hero-kicker">Version 3.7 · {characters.length} characters</p>
-        <h1 className="hero-title">Characters</h1>
-        <p className="lede">
+      <div className="og-page-hero">
+        <p className="og-page-kicker">
+          Version 3.7 · {characters.length} characters
+        </p>
+        <h1 className="og-page-title og-display">Characters</h1>
+        <p className="og-page-lede">
           Builds, ranked weapons, echo sets, team comps, and pull verdicts for
           every Resonator — filter by element, weapon, rarity, or role.
         </p>
       </div>
-      <CharactersExplorer
+      <ObsidianCharactersExplorer
         chars={characters}
         elements={CHARACTER_ELEMENTS}
         weapons={CHARACTER_WEAPONS}

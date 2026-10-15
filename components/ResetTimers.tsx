@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Countdown from "./Countdown";
+import ObsidianCountdown from "./ObsidianCountdown";
 import CycleProgress from "./CycleProgress";
 import { SERVER_OPTIONS, nextDailyReset, nextWeeklyReset } from "../lib/data";
 
@@ -10,6 +10,8 @@ const STORAGE_KEY = "wuwa-today:server-id";
 /**
  * Daily + weekly reset timers. WuWa resets at 04:00 server time; the visitor
  * picks their server region and the countdowns adjust.
+ * Presentation is Obsidian Glass (gold mono countdowns, HUD-style server
+ * select); all server-time math stays in lib/data.ts, untouched.
  */
 export default function ResetTimers() {
   const [serverId, setServerId] = useState<string>(SERVER_OPTIONS[0].id);
@@ -38,18 +40,18 @@ export default function ResetTimers() {
     }
   }
 
-  // Recompute each render; Countdown ticks every second on its own.
+  // Recompute each render; ObsidianCountdown ticks every second on its own.
   const daily = nextDailyReset(server.offsetHours).toISOString();
   const weekly = nextWeeklyReset(server.offsetHours).toISOString();
 
   return (
-    <div className="card">
-      <div className="reset-head">
-        <h3 className="reset-title">Reset timers</h3>
-        <label className="reset-server-label">
+    <div className="og-reset">
+      <div className="og-reset-head">
+        <h3 className="og-reset-title">Reset timers</h3>
+        <label className="og-reset-label">
           Server{" "}
           <select
-            className="server-select"
+            className="og-select"
             value={serverId}
             onChange={(e) => selectServer(e.target.value)}
             aria-label="Server region for reset timers"
@@ -62,13 +64,13 @@ export default function ResetTimers() {
           </select>
         </label>
       </div>
-      <div className="grid grid-2 reset-timers-grid">
+      <div className="og-reset-grid">
         <div>
-          <Countdown target={daily} label="Daily reset (04:00 server time)" />
+          <ObsidianCountdown target={daily} label="Daily reset (04:00 server time)" />
           <CycleProgress target={daily} cycleMs={86_400_000} label="Daily reset cycle" />
         </div>
         <div>
-          <Countdown target={weekly} label="Weekly reset (Mon 04:00 server time)" />
+          <ObsidianCountdown target={weekly} label="Weekly reset (Mon 04:00 server time)" />
           <CycleProgress target={weekly} cycleMs={7 * 86_400_000} label="Weekly reset cycle" />
         </div>
       </div>

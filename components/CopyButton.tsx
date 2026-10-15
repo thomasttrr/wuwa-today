@@ -2,7 +2,10 @@
 
 import { useState } from "react";
 
-/** Copy-to-clipboard button for redeem codes. Morphs to a check on copy. */
+/**
+ * Copy-to-clipboard button for redeem codes. Morphs to a check on copy.
+ * Styled as a small glass HUD button (chrome, not content).
+ */
 export default function CopyButton({ text }: { text: string }) {
   const [copied, setCopied] = useState(false);
 
@@ -25,18 +28,19 @@ export default function CopyButton({ text }: { text: string }) {
   return (
     <button
       type="button"
-      className={`copy-btn${copied ? " copied" : ""}`}
+      className="og-btn og-btn-glass og-btn-sm"
       onClick={copy}
       aria-label={`Copy code ${text}`}
     >
       {copied ? (
-        <span className="copy-done" aria-hidden="true">
+        <span aria-hidden="true">
           <svg
             width="14"
             height="14"
             viewBox="0 0 16 16"
             fill="none"
             aria-hidden="true"
+            style={{ verticalAlign: "-2px", marginRight: "0.35rem" }}
           >
             <path
               d="M3 8.5l3.5 3.5L13 4.5"

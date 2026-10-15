@@ -1,0 +1,1025 @@
+/* ============================================================================
+   Obsidian Glass — WuWa Today design system
+   Cinematic dark game HUD. SpaceX monumental black-and-white +
+   iOS Liquid Glass chrome, Space Grotesk display type.
+
+   USAGE RULES (do not break):
+   - Glass goes on CHROME ONLY: nav, toolbars, overlays, primary buttons.
+     Never on content surfaces, stat tables, text cards — those stay SOLID
+     #101014. Every glass element carries the specular top-edge glint.
+   - Gold #E8B44F is rationed to time / countdowns / live states. Nothing
+     else gets gold.
+   - ANTI-SLOP BANS: no purple/blue gradients (only monochrome white
+     specular overlays), no Inter/Roboto as brand voice, no glass over
+     text, no decorative infinite motion, no emoji-as-icon, no
+     hover-scale images, no sub-4.5:1 gray text, no invented terminology.
+   - Motion is level 1-2 and ALWAYS gated behind prefers-reduced-motion.
+   - Glass degrades to solid #101014 under prefers-reduced-transparency.
+
+   Tokens live on :root; components are .og-* namespaced so the old
+   Native Dark styles in globals.css are untouched until integration.
+   ========================================================================== */
+
+:root {
+  /* --- canvas & surfaces --- */
+  --og-canvas: #000000;                    /* page canvas */
+  --og-surface: #101014;                   /* SOLID content surface — never glass */
+  --og-surface-raised: #1a1a20;            /* raised / inset on dark surfaces */
+
+  /* --- ink --- */
+  --og-ink: #ffffff;                       /* primary text — 21:1 on canvas */
+  --og-muted: #b6b6be;                     /* secondary text — ~9.4:1 on #101014.
+                                             Measured ≥4.5:1 on all surfaces. */
+
+  /* --- gold: time, countdowns, live ONLY --- */
+  --og-gold: #e8b44f;                      /* ~11:1 on canvas, ~9.4:1 on #101014 */
+  --og-gold-soft: rgba(232, 180, 79, 0.14);
+
+  /* --- glass chrome (chrome only!) --- */
+  --og-glass: rgba(255, 255, 255, 0.08);   /* glass tint */
+  --og-glint: rgba(255, 255, 255, 0.35);   /* specular top-edge glint */
+  --og-hairline: rgba(255, 255, 255, 0.1); /* hairline borders */
+  --og-hairline-soft: rgba(255, 255, 255, 0.05);
+
+  /* --- shape --- */
+  --og-radius-pill: 999px;                 /* nav, buttons, pills */
+  --og-radius-card: 16px;                  /* cards: 14-18px range */
+
+  /* --- type --- */
+  --og-display: var(--font-space-grotesk), "Space Grotesk",
+    -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  --og-body: -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, sans-serif;
+  --og-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+
+  /* --- motion --- */
+  --og-ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --og-d1: 160ms;
+  --og-d2: 320ms;
+}
+
+/* ==========================================================================
+   Obsidian body scope: activates the preview layout on this branch.
+   Desktop: floating detached nav needs headroom. Mobile: bottom thumb bar
+   needs safe-area clearance.
+   ========================================================================== */
+
+body.og main { padding-top: 5.75rem; }
+
+@media (max-width: 640px) {
+  body.og main { padding-top: 1.25rem; padding-bottom: 7rem; }
+}
+
+/* --- display typography: Space Grotesk, semibold/bold, uppercase,
+   tight tracking. Applied per-element via .og-display. --- */
+.og-display {
+  /* RESERVED: short display headlines only (page titles, hero). Every
+     other uppercase use has been demoted per caps discipline — do not
+     re-add text-transform to functional UI. */
+  font-family: var(--og-display);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: -0.015em;
+  line-height: 1.05;
+  color: var(--og-ink);
+}
+/* Title-case display heading for section heads: Space Grotesk voice
+   without the all-caps shout. */
+.og-h2 {
+  font-family: var(--og-display);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.15;
+  color: var(--og-ink);
+}
+.og-kicker {
+  font-family: var(--og-display);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  font-size: 0.72rem;
+  color: var(--og-gold); /* gold is allowed here: it's a time/urgency signal */
+}
+.og-mono { font-family: var(--og-mono); font-variant-numeric: tabular-nums; }
+
+/* ==========================================================================
+   ObsidianNav — floating DETACHED glass capsule.
+   Desktop: top-center. Mobile: bottom thumb-reach bar.
+   Glass chrome: frosted tint + blur, specular top-edge glint,
+   soft BLACK shadow only under the floating glass.
+   ========================================================================== */
+
+.og-nav {
+  position: fixed;
+  z-index: 60;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  border-radius: var(--og-radius-pill);
+  /* Neutral tint control: a dark monochrome veil under the glass tint so
+     the saturate(180%) backdrop stays neutral over busy/bright art
+     (e.g. yellow splash swooshes) instead of picking up a yellow-green
+     cast. Blur + glint are unchanged. */
+  background:
+    linear-gradient(180deg, rgba(8, 8, 10, 0.30), rgba(8, 8, 10, 0.30)),
+    var(--og-glass);
+  -webkit-backdrop-filter: saturate(180%) blur(24px);
+  backdrop-filter: saturate(180%) blur(24px);
+  border: 1px solid var(--og-hairline);
+  box-shadow: 0 12px 40px -12px rgba(0, 0, 0, 0.7);
+  /* Specular rim: light traces the glass edge. */
+  overflow: hidden;
+  top: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: min(720px, calc(100vw - 2rem));
+  padding: 0.45rem 0.55rem;
+}
+.og-nav::before {
+  /* Specular top-edge glint — required on every glass element. */
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--og-glint), transparent);
+  pointer-events: none;
+}
+.og-nav-brand {
+  font-family: var(--og-display);
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+  color: var(--og-ink);
+  padding: 0.45rem 0.9rem 0.45rem 1.05rem;
+  white-space: nowrap;
+  /* 44px minimum touch target; iPhone-safe glass control. */
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+.og-nav-brand:hover { text-decoration: none; }
+.og-nav-links { display: flex; align-items: center; gap: 0.15rem; }
+.og-nav-links a {
+  color: var(--og-muted);
+  font-size: 0.88rem;
+  font-weight: 600;
+  padding: 0.5rem 0.85rem;
+  border-radius: var(--og-radius-pill);
+  white-space: nowrap;
+  /* 44px minimum touch target; iPhone-safe glass control. */
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  transition: color var(--og-d1) ease, background-color var(--og-d1) ease;
+}
+.og-nav-links a:hover { color: var(--og-ink); background: rgba(255, 255, 255, 0.07); text-decoration: none; }
+.og-nav-links a[aria-current="page"] {
+  color: var(--og-ink);
+  background: rgba(255, 255, 255, 0.12);
+  text-decoration: none;
+}
+/* Keyboard / focus states on glass controls: pill-following ring. */
+.og-nav a:focus-visible,
+.og-btn:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 3px;
+  border-radius: var(--og-radius-pill);
+}
+
+@media (max-width: 640px) {
+  .og-nav {
+    top: auto;
+    bottom: max(0.9rem, env(safe-area-inset-bottom));
+    left: 0.9rem; right: 0.9rem;
+    transform: none;
+    max-width: none;
+    padding: 0.4rem;
+    justify-content: flex-start;
+  }
+  .og-nav-brand { padding: 0.45rem 0.6rem 0.45rem 0.9rem; font-size: 0.9rem; }
+  .og-nav-links {
+    flex: 1;
+    overflow-x: auto;
+    scrollbar-width: none;
+    gap: 0.1rem;
+  }
+  .og-nav-links::-webkit-scrollbar { display: none; }
+  .og-nav-links a { font-size: 0.83rem; padding: 0.5rem 0.7rem; }
+}
+
+/* ==========================================================================
+   Obsidian buttons.
+   .og-btn-ghost: SpaceX-style ghost outline — transparent, 1px white border.
+   .og-btn-glass: glass capsule for HUD actions — frosted chrome + glint.
+   ========================================================================== */
+
+.og-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-family: var(--og-display);
+  font-weight: 600;
+  font-size: 0.82rem;
+  letter-spacing: 0.02em;
+  border-radius: var(--og-radius-pill);
+  padding: 0.7rem 1.5rem;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color var(--og-d1) ease, border-color var(--og-d1) ease,
+    color var(--og-d1) ease, transform var(--og-d1) var(--og-ease-out);
+}
+.og-btn:hover { text-decoration: none; }
+.og-btn:active { transform: scale(0.97); }
+
+.og-btn-ghost {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  color: var(--og-ink);
+}
+.og-btn-ghost:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: #ffffff;
+  color: var(--og-ink);
+}
+
+.og-btn-glass {
+  position: relative;
+  overflow: hidden;
+  background: var(--og-glass);
+  -webkit-backdrop-filter: saturate(180%) blur(16px);
+  backdrop-filter: saturate(180%) blur(16px);
+  border: 1px solid var(--og-hairline);
+  color: var(--og-ink);
+  box-shadow: 0 8px 28px -10px rgba(0, 0, 0, 0.65);
+}
+.og-btn-glass::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--og-glint), transparent);
+  pointer-events: none;
+}
+.og-btn-glass:hover { background: rgba(255, 255, 255, 0.13); }
+
+.og-btn-sm { font-size: 0.72rem; padding: 0.5rem 1.1rem; }
+.og-btn:disabled { opacity: 0.45; cursor: not-allowed; }
+
+/* ==========================================================================
+   ObsidianCharTile — portrait-led character tile.
+   SOLID #101014 content surface (never glass). Hover lifts the CARD;
+   the image never scales. Meta is ellipsis-clipped — never bleeds.
+   ========================================================================== */
+
+.og-char-tile {
+  display: block;
+  background: var(--og-surface);
+  border: 1px solid var(--og-hairline-soft);
+  border-radius: var(--og-radius-card);
+  overflow: hidden;
+  color: var(--og-ink);
+  transition: transform var(--og-d2) var(--og-ease-out),
+    box-shadow var(--og-d2) ease, border-color var(--og-d2) ease;
+}
+.og-char-tile:hover {
+  text-decoration: none;
+  transform: translateY(-4px);
+  border-color: var(--og-hairline);
+  box-shadow: 0 20px 44px -18px rgba(0, 0, 0, 0.75);
+}
+.og-char-tile-art {
+  position: relative;
+  display: block;
+  aspect-ratio: 1 / 1;
+  background: var(--og-surface-raised);
+  overflow: hidden;
+}
+.og-char-tile-art img {
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: top center;
+  display: block;
+  /* The card lifts on hover. The image never scales. */
+  transform: none !important;
+}
+.og-char-tile-art::after {
+  /* Full-width dark bar over the art's bottom strip: baked-in name text
+     (present on some portraits) reads white-on-dark at high contrast, and
+     the bright yellow swooshes are muted — without touching image files.
+     Paints above the art, below the tile flag. */
+  content: "";
+  position: absolute; inset: auto 0 0 0;
+  height: 45%;
+  background: linear-gradient(180deg,
+    transparent 0%,
+    rgba(0, 0, 0, 0.55) 55%,
+    rgba(0, 0, 0, 0.88) 100%);
+  pointer-events: none;
+}
+.og-char-tile-mono {
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--og-display); font-weight: 700; font-size: 3rem;
+  color: rgba(255, 255, 255, 0.12);
+}
+.og-char-tile-flag {
+  position: absolute; top: 0.55rem; left: 0.55rem;
+  font-family: var(--og-display); font-weight: 600; font-size: 0.62rem;
+  letter-spacing: 0.04em;
+  background: rgba(0, 0, 0, 0.65);
+  color: var(--og-muted); /* not time/live — no gold */
+  border: 1px solid var(--og-hairline);
+  border-radius: var(--og-radius-pill);
+  padding: 0.25rem 0.6rem;
+}
+.og-char-tile-body { padding: 0.7rem 0.85rem 0.85rem; text-align: center; }
+.og-char-tile-name {
+  display: block;
+  font-weight: 700;
+  font-size: 0.98rem;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.og-char-tile-meta {
+  display: flex; align-items: center; justify-content: center; gap: 0.4rem;
+  margin-top: 0.55rem;
+  /* Stronger secondary for label separation: ~11:1 on the tile surface. */
+  color: #c6c6ce;
+  font-size: 0.8rem;
+  font-weight: 500;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  max-width: 100%;
+}
+.og-char-tile-meta .element-dot {
+  width: 8px; height: 8px; border-radius: 50%; flex: none;
+  display: inline-block;
+}
+.og-char-tile-meta > span { overflow: hidden; text-overflow: ellipsis; }
+
+/* Phones: compact tiles to match the dense 3-column grid. Labels stay
+   centered and ellipsis-locked; tiles remain well above the 44px
+   touch-target floor. */
+@media (max-width: 640px) {
+  .og-char-tile-body { padding: 0.45rem 0.5rem 0.55rem; }
+  .og-char-tile-name { font-size: 0.84rem; }
+  .og-char-tile-meta { font-size: 0.7rem; margin-top: 0.35rem; gap: 0.3rem; }
+  .og-char-tile-flag {
+    top: 0.4rem; left: 0.4rem;
+    font-size: 0.56rem; padding: 0.2rem 0.45rem;
+  }
+}
+
+/* ==========================================================================
+   ObsidianCountdown — mono tabular-nums gold countdown with digit roll.
+   Gold because it IS time. Digit roll: each changed char remounts (key
+   includes the char) and rolls up inside a clipped window.
+   ========================================================================== */
+
+.og-countdown {
+  font-family: var(--og-mono);
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: var(--og-gold);
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+}
+.og-countdown-label {
+  font-size: 0.78rem;
+  color: var(--og-muted);
+  margin-top: 0.25rem;
+}
+.og-cd-roll {
+  display: inline-block;
+  overflow: hidden;
+  height: 1.2em;
+  vertical-align: top;
+}
+.og-cd-roll > span { display: inline-block; }
+@media (prefers-reduced-motion: no-preference) {
+  .og-cd-roll > span { animation: og-cd-in 0.24s var(--og-ease-out); }
+}
+@keyframes og-cd-in {
+  from { opacity: 0; transform: translateY(0.7em); }
+  to { opacity: 1; transform: none; }
+}
+
+/* ==========================================================================
+   Live dot — gold breathing dot for live states (never a glow).
+   ========================================================================== */
+
+.og-live {
+  display: inline-flex; align-items: center; gap: 0.45rem;
+  font-size: 0.72rem; font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--og-gold);
+}
+.og-live::before {
+  content: ""; width: 7px; height: 7px; border-radius: 50%;
+  background: var(--og-gold); flex: none;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .og-live::before { animation: og-live-dot 2.2s ease-in-out infinite; }
+}
+@keyframes og-live-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.75); }
+}
+
+/* ==========================================================================
+   Motion discipline: no motion by default; level 1-2 enabled only when the
+   user has NOT asked for reduced motion.
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .og-btn:active { transform: none; }
+  .og-char-tile:hover { transform: none; }
+}
+
+/* Reduced transparency: glass degrades to solid #101014. Glint stays,
+   dimmed, as a hairline accent. */
+@media (prefers-reduced-transparency: reduce) {
+  .og-nav, .og-btn-glass {
+    background: var(--og-surface);
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+  .og-nav::before, .og-btn-glass::before { opacity: 0.3; }
+}
+
+/* ==========================================================================
+   PAGE LAYER — home + data pages.
+   Chrome (nav, toolbars, HUD buttons) is glass. All content surfaces are
+   SOLID #101014. Gold #E8B44F appears ONLY on time / countdowns / live /
+   urgency. Motion is always gated behind prefers-reduced-motion.
+   ========================================================================== */
+
+body.og { overflow-x: clip; }
+
+/* --- 44px touch targets --- */
+.og-btn { min-height: 44px; }
+.og-nav-links a { padding: 0.72rem 0.85rem; }
+
+/* --- page head: Space Grotesk display title + muted lede + meta row --- */
+.og-page-head { padding: 1.5rem 0 0.25rem; }
+.og-h1 { font-size: clamp(2rem, 5vw, 3.25rem); margin: 0 0 0.75rem; }
+.og-h2 { font-size: clamp(1.35rem, 3vw, 1.9rem); margin: 0; }
+.og-lede {
+  color: var(--og-muted);
+  font-size: 1.02rem;
+  line-height: 1.6;
+  max-width: 62ch;
+  margin: 0 0 1rem;
+}
+.og-meta-row {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 1rem; flex-wrap: wrap;
+  margin: 0 0 1.75rem;
+}
+.og-updated {
+  font-family: var(--og-mono);
+  font-size: 0.78rem;
+  color: var(--og-muted);
+  margin: 0;
+}
+
+/* --- sections: dense, scannable, on the canvas --- */
+.og-section { margin: 0 0 2.75rem; scroll-margin-top: 9rem; }
+.og-section-head {
+  display: flex; align-items: flex-end; justify-content: space-between;
+  gap: 1rem; flex-wrap: wrap;
+  margin: 0 0 1.1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--og-hairline-soft);
+}
+.og-section-blurb { color: var(--og-muted); margin: 0.4rem 0 0; font-size: 0.95rem; }
+.og-section-link {
+  display: inline-flex; align-items: center; min-height: 44px;
+  font-weight: 600; font-size: 0.92rem; color: var(--og-ink);
+  white-space: nowrap;
+}
+.og-section-link:hover { text-decoration: underline; text-underline-offset: 3px; }
+.og-empty {
+  color: var(--og-muted);
+  background: var(--og-surface);
+  border: 1px solid var(--og-hairline-soft);
+  border-radius: var(--og-radius-card);
+  padding: 1.25rem 1.5rem;
+  margin: 0;
+}
+
+/* --- badges: monochrome by default. .og-badge-gold is ONLY for
+   time / urgency / live states. --- */
+.og-badge {
+  display: inline-flex; align-items: center; gap: 0.35rem;
+  font-family: var(--og-display);
+  font-weight: 600;
+  font-size: 0.68rem;
+  letter-spacing: 0.02em;
+  color: var(--og-muted);
+  border: 1px solid var(--og-hairline);
+  border-radius: var(--og-radius-pill);
+  padding: 0.32rem 0.7rem;
+  white-space: nowrap;
+}
+.og-badge-row { display: flex; gap: 0.45rem; flex-wrap: wrap; align-items: center; }
+.og-badge-gold {
+  color: var(--og-gold);
+  border-color: rgba(232, 180, 79, 0.45);
+  background: var(--og-gold-soft);
+}
+/* Dim kicker for non-time labels: gold is rationed, so content labels
+   stay muted white. Caps discipline: no uppercase outside display heads. */
+.og-kicker-dim {
+  font-family: var(--og-display);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  font-size: 0.72rem;
+  color: var(--og-muted);
+}
+
+/* ==========================================================================
+   .og-hero — the ONE full-bleed moment on the landing page.
+   Official key art, edge to edge, under a monochrome black scrim.
+   Monumental Space Grotesk headline, one ghost CTA.
+   ========================================================================== */
+
+.og-hero {
+  position: relative;
+  width: 100vw;
+  margin-inline: calc(50% - 50vw);
+  margin-top: -5.75rem; /* reach under the floating nav */
+  height: clamp(32rem, 64vh, 46rem);
+  overflow: hidden;
+  background: #000;
+}
+.og-hero-art {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: 50% 22%; /* character faces sit high in square art */
+}
+.og-hero::after {
+  /* Monochrome dark scrim: top shade for nav legibility, deep shade
+     through the bottom copy zone so headline + subtext stay legible
+     even over the brightest banner art (Hsin's splash). Art stays
+     visible through the mid-range — never buried. */
+  content: "";
+  position: absolute; inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.62) 0%,
+    rgba(0, 0, 0, 0.20) 38%,
+    rgba(0, 0, 0, 0.52) 58%,
+    rgba(0, 0, 0, 0.76) 76%,
+    rgba(0, 0, 0, 0.90) 100%
+  );
+  pointer-events: none;
+}
+.og-hero-inner {
+  position: relative; z-index: 1;
+  height: 100%;
+  max-width: 1080px; margin: 0 auto; padding: 0 1.25rem;
+  display: flex; flex-direction: column; justify-content: flex-end;
+  padding-bottom: clamp(2.5rem, 6vh, 4rem);
+}
+.og-hero-inner::before {
+  /* Subtle copy backplate: soft dark bloom behind the headline block so
+     the brightest art never meets bare text. Static, motion-free. */
+  content: "";
+  position: absolute; z-index: -1;
+  inset: 40% -2.5rem 0 -2.5rem;
+  background: radial-gradient(130% 100% at 50% 100%, rgba(0, 0, 0, 0.5), transparent 72%);
+  pointer-events: none;
+}
+.og-hero-title {
+  font-size: clamp(2.9rem, 8vw, 6rem);
+  margin: 0.9rem 0 1rem;
+  max-width: 14ch;
+  text-wrap: balance;
+  /* Layered shadow keeps the white headline on top of bright art
+     (21:1 ink vs. the near-opaque scrim behind it). */
+  text-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.9),
+    0 4px 14px rgba(0, 0, 0, 0.85),
+    0 10px 34px rgba(0, 0, 0, 0.7);
+}
+.og-hero-sub {
+  color: rgba(255, 255, 255, 0.82);
+  font-size: clamp(1rem, 2vw, 1.15rem);
+  max-width: 46ch;
+  margin: 0 0 1.75rem;
+  line-height: 1.55;
+  text-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.95),
+    0 3px 10px rgba(0, 0, 0, 0.8);
+}
+.og-hero-inner .og-kicker {
+  /* Gold kicker over bright art gets the same shadow stack so the
+     time/version signal stays legible. */
+  text-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.95),
+    0 3px 10px rgba(0, 0, 0, 0.8);
+}
+.og-hero-cta { align-self: flex-start; }
+
+@media (max-width: 640px) {
+  .og-hero { margin-top: -1.25rem; height: 37rem; }
+  .og-hero-art { object-position: 50% 18%; } /* portrait-safe focal point */
+}
+
+/* ==========================================================================
+   .og-toolbar — floating glass toolbar (chrome, not content).
+   Quick section jumps on data pages. Degrades to solid under
+   prefers-reduced-transparency.
+   ========================================================================== */
+
+.og-toolbar {
+  position: sticky;
+  top: 5.5rem;
+  z-index: 40;
+  display: flex; gap: 0.35rem; flex-wrap: wrap;
+  align-items: center;
+  width: fit-content; max-width: 100%;
+  margin: 0 0 1.5rem;
+  padding: 0.4rem;
+  border-radius: var(--og-radius-pill);
+  /* Same neutral tint control as .og-nav: dark veil keeps the
+     saturate(180%) backdrop neutral over bright art. */
+  background:
+    linear-gradient(180deg, rgba(8, 8, 10, 0.30), rgba(8, 8, 10, 0.30)),
+    var(--og-glass);
+  -webkit-backdrop-filter: saturate(180%) blur(24px);
+  backdrop-filter: saturate(180%) blur(24px);
+  border: 1px solid var(--og-hairline);
+  box-shadow: 0 12px 40px -12px rgba(0, 0, 0, 0.7);
+  overflow: hidden;
+}
+.og-toolbar::before {
+  content: "";
+  position: absolute; inset: 0 0 auto 0; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--og-glint), transparent);
+  pointer-events: none;
+}
+.og-toolbar a {
+  position: relative;
+  display: inline-flex; align-items: center;
+  min-height: 44px;
+  padding: 0.55rem 1.05rem;
+  border-radius: var(--og-radius-pill);
+  color: var(--og-muted);
+  font-family: var(--og-display);
+  font-weight: 600;
+  font-size: 0.78rem;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+  transition: color var(--og-d1) ease, background-color var(--og-d1) ease;
+}
+.og-toolbar a:hover { color: var(--og-ink); background: rgba(255, 255, 255, 0.07); text-decoration: none; }
+/* Visible in-page label: the toolbar is anchor jumps, not page nav.
+   Sentence case, never uppercase (caps discipline). */
+.og-toolbar-label {
+  font-family: var(--og-display);
+  font-weight: 600;
+  font-size: 0.72rem;
+  letter-spacing: 0.05em;
+  color: var(--og-muted);
+  padding: 0 0.2rem 0 0.7rem;
+  white-space: nowrap;
+}
+@media (prefers-reduced-transparency: reduce) {
+  .og-toolbar { background: var(--og-surface); -webkit-backdrop-filter: none; backdrop-filter: none; }
+}
+@media (max-width: 640px) {
+  .og-toolbar { top: 1rem; border-radius: 22px; }
+}
+
+/* ==========================================================================
+   .og-banner-card — solid #101014 content surface. Art strip on top
+   (fixed 16/9 aspect, no layout shift), everything below on solid.
+   ========================================================================== */
+
+.og-banner-card {
+  background: var(--og-surface);
+  border: 1px solid var(--og-hairline-soft);
+  border-radius: var(--og-radius-card);
+  overflow: hidden;
+}
+.og-banner-art {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  background: var(--og-surface-raised);
+  overflow: hidden;
+}
+.og-banner-art img {
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: 50% 20%;
+  display: block;
+}
+.og-banner-art::after {
+  /* Monochrome fade so the art melts into the solid surface below. */
+  content: "";
+  position: absolute; inset: auto 0 0 0; height: 44%;
+  background: linear-gradient(180deg, transparent, var(--og-surface));
+  pointer-events: none;
+}
+.og-banner-body { padding: 1.1rem 1.25rem 1.35rem; }
+.og-banner-headline {
+  font-family: var(--og-display);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  font-size: 1.45rem;
+  line-height: 1.15;
+  margin: 0.7rem 0 0.9rem;
+  color: var(--og-ink);
+}
+.og-banner-body .og-badge-row { margin-bottom: 0.1rem; }
+.og-char-chip-list {
+  list-style: none; margin: 1rem 0 0; padding: 0;
+  display: grid; gap: 0.6rem;
+}
+.og-char-chip {
+  display: flex; align-items: center; gap: 0.75rem;
+  background: var(--og-surface-raised);
+  border: 1px solid var(--og-hairline-soft);
+  border-radius: 12px;
+  padding: 0.55rem 0.75rem;
+}
+.og-char-chip img {
+  width: 48px; height: 48px; flex: none;
+  aspect-ratio: 1 / 1;
+  object-fit: cover; object-position: top center;
+  border-radius: 10px;
+  background: #000;
+}
+.og-char-chip-body { min-width: 0; flex: 1; }
+.og-char-chip-name {
+  display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;
+  font-weight: 700; font-size: 0.98rem; color: var(--og-ink);
+}
+.og-char-chip-sub {
+  color: var(--og-muted); font-size: 0.82rem; margin-top: 0.15rem;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.og-stars { color: var(--og-ink); letter-spacing: 0.05em; font-size: 0.8rem; }
+.og-four-star {
+  margin: 0.9rem 0 0; color: var(--og-muted); font-size: 0.92rem;
+}
+.og-four-star .og-stars { margin-right: 0.35rem; }
+.og-weapon-line { margin: 0.7rem 0 0; color: var(--og-muted); font-size: 0.92rem; }
+.og-weapon-line strong { color: var(--og-ink); font-weight: 600; }
+.og-credit { margin: 0.8rem 0 0; font-size: 0.72rem; color: var(--og-muted); }
+
+/* ==========================================================================
+   .og-event-card — solid surface, mono time labels, gold countdown.
+   ========================================================================== */
+
+.og-event-card {
+  background: var(--og-surface);
+  border: 1px solid var(--og-hairline);
+  border-radius: var(--og-radius-card);
+  padding: 1.4rem 1.5rem 1.5rem;
+  display: flex; flex-direction: column; gap: 0.6rem;
+}
+.og-event-title {
+  font-family: var(--og-display);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  font-size: 1.25rem;
+  line-height: 1.2;
+  margin: 0;
+  color: var(--og-ink);
+}
+.og-event-desc { color: var(--og-muted); margin: 0; font-size: 0.95rem; line-height: 1.6; }
+.og-event-meta { margin: 0; color: var(--og-muted); font-size: 0.9rem; }
+.og-event-meta strong { color: var(--og-ink); font-weight: 600; }
+
+/* Compact event card (home page): countdown + rewards are promoted,
+   the body is truncated to two lines, and full details expand on tap.
+   Instant toggle — no motion, so prefers-reduced-motion needs nothing. */
+.og-event-card-compact { gap: 0.55rem; }
+.og-event-card-compact .og-countdown { font-size: 1.5rem; }
+.og-event-rewards {
+  margin: 0;
+  color: var(--og-ink);
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.5;
+}
+.og-event-rewards strong { font-weight: 700; }
+.og-event-card-compact .og-event-desc {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.og-event-card-compact .og-event-desc[data-expanded="true"] {
+  display: block;
+  -webkit-line-clamp: unset;
+  overflow: visible;
+}
+.og-event-expand {
+  align-self: flex-start;
+  min-height: 44px;
+  padding: 0.55rem 0.1rem;
+  margin: -0.15rem 0 -0.4rem;
+  background: none;
+  border: none;
+  color: var(--og-muted);
+  font: inherit;
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+.og-event-expand:hover { color: var(--og-ink); }
+
+/* Verification footer block: the data-verified stamp as a proper block
+   at the bottom of the page, not a faint line under the toolbar. */
+.og-verify-block {
+  margin: 3rem 0 0;
+  padding: 1.25rem 1.5rem;
+  background: var(--og-surface);
+  border: 1px solid var(--og-hairline);
+  border-radius: var(--og-radius-card);
+  text-align: center;
+}
+.og-verify-block .og-updated { font-size: 0.85rem; line-height: 1.6; }
+
+/* ==========================================================================
+   .og-code-row — solid surface code row, mono code value, gold expiry.
+   ========================================================================== */
+
+.og-code-row {
+  background: var(--og-surface);
+  border: 1px solid var(--og-hairline);
+  border-radius: var(--og-radius-card);
+  padding: 1.4rem 1.5rem 1.5rem;
+  display: flex; flex-direction: column; gap: 0.75rem;
+}
+.og-code-top { display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap; }
+.og-code-value {
+  font-family: var(--og-mono);
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+  font-size: 1.15rem;
+  letter-spacing: 0.04em;
+  color: var(--og-ink);
+  background: var(--og-surface-raised);
+  border: 1px solid var(--og-hairline);
+  border-radius: 10px;
+  padding: 0.45rem 0.85rem;
+  display: inline-flex;
+  align-items: center;
+}
+.og-code-meta { margin: 0; color: var(--og-muted); font-size: 0.9rem; }
+
+/* ==========================================================================
+   .og-reset — reset timers card. Server select is HUD chrome.
+   ========================================================================== */
+
+.og-reset {
+  background: var(--og-surface);
+  border: 1px solid var(--og-hairline);
+  border-radius: var(--og-radius-card);
+  padding: 1.4rem 1.5rem 1.5rem;
+}
+.og-reset-head {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 1rem; flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+.og-reset-title {
+  font-family: var(--og-display);
+  font-weight: 700; letter-spacing: -0.01em;
+  font-size: 1.2rem; margin: 0; color: var(--og-ink);
+}
+.og-select {
+  appearance: none;
+  background: var(--og-surface-raised);
+  border: 1px solid var(--og-hairline);
+  border-radius: var(--og-radius-pill);
+  color: var(--og-ink);
+  font-family: var(--og-body);
+  font-size: 0.9rem; font-weight: 600;
+  padding: 0.55rem 2.2rem 0.55rem 1.1rem;
+  min-height: 44px;
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%23a8a8b0' stroke-width='1.6' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+}
+.og-select:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
+.og-reset-label { display: inline-flex; align-items: center; gap: 0.6rem; color: var(--og-muted); font-size: 0.88rem; }
+.og-reset-grid { display: grid; gap: 1.25rem; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+
+/* ==========================================================================
+   .og-table — solid-surface data table for banner history.
+   ========================================================================== */
+
+.og-table-wrap {
+  overflow-x: auto;
+  background: var(--og-surface);
+  border: 1px solid var(--og-hairline-soft);
+  border-radius: var(--og-radius-card);
+}
+.og-table { width: 100%; border-collapse: collapse; font-size: 0.92rem; }
+.og-table th {
+  font-family: var(--og-display);
+  font-weight: 600; font-size: 0.7rem;
+  letter-spacing: 0.02em;
+  color: var(--og-muted);
+  text-align: left;
+  padding: 0.85rem 1rem;
+  border-bottom: 1px solid var(--og-hairline);
+  white-space: nowrap;
+}
+.og-table td {
+  padding: 0.8rem 1rem;
+  border-bottom: 1px solid var(--og-hairline-soft);
+  color: var(--og-ink);
+  vertical-align: top;
+}
+.og-table tbody tr:last-child td { border-bottom: none; }
+.og-table .og-mono { font-size: 0.86rem; color: var(--og-muted); }
+
+/* ==========================================================================
+   Pull planner — profile / question / verdict cards on solid surfaces.
+   Pick rows lead with the character portrait (fixed 64px, no shift).
+   ========================================================================== */
+
+.og-pick-card {
+  background: var(--og-surface);
+  border: 1px solid var(--og-hairline);
+  border-radius: var(--og-radius-card);
+  padding: 1.4rem 1.5rem 1.5rem;
+}
+.og-pick-card h3 {
+  font-family: var(--og-display);
+  font-weight: 700; letter-spacing: -0.01em;
+  font-size: 1.3rem; line-height: 1.2;
+  margin: 0.55rem 0 0.6rem; color: var(--og-ink);
+}
+.og-pick-card .og-kicker-dim { display: block; }
+.og-pick-desc { color: var(--og-muted); margin: 0; font-size: 0.95rem; line-height: 1.6; }
+.og-pick-desc a, .og-pick-also a { font-weight: 600; }
+.og-pick-desc strong { color: var(--og-ink); }
+/* --- scannable question bullets: <ul> + bolded keywords, same verified copy --- */
+.og-q-list {
+  list-style: disc;
+  margin: 0.9rem 0 0;
+  padding-left: 1.25rem;
+  display: flex; flex-direction: column; gap: 0.55rem;
+}
+.og-q-list li {
+  color: var(--og-muted);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+.og-q-list li::marker { color: var(--og-muted); }
+.og-q-list strong { color: var(--og-ink); font-weight: 600; }
+.og-q-links { margin: 0.85rem 0 0; font-size: 0.9rem; line-height: 1.6; }
+.og-q-links a { font-weight: 600; }
+.og-pick-label {
+  font-family: var(--og-display);
+  font-weight: 600; font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  color: var(--og-muted);
+  margin: 1rem 0 0.55rem;
+}
+.og-pick-row { display: flex; gap: 0.85rem; align-items: flex-start; }
+.og-pick-portrait {
+  width: 64px; height: 64px; flex: none;
+  aspect-ratio: 1 / 1;
+  object-fit: cover; object-position: top center;
+  border-radius: 14px;
+  background: var(--og-surface-raised);
+}
+.og-pick-body { min-width: 0; flex: 1; }
+.og-pick-name {
+  margin: 0; font-weight: 700; font-size: 1.05rem;
+  display: flex; align-items: center; gap: 0.55rem; flex-wrap: wrap;
+}
+.og-pick-name a { color: var(--og-ink); }
+.og-pick-why { margin: 0.35rem 0 0.6rem; color: var(--og-muted); line-height: 1.6; font-size: 0.95rem; }
+.og-pick-verdict { margin: 0; display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap; }
+.og-pick-verdict-meta { font-size: 0.78rem; color: var(--og-muted); font-family: var(--og-mono); }
+.og-pick-also {
+  color: var(--og-muted); font-size: 0.93rem; line-height: 1.6;
+  margin: 0.9rem 0 0; padding-top: 0.85rem;
+  border-top: 1px solid var(--og-hairline);
+}
+.og-pick-also p { margin: 0; }
+.og-pick-also strong { color: var(--og-ink); }
+.og-version-note {
+  color: var(--og-muted); font-size: 0.85rem; line-height: 1.6;
+  margin: 0.5rem 0 0; max-width: 78ch;
+}
+
+/* Featured countdown bump on the landing's first banner card. */
+.og-banner-card-featured .og-countdown { font-size: 1.75rem; }
+
+/* Motion discipline for page-layer additions: everything new is gated. */
+@media (prefers-reduced-motion: reduce) {
+  .og-toolbar { position: static; }
+}
