@@ -105,8 +105,8 @@ function WeaponPlate({ weapon, bis }: { weapon: RankedWeapon; bis: boolean }) {
           <Image
             src={weapon.icon}
             alt={`${weapon.name} icon`}
-            width={44}
-            height={44}
+            width={64}
+            height={64}
             className="char-weapon-icon"
             loading="lazy"
           />

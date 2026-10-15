@@ -598,8 +598,8 @@
 }
 .char-weapon-head .stars { margin-left: auto; flex: none; }
 .char-weapon-icon {
-  width: 44px;
-  height: 44px;
+  width: 64px;
+  height: 64px;
   object-fit: contain;
   border-radius: 10px;
   background: rgba(255, 255, 255, 0.05);
