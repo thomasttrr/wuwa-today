@@ -157,6 +157,48 @@ export default function HomePage() {
         </div>
       </div>
 
+      {/* New-player on-ramp: the bottom tab bar is full at 7 tabs, so the
+          Beginner section lives here on home rather than as an 8th tab. */}
+      <div className="og-section">
+        <ObsidianSectionHead
+          id="beginner"
+          title="New to Solaris-3?"
+          blurb="Four short guides: what to do first, how beginner banners work, your first teams, and the mistakes to skip."
+          linkHref="/beginner"
+          linkText="All beginner guides"
+        />
+        <div className="grid grid-2">
+          <Reveal>
+            <a
+              href="/beginner/start-here"
+              className="og-pick-card"
+              style={{ display: "block", textDecoration: "none" }}
+            >
+              <span className="og-kicker">Start here</span>
+              <h3>Your first week</h3>
+              <p className="og-pick-desc">
+                Your free roster, the unlocks that matter, and the Union Level
+                milestones that gate your power.
+              </p>
+            </a>
+          </Reveal>
+          <Reveal delay={70}>
+            <a
+              href="/beginner/convene-guide"
+              className="og-pick-card"
+              style={{ display: "block", textDecoration: "none" }}
+            >
+              <span className="og-kicker">Beginner Convene guide</span>
+              <h3>Beginner banners, decoded</h3>
+              <p className="og-pick-desc">
+                The beginner banner flow, pity rules, and where your pulls
+                should actually go.
+              </p>
+            </a>
+          </Reveal>
+        </div>
+      </div>
+
       {/* Verification stamp as a proper footer block — not a faint line. */}
       <div className="og-verify-block">
         <UpdatedStamp />
