@@ -31,12 +31,12 @@ export default function EventCard({
 
   const badgeRow = (
     <div className="og-badge-row">
-      <span className="og-badge">{TYPE_LABELS[event.type] ?? event.type}</span>
       {event.status === "active" ? (
         <span className="og-live">Live</span>
       ) : (
         <span className="og-badge">Upcoming</span>
       )}
+      <span className="og-badge">{TYPE_LABELS[event.type] ?? event.type}</span>
       {event.timeNote && <span className="og-badge">Dates estimated</span>}
     </div>
   );

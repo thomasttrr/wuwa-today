@@ -56,25 +56,35 @@ export default function ObsidianNav() {
 
     // Bring the active tab into view inside the scroll strip: jump on
     // first mount (no animation), smooth glide on route changes —
-    // unless reduced motion, which always jumps.
-    const tab = list.querySelectorAll(":scope > a")[activeIndex] as
-      | HTMLElement
-      | undefined;
-    if (tab) {
-      const reduced = window.matchMedia(
-        "(prefers-reduced-motion: reduce)"
-      ).matches;
-      tab.scrollIntoView({
-        inline: "center",
-        block: "nearest",
-        behavior: firstMount.current || reduced ? "auto" : "smooth",
-      });
-    }
+    // unless reduced motion, which always jumps. Extracted so it can
+    // be re-run on resize/orientation change (P-7): the strip's scroll
+    // position can drift when the viewport width changes.
+    const activeTab = () =>
+      list.querySelectorAll(":scope > a")[activeIndex] as
+        | HTMLElement
+        | undefined;
+    const centerActive = (behavior: ScrollBehavior) => {
+      const tab = activeTab();
+      if (!tab) return;
+      tab.scrollIntoView({ inline: "center", block: "nearest", behavior });
+    };
+    const reduced = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+    centerActive(firstMount.current || reduced ? "auto" : "smooth");
     firstMount.current = false;
+
+    const recenter = () => centerActive("auto");
+    window.addEventListener("resize", recenter);
+    window.addEventListener("orientationchange", recenter);
 
     const ro = new ResizeObserver(measure);
     ro.observe(list);
-    return () => ro.disconnect();
+    return () => {
+      ro.disconnect();
+      window.removeEventListener("resize", recenter);
+      window.removeEventListener("orientationchange", recenter);
+    };
   }, [activeIndex]);
 
   return (

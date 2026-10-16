@@ -1,12 +1,15 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import ObsidianSectionHead from "../../components/ObsidianSectionHead";
 import ObsidianToolbar from "../../components/ObsidianToolbar";
+import OgPageHero from "../../components/OgPageHero";
 import Reveal from "../../components/Reveal";
 import ShareButton from "../../components/ShareButton";
 import UpdatedStamp from "../../components/UpdatedStamp";
-import { activeBanners, upcomingBanners, formatServerDate } from "../../lib/data";
+import { activeBanners, upcomingBanners, bannerMeta, formatServerDate } from "../../lib/data";
 import { getCharacter } from "../../lib/characters";
+import { getPrefarmGuide } from "../../lib/prefarm";
 
 export const metadata: Metadata = {
   title: "Pull Planner — Who to Pull in Version 3.7",
@@ -118,19 +121,17 @@ export default function PullPlannerPage() {
 
   return (
     <>
-      <div className="og-page-head">
-        <h1 className="og-display og-h1">Pull planner — Version 3.7</h1>
-        <p className="og-lede">
-          Who to pull while 3.7 runs, answered per account type. Every pick below
-          is traced to a verified pull verdict on this site — nothing is invented,
-          and pre-release picks (Suoming) are marked as uncertain until launch-day
-          numbers land.
-        </p>
-        <div className="og-meta-row">
-          <UpdatedStamp />
-          <ShareButton />
-        </div>
-      </div>
+      <OgPageHero
+        kicker={`Version ${bannerMeta.version} · Pull strategy`}
+        title="Pull planner"
+        lede="Who to pull while 3.7 runs, answered per account type. Every pick below is traced to a verified pull verdict on this site — nothing is invented, and pre-release picks (Suoming) are marked as uncertain until launch-day numbers land."
+        meta={
+          <>
+            <UpdatedStamp />
+            <ShareButton />
+          </>
+        }
+      />
 
       <ObsidianToolbar
         label="Pull planner sections"
@@ -143,9 +144,7 @@ export default function PullPlannerPage() {
       />
 
       <div className="og-section">
-        <div className="og-section-head" id="schedule">
-          <h2 className="og-h2">Banner schedule</h2>
-        </div>
+        <ObsidianSectionHead id="schedule" title="Banner schedule" />
         <div className="grid grid-2">
           <Reveal>
             <section className="og-pick-card" aria-label="Phase 1 banners">
@@ -173,9 +172,7 @@ export default function PullPlannerPage() {
       </div>
 
       <div className="og-section">
-        <div className="og-section-head" id="questions">
-          <h2 className="og-h2">The big questions</h2>
-        </div>
+        <ObsidianSectionHead id="questions" title="The big questions" />
         <div className="grid grid-2">
           <QuestionCard question="Question 1" title="Pull Hsin or save for Suoming?" delay={0}>
             <>
@@ -275,9 +272,7 @@ export default function PullPlannerPage() {
       </div>
 
       <div className="og-section">
-        <div className="og-section-head" id="accounts">
-          <h2 className="og-h2">Pick by your account</h2>
-        </div>
+        <ObsidianSectionHead id="accounts" title="Pick by your account" />
         <div className="grid grid-2">
           <ProfileCard
             title="New player"
@@ -350,18 +345,15 @@ export default function PullPlannerPage() {
       </div>
 
       <div className="og-section">
-        <div className="og-section-head" id="verdicts">
-          <div>
-            <h2 className="og-h2">Every 5-star, verdict at a glance</h2>
-            <p className="og-section-blurb">
-              The source of truth behind every pick above. Verdicts are published
-              per character and re-checked when banner data changes.
-            </p>
-          </div>
-        </div>
+        <ObsidianSectionHead
+          id="verdicts"
+          title="Every 5-star, verdict at a glance"
+          blurb="The source of truth behind every pick above. Verdicts are published per character and re-checked when banner data changes."
+        />
         <div className="grid grid-2">
           {FIVE_STARS.map((slug, i) => {
             const v = getVerdict(slug);
+            const hasPrefarm = Boolean(getPrefarmGuide(slug));
             return (
               <Reveal key={slug} delay={(i % 2) * 70}>
                 <section className="og-pick-card" aria-label={`${v.name} pull verdict`}>
@@ -387,6 +379,13 @@ export default function PullPlannerPage() {
                           Published {v.published}
                         </span>
                       </p>
+                      {hasPrefarm && (
+                        <p className="og-q-links">
+                          <Link href={`/pre-farm/${slug}`}>
+                            Pre-farm {v.name} →
+                          </Link>
+                        </p>
+                      )}
                     </div>
                   </div>
                 </section>

@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import OgPageHero from "@/components/OgPageHero";
 import Reveal from "@/components/Reveal";
+import ShareButton from "@/components/ShareButton";
+import UpdatedStamp from "@/components/UpdatedStamp";
 import { getCharacter } from "@/lib/characters";
 import { prefarmGuides } from "@/lib/prefarm";
 
@@ -18,17 +21,17 @@ export default function PrefarmIndex() {
         ← Home
       </Link>
 
-      <header className="og-page-hero">
-        <Reveal>
-          <p className="og-page-kicker">Pre-farm guides</p>
-          <h1 className="og-page-title og-display">Farm before the banner</h1>
-          <p className="og-page-lede">
-            Every material for the featured characters — quantities verified
-            against two or more independent sources, with the routes to farm
-            them.
-          </p>
-        </Reveal>
-      </header>
+      <OgPageHero
+        kicker="Pre-farm guides"
+        title="Farm before the banner"
+        lede="Every material for the featured characters — quantities verified against two or more independent sources, with the routes to farm them."
+        meta={
+          <>
+            <UpdatedStamp />
+            <ShareButton />
+          </>
+        }
+      />
 
       <div className="og-grid">
         {prefarmGuides.map((g, i) => {
@@ -55,7 +58,7 @@ export default function PrefarmIndex() {
                 <p className="og-char-kicker">
                   {p.element} · {p.weapon_type} · {"★".repeat(p.rarity)}
                 </p>
-                <h2 className="og-section-h" style={{ margin: "0.25rem 0" }}>
+                <h2 className="og-h2" style={{ margin: "0.25rem 0" }}>
                   {g.character} pre-farm
                 </h2>
                 <p className="og-section-blurb">{g.banner}</p>

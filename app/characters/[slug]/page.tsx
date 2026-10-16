@@ -3,7 +3,10 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import Reveal from "@/components/Reveal";
+import ObsidianSectionHead from "@/components/ObsidianSectionHead";
 import ObsidianTeamCard from "@/components/ObsidianTeamCard";
+import { MaterialRows } from "@/components/MaterialTable";
+import type { MaterialEntry } from "@/lib/character-schema";
 import {
   characterSlugs,
   getCharacter,
@@ -49,23 +52,12 @@ function Caveat({ children }: { children: ReactNode }) {
   );
 }
 
-function SectionHead({ title, blurb }: { title: string; blurb?: string }) {
-  return (
-    <Reveal>
-      <div>
-        <h2 className="og-section-h">{title}</h2>
-        {blurb && <p className="og-section-blurb">{blurb}</p>}
-      </div>
-    </Reveal>
-  );
-}
-
 function MaterialsSection({
   materials,
 }: {
   materials: NonNullable<CharacterRecordLoose["materials"]>;
 }) {
-  const groups: { title: string; entries: { name: string; qty: string; farm: string }[] }[] = [
+  const groups: { title: string; entries: MaterialEntry[] }[] = [
     { title: "Ascension 0 → 90", entries: materials.ascension },
     { title: "Forte — full tree", entries: materials.forte },
   ];
@@ -73,15 +65,9 @@ function MaterialsSection({
     <div className="og-materials">
       {groups.map((g) => (
         <div key={g.title} className="og-materials-group">
-          <h3>{g.title}</h3>
+          <h3 className="og-sub-h">{g.title}</h3>
           <ol className="og-materials-list">
-            {g.entries.map((m) => (
-              <li key={m.name} className="og-material">
-                <span className="og-material-name">{m.name}</span>
-                <span className="og-material-qty">×{m.qty}</span>
-                {m.farm !== "—" && <span className="og-material-farm">{m.farm}</span>}
-              </li>
-            ))}
+            <MaterialRows entries={g.entries} />
           </ol>
         </div>
       ))}
@@ -176,7 +162,7 @@ export default async function CharacterPage({
   const showTierBadge = tier !== null && tier.tier !== "UNKNOWN";
   const { prev, next } = prevNextCharacter(slug);
 
-  const kicker = `${p.element} · ${p.weapon_type} · ${"★".repeat(p.rarity)}`;
+  const kicker = `${p.element} · ${p.weapon_type}`;
 
   const visibleWeapons = build.ranked_weapons.slice(0, 4);
   const extraWeapons = build.ranked_weapons.slice(4);
@@ -215,6 +201,9 @@ export default async function CharacterPage({
               ) : (
                 <span className="og-char-badge og-char-badge-dim">Pre-release · Not ranked</span>
               )}
+              <span className={`og-rarity-badge rarity-${p.rarity}`}>
+                {p.rarity}★
+              </span>
               {showTierBadge && <span className="og-char-badge">{tier.label}</span>}
               <span className="og-char-badge">{p.role}</span>
               <span className="og-char-badge">
@@ -247,7 +236,7 @@ export default async function CharacterPage({
 
       {/* Build */}
       <section className="og-section" aria-label="Build">
-        <SectionHead title="Build" blurb={build.fast_path} />
+        <ObsidianSectionHead title="Build" blurb={build.fast_path} />
         <div>
           {build.uncertain_or_prerelease && !preRelease && (
             <Caveat>Some build details are uncertain — check the source guides.</Caveat>
@@ -337,7 +326,7 @@ export default async function CharacterPage({
       {/* Pre-farm materials */}
       {char.materials && (
         <section className="og-section" aria-label="Pre-farm materials">
-          <SectionHead
+          <ObsidianSectionHead
             title="Pre-farm materials"
             blurb="Ascension + forte costs with farm locations."
           />
@@ -356,7 +345,7 @@ export default async function CharacterPage({
 
       {/* Teams */}
       <section className="og-section" aria-label="Teams">
-        <SectionHead title="Teams" blurb="Tested comps with rotations." />
+        <ObsidianSectionHead title="Teams" blurb="Tested comps with rotations." />
         {char.teams.map((team) => (
           <Reveal key={team.name}>
             <ObsidianTeamCard team={team} />
@@ -375,7 +364,7 @@ export default async function CharacterPage({
 
       {/* Pull verdict */}
       <section className="og-section" aria-label="Pull verdict">
-        <SectionHead title="Pull verdict" />
+        <ObsidianSectionHead title="Pull verdict" />
         <Reveal>
           <div className="og-verdict-card">
             <p className="og-verdict-kicker">Pull verdict</p>

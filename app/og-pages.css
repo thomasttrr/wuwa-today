@@ -37,6 +37,11 @@
   max-width: 62ch;
   margin: 0.85rem 0 0;
 }
+/* Optional freshness row inside the hero: sits after the lede with no
+   trailing margin — the hero's own bottom padding sets the rhythm. */
+.og-page-hero .og-meta-row {
+  margin: 1.25rem 0 0;
+}
 
 /* --- character hub: filter toolbar (chrome -> glass is allowed) --------- */
 
@@ -326,8 +331,10 @@
   font-weight: 600;
 }
 
-/* Tier badges: SS is gold (content requirement); the rest stay monochrome. */
-.og-tier-badge {
+/* Tier badges: color-coordinated per tier (content requirement). SS gold,
+   S silver, A bronze, B muted slate. Shared with the tier-list page. */
+.og-tier-badge,
+.og-rarity-badge {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -341,6 +348,7 @@
   letter-spacing: 0.09em;
   border: 1px solid transparent;
   flex: none;
+  white-space: nowrap;
 }
 .og-tier-badge.tier-SS {
   background: var(--og-gold);
@@ -348,19 +356,31 @@
   color: #14100a; /* ~9.4:1 on gold */
 }
 .og-tier-badge.tier-S {
-  background: rgba(255, 255, 255, 0.14);
-  border-color: var(--og-hairline);
-  color: var(--og-ink);
+  background: #d9d9e0;
+  border-color: #d9d9e0;
+  color: #17171c;
 }
 .og-tier-badge.tier-A {
-  background: transparent;
-  border-color: var(--og-hairline);
-  color: var(--og-ink);
+  background: #c08a4d;
+  border-color: #c08a4d;
+  color: #17110a;
 }
 .og-tier-badge.tier-B {
-  background: transparent;
+  background: rgba(255, 255, 255, 0.08);
   border-color: var(--og-hairline-soft);
   color: var(--og-muted);
+}
+
+/* Rarity pill: 5-star gold, 4-star purple (in-game convention). */
+.og-rarity-badge.rarity-5 {
+  background: var(--og-gold);
+  border-color: var(--og-gold);
+  color: #14100a;
+}
+.og-rarity-badge.rarity-4 {
+  background: #a78bfa;
+  border-color: #a78bfa;
+  color: #191325;
 }
 
 /* --- honest caveat labels -------------------------------------------------- */
@@ -396,30 +416,8 @@
 .og-notice p { margin: 0; color: var(--og-muted); font-size: 0.92rem; line-height: 1.55; }
 .og-notice strong { color: var(--og-ink); }
 
-/* --- sections: hairline rule + display heading ----------------------------- */
+/* --- sub-headings ------------------------------------------------------------ */
 
-.og-section {
-  margin: 2.75rem 0 0;
-  border-top: 1px solid var(--og-hairline-soft);
-  padding-top: 1.75rem;
-}
-.og-section-h {
-  font-family: var(--og-display);
-  font-weight: 700;
-  letter-spacing: -0.01em;
-  line-height: 1.2;
-  color: var(--og-ink);
-  margin: 0 0 0.4rem;
-  font-size: 1.35rem;
-}
-.og-section-blurb {
-  color: var(--og-muted);
-  font-weight: 500;
-  font-size: 1rem;
-  margin: 0 0 1.3rem;
-  max-width: 66ch;
-  line-height: 1.6;
-}
 .og-sub-h {
   font-size: 1rem;
   font-weight: 700;
@@ -669,7 +667,7 @@
   padding: 1.1rem 1.25rem;
   min-width: 0;
 }
-.og-materials-group h3 { font-size: 0.95rem; margin: 0 0 0.5rem; color: var(--og-ink); }
+.og-materials-group .og-sub-h { font-size: 0.95rem; margin: 0 0 0.5rem; color: var(--og-ink); }
 .og-materials-list { list-style: none; margin: 0; padding: 0; }
 .og-material {
   padding: 0.7rem 0;
@@ -893,7 +891,7 @@
   flex: none;
   display: inline-block;
 }
-.og-team-role > span { overflow: hidden; text-overflow: ellipsis; }
+.og-team-role > span { overflow: hidden; text-overflow: ellipsis; min-width: 0; }
 .og-team-notes {
   list-style: none;
   margin: 1.15rem 0 0;
@@ -1047,6 +1045,8 @@
   border-radius: 20px;
   padding: 1.25rem 1.4rem;
   margin: 0 0 1rem;
+  /* Anchor target for the toolbar — same offset as .og-section. */
+  scroll-margin-top: 9rem;
 }
 .og-tier-side {
   display: flex;
@@ -1139,6 +1139,8 @@ a.og-tier-name:hover { text-decoration: underline; }
   color: var(--og-muted);
   font-size: 0.88rem;
   line-height: 1.55;
+  /* Anchor target for the toolbar — same offset as .og-section. */
+  scroll-margin-top: 9rem;
 }
 .og-tier-unranked strong { color: var(--og-ink); }
 .og-tier-unranked a { color: var(--og-ink); font-weight: 600; }

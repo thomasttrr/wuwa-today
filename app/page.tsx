@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import BannerCard from "../components/BannerCard";
 import CodeRow from "../components/CodeRow";
 import EventCard from "../components/EventCard";
 import ObsidianButton from "../components/ObsidianButton";
+import ObsidianSectionHead from "../components/ObsidianSectionHead";
 import ObsidianToolbar from "../components/ObsidianToolbar";
 import ResetTimers from "../components/ResetTimers";
 import Reveal from "../components/Reveal";
@@ -21,34 +21,6 @@ export const metadata: Metadata = {
     "Today in Wuthering Waves: live banners with countdowns, working redeem codes, active events, and daily/weekly reset timers. Updated daily.",
   alternates: { canonical: "/" },
 };
-
-function SectionHead({
-  id,
-  title,
-  blurb,
-  linkHref,
-  linkText,
-}: {
-  id: string;
-  title: string;
-  blurb?: string;
-  linkHref?: string;
-  linkText?: string;
-}) {
-  return (
-    <div className="og-section-head" id={id}>
-      <div>
-        <h2 className="og-h2">{title}</h2>
-        {blurb && <p className="og-section-blurb">{blurb}</p>}
-      </div>
-      {linkHref && linkText && (
-        <Link className="og-section-link" href={linkHref}>
-          {linkText} →
-        </Link>
-      )}
-    </div>
-  );
-}
 
 export default function HomePage() {
   // The hero's key art follows the live banner: when the featured banner
@@ -102,7 +74,7 @@ export default function HomePage() {
       />
 
       <div className="og-section">
-        <SectionHead
+        <ObsidianSectionHead
           id="banners"
           title="Live banners"
           blurb="Featured Resonators and their weapons, with live countdowns to the phase flip."
@@ -131,7 +103,7 @@ export default function HomePage() {
       </div>
 
       <div className="og-section">
-        <SectionHead
+        <ObsidianSectionHead
           id="events"
           title="Active events"
           blurb="What's live right now and when each one closes."
@@ -155,7 +127,7 @@ export default function HomePage() {
       </div>
 
       <div className="og-section">
-        <SectionHead
+        <ObsidianSectionHead
           id="resets"
           title="Reset timers"
           blurb="Daily and weekly resets, shown for your server region."
@@ -164,7 +136,7 @@ export default function HomePage() {
       </div>
 
       <div className="og-section">
-        <SectionHead
+        <ObsidianSectionHead
           id="codes"
           title="Working redeem codes"
           blurb="Every code verified against multiple sources before it lands here."

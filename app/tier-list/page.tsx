@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import OgPageHero from "@/components/OgPageHero";
+import ObsidianToolbar from "@/components/ObsidianToolbar";
+import ShareButton from "@/components/ShareButton";
+import UpdatedStamp from "@/components/UpdatedStamp";
 import tierList from "@/data/tier-list.json";
 import { characterSlugs, getCharacter, isPreRelease } from "@/lib/characters";
 import { elementColor } from "@/lib/elements";
@@ -42,18 +46,40 @@ export default function TierListPage() {
 
   return (
     <>
-      <div className="og-page-hero">
-        <p className="og-page-kicker">
-          Version {tierList.version} · Updated {tierList.updatedAt}
-        </p>
-        <h1 className="og-page-title og-display">Character Tier List</h1>
-        <p className="og-page-lede">{tierList.note}</p>
-      </div>
+      <OgPageHero
+        kicker={`Version ${tierList.version} · Updated ${tierList.updatedAt}`}
+        title="Character Tier List"
+        lede={tierList.note}
+        meta={
+          <>
+            <UpdatedStamp />
+            <ShareButton />
+          </>
+        }
+      />
+
+      <ObsidianToolbar
+        label="Tier rows"
+        items={[
+          { href: "#tier-ss", label: "SS" },
+          { href: "#tier-s", label: "S" },
+          { href: "#tier-a", label: "A" },
+          { href: "#tier-b", label: "B" },
+          ...(unranked.length > 0
+            ? [{ href: "#unranked", label: "Unranked" }]
+            : []),
+        ]}
+      />
 
       {rows.map((row) => {
         const badgeClass = TIER_BADGE_CLASS[row.tier] ?? "og-tier-badge tier-B";
         return (
-          <section key={row.tier} className="og-tier-row" aria-label={`Tier ${row.tier}`}>
+          <section
+            key={row.tier}
+            id={`tier-${row.tier.toLowerCase()}`}
+            className="og-tier-row"
+            aria-label={`Tier ${row.tier}`}
+          >
             <h2 className="og-tier-side" style={{ margin: 0 }}>
               <span className={badgeClass}>{row.tier}</span>
               <span className="og-tier-label">{row.label}</span>
@@ -117,7 +143,7 @@ export default function TierListPage() {
       })}
 
       {unranked.length > 0 && (
-        <div className="og-tier-unranked" role="note">
+        <div id="unranked" className="og-tier-unranked" role="note">
           <p style={{ margin: 0 }}>
             <strong>Not yet ranked: </strong>
             {unranked.map((c, i) => (
