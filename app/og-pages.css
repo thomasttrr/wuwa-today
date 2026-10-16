@@ -529,6 +529,72 @@
 }
 .og-showmore .og-weapons { margin-top: 0.75rem; }
 
+/* --- border beam: rank-1 (BiS) weapon plate --------------------------------
+   A slow, subtle beam of platinum light travels around the card border —
+   the feel of https://border-beam.vercel.app/, CSS-only (no JS, no deps).
+   Chrome/platinum-white only — never gold (gold is rationed to time/urgency).
+   Always-on (mobile-first, no hover dependence). Only .og-weapon-bis gets the
+   beam; .og-weapon (ranks 2+) below is left pixel-identical. */
+
+@property --og-beam-angle {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+
+@keyframes og-beam-spin {
+  to { --og-beam-angle: 360deg; }
+}
+
+.og-weapon-bis { position: relative; } /* anchors the beam layer */
+
+/* The beam is a pseudo-element ring drawn exactly over the card's own 1px
+   border, masked to the border area so content and box geometry are untouched. */
+.og-weapon-bis::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: calc(var(--og-radius-card) + 1px);
+  padding: 1px;
+  pointer-events: none;
+  background:
+    conic-gradient(
+      from var(--og-beam-angle, 0deg),
+      transparent 0turn,
+      transparent 0.70turn,
+      rgba(226, 232, 245, 0.18) 0.78turn,
+      rgba(238, 243, 252, 0.55) 0.85turn,
+      rgba(255, 255, 255, 0.80) 0.875turn,
+      rgba(238, 243, 252, 0.55) 0.90turn,
+      rgba(226, 232, 245, 0.18) 0.97turn,
+      transparent 1turn
+    );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+}
+
+/* Motion runs only when the user has not asked for reduced motion. A full
+   loop takes 12s — slow, smooth, tidy. */
+@media (prefers-reduced-motion: no-preference) {
+  .og-weapon-bis::before {
+    animation: og-beam-spin 12s linear infinite;
+  }
+}
+
+/* Reduced motion: no animation — a static, slightly brighter refined edge. */
+@media (prefers-reduced-motion: reduce) {
+  .og-weapon-bis::before {
+    animation: none;
+    background: rgba(226, 232, 245, 0.30);
+  }
+}
+
+/* Fallback for browsers without @property: the var() fallback (0deg) keeps
+   the gradient valid, so the beam renders as a static arc on the border and
+   the card's own border stays visible beneath it. */
+
 /* --- echo plates: solid cards ---------------------------------------------- */
 
 .og-echo-plates {
