@@ -162,7 +162,7 @@ export default async function CharacterPage({
   const showTierBadge = tier !== null && tier.tier !== "UNKNOWN";
   const { prev, next } = prevNextCharacter(slug);
 
-  const kicker = `${p.element} · ${p.weapon_type} · ${"★".repeat(p.rarity)}`;
+  const kicker = `${p.element} · ${p.weapon_type}`;
 
   const visibleWeapons = build.ranked_weapons.slice(0, 4);
   const extraWeapons = build.ranked_weapons.slice(4);
@@ -201,6 +201,9 @@ export default async function CharacterPage({
               ) : (
                 <span className="og-char-badge og-char-badge-dim">Pre-release · Not ranked</span>
               )}
+              <span className={`og-rarity-badge rarity-${p.rarity}`}>
+                {p.rarity}★
+              </span>
               {showTierBadge && <span className="og-char-badge">{tier.label}</span>}
               <span className="og-char-badge">{p.role}</span>
               <span className="og-char-badge">
