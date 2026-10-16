@@ -111,6 +111,8 @@ export interface CharacterBuild {
   fast_path: string;
   ranked_weapons: RankedWeapon[];
   echo_sets: EchoSetEntry[];
+  /** Optional one-line note rendered under the echo-set plates. */
+  echo_set_note?: string;
   /** Echo cost layout, e.g. "4-3-3-1-1". */
   cost_layout: string;
   stat_priorities: StatPriority[];
