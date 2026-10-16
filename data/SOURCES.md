@@ -27,6 +27,12 @@ No new codes. `WUTHERINGGIFT` still the only code listed by shanethegamer.com (O
 
 Official patch notes (via https://openrss.org/wutheringwaves.kurogames.com/en/main, re-checked this evening) confirm the full event calendar matches `events.json`: Artisan's Search Oct 8–26 (03:59), Echo Erase Oct 22–Nov 9, Beyond the Waves Oct 29–Nov 11, Waking Moon Fishing Oct 15–Nov 1, Gifts of Singing Drizzle Oct 22–Nov 11. No new events announced. News search (Oct 15) surfaced no new banners, codes, or events — the 3.8 preview broadcast is still unannounced.
 
+## All data (re-checked 2026-10-16, midday ~12:30 EDT)
+
+Codes: no new codes. `WUTHERINGGIFT` still the only standing official code (urgametips.com checked today, shanethegamer.com Oct 12, Game8, gachago.com). `DVME2MOHOQJT` still listed as NEW/permanent active by beebom.com and supercheats.com — remains published per the two-source rule. axeetech.com still stale (lists expired STARRYSTAGE2/KEEPONSHINING as active). Next codes expected with the Version 3.8 Preview Special Broadcast, estimated ~Oct 31–Nov 1 (Kuro has not confirmed).
+Banners: no changes — Phase 1 (Hsin/Chisa/Iuno) active through ~Oct 22; Phase 2 (Suoming/Lynae/Lucilla + Lumi/Danjin/Chixia) unchanged. 3.8 preview broadcast still unannounced (sportskeeda: "in the coming days"). Lily drip-marketing (official Resonator Archive Preview, Oct 8 — 5★ Spectro Pistols) already on site as pre-release page; no official banner announcement yet.
+Events: official news feed (https://openrss.org/wutheringwaves.kurogames.com/en/main, re-checked ~12:30 EDT) still shows only the 3.7 patch notes; the published calendar matches exactly. No new events. No data changes; no push.
+
 ## All data (re-checked 2026-10-16, ~06:30 EDT)
 
 Codes: no new codes. `WUTHERINGGIFT` still the only standing official code (urgametips.com re-checked Oct 16, Game8, shanethegamer.com, gachago.com). `DVME2MOHOQJT` still listed as NEW/permanent active by beebom.com and supercheats.com — remains published per the two-source rule (keygold.gg's Oct 14 list marks it "unconfirmed" but does not call it dead; not a removal trigger). axeetech.com still stale (lists expired STARRYSTAGE2/KEEPONSHINING as active; both expired Oct 13 per keygold.gg).
