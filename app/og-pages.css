@@ -530,11 +530,12 @@
 .og-showmore .og-weapons { margin-top: 0.75rem; }
 
 /* --- border beam: rank-1 (BiS) weapon plate --------------------------------
-   A slow, subtle beam of platinum light travels around the card border —
+   A slow, subtle beam of warm golden light travels around the card border —
    the feel of https://border-beam.vercel.app/, CSS-only (no JS, no deps).
-   Chrome/platinum-white only — never gold (gold is rationed to time/urgency).
-   Always-on (mobile-first, no hover dependence). Only .og-weapon-bis gets the
-   beam; .og-weapon (ranks 2+) below is left pixel-identical. */
+   Slightly golden tint per Tom's direction (gold otherwise rationed to
+   time/urgency). Always-on (mobile-first, no hover dependence). Only
+   .og-weapon-bis gets the beam; .og-weapon (ranks 2+) below is left
+   pixel-identical. */
 
 @property --og-beam-angle {
   syntax: "<angle>";
@@ -562,11 +563,11 @@
       from var(--og-beam-angle, 0deg),
       transparent 0turn,
       transparent 0.70turn,
-      rgba(226, 232, 245, 0.18) 0.78turn,
-      rgba(238, 243, 252, 0.55) 0.85turn,
-      rgba(255, 255, 255, 0.80) 0.875turn,
-      rgba(238, 243, 252, 0.55) 0.90turn,
-      rgba(226, 232, 245, 0.18) 0.97turn,
+      rgba(240, 228, 200, 0.18) 0.78turn,
+      rgba(250, 240, 214, 0.55) 0.85turn,
+      rgba(255, 248, 232, 0.80) 0.875turn,
+      rgba(250, 240, 214, 0.55) 0.90turn,
+      rgba(240, 228, 200, 0.18) 0.97turn,
       transparent 1turn
     );
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
@@ -576,10 +577,10 @@
 }
 
 /* Motion runs only when the user has not asked for reduced motion. A full
-   loop takes 12s — slow, smooth, tidy. */
+   loop takes 10.2s — slow, smooth, tidy. */
 @media (prefers-reduced-motion: no-preference) {
   .og-weapon-bis::before {
-    animation: og-beam-spin 12s linear infinite;
+    animation: og-beam-spin 10.2s linear infinite;
   }
 }
 
@@ -587,7 +588,7 @@
 @media (prefers-reduced-motion: reduce) {
   .og-weapon-bis::before {
     animation: none;
-    background: rgba(226, 232, 245, 0.30);
+    background: rgba(240, 228, 200, 0.30);
   }
 }
 
