@@ -4,7 +4,6 @@ import OgPageHero from "@/components/OgPageHero";
 import ObsidianSectionHead from "@/components/ObsidianSectionHead";
 import ObsidianToolbar from "@/components/ObsidianToolbar";
 import Reveal from "@/components/Reveal";
-import ShareButton from "@/components/ShareButton";
 import UpdatedStamp from "@/components/UpdatedStamp";
 
 export const metadata: Metadata = {
@@ -24,11 +23,10 @@ export default function BeginnerConveneGuide() {
       <OgPageHero
         kicker="Beginner guides · Convene guide"
         title="Beginner banners, decoded"
-        lede="Your first banners hand you a guaranteed 5-star for a discount — then let you pick one outright. Pull both, touch nothing else until you understand pity, and your account starts miles ahead."
+        lede="Your first banners hand you a guaranteed 5-star at a discount — then let you pick one outright. Pull the beginner banners your account shows, touch nothing else until you understand pity, and your account starts miles ahead."
         meta={
           <>
             <UpdatedStamp />
-            <ShareButton />
           </>
         }
       />
@@ -47,29 +45,31 @@ export default function BeginnerConveneGuide() {
         <ObsidianSectionHead
           id="flow"
           title="The beginner banner flow"
-          blurb="Two banners, back to back — both hand you a guaranteed 5-star."
+          blurb="Whichever starter flow your account shows, it hands you a guaranteed 5-star — check your in-game Convene list for which one applies to you."
         />
         <div className="grid grid-2">
           <Reveal>
             <section className="og-pick-card" aria-label="Utterance of Marvels">
-              <span className="og-kicker">Step 1 · discounted novice banner</span>
+              <span className="og-kicker">Classic flow · discounted novice banner</span>
               <h3>Utterance of Marvels</h3>
               <ul className="og-q-list">
                 <li>
-                  After <strong>50 pulls</strong> you&apos;re guaranteed one
-                  random 5-star from the standard pool: Verina, Encore,
-                  Calcharo, Jianxin, or Lingyang.
+                  <strong>Discounted pulls:</strong> 10 pulls cost just 8
+                  Lustrous Tides. After <strong>50 pulls</strong> you&apos;re
+                  guaranteed one random 5-star from the standard pool:
+                  Verina, Encore, Calcharo, Jianxin, or Lingyang.
                 </li>
                 <li>
                   Once it resolves, this banner is <strong>replaced</strong> by
-                  Beginner&apos;s Choice Convene.
+                  Beginner&apos;s Choice Convene. Its pity does not carry
+                  over to other banners.
                 </li>
               </ul>
             </section>
           </Reveal>
           <Reveal delay={70}>
             <section className="og-pick-card" aria-label="Beginner's Choice Convene">
-              <span className="og-kicker">Step 2 · your pick, guaranteed</span>
+              <span className="og-kicker">Classic flow · your pick, guaranteed</span>
               <h3>Beginner&apos;s Choice Convene</h3>
               <ul className="og-q-list">
                 <li>

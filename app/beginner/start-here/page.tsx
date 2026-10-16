@@ -5,7 +5,6 @@ import OgPageHero from "@/components/OgPageHero";
 import ObsidianSectionHead from "@/components/ObsidianSectionHead";
 import ObsidianToolbar from "@/components/ObsidianToolbar";
 import Reveal from "@/components/Reveal";
-import ShareButton from "@/components/ShareButton";
 import UpdatedStamp from "@/components/UpdatedStamp";
 import { getCharacter } from "@/lib/characters";
 
@@ -21,7 +20,7 @@ const FREE_SLugs = [
   { slug: "yangyang", how: "Joins you during the Prologue, alongside Chixia." },
   { slug: "chixia", how: "Joins you during the Prologue, alongside Yangyang." },
   { slug: "baizhi", how: "Tutorial convene at Huaxu Academy (talk to Mortefi). Reported by reroll guides; second source pending." },
-  { slug: "sanhua", how: "Log in 5 of 7 days — “Gifts of Thawing Frost” event (+ Lustrous and Radiant Tides along the way)." },
+  { slug: "sanhua", how: "Launch-era 5-day login reward (\"Gifts of Thawing Frost\", day 5) — how Sanhua is earned today may vary by patch; check the current login events in-game." },
   { slug: "yuanwu", how: "Clear the Stable Zone in the Tower of Adversity." },
 ];
 
@@ -57,7 +56,6 @@ export default function BeginnerStartHere() {
         meta={
           <>
             <UpdatedStamp />
-            <ShareButton />
           </>
         }
       />

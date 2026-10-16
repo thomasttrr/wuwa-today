@@ -4,7 +4,6 @@ import OgPageHero from "@/components/OgPageHero";
 import ObsidianSectionHead from "@/components/ObsidianSectionHead";
 import ObsidianToolbar from "@/components/ObsidianToolbar";
 import Reveal from "@/components/Reveal";
-import ShareButton from "@/components/ShareButton";
 import UpdatedStamp from "@/components/UpdatedStamp";
 
 export const metadata: Metadata = {
@@ -71,7 +70,6 @@ export default function BeginnerMistakes() {
         meta={
           <>
             <UpdatedStamp />
-            <ShareButton />
           </>
         }
       />

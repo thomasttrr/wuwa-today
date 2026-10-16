@@ -4,7 +4,6 @@ import OgPageHero from "@/components/OgPageHero";
 import ObsidianSectionHead from "@/components/ObsidianSectionHead";
 import ObsidianTeamCard from "@/components/ObsidianTeamCard";
 import Reveal from "@/components/Reveal";
-import ShareButton from "@/components/ShareButton";
 import UpdatedStamp from "@/components/UpdatedStamp";
 import type { Team } from "@/lib/guides";
 
@@ -61,7 +60,7 @@ const TEAMS: Team[] = [
         slug: "sanhua",
         role: "Sub-DPS",
         element: "Glacio",
-        note: "Free on day 5 of login; a strong sub-DPS who amplifies the on-field carry.",
+        note: "Launch-era 5-day login reward — current acquisition may vary by patch; check your login events in-game. A strong sub-DPS who amplifies the on-field carry.",
       },
       {
         name: "Baizhi",
@@ -119,7 +118,6 @@ export default function BeginnerFirstTeams() {
         meta={
           <>
             <UpdatedStamp />
-            <ShareButton />
           </>
         }
       />

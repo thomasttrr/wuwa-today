@@ -3,7 +3,6 @@ import Image from "next/image";
 import Link from "next/link";
 import OgPageHero from "@/components/OgPageHero";
 import Reveal from "@/components/Reveal";
-import ShareButton from "@/components/ShareButton";
 import UpdatedStamp from "@/components/UpdatedStamp";
 
 export const metadata: Metadata = {
@@ -58,7 +57,6 @@ export default function BeginnerHub() {
         meta={
           <>
             <UpdatedStamp />
-            <ShareButton />
           </>
         }
       />
