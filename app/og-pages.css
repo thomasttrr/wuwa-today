@@ -574,6 +574,7 @@
 .og-usage-alt { border: 1px solid var(--og-hairline); color: var(--og-muted); }
 .og-echo-plate p { color: var(--og-muted); font-size: 0.9rem; line-height: 1.55; margin: 0.45rem 0 0; }
 .og-echo-plate p strong { color: var(--og-ink); }
+.og-echo-note { color: var(--og-muted); font-size: 0.9rem; line-height: 1.55; margin: 0.75rem 0 0; }
 
 /* --- stat priorities: solid panel, honest ordinal bars --------------------- */
 

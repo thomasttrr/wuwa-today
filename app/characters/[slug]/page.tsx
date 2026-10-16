@@ -269,6 +269,9 @@ export default async function CharacterPage({
                 <EchoPlate key={s.name} set={s} />
               ))}
             </div>
+            {build.echo_set_note ? (
+              <p className="og-echo-note">{build.echo_set_note}</p>
+            ) : null}
           </Reveal>
 
           <Reveal>
