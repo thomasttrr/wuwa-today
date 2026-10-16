@@ -14,7 +14,7 @@ import { getPrefarmGuide } from "../../lib/prefarm";
 export const metadata: Metadata = {
   title: "Pull Planner — Who to Pull in Version 3.7",
   description:
-    "Version 3.7 pull planner: pull Hsin or save for Suoming, F2P guarantee priorities, and whether Lynae and Lucilla are worth it — every pick traced to a verified pull verdict.",
+    "Version 3.7 pull planner: pull Hsin or save for Suoming, F2P guarantee priorities, whether Lynae and Lucilla are worth it, and whether to save for Lily in 3.8 — every pick traced to a verified pull verdict.",
   alternates: { canonical: "/pull-planner" },
 };
 
@@ -265,6 +265,38 @@ export default function PullPlannerPage() {
               <p className="og-q-links">
                 <Link href="/characters/chisa">Chisa verdict</Link> ·{" "}
                 <Link href="/characters/iuno">Iuno verdict</Link>
+              </p>
+            </>
+          </QuestionCard>
+          <QuestionCard question="Question 5" title="Pull 3.7 Phase 2 or save for Lily (3.8)?" delay={0}>
+            <>
+              <ul className="og-q-list">
+                <li>
+                  <strong>What’s official:</strong> Lily is a 5-star Spectro
+                  Pistols Resonator announced for Version 3.8. Her kit has not
+                  been revealed — so nobody can honestly rank her yet.
+                </li>
+                <li>
+                  <strong>Pull Phase 2 if:</strong> you have Hsin (Suoming is
+                  her best partner), you don’t own Lynae (the safest rerun of
+                  3.7), or Lucilla fits your Hiyuki / Glacio / Echo-Skill
+                  account.
+                </li>
+                <li>
+                  <strong>Save for Lily if:</strong> Phase 2 offers you nothing
+                  new — and only if you’re comfortable waiting. Her 3.8 timing
+                  is an <em>estimate</em>, not an officially announced date.
+                </li>
+                <li>
+                  <strong>Bottom line:</strong> a guaranteed strong pull now
+                  beats a hypothetical later. Only hold Astrite for Lily if
+                  your roster can genuinely wait.
+                </li>
+              </ul>
+              <p className="og-q-links">
+                <Link href="/characters/suoming">Suoming verdict</Link> ·{" "}
+                <Link href="/characters/lynae">Lynae verdict</Link> ·{" "}
+                <Link href="/characters/lily">Lily preview</Link>
               </p>
             </>
           </QuestionCard>
