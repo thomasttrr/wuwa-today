@@ -1,6 +1,6 @@
 # Sources
 
-Every fact in `data/` was checked against these sources. Code data last checked on **2026-10-15** (morning); banner data last checked on **2026-10-14**; event schedule refreshed on **2026-10-15** (morning, official patch-note times for Waking Moon Fishing and Back to Solaris). Source URLs are also stored per-record in the JSON files.
+Every fact in `data/` was checked against these sources. Code data last checked on **2026-10-16** (morning); banner data last checked on **2026-10-16** (morning); event schedule refreshed on **2026-10-15** (morning, official patch-note times for Waking Moon Fishing and Back to Solaris). Source URLs are also stored per-record in the JSON files.
 
 ## Banners (Version 3.7)
 
@@ -26,6 +26,12 @@ No new codes. `WUTHERINGGIFT` still the only code listed by shanethegamer.com (O
 ## Events (re-checked 2026-10-15, evening)
 
 Official patch notes (via https://openrss.org/wutheringwaves.kurogames.com/en/main, re-checked this evening) confirm the full event calendar matches `events.json`: Artisan's Search Oct 8–26 (03:59), Echo Erase Oct 22–Nov 9, Beyond the Waves Oct 29–Nov 11, Waking Moon Fishing Oct 15–Nov 1, Gifts of Singing Drizzle Oct 22–Nov 11. No new events announced. News search (Oct 15) surfaced no new banners, codes, or events — the 3.8 preview broadcast is still unannounced.
+
+## All data (re-checked 2026-10-16, morning)
+
+Codes: no new codes. `WUTHERINGGIFT` still the only standing official code (urgametips.com checked Oct 15, shanethegamer.com Oct 12, gachago.com, game8.co). `DVME2MOHOQJT` still listed as NEW/permanent active by beebom.com and supercheats.com — remains published per the two-source rule. axeetech.com still stale (lists expired STARRYSTAGE2/KEEPONSHINING as active). Next codes expected with the 3.8 Preview Special Broadcast, estimated ~Oct 31–Nov 1 per keygold.gg (Kuro has not confirmed).
+Banners: no changes — Game8 banner page confirms Phase 1 Sep 30–Oct 22 (Hsin/Chisa/Iuno) and Phase 2 Oct 22–Nov 11 (Suoming/Lynae/Lucilla + Lumi/Danjin/Chixia), matching `banners.json`. 3.8 drip marketing so far shows Lily (5★ Spectro Pistols, leaked/unofficial) — not yet an official banner announcement; not published.
+Events: official news feed (https://openrss.org/wutheringwaves.kurogames.com/en/main, re-checked Oct 16) still shows only the 3.7 patch notes; the published calendar matches exactly. No new events. No data changes; no push.
 
 ## Guides (published 2026-10-14)
 
