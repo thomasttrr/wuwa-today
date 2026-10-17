@@ -1115,7 +1115,12 @@
 }
 .og-team-note {
   display: grid;
-  grid-template-columns: auto minmax(0, 1fr);
+  /* Fixed name column so every row's description starts at the same
+     x-position regardless of name length (was `auto`, which sized the
+     column per-row and produced ragged alignment). 10rem fits the longest
+     team-member name on the site ("Yangyang Xuanling", 17 chars, bold) at
+     mobile widths without truncation. */
+  grid-template-columns: 10rem minmax(0, 1fr);
   gap: 0.45rem 0.75rem;
   font-size: 0.88rem;
   line-height: 1.55;
