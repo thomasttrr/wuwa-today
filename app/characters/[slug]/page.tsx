@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Reveal from "@/components/Reveal";
 import ObsidianSectionHead from "@/components/ObsidianSectionHead";
+import ObsidianSequences from "@/components/ObsidianSequences";
 import ObsidianTeamCard from "@/components/ObsidianTeamCard";
 import { MaterialRows } from "@/components/MaterialTable";
 import type { MaterialEntry } from "@/lib/character-schema";
@@ -325,6 +326,19 @@ export default async function CharacterPage({
           </Reveal>
         </div>
       </section>
+
+      {/* Resonance Chain */}
+      {char.sequences && (
+        <section className="og-section" aria-label="Resonance Chain">
+          <ObsidianSectionHead
+            title="Resonance Chain"
+            blurb={char.sequences.verdict}
+          />
+          <Reveal>
+            <ObsidianSequences sequences={char.sequences} />
+          </Reveal>
+        </section>
+      )}
 
       {/* Pre-farm materials */}
       {char.materials && (

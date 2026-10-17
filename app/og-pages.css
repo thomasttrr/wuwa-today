@@ -535,7 +535,9 @@
    Slightly golden tint per Tom's direction (gold otherwise rationed to
    time/urgency). Always-on (mobile-first, no hover dependence). Only
    .og-weapon-bis gets the beam; .og-weapon (ranks 2+) below is left
-   pixel-identical. */
+   pixel-identical. The same treatment is shared with the best-value stop
+   card on the Resonance Chain aim-order rail (.og-seq-best) — the one
+   place it "makes sense" there, per the sequences brief. */
 
 @property --og-beam-angle {
   syntax: "<angle>";
@@ -548,10 +550,12 @@
 }
 
 .og-weapon-bis { position: relative; } /* anchors the beam layer */
+.og-seq-best { position: relative; } /* anchors the beam layer */
 
 /* The beam is a pseudo-element ring drawn exactly over the card's own 1px
    border, masked to the border area so content and box geometry are untouched. */
-.og-weapon-bis::before {
+.og-weapon-bis::before,
+.og-seq-best::before {
   content: "";
   position: absolute;
   inset: -1px;
@@ -579,14 +583,16 @@
 /* Motion runs only when the user has not asked for reduced motion. A full
    loop takes 10.2s — slow, smooth, tidy. */
 @media (prefers-reduced-motion: no-preference) {
-  .og-weapon-bis::before {
+  .og-weapon-bis::before,
+  .og-seq-best::before {
     animation: og-beam-spin 10.2s linear infinite;
   }
 }
 
 /* Reduced motion: no animation — a static, slightly brighter refined edge. */
 @media (prefers-reduced-motion: reduce) {
-  .og-weapon-bis::before {
+  .og-weapon-bis::before,
+  .og-seq-best::before {
     animation: none;
     background: rgba(240, 228, 200, 0.30);
   }
@@ -595,6 +601,146 @@
 /* Fallback for browsers without @property: the var() fallback (0deg) keeps
    the gradient valid, so the beam renders as a static arc on the border and
    the card's own border stays visible beneath it. */
+
+/* --- resonance chain: aim-order rail ---------------------------------------
+   Option A presentation. Solid surfaces (data pages never use glass), the
+   single best-value stop carries the gold dot + beam ring. Mobile: swipeable
+   rail; desktop: even 4-across grid. */
+
+.og-seq-rail {
+  list-style: none;
+  margin: 0;
+  padding: 0.25rem 0 0.75rem;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(10.5rem, 1fr);
+  gap: 0.6rem;
+  overflow-x: auto;
+  scroll-snap-type: x proximity;
+  -webkit-overflow-scrolling: touch;
+}
+@media (min-width: 760px) {
+  .og-seq-rail {
+    grid-auto-flow: row;
+    grid-template-columns: repeat(4, 1fr);
+    overflow: visible;
+  }
+}
+.og-seq-stop {
+  scroll-snap-align: start;
+  background: var(--og-surface);
+  border: 1px solid var(--og-hairline-soft);
+  border-radius: var(--og-radius-card);
+  padding: 0.9rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  min-width: 0;
+}
+.og-seq-stopnum {
+  font-family: var(--og-display);
+  font-weight: 700;
+  font-size: 1.3rem;
+  letter-spacing: 0.02em;
+  color: var(--og-ink);
+}
+.og-seq-tag {
+  font-family: var(--og-display);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--og-muted);
+}
+.og-seq-why {
+  margin: 0;
+  font-size: 0.86rem;
+  line-height: 1.5;
+  color: var(--og-muted);
+}
+/* Gold dot: the single rationed gold accent on this section, marking the
+   best-value stop. */
+.og-seq-golddot {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--og-gold);
+  pointer-events: none;
+}
+
+/* All-six-nodes list: compact rows, monochrome priority chips. */
+.og-seq-all { margin-top: 0.5rem; }
+.og-seq-nodes {
+  list-style: none;
+  margin: 0.75rem 0 0;
+  padding: 0;
+  display: grid;
+  gap: 0.5rem;
+}
+.og-seq-node {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.8rem;
+  background: var(--og-surface);
+  border: 1px solid var(--og-hairline-soft);
+  border-radius: var(--og-radius-card);
+  padding: 0.75rem 0.9rem;
+}
+.og-seq-n {
+  font-family: var(--og-mono);
+  font-variant-numeric: tabular-nums;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--og-muted);
+  flex: none;
+  padding-top: 0.15rem;
+}
+.og-seq-node-main { min-width: 0; flex: 1; }
+.og-seq-name {
+  margin: 0 0 0.2rem;
+  font-weight: 700;
+  font-size: 0.92rem;
+  color: var(--og-ink);
+}
+.og-seq-effect {
+  margin: 0;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: var(--og-muted);
+}
+.og-prio {
+  flex: none;
+  font-family: var(--og-display);
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  padding: 0.28rem 0.7rem;
+  border-radius: var(--og-radius-pill);
+  border: 1px solid var(--og-hairline);
+  color: var(--og-muted);
+}
+.og-prio-key { background: #ffffff; border-color: #ffffff; color: #0b0b0d; }
+.og-prio-value { border-color: rgba(255, 255, 255, 0.28); color: var(--og-ink); }
+.og-prio-comfort { color: var(--og-ink); }
+.og-prio-whale { border-style: dashed; }
+.og-prio-skip { opacity: 0.55; }
+
+.og-seq-weapon {
+  margin: 0.9rem 0 0;
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: var(--og-muted);
+}
+
+.og-seq-provenance {
+  margin: 0.6rem 0 0;
+  font-size: 0.76rem;
+  line-height: 1.5;
+  color: var(--og-muted);
+  opacity: 0.75;
+}
 
 /* --- echo plates: solid cards ---------------------------------------------- */
 
