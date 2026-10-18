@@ -30,6 +30,20 @@ export default function HomePage() {
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            name: "WuWa Today",
+            alternateName: "Wuthering Waves Today",
+            url: "https://wuwa-today.vercel.app/",
+            description:
+              "Daily Wuthering Waves hub: current banners with countdowns, working redeem codes, active events, reset timers, and character build guides.",
+          }),
+        }}
+      />
       {/* The one full-bleed moment on the landing page: official key art,
           dark scrim, one monumental headline, one ghost CTA. */}
       <section className="og-hero" aria-label="Today in Wuthering Waves">

@@ -38,8 +38,9 @@ export async function generateMetadata({
   return {
     title: `${char.name} Build Guide — Best Weapons, Echoes & Teams`,
     description:
-      `${char.name} (${p.element} ${p.weapon_type}) build guide for version ${char.game_version}: ` +
-      `${char.pull_verdict.verdict_label}. Ranked weapons, echo sets, stat priorities, and team comps.`,
+      `${char.name} build guide for Wuthering Waves ${char.game_version}: ` +
+      `best weapons, echo sets, teams, and Resonance Chain sequence pull ` +
+      `priorities for the ${p.element} ${p.weapon_type}.`,
     alternates: { canonical: `/characters/${slug}` },
   };
 }
