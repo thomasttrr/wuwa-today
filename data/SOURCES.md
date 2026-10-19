@@ -162,3 +162,42 @@ Routes: /pre-farm, /pre-farm/suoming, /pre-farm/lynae, /pre-farm/lucilla. Materi
 
 ## Pre-farm material icons (2026-10-15)
 - 15 item icons in `public/images/items/` (FF Howler Core, Layered Wing Polarizer, Forged Empyrean's Sigh, Miasmic Branch, Remnant of the Wheel, Shell Credit, FF Exoswarm Core, Reverb Combustor, Dreamless Feather, Forget-Me-Not, Rimewisp, FF Mech Core, Melodic String, Suncoveter's Reach, We Who Question) downloaded from Game8 item pages (img.game8.co), matched by item name on the page; tiered materials use the highest-tier icon. 120×120 PNGs.
+
+## All data (re-checked 2026-10-17, ~12:30 EDT)
+
+Codes: no new codes. `WUTHERINGGIFT` still the only verified active code (urgametips.com checked Oct 17, keygold.gg Oct 14, shanethegamer.com Oct 12, topuplive.com). `DVME2MOHOQJT` remains excluded per Tom's 2026-10-16 order — no second independent aggregator confirmation surfaced. DARKSIDE/RABBITHOLE/RUNEREADER confirmed expired (topuplive.com). Next codes expected with the Version 3.8 Preview Special Broadcast, estimated ~Oct 31–Nov 1 (Kuro has not confirmed).
+Banners: no changes — Phase 1 (Hsin/Chisa/Iuno) active through ~Oct 22; Phase 2 (Suoming/Lynae/Lucilla + Lumi/Danjin/Chixia) unchanged. 3.8 preview broadcast still unannounced; Lily drip-marketing status unchanged (official Oct 8 Resonator Archive Preview, 5★ Spectro Pistols — already on site as pre-release page; no official banner announcement).
+Events: official news feed (https://openrss.org/wutheringwaves.kurogames.com/en/main, full 3.7 patch-notes feed re-checked) still shows only the 3.7 patch notes; published calendar matches exactly. No new events. No data changes; no push.
+
+## All data (re-checked 2026-10-17, ~18:30 EDT)
+
+Codes: no new codes. `WUTHERINGGIFT` still the only verified active code (urgametips.com checked Oct 17, topuplive.com, lootbar.com, shanethegamer.com Oct 12, keygold.gg Oct 14, buffbuff.com). `DVME2MOHOQJT` not on any fresh aggregator list — remains excluded per Tom's 2026-10-16 pull order (no official Kuro announcement, keygold "Unconfirmed"). Next codes expected with the Version 3.8 Preview Special Broadcast, estimated ~Oct 30–Nov 1 (u7buy/keygold estimates; Kuro has not confirmed).
+Banners: no changes — Phase 1 (Hsin/Chisa/Iuno) active through ~Oct 22; Phase 2 (Suoming/Lynae/Lucilla + Lumi/Danjin/Chixia) unchanged. 3.8 preview broadcast still unannounced; Lily drip-marketing status unchanged (official Oct 8 Resonator Archive Preview, 5★ Spectro Pistols — already on site as pre-release page). Remaining 3.8 lineup (Sigrika/Hiyuki, conflicting Augusta/Galbrena Phase 2) is leaks-only; not published.
+Events: official news feed (https://openrss.org/wutheringwaves.kurogames.com/en/main, full 3.7 patch-notes feed re-checked) still shows only the 3.7 patch notes; published calendar matches exactly (Game8 event schedule, crawled 1 day ago, corroborates every date). No new events. No data changes; no push.
+
+## All data (re-checked 2026-10-18, ~06:27 EDT)
+
+Codes: no new codes. `WUTHERINGGIFT` still the only verified active code (urgametips.com re-checked today, shanethegamer.com Oct 12, keygold.gg Oct 14, lootbar.com). `DVME2MOHOQJT` not on any fresh list — remains excluded per Tom's 2026-10-16 pull order (no official Kuro announcement, keygold "Unconfirmed", no second tracker). u7buy.com page stale (still lists expired STARRYSTAGE2/KEEPONSHINING as active); fossbytes stale (lists expired 3.7 livestream codes as NEW). Next codes expected with the Version 3.8 Preview Special Broadcast, estimated ~Oct 31–Nov 1 (Kuro has not confirmed; broadcast still unannounced).
+Banners: no changes — Phase 1 (Hsin/Chisa/Iuno) active through ~Oct 22; Phase 2 (Suoming/Lynae/Lucilla + Lumi/Danjin/Chixia) unchanged. 3.8 preview broadcast still unannounced; Lily drip-marketing status unchanged (official Oct 8 Resonator Archive Preview, 5★ Spectro Pistols — already on site as pre-release page; no official banner announcement). Remaining 3.8 lineup is leaks-only; not published.
+Events: official news feed (https://openrss.org/wutheringwaves.kurogames.com/en/main, full 3.7 patch-notes feed re-checked) still shows only the 3.7 patch notes; published calendar matches exactly. No new events, no status flips.
+No data changes; no push.
+
+## All data (re-checked 2026-10-18, ~12:30 EDT)
+
+Codes: no new codes. `WUTHERINGGIFT` still the only verified active code (urgametips.com "Checked for latest codes in October 2026" — only WUTHERINGGIFT; shanethegamer.com Oct 12; keygold.gg FAQ "as of October 14, WUTHERINGGIFT is the only confirmed working code"; topuplive.com lists only WUTHERINGGIFT as active with a full expired archive). `DVME2MOHOQJT` not on any fresh list — remains excluded per Tom's 2026-10-16 pull order (no official Kuro announcement, keygold "Unconfirmed"). u7buy.com page stale (still lists expired STARRYSTAGE2/KEEPONSHINING as active); fossbytes stale (lists expired 3.7 livestream codes as NEW). Next codes expected with the Version 3.8 Preview Special Broadcast, estimated ~Oct 31–Nov 1 (keygold.gg estimate; Kuro has not confirmed; broadcast still unannounced).
+Banners: no changes — Phase 1 (Hsin/Chisa/Iuno) active through ~Oct 22; Phase 2 (Suoming/Lynae/Lucilla + Lumi/Danjin/Chixia) unchanged. 3.8 preview broadcast still unannounced; Lily drip-marketing status unchanged (official Oct 8 Resonator Archive Preview, 5★ Spectro Pistols — already on site as pre-release page; no official banner announcement). Remaining 3.8 lineup is leaks-only; not published.
+Events: official news feed (https://openrss.org/wutheringwaves.kurogames.com/en/main, full 3.7 patch-notes feed re-read this run) still shows only the 3.7 patch notes; published calendar matches exactly. No new events, no status flips.
+No data changes; no push.
+
+## All data (re-checked 2026-10-19, ~00:30 EDT)
+
+Codes: no new codes. `WUTHERINGGIFT` still the only verified active code (~8 independent aggregators: urgametips.com re-verified Oct 2026, shanethegamer.com Oct 12, keygold.gg Oct 14, topuplive.com, pocketgamer Oct 4, allthings.how, buffbuff.com, gamsgo.com). `DVME2MOHOQJT` not confirmed by any second source — keygold.gg explicitly marks it "Unconfirmed" (no official Kuro channel, other trackers don't show it); urgametips/shanethegamer/topuplive/pocketgamer/allthings.how/gamsgo/lootbar all omit it; beebom page could not be re-verified. Fails the two-source rule — remains excluded per Tom's 2026-10-16 order. Next codes expected with the Version 3.8 Preview Special Broadcast, estimated ~Oct 31–Nov 1 (Kuro has not confirmed; broadcast still unannounced).
+Banners: no changes — Phase 1 (Hsin/Chisa/Iuno + Buling/Taoqi/Youhu 4★) active through ~Oct 22; Phase 2 (Suoming/Lynae/Lucilla + Lumi/Danjin/Chixia) Oct 22–Nov 11. Confirmed against Game8 banner page (updated 3 days ago) + allthings.how + gurugamer phase-2 guide. 3.8 preview broadcast still unannounced; Lily drip-marketing status unchanged (official Oct 8 Resonator Archive Preview, 5★ Spectro Pistols — already on site as pre-release page; no official banner announcement). Remaining 3.8 lineup is leaks-only; not published.
+Events: no new announcements (official news feed mirror still shows only the 3.7 patch notes; web news search surfaced nothing new). Calendar matches exactly. No status flips.
+No data changes; no push.
+
+## All data (re-checked 2026-10-19, ~06:30 EDT)
+
+Codes: no new codes. `WUTHERINGGIFT` still the only confirmed working code (urgametips.com checked Oct 2026, shanethegamer.com Oct 12, keygold.gg Oct 14, topuplive.com, pocketgamer.com Oct 4). `DVME2MOHOQJT` remains excluded per Tom's 2026-10-16 pull order — keygold.gg (Oct 14) marks it "Unconfirmed" (no official Kuro channel listing); no second aggregator confirmation. Next codes expected with the 3.8 Preview Special Broadcast, estimated ~Oct 31–Nov 1 (Kuro has not confirmed; broadcast unannounced).
+Banners: no changes — Game8 (updated 3 days ago) + gurugamer confirm Phase 1 (Hsin/Chisa/Iuno) through ~Oct 22, Phase 2 (Suoming/Lynae/Lucilla + Lumi/Danjin/Chixia) Oct 22–Nov 11, matching banners.json.
+Events: official news feed (https://openrss.org/wutheringwaves.kurogames.com/en/main, full 620-line feed re-read) still shows only the 3.7 patch notes; published calendar matches exactly. No new events. No data changes; no push.
