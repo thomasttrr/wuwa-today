@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import useNow from "./useNow";
 
 function pad(n: number): string {
   return n.toString().padStart(2, "0");
@@ -20,7 +20,8 @@ function breakdown(target: Date, now: Date): string {
  * Gold because it is time. Each character renders in its own clipped
  * window, keyed by position AND value — when a digit changes, React
  * remounts just that span and the CSS rolls the new digit up into view.
- * Renders a static fallback on the server; ticks client-side.
+ * Renders a static fallback on the server; ticks via the shared
+ * NowProvider clock (one 1s interval drives every countdown on the page).
  */
 export default function ObsidianCountdown({
   target,
@@ -29,14 +30,7 @@ export default function ObsidianCountdown({
   target: string;
   label: string;
 }) {
-  const [now, setNow] = useState<Date | null>(null);
-
-  useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect -- intentional client-only clock sync: the static export renders a placeholder, the effect swaps in live time after mount to stay hydration-safe.
-    setNow(new Date());
-    const id = setInterval(() => setNow(new Date()), 1000);
-    return () => clearInterval(id);
-  }, []);
+  const now = useNow();
 
   const targetDate = new Date(target);
   const ended = now ? now.getTime() >= targetDate.getTime() : false;
@@ -53,9 +47,7 @@ export default function ObsidianCountdown({
             <span>{ch === " " ? "\u00A0" : ch}</span>
           </span>
         ))}
-        <span className="og-cd-sr" style={{ position: "absolute", width: 1, height: 1, overflow: "hidden", clip: "rect(0 0 0 0)" }}>
-          {text}
-        </span>
+        <span className="og-visually-hidden">{text}</span>
       </div>
       <div className="og-countdown-label">{label}</div>
     </div>
