@@ -5,6 +5,7 @@ import OgPageHero from "@/components/OgPageHero";
 import ObsidianToolbar from "@/components/ObsidianToolbar";
 import ShareButton from "@/components/ShareButton";
 import UpdatedStamp from "@/components/UpdatedStamp";
+import PrydwenTierList from "@/components/PrydwenTierList";
 import tierList from "@/data/tier-list.json";
 import { characterSlugs, getCharacter, isPreRelease } from "@/lib/characters";
 import { elementColor } from "@/lib/elements";
@@ -12,7 +13,7 @@ import { elementColor } from "@/lib/elements";
 export const metadata: Metadata = {
   title: "Character Tier List (3.7) — WuWa Today",
   description:
-    "Who's actually worth building in Wuthering Waves 3.7? Our meta tier list for the current patch, updated for the featured five-stars.",
+    "Who's actually worth building in Wuthering Waves 3.7? Prydwen's meta tier list split by game mode (Tower of Adversity / Whimpering Wastes) and role, plus our editorial rankings.",
   alternates: { canonical: "/tier-list" },
 };
 
@@ -61,6 +62,7 @@ export default function TierListPage() {
       <ObsidianToolbar
         label="Tier rows"
         items={[
+          { href: "#prydwen", label: "Prydwen" },
           { href: "#tier-ss", label: "SS" },
           { href: "#tier-s", label: "S" },
           { href: "#tier-a", label: "A" },
@@ -70,6 +72,17 @@ export default function TierListPage() {
             : []),
         ]}
       />
+
+      {/* Prydwen reference tier list: mode + role split */}
+      <section id="prydwen" aria-label="Prydwen tier list by game mode and role">
+        <h2 className="og-section-title">Prydwen Tier List (3.7)</h2>
+        <p className="og-section-lede">
+          The community reference, split by game mode and combat role. Tap a mode to switch.
+        </p>
+        <PrydwenTierList />
+      </section>
+
+      <h2 className="og-section-title" style={{ marginTop: "3rem" }}>Our Editorial Rankings</h2>
 
       {rows.map((row) => {
         const badgeClass = TIER_BADGE_CLASS[row.tier] ?? "og-tier-badge tier-B";

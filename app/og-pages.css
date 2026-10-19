@@ -1376,3 +1376,110 @@ a.og-tier-name:hover { text-decoration: underline; }
     gap: 0.8rem;
   }
 }
+
+/* ===== Prydwen-style tier list (mode + role split) ===== */
+
+.og-mode-toggle {
+  display: flex; gap: 8px; margin: 0 0 1.5rem;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--og-hairline-soft);
+  border-radius: 14px; padding: 4px;
+}
+.og-mode-toggle button {
+  flex: 1; padding: 0.75rem 1rem; border: none; border-radius: 10px;
+  background: transparent; color: var(--og-muted);
+  font-size: 0.875rem; font-weight: 600; cursor: pointer;
+  font-family: inherit; min-height: 44px;
+}
+.og-mode-toggle button.active {
+  background: rgba(255,255,255,0.1); color: #fff;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.4);
+}
+
+.og-role-section { margin-bottom: 2rem; }
+.og-role-header {
+  font-size: 0.95rem; font-weight: 700; margin: 0 0 0.75rem;
+  display: flex; align-items: center; gap: 0.5rem;
+  font-family: var(--og-display);
+}
+.og-role-dot { width: 10px; height: 10px; border-radius: 50%; flex: none; }
+.og-role-count {
+  font-size: 0.75rem; color: var(--og-muted); font-weight: 400;
+  background: rgba(255,255,255,0.06); padding: 0.15rem 0.5rem; border-radius: 999px;
+}
+
+/* Prydwen tier badges: T0 (gold) through T4 (muted) */
+.og-tier-badge.tier-T0 {
+  background: var(--og-gold); border-color: var(--og-gold); color: #14100a;
+}
+.og-tier-badge.tier-Th0 {
+  background: rgba(212,175,55,0.25); border-color: rgba(212,175,55,0.5); color: #e8c547;
+}
+.og-tier-badge.tier-T1 {
+  background: #d9d9e0; border-color: #d9d9e0; color: #17171c;
+}
+.og-tier-badge.tier-Th1 {
+  background: rgba(217,217,224,0.15); border-color: rgba(217,217,224,0.35); color: #b8b8c4;
+}
+.og-tier-badge.tier-T2 {
+  background: #c08a4d; border-color: #c08a4d; color: #17110a;
+}
+.og-tier-badge.tier-T3 {
+  background: rgba(255,255,255,0.08); border-color: var(--og-hairline-soft); color: var(--og-muted);
+}
+.og-tier-badge.tier-T4 {
+  background: rgba(255,255,255,0.04); border-color: var(--og-hairline-soft); color: #666;
+}
+
+/* Character chips */
+.og-tier-chips {
+  display: flex; flex-wrap: wrap; gap: 0.4rem;
+  list-style: none; margin: 0; padding: 0.75rem;
+  align-items: center;
+}
+.og-char-chip {
+  display: inline-block;
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 8px; padding: 0.4rem 0.7rem;
+  font-size: 0.82rem; color: #e8e8ea;
+  position: relative;
+}
+.og-chip-link { text-decoration: none; }
+.og-chip-link:hover .og-char-chip {
+  background: rgba(255,255,255,0.12);
+  border-color: rgba(255,255,255,0.2);
+}
+
+/* T0.5 "half-tier" beam: soft purple-red light tracing the pill edge.
+   Slower and subtler than the weapon border beam — these are small targets. */
+.og-char-chip-half {
+  border: 1px solid transparent;
+  background:
+    linear-gradient(rgba(20,12,20,0.92), rgba(20,12,20,0.92)) padding-box,
+    conic-gradient(from var(--beam-angle, 0deg),
+      rgba(180,80,160,0.15),
+      rgba(220,100,140,0.85),
+      rgba(160,60,140,0.9),
+      rgba(220,100,140,0.85),
+      rgba(180,80,160,0.15)) border-box;
+  animation: og-half-beam 6s linear infinite;
+}
+@property --beam-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+@keyframes og-half-beam {
+  to { --beam-angle: 360deg; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .og-char-chip-half { animation: none; }
+}
+
+.og-tier-source {
+  font-size: 0.8rem; color: var(--og-muted);
+  margin-top: 1.5rem; padding-top: 1rem;
+  border-top: 1px solid var(--og-hairline-soft);
+}
+.og-tier-source a { color: #8ab0e0; }
