@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Space_Grotesk } from "next/font/google";
 import ObsidianNav from "@/components/ObsidianNav";
 import ScrollTop from "@/components/ScrollTop";
+import NowProvider from "@/components/NowProvider";
 import "./globals.css";
 import "./obsidian.css";
 import "./og-pages.css";
@@ -46,6 +47,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={spaceGrotesk.variable}>
       <body className="og">
+        {/* One shared 1s ticker for every countdown/progress bar on the page. */}
+        <NowProvider>
         <a className="skip-link" href="#main">
           Skip to content
         </a>
@@ -78,6 +81,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           </div>
         </footer>
         <ScrollTop />
+        </NowProvider>
       </body>
     </html>
   );
