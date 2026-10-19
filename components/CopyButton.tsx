@@ -5,8 +5,20 @@ import { useEffect, useRef, useState } from "react";
 /**
  * Copy-to-clipboard button for redeem codes. Morphs to a check on copy.
  * Styled as a small glass HUD button (chrome, not content).
+ *
+ * `buttonLabel` overrides the visible text (default "Copy"); `label`
+ * overrides the accessible name (default `Copy code ${text}`) — used when
+ * copying something other than a redeem code.
  */
-export default function CopyButton({ text }: { text: string }) {
+export default function CopyButton({
+  text,
+  buttonLabel = "Copy",
+  label,
+}: {
+  text: string;
+  buttonLabel?: string;
+  label?: string;
+}) {
   const [copied, setCopied] = useState(false);
   const timer = useRef<number | null>(null);
 
@@ -38,7 +50,7 @@ export default function CopyButton({ text }: { text: string }) {
       type="button"
       className="og-btn og-btn-glass og-btn-sm"
       onClick={copy}
-      aria-label={`Copy code ${text}`}
+      aria-label={label ?? `Copy code ${text}`}
     >
       {copied ? (
         <span aria-hidden="true">
@@ -61,7 +73,7 @@ export default function CopyButton({ text }: { text: string }) {
           Copied!
         </span>
       ) : (
-        "Copy"
+        buttonLabel
       )}
       {copied && (
         <span className="og-visually-hidden" role="status" aria-live="polite">
