@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import ObsidianCountdown from "./ObsidianCountdown";
 import CycleProgress from "./CycleProgress";
-import { SERVER_OPTIONS, nextDailyReset, nextWeeklyReset } from "../lib/data";
+import { SERVER_OPTIONS, nextDailyReset, nextWeeklyReset } from "../lib/dates";
 
 const STORAGE_KEY = "wuwa-today:server-id";
 
@@ -11,7 +11,7 @@ const STORAGE_KEY = "wuwa-today:server-id";
  * Daily + weekly reset timers. WuWa resets at 04:00 server time; the visitor
  * picks their server region and the countdowns adjust.
  * Presentation is Obsidian Glass (gold mono countdowns, HUD-style server
- * select); all server-time math stays in lib/data.ts, untouched.
+ * select); all server-time math stays in lib/dates.ts, untouched.
  */
 export default function ResetTimers() {
   const [serverId, setServerId] = useState<string>(SERVER_OPTIONS[0].id);

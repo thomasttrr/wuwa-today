@@ -2,7 +2,8 @@
 
 import { useState } from "react";
 import ObsidianCountdown from "./ObsidianCountdown";
-import { formatServerDateWithNote, type GameEvent } from "../lib/data";
+import { formatServerDateWithNote } from "../lib/dates";
+import type { GameEvent } from "../lib/data";
 
 const TYPE_LABELS: Record<string, string> = {
   limited: "Limited event",
