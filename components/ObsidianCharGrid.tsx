@@ -48,7 +48,9 @@ export default function ObsidianCharGrid({
         );
       })}
       {chars.length === 0 && (
-        <div className="og-char-empty" role="status">
+        // Reuses the shared .og-empty card style; .og-char-empty adds the
+        // full-grid span + centering the grid layout needs.
+        <div className="og-empty og-char-empty" role="status">
           <p>No characters match these filters.</p>
           <button
             type="button"
