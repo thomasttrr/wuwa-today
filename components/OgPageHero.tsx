@@ -2,7 +2,7 @@ import type { ReactNode } from "react";
 
 /**
  * Canonical index-page hero (P-5): kicker + display title + lede, with an
- * optional meta-row slot (UpdatedStamp + ShareButton) so every hub answers
+ * optional meta-row slot so every hub answers
  * "is this fresh?".
  *
  * Homepage keeps its full-bleed og-hero; detail pages keep og-char-hero.

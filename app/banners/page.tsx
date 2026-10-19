@@ -4,7 +4,6 @@ import ObsidianSectionHead from "../../components/ObsidianSectionHead";
 import ObsidianToolbar from "../../components/ObsidianToolbar";
 import OgPageHero from "../../components/OgPageHero";
 import Reveal from "../../components/Reveal";
-import ShareButton from "../../components/ShareButton";
 import UpdatedStamp from "../../components/UpdatedStamp";
 import { activeBanners, upcomingBanners, bannerHistory, bannerMeta, formatServerDate } from "../../lib/data";
 
@@ -23,10 +22,7 @@ export default function BannersPage() {
         title="Wuthering Waves banners"
         lede="Current and upcoming Convene banners. Anything not confirmed by Kuro Games is labeled as a leak or estimate — never presented as fact."
         meta={
-          <>
-            <UpdatedStamp />
-            <ShareButton />
-          </>
+          <UpdatedStamp />
         }
       />
 

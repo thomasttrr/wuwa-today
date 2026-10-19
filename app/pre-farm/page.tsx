@@ -3,7 +3,6 @@ import Image from "next/image";
 import Link from "next/link";
 import OgPageHero from "@/components/OgPageHero";
 import Reveal from "@/components/Reveal";
-import ShareButton from "@/components/ShareButton";
 import UpdatedStamp from "@/components/UpdatedStamp";
 import { getCharacter } from "@/lib/characters";
 import { prefarmGuides } from "@/lib/prefarm";
@@ -26,10 +25,7 @@ export default function PrefarmIndex() {
         title="Farm before the banner"
         lede="Every material for the featured characters — quantities verified against two or more independent sources, with the routes to farm them."
         meta={
-          <>
-            <UpdatedStamp />
-            <ShareButton />
-          </>
+          <UpdatedStamp />
         }
       />
 

@@ -506,7 +506,7 @@ body.og { overflow-x: clip; }
 /* --- 44px touch targets --- */
 .og-btn { min-height: 44px; }
 
-/* --- meta row (UpdatedStamp + ShareButton), used in the canonical index hero --- */
+/* --- meta row, used in the canonical index hero --- */
 .og-h2 { font-size: clamp(1.35rem, 3vw, 1.9rem); margin: 0; }
 .og-meta-row {
   display: flex; align-items: center; justify-content: space-between;

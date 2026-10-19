@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import ObsidianCharactersExplorer from "@/components/ObsidianCharactersExplorer";
 import OgPageHero from "@/components/OgPageHero";
-import ShareButton from "@/components/ShareButton";
 import UpdatedStamp from "@/components/UpdatedStamp";
 import {
   characters,
@@ -27,10 +26,7 @@ export default function CharactersPage() {
         title="Characters"
         lede="Builds, ranked weapons, echo sets, team comps, and pull verdicts for every Resonator — filter by element, weapon, rarity, or role."
         meta={
-          <>
-            <UpdatedStamp />
-            <ShareButton />
-          </>
+          <UpdatedStamp />
         }
       />
       <ObsidianCharactersExplorer

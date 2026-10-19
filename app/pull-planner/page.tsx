@@ -5,7 +5,6 @@ import ObsidianSectionHead from "../../components/ObsidianSectionHead";
 import ObsidianToolbar from "../../components/ObsidianToolbar";
 import OgPageHero from "../../components/OgPageHero";
 import Reveal from "../../components/Reveal";
-import ShareButton from "../../components/ShareButton";
 import UpdatedStamp from "../../components/UpdatedStamp";
 import { activeBanners, upcomingBanners, bannerMeta, formatServerDate } from "../../lib/data";
 import { getCharacter } from "../../lib/characters";
@@ -126,10 +125,7 @@ export default function PullPlannerPage() {
         title="Pull planner"
         lede="Who to pull while 3.7 runs, answered per account type. Every pick below is traced to a verified pull verdict on this site — nothing is invented, and pre-release picks (Suoming) are marked as uncertain until launch-day numbers land."
         meta={
-          <>
-            <UpdatedStamp />
-            <ShareButton />
-          </>
+          <UpdatedStamp />
         }
       />
 

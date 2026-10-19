@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import OgPageHero from "@/components/OgPageHero";
-import ShareButton from "@/components/ShareButton";
 import UpdatedStamp from "@/components/UpdatedStamp";
 import PrydwenTierList from "@/components/PrydwenTierList";
 import tierList from "@/data/tier-list.json";
@@ -51,10 +50,7 @@ export default function TierListPage() {
         title="Character Tier List"
         lede={tierList.note}
         meta={
-          <>
-            <UpdatedStamp />
-            <ShareButton />
-          </>
+          <UpdatedStamp />
         }
       />
 
