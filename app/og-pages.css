@@ -1438,7 +1438,14 @@ a.og-tier-name:hover { text-decoration: underline; }
   display: flex; align-items: center; gap: 0.5rem;
   font-family: var(--og-display);
 }
-.og-role-dot { width: 10px; height: 10px; border-radius: 50%; flex: none; }
+.og-role-icon {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 22px; height: 22px; flex: none;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 6px;
+}
+.og-role-icon svg { display: block; }
 .og-role-count {
   font-size: 0.75rem; color: var(--og-muted); font-weight: 400;
   background: rgba(255,255,255,0.06); padding: 0.15rem 0.5rem; border-radius: 999px;
@@ -1452,28 +1459,34 @@ a.og-tier-name:hover { text-decoration: underline; }
 .og-ptier-badge { flex: none; margin-top: 0.35rem; }
 .og-ptier .og-tier-chips { padding: 0; }
 
-/* Prydwen tier badges: T0 (gold) through T4 (muted) */
+/* Prydwen tier badges: clean metallic descent T0 → T4.
+   T0 solid gold, half-tiers are glass versions of their parent,
+   T2 bronze sits clearly below silver, T3/T4 fade to ghost. */
 .og-tier-badge.tier-T0 {
   background: var(--og-gold); border-color: var(--og-gold); color: #14100a;
 }
 .og-tier-badge.tier-Th0 {
-  background: rgba(212,175,55,0.25); border-color: rgba(212,175,55,0.5); color: #e8c547;
+  background: rgba(212,175,55,0.14); border-color: rgba(212,175,55,0.45); color: #d9b84a;
 }
 .og-tier-badge.tier-T1 {
   background: #d9d9e0; border-color: #d9d9e0; color: #17171c;
 }
 .og-tier-badge.tier-Th1 {
-  background: rgba(217,217,224,0.15); border-color: rgba(217,217,224,0.35); color: #b8b8c4;
+  background: rgba(217,217,224,0.08); border-color: rgba(217,217,224,0.3); color: #a8a8b8;
 }
 .og-tier-badge.tier-T2 {
-  background: #c08a4d; border-color: #c08a4d; color: #17110a;
+  background: rgba(160,110,60,0.35); border-color: rgba(160,110,60,0.5); color: #d8a86a;
 }
 .og-tier-badge.tier-T3 {
-  background: rgba(255,255,255,0.08); border-color: var(--og-hairline-soft); color: var(--og-muted);
+  background: transparent; border-color: var(--og-hairline-soft); color: var(--og-muted);
 }
 .og-tier-badge.tier-T4 {
-  background: rgba(255,255,255,0.04); border-color: var(--og-hairline-soft); color: #666;
+  background: transparent; border-color: rgba(255,255,255,0.06); color: #55555e;
 }
+
+/* Sparse tier rows (1-2 characters): tighter, less dead space */
+.og-ptier-sparse { padding: 0.45rem 0; }
+.og-ptier-sparse .og-ptier-badge { margin-top: 0.15rem; }
 
 /* Character chips */
 .og-tier-chips {

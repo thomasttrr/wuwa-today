@@ -8,11 +8,51 @@ import { characterSlugs } from "@/lib/characters";
 type Mode = "Tower of Adversity" | "Whimpering Wastes";
 type Role = "DPS" | "Hybrid" | "Support";
 
+// Inline SVG role icons (thin stroke, Obsidian Glass HUD style)
+function RoleIcon({ role }: { role: Role }) {
+  const common = {
+    width: 14, height: 14, viewBox: "0 0 24 24", fill: "none",
+    stroke: "currentColor", strokeWidth: 2, strokeLinecap: "round" as const,
+    strokeLinejoin: "round" as const, "aria-hidden": true,
+  };
+  if (role === "DPS") {
+    // crossed swords
+    return (
+      <svg {...common}>
+        <polyline points="14.5 17.5 3 6 3 3 6 3 17.5 14.5" />
+        <line x1="13" x2="19" y1="19" y2="13" />
+        <line x1="16" x2="20" y1="16" y2="20" />
+        <line x1="19" x2="21" y1="21" y2="19" />
+        <polyline points="14.5 6.5 18 3 21 3 21 6 17.5 9.5" />
+        <line x1="5" x2="9" y1="14" y2="18" />
+        <line x1="7" x2="4" y1="17" y2="20" />
+        <line x1="3" x2="5" y1="19" y2="21" />
+      </svg>
+    );
+  }
+  if (role === "Hybrid") {
+    // layers (dual-role)
+    return (
+      <svg {...common}>
+        <polygon points="12 2 2 7 12 12 22 7 12 2" />
+        <polyline points="2 17 12 22 22 17" />
+        <polyline points="2 12 12 17 22 12" />
+      </svg>
+    );
+  }
+  // Support: shield
+  return (
+    <svg {...common}>
+      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+    </svg>
+  );
+}
+
 const MODES: Mode[] = ["Tower of Adversity", "Whimpering Wastes"];
-const ROLES: { key: Role; label: string; dot: string }[] = [
-  { key: "DPS", label: "DPS", dot: "#e5484d" },
-  { key: "Hybrid", label: "Hybrid / Sub-DPS", dot: "#d4a017" },
-  { key: "Support", label: "Support", dot: "#3fb68b" },
+const ROLES: { key: Role; label: string; color: string }[] = [
+  { key: "DPS", label: "DPS", color: "#e5484d" },
+  { key: "Hybrid", label: "Hybrid / Sub-DPS", color: "#d4a017" },
+  { key: "Support", label: "Support", color: "#3fb68b" },
 ];
 const TIERS = ["T0", "T0.5", "T1", "T1.5", "T2", "T3", "T4"];
 
@@ -60,14 +100,16 @@ export default function PrydwenTierList() {
       </div>
 
       {/* Role sections — one card per role, flat tier rows inside */}
-      {ROLES.map(({ key, label, dot }) => {
+      {ROLES.map(({ key, label, color }) => {
         const roleData = modeData[key];
         const total = TIERS.reduce((n, t) => n + (roleData[t]?.length ?? 0), 0);
         if (total === 0) return null;
         return (
           <section key={key} className="og-role-card" aria-label={`${label} tier list`}>
             <h3 className="og-role-header">
-              <span className="og-role-dot" style={{ background: dot }} aria-hidden="true" />
+              <span className="og-role-icon" style={{ color }} aria-hidden="true">
+                <RoleIcon role={key} />
+              </span>
               {label}
               <span className="og-role-count">{total}</span>
             </h3>
@@ -76,8 +118,9 @@ export default function PrydwenTierList() {
                 const chars = roleData[tier] ?? [];
                 if (chars.length === 0) return null;
                 const isTop = tier === "T0";
+                const sparse = chars.length <= 2 ? " og-ptier-sparse" : "";
                 return (
-                  <div key={tier} className="og-ptier">
+                  <div key={tier} className={`og-ptier${sparse}`}>
                     <span className={`og-tier-badge og-ptier-badge tier-${tier.replace(".", "h")}`}>
                       {tier}
                     </span>
