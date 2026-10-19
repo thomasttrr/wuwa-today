@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import OgPageHero from "@/components/OgPageHero";
-import ObsidianToolbar from "@/components/ObsidianToolbar";
 import ShareButton from "@/components/ShareButton";
 import UpdatedStamp from "@/components/UpdatedStamp";
 import PrydwenTierList from "@/components/PrydwenTierList";
@@ -57,20 +56,6 @@ export default function TierListPage() {
             <ShareButton />
           </>
         }
-      />
-
-      <ObsidianToolbar
-        label="Tier rows"
-        items={[
-          { href: "#prydwen", label: "Prydwen" },
-          { href: "#tier-ss", label: "SS" },
-          { href: "#tier-s", label: "S" },
-          { href: "#tier-a", label: "A" },
-          { href: "#tier-b", label: "B" },
-          ...(unranked.length > 0
-            ? [{ href: "#unranked", label: "Unranked" }]
-            : []),
-        ]}
       />
 
       {/* Prydwen reference tier list: mode + role split */}
