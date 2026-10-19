@@ -72,7 +72,7 @@ export default function PrydwenTierList() {
             {TIERS.map((tier) => {
               const chars = roleData[tier] ?? [];
               if (chars.length === 0) return null;
-              const isHalf = tier.includes(".");
+              const isTop = tier === "T0";
               return (
                 <div key={tier} className="og-tier-row">
                   <div className={`og-tier-badge tier-${tier.replace(".", "h")}`}>{tier}</div>
@@ -81,7 +81,7 @@ export default function PrydwenTierList() {
                       const slug = nameToSlug(name);
                       const inHub = slug && hubSlugs.has(slug);
                       const chip = (
-                        <span className={`og-char-chip${isHalf ? " og-char-chip-half" : ""}`}>
+                        <span className={`og-char-chip${isTop ? " og-char-chip-top" : ""}`}>
                           {name}
                         </span>
                       );

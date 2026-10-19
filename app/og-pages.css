@@ -1451,30 +1451,30 @@ a.og-tier-name:hover { text-decoration: underline; }
   border-color: rgba(255,255,255,0.2);
 }
 
-/* T0.5 "half-tier" beam: soft purple-red light tracing the pill edge.
-   Slower and subtler than the weapon border beam — these are small targets. */
-.og-char-chip-half {
+/* T0 "top tier" beam: a whisper of purple light tracing the pill edge.
+   Very subtle — just a hint of color on the outside. */
+.og-char-chip-top {
   border: 1px solid transparent;
   background:
-    linear-gradient(rgba(20,12,20,0.92), rgba(20,12,20,0.92)) padding-box,
+    linear-gradient(rgba(18,14,22,0.94), rgba(18,14,22,0.94)) padding-box,
     conic-gradient(from var(--beam-angle, 0deg),
-      rgba(180,80,160,0.15),
-      rgba(220,100,140,0.85),
-      rgba(160,60,140,0.9),
-      rgba(220,100,140,0.85),
-      rgba(180,80,160,0.15)) border-box;
-  animation: og-half-beam 6s linear infinite;
+      rgba(150,110,180,0.12),
+      rgba(170,130,200,0.45),
+      rgba(150,110,180,0.5),
+      rgba(170,130,200,0.45),
+      rgba(150,110,180,0.12)) border-box;
+  animation: og-top-beam 8s linear infinite;
 }
 @property --beam-angle {
   syntax: "<angle>";
   initial-value: 0deg;
   inherits: false;
 }
-@keyframes og-half-beam {
+@keyframes og-top-beam {
   to { --beam-angle: 360deg; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .og-char-chip-half { animation: none; }
+  .og-char-chip-top { animation: none; }
 }
 
 .og-tier-source {
