@@ -43,8 +43,44 @@ export interface CharacterRecord {
   teams_meta: TeamsMeta;
   /** Tier placement from tier-list.json; null when no entry exists. */
   tier_badge: TierBadge | null;
+  /** Resonance Chain coverage; present only when researched (pilot: Hsin). */
+  sequences?: CharacterSequences;
   /** Provenance: every source record this file was migrated from. */
   sources: SourceRef[];
+}
+
+export interface SequenceNode {
+  n: 1 | 2 | 3 | 4 | 5 | 6;
+  /** Official node name, e.g. "A Boat to Cross the Rising Tide". */
+  name: string;
+  /** One-line core effect. */
+  effect: string;
+  /** Pull priority: key (chase), value (good stop), comfort, skip, whale. */
+  priority: "key" | "value" | "comfort" | "skip" | "whale";
+}
+
+export interface SequenceStop {
+  /** Stop point, e.g. "S0", "S2". */
+  stop: string;
+  /** Tag label, e.g. "F2P baseline", "First real jump", "Best value stop", "Whale ceiling". */
+  tag: string;
+  /** One-line reason this stop matters. */
+  why: string;
+}
+
+export interface CharacterSequences {
+  /** verified: node effects + priorities confirmed by two independent aggregators. */
+  status: "verified" | "partial" | "official_only" | "missing";
+  /** One-line aim summary, e.g. "S0 is complete; aim S3 first, S6 for whales." */
+  verdict: string;
+  /** Ordered aim path: which stop to go for first, then next. */
+  pull_path: SequenceStop[];
+  /** All six nodes, S1-S6. */
+  nodes: SequenceNode[];
+  /** Signature weapon vs dupes guidance, one line. */
+  weapon_vs_dupes: string;
+  /** Aggregators backing the data, e.g. ["wuthering.gg", "gurugamer"]. */
+  sources: string[];
 }
 
 export interface CharacterProfile {

@@ -61,12 +61,6 @@ export interface RedeemCode {
   notes?: string;
 }
 
-export interface ExpiredCode {
-  code: string;
-  expiredAt?: string;
-  notes?: string;
-}
-
 export type EventType = "limited" | "login" | "spending" | "permanent" | "web";
 export type EventStatus = "active" | "upcoming" | "ended";
 
@@ -87,7 +81,6 @@ export const bannerHistory = (bannersRaw as { history: BannerHistoryEntry[] }).h
 export const bannerMeta = (bannersRaw as { _meta: { version: string; versionTitle: string; updatedAt: string } })._meta;
 
 export const activeCodes = (codesRaw as { active: RedeemCode[] }).active;
-export const expiredCodes = (codesRaw as { expired: ExpiredCode[] }).expired;
 export const codesMeta = (codesRaw as { _meta: { updatedAt: string } })._meta;
 
 export const events = (eventsRaw as { events: GameEvent[] }).events;
