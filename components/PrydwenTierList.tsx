@@ -3,7 +3,6 @@
 import { useState } from "react";
 import Link from "next/link";
 import prydwenData from "@/data/tier-list-prydwen.json";
-import { characterSlugs } from "@/lib/characters";
 
 type Mode = "Tower of Adversity" | "Whimpering Wastes";
 type Role = "DPS" | "Hybrid" | "Support";
@@ -75,9 +74,11 @@ function nameToSlug(name: string): string | null {
   return slug;
 }
 
-export default function PrydwenTierList() {
+export default function PrydwenTierList({ hubSlugs: hubSlugList }: { hubSlugs: string[] }) {
   const [mode, setMode] = useState<Mode>("Tower of Adversity");
-  const hubSlugs = new Set(characterSlugs());
+  // Slug list arrives as a prop from the server page — importing
+  // lib/characters here would ship every character record to the client.
+  const hubSlugs = new Set(hubSlugList);
   const modeData = (prydwenData.modes as Record<string, Record<string, Record<string, string[]>>>)[mode];
 
   return (

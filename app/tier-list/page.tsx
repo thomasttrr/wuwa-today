@@ -37,7 +37,7 @@ export default function TierListPage() {
       />
 
       <TierListViews
-        prydwen={<PrydwenTierList />}
+        prydwen={<PrydwenTierList hubSlugs={[...hubSlugs]} />}
         editorial={<EditorialTierList />}
       />
 
