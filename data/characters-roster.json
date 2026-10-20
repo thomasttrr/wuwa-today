@@ -6,7 +6,7 @@
     "element": "Electro",
     "weapon": "Rectifier",
     "role": "Main DPS",
-    "portrait_url": "/images/chars/hsin.png",
+    "portrait_url": "/images/chars/hsin.webp",
     "portrait_verified": true,
     "portrait_source": "site local portrait (official art, already in use; 500x500 PNG integrity-checked)"
   },
@@ -17,7 +17,7 @@
     "element": "Aero",
     "weapon": "Gauntlets",
     "role": "Support",
-    "portrait_url": "/images/chars/iuno.png",
+    "portrait_url": "/images/chars/iuno.webp",
     "portrait_verified": true,
     "portrait_source": "site local portrait (official art, already in use; 500x500 PNG integrity-checked)"
   },
@@ -28,7 +28,7 @@
     "element": "Spectro",
     "weapon": "Pistols",
     "role": "Sub-DPS",
-    "portrait_url": "/images/chars/lynae.png",
+    "portrait_url": "/images/chars/lynae.webp",
     "portrait_verified": true,
     "portrait_source": "site local portrait (official art, already in use; 500x500 PNG integrity-checked)"
   },
@@ -39,7 +39,7 @@
     "element": "Glacio",
     "weapon": "Rectifier",
     "role": "Sub-DPS",
-    "portrait_url": "/images/chars/lucilla.png",
+    "portrait_url": "/images/chars/lucilla.webp",
     "portrait_verified": true,
     "portrait_source": "site local portrait (official art, already in use; 500x500 PNG integrity-checked)"
   },
@@ -50,7 +50,7 @@
     "element": "Spectro",
     "weapon": "Rectifier",
     "role": "Support",
-    "portrait_url": "/images/chars/shorekeeper.png",
+    "portrait_url": "/images/chars/shorekeeper.webp",
     "portrait_verified": true,
     "portrait_source": "site local portrait (official art, already in use; 500x500 PNG integrity-checked)"
   },
@@ -61,7 +61,7 @@
     "element": "Fusion",
     "weapon": "Broadblade",
     "role": "Support",
-    "portrait_url": "/images/chars/mornye.png",
+    "portrait_url": "/images/chars/mornye.webp",
     "portrait_verified": true,
     "portrait_source": "site local portrait (official art, already in use; 500x500 PNG integrity-checked)"
   },
@@ -72,7 +72,7 @@
     "element": "Fusion",
     "weapon": "Sword",
     "role": "Main DPS",
-    "portrait_url": "/images/chars/aemeath.png",
+    "portrait_url": "/images/chars/aemeath.webp",
     "portrait_verified": true,
     "portrait_source": "site local portrait (official art, already in use; 500x500 PNG integrity-checked)"
   },
@@ -83,7 +83,7 @@
     "element": "Glacio",
     "weapon": "Sword",
     "role": "Main DPS",
-    "portrait_url": "/images/chars/hiyuki.png",
+    "portrait_url": "/images/chars/hiyuki.webp",
     "portrait_verified": true,
     "portrait_source": "site local portrait (official art, already in use; 500x500 PNG integrity-checked)"
   },
@@ -94,7 +94,7 @@
     "element": "Aero",
     "weapon": "Gauntlets",
     "role": "Main DPS",
-    "portrait_url": "/images/chars/sigrika.png",
+    "portrait_url": "/images/chars/sigrika.webp",
     "portrait_verified": true,
     "portrait_source": "site local portrait (official art, already in use; 500x500 PNG integrity-checked)"
   },
@@ -105,7 +105,7 @@
     "element": "Glacio",
     "weapon": "Rectifier",
     "role": "Support",
-    "portrait_url": "/images/chars/suisui.png",
+    "portrait_url": "/images/chars/suisui.webp",
     "portrait_verified": true,
     "portrait_source": "site local portrait (official art, already in use; 500x500 PNG integrity-checked)"
   },
@@ -116,7 +116,7 @@
     "element": "Fusion",
     "weapon": "Broadblade",
     "role": "Main DPS",
-    "portrait_url": "/images/chars/jingran.png",
+    "portrait_url": "/images/chars/jingran.webp",
     "portrait_verified": true,
     "portrait_source": "site local portrait (official art, already in use; 500x500 PNG integrity-checked)"
   },
@@ -127,7 +127,7 @@
     "element": "Havoc",
     "weapon": "Broadblade",
     "role": "Support",
-    "portrait_url": "/images/chars/chisa.png",
+    "portrait_url": "/images/chars/chisa.webp",
     "portrait_verified": true,
     "portrait_source": "site local portrait (official art, already in use; 500x500 PNG integrity-checked)"
   },
@@ -138,7 +138,7 @@
     "element": "Electro",
     "weapon": "Broadblade",
     "role": "Main DPS",
-    "portrait_url": "/images/chars/augusta.png",
+    "portrait_url": "/images/chars/augusta.webp",
     "portrait_verified": true,
     "portrait_source": "site local portrait (official art, already in use; 500x500 PNG integrity-checked)"
   },
@@ -149,7 +149,7 @@
     "element": "Aero",
     "weapon": "Sword",
     "role": "Main DPS",
-    "portrait_url": "/images/chars/cartethyia.png",
+    "portrait_url": "/images/chars/cartethyia.webp",
     "portrait_verified": true,
     "portrait_source": "site local portrait (official art, already in use; 500x500 PNG integrity-checked)"
   },
@@ -160,7 +160,7 @@
     "element": "Aero",
     "weapon": "Pistols",
     "role": "Sub-DPS",
-    "portrait_url": "/images/chars/ciaccona.png",
+    "portrait_url": "/images/chars/ciaccona.webp",
     "portrait_verified": true,
     "portrait_source": "site local portrait (official art, already in use; 500x500 PNG integrity-checked)"
   },
@@ -171,7 +171,7 @@
     "element": "Spectro",
     "weapon": "Rectifier",
     "role": "Support",
-    "portrait_url": "/images/chars/verina.png",
+    "portrait_url": "/images/chars/verina.webp",
     "portrait_verified": true,
     "portrait_source": "site local portrait (official art, already in use; 500x500 PNG integrity-checked)"
   },
@@ -182,7 +182,7 @@
     "element": "Electro",
     "weapon": "Sword",
     "role": "Sub-DPS",
-    "portrait_url": "/images/chars/electro-rover.png",
+    "portrait_url": "/images/chars/electro-rover.webp",
     "portrait_verified": true,
     "portrait_source": "site local portrait (official art, already in use; 500x500 PNG integrity-checked)"
   },
@@ -193,7 +193,7 @@
     "element": "Glacio",
     "weapon": "Pistols",
     "role": "Main DPS",
-    "portrait_url": "/images/chars/carlotta.png",
+    "portrait_url": "/images/chars/carlotta.webp",
     "portrait_verified": true,
     "portrait_source": "site local portrait (official art, already in use; 500x500 PNG integrity-checked)"
   },
@@ -204,7 +204,7 @@
     "element": "Glacio",
     "weapon": "Sword",
     "role": "Sub-DPS",
-    "portrait_url": "/images/chars/sanhua.png",
+    "portrait_url": "/images/chars/sanhua.webp",
     "portrait_verified": true,
     "portrait_source": "site local portrait (official art, already in use; 500x500 PNG integrity-checked)"
   },
@@ -215,7 +215,7 @@
     "element": "Fusion",
     "weapon": "Pistols",
     "role": "Sub-DPS",
-    "portrait_url": "/images/chars/mortefi.png",
+    "portrait_url": "/images/chars/mortefi.webp",
     "portrait_verified": true,
     "portrait_source": "site local portrait (official art, already in use; 500x500 PNG integrity-checked)"
   },
@@ -226,7 +226,7 @@
     "element": "Electro",
     "weapon": "Rectifier",
     "role": "Support",
-    "portrait_url": "/images/chars/buling.png",
+    "portrait_url": "/images/chars/buling.webp",
     "portrait_verified": true,
     "portrait_source": "site local portrait (official art, already in use; 500x500 PNG integrity-checked)"
   },
@@ -237,7 +237,7 @@
     "element": "Spectro",
     "weapon": "Sword",
     "role": "Sub-DPS",
-    "portrait_url": "/images/chars/spectro-rover.png",
+    "portrait_url": "/images/chars/spectro-rover.webp",
     "portrait_verified": true,
     "portrait_source": "site local portrait (official art, already in use; 500x500 PNG integrity-checked)"
   },
@@ -248,7 +248,7 @@
     "element": "Spectro",
     "weapon": "Broadblade",
     "role": "Main DPS",
-    "portrait_url": "/images/chars/jinhsi.png",
+    "portrait_url": "/images/chars/jinhsi.webp",
     "portrait_verified": true,
     "portrait_source": "site local portrait (official art, already in use; 500x500 PNG integrity-checked)"
   },
@@ -391,7 +391,7 @@
     "element": "Electro",
     "weapon": "Sword",
     "role": "Sub-DPS",
-    "portrait_url": "/images/chars/suoming.png",
+    "portrait_url": "/images/chars/suoming.webp",
     "portrait_verified": true,
     "portrait_source": "site local portrait (official art, already in use; 500x500 PNG integrity-checked)"
   },
@@ -479,7 +479,7 @@
     "element": "Fusion",
     "weapon": "Sword",
     "role": "Sub-DPS",
-    "portrait_url": "/images/chars/brant.png",
+    "portrait_url": "/images/chars/brant.webp",
     "portrait_verified": true,
     "portrait_source": "Game8 character icon (HTTP 200, image/png, verified 2026-10-15)"
   },
@@ -490,7 +490,7 @@
     "element": "Electro",
     "weapon": "Broadblade",
     "role": "Main DPS",
-    "portrait_url": "/images/chars/calcharo.png",
+    "portrait_url": "/images/chars/calcharo.webp",
     "portrait_verified": true,
     "portrait_source": "Game8 character icon (HTTP 200, image/png, verified 2026-10-15)"
   },
@@ -501,7 +501,7 @@
     "element": "Aero",
     "weapon": "Gauntlets",
     "role": "Sub-DPS",
-    "portrait_url": "/images/chars/jianxin.png",
+    "portrait_url": "/images/chars/jianxin.webp",
     "portrait_verified": true,
     "portrait_source": "Game8 character icon (HTTP 200, image/png, verified 2026-10-15)"
   },
@@ -512,7 +512,7 @@
     "element": "Glacio",
     "weapon": "Gauntlets",
     "role": "Main DPS",
-    "portrait_url": "/images/chars/lingyang.png",
+    "portrait_url": "/images/chars/lingyang.webp",
     "portrait_verified": true,
     "portrait_source": "Game8 character icon (HTTP 200, image/png, verified 2026-10-15)"
   },
@@ -523,7 +523,7 @@
     "element": "Havoc",
     "weapon": "Gauntlets",
     "role": "Sub-DPS",
-    "portrait_url": "/images/chars/roccia.png",
+    "portrait_url": "/images/chars/roccia.webp",
     "portrait_verified": true,
     "portrait_source": "Game8 character icon (HTTP 200, image/png, verified 2026-10-15)"
   },
@@ -534,7 +534,7 @@
     "element": "Electro",
     "weapon": "Rectifier",
     "role": "Sub-DPS",
-    "portrait_url": "/images/chars/yinlin.png",
+    "portrait_url": "/images/chars/yinlin.webp",
     "portrait_verified": true,
     "portrait_source": "Game8 character icon (HTTP 200, image/png, verified 2026-10-15)"
   },
@@ -545,7 +545,7 @@
     "element": "Aero",
     "weapon": "Pistols",
     "role": "Sub-DPS",
-    "portrait_url": "/images/chars/aalto.png",
+    "portrait_url": "/images/chars/aalto.webp",
     "portrait_verified": true,
     "portrait_source": "Game8 character icon (HTTP 200, image/png, verified 2026-10-15)"
   },
@@ -556,7 +556,7 @@
     "element": "Glacio",
     "weapon": "Rectifier",
     "role": "Support",
-    "portrait_url": "/images/chars/baizhi.png",
+    "portrait_url": "/images/chars/baizhi.webp",
     "portrait_verified": true,
     "portrait_source": "Game8 character icon (HTTP 200, image/png, verified 2026-10-15)"
   },
@@ -567,7 +567,7 @@
     "element": "Fusion",
     "weapon": "Pistols",
     "role": "Main DPS",
-    "portrait_url": "/images/chars/chixia.png",
+    "portrait_url": "/images/chars/chixia.webp",
     "portrait_verified": true,
     "portrait_source": "Game8 character icon (HTTP 200, image/png, verified 2026-10-15)"
   },
@@ -578,7 +578,7 @@
     "element": "Havoc",
     "weapon": "Sword",
     "role": "Main DPS",
-    "portrait_url": "/images/chars/danjin.png",
+    "portrait_url": "/images/chars/danjin.webp",
     "portrait_verified": true,
     "portrait_source": "Game8 character icon (HTTP 200, image/png, verified 2026-10-15)"
   },
@@ -589,7 +589,7 @@
     "element": "Electro",
     "weapon": "Broadblade",
     "role": "Sub-DPS",
-    "portrait_url": "/images/chars/lumi.png",
+    "portrait_url": "/images/chars/lumi.webp",
     "portrait_verified": true,
     "portrait_source": "Game8 character icon (HTTP 200, image/png, verified 2026-10-15)"
   },
@@ -600,7 +600,7 @@
     "element": "Havoc",
     "weapon": "Broadblade",
     "role": "Support",
-    "portrait_url": "/images/chars/taoqi.png",
+    "portrait_url": "/images/chars/taoqi.webp",
     "portrait_verified": true,
     "portrait_source": "Game8 character icon (HTTP 200, image/png, verified 2026-10-15)"
   },
@@ -611,7 +611,7 @@
     "element": "Aero",
     "weapon": "Sword",
     "role": "Sub-DPS",
-    "portrait_url": "/images/chars/yangyang.png",
+    "portrait_url": "/images/chars/yangyang.webp",
     "portrait_verified": true,
     "portrait_source": "Game8 character icon (HTTP 200, image/png, verified 2026-10-15)"
   },
@@ -622,7 +622,7 @@
     "element": "Glacio",
     "weapon": "Gauntlets",
     "role": "Support",
-    "portrait_url": "/images/chars/youhu.png",
+    "portrait_url": "/images/chars/youhu.webp",
     "portrait_verified": true,
     "portrait_source": "Game8 character icon (HTTP 200, image/png, verified 2026-10-15)"
   },
@@ -633,7 +633,7 @@
     "element": "Electro",
     "weapon": "Gauntlets",
     "role": "Sub-DPS",
-    "portrait_url": "/images/chars/yuanwu.png",
+    "portrait_url": "/images/chars/yuanwu.webp",
     "portrait_verified": true,
     "portrait_source": "Game8 character icon (HTTP 200, image/png, verified 2026-10-15)"
   },
@@ -644,7 +644,7 @@
     "element": "Aero",
     "weapon": "Sword",
     "role": "Support",
-    "portrait_url": "/images/chars/aero-rover.png",
+    "portrait_url": "/images/chars/aero-rover.webp",
     "portrait_verified": true,
     "portrait_source": "Game8 character icon (HTTP 200, image/png, verified 2026-10-15)"
   },
@@ -655,7 +655,7 @@
     "element": "Havoc",
     "weapon": "Sword",
     "role": "Main DPS",
-    "portrait_url": "/images/chars/havoc-rover.png",
+    "portrait_url": "/images/chars/havoc-rover.webp",
     "portrait_verified": true,
     "portrait_source": "Game8 character icon (HTTP 200, image/png, verified 2026-10-15)"
   },
@@ -666,7 +666,7 @@
     "element": "Spectro",
     "weapon": "Pistols",
     "role": "Support",
-    "portrait_url": "/images/chars/lily.png",
+    "portrait_url": "/images/chars/lily.webp",
     "portrait_verified": true,
     "portrait_source": "Game8 Lily drip-marketing art center-crop (official Kuro art, verified 2026-10-15); replace with icon when available"
   }

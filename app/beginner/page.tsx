@@ -18,28 +18,28 @@ const GUIDES = [
     title: "Start here",
     blurb:
       "Your free roster, the first things to unlock, and the Union Level milestones that actually matter.",
-    art: "/images/chars/yangyang.png",
+    art: "/images/chars/yangyang.webp",
   },
   {
     slug: "convene-guide",
     title: "Beginner Convene guide",
     blurb:
       "Utterance of Marvels, Beginner's Choice, pity rules, and which banners are worth your pulls.",
-    art: "/images/chars/verina.png",
+    art: "/images/chars/verina.webp",
   },
   {
     slug: "first-teams",
     title: "Your first teams",
     blurb:
       "F2P-friendly starter teams built from free characters and beginner-banner picks, with simple rotations.",
-    art: "/images/chars/chixia.png",
+    art: "/images/chars/chixia.webp",
   },
   {
     slug: "mistakes",
     title: "5 mistakes to avoid",
     blurb:
       "The traps every new account walks into — and what to do instead before they cost you resources.",
-    art: "/images/chars/baizhi.png",
+    art: "/images/chars/baizhi.webp",
   },
 ];
 

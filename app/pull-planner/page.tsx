@@ -39,7 +39,7 @@ function PickRow({ slug, note }: { slug: FiveStarSlug; note: string }) {
   return (
     <div className="og-pick-row">
       <Image
-        src={`/images/chars/${v.slug}.png`}
+        src={`/images/chars/${v.slug}.webp`}
         alt={`${v.name} portrait`}
         width={64}
         height={64}
@@ -387,7 +387,7 @@ export default function PullPlannerPage() {
                 <section className="og-pick-card" aria-label={`${v.name} pull verdict`}>
                   <div className="og-pick-row">
                     <Image
-                      src={`/images/chars/${v.slug}.png`}
+                      src={`/images/chars/${v.slug}.webp`}
                       alt={`${v.name} portrait`}
                       width={64}
                       height={64}

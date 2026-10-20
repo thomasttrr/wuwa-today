@@ -84,7 +84,7 @@ export interface CharacterSequences {
 }
 
 export interface CharacterProfile {
-  /** Site-relative portrait path. Follows the TeamCard convention: /images/chars/<slug>.png */
+  /** Site-relative portrait path. Follows the TeamCard convention: /images/chars/<slug>.webp */
   portrait_url: string;
   element: "Electro" | "Aero" | "Havoc" | "Spectro" | "Glacio" | "Fusion";
   /** Weapon class, e.g. "Rectifier", "Sword", "Broadblade", "Gauntlets", "Pistols". */
@@ -170,7 +170,7 @@ export interface CharacterTeam {
   rotation: string;
 }
 
-/** Matches TeamCard's TeamMember type. Portrait resolves to /images/chars/<slug>.png. */
+/** Matches TeamCard's TeamMember type. Portrait resolves to /images/chars/<slug>.webp. */
 export interface CharacterTeamMember {
   name: string;
   slug: string;

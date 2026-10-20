@@ -50,7 +50,7 @@ export default function EditorialTierList() {
                 const el = char ? elementColor(char.profile.element) : "#6e6e73";
                 const face = (
                   <Image
-                    src={`/images/chars/${m.slug}.png`}
+                    src={`/images/chars/${m.slug}.webp`}
                     alt={m.name}
                     width={64}
                     height={64}
