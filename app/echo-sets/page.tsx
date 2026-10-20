@@ -154,7 +154,7 @@ const SETS: EchoSet[] = [
           { name: "Kernel Puppet: Fright" },
           { name: "Kernel Puppet: Grief" },
           { name: "Kernel Puppet: Reflection" },
-          { name: "Kernel Puppet: Joy" },
+          { name: "Kernel Puppet: Anger" },
         ],
       },
     ],
