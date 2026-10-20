@@ -162,3 +162,42 @@ Routes: /pre-farm, /pre-farm/suoming, /pre-farm/lynae, /pre-farm/lucilla. Materi
 
 ## Pre-farm material icons (2026-10-15)
 - 15 item icons in `public/images/items/` (FF Howler Core, Layered Wing Polarizer, Forged Empyrean's Sigh, Miasmic Branch, Remnant of the Wheel, Shell Credit, FF Exoswarm Core, Reverb Combustor, Dreamless Feather, Forget-Me-Not, Rimewisp, FF Mech Core, Melodic String, Suncoveter's Reach, We Who Question) downloaded from Game8 item pages (img.game8.co), matched by item name on the page; tiered materials use the highest-tier icon. 120×120 PNGs.
+
+## 3.7 Echo Sets guide (added 2026-10-20 — branch kit/echo-sets-37)
+
+Route: /echo-sets (registered in data/guides.json as `echo-sets-3-7-guide`). Covers the three Sonata Effects added in Version 3.7. Two-source rule applied to every fact; sourcing strength is recorded honestly per item below.
+
+Set bonuses (full 2-pc + 5-pc text for all three sets; three independent carriers agree word-for-word):
+- Official Version 3.7 patch notes, mirrored at https://openrss.org/wutheringwaves.kurogames.com/en/main and https://steamdb.info/patchnotes/25407361/ — Vigil 5-pc: Electro Flare / Unison / Unison Response → +15% Crit Rate, +22.5% Electro DMG, 30s; Flash 5-pc: Flare → +10% Electro DMG 15s, Outro during it → incoming Resonator +25% Electro DMG 15s; Flower 5-pc: heal → team +10% ATK 30s (no same-name stacking), Unison/Unison Response during it → wearer +15% ATK. 2-pc: Vigil +10% Electro DMG, Flash +10% Electro DMG, Flower +10% Healing Bonus.
+- https://www.enjoygm.com/blog/wuthering-waves/3-7-new-echoes-sets-guide — same texts, plus best-user analysis (Vigil: Hsin/Suoming; Flash: Electro Rover, Buling; Flower: no current user)
+- https://www.mone.gg/blog/wuthering-waves/3-7-new-echo.html — same texts again, plus per-echo skills (below)
+- Vigil text additionally matches data/characters/hsin.json and data/characters/suoming.json already on site.
+
+Member echoes by cost:
+- Flower of Tinged Yearning — RE-VERIFIED 2026-10-20 against Game8's live page (matches the 2026-10-16 record exactly): Thousand-Puppet Pavilion (4); Skywatch Lancer, Formrender (3); Kernel Puppet: Fright / Grief / Reflection / Joy (1). https://game8.co/games/wuthering-waves/archives/624346
+- Heart of Sworn Vigil — Reminiscence: Suhsin the Inevitable (4); Formrender, Soulfrayer (3); Jade Nether Serpent, Bloomburst Puppet, Kernel Puppet: Joy, Fog Lionarch: Body, Fog Lionarch: Head (1). Source: Wuthering Waves Wiki sonata page https://wutheringwaves.fandom.com/wiki/Heart_of_Sworn_Vigil — the five new echoes' memberships independently corroborated by mone.gg's per-echo set tags and Prydwen's echo database (https://www.prydwen.gg/wuthering-waves/echoes); the three legacy 1-costs (Joy, Fog Lionarch: Body/Head) rest on the wiki's in-game data table — Game8's matching Vigil set page returned HTTP 402 on every attempt (2026-10-20), flagged for a later re-check.
+- Flash of Electric Reflection — Reminiscence: Suhsin the Inevitable (4); Skywatch Lancer, Soulfrayer (3); Porcelain Picket, Stone Picket, Aureate Picket, Kernel Puppet: Worry (1). Source: https://wutheringwaves.fandom.com/wiki/Flash_of_Electric_Reflection — Skywatch Lancer and Soulfrayer memberships corroborated by mone.gg; the legacy 1-costs rest on the wiki table (Game8's Flash page, archives/624344 — the same URL cited in data/characters/electro-rover.json — also 402'd; flagged for re-check).
+- Cross-consistency check: Game8's Flower table independently confirms the dual-Sonata pattern for the shared members (Skywatch Lancer: Flash/Flower; Formrender: Vigil/Flower; Kernel Puppet: Joy: Song of Feathered Trace/Flower), matching the wiki's pairings for the new sets.
+
+Farm locations:
+- Flower: Heart of Stillness Tacet Field (Simulacrum Nexus) + Mengzhou Tacet Discord Nests — Game8 Flower page, direct statement (also the 2026-10-16 record).
+- Vigil + Flash: Heart of Flames Tacet Field (Simulacrum Nexus) + Simulacrum Nexus Tacet Discord Nest + overworld spawns. Derivation, recorded transparently: the official 3.7 notes add exactly two Tacet Fields (Heart of Stillness, Heart of Flames) and one nest (Simulacrum Nexus); Game8 pins Flower to Stillness; every Tacet Field features exactly two Sonata sets (Wuthering Waves Wiki, Tacet Suppression list; gamemarket.gg Tacet Field explainer) — leaving Heart of Flames as the field for the two Electro sets. Game8's 3.7 special-enemy page places the new echoes' special variants in the matching Nexus biomes (Abysswatch Formrender in Heart of Flames, south of its Tacet Field): https://game8.co/games/wuthering-waves/archives/456276. Worth a 10-second in-game Guidebook confirmation on sight.
+- Both Nexus fields unlock via Main Quest Chapter IV Act IV "Simulacrum of the Heart" (official notes; Game8 Flower page).
+- Reminiscence: Suhsin the Inevitable: Ordinance of the Inevitable weekly boss, unlocked through the 3.7 main story — data/guides.json Hsin build guide (site record), corroborated by theclick.gg Hsin build and the wiki's Calamity listing.
+
+New 3.7 echo skills (one-liners on the page; damage multipliers scale with echo rarity and differ between databases at different rarity displays, so the page describes effects and cooldowns, which agree):
+- Soulfrayer (3): summon, Electro DMG ×3; Outro within 15s → incoming Resonator +12% Electro DMG, 15s; CD 20s — mone.gg + Prydwen agree on effect/CD.
+- Formrender (3): summon, Fusion DMG; main-slot wearer +10% Energy Regen; CD 20s — mone.gg + Prydwen agree.
+- Skywatch Lancer (3): summon, Aero DMG ×6; CD 15s — mone.gg + Prydwen agree. Phantom: Skywatch Lancer is 3.7's new Phantom echo (official-notes coverage: capsulecomputers.com.au, gamemarket.gg). EXCLUDED as single-source: mone.gg's claim that the Phantom's skill is a different Electro skill with a Hsin-enhanced variant — no second source found; not on the page.
+- Jade Nether Serpent (1): bombard, Fusion fireballs 5 hits + 1 larger; CD 8s — mone.gg + Prydwen agree.
+- Bloomburst Puppet (1): startle, Glacio DMG burst; CD 8s — mone.gg + Prydwen agree.
+- Reminiscence: Suhsin the Inevitable (4): cast deals Electro DMG; main slot +10% Electro DMG and +10% more for 30s on Flare/Unison/Response — wiki echo summary + data/characters/hsin.json.
+
+Verdicts (aligned with on-site build data; do not contradict):
+- Vigil best-in-slot Hsin + Suoming: data/characters/hsin.json, suoming.json + enjoygm + mone.gg + gurugamer Suoming build (https://gurugamer.com/pc-console/wuthering-waves-3-7-suoming-build-guide-27353).
+- Flash: Electro Rover best user (data/characters/electro-rover.json + enjoygm + mone.gg); Hsin sub-DPS alternative (hsin.json); Buling situational (enjoygm + mone.gg); Suoming should NOT farm Flash first — she does not apply Electro Flare reliably (gurugamer, also suoming.json note).
+- Flower: no released character runs it; Shorekeeper/Verina switching from Rejuvenating Glow is a downgrade today (mone.gg + Game8 "so far, no character will be able to run this echo"). Expected Lily (3.8) user remains community expectation, NOT confirmed (gurugamer Lily preview, already cited in the 2026-10-16 Flower record; allthings.how Lily article says the same and is labeled expectation there too).
+- Main stats per set derive from the stat_priorities already in data/characters/hsin.json, suoming.json, electro-rover.json (Crit 4-cost, Electro DMG 3-costs, ATK% 1-costs, ~120% ER comfort on Hsin/Rover); Suoming consensus member picks (Formrender + Soulfrayer; Kernel Puppet: Joy + Fog Lionarch: Body) from suoming.json's echo note.
+- Chord Cleansing Nov 4–11 double Tacet Field drops: Game8 Chord Cleansing guide + data/events.json (already on site).
+
+Images (2026-10-20): 10 icons in public/images/echoes/ (3 set icons + Formrender, Soulfrayer, Skywatch Lancer, Jade Nether Serpent, Bloomburst Puppet, Reminiscence: Suhsin the Inevitable, Thousand-Puppet Pavilion), official Kuro Games art downloaded from the Wuthering Waves Wiki file pages (static.wikia.nocookie.net) and served locally as WebP — same pattern as the character art in the Images section above. No hotlinking.

@@ -1,7 +1,7 @@
 {
   "_meta": {
     "comment": "Evergreen guides: pull verdicts for every featured 5-star, plus build and team guides. Verdicts are editorial opinion — never presented as data. Pull guides publish at banner launch; build/team guides follow as the meta settles.",
-    "updatedAt": "2026-10-14T14:50:00-04:00"
+    "updatedAt": "2026-10-20T13:45:00-04:00"
   },
   "guides": [
     {
@@ -1100,6 +1100,39 @@
         {
           "heading": "Common questions",
           "body": "Can I pick a character I already own? The only verified restriction is max Waveband: a Resonator already at maximum Waveband cannot be selected (Game8). Owning the character at lower Wavebands is not blocked by any stated rule, so picking a duplicate for an extra Waveband is allowed.\n\nWhat about leftover rings? One source (u7buy) states rings expire when the event ends and don't convert into anything — unconfirmed by a second source, so spend them while the event is live to be safe.\n\nWhen is the deadline? November 11, 2026. Unclaimed rewards are reissued by in-game mail within 30 days after the event — log in during that window or they're gone."
+        }
+      ]
+    },
+    {
+      "slug": "echo-sets-3-7-guide",
+      "character": "Echo Sets",
+      "title": "3.7 Echo Sets Guide: Sworn Vigil, Electric Reflection & Tinged Yearning (WuWa 3.7)",
+      "description": "Version 3.7 added three Sonata Effects to Wuthering Waves: Heart of Sworn Vigil, Flash of Electric Reflection, and Flower of Tinged Yearning. Full set bonuses, every member echo by cost, where to farm them, and who each set is actually for.",
+      "bannerId": "3.7-phase-1",
+      "publishedAt": "2026-10-20",
+      "authorNote": "Set bonuses, member lists, and farm routes verified against at least two independent sources each (official 3.7 patch notes, Game8, Wuthering Waves Wiki, EnjoyGM, Mone, Prydwen) — see data/SOURCES.md. Verdicts are editorial, aligned with the Hsin, Suoming, and Electro Rover build data on this site.",
+      "verdict": "Farm Heart of Sworn Vigil for Hsin and Suoming and Flash of Electric Reflection for the Electro Rover / sub-DPS slot — both come from the same Simulacrum Nexus farm route. Skip Flower of Tinged Yearning until a Unison healer actually releases.",
+      "verdictLabel": "Two to farm, one to skip",
+      "sections": [
+        {
+          "heading": "The short version",
+          "body": "Version 3.7 added three Sonata Effects. Heart of Sworn Vigil is the Electro main-DPS set (best-in-slot for Hsin and Suoming). Flash of Electric Reflection is the Electro sub-DPS and support set (Electro Rover, sub-DPS Hsin). Flower of Tinged Yearning is a healer set with no released user — do not farm it yet. All three sets are farmed in the Simulacrum Nexus of Mengzhou, unlocked through Main Quest Chapter IV Act IV, 'Simulacrum of the Heart.'"
+        },
+        {
+          "heading": "Heart of Sworn Vigil — the Electro carry set",
+          "body": "2-pc: Electro DMG +10%. 5-pc: inflicting Electro Flare, gaining Unison, or triggering a Unison Response grants +15% Crit Rate and +22.5% Electro DMG for 30s.\n\nMember echoes — 4-cost: Reminiscence: Suhsin the Inevitable. 3-cost: Formrender, Soulfrayer. 1-cost: Jade Nether Serpent, Bloomburst Puppet, Kernel Puppet: Joy, Fog Lionarch: Body, Fog Lionarch: Head.\n\nFarm: Heart of Flames Tacet Field (Simulacrum Nexus), the Simulacrum Nexus Tacet Discord Nest, and overworld spawns. The 4-cost drops only from the Ordinance of the Inevitable weekly boss.\n\nStats (4-3-3-1-1): Crit DMG 4-cost (Crit Rate if the ratio runs short), Electro DMG Bonus on both 3-costs (consensus members: Formrender and Soulfrayer), ATK% on both 1-costs. Roughly 120% Energy Regen is the comfort target on Hsin."
+        },
+        {
+          "heading": "Flash of Electric Reflection — the swap-out set",
+          "body": "2-pc: Electro DMG +10%. 5-pc: inflicting Electro Flare grants +10% Electro DMG Bonus for 15s; while that effect is active, casting Outro Skill grants the incoming Resonator +25% Electro DMG Bonus for 15s.\n\nMember echoes — 4-cost: Reminiscence: Suhsin the Inevitable. 3-cost: Skywatch Lancer, Soulfrayer. 1-cost: Porcelain Picket, Stone Picket, Aureate Picket, Kernel Puppet: Worry.\n\nFarm: the same Simulacrum Nexus route as Sworn Vigil (Heart of Flames Tacet Field, the Nexus nest, overworld spawns; 4-cost from the weekly boss). Electro Rover is the cleanest user; Buling is a situational option. Do not farm it first for Suoming — she does not apply Electro Flare reliably.\n\nStats (4-3-3-1-1): Crit Rate or Crit DMG 4-cost, Electro DMG Bonus on both 3-costs, ATK% on both 1-costs, roughly 120% Energy Regen."
+        },
+        {
+          "heading": "Flower of Tinged Yearning — not yet",
+          "body": "2-pc: Healing Bonus +10%. 5-pc: healing a Resonator in the team increases the ATK of all Resonators in the team by 10% for 30s (effects of the same name cannot be stacked); while the effect is active, gaining Unison or triggering Unison Response further increases the wearer's ATK by 15%.\n\nMember echoes — 4-cost: Thousand-Puppet Pavilion. 3-cost: Skywatch Lancer, Formrender. 1-cost: Kernel Puppet: Fright, Kernel Puppet: Grief, Kernel Puppet: Reflection, Kernel Puppet: Joy.\n\nFarm: Heart of Stillness Tacet Field (Simulacrum Nexus) and the Tacet Discord Nests in Mengzhou. But the honest verdict is: don't. No released Resonator can trigger the Unison half of the bonus, and current healers get more from their existing sets. The expected user is a future Unison healer — community expectation points at Lily in 3.8, which Kuro Games has not confirmed. Keep any pieces that drop; level none of them."
+        },
+        {
+          "heading": "The farming plan",
+          "body": "In Waveplate order:\n\n- Heart of Flames Tacet Field — both Electro sets; the default daily farm for Hsin, Suoming, and Electro Rover builds.\n- Ordinance of the Inevitable (weekly boss) — the only source of the 4-cost both Electro sets want; three claims a week makes it the real bottleneck.\n- Simulacrum Nexus Tacet Discord Nest — up to 90 echoes a day with no Waveplate cost, shared across Mengzhou's Sonata Effects.\n- Heart of Stillness Tacet Field — Flower's field; skip until a Unison healer is confirmed.\n- Chord Cleansing (Nov 4–11) doubles Tacet Field echo drops — the cheapest window to finish both Electro sets if you can wait."
         }
       ]
     }
