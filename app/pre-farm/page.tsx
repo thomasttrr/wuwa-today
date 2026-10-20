@@ -63,6 +63,11 @@ export default function PrefarmIndex() {
                     Pre-release
                   </span>
                 )}
+                {g.partial && (
+                  <span className="og-char-badge og-char-badge-dim">
+                    Partial guide
+                  </span>
+                )}
               </Link>
             </Reveal>
           );

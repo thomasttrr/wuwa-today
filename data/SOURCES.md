@@ -162,3 +162,25 @@ Routes: /pre-farm, /pre-farm/suoming, /pre-farm/lynae, /pre-farm/lucilla. Materi
 
 ## Pre-farm material icons (2026-10-15)
 - 15 item icons in `public/images/items/` (FF Howler Core, Layered Wing Polarizer, Forged Empyrean's Sigh, Miasmic Branch, Remnant of the Wheel, Shell Credit, FF Exoswarm Core, Reverb Combustor, Dreamless Feather, Forget-Me-Not, Rimewisp, FF Mech Core, Melodic String, Suncoveter's Reach, We Who Question) downloaded from Game8 item pages (img.game8.co), matched by item name on the page; tiered materials use the highest-tier icon. 120×120 PNGs.
+
+## Pre-farm guide — Lily PARTIAL (added 2026-10-20 — branch kit/prefarm-suoming)
+
+Route: /pre-farm/lily. PARTIAL guide per Tom's 2026-10-20 call: only facts confirmed by 2+ independent sources are published; everything single-source/leak-only is excluded until the Version 3.8 preview broadcast (estimated ~Oct 30–31, 2026; Kuro has not announced it). The page uses the new `partial` mode in data/prefarm.json + app/pre-farm/[slug]/page.tsx — confirmed facts + echo farming only, NO material tables (data/characters/lily.json still has no `materials` block; no quantities were invented).
+
+Included (each 2+ sources):
+- 5-star, Spectro, Pistols, Version 3.8 Phase 1, only new unit announced for 3.8 so far: sportskeeda (https://www.sportskeeda.com/esports/wuwa-lily-s-attribute-weapon-type-revealed-wuthering-waves), gurugamer (https://gurugamer.com/pc-console/wuthering-waves-previews-lily-a-spectro-pistols-support-for-version-3-8-27443), allthings.how (https://allthings.how/wuthering-waves-3-8-lily-confirmed-as-a-spectro-pistols-resonator/), Prydwen banners (https://www.prydwen.gg/wuthering-waves/banners), Game8 upcoming characters (https://game8.co/games/Wuthering-Waves/archives/452883), u7buy 3.8 banners (https://www.u7buy.com/blog/wuwa-3-8-banners/). Element/weapon trace to Kuro's official Resonator Archive Preview (drip marketing, early Oct 2026) as reported by all of the above. "Second Spectro Pistols after Lynae": gurugamer + u7buy Lily build guide.
+- Official profile (young perfumer, Federated Cities' Resonator War, psychotherapist to soldiers): quoted verbatim by sportskeeda, gurugamer, allthings.how, u7buy.
+- Banner date labeled ESTIMATE ~Nov 11–12, 2026: u7buy (Nov 11, two articles) + gurugamer (~Nov 11) vs sportskeeda (Nov 12 estimate) + Game8 news (Nov 12 estimate) — one-day spread is server time zones; Kuro has not officially dated 3.8.
+- Broadcast labeled ESTIMATE ~Oct 30–31, 2026: u7buy (both articles, from the 3.7 broadcast's 11-day gap) + keygold.gg timeline (~Oct 31–Nov 1).
+- Flower of Tinged Yearning bonuses (2-pc Healing +10%; 5-pc heal → team ATK +10%/30s, +15% more on Unison/Unison Response): Game8 (https://game8.co/games/wuthering-waves/archives/624346) + enjoygm (https://www.enjoygm.com/blog/wuthering-waves/3-7-new-echoes-sets-guide); also restated by gurugamer, u7buy, allthings.how. Farm locations (Heart of Stillness Tacet Field, Simulacrum Nexus; Mengzhou Tacet Discord Nests, up to 90/day): Game8 set page + official 3.7 patch notes (Heart of Stillness Tacet Field / Simulacrum Nexus nest listed as new content).
+- "No released Resonator fully uses the set yet" (the basis for expecting it to be Lily's — published as expectation, NOT as confirmed best-in-slot): Game8 + enjoygm + u7buy.
+- "Farm the set now, don't lock main stats (Healing Bonus vs ATK) yet": u7buy Lily build guide + u7buy 3.8 banners + allthings.how — three outlets, same advice.
+- Shell Credits planning target (~2.2M = 170,000 ascension + 2,030,000 forte): published as a cross-character PATTERN, not a Lily-confirmed number — matches Suoming/Lynae/Lucilla totals verified on their own pre-farm guides above (plus nerdschalk's Lynae materials list).
+
+Excluded (single-source, leak-only, or uncorroborated — do NOT publish until the broadcast):
+- Healer / Unison-support as her confirmed role (leak consensus + profile inference only; official kit role unannounced) — guide phrases it as "expected, not confirmed".
+- Leaked kit modes (Mode-Unison / Mode-Echo), Echo Skill DMG bonuses, signature-weapon effects (Concerto restore etc.) — gurugamer leak section only.
+- Any Lily ascension/forte material names or quantities (boss drop, local specialty, core family, Forgery family, weekly boss) — no sources exist yet; explicitly not guessed.
+- Flower of Tinged Yearning member-echo list by cost (Thousand-Puppet Pavilion etc.) — Game8 only.
+- 3.8 rerun lineups (Sigrika/Hiyuki Phase 1; Augusta/Galbrena vs Xiangli Yao/Zhezhi Phase 2) and the rumored new 4-star — conflicting leaks.
+- LDShop's leaked set name "Flower of Crimson Memory" — single source, contradicts the in-game set name.
