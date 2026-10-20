@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import Reveal from "@/components/Reveal";
+import CopyButton from "@/components/CopyButton";
 import ObsidianSectionHead from "@/components/ObsidianSectionHead";
 import ObsidianSequences from "@/components/ObsidianSequences";
 import ObsidianTeamCard from "@/components/ObsidianTeamCard";
@@ -138,6 +139,39 @@ function EchoPlate({ set }: { set: EchoSetLoose }) {
 /** Honest ordinal ranks — fixed widths, never fake percentages. */
 const BAR_WIDTHS = [100, 82, 64, 46, 28];
 
+/**
+ * Plain-text build summary for the "Copy build" button. Composed only of
+ * fields already rendered on this page: name, element/weapon, signature
+ * weapon, top-3 weapons, echo set, main-stat priorities, recommended team.
+ */
+function buildSummaryText(char: CharacterRecordLoose): string {
+  const p = char.profile;
+  const build = char.build;
+  const signature = build.ranked_weapons.find((w) => w.signature);
+  const topWeapons = build.ranked_weapons.slice(0, 3);
+  const echoSet =
+    build.echo_sets.find((s) => s.usage === "best-in-slot") ?? build.echo_sets[0];
+  const team = char.teams[0];
+
+  const lines = [
+    `${char.name} — build summary (WuWa Today)`,
+    `${p.element} · ${p.weapon_type} · ${p.rarity}★`,
+    "",
+    `Signature weapon: ${signature ? `${signature.name} (${signature.rarity}★)` : "none listed"}`,
+    "Top weapons:",
+    ...topWeapons.map((w) => `  ${w.rank}. ${w.name} (${w.rarity}★)`),
+    echoSet
+      ? `Echo set: ${echoSet.name} (${echoSet.pieces})${echoSet.main_echo ? ` — main Echo: ${echoSet.main_echo}` : ""}`
+      : "Echo set: none listed",
+    "Stat priorities:",
+    ...build.stat_priorities.map((sp) => `  - ${sp.piece}: ${sp.main_stat}`),
+    team
+      ? `Recommended team: ${team.name} — ${team.members.map((m) => m.name).join(", ")}`
+      : "Recommended team: none listed",
+  ];
+  return lines.join("\n");
+}
+
 export default async function CharacterPage({
   params,
 }: {
@@ -239,6 +273,13 @@ export default async function CharacterPage({
       {/* Build */}
       <section className="og-section" aria-label="Build">
         <ObsidianSectionHead title="Build" blurb={build.fast_path} />
+        <div style={{ display: "flex", justifyContent: "flex-end", margin: "0 0 1rem" }}>
+          <CopyButton
+            text={buildSummaryText(char)}
+            buttonLabel="Copy build"
+            label={`Copy ${char.name} build summary`}
+          />
+        </div>
         <div>
           {build.uncertain_or_prerelease && !preRelease && (
             <Caveat>Some build details are uncertain — check the source guides.</Caveat>
