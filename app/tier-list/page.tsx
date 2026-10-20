@@ -1,44 +1,27 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import OgPageHero from "@/components/OgPageHero";
-import ObsidianToolbar from "@/components/ObsidianToolbar";
-import ShareButton from "@/components/ShareButton";
 import UpdatedStamp from "@/components/UpdatedStamp";
+import TierListViews from "@/components/TierListViews";
+import PrydwenTierList from "@/components/PrydwenTierList";
+import EditorialTierList from "@/components/EditorialTierList";
 import tierList from "@/data/tier-list.json";
 import { characterSlugs, getCharacter, isPreRelease } from "@/lib/characters";
-import { elementColor } from "@/lib/elements";
 
 export const metadata: Metadata = {
   title: "Character Tier List (3.7) — WuWa Today",
   description:
-    "Who's actually worth building in Wuthering Waves 3.7? Our meta tier list for the current patch, updated for the featured five-stars.",
+    "Who's actually worth building in Wuthering Waves 3.7? Prydwen's meta tier list split by game mode (Tower of Adversity / Whimpering Wastes) and role, plus our editorial rankings.",
   alternates: { canonical: "/tier-list" },
 };
 
-const TIER_BADGE_CLASS: Record<string, string> = {
-  SS: "og-tier-badge tier-SS",
-  S: "og-tier-badge tier-S",
-  A: "og-tier-badge tier-A",
-  B: "og-tier-badge tier-B",
-};
-
-interface TierMember {
-  name: string;
-  slug: string;
-  note: string;
-}
-
-interface TierRow {
-  tier: string;
-  label: string;
-  members: TierMember[];
-}
-
 export default function TierListPage() {
   const hubSlugs = new Set(characterSlugs());
-  const rows = tierList.tiers as TierRow[];
-  const rankedSlugs = new Set(rows.flatMap((r) => r.members.map((m) => m.slug)));
+  const rankedSlugs = new Set(
+    (tierList.tiers as { members: { slug: string }[] }[]).flatMap((r) =>
+      r.members.map((m) => m.slug)
+    )
+  );
   // Pre-release characters are deliberately unranked — never invent a tier.
   const unranked = [...hubSlugs]
     .map((slug) => getCharacter(slug))
@@ -50,97 +33,13 @@ export default function TierListPage() {
         kicker={`Version ${tierList.version} · Updated ${tierList.updatedAt}`}
         title="Character Tier List"
         lede={tierList.note}
-        meta={
-          <>
-            <UpdatedStamp />
-            <ShareButton />
-          </>
-        }
+        meta={<UpdatedStamp />}
       />
 
-      <ObsidianToolbar
-        label="Tier rows"
-        items={[
-          { href: "#tier-ss", label: "SS" },
-          { href: "#tier-s", label: "S" },
-          { href: "#tier-a", label: "A" },
-          { href: "#tier-b", label: "B" },
-          ...(unranked.length > 0
-            ? [{ href: "#unranked", label: "Unranked" }]
-            : []),
-        ]}
+      <TierListViews
+        prydwen={<PrydwenTierList />}
+        editorial={<EditorialTierList />}
       />
-
-      {rows.map((row) => {
-        const badgeClass = TIER_BADGE_CLASS[row.tier] ?? "og-tier-badge tier-B";
-        return (
-          <section
-            key={row.tier}
-            id={`tier-${row.tier.toLowerCase()}`}
-            className="og-tier-row"
-            aria-label={`Tier ${row.tier}`}
-          >
-            <h2 className="og-tier-side" style={{ margin: 0 }}>
-              <span className={badgeClass}>{row.tier}</span>
-              <span className="og-tier-label">{row.label}</span>
-            </h2>
-            <ul className="og-tier-members">
-              {row.members.map((m) => {
-                const inHub = hubSlugs.has(m.slug);
-                const char = getCharacter(m.slug);
-                const el = char ? elementColor(char.profile.element) : "#6e6e73";
-                const face = (
-                  <Image
-                    src={`/images/chars/${m.slug}.png`}
-                    alt={m.name}
-                    width={64}
-                    height={64}
-                    className="og-tier-face"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                );
-                return (
-                  <li key={m.slug} className="og-tier-member">
-                    {inHub ? (
-                      <Link
-                        href={`/characters/${m.slug}`}
-                        className="og-tier-face-link"
-                        aria-label={`${m.name} — character page`}
-                      >
-                        {face}
-                      </Link>
-                    ) : (
-                      face
-                    )}
-                    <div className="og-tier-info">
-                      {inHub ? (
-                        <Link href={`/characters/${m.slug}`} className="og-tier-name">
-                          {m.name}
-                        </Link>
-                      ) : (
-                        <span className="og-tier-name">{m.name}</span>
-                      )}
-                      {char && (
-                        <p className="og-tier-meta">
-                          <span>{char.profile.role}</span>
-                          <span
-                            className="element-dot"
-                            style={{ background: el }}
-                            aria-hidden="true"
-                          />
-                          <span>{char.profile.element}</span>
-                        </p>
-                      )}
-                      <p className="og-tier-note">{m.note}</p>
-                    </div>
-                  </li>
-                );
-              })}
-            </ul>
-          </section>
-        );
-      })}
 
       {unranked.length > 0 && (
         <div id="unranked" className="og-tier-unranked" role="note">

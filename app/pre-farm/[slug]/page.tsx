@@ -117,6 +117,72 @@ function ReadyList({
   );
 }
 
+/** Partial-guide sections: confirmed facts, the echo set(s) farmable today,
+ *  and what is still unrevealed. Rendered instead of the material tables
+ *  while a character's kit/materials have not been published — nothing here
+ *  invents quantities the sources don't have. */
+function PartialSections({ guide }: { guide: PrefarmGuide }) {
+  return (
+    <>
+      {guide.confirmed && guide.confirmed.length > 0 && (
+        <section className="og-section" aria-label="Confirmed so far">
+          <ObsidianSectionHead
+            title="Confirmed so far"
+            blurb="Only facts backed by two or more independent sources. Anything single-source or leak-only is left out on purpose."
+          />
+          <Reveal>
+            <div className="og-notice" role="note">
+              <ul className="og-ready-list">
+                {guide.confirmed.map((fact) => (
+                  <li key={fact}>{fact}</li>
+                ))}
+              </ul>
+            </div>
+          </Reveal>
+        </section>
+      )}
+
+      {guide.echoFarm && guide.echoFarm.length > 0 && (
+        <section className="og-section" aria-label="Farm right now">
+          <ObsidianSectionHead
+            title="Farm right now"
+            blurb="The one thing you can stockpile today — echoes. Everything else waits for the kit reveal."
+          />
+          {guide.echoFarm.map((set, i) => (
+            <Reveal key={set.name} delay={Math.min(i * 60, 240)}>
+              <div className="og-notice" role="note">
+                <p>
+                  <strong>{set.name}</strong>
+                </p>
+                <p className="og-material-farm">{set.farm}</p>
+                <p>{set.note}</p>
+              </div>
+            </Reveal>
+          ))}
+        </section>
+      )}
+
+      {guide.pending && guide.pending.length > 0 && (
+        <section className="og-section" aria-label="Still to come">
+          <ObsidianSectionHead
+            title="Still to come"
+            blurb="Not revealed yet — this guide fills these in when the preview broadcast airs."
+          />
+          <Reveal>
+            <div className="og-notice" role="note">
+              <ul className="og-ready-list">
+                {guide.pending.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </div>
+          </Reveal>
+        </section>
+      )}
+    </>
+  );
+}
+
 export default async function PrefarmPage({
   params,
 }: {
@@ -125,7 +191,7 @@ export default async function PrefarmPage({
   const { slug } = await params;
   const guide: PrefarmGuide | undefined = getPrefarmGuide(slug);
   const char = getCharacter(slug);
-  if (!guide || !char?.materials) {
+  if (!guide || !char || (!guide.partial && !char.materials)) {
     return (
       <>
         <Link href="/pre-farm" className="og-back">
@@ -139,7 +205,7 @@ export default async function PrefarmPage({
   const p = char.profile;
   const el = elementColor(p.element);
   const materials = char.materials;
-  const totals = combinedTotals(materials);
+  const totals = materials ? combinedTotals(materials) : [];
   const kicker = `Pre-farm guide · ${p.element} · ${p.weapon_type} · ${"★".repeat(p.rarity)}`;
 
   return (
@@ -185,13 +251,20 @@ export default async function PrefarmPage({
                   Pre-release
                 </span>
               )}
+              {guide.partial && (
+                <span className="og-char-badge og-char-badge-dim">
+                  Partial guide
+                </span>
+              )}
             </div>
           </Reveal>
           <Reveal delay={180}>
             <p className="og-hero-note">{guide.banner}</p>
             <p className="og-hero-note og-muted">
-              Published {guide.publishedAt} · every material verified against
-              two or more independent sources.
+              Published {guide.publishedAt} ·{" "}
+              {guide.partial
+                ? "every fact below verified against two or more independent sources."
+                : "every material verified against two or more independent sources."}
             </p>
           </Reveal>
         </div>
@@ -200,17 +273,33 @@ export default async function PrefarmPage({
       {guide.prerelease && (
         <Reveal>
           <div className="og-notice" role="note">
-            <p>
-              <strong>Pre-release data.</strong> {guide.character} hasn&apos;t
-              launched yet — quantities below were verified against multiple
-              pre-release sources but may still change on patch day. This guide
-              is updated if anything moves.
-            </p>
+            {guide.partial ? (
+              <p>
+                <strong>Partial guide.</strong> {guide.character}&apos;s kit
+                and material lists have not been revealed yet, so this page
+                covers only what is confirmed today — who she is, when she is
+                expected, and the echo set you can already farm. Full
+                materials, kit details and farming routes land here after the
+                Version 3.8 preview broadcast (estimated ~Oct 30–31, 2026).
+                Estimated dates are labeled as estimates.
+              </p>
+            ) : (
+              <p>
+                <strong>Pre-release data.</strong> {guide.character} hasn&apos;t
+                launched yet — quantities below were verified against multiple
+                pre-release sources but may still change on patch day. This guide
+                is updated if anything moves.
+              </p>
+            )}
           </div>
         </Reveal>
       )}
 
+      {guide.partial && <PartialSections guide={guide} />}
+
       {/* Start here: farm now vs wait */}
+      {!guide.partial && materials && (
+      <>
       <section className="og-section" aria-label="Where to start">
         <ObsidianSectionHead
           title="Start here"
@@ -273,6 +362,8 @@ export default async function PrefarmPage({
           </details>
         </Reveal>
       </section>
+      </>
+      )}
 
       {/* Farming priorities */}
       <section className="og-section" aria-label="Farming priorities">
@@ -292,7 +383,10 @@ export default async function PrefarmPage({
 
       {/* Sources */}
       <section className="og-section" aria-label="Sources">
-        <ObsidianSectionHead title="Sources" blurb="Every number verified twice." />
+        <ObsidianSectionHead
+          title="Sources"
+          blurb={guide.partial ? "Every fact verified twice." : "Every number verified twice."}
+        />
         <Reveal>
           <ul style={{ margin: 0, paddingLeft: "1.1rem" }}>
             {guide.sources.map((s) => (

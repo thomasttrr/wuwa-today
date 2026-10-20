@@ -4,7 +4,6 @@ import ObsidianSectionHead from "../../components/ObsidianSectionHead";
 import ObsidianToolbar from "../../components/ObsidianToolbar";
 import OgPageHero from "../../components/OgPageHero";
 import Reveal from "../../components/Reveal";
-import ShareButton from "../../components/ShareButton";
 import UpdatedStamp from "../../components/UpdatedStamp";
 import { activeEvents, upcomingEvents, bannerMeta } from "../../lib/data";
 
@@ -23,10 +22,7 @@ export default function EventsPage() {
         title="Wuthering Waves events"
         lede="What’s running now, what ends soonest, and what’s on the horizon. Limited events are ordered by end date — finish the top ones first."
         meta={
-          <>
-            <UpdatedStamp />
-            <ShareButton />
-          </>
+          <UpdatedStamp />
         }
       />
 
