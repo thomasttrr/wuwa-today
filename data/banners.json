@@ -1,7 +1,7 @@
 {
   "_meta": {
     "comment": "Banner schedule. All phase boundary dates are ESTIMATES based on community trackers unless the in-game notice gives an exact time — mark them as such. Server flip happens at daily reset on the boundary day.",
-    "updatedAt": "2026-10-15T18:30:00-04:00",
+    "updatedAt": "2026-10-21T18:45:00-04:00",
     "version": "3.7",
     "versionTitle": "Prism's Illusion, Heart's Illumination"
   },
@@ -73,7 +73,7 @@
         "https://themagicrain.com/2026/10/wuthering-waves-version-3-7-prisms-illusion-hearts-illumination-now-available/"
       ],
       "startsAt": "2026-09-30T10:00:00+08:00",
-      "status": "active",
+      "status": "ended",
       "timeNote": "End date is an estimate based on community trackers (~Oct 21-22). Verify against the in-game Convene notice.",
       "version": "3.7",
       "weapons": [
@@ -169,7 +169,7 @@
         "https://game8.co/games/Wuthering-Waves/archives/456482"
       ],
       "startsAt": "2026-10-22T04:00:00+08:00",
-      "status": "upcoming",
+      "status": "active",
       "timeNote": "Phase 2 4-star rate-ups per current aggregator consensus (Game8 banner page, sportskeeda, fandomwire, gurugamer — Oct 2026): Lumi, Danjin, Chixia. An earlier Game8 wiki snapshot listed Yangyang instead; corrected Oct 15, 2026. Still awaiting the in-game Convene notice for official confirmation.",
       "uncertainFields": [
         "startsAt",
@@ -202,6 +202,14 @@
     }
   ],
   "history": [
+    {
+      "endsAt": "2026-10-22T04:00:00+08:00",
+      "id": "3.7-phase-1",
+      "note": "Hsin (new, 5★ Electro Rectifier) with Chisa and Iuno reruns.",
+      "phase": "Phase 1",
+      "startsAt": "2026-09-30T10:00:00+08:00",
+      "version": "3.7"
+    },
     {
       "endsAt": "2026-09-30T10:00:00+08:00",
       "id": "3.6-phase-2",

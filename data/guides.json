@@ -1,7 +1,7 @@
 {
   "_meta": {
     "comment": "Evergreen guides: pull verdicts for every featured 5-star, plus build and team guides. Verdicts are editorial opinion — never presented as data. Pull guides publish at banner launch; build/team guides follow as the meta settles.",
-    "updatedAt": "2026-10-20T13:45:00-04:00"
+    "updatedAt": "2026-10-21T18:45:00-04:00"
   },
   "guides": [
     {
@@ -92,7 +92,7 @@
       ]
     },
     {
-      "authorNote": "Editorial opinion based on pre-release community analysis as of 2026-10-21, the day before her banner opens. No official Kuro Games character or kit page was retrieved for this draft, so kit details below come from community sources and may change at launch. Pull verdicts are opinion, not data — read the 'who should pull' section, not just the verdict.",
+      "authorNote": "Launch-day guide: kit details from officially revealed info and community analysis; numbers will be refined as testing settles. Editorial opinion, not data.",
       "bannerId": "3.7-phase-2",
       "character": "Suoming",
       "description": "Suoming is Phase 2's new 5-star Electro Sword — a dual-role sub-DPS and Unison buffer whose whole pull decision comes down to one choice: hand Unison to a partner, or spend it herself. This guide covers who should pull, the Hsin pairing, and the honest math.",
