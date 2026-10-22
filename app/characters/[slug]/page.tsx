@@ -386,7 +386,7 @@ export default async function CharacterPage({
       {char.materials && (
         <section className="og-section" aria-label="Pre-farm materials">
           <ObsidianSectionHead
-            title="Pre-farm materials"
+            title="Farming"
             blurb="Ascension + forte costs with farm locations."
           />
           <Reveal>
