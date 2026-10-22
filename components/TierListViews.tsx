@@ -9,7 +9,7 @@ const SOURCES: { key: Source; label: string; blurb: string }[] = [
   {
     key: "prydwen",
     label: "Prydwen",
-    blurb: "Community consensus — split by game mode and combat role.",
+    blurb: "Community consensus — Normal and Value lists, split by game mode and combat role.",
   },
   {
     key: "editorial",

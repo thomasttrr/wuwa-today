@@ -4,7 +4,13 @@ import { useState } from "react";
 import Link from "next/link";
 import prydwenData from "@/data/tier-list-prydwen.json";
 
-type Mode = "Tower of Adversity" | "Whimpering Wastes";
+type Mode = "Tower of Adversity" | "Whimpering Wastes" | "Overall";
+type ListType = "normal" | "value";
+
+const LIST_MODES: Record<ListType, Mode[]> = {
+  normal: ["Tower of Adversity", "Whimpering Wastes"],
+  value: ["Tower of Adversity", "Whimpering Wastes", "Overall"],
+};
 type Role = "DPS" | "Hybrid" | "Support";
 
 // Inline SVG role icons (thin stroke, Obsidian Glass HUD style)
@@ -47,7 +53,6 @@ function RoleIcon({ role }: { role: Role }) {
   );
 }
 
-const MODES: Mode[] = ["Tower of Adversity", "Whimpering Wastes"];
 const ROLES: { key: Role; label: string; color: string }[] = [
   { key: "DPS", label: "DPS", color: "#e5484d" },
   { key: "Hybrid", label: "Hybrid / Sub-DPS", color: "#d4a017" },
@@ -75,18 +80,43 @@ function nameToSlug(name: string): string | null {
 }
 
 export default function PrydwenTierList({ hubSlugs: hubSlugList }: { hubSlugs: string[] }) {
+  const [list, setList] = useState<ListType>("normal");
   const [mode, setMode] = useState<Mode>("Tower of Adversity");
   // Slug list arrives as a prop from the server page — importing
   // lib/characters here would ship every character record to the client.
   const hubSlugs = new Set(hubSlugList);
-  const modeData = (prydwenData.modes as Record<string, Record<string, Record<string, string[]>>>)[mode];
+  const listData = (list === "normal" ? prydwenData.modes : prydwenData.valueModes) as Record<
+    string,
+    Record<string, Record<string, string[]>>
+  >;
+  const modeData = listData[mode];
 
   return (
     <div>
+      {/* List toggle */}
+      <p className="og-mode-label" id="og-list-label">Tier list</p>
+      <div className="og-mode-toggle" role="tablist" aria-labelledby="og-list-label">
+        {([{ key: "normal", label: "Normal" }, { key: "value", label: "Value" }] as const).map((l) => (
+          <button
+            key={l.key}
+            type="button"
+            role="tab"
+            aria-selected={list === l.key}
+            className={list === l.key ? "active" : ""}
+            onClick={() => {
+              setList(l.key);
+              setMode("Tower of Adversity");
+            }}
+          >
+            {l.label}
+          </button>
+        ))}
+      </div>
+
       {/* Mode toggle */}
       <p className="og-mode-label" id="og-mode-label">Game mode</p>
       <div className="og-mode-toggle" role="tablist" aria-labelledby="og-mode-label">
-        {MODES.map((m) => (
+        {LIST_MODES[list].map((m) => (
           <button
             key={m}
             type="button"
@@ -158,7 +188,9 @@ export default function PrydwenTierList({ hubSlugs: hubSlugList }: { hubSlugs: s
       {/* Attribution */}
       <p className="og-tier-source">
         Tier data from <a href={prydwenData.sourceUrl} target="_blank" rel="noopener noreferrer">Prydwen</a>{" "}
-        (3.7 patch, updated {prydwenData.lastUpdated}).
+        ({list === "normal"
+          ? `${prydwenData.patch} patch, updated ${prydwenData.lastUpdated}`
+          : `${prydwenData.valuePatch} patch, updated ${prydwenData.valueLastUpdated}`}).
       </p>
     </div>
   );
