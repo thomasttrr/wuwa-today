@@ -14,6 +14,9 @@ export const metadata: Metadata = {
 };
 
 export default function PrefarmIndex() {
+  // The section lists upcoming characters only: live characters' guides stay
+  // reachable from their character pages and the pull planner.
+  const upcoming = prefarmGuides.filter((g) => g.prerelease);
   return (
     <>
       <Link href="/" className="og-back">
@@ -30,7 +33,7 @@ export default function PrefarmIndex() {
       />
 
       <div className="og-grid">
-        {prefarmGuides.map((g, i) => {
+        {upcoming.map((g, i) => {
           const char = getCharacter(g.character_slug);
           if (!char) return null;
           const p = char.profile;
@@ -73,6 +76,12 @@ export default function PrefarmIndex() {
           );
         })}
       </div>
+      {upcoming.length === 0 && (
+        <p className="og-section-blurb">
+          No upcoming banners have farming guides yet — check back when the
+          next character is revealed.
+        </p>
+      )}
     </>
   );
 }
