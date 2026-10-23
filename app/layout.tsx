@@ -52,6 +52,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <a className="skip-link" href="#main">
           Skip to content
         </a>
+        <ObsidianNav />
         <main id="main">
           <div className="container">{children}</div>
         </main>
@@ -80,7 +81,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           </div>
         </footer>
         <ScrollTop />
-        <ObsidianNav />
         </NowProvider>
       </body>
     </html>

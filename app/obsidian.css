@@ -62,13 +62,15 @@
 }
 
 /* ==========================================================================
-   Obsidian body scope. The primary nav is an in-flow bottom bar on all
-   viewports (nothing follows the user as they scroll), so main needs
-   neither bottom clearance nor top headroom.
+   Obsidian body scope. The primary nav is a fixed bottom tab bar on all
+   viewports, so main clears it at the bottom and needs no top headroom.
+   (Everything else on the page sits in normal flow and scrolls away.)
    ========================================================================== */
 
 body.og main {
   padding-top: 1.25rem;
+  /* Clears the 71px fixed bottom tab bar with breathing room. */
+  padding-bottom: calc(5.5rem + env(safe-area-inset-bottom));
 }
 
 /* --- display typography: Space Grotesk, semibold/bold, uppercase,
@@ -111,9 +113,13 @@ body.og main {
    ========================================================================== */
 
 .og-tabbar {
-  /* In normal flow at the page bottom: nothing follows the user anymore. */
-  position: relative;
+  /* Fixed bottom bar: the one element that still follows the user, so
+     navigation is always accessible (Tom 2026-10-23). */
+  position: fixed;
   z-index: 60;
+  left: 0;
+  right: 0;
+  bottom: 0;
   padding-bottom: env(safe-area-inset-bottom);
   /* Solid dark bar: monochrome veil keeps the backdrop neutral over
      bright art instead of picking up a color cast. */
