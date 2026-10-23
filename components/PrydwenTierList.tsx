@@ -136,7 +136,7 @@ export default function PrydwenTierList({ hubSlugs: hubSlugList }: { hubSlugs: s
         const total = TIERS.reduce((n, t) => n + (roleData[t]?.length ?? 0), 0);
         if (total === 0) return null;
         return (
-          <section key={key} className="og-role-card" aria-label={`${label} tier list`}>
+          <section key={key} id={`role-${key.toLowerCase()}`} className="og-role-card" aria-label={`${label} tier list`}>
             <h3 className="og-role-header">
               <span className="og-role-icon" style={{ color }} aria-hidden="true">
                 <RoleIcon role={key} />

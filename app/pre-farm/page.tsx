@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import ObsidianToolbar from "@/components/ObsidianToolbar";
 import OgPageHero from "@/components/OgPageHero";
 import Reveal from "@/components/Reveal";
 import UpdatedStamp from "@/components/UpdatedStamp";
@@ -32,6 +33,18 @@ export default function PrefarmIndex() {
         }
       />
 
+      {upcoming.filter((g) => getCharacter(g.character_slug)).length > 0 && (
+        <ObsidianToolbar
+          label="Jump to a guide"
+          items={upcoming
+            .filter((g) => getCharacter(g.character_slug))
+            .map((g) => ({
+              href: `#prefarm-${g.slug}`,
+              label: g.character,
+            }))}
+        />
+      )}
+
       <div className="og-grid">
         {upcoming.map((g, i) => {
           const char = getCharacter(g.character_slug);
@@ -40,6 +53,7 @@ export default function PrefarmIndex() {
           return (
             <Reveal key={g.slug} delay={Math.min(i * 60, 240)}>
               <Link
+                id={`prefarm-${g.slug}`}
                 href={`/pre-farm/${g.slug}`}
                 className="og-radius-card"
                 style={{ display: "block", textDecoration: "none" }}

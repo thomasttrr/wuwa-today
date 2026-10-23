@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Reveal from "@/components/Reveal";
 import ObsidianSectionHead from "@/components/ObsidianSectionHead";
+import ObsidianToolbar from "@/components/ObsidianToolbar";
 import MaterialTable, {
   MaterialIcon,
   TierChips,
@@ -127,6 +128,7 @@ function PartialSections({ guide }: { guide: PrefarmGuide }) {
       {guide.confirmed && guide.confirmed.length > 0 && (
         <section className="og-section" aria-label="Confirmed so far">
           <ObsidianSectionHead
+            id="confirmed"
             title="Confirmed so far"
             blurb="Only facts backed by two or more independent sources. Anything single-source or leak-only is left out on purpose."
           />
@@ -145,6 +147,7 @@ function PartialSections({ guide }: { guide: PrefarmGuide }) {
       {guide.echoFarm && guide.echoFarm.length > 0 && (
         <section className="og-section" aria-label="Farm right now">
           <ObsidianSectionHead
+            id="farm-now"
             title="Farm right now"
             blurb="The one thing you can stockpile today — echoes. Everything else waits for the kit reveal."
           />
@@ -165,6 +168,7 @@ function PartialSections({ guide }: { guide: PrefarmGuide }) {
       {guide.pending && guide.pending.length > 0 && (
         <section className="og-section" aria-label="Still to come">
           <ObsidianSectionHead
+            id="still-to-come"
             title="Still to come"
             blurb="Not revealed yet — this guide fills these in when the preview broadcast airs."
           />
@@ -270,6 +274,33 @@ export default async function PrefarmPage({
         </div>
       </header>
 
+      <ObsidianToolbar
+        label="On this page"
+        items={
+          guide.partial
+            ? [
+                ...(guide.confirmed && guide.confirmed.length > 0
+                  ? [{ href: "#confirmed", label: "Confirmed" }]
+                  : []),
+                ...(guide.echoFarm && guide.echoFarm.length > 0
+                  ? [{ href: "#farm-now", label: "Farm now" }]
+                  : []),
+                ...(guide.pending && guide.pending.length > 0
+                  ? [{ href: "#still-to-come", label: "Still to come" }]
+                  : []),
+                { href: "#farming-priorities", label: "Farming priorities" },
+                { href: "#sources", label: "Sources" },
+              ]
+            : [
+                { href: "#start-here", label: "Start here" },
+                { href: "#full-checklist", label: "Full checklist" },
+                { href: "#breakdown", label: "Breakdown" },
+                { href: "#farming-priorities", label: "Farming priorities" },
+                { href: "#sources", label: "Sources" },
+              ]
+        }
+      />
+
       {guide.prerelease && (
         <Reveal>
           <div className="og-notice" role="note">
@@ -302,6 +333,7 @@ export default async function PrefarmPage({
       <>
       <section className="og-section" aria-label="Where to start">
         <ObsidianSectionHead
+          id="start-here"
           title="Start here"
           blurb="What you can stockpile today, and what unlocks with the patch."
         />
@@ -334,6 +366,7 @@ export default async function PrefarmPage({
       {/* Full checklist — the main shopping list */}
       <section className="og-section" aria-label="Full checklist">
         <ObsidianSectionHead
+          id="full-checklist"
           title="Full checklist"
           blurb="Ascension + forte combined — everything you need, with per-tier totals."
         />
@@ -346,6 +379,7 @@ export default async function PrefarmPage({
       {/* Breakdown — per-phase detail, tucked into accordions */}
       <section className="og-section" aria-label="Material breakdown">
         <ObsidianSectionHead
+          id="breakdown"
           title="Breakdown"
           blurb="Per-phase costs, if you want the detail."
         />
@@ -368,6 +402,7 @@ export default async function PrefarmPage({
       {/* Farming priorities */}
       <section className="og-section" aria-label="Farming priorities">
         <ObsidianSectionHead
+          id="farming-priorities"
           title="Farming priorities"
           blurb="How to spend your Waveplates and time before the banner."
         />
@@ -384,6 +419,7 @@ export default async function PrefarmPage({
       {/* Sources */}
       <section className="og-section" aria-label="Sources">
         <ObsidianSectionHead
+          id="sources"
           title="Sources"
           blurb={guide.partial ? "Every fact verified twice." : "Every number verified twice."}
         />

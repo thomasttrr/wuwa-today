@@ -533,6 +533,10 @@ body.og { overflow-x: clip; }
   padding-bottom: 0.75rem;
   border-bottom: 1px solid var(--og-hairline-soft);
 }
+/* Jump targets live on the head, not the section, so the head itself
+   needs the same 9rem clearance as .og-section — otherwise a jump
+   lands with the heading hidden under the sticky toolbar. */
+.og-section-head[id] { scroll-margin-top: 9rem; }
 .og-section-blurb { color: var(--og-muted); margin: 0.4rem 0 0; font-size: 0.95rem; }
 .og-section-link {
   display: inline-flex; align-items: center; min-height: 44px;
@@ -708,7 +712,10 @@ body.og { overflow-x: clip; }
 
 .og-toolbar {
   position: sticky;
-  top: 5.5rem;
+  /* One steady offset on every viewport. The nav is a bottom bar, so no
+     top clearance is needed; a single value also means the stuck bar
+     cannot jump when a resize crosses the mobile breakpoint. */
+  top: 1rem;
   z-index: 40;
   width: fit-content; max-width: 100%;
   margin: 0 0 1.5rem;
@@ -781,7 +788,7 @@ body.og { overflow-x: clip; }
   .og-toolbar { background: var(--og-surface); -webkit-backdrop-filter: none; backdrop-filter: none; }
 }
 @media (max-width: 640px) {
-  .og-toolbar { top: 1rem; border-radius: 22px; }
+  .og-toolbar { border-radius: 22px; }
 }
 
 /* ==========================================================================

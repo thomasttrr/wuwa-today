@@ -201,6 +201,9 @@
   margin: 0 0 3rem;
   padding: 0;
 }
+/* Pre-farm index jump targets: clear the sticky toolbar on landing,
+   same 9rem clearance as .og-section. */
+.og-grid a[id^="prefarm-"] { scroll-margin-top: 9rem; }
 .og-cell { min-width: 0; }
 /* DISPLAY-CAP enforcement for the character hub only (.og-grid--cap):
    auto-fill minmax(195px, 1fr) stretches tiles past the 250px cap in
@@ -1464,6 +1467,7 @@ a.og-tier-name:hover { text-decoration: underline; }
   border-radius: 20px;
   padding: 1.1rem 1.25rem 0.4rem;
   margin: 0 0 1rem;
+  scroll-margin-top: 9rem;
 }
 .og-role-header {
   font-size: 0.95rem; font-weight: 700; margin: 0 0 0.25rem;
