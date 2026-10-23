@@ -113,12 +113,96 @@ function WeaponPlate({ weapon, bis }: { weapon: RankedWeapon; bis: boolean }) {
   );
 }
 
+/** Echo-set icon files, mapped by exact display name (never naive slugifying:
+ *  apostrophes are dropped in flamewings-shadow and heart-of-evils-purge).
+ *  One file per distinct sonata; Sun-sinking Eclipse is the legacy alias of
+ *  Havoc Eclipse and shares havoc-eclipse.webp. Source: echo-set-images-table.md. */
+const ECHO_SET_ICONS: Record<string, string> = {
+  "Moonlit Clouds": "moonlit-clouds",
+  "Lingering Tunes": "lingering-tunes",
+  "Rejuvenating Glow": "rejuvenating-glow",
+  "Sierra Gale": "sierra-gale",
+  "Void Thunder": "void-thunder",
+  "Molten Rift": "molten-rift",
+  "Celestial Light": "celestial-light",
+  "Empyrean Anthem": "empyrean-anthem",
+  "Freezing Frost": "freezing-frost",
+  "Gusts of Welkin": "gusts-of-welkin",
+  "Midnight Veil": "midnight-veil",
+  "Crown of Valor": "crown-of-valor",
+  "Eternal Radiance": "eternal-radiance",
+  "Flash of Electric Reflection": "flash-of-electric-reflection",
+  "Havoc Eclipse": "havoc-eclipse",
+  "Sun-sinking Eclipse": "havoc-eclipse",
+  "Rite of Gilded Revelation": "rite-of-gilded-revelation",
+  "Windward Pilgrimage": "windward-pilgrimage",
+  "Flaming Clawprint": "flaming-clawprint",
+  "Frosty Resolve": "frosty-resolve",
+  "Heart of Sworn Vigil": "heart-of-sworn-vigil",
+  "Pact of Neonlight Leap": "pact-of-neonlight-leap",
+  "Reel of Spliced Memories": "reel-of-spliced-memories",
+  "Shadow of Shattered Dreams": "shadow-of-shattered-dreams",
+  "Song of Feathered Trace": "song-of-feathered-trace",
+  "Wishes of Quiet Snowfall": "wishes-of-quiet-snowfall",
+  "Chromatic Foam": "chromatic-foam",
+  "Dream of the Lost": "dream-of-the-lost",
+  "Flamewing's Shadow": "flamewings-shadow",
+  "Halo of Starry Radiance": "halo-of-starry-radiance",
+  "Heart of Evil's Purge": "heart-of-evils-purge",
+  "Lamp of Nether Road": "lamp-of-nether-road",
+  "Law of Harmony": "law-of-harmony",
+  "Sound of True Name": "sound-of-true-name",
+  "Thread of Severed Fate": "thread-of-severed-fate",
+  "Tidebreaking Courage": "tidebreaking-courage",
+  "Trailblazing Star": "trailblazing-star",
+};
+
+/**
+ * Icons for one echo plate, in name order. Split plates ("A + B", including
+ * 3-component plates) yield every component icon, joined by "+". Either-or
+ * plates ("A or B") yield every NAMED component icon, joined by "or" — a
+ * generic fragment (e.g. "mixed 2-pc Electro + 2-pc ATK", "Energy Regen")
+ * has no map entry and is dropped, never invented. Note-level alternative
+ * mentions are never parsed: only the plate's own name is. Unmapped sets
+ * yield no icons, so the plate renders exactly as today.
+ */
+function echoSetIcons(name: string): { files: string[]; joiner: string } {
+  const separator = name.includes(" or ") ? " or " : " + ";
+  const joiner = separator === " or " ? "or" : "+";
+  const files = separator
+    ? name
+        .split(separator)
+        .map((part) => part.trim().replace(/\s*\([^)]*\)\s*$/, ""))
+        .map((part) => ECHO_SET_ICONS[part])
+        .filter((file): file is string => Boolean(file))
+    : [];
+  const single = ECHO_SET_ICONS[name.trim().replace(/\s*\([^)]*\)\s*$/, "")];
+  return { files: files.length > 0 ? files : single ? [single] : [], joiner };
+}
+
 function EchoPlate({ set }: { set: EchoSetLoose }) {
   const bis = set.usage === "best-in-slot";
+  const { files: iconFiles, joiner } = echoSetIcons(set.name);
   return (
     <div className={bis ? "og-echo-plate og-echo-plate-bis" : "og-echo-plate"}>
       <div className="og-echo-head">
-        <span className="og-echo-name">{set.name}</span>
+        <span className="og-echo-name">
+          {iconFiles.map((file, i) => (
+            <span key={file} style={{ display: "inline-flex", alignItems: "center", gap: "0.6rem" }}>
+              {i > 0 && <span aria-hidden="true">{joiner}</span>}
+              <Image
+                src={`/images/echoes/${file}.webp`}
+                alt=""
+                width={34}
+                height={34}
+                loading="lazy"
+                decoding="async"
+                style={{ borderRadius: 8, flex: "none" }}
+              />
+            </span>
+          ))}
+          {set.name}
+        </span>
         <span className="og-echo-cost">{set.pieces}</span>
       </div>
       <p className="og-echo-usage">
@@ -405,9 +489,9 @@ export default async function CharacterPage({
       {/* Teams */}
       <section className="og-section" aria-label="Teams">
         <ObsidianSectionHead title="Teams" blurb="Tested comps with rotations." />
-        {char.teams.map((team) => (
+        {char.teams.map((team, i) => (
           <Reveal key={team.name}>
-            <ObsidianTeamCard team={team} />
+            <ObsidianTeamCard team={team} first={i === 0} />
           </Reveal>
         ))}
         <div>

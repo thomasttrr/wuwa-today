@@ -569,7 +569,10 @@
    .og-weapon-bis gets the beam; .og-weapon (ranks 2+) below is left
    pixel-identical. The same treatment is shared with the best-value stop
    card on the Resonance Chain aim-order rail (.og-seq-best) — the one
-   place it "makes sense" there, per the sequences brief. */
+   place it "makes sense" there, per the sequences brief. The same shared
+   treatment also covers BiS echo plates (.og-echo-plate-bis, character
+   pages and the /echo-sets index) and the first team card only
+   (.og-team-card-first, character pages) — no other cards get it. */
 
 @property --og-beam-angle {
   syntax: "<angle>";
@@ -583,11 +586,15 @@
 
 .og-weapon-bis { position: relative; } /* anchors the beam layer */
 .og-seq-best { position: relative; } /* anchors the beam layer */
+.og-echo-plate-bis { position: relative; } /* anchors the beam layer */
+.og-team-card.og-team-card-first { position: relative; border-color: var(--og-hairline); } /* anchors the beam layer; doubled class so it wins over .og-team-card's later border shorthand */
 
 /* The beam is a pseudo-element ring drawn exactly over the card's own 1px
    border, masked to the border area so content and box geometry are untouched. */
 .og-weapon-bis::before,
-.og-seq-best::before {
+.og-seq-best::before,
+.og-echo-plate-bis::before,
+.og-team-card-first::before {
   content: "";
   position: absolute;
   inset: -1px;
@@ -616,7 +623,9 @@
    loop takes 10.2s — slow, smooth, tidy. */
 @media (prefers-reduced-motion: no-preference) {
   .og-weapon-bis::before,
-  .og-seq-best::before {
+  .og-seq-best::before,
+  .og-echo-plate-bis::before,
+  .og-team-card-first::before {
     animation: og-beam-spin 10.2s linear infinite;
   }
 }
@@ -624,10 +633,21 @@
 /* Reduced motion: no animation — a static, slightly brighter refined edge. */
 @media (prefers-reduced-motion: reduce) {
   .og-weapon-bis::before,
-  .og-seq-best::before {
+  .og-seq-best::before,
+  .og-echo-plate-bis::before,
+  .og-team-card-first::before {
     animation: none;
     background: rgba(240, 228, 200, 0.30);
   }
+}
+
+/* Geometry only (no second gradient): team cards use a 20px radius
+   (18px at ≤640px), so their beam ring sits 1px outside that radius
+   instead of the shared card radius. Echo plates already use the shared
+   card radius, so they need no override. */
+.og-team-card-first::before { border-radius: 21px; }
+@media (max-width: 640px) {
+  .og-team-card-first::before { border-radius: 19px; }
 }
 
 /* Fallback for browsers without @property: the var() fallback (0deg) keeps
@@ -795,7 +815,7 @@
   align-items: baseline;
   gap: 1rem;
 }
-.og-echo-name { font-weight: 700; font-size: 1.02rem; color: var(--og-ink); min-width: 0; }
+.og-echo-name { font-weight: 700; font-size: 1.02rem; color: var(--og-ink); min-width: 0; display: inline-flex; align-items: center; gap: 0.6rem; flex-wrap: wrap; }
 .og-echo-cost {
   font-family: var(--og-mono);
   font-variant-numeric: tabular-nums;

@@ -252,7 +252,7 @@ function MemberChips({ echoes }: { echoes: MemberEcho[] }) {
 function SetCard({ set }: { set: EchoSet }) {
   return (
     <section
-      className="og-echo-plate"
+      className={set.pillBis ? "og-echo-plate og-echo-plate-bis" : "og-echo-plate"}
       id={`set-${set.id}`}
       aria-label={set.name}
       style={{ scrollMarginTop: "120px" }}

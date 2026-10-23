@@ -7,13 +7,15 @@ import { elementColor } from "@/lib/elements";
  * Obsidian team card — visual-first per Tom's approved standard: portraits,
  * role labels, and element dots lead; notes stay compact. SOLID #101014
  * surface (never glass). Tags are restrained monochrome — no gold (gold is
- * reserved for time). Rotation sits in a raised inset panel.
+ * reserved for time). The one exception: when `first` is true (the first
+ * team on a character page, confirmed best by Tom), the shared golden beam
+ * from og-pages.css marks the card — beam only, no new label or badge.
  */
-export default function ObsidianTeamCard({ team }: { team: Team }) {
+export default function ObsidianTeamCard({ team, first = false }: { team: Team; first?: boolean }) {
   const tagClass =
     team.tag === "Premium" ? "og-team-tag og-team-tag-premium" : "og-team-tag";
   return (
-    <section className="og-team-card" aria-label={team.name}>
+    <section className={first ? "og-team-card og-team-card-first" : "og-team-card"} aria-label={team.name}>
       <div className="og-team-head">
         <span className={tagClass}>{team.tag}</span>
         <h3 className="og-team-title">{team.name}</h3>
