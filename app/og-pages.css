@@ -63,7 +63,10 @@
 
 .og-filterbar {
   position: sticky;
-  top: 4.75rem; /* clears the floating desktop nav capsule */
+  /* One steady offset on every viewport, matching .og-toolbar. The nav is
+     a bottom bar, so no top clearance is needed; a single value also means
+     the stuck bar cannot jump when a resize crosses the mobile breakpoint. */
+  top: 1rem;
   z-index: 40;
   display: flex;
   flex-direction: column;
@@ -160,7 +163,6 @@
 
 @media (max-width: 640px) {
   .og-filterbar {
-    top: 0.75rem; /* mobile nav is a bottom bar; no top clearance needed */
     padding: 0.7rem 0.85rem;
     border-radius: 18px;
     /* No overflow:hidden — it clips grid/count content on iOS. The glint
@@ -1021,7 +1023,11 @@
 
 .og-scrolltop {
   position: fixed;
-  right: 1rem;
+  /* Anchored to the 1080px content column, not the viewport edge: on wide
+     screens the button parks in the gutter just outside the container
+     (12px gap) instead of drifting to the far screen edge; on narrow
+     screens it stays 1rem from the edge, as before. */
+  right: max(1rem, calc((100vw - 1080px) / 2 - 3.5rem));
   bottom: calc(max(0.9rem, env(safe-area-inset-bottom)) + 5rem);
   z-index: 55;
   width: 44px;

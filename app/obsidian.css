@@ -708,7 +708,10 @@ body.og { overflow-x: clip; }
 
 .og-toolbar {
   position: sticky;
-  top: 5.5rem;
+  /* One steady offset on every viewport. The nav is a bottom bar, so no
+     top clearance is needed; a single value also means the stuck bar
+     cannot jump when a resize crosses the mobile breakpoint. */
+  top: 1rem;
   z-index: 40;
   width: fit-content; max-width: 100%;
   margin: 0 0 1.5rem;
@@ -781,7 +784,7 @@ body.og { overflow-x: clip; }
   .og-toolbar { background: var(--og-surface); -webkit-backdrop-filter: none; backdrop-filter: none; }
 }
 @media (max-width: 640px) {
-  .og-toolbar { top: 1rem; border-radius: 22px; }
+  .og-toolbar { border-radius: 22px; }
 }
 
 /* ==========================================================================
