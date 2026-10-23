@@ -62,14 +62,13 @@
 }
 
 /* ==========================================================================
-   Obsidian body scope. The primary nav is a fixed bottom tab bar on all
-   viewports, so main clears it at the bottom and needs no top headroom.
+   Obsidian body scope. The primary nav is an in-flow bottom bar on all
+   viewports (nothing follows the user as they scroll), so main needs
+   neither bottom clearance nor top headroom.
    ========================================================================== */
 
 body.og main {
   padding-top: 1.25rem;
-  /* Clears the 71px bottom tab bar with breathing room. */
-  padding-bottom: calc(5.5rem + env(safe-area-inset-bottom));
 }
 
 /* --- display typography: Space Grotesk, semibold/bold, uppercase,
@@ -112,11 +111,9 @@ body.og main {
    ========================================================================== */
 
 .og-tabbar {
-  position: fixed;
+  /* In normal flow at the page bottom: nothing follows the user anymore. */
+  position: relative;
   z-index: 60;
-  left: 0;
-  right: 0;
-  bottom: 0;
   padding-bottom: env(safe-area-inset-bottom);
   /* Solid dark bar: monochrome veil keeps the backdrop neutral over
      bright art instead of picking up a color cast. */
@@ -525,7 +522,7 @@ body.og { overflow-x: clip; }
 }
 
 /* --- sections: dense, scannable, on the canvas --- */
-.og-section { margin: 0 0 2.75rem; scroll-margin-top: 9rem; }
+.og-section { margin: 0 0 2.75rem; scroll-margin-top: 1rem; }
 .og-section-head {
   display: flex; align-items: flex-end; justify-content: space-between;
   gap: 1rem; flex-wrap: wrap;
@@ -534,9 +531,8 @@ body.og { overflow-x: clip; }
   border-bottom: 1px solid var(--og-hairline-soft);
 }
 /* Jump targets live on the head, not the section, so the head itself
-   needs the same 9rem clearance as .og-section — otherwise a jump
-   lands with the heading hidden under the sticky toolbar. */
-.og-section-head[id] { scroll-margin-top: 9rem; }
+   needs the same 1rem breathing room as .og-section. */
+.og-section-head[id] { scroll-margin-top: 1rem; }
 .og-section-blurb { color: var(--og-muted); margin: 0.4rem 0 0; font-size: 0.95rem; }
 .og-section-link {
   display: inline-flex; align-items: center; min-height: 44px;
@@ -705,17 +701,14 @@ body.og { overflow-x: clip; }
 }
 
 /* ==========================================================================
-   .og-toolbar — floating glass toolbar (chrome, not content).
+   .og-toolbar — in-flow glass toolbar (chrome, not content).
    Quick section jumps on data pages. Degrades to solid under
    prefers-reduced-transparency.
    ========================================================================== */
 
 .og-toolbar {
-  position: sticky;
-  /* One steady offset on every viewport. The nav is a bottom bar, so no
-     top clearance is needed; a single value also means the stuck bar
-     cannot jump when a resize crosses the mobile breakpoint. */
-  top: 1rem;
+  /* In normal flow: it scrolls away with the page and never sticks. */
+  position: relative;
   z-index: 40;
   width: fit-content; max-width: 100%;
   margin: 0 0 1.5rem;
