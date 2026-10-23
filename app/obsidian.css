@@ -15,6 +15,10 @@
      hover-scale images, no sub-4.5:1 gray text, no invented terminology.
    - Motion is level 1-2 and ALWAYS gated behind prefers-reduced-motion.
    - Glass degrades to solid #101014 under prefers-reduced-transparency.
+   - DISPLAY-CAP RULE (Direction A): detail-bearing images (portraits,
+     icons, weapons, faces) never render wider than source px / 2 in CSS
+     px; atmospheric hero backdrops at most source x 1.7. Enforced at
+     each governed rule below — see the .og-hero and .og-char-art notes.
 
    Tokens live on :root; components are .og-* namespaced so the old
    Native Dark styles in globals.css are untouched until integration.
@@ -576,19 +580,25 @@ body.og { overflow-x: clip; }
 }
 
 /* ==========================================================================
-   .og-hero — the ONE full-bleed moment on the landing page.
-   Official key art, edge to edge, under a monochrome black scrim.
-   Monumental Space Grotesk headline, one ghost CTA.
+   .og-hero — Direction A "The Viewport": a CONTAINED panel, not a
+   full-bleed moment. The panel sits inside .container so its edges align
+   with the page content measure (1080px max); the art is atmosphere
+   behind a glass panel carrying the headline, subtext, and CTA.
+   Monochrome dark scrim unchanged. Height rhythm unchanged (~64vh).
+   DISPLAY-CAP: hero art is 640px wide, so at the 1080px content measure
+   it renders at 1080/640 = 1.69x — inside the atmospheric 1.7x cap.
    ========================================================================== */
 
 .og-hero {
   position: relative;
-  width: 100vw;
-  margin-inline: calc(50% - 50vw);
-  margin-top: -5.75rem; /* reach under the floating nav */
+  width: 100%;
+  max-width: 1080px; /* = .container measure; panel edges align with sections below */
+  margin: 0 auto 2.75rem;
   height: clamp(32rem, 64vh, 46rem);
   overflow: hidden;
   background: #000;
+  border: 1px solid var(--og-hairline);
+  border-radius: 20px;
 }
 .og-hero-art {
   position: absolute; inset: 0;
@@ -616,18 +626,43 @@ body.og { overflow-x: clip; }
 .og-hero-inner {
   position: relative; z-index: 1;
   height: 100%;
-  max-width: 1080px; margin: 0 auto; padding: 0 1.25rem;
+  padding: 0 clamp(1.25rem, 4vw, 2.5rem);
   display: flex; flex-direction: column; justify-content: flex-end;
   padding-bottom: clamp(2.5rem, 6vh, 4rem);
 }
-.og-hero-inner::before {
-  /* Subtle copy backplate: soft dark bloom behind the headline block so
-     the brightest art never meets bare text. Static, motion-free. */
+/* Glass panel carrying the headline block (chrome-style glass over art,
+   text itself stays sharp on the panel — never glass over bare text).
+   The old radial backplate is retired: the panel now owns legibility. */
+.og-hero-panel {
+  position: relative;
+  max-width: 640px;
+  padding: clamp(1.25rem, 3vw, 2rem);
+  border-radius: var(--og-radius-card);
+  /* Neutral-dark base under the glass so bright art never tints it. */
+  background:
+    linear-gradient(180deg, rgba(8, 8, 10, 0.55), rgba(8, 8, 10, 0.55)),
+    var(--og-glass);
+  -webkit-backdrop-filter: saturate(130%) blur(24px);
+  backdrop-filter: saturate(130%) blur(24px);
+  border: 1px solid var(--og-hairline);
+  box-shadow: 0 12px 40px -12px rgba(0, 0, 0, 0.7);
+}
+.og-hero-panel::before {
+  /* Specular top-edge glint — the glass signature. */
   content: "";
-  position: absolute; z-index: -1;
-  inset: 40% -2.5rem 0 -2.5rem;
-  background: radial-gradient(130% 100% at 50% 100%, rgba(0, 0, 0, 0.5), transparent 72%);
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--og-glint), transparent);
   pointer-events: none;
+}
+@media (prefers-reduced-transparency: reduce) {
+  .og-hero-panel {
+    background: var(--og-surface);
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+  .og-hero-panel::before { opacity: 0.3; }
 }
 .og-hero-title {
   font-size: clamp(2.9rem, 8vw, 6rem);
@@ -661,7 +696,7 @@ body.og { overflow-x: clip; }
 .og-hero-cta { align-self: flex-start; }
 
 @media (max-width: 640px) {
-  .og-hero { margin-top: -1.25rem; height: min(37rem, 80svh); }
+  .og-hero { margin-bottom: 2rem; height: min(37rem, 80svh); }
   .og-hero-art { object-position: 50% 18%; } /* portrait-safe focal point */
 }
 

@@ -216,8 +216,8 @@ export default async function CharacterPage({
             <Image
               src={p.portrait_url}
               alt={`${char.name} portrait`}
-              width={600}
-              height={600}
+              width={500}
+              height={500}
               priority
               decoding="async"
             />

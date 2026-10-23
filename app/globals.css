@@ -41,7 +41,7 @@ body {
   line-height: 1.55;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
-  overflow-x: clip; /* guard: full-bleed heroes use the 50vw breakout technique */
+  overflow-x: clip; /* guard against any wide element escaping the viewport */
 }
 
 ::selection { background: rgba(232, 180, 79, 0.32); color: #fff; }

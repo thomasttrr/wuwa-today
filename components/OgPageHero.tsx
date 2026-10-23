@@ -5,7 +5,10 @@ import type { ReactNode } from "react";
  * optional meta-row slot so every hub answers
  * "is this fresh?".
  *
- * Homepage keeps its full-bleed og-hero; detail pages keep og-char-hero.
+ * Direction A contained-panel rule: guide heroes are text-only and stay
+ * inside the 1080px content measure (no viewport breakout, no art). The
+ * homepage hero is the contained .og-hero panel; detail pages keep
+ * og-char-hero (250px portrait box).
  */
 export default function OgPageHero({
   kicker,

@@ -68,6 +68,7 @@ export default function BannerCard({
 }) {
   const fiveStars = banner.characters.filter((c) => c.rarity === 5);
   const fourStars = banner.characters.filter((c) => c.rarity === 4);
+  const bannerBase = banner.image?.replace(/\.webp$/, "");
 
   return (
     <article
@@ -76,9 +77,16 @@ export default function BannerCard({
     >
       {banner.image && (
         <div className="og-banner-art">
+          {/* Fix 3, static-export safe: plain <img> srcset. The strip displays
+              at 512 CSS px on desktop (audit-confirmed), so 512w covers 1x
+              and 1024w covers 2x retina; both are downscales of the 1200px
+              originals (same artworks, WebP q80). A new banner image needs
+              matching -512/-1024 variants. */}
           {/* eslint-disable-next-line @next/next/no-img-element -- key-art strip: next/image's wrapper spans would break the fade-mask styling, and images are unoptimized in this static export so next/image adds nothing. */}
           <img
             src={banner.image}
+            srcSet={`${bannerBase}-512.webp 512w, ${bannerBase}-1024.webp 1024w`}
+            sizes="(max-width: 640px) 100vw, 512px"
             alt={`Official key art for the ${banner.version} ${banner.phase} banner${fiveStars.length > 0 ? `, featuring ${fiveStars.map((c) => c.name).join(" and ")}` : ""}`}
             loading={priority ? "eager" : "lazy"}
             decoding="async"

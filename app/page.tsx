@@ -27,6 +27,18 @@ export default function HomePage() {
   // changes, the hero follows it. Falls back to Hsin's art if no banner is live.
   const heroBanner = activeBanners[0];
   const heroArt = heroBanner?.image ?? "/images/hsin-splash.webp";
+  // Responsive hero art (Fix 1, static-export safe: plain <img> srcset, no
+  // next/image — the export is unoptimized so next/image generates nothing).
+  // Variants are downscales of the 1200px originals shipped in ade595f
+  // (same artworks, WebP q80); a new banner image needs matching -640/-1200
+  // variants or the srcset below silently points at missing files.
+  // DEVIATION from the brief's 640/1280/1920w: no genuine source wider than
+  // 1200px was found, and upscaling to 1280/1920 is forbidden, so 1200w is
+  // the largest served width. Note the hero is now a contained 1080px panel
+  // (Direction A, sibling worker's in-progress change), so 1200w covers the
+  // panel at 1x; a 2x-retina panel (2160 device px) still upscales from it.
+  const heroBase = heroArt.replace(/\.webp$/, "");
+  const heroSrcSet = `${heroArt} 640w, ${heroBase}-1200.webp 1200w`;
 
   return (
     <>
@@ -44,34 +56,39 @@ export default function HomePage() {
           }),
         }}
       />
-      {/* The one full-bleed moment on the landing page: official key art,
-          dark scrim, one monumental headline, one ghost CTA. */}
+      {/* Direction A "The Viewport": contained 1080px panel aligned with the
+          page content measure — official key art as atmosphere behind a
+          glass panel, monochrome dark scrim, sharp headline, one ghost CTA. */}
       <section className="og-hero" aria-label="Today in Wuthering Waves">
-        {/* eslint-disable-next-line @next/next/no-img-element -- full-bleed hero art layer; next/image's wrapper spans would break the viewport-bleed and scrim styling, and images are unoptimized in this static export so next/image adds nothing. */}
+        {/* eslint-disable-next-line @next/next/no-img-element -- contained-panel hero art layer; next/image's wrapper spans would break the panel and scrim styling, and images are unoptimized in this static export so next/image adds nothing. */}
         <img
           className="og-hero-art"
           src={heroArt}
+          srcSet={heroSrcSet}
+          sizes="(max-width: 1080px) 100vw, 1080px"
           alt={`Official key art for the Wuthering Waves version ${bannerMeta.version} featured banner`}
           loading="eager"
           fetchPriority="high"
           decoding="async"
         />
         <div className="og-hero-inner">
-          <p className="og-kicker-dim">
-            Version {bannerMeta.version} — {bannerMeta.versionTitle}
-          </p>
-          <h1 className="og-display og-hero-title">Today in Wuthering Waves</h1>
-          <p className="og-hero-sub">
-            Live banners with countdowns, working redeem codes, and active
-            events — verified against multiple sources, updated daily.
-          </p>
-          <ObsidianButton
-            href="/pull-planner"
-            variant="ghost"
-            className="og-hero-cta"
-          >
-            Plan my pulls
-          </ObsidianButton>
+          <div className="og-hero-panel">
+            <p className="og-kicker-dim">
+              Version {bannerMeta.version} — {bannerMeta.versionTitle}
+            </p>
+            <h1 className="og-display og-hero-title">Today in Wuthering Waves</h1>
+            <p className="og-hero-sub">
+              Live banners with countdowns, working redeem codes, and active
+              events — verified against multiple sources, updated daily.
+            </p>
+            <ObsidianButton
+              href="/pull-planner"
+              variant="ghost"
+              className="og-hero-cta"
+            >
+              Plan my pulls
+            </ObsidianButton>
+          </div>
         </div>
       </section>
 
