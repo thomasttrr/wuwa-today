@@ -29,7 +29,7 @@ export default function ObsidianCharGrid({
   onClear: () => void;
 }) {
   return (
-    <div className="og-grid" role="list" aria-label="Characters">
+    <div className="og-grid og-grid--cap" role="list" aria-label="Characters">
       {chars.map((char, idx) => {
         const cap = filterSig === 0 ? INITIAL_STAGGER_CAP : FILTER_STAGGER_CAP;
         const step = filterSig === 0 ? INITIAL_STAGGER_MS : FILTER_STAGGER_MS;

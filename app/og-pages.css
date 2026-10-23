@@ -13,11 +13,16 @@
    DISPLAY-CAP RULE (Direction A): detail-bearing images never render
    wider than source px / 2 in CSS px; atmospheric hero backdrops at
    most source x 1.7. Governed here: character portraits are 500px
-   sources, so the hero box is 250px (retina-native at 2x); prev/next
-   thumbs 64px, weapon icons 64px (128px sources), material icons 30px
-   (120px sources), hub tiles at most ~208px in the 1080px container —
-   all inside the cap. Guide heroes are text-only and stay inside the
-   content measure — never a viewport breakout.
+   sources, so the hero box is 250px (retina-native at 2x); hub tiles
+   are 500px portraits in a 1030px content measure, which auto-fill
+   lays out as 4 columns ≈ 246px at desktop — inside the cap — and
+   the .og-grid--cap bands below pin the two stretch windows where
+   auto-fill would otherwise exceed 250px (641–656px and 822–868px
+   viewports); prev/next thumbs 64px, weapon icons 64px (128px
+   sources), material icons 30px (120px sources), beginner/pre-farm
+   card art capped at 220px inline — all inside the cap. Guide heroes
+   are text-only and stay inside the content measure — never a
+   viewport breakout.
    ========================================================================== */
 
 /* --- shared page hero ---------------------------------------------------- */
@@ -197,6 +202,19 @@
   padding: 0;
 }
 .og-cell { min-width: 0; }
+/* DISPLAY-CAP enforcement for the character hub only (.og-grid--cap):
+   auto-fill minmax(195px, 1fr) stretches tiles past the 250px cap in
+   two narrow windows — 2 columns at 641–656px viewports (tiles up to
+   ~300px) and 3 columns at 822–868px (tiles up to ~265px). Pinning an
+   extra column in each window keeps every 500px portrait tile at or
+   under 250px (3 cols ≈ 195px, 4 cols ≈ 195px). Scoped to the hub grid
+   so the beginner/pre-farm .og-grid cards are untouched. */
+@media (min-width: 641px) and (max-width: 656px) {
+  .og-grid--cap { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@media (min-width: 822px) and (max-width: 868px) {
+  .og-grid--cap { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
 .og-char-empty {
   grid-column: 1 / -1;
   background: var(--og-surface);
