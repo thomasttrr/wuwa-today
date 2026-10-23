@@ -115,8 +115,7 @@ function WeaponPlate({ weapon, bis }: { weapon: RankedWeapon; bis: boolean }) {
 
 /** Echo-set icon files, mapped by exact display name (never naive slugifying:
  *  apostrophes are dropped in flamewings-shadow and heart-of-evils-purge).
- *  One file per distinct sonata; Sun-sinking Eclipse is the legacy alias of
- *  Havoc Eclipse and shares havoc-eclipse.webp. Source: echo-set-images-table.md. */
+ *  One file per distinct sonata. Source: echo-set-images-table.md. */
 const ECHO_SET_ICONS: Record<string, string> = {
   "Moonlit Clouds": "moonlit-clouds",
   "Lingering Tunes": "lingering-tunes",
@@ -133,7 +132,6 @@ const ECHO_SET_ICONS: Record<string, string> = {
   "Eternal Radiance": "eternal-radiance",
   "Flash of Electric Reflection": "flash-of-electric-reflection",
   "Havoc Eclipse": "havoc-eclipse",
-  "Sun-sinking Eclipse": "havoc-eclipse",
   "Rite of Gilded Revelation": "rite-of-gilded-revelation",
   "Windward Pilgrimage": "windward-pilgrimage",
   "Flaming Clawprint": "flaming-clawprint",
