@@ -3,10 +3,11 @@
 import { useEffect, useState } from "react";
 
 /**
- * ScrollTop — floating glass button that appears once the user has
- * scrolled down. 44px touch target, sits above the floating mobile nav,
- * hides while the footer is on screen so it never overlaps footer
- * content, and respects prefers-reduced-motion.
+ * ScrollTop — glass button that appears once the user has scrolled down.
+ * 44px touch target, respects prefers-reduced-motion.
+ * Note (2026-10-23): nothing on the site follows the user anymore, so
+ * this button no longer floats — and since it hides while the footer is
+ * on screen, it effectively never appears. Kept, not deleted.
  */
 export default function ScrollTop() {
   const [visible, setVisible] = useState(false);

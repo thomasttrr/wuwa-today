@@ -62,11 +62,8 @@
 /* --- character hub: filter toolbar (chrome -> glass is allowed) --------- */
 
 .og-filterbar {
-  position: sticky;
-  /* One steady offset on every viewport, matching .og-toolbar. The nav is
-     a bottom bar, so no top clearance is needed; a single value also means
-     the stuck bar cannot jump when a resize crosses the mobile breakpoint. */
-  top: 1rem;
+  /* In normal flow like .og-toolbar: scrolls away with the page. */
+  position: relative;
   z-index: 40;
   display: flex;
   flex-direction: column;
@@ -203,9 +200,8 @@
   margin: 0 0 3rem;
   padding: 0;
 }
-/* Pre-farm index jump targets: clear the sticky toolbar on landing,
-   same 9rem clearance as .og-section. */
-.og-grid a[id^="prefarm-"] { scroll-margin-top: 9rem; }
+/* Pre-farm index jump targets: 1rem breathing room, same as .og-section. */
+.og-grid a[id^="prefarm-"] { scroll-margin-top: 1rem; }
 .og-cell { min-width: 0; }
 /* DISPLAY-CAP enforcement for the character hub only (.og-grid--cap):
    auto-fill minmax(195px, 1fr) stretches tiles past the 250px cap in
@@ -1025,13 +1021,11 @@
 /* --- scroll-to-top: floating glass button ------------------------------------ */
 
 .og-scrolltop {
-  position: fixed;
-  /* Anchored to the 1080px content column, not the viewport edge: on wide
-     screens the button parks in the gutter just outside the container
-     (12px gap) instead of drifting to the far screen edge; on narrow
-     screens it stays 1rem from the edge, as before. */
-  right: max(1rem, calc((100vw - 1080px) / 2 - 3.5rem));
-  bottom: calc(max(0.9rem, env(safe-area-inset-bottom)) + 5rem);
+  /* No longer follows: sits in normal flow at the end of the page.
+     Note: the component hides itself while the footer is on screen,
+     so with nothing floating the button effectively never appears.
+     Kept, not deleted, pending Tom's call. */
+  position: relative;
   z-index: 55;
   width: 44px;
   height: 44px;
@@ -1306,7 +1300,7 @@
   padding: 1.25rem 1.4rem;
   margin: 0 0 1rem;
   /* Anchor target for the toolbar — same offset as .og-section. */
-  scroll-margin-top: 9rem;
+  scroll-margin-top: 1rem;
 }
 .og-tier-side {
   display: flex;
@@ -1400,7 +1394,7 @@ a.og-tier-name:hover { text-decoration: underline; }
   font-size: 0.88rem;
   line-height: 1.55;
   /* Anchor target for the toolbar — same offset as .og-section. */
-  scroll-margin-top: 9rem;
+  scroll-margin-top: 1rem;
 }
 .og-tier-unranked strong { color: var(--og-ink); }
 .og-tier-unranked a { color: var(--og-ink); font-weight: 600; }
@@ -1473,7 +1467,7 @@ a.og-tier-name:hover { text-decoration: underline; }
   border-radius: 20px;
   padding: 1.1rem 1.25rem 0.4rem;
   margin: 0 0 1rem;
-  scroll-margin-top: 9rem;
+  scroll-margin-top: 1rem;
 }
 .og-role-header {
   font-size: 0.95rem; font-weight: 700; margin: 0 0 0.25rem;

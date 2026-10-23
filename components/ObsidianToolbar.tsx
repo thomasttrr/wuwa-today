@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 
 /**
- * ObsidianToolbar — floating GLASS toolbar (chrome, not content).
+ * ObsidianToolbar — in-flow glass toolbar (chrome, not content).
  * Quick anchor jumps within a data page. The visible `label` ("On this
  * page", "Banner sections", ...) makes it unmistakably in-page so it is
  * never confused with the main page nav. Every glass element carries the
