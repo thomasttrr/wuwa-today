@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import ObsidianToolbar from "@/components/ObsidianToolbar";
 import OgPageHero from "@/components/OgPageHero";
 import UpdatedStamp from "@/components/UpdatedStamp";
 import TierListViews from "@/components/TierListViews";
@@ -35,22 +34,6 @@ export default function TierListPage() {
         title="Character Tier List"
         lede={tierList.note}
         meta={<UpdatedStamp />}
-      />
-
-      {/* Role jumps resolve in the default Prydwen view: the role cards
-          below are rendered by PrydwenTierList. In the "Our Rankings"
-          view the role anchors are not rendered, so those jumps land
-          nowhere — see the report for the open question on this. */}
-      <ObsidianToolbar
-        label="Jump to a role"
-        items={[
-          { href: "#role-dps", label: "DPS" },
-          { href: "#role-hybrid", label: "Hybrid" },
-          { href: "#role-support", label: "Support" },
-          ...(unranked.length > 0
-            ? [{ href: "#unranked", label: "Unranked" }]
-            : []),
-        ]}
       />
 
       <TierListViews
