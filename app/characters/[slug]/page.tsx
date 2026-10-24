@@ -8,6 +8,7 @@ import ObsidianSectionHead from "@/components/ObsidianSectionHead";
 import ObsidianToolbar from "@/components/ObsidianToolbar";
 import ObsidianSequences from "@/components/ObsidianSequences";
 import ObsidianTeamCard from "@/components/ObsidianTeamCard";
+import PlainWordsBox from "@/components/PlainWordsBox";
 import { MaterialRows } from "@/components/MaterialTable";
 import type { MaterialEntry } from "@/lib/character-schema";
 import {
@@ -262,6 +263,7 @@ export default async function CharacterPage({
       <ObsidianToolbar
         label="On this page"
         items={[
+          { href: "#plain-words", label: "In plain words" },
           { href: "#build", label: "Build" },
           ...(char.sequences
             ? [{ href: "#resonance-chain", label: "Resonance Chain" }]
@@ -285,6 +287,18 @@ export default async function CharacterPage({
           </div>
         </Reveal>
       )}
+
+      {/* Build in plain words */}
+      <section className="og-section" aria-label="Build in plain words">
+        <ObsidianSectionHead
+          id="plain-words"
+          title="Build in plain words"
+          blurb="The same build as below, with no jargon."
+        />
+        <Reveal>
+          <PlainWordsBox char={char} />
+        </Reveal>
+      </section>
 
       {/* Build */}
       <section className="og-section" aria-label="Build">

@@ -1582,3 +1582,36 @@ a.og-tier-name:hover { text-decoration: underline; }
   .og-ptier { gap: 0.7rem; }
   .og-mode-toggle button { font-size: 0.8rem; }
 }
+
+/* Plain-words box (character pages) + glossary terms. Flat glass card
+   that scrolls with the page like everything except the tab bar — no
+   positioning rules here by design. */
+.og-plain-box {
+  background: var(--og-surface);
+  border: 1px solid var(--og-hairline);
+  border-radius: var(--og-radius-card);
+  padding: 1.25rem 1.5rem;
+}
+.og-plain-box p {
+  margin: 0 0 0.6rem;
+  color: var(--og-muted);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+.og-plain-box p:last-child {
+  margin-bottom: 0;
+}
+.og-plain-box a {
+  color: var(--og-ink);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.og-gloss-term {
+  margin: 0 0 0.75rem;
+  color: var(--og-muted);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+.og-gloss-term strong {
+  color: var(--og-ink);
+}

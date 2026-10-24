@@ -66,6 +66,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <Link href="/pre-farm">Pre-Farm</Link>
               <Link href="/pull-planner">Pull Planner</Link>
               <Link href="/tier-list">Tier List</Link>
+              <Link href="/glossary">Glossary</Link>
             </nav>
             <p>
               <strong>WuWa Today</strong> is an unofficial fan project. Wuthering
