@@ -79,8 +79,9 @@ export default function BannerCard({
         <div className="og-banner-art">
           {/* Fix 3, static-export safe: plain <img> srcset. The strip displays
               at 512 CSS px on desktop (audit-confirmed), so 512w covers 1x
-              and 1024w covers 2x retina; both are downscales of the 1200px
-              originals (same artworks, WebP q80). A new banner image needs
+              and 1024w covers 2x retina; both are downscales of the full-size
+              wiki originals (same artworks, WebP q80 — re-downloaded
+              2026-11-02, see data/SOURCES.md). A new banner image needs
               matching -512/-1024 variants. */}
           {/* eslint-disable-next-line @next/next/no-img-element -- key-art strip: next/image's wrapper spans would break the fade-mask styling, and images are unoptimized in this static export so next/image adds nothing. */}
           <img

@@ -137,6 +137,8 @@ All artwork is official Kuro Games art (splash art and full sprites as released 
 
 Hsin's splash art was also officially revealed by Kuro Games on the official Wuthering Waves X account (@Wuthering_Waves), August 26, 2026. Art credit "Kuro Games" is shown under each banner card that uses splash art.
 
+2026-11-02 (branch kit/hires-splash): the two splash arts were re-downloaded from the same wiki file URLs above at full original size — the 2026-10-14 downloads were 640px-wide scaled copies. Genuine originals: Suoming 1936×2048, Hsin 2046×2046. All served variants (-512/-640 base/-1024/-1200, plus a new -1920 for the homepage hero) are now true downscales of those originals (WebP q80); nothing is upscaled. A GitHub game-asset unpack (TomyJan/WutheringWaves-UIResources) was checked first and does not contain the finished splash art — it ships the convene scene in layers (background + character) — so the wiki originals remain the splash source.
+
 Deliberately not added: event-section artwork (no official event key art found on the wiki for the current events — skipped rather than guessing); 4-star rate-up character sprites (Buling, Taoqi, Youhu) to keep the initial image set focused on the 5-star headliners.
 
 ## Pre-farm guides (published 2026-10-15 — branch kit/prefarm-suoming)
