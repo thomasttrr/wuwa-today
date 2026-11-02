@@ -77,17 +77,25 @@ export default function BannerCard({
     >
       {banner.image && (
         <div className="og-banner-art">
-          {/* Fix 3, static-export safe: plain <img> srcset. The strip displays
-              at 512 CSS px on desktop (audit-confirmed), so 512w covers 1x
-              and 1024w covers 2x retina; both are downscales of the full-size
-              wiki originals (same artworks, WebP q80 — re-downloaded
-              2026-11-02, see data/SOURCES.md). A new banner image needs
-              matching -512/-1024 variants. */}
+          {/* Fix 3, static-export safe: plain <img> srcset. All variants are
+              downscales of the full-size wiki originals (same artworks,
+              WebP q80 — re-downloaded 2026-11-02, see data/SOURCES.md).
+              A new banner image needs matching -512/-1024/-1200/-1920
+              variants. CORRECTED 2026-11-02: the old srcset stopped at
+              1024w and sizes claimed a 512px display, but the cards sit in
+              an auto-fit grid — a lone/featured card spans the full 1080px
+              container, so browsers loaded the 512w file and CSS stretched
+              it ~2x (the visible blur). sizes now matches the real layout:
+              featured cards display up to 1080px, grid cards up to ~532px. */}
           {/* eslint-disable-next-line @next/next/no-img-element -- key-art strip: next/image's wrapper spans would break the fade-mask styling, and images are unoptimized in this static export so next/image adds nothing. */}
           <img
             src={banner.image}
-            srcSet={`${bannerBase}-512.webp 512w, ${bannerBase}-1024.webp 1024w`}
-            sizes="(max-width: 640px) 100vw, 512px"
+            srcSet={`${bannerBase}-512.webp 512w, ${bannerBase}-1024.webp 1024w, ${bannerBase}-1200.webp 1200w, ${bannerBase}-1920.webp 1920w`}
+            sizes={
+              featured
+                ? "(max-width: 640px) 100vw, 1080px"
+                : "(max-width: 640px) 100vw, 532px"
+            }
             alt={`Official key art for the ${banner.version} ${banner.phase} banner${fiveStars.length > 0 ? `, featuring ${fiveStars.map((c) => c.name).join(" and ")}` : ""}`}
             loading={priority ? "eager" : "lazy"}
             decoding="async"
