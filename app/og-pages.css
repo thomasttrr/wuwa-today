@@ -62,8 +62,8 @@
 /* --- character hub: filter toolbar (chrome -> glass is allowed) --------- */
 
 .og-filterbar {
-  position: sticky;
-  top: 4.75rem; /* clears the floating desktop nav capsule */
+  /* In normal flow like .og-toolbar: scrolls away with the page. */
+  position: relative;
   z-index: 40;
   display: flex;
   flex-direction: column;
@@ -160,7 +160,6 @@
 
 @media (max-width: 640px) {
   .og-filterbar {
-    top: 0.75rem; /* mobile nav is a bottom bar; no top clearance needed */
     padding: 0.7rem 0.85rem;
     border-radius: 18px;
     /* No overflow:hidden — it clips grid/count content on iOS. The glint
@@ -201,6 +200,8 @@
   margin: 0 0 3rem;
   padding: 0;
 }
+/* Pre-farm index jump targets: 1rem breathing room, same as .og-section. */
+.og-grid a[id^="prefarm-"] { scroll-margin-top: 1rem; }
 .og-cell { min-width: 0; }
 /* DISPLAY-CAP enforcement for the character hub only (.og-grid--cap):
    auto-fill minmax(195px, 1fr) stretches tiles past the 250px cap in
@@ -1040,9 +1041,11 @@
 /* --- scroll-to-top: floating glass button ------------------------------------ */
 
 .og-scrolltop {
-  position: fixed;
-  right: 1rem;
-  bottom: calc(max(0.9rem, env(safe-area-inset-bottom)) + 5rem);
+  /* No longer follows: sits in normal flow at the end of the page.
+     Note: the component hides itself while the footer is on screen,
+     so with nothing floating the button effectively never appears.
+     Kept, not deleted, pending Tom's call. */
+  position: relative;
   z-index: 55;
   width: 44px;
   height: 44px;
@@ -1317,7 +1320,7 @@
   padding: 1.25rem 1.4rem;
   margin: 0 0 1rem;
   /* Anchor target for the toolbar — same offset as .og-section. */
-  scroll-margin-top: 9rem;
+  scroll-margin-top: 1rem;
 }
 .og-tier-side {
   display: flex;
@@ -1411,7 +1414,7 @@ a.og-tier-name:hover { text-decoration: underline; }
   font-size: 0.88rem;
   line-height: 1.55;
   /* Anchor target for the toolbar — same offset as .og-section. */
-  scroll-margin-top: 9rem;
+  scroll-margin-top: 1rem;
 }
 .og-tier-unranked strong { color: var(--og-ink); }
 .og-tier-unranked a { color: var(--og-ink); font-weight: 600; }
@@ -1484,6 +1487,7 @@ a.og-tier-name:hover { text-decoration: underline; }
   border-radius: 20px;
   padding: 1.1rem 1.25rem 0.4rem;
   margin: 0 0 1rem;
+  scroll-margin-top: 1rem;
 }
 .og-role-header {
   font-size: 0.95rem; font-weight: 700; margin: 0 0 0.25rem;
@@ -1597,4 +1601,37 @@ a.og-tier-name:hover { text-decoration: underline; }
   .og-role-card { padding: 1rem 1rem 0.35rem; border-radius: 16px; }
   .og-ptier { gap: 0.7rem; }
   .og-mode-toggle button { font-size: 0.8rem; }
+}
+
+/* Plain-words box (character pages) + glossary terms. Flat glass card
+   that scrolls with the page like everything except the tab bar — no
+   positioning rules here by design. */
+.og-plain-box {
+  background: var(--og-surface);
+  border: 1px solid var(--og-hairline);
+  border-radius: var(--og-radius-card);
+  padding: 1.25rem 1.5rem;
+}
+.og-plain-box p {
+  margin: 0 0 0.6rem;
+  color: var(--og-muted);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+.og-plain-box p:last-child {
+  margin-bottom: 0;
+}
+.og-plain-box a {
+  color: var(--og-ink);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.og-gloss-term {
+  margin: 0 0 0.75rem;
+  color: var(--og-muted);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+.og-gloss-term strong {
+  color: var(--og-ink);
 }

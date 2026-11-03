@@ -57,9 +57,9 @@ function Chip({
 
 /**
  * Obsidian filter toolbar for the character hub. The toolbar is chrome, so
- * glass (frosted tint + specular glint) is allowed here. Sticky offset
- * clears the floating desktop nav capsule; on mobile the bar sits below
- * the top edge (nav is a bottom thumb bar there). Chips are >= 44px for
+ * glass (frosted tint + specular glint) is allowed here. Sticky offset is
+ * a single steady 1rem on every viewport (the nav is a bottom thumb bar,
+ * so no top clearance is needed). Chips are >= 44px for
  * iPhone-safe touch targets.
  */
 export default function ObsidianCharFilters({

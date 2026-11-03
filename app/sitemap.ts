@@ -7,7 +7,7 @@ const BASE = "https://wuwa-today.vercel.app";
 export const dynamic = "force-static";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const staticPages = ["", "/banners", "/events", "/characters", "/pull-planner", "/tier-list", "/pre-farm", "/beginner", "/echo-sets"].map(
+  const staticPages = ["", "/banners", "/events", "/characters", "/pull-planner", "/tier-list", "/pre-farm", "/beginner", "/echo-sets", "/glossary"].map(
     (p) => ({
       url: `${BASE}${p}`,
       lastModified: new Date(),

@@ -5,8 +5,10 @@ import Link from "next/link";
 import Reveal from "@/components/Reveal";
 import CopyButton from "@/components/CopyButton";
 import ObsidianSectionHead from "@/components/ObsidianSectionHead";
+import ObsidianToolbar from "@/components/ObsidianToolbar";
 import ObsidianSequences from "@/components/ObsidianSequences";
 import ObsidianTeamCard from "@/components/ObsidianTeamCard";
+import PlainWordsBox from "@/components/PlainWordsBox";
 import { MaterialRows } from "@/components/MaterialTable";
 import type { MaterialEntry } from "@/lib/character-schema";
 import {
@@ -340,6 +342,22 @@ export default async function CharacterPage({
         </div>
       </header>
 
+      <ObsidianToolbar
+        label="On this page"
+        items={[
+          { href: "#plain-words", label: "In plain words" },
+          { href: "#build", label: "Build" },
+          ...(char.sequences
+            ? [{ href: "#resonance-chain", label: "Resonance Chain" }]
+            : []),
+          ...(char.materials
+            ? [{ href: "#farming", label: "Farming" }]
+            : []),
+          { href: "#teams", label: "Teams" },
+          { href: "#pull-verdict", label: "Pull verdict" },
+        ]}
+      />
+
       {preRelease && (
         <Reveal>
           <div className="og-notice" role="note">
@@ -352,9 +370,21 @@ export default async function CharacterPage({
         </Reveal>
       )}
 
+      {/* Build in plain words */}
+      <section className="og-section" aria-label="Build in plain words">
+        <ObsidianSectionHead
+          id="plain-words"
+          title="Build in plain words"
+          blurb="The same build as below, with no jargon."
+        />
+        <Reveal>
+          <PlainWordsBox char={char} />
+        </Reveal>
+      </section>
+
       {/* Build */}
       <section className="og-section" aria-label="Build">
-        <ObsidianSectionHead title="Build" blurb={build.fast_path} />
+        <ObsidianSectionHead id="build" title="Build" blurb={build.fast_path} />
         <div style={{ display: "flex", justifyContent: "flex-end", margin: "0 0 1rem" }}>
           <CopyButton
             text={buildSummaryText(char)}
@@ -455,6 +485,7 @@ export default async function CharacterPage({
       {char.sequences && (
         <section className="og-section" aria-label="Resonance Chain">
           <ObsidianSectionHead
+            id="resonance-chain"
             title="Resonance Chain"
             blurb={char.sequences.verdict}
           />
@@ -468,6 +499,7 @@ export default async function CharacterPage({
       {char.materials && (
         <section className="og-section" aria-label="Pre-farm materials">
           <ObsidianSectionHead
+            id="farming"
             title="Farming"
             blurb="Ascension + forte costs with farm locations."
           />
@@ -486,7 +518,7 @@ export default async function CharacterPage({
 
       {/* Teams */}
       <section className="og-section" aria-label="Teams">
-        <ObsidianSectionHead title="Teams" blurb="Tested comps with rotations." />
+        <ObsidianSectionHead id="teams" title="Teams" blurb="Tested comps with rotations." />
         {char.teams.map((team, i) => (
           <Reveal key={team.name}>
             <ObsidianTeamCard team={team} first={i === 0} />
@@ -505,7 +537,7 @@ export default async function CharacterPage({
 
       {/* Pull verdict */}
       <section className="og-section" aria-label="Pull verdict">
-        <ObsidianSectionHead title="Pull verdict" />
+        <ObsidianSectionHead id="pull-verdict" title="Pull verdict" />
         <Reveal>
           <div className="og-verdict-card">
             <p className="og-verdict-kicker">Pull verdict</p>

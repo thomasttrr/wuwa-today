@@ -29,16 +29,14 @@ export default function HomePage() {
   const heroArt = heroBanner?.image ?? "/images/hsin-splash.webp";
   // Responsive hero art (Fix 1, static-export safe: plain <img> srcset, no
   // next/image — the export is unoptimized so next/image generates nothing).
-  // Variants are downscales of the 1200px originals shipped in ade595f
-  // (same artworks, WebP q80); a new banner image needs matching -640/-1200
-  // variants or the srcset below silently points at missing files.
-  // DEVIATION from the brief's 640/1280/1920w: no genuine source wider than
-  // 1200px was found, and upscaling to 1280/1920 is forbidden, so 1200w is
-  // the largest served width. Note the hero is now a contained 1080px panel
-  // (Direction A, sibling worker's in-progress change), so 1200w covers the
-  // panel at 1x; a 2x-retina panel (2160 device px) still upscales from it.
+  // Variants are downscales of the full-size wiki originals re-downloaded
+  // 2026-11-02 (Suoming 1936w, Hsin 2046w — see data/SOURCES.md; WebP q80);
+  // a new banner image needs matching -640/-1200/-1920 variants or the
+  // srcset below silently points at missing files. The hero is a contained
+  // 1080px panel, so 1920w covers it at ~1.8x; nothing wider is served
+  // because upscaling past the genuine source is forbidden.
   const heroBase = heroArt.replace(/\.webp$/, "");
-  const heroSrcSet = `${heroArt} 640w, ${heroBase}-1200.webp 1200w`;
+  const heroSrcSet = `${heroArt} 640w, ${heroBase}-1200.webp 1200w, ${heroBase}-1920.webp 1920w`;
 
   return (
     <>

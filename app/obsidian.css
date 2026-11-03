@@ -64,11 +64,12 @@
 /* ==========================================================================
    Obsidian body scope. The primary nav is a fixed bottom tab bar on all
    viewports, so main clears it at the bottom and needs no top headroom.
+   (Everything else on the page sits in normal flow and scrolls away.)
    ========================================================================== */
 
 body.og main {
   padding-top: 1.25rem;
-  /* Clears the 71px bottom tab bar with breathing room. */
+  /* Clears the 71px fixed bottom tab bar with breathing room. */
   padding-bottom: calc(5.5rem + env(safe-area-inset-bottom));
 }
 
@@ -112,6 +113,8 @@ body.og main {
    ========================================================================== */
 
 .og-tabbar {
+  /* Fixed bottom bar: the one element that still follows the user, so
+     navigation is always accessible (Tom 2026-10-23). */
   position: fixed;
   z-index: 60;
   left: 0;
@@ -525,7 +528,7 @@ body.og { overflow-x: clip; }
 }
 
 /* --- sections: dense, scannable, on the canvas --- */
-.og-section { margin: 0 0 2.75rem; scroll-margin-top: 9rem; }
+.og-section { margin: 0 0 2.75rem; scroll-margin-top: 1rem; }
 .og-section-head {
   display: flex; align-items: flex-end; justify-content: space-between;
   gap: 1rem; flex-wrap: wrap;
@@ -533,6 +536,9 @@ body.og { overflow-x: clip; }
   padding-bottom: 0.75rem;
   border-bottom: 1px solid var(--og-hairline-soft);
 }
+/* Jump targets live on the head, not the section, so the head itself
+   needs the same 1rem breathing room as .og-section. */
+.og-section-head[id] { scroll-margin-top: 1rem; }
 .og-section-blurb { color: var(--og-muted); margin: 0.4rem 0 0; font-size: 0.95rem; }
 .og-section-link {
   display: inline-flex; align-items: center; min-height: 44px;
@@ -584,7 +590,9 @@ body.og { overflow-x: clip; }
    full-bleed moment. The panel sits inside .container so its edges align
    with the page content measure (1080px max); the art is atmosphere
    behind a glass panel carrying the headline, subtext, and CTA.
-   Monochrome dark scrim unchanged. Height rhythm unchanged (~64vh).
+   Monochrome dark scrim unchanged. Panel shape is a fixed 8/5 ratio
+   (since 2026-11-02) so the art framing no longer depends on the
+   window's height, and the art is pinned to the panel's top edge.
    DISPLAY-CAP: hero art is 640px wide, so at the 1080px content measure
    it renders at 1080/640 = 1.69x — inside the atmospheric 1.7x cap.
    ========================================================================== */
@@ -594,7 +602,11 @@ body.og { overflow-x: clip; }
   width: 100%;
   max-width: 1080px; /* = .container measure; panel edges align with sections below */
   margin: 0 auto 2.75rem;
-  height: clamp(32rem, 64vh, 46rem);
+  /* One fixed panel shape at every desktop size (was height: 64vh, which
+     made the art crop depend on the window's height). On short windows the
+     panel stops at 84svh instead of running past the screen edge. */
+  aspect-ratio: 8 / 5;
+  max-height: 84svh;
   overflow: hidden;
   background: #000;
   border: 1px solid var(--og-hairline);
@@ -604,7 +616,11 @@ body.og { overflow-x: clip; }
   position: absolute; inset: 0;
   width: 100%; height: 100%;
   object-fit: cover;
-  object-position: 50% 22%; /* character faces sit high in square art */
+  /* Art pinned to the top of the panel: the top of the artwork is never
+     cropped at any window size. All overflow comes off the bottom, where
+     the dark scrim and the glass headline panel already sit. (Was 50% 22%,
+     which cut ~10% off the top of the near-square splash art.) */
+  object-position: 50% 0%;
 }
 .og-hero::after {
   /* Monochrome dark scrim: top shade for nav legibility, deep shade
@@ -701,14 +717,14 @@ body.og { overflow-x: clip; }
 }
 
 /* ==========================================================================
-   .og-toolbar — floating glass toolbar (chrome, not content).
+   .og-toolbar — in-flow glass toolbar (chrome, not content).
    Quick section jumps on data pages. Degrades to solid under
    prefers-reduced-transparency.
    ========================================================================== */
 
 .og-toolbar {
-  position: sticky;
-  top: 5.5rem;
+  /* In normal flow: it scrolls away with the page and never sticks. */
+  position: relative;
   z-index: 40;
   width: fit-content; max-width: 100%;
   margin: 0 0 1.5rem;
@@ -781,7 +797,7 @@ body.og { overflow-x: clip; }
   .og-toolbar { background: var(--og-surface); -webkit-backdrop-filter: none; backdrop-filter: none; }
 }
 @media (max-width: 640px) {
-  .og-toolbar { top: 1rem; border-radius: 22px; }
+  .og-toolbar { border-radius: 22px; }
 }
 
 /* ==========================================================================
