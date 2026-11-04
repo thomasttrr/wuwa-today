@@ -71,7 +71,7 @@ export default function HomePage() {
         />
         <div className="og-hero-inner">
           <div className="og-hero-panel">
-            <p className="og-kicker-dim">
+            <p className="og-kicker">
               Version {bannerMeta.version} — {bannerMeta.versionTitle}
             </p>
             <h1 className="og-display og-hero-title">Today in Wuthering Waves</h1>

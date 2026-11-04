@@ -7,6 +7,7 @@ import {
   type GameCharacter,
   type GameEvent,
 } from "../lib/data";
+import { elementColor } from "../lib/elements";
 
 function stars(rarity: number): string {
   return "★".repeat(rarity);
@@ -39,6 +40,11 @@ function CharacterChip({ c }: { c: GameCharacter }) {
           )}
         </div>
         <div className="og-char-chip-sub">
+          <span
+            className="element-dot"
+            style={{ background: elementColor(c.element) }}
+            aria-hidden="true"
+          />{" "}
           {c.element} {c.weaponType}
           {c.role ? ` — ${c.role}` : ""}
         </div>

@@ -33,14 +33,14 @@ Semantic roles only — components reference these tokens, never hex values.
 
 | Token | Value | Role |
 | --- | --- | --- |
-| `--og-canvas` | `#000000` | page floor |
-| `--og-surface` | `#101014` | solid content surface (cards, plates) |
-| `--og-surface-raised` | `#1a1a20` | raised / inset on a surface |
-| `--og-ink` | `#ffffff` | primary text (21:1 on canvas) |
-| `--og-muted` | `#b6b6be` | secondary text (~9.4:1 on surface) |
-| `--og-faint` | `#8e8e96` | captions, meta (≥4.5:1 on surface) |
-| `--og-hairline` | `rgba(255,255,255,.10)` | card borders, strong dividers |
-| `--og-hairline-soft` | `rgba(255,255,255,.05)` | quiet dividers |
+| `--og-canvas` | `#05080d` | page floor — deep navy-black |
+| `--og-surface` | `#0b0f16` | solid content surface (cards, plates) |
+| `--og-surface-raised` | `#141b28` | raised / inset on a surface |
+| `--og-ink` | `#ffffff` | primary text (20:1 on canvas) |
+| `--og-muted` | `#b9c2d0` | secondary text (~9:1 on surface) |
+| `--og-faint` | `#8d99ae` | captions, meta (≥4.5:1 on surface) |
+| `--og-hairline` | `rgba(190,205,235,.12)` | card borders, strong dividers |
+| `--og-hairline-soft` | `rgba(190,205,235,.06)` | quiet dividers |
 | `--og-gold` | `#e8b44f` | time, countdowns, live, the beam, and small structural gold: kickers/eyebrows, active states, link hovers — never body text, never fills |
 | `--og-gold-soft` | `rgba(232,180,79,.14)` | gold wash behind gold text |
 | `--og-green` | `#30d158` | success state (e.g. a working code) |
@@ -151,9 +151,16 @@ sanctioned colour inside content (dots, chips, tile meta); editorial card
 anatomy (kicker row with category + freshness + date → bold title →
 two-line excerpt → one action); a distinct title font with mono
 micro-labels (we already speak this: Space Grotesk + mono).
-Deliberately NOT adopted: their blue-tinted navy canvas (ours stays pure
-black — the monochrome is our identity), gold as a flood colour, and any
-of their components or wording.
+Deliberately NOT adopted: gold as a flood colour, and any of their
+components or wording. On the canvas: the first unification pass kept
+pure black; Tom's correction on 2026-11-04 (he expected the references
+to visibly drive the redesign, and both his picks ground their sites in
+a tinted near-black) moved the ground to a deep navy-black of our own
+value (`#05080d`) — the monochrome discipline stays, the ground now
+carries the game's own navy whisper. Every section head also opens on
+the same mark (a short gold rule on its divider), the active nav tab
+wears gold, and content cards answer the pointer with a gold-tinted
+border — the gold thread, made visible.
 
 ## 11. Reference — wavekit.net (Tom's pick, 2026-11-04)
 
@@ -163,7 +170,7 @@ voice (§4); numbered steps (mono 01/02/03) sanctioned for REAL step
 sequences only, like the beginner path — never as decoration; freshness
 shown proudly (updated stamps and meta rows — already our pattern, now
 a stated rule: every hub answers "is this fresh?" in its hero meta row).
-Considered and answered: their deep navy canvas — our tint already lives
-in the surface token (`#101014` carries the cool cast); the canvas stays
-pure black. Not adopted: their tool-first homepage shape (a design-only
-pass does not change what our pages are for) and their teal brand colour.
+Considered: their deep navy canvas — adopted in spirit with §10 (the
+ground tinted to our own deep navy-black). Not adopted: their
+tool-first homepage shape (a design-only pass does not change what our
+pages are for) and their teal brand colour.
