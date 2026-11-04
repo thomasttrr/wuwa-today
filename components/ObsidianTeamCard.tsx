@@ -9,7 +9,7 @@ import { elementColor } from "@/lib/elements";
  * surface (never glass). Tags are restrained monochrome — no gold (gold is
  * reserved for time). The one exception: when `first` is true (the first
  * team on a character page, confirmed best by Tom), the shared golden beam
- * from og-pages.css marks the card — beam only, no new label or badge.
+ * from app/design.css marks the card — beam only, no new label or badge.
  */
 export default function ObsidianTeamCard({ team, first = false }: { team: Team; first?: boolean }) {
   const tagClass =

@@ -5,7 +5,7 @@ import type { CharacterSequences } from "@/lib/character-schema";
  *
  * Shows the pull_path stop points as an ordered rail of solid cards:
  * which sequence to aim for first, then next. The single best-value stop
- * carries the gold dot + the shared border-beam treatment (see og-pages.css).
+ * carries the gold dot + the shared border-beam treatment (see app/design.css).
  * All six nodes sit behind a collapsed "All six nodes" list with per-node
  * priority chips. Dark-only, solid surfaces, reduced-motion safe.
  */

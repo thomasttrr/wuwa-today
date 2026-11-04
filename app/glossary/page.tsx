@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import ObsidianSectionHead from "@/components/ObsidianSectionHead";
+import OgPageHero from "@/components/OgPageHero";
 
 export function generateMetadata(): Metadata {
   return {
@@ -27,16 +27,17 @@ function Group({ title, terms }: { title: string; terms: [string, string][] }) {
 export default function GlossaryPage() {
   return (
     <>
+      <OgPageHero
+        kicker="Reference"
+        title="Plain-words glossary"
+        lede="Every build word on this site, explained the way you would explain it to someone who has never played."
+      />
+
       <Link href="/characters" className="og-back">
         ← Characters
       </Link>
 
       <section className="og-section" aria-label="Plain-words glossary">
-        <ObsidianSectionHead
-          id="glossary"
-          title="Plain-words glossary"
-          blurb="Every build word on this site, explained the way you would explain it to someone who has never played."
-        />
         <Group
           title="Jobs in a team"
           terms={[
