@@ -37,13 +37,21 @@ export default function BannersPage() {
 
       <div className="og-section">
         <ObsidianSectionHead id="live" title="Live now" />
-        <div className="grid grid-2">
-          {activeBanners.map((b, i) => (
-            <Reveal key={b.id} delay={i * 70}>
-              <BannerCard banner={b} featured={i === 0} priority={i === 0} />
-            </Reveal>
-          ))}
-        </div>
+        {/* The lead banner runs full width; the rest share a grid. */}
+        {activeBanners.length > 0 && (
+          <Reveal>
+            <BannerCard banner={activeBanners[0]} featured priority />
+          </Reveal>
+        )}
+        {activeBanners.length > 1 && (
+          <div className="grid grid-2">
+            {activeBanners.slice(1).map((b, i) => (
+              <Reveal key={b.id} delay={i * 70}>
+                <BannerCard banner={b} />
+              </Reveal>
+            ))}
+          </div>
+        )}
       </div>
 
       <div className="og-section">

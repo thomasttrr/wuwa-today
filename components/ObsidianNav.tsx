@@ -2,10 +2,8 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useLayoutEffect, useRef, useState } from "react";
 
 const NAV = [
-  { href: "/", label: "Today" },
   { href: "/banners", label: "Banners" },
   { href: "/events", label: "Events" },
   { href: "/characters", label: "Characters" },
@@ -15,114 +13,48 @@ const NAV = [
 ];
 
 /**
- * ObsidianNav — solid full-width bottom tab bar (all viewports).
- * A frosted-glass "magic pill" glides behind the active tab with a
- * springy overshoot ease, measured from the tab's real position/size.
- * The tab strip scrolls horizontally (swipe) when tabs overflow —
- * labels are never truncated. The pill lives inside the scrolling
- * track so it travels with the tabs; the active tab is scrolled into
- * view on route change. No @property, no glow clichés — one bar,
- * one pill, one ease.
+ * Masthead — a plain top bar: wordmark left, section links, search.
+ * The current section is marked with vermilion text and a short bar
+ * under it. No floating pill, no glass. On narrow screens the links
+ * become their own scrollable row under the wordmark row.
  */
 export default function ObsidianNav() {
   const pathname = usePathname();
   const isActive = (href: string) =>
-    href === "/"
-      ? pathname === "/"
-      : pathname === href || pathname.startsWith(`${href}/`);
-  const activeIndex = NAV.findIndex((item) => isActive(item.href));
-
-  const listRef = useRef<HTMLDivElement>(null);
-  const firstMount = useRef(true);
-  const [pill, setPill] = useState<{ x: number; w: number } | null>(null);
-
-  useLayoutEffect(() => {
-    const list = listRef.current;
-    if (!list || activeIndex < 0) {
-      setPill(null);
-      return;
-    }
-    const measure = () => {
-      const tab = list.querySelectorAll(":scope > a")[activeIndex] as
-        | HTMLElement
-        | undefined;
-      if (!tab) return;
-      setPill((prev) => {
-        const next = { x: tab.offsetLeft, w: tab.offsetWidth };
-        return prev && prev.x === next.x && prev.w === next.w ? prev : next;
-      });
-    };
-    measure();
-
-    // Bring the active tab into view inside the scroll strip: jump on
-    // first mount (no animation), smooth glide on route changes —
-    // unless reduced motion, which always jumps. Extracted so it can
-    // be re-run on resize/orientation change (P-7): the strip's scroll
-    // position can drift when the viewport width changes.
-    const activeTab = () =>
-      list.querySelectorAll(":scope > a")[activeIndex] as
-        | HTMLElement
-        | undefined;
-    const centerActive = (behavior: ScrollBehavior) => {
-      const tab = activeTab();
-      if (!tab) return;
-      tab.scrollIntoView({ inline: "center", block: "nearest", behavior });
-    };
-    const reduced = window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
-    ).matches;
-    centerActive(firstMount.current || reduced ? "auto" : "smooth");
-    firstMount.current = false;
-
-    const recenter = () => centerActive("auto");
-    window.addEventListener("resize", recenter);
-    window.addEventListener("orientationchange", recenter);
-
-    const ro = new ResizeObserver(measure);
-    ro.observe(list);
-    return () => {
-      ro.disconnect();
-      window.removeEventListener("resize", recenter);
-      window.removeEventListener("orientationchange", recenter);
-    };
-  }, [activeIndex]);
+    pathname === href || pathname.startsWith(`${href}/`);
 
   return (
-    <nav className="og-tabbar" aria-label="Primary">
-      <div className="og-tabbar-inner">
-        <button
-          type="button"
-          className="og-tabbar-search"
-          aria-label="Search (Command K)"
-          onClick={() => window.dispatchEvent(new CustomEvent("wuwa:search"))}
-        >
-          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" aria-hidden="true">
-            <circle cx="11" cy="11" r="7" />
-            <path d="m20 20-3.8-3.8" />
-          </svg>
-        </button>
-        <div ref={listRef} className="og-tabbar-tabs">
-          {pill && activeIndex >= 0 && (
-            <div
-              className="og-tabbar-pill"
-              aria-hidden="true"
-              style={{
-                transform: `translateX(${pill.x}px)`,
-                width: pill.w,
-              }}
-            />
-          )}
-          {NAV.map((item, i) => (
+    <header className="masthead">
+      <div className="masthead-in">
+        <Link href="/" className="wordmark" aria-label="WuWa Today — home">
+          WUWA<span>TODAY</span>
+        </Link>
+        <nav className="mainnav" aria-label="Primary">
+          {NAV.map((item) => (
             <Link
               key={item.href}
               href={item.href}
-              aria-current={i === activeIndex ? "page" : undefined}
+              aria-current={isActive(item.href) ? "page" : undefined}
+              className={isActive(item.href) ? "on" : undefined}
             >
-              <span>{item.label}</span>
+              {item.label}
             </Link>
           ))}
-        </div>
+        </nav>
+        <button
+          type="button"
+          className="searchbtn"
+          aria-label="Search (Command K)"
+          onClick={() => window.dispatchEvent(new CustomEvent("wuwa:search"))}
+        >
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" aria-hidden="true">
+            <circle cx="11" cy="11" r="7" />
+            <path d="m20 20-3.8-3.8" />
+          </svg>
+          <span className="searchbtn-label">Search</span>
+          <kbd>⌘K</kbd>
+        </button>
       </div>
-    </nav>
+    </header>
   );
 }

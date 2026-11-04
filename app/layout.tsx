@@ -1,28 +1,30 @@
 import type { Metadata, Viewport } from "next";
 import Link from "next/link";
-import { Martian_Mono } from "next/font/google";
+import { Archivo, IBM_Plex_Mono } from "next/font/google";
 import ObsidianNav from "@/components/ObsidianNav";
 import ScrollTop from "@/components/ScrollTop";
 import NowProvider from "@/components/NowProvider";
 import SearchPalette from "@/components/SearchPalette";
-import "./design.css";
+import "./style.css";
 
-/* Resonance type (DESIGN.md §3): Mona Sans for headlines (wide, heavy),
-   Martian Mono for every number (countdowns, codes, stats, dates),
-   system sans for body text — speed and legibility. Two shipped
-   variable fonts, both preloaded by next/font; body ships nothing. */
-const martianMono = Martian_Mono({
-  weight: ["400", "500", "700", "800"],
+/* Fresh type system: Archivo carries everything (900 for display,
+   400–600 for text), IBM Plex Mono carries data and labels. */
+const archivo = Archivo({
+  weight: ["400", "500", "600", "700", "800", "900"],
   subsets: ["latin"],
-  variable: "--font-martian",
+  variable: "--font-archivo",
+  display: "swap",
+});
+const plexMono = IBM_Plex_Mono({
+  weight: ["400", "500", "600"],
+  subsets: ["latin"],
+  variable: "--font-plex",
   display: "swap",
 });
 
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  /* viewport-fit=cover engages the iPhone notch/home-indicator safe-area
-     insets so env(safe-area-inset-bottom) on the floating nav is real. */
   viewportFit: "cover",
 };
 
@@ -47,8 +49,8 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={martianMono.variable}>
-      <body className="og">
+    <html lang="en" className={`${archivo.variable} ${plexMono.variable}`}>
+      <body>
         {/* One shared 1s ticker for every countdown/progress bar on the page. */}
         <NowProvider>
         <a className="skip-link" href="#main">
@@ -60,6 +62,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </main>
         <footer className="site-footer">
           <div className="container">
+            <p className="foot-word">WUWA<span>TODAY</span></p>
             <nav className="site-footer-nav" aria-label="Site">
               <Link href="/">Today</Link>
               <Link href="/banners">Banners</Link>

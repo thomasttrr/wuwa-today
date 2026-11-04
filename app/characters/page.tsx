@@ -41,7 +41,7 @@ export default function CharactersPage() {
         meta={<UpdatedStamp />}
       />
 
-      <nav className="og-anchor-bar" aria-label="Jump to an element">
+      <nav className="mosaic-bar" aria-label="Jump to an element">
         {groups.map((g) => (
           <a key={g.element} href={`#element-${g.element.toLowerCase()}`}>
             {g.element} · {g.members.length}
@@ -53,48 +53,44 @@ export default function CharactersPage() {
         <section
           key={g.element}
           id={`element-${g.element.toLowerCase()}`}
-          className="og-roster-group"
+          className="mosaic-group"
         >
-          <h2 className="og-roster-head">
+          <h2 className="mosaic-head">
             <span
               className="element-dot"
               style={{ background: elementColor(g.element) }}
               aria-hidden="true"
             />
             {g.element}
-            <span className="og-roster-count">{g.members.length}</span>
+            <span className="og-count">{g.members.length}</span>
           </h2>
-          <ul className="og-roster">
+          <div className="mosaic">
             {g.members.map((t: CharacterHubTile) => (
-              <li key={t.slug}>
-                <Link href={`/characters/${t.slug}`} className="og-roster-row">
-                  <Image
-                    src={t.portrait_url}
-                    alt=""
-                    width={80}
-                    height={80}
-                    loading="lazy"
-                    decoding="async"
-                  />
-                  <span className="og-roster-name">
-                    {t.name}
-                    {t.preRelease && (
-                      <span className="og-roster-flag">Pre-release</span>
-                    )}
+              <Link
+                key={t.slug}
+                href={`/characters/${t.slug}`}
+                className="mosaic-item"
+              >
+                {t.preRelease && (
+                  <span className="mosaic-flag">Pre-release</span>
+                )}
+                <Image
+                  src={t.portrait_url}
+                  alt={`${t.name} portrait`}
+                  width={500}
+                  height={500}
+                  loading="lazy"
+                  decoding="async"
+                />
+                <span className="mosaic-plate">
+                  <span className="mosaic-name">{t.name}</span>
+                  <span className="mosaic-meta">
+                    {t.element} · {t.role}
                   </span>
-                  <span className="og-roster-meta">
-                    {t.weapon_type} · {t.role}
-                  </span>
-                  <span
-                    className="og-roster-stars"
-                    aria-label={`${t.rarity} star`}
-                  >
-                    {"★".repeat(t.rarity)}
-                  </span>
-                </Link>
-              </li>
+                </span>
+              </Link>
             ))}
-          </ul>
+          </div>
         </section>
       ))}
     </>

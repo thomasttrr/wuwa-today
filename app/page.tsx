@@ -29,14 +29,14 @@ export default function HomePage() {
   const endingSoon = [...activeEvents]
     .filter((e) => e.endsAt)
     .sort((a, b) => (a.endsAt! < b.endsAt! ? -1 : 1))
-    .slice(0, 3);
-  // The editor's one-line summary, composed from the same verified data
-  // the page below shows — never hand-written, so it can't go stale.
+    .slice(0, 4);
+  // The one-line summary under the title, composed from the same
+  // verified data the page shows — never hand-written, never stale.
   const lead =
     featuredBanner?.characters.find((c) => c.rarity === 5 && c.isNew) ??
     featuredBanner?.characters.find((c) => c.rarity === 5);
   const summary = featuredBanner
-    ? `${lead ? `${lead.name}'s banner` : "The current banner"} ends ${formatServerDate(featuredBanner.endsAt)}. ${activeCodes.length === 1 ? "One verified code" : `${activeCodes.length} verified codes`}, ${activeEvents.length} events live.`
+    ? `${lead ? `${lead.name}'s banner` : "The current banner"} ends ${formatServerDate(featuredBanner.endsAt)}. ${activeCodes.length === 1 ? "One verified code" : `${activeCodes.length} verified codes`}, ${activeEvents.length} events live, and every countdown on this page is counting to server time.`
     : "No banner is live right now — the next phase will be written up here as soon as its dates are confirmed.";
 
   return (
@@ -56,25 +56,26 @@ export default function HomePage() {
         }}
       />
 
-      {/* The dispatch head (DESIGN.md §14): serif wordmark, dateline,
-          the editor's summary, the stamp. No hero panel. */}
-      <header className="og-dispatch-head">
-        <div className="og-masthead-text">
+      {/* Front page head: dateline, the big title, the summary. */}
+      <header className="front-head">
+        <div className="front-dateline">
           <p className="og-kicker">
             Version {bannerMeta.version} — {bannerMeta.versionTitle}
           </p>
-          <h1 className="og-serif og-dispatch-title">WuWa Today</h1>
-          <p className="og-masthead-sub">{summary}</p>
-        </div>
-        <div className="og-masthead-side">
           <UpdatedStamp />
-          <ObsidianButton href="/pull-planner" variant="ghost">
-            Plan my pulls
-          </ObsidianButton>
+        </div>
+        <h1 className="og-display front-title">
+          Today in
+          <br />
+          Wuthering <em>Waves</em>
+        </h1>
+        <div className="front-sub">
+          <p className="front-summary">{summary}</p>
+          <ObsidianButton href="/pull-planner">Plan my pulls</ObsidianButton>
         </div>
       </header>
 
-      {/* The featured banner, written up as the day's lead entry. */}
+      {/* The featured banner, full width. */}
       {featuredBanner ? (
         <Reveal>
           <BannerCard
@@ -108,86 +109,94 @@ export default function HomePage() {
         </div>
       )}
 
-      <div className="og-section">
-        <ObsidianSectionHead
-          id="codes"
-          title="Working redeem codes"
-          blurb="Every code verified against multiple sources before it lands here. Tap a code to copy it."
-        />
-        {activeCodes.length === 0 ? (
-          <p className="og-empty">
-            No verified working codes right now — check back after the next
-            livestream.
-          </p>
-        ) : (
-          activeCodes.map((c, i) => (
-            <Reveal key={c.code} delay={Math.min(i, 3) * 60}>
-              <CodeRow code={c} />
-            </Reveal>
-          ))
-        )}
-      </div>
+      {/* Two-column index: events + what's next on the left,
+          codes + resets on the right. Stacks on mobile. */}
+      <div className="front-cols">
+        <div>
+          <div className="og-section">
+            <ObsidianSectionHead
+              id="events"
+              title="Events ending soon"
+              blurb="What's closing first, so nothing expires unclaimed."
+              linkHref="/events"
+              linkText="Full event calendar"
+            />
+            {endingSoon.length === 0 ? (
+              <p className="og-empty">No dated events live right now.</p>
+            ) : (
+              <ul className="og-event-rows">
+                {endingSoon.map((e) => (
+                  <li key={e.id} className="og-event-row">
+                    <div className="og-event-row-text">
+                      <span className="og-event-row-name">{e.name}</span>
+                      <span className="og-event-row-rewards">{e.rewards}</span>
+                    </div>
+                    {e.endsAt && (
+                      <div className="og-ends-chip">
+                        <ObsidianCountdown
+                          target={e.endsAt}
+                          label={`Ends ${formatServerDate(e.endsAt)}`}
+                        />
+                      </div>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
 
-      <div className="og-section">
-        <ObsidianSectionHead
-          id="events"
-          title="Events ending soon"
-          blurb="What's closing first, so nothing expires unclaimed."
-          linkHref="/events"
-          linkText="Full event calendar"
-        />
-        {endingSoon.length === 0 ? (
-          <p className="og-empty">No dated events live right now.</p>
-        ) : (
-          <ul className="og-event-rows">
-            {endingSoon.map((e) => (
-              <li key={e.id} className="og-event-row">
-                <div className="og-event-row-text">
-                  <span className="og-event-row-name">{e.name}</span>
-                  <span className="og-event-row-rewards">{e.rewards}</span>
-                </div>
-                {e.endsAt && (
-                  <div className="og-ends-chip">
-                    <ObsidianCountdown
-                      target={e.endsAt}
-                      label={`Ends ${formatServerDate(e.endsAt)}`}
-                    />
-                  </div>
-                )}
-              </li>
-            ))}
-          </ul>
-        )}
-      </div>
-
-      <div className="og-section">
-        <ObsidianSectionHead
-          id="resets"
-          title="Reset timers"
-          blurb="Daily and weekly resets, shown for your server region."
-        />
-        <ResetTimers />
-      </div>
-
-      {upcomingBanners.length > 0 && (
-        <div className="og-section">
-          <ObsidianSectionHead
-            id="upcoming"
-            title="Coming next"
-            blurb="The next phase's banners, with start countdowns."
-            linkHref="/banners"
-            linkText="All banners & history"
-          />
-          {upcomingBanners.map((b, i) => (
-            <Reveal key={b.id} delay={i * 70}>
-              <BannerCard banner={b} />
-            </Reveal>
-          ))}
+          {upcomingBanners.length > 0 && (
+            <div className="og-section">
+              <ObsidianSectionHead
+                id="upcoming"
+                title="Coming next"
+                blurb="The next phase's banners, with start countdowns."
+                linkHref="/banners"
+                linkText="All banners & history"
+              />
+              {upcomingBanners.map((b, i) => (
+                <Reveal key={b.id} delay={i * 70}>
+                  <BannerCard banner={b} />
+                </Reveal>
+              ))}
+            </div>
+          )}
         </div>
-      )}
 
-      {/* New-player on-ramp as a plain list — the bottom tab bar is full
-          at 7 tabs, so the Beginner section lives here on home. */}
+        <div>
+          <div className="og-section">
+            <ObsidianSectionHead
+              id="codes"
+              title="Working redeem codes"
+              blurb="Every code verified against multiple sources before it lands here. Tap a code to copy it."
+            />
+            {activeCodes.length === 0 ? (
+              <p className="og-empty">
+                No verified working codes right now — check back after the
+                next livestream.
+              </p>
+            ) : (
+              activeCodes.map((c, i) => (
+                <Reveal key={c.code} delay={Math.min(i, 3) * 60}>
+                  <CodeRow code={c} />
+                </Reveal>
+              ))
+            )}
+          </div>
+
+          <div className="og-section">
+            <ObsidianSectionHead
+              id="resets"
+              title="Reset timers"
+              blurb="Daily and weekly resets, shown for your server region."
+            />
+            <ResetTimers />
+          </div>
+        </div>
+      </div>
+
+      {/* New-player on-ramp — the nav has no room for a Beginner tab,
+          so the section lives here on the front page. */}
       <div className="og-section">
         <ObsidianSectionHead
           id="beginner"
