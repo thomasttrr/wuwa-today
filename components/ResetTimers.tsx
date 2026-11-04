@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import ObsidianCountdown from "./ObsidianCountdown";
+import RollingCountdown from "./RollingCountdown";
 import CycleProgress from "./CycleProgress";
 import { SERVER_OPTIONS, nextDailyReset, nextWeeklyReset } from "../lib/dates";
 
@@ -66,11 +66,11 @@ export default function ResetTimers() {
       </div>
       <div className="og-reset-grid">
         <div>
-          <ObsidianCountdown target={daily} label="Daily reset (04:00 server time)" />
+          <RollingCountdown size="md" target={daily} label="Daily reset · 04:00" />
           <CycleProgress target={daily} cycleMs={86_400_000} label="Daily reset cycle" />
         </div>
         <div>
-          <ObsidianCountdown target={weekly} label="Weekly reset (Mon 04:00 server time)" />
+          <RollingCountdown size="md" target={weekly} label="Weekly reset · Mon 04:00" />
           <CycleProgress target={weekly} cycleMs={7 * 86_400_000} label="Weekly reset cycle" />
         </div>
       </div>

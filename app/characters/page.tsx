@@ -1,15 +1,18 @@
+import type { CSSProperties } from "react";
 import type { Metadata } from "next";
-import ObsidianCharactersExplorer from "@/components/ObsidianCharactersExplorer";
-import OgPageHero from "@/components/OgPageHero";
-import UpdatedStamp from "@/components/UpdatedStamp";
+import Link from "next/link";
+import CharactersHub, { type HubChar } from "@/components/CharactersHub";
 import {
   characters,
-  toCharacterHubTile,
+  isPreRelease,
   CHARACTER_ELEMENTS,
-  CHARACTER_RARITIES,
   CHARACTER_ROLES,
   CHARACTER_WEAPONS,
 } from "@/lib/characters";
+import { activeBanners } from "@/lib/data";
+import { ELEMENT_COLORS, elementColor } from "@/lib/elements";
+import { buildTierModel } from "@/lib/tiers";
+import "./hub.css";
 
 export const metadata: Metadata = {
   title: "Characters — Builds, Weapons, Echoes & Teams",
@@ -19,22 +22,60 @@ export const metadata: Metadata = {
 };
 
 export default function CharactersPage() {
+  const ours = new Map(buildTierModel().chars.map((c) => [c.slug, c.ours?.tier ?? null]));
+  const bannerNames = new Set(activeBanners.flatMap((b) => b.characters.map((c) => c.name)));
+
+  const chars: HubChar[] = characters.map((c) => ({
+    slug: c.slug,
+    name: c.name,
+    portrait: c.profile.portrait_url,
+    element: c.profile.element,
+    color: elementColor(c.profile.element),
+    weapon: c.profile.weapon_type,
+    rarity: c.profile.rarity,
+    role: c.profile.role,
+    preRelease: isPreRelease(c),
+    tier: ours.get(c.slug) ?? null,
+    onBanner: bannerNames.has(c.name),
+  }));
+  const live = chars.filter((c) => c.onBanner);
+
   return (
     <>
-      <OgPageHero
-        kicker={`Version 3.7 · ${characters.length} characters`}
-        title="Characters"
-        lede="Builds, ranked weapons, echo sets, team comps, and pull verdicts for every Resonator — filter by element, weapon, rarity, or role."
-        meta={
-          <UpdatedStamp />
-        }
-      />
-      <ObsidianCharactersExplorer
-        chars={characters.map(toCharacterHubTile)}
+      <header className="ch-hero">
+        <div>
+          <p className="rs-kicker">Version 3.7 · {chars.length} Resonators</p>
+          <h1 className="ch-hero-title">Characters</h1>
+          <p className="ch-hero-lede">
+            Builds, ranked weapons, echo sets, teams and pull verdicts for every
+            Resonator. Pick an element and the whole page tunes to it.
+          </p>
+        </div>
+        {live.length > 0 && (
+          <div className="ch-live" aria-label="On the live banner">
+            <p className="ch-live-h">
+              <span className="rs-live-dot" aria-hidden="true" /> On banner now
+            </p>
+            <ul>
+              {live.map((c) => (
+                <li key={c.slug} style={{ "--c": c.color } as CSSProperties}>
+                  <Link href={`/characters/${c.slug}`}>
+                    {/* eslint-disable-next-line @next/next/no-img-element -- 44px chip portrait. */}
+                    <img src={c.portrait} alt="" width={44} height={44} loading="eager" decoding="async" />
+                    <span>{c.name}</span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+      </header>
+      <CharactersHub
+        chars={chars}
         elements={CHARACTER_ELEMENTS}
         weapons={CHARACTER_WEAPONS}
-        rarities={CHARACTER_RARITIES}
         roles={CHARACTER_ROLES}
+        elementColors={ELEMENT_COLORS}
       />
     </>
   );

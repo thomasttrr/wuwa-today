@@ -1,19 +1,22 @@
+import type { CSSProperties } from "react";
+import { ViewTransition } from "react";
 import type { Metadata } from "next";
-import BannerCard from "../components/BannerCard";
-import CodeRow from "../components/CodeRow";
-import EventCard from "../components/EventCard";
-import ObsidianButton from "../components/ObsidianButton";
-import ObsidianSectionHead from "../components/ObsidianSectionHead";
-import ObsidianToolbar from "../components/ObsidianToolbar";
+import Link from "next/link";
+import CopyButton from "../components/CopyButton";
 import ResetTimers from "../components/ResetTimers";
 import Reveal from "../components/Reveal";
+import RollingCountdown from "../components/RollingCountdown";
 import UpdatedStamp from "../components/UpdatedStamp";
+import WaveProgress from "../components/WaveProgress";
 import {
   activeBanners,
   activeCodes,
   activeEvents,
   bannerMeta,
+  formatServerDate,
 } from "../lib/data";
+import { characters } from "../lib/characters";
+import { elementColor } from "../lib/elements";
 
 export const metadata: Metadata = {
   title: "WuWa Today — Wuthering Waves Banners, Codes & Events",
@@ -22,21 +25,28 @@ export const metadata: Metadata = {
   alternates: { canonical: "/" },
 };
 
+const slugByName = new Map(characters.map((c) => [c.name, c.slug]));
+const portraitBySlug = new Map(characters.map((c) => [c.slug, c.profile.portrait_url]));
+
+// Static export: drop events that had already closed when the site was built.
+const BUILT_AT = Date.now();
+const liveEvents = activeEvents
+  .filter((e) => !e.endsAt || new Date(e.endsAt).getTime() > BUILT_AT)
+  .slice(0, 4);
+
+function srcSetFor(art: string) {
+  const base = art.replace(/\.webp$/, "");
+  return `${base}-1024.webp 1024w, ${base}-1200.webp 1200w, ${base}-1920.webp 1920w`;
+}
+
 export default function HomePage() {
-  // The hero's key art follows the live banner: when the featured banner
-  // changes, the hero follows it. Falls back to Hsin's art if no banner is live.
-  const heroBanner = activeBanners[0];
-  const heroArt = heroBanner?.image ?? "/images/hsin-splash.webp";
-  // Responsive hero art (Fix 1, static-export safe: plain <img> srcset, no
-  // next/image — the export is unoptimized so next/image generates nothing).
-  // Variants are downscales of the full-size wiki originals re-downloaded
-  // 2026-11-02 (Suoming 1936w, Hsin 2046w — see data/SOURCES.md; WebP q80);
-  // a new banner image needs matching -640/-1200/-1920 variants or the
-  // srcset below silently points at missing files. The hero is a contained
-  // 1080px panel, so 1920w covers it at ~1.8x; nothing wider is served
-  // because upscaling past the genuine source is forbidden.
-  const heroBase = heroArt.replace(/\.webp$/, "");
-  const heroSrcSet = `${heroArt} 640w, ${heroBase}-1200.webp 1200w, ${heroBase}-1920.webp 1920w`;
+  const banner = activeBanners[0];
+  const lead = banner?.characters[0];
+  const heroArt = banner?.image ?? "/images/hsin-splash.webp";
+  const leadSlug = lead ? slugByName.get(lead.name) : undefined;
+  const leadWeapon = banner?.weapons.find((w) => w.featuredFor === lead?.name) ?? banner?.weapons[0];
+  const rateUps = banner?.characters.slice(1) ?? [];
+
 
   return (
     <>
@@ -54,181 +64,203 @@ export default function HomePage() {
           }),
         }}
       />
-      {/* Direction A "The Viewport": contained 1080px panel aligned with the
-          page content measure — official key art as atmosphere behind a
-          glass panel, monochrome dark scrim, sharp headline, one ghost CTA. */}
-      <section className="og-hero" aria-label="Today in Wuthering Waves">
-        {/* eslint-disable-next-line @next/next/no-img-element -- contained-panel hero art layer; next/image's wrapper spans would break the panel and scrim styling, and images are unoptimized in this static export so next/image adds nothing. */}
+
+      {/* Hero: the headline sits BEHIND the splash art. The art's own
+          transparent silhouette lets the type show around it, so the
+          character reads as standing in front of the title. Scroll drives a
+          slight depth split (CSS scroll timeline, no JS). */}
+      <section className="rs-hero" aria-label="Today in Wuthering Waves">
+        <p className="rs-kicker rs-hero-kicker">
+          <span className="rs-live-dot" aria-hidden="true" />
+          Version {bannerMeta.version} · {bannerMeta.versionTitle}
+        </p>
+        <h1 className="rs-hero-title">
+          <span>Today in</span>
+          <span>Wuthering</span>
+          <span>Waves</span>
+        </h1>
+        {/* eslint-disable-next-line @next/next/no-img-element -- layered hero art; static export is unoptimized so next/image adds nothing. */}
         <img
-          className="og-hero-art"
+          className="rs-hero-art"
           src={heroArt}
-          srcSet={heroSrcSet}
-          sizes="(max-width: 1080px) 100vw, 1080px"
-          alt={`Official key art for the Wuthering Waves version ${bannerMeta.version} featured banner`}
+          srcSet={srcSetFor(heroArt)}
+          sizes="(max-width: 760px) 100vw, 640px"
+          alt={banner?.imageAlt ?? "Official Wuthering Waves key art"}
           loading="eager"
           fetchPriority="high"
           decoding="async"
         />
-        <div className="og-hero-inner">
-          <div className="og-hero-panel">
-            <p className="og-kicker-dim">
-              Version {bannerMeta.version} — {bannerMeta.versionTitle}
-            </p>
-            <h1 className="og-display og-hero-title">Today in Wuthering Waves</h1>
-            <p className="og-hero-sub">
-              Live banners with countdowns, working redeem codes, and active
-              events — verified against multiple sources, updated daily.
-            </p>
-            <ObsidianButton
-              href="/pull-planner"
-              variant="ghost"
-              className="og-hero-cta"
-            >
+        <div className="rs-hero-foot">
+          <p className="rs-hero-sub">
+            Live banners, working codes and every reset, verified against
+            multiple sources and updated daily.
+          </p>
+          <div className="rs-hero-ctas">
+            <a href="#today" className="rs-btn rs-btn-solid">
+              See today
+            </a>
+            <Link href="/pull-planner" className="rs-btn">
               Plan my pulls
-            </ObsidianButton>
+            </Link>
           </div>
         </div>
       </section>
 
-      {/* In-page anchor jumps only — labels mirror the section headings
-          below so they never read as a duplicate of the main page nav. */}
-      <ObsidianToolbar
-        label="On this page"
-        items={[
-          { href: "#banners", label: "Live banners" },
-          { href: "#events", label: "Active events" },
-          { href: "#resets", label: "Reset timers" },
-          { href: "#codes", label: "Redeem codes" },
-        ]}
-      />
-
-      <div className="og-section">
-        <ObsidianSectionHead
-          id="banners"
-          title="Live banners"
-          blurb="Featured Resonators and their weapons, with live countdowns to the phase flip."
-          linkHref="/banners"
-          linkText="All banners, upcoming phases & history"
-        />
-        <div className="grid grid-2">
-          {activeBanners.length === 0 ? (
-            <p className="og-empty">
-              No live banners right now — check back after the next version
-              livestream.
-            </p>
-          ) : (
-            activeBanners.map((b, i) => (
-              <Reveal key={b.id} delay={i * 70}>
-                <BannerCard
-                  banner={b}
-                  featured={i === 0}
-                  priority={i === 0}
-                  events={i === 0 ? activeEvents : undefined}
-                />
-              </Reveal>
-            ))
-          )}
-        </div>
-      </div>
-
-      <div className="og-section">
-        <ObsidianSectionHead
-          id="events"
-          title="Active events"
-          blurb="What's live right now and when each one closes."
-          linkHref="/events"
-          linkText="Full event calendar"
-        />
-        <div className="grid grid-2">
-          {activeEvents.length === 0 ? (
-            <p className="og-empty">
-              No active events right now — check back after the next version
-              livestream.
-            </p>
-          ) : (
-            activeEvents.map((e, i) => (
-              <Reveal key={e.id} delay={i * 70}>
-                <EventCard event={e} compact />
-              </Reveal>
-            ))
-          )}
-        </div>
-      </div>
-
-      <div className="og-section">
-        <ObsidianSectionHead
-          id="resets"
-          title="Reset timers"
-          blurb="Daily and weekly resets, shown for your server region."
-        />
-        <ResetTimers />
-      </div>
-
-      <div className="og-section">
-        <ObsidianSectionHead
-          id="codes"
-          title="Working redeem codes"
-          blurb="Every code verified against multiple sources before it lands here."
-        />
-        <div className="grid">
-          {activeCodes.length === 0 ? (
-            <p className="og-empty">
-              No verified working codes right now — check back after the next
-              livestream.
-            </p>
-          ) : (
-            activeCodes.map((c, i) => (
-              <Reveal key={c.code} delay={Math.min(i, 3) * 60}>
-                <CodeRow code={c} />
-              </Reveal>
-            ))
-          )}
-        </div>
-      </div>
-
-      {/* New-player on-ramp: the bottom tab bar is full at 7 tabs, so the
-          Beginner section lives here on home rather than as an 8th tab. */}
-      <div className="og-section">
-        <ObsidianSectionHead
-          id="beginner"
-          title="New to Solaris-3?"
-          blurb="Four short guides: what to do first, how beginner banners work, your first teams, and the mistakes to skip."
-          linkHref="/beginner"
-          linkText="All beginner guides"
-        />
-        <div className="grid grid-2">
-          <Reveal>
-            <a
-              href="/beginner/start-here"
-              className="og-pick-card"
-              style={{ display: "block", textDecoration: "none" }}
-            >
-              <span className="og-kicker">Start here</span>
-              <h3>Your first week</h3>
-              <p className="og-pick-desc">
-                Your free roster, the unlocks that matter, and the Union Level
-                milestones that gate your power.
-              </p>
-            </a>
+      <section id="today" className="rs-today" aria-label="Today at a glance">
+        {/* Featured banner: the art IS the tile. */}
+        {banner && lead ? (
+          <Reveal className="rs-tile-banner-wrap">
+            <article className="rs-tile rs-tile-banner rs-spot">
+              {/* eslint-disable-next-line @next/next/no-img-element -- tile art layer. */}
+              <img
+                className="rs-banner-art"
+                src={heroArt}
+                srcSet={srcSetFor(heroArt)}
+                sizes="(max-width: 760px) 100vw, 720px"
+                alt=""
+                loading="lazy"
+                decoding="async"
+              />
+              <div className="rs-banner-body">
+                <p className="rs-kicker">
+                  Featured · {lead.element} · {banner.phase}
+                </p>
+                <h2 className="rs-banner-name">{lead.name}</h2>
+                {leadWeapon && (
+                  <p className="rs-banner-weapon">
+                    with <strong>{leadWeapon.name}</strong> · {leadWeapon.type}
+                  </p>
+                )}
+                <RollingCountdown target={banner.endsAt} label="Banner ends in" />
+                <WaveProgress start={banner.startsAt} end={banner.endsAt} label="Banner time left" />
+                <p className="rs-banner-date">Ends {formatServerDate(banner.endsAt)} · server time</p>
+                <div className="rs-banner-actions">
+                  {leadSlug && (
+                    <Link href={`/characters/${leadSlug}`} className="rs-btn rs-btn-solid">
+                      {lead.name} build
+                    </Link>
+                  )}
+                  <Link href="/banners" className="rs-btn">
+                    All banners
+                  </Link>
+                </div>
+              </div>
+              {rateUps.length > 0 && (
+                <div className="rs-rateups">
+                  <p className="rs-rateups-h">Also on rate-up</p>
+                  <ul>
+                    {rateUps.map((c) => {
+                      const slug = slugByName.get(c.name);
+                      const portrait = slug ? portraitBySlug.get(slug) : undefined;
+                      const inner = (
+                        <>
+                          {portrait ? (
+                            <ViewTransition name={`char-${slug}`}>
+                              {/* eslint-disable-next-line @next/next/no-img-element -- 56px portrait chip. */}
+                              <img src={portrait} alt="" width={56} height={56} loading="lazy" decoding="async" />
+                            </ViewTransition>
+                          ) : (
+                            <span className="rs-rateup-mono" aria-hidden="true">{c.name.charAt(0)}</span>
+                          )}
+                          <span className="rs-rateup-name">{c.name}</span>
+                          <span className="rs-rateup-meta">
+                            {c.rarity}★ · {c.element}
+                          </span>
+                        </>
+                      );
+                      return (
+                        <li key={c.name} style={{ "--opt": elementColor(c.element) } as CSSProperties}>
+                          {slug ? <Link href={`/characters/${slug}`}>{inner}</Link> : <span>{inner}</span>}
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </div>
+              )}
+            </article>
           </Reveal>
-          <Reveal delay={70}>
-            <a
-              href="/beginner/convene-guide"
-              className="og-pick-card"
-              style={{ display: "block", textDecoration: "none" }}
-            >
-              <span className="og-kicker">Beginner Convene guide</span>
-              <h3>Beginner banners, decoded</h3>
-              <p className="og-pick-desc">
-                The beginner banner flow, pity rules, and where your pulls
-                should actually go.
-              </p>
-            </a>
-          </Reveal>
-        </div>
-      </div>
+        ) : (
+          <article className="rs-tile">
+            <p className="og-empty">No live banners right now. Check back after the next version livestream.</p>
+          </article>
+        )}
 
-      {/* Verification stamp as a proper footer block — not a faint line. */}
+        <Reveal delay={80} className="rs-tile-codes-wrap">
+          <article className="rs-tile rs-spot" id="codes" aria-labelledby="codes-h">
+            <header className="rs-tile-head">
+              <h2 id="codes-h">Redeem codes</h2>
+              <span className="rs-count">{activeCodes.length}</span>
+            </header>
+            {activeCodes.length === 0 ? (
+              <p className="rs-muted">No verified working codes right now.</p>
+            ) : (
+              <ul className="rs-codes">
+                {activeCodes.map((c) => (
+                  <li key={c.code}>
+                    <div>
+                      <span className="rs-code">{c.code}</span>
+                      <span className="rs-code-rewards">{c.rewards}</span>
+                      <span className="rs-code-exp">
+                        {c.expiresAt ? `Expires ${formatServerDate(c.expiresAt)}` : "No expiry announced"}
+                      </span>
+                    </div>
+                    <CopyButton text={c.code} />
+                  </li>
+                ))}
+              </ul>
+            )}
+          </article>
+        </Reveal>
+
+        <Reveal delay={140} className="rs-tile-resets-wrap">
+          <article className="rs-tile rs-spot" id="resets">
+            <ResetTimers />
+          </article>
+        </Reveal>
+
+        <Reveal delay={60} className="rs-tile-events-wrap">
+          <article className="rs-tile rs-spot" id="events" aria-labelledby="events-h">
+            <header className="rs-tile-head">
+              <h2 id="events-h">Ending soon</h2>
+              <Link href="/events" className="rs-tile-link">
+                All events →
+              </Link>
+            </header>
+            {liveEvents.length === 0 ? (
+              <p className="rs-muted">No active events right now.</p>
+            ) : (
+              <ul className="rs-events">
+                {liveEvents.map((e) => (
+                  <li key={e.id}>
+                    <div className="rs-event-main">
+                      <span className="rs-event-name">{e.name}</span>
+                      <span className="rs-event-rewards">{e.rewards}</span>
+                    </div>
+                    {e.endsAt ? (
+                      <RollingCountdown size="sm" target={e.endsAt} label="Ends in" />
+                    ) : (
+                      <span className="rs-chip">Permanent</span>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            )}
+          </article>
+        </Reveal>
+
+        <Reveal delay={120} className="rs-tile-new-wrap">
+          <Link href="/beginner" className="rs-tile rs-tile-new rs-spot">
+            <p className="rs-kicker">New to Solaris-3?</p>
+            <h2>Your first week, decoded</h2>
+            <p className="rs-muted">
+              Four short guides: what to do first, beginner banners, your
+              first teams, and the mistakes to skip.
+            </p>
+            <span className="rs-tile-link">Start here →</span>
+          </Link>
+        </Reveal>
+      </section>
+
       <div className="og-verify-block">
         <UpdatedStamp />
       </div>

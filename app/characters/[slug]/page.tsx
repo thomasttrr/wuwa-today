@@ -1,4 +1,5 @@
-import type { CSSProperties, ReactNode } from "react";
+import { ViewTransition, type CSSProperties, type ReactNode } from "react";
+import ElementTheme from "@/components/ElementTheme";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -295,8 +296,9 @@ export default async function CharacterPage({
 
       {/* Hero: portrait plate, kicker/title, badges, verdict. */}
       <header className="og-char-hero" style={{ "--el": el } as CSSProperties}>
-        <Reveal>
-          <div className="og-char-art">
+        <ElementTheme color={el} />
+        <div className="og-char-art">
+          <ViewTransition name={`char-${slug}`}>
             <Image
               src={p.portrait_url}
               alt={`${char.name} portrait`}
@@ -305,8 +307,8 @@ export default async function CharacterPage({
               priority
               decoding="async"
             />
-          </div>
-        </Reveal>
+          </ViewTransition>
+        </div>
         <div>
           <Reveal delay={60}>
             <p className="og-char-kicker">{kicker}</p>
