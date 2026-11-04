@@ -1,10 +1,8 @@
 import type { Metadata } from "next";
 import BannerCard from "../components/BannerCard";
 import CodeRow from "../components/CodeRow";
-import EventCard from "../components/EventCard";
 import ObsidianButton from "../components/ObsidianButton";
 import ObsidianSectionHead from "../components/ObsidianSectionHead";
-import ObsidianToolbar from "../components/ObsidianToolbar";
 import ResetTimers from "../components/ResetTimers";
 import Reveal from "../components/Reveal";
 import UpdatedStamp from "../components/UpdatedStamp";
@@ -15,6 +13,7 @@ import {
   activeCodes,
   activeEvents,
   bannerMeta,
+  upcomingBanners,
   formatServerDate,
 } from "../lib/data";
 
@@ -29,17 +28,6 @@ export default function HomePage() {
   // The hero's key art follows the live banner: when the featured banner
   // changes, the hero follows it. Falls back to Hsin's art if no banner is live.
   const heroBanner = activeBanners[0];
-  const heroArt = heroBanner?.image ?? "/images/hsin-splash.webp";
-  // Responsive hero art (Fix 1, static-export safe: plain <img> srcset, no
-  // next/image — the export is unoptimized so next/image generates nothing).
-  // Variants are downscales of the full-size wiki originals re-downloaded
-  // 2026-11-02 (Suoming 1936w, Hsin 2046w — see data/SOURCES.md; WebP q80);
-  // a new banner image needs matching -640/-1200/-1920 variants or the
-  // srcset below silently points at missing files. The hero is a contained
-  // 1080px panel, so 1920w covers it at ~1.8x; nothing wider is served
-  // because upscaling past the genuine source is forbidden.
-  const heroBase = heroArt.replace(/\.webp$/, "");
-  const heroSrcSet = `${heroArt} 640w, ${heroBase}-1200.webp 1200w, ${heroBase}-1920.webp 1920w`;
   // Resonance Trait 1+2: the page themes to the featured banner's lead
   // character — their element becomes the accent, their cut-out sprite
   // stands in front of the headline.
@@ -47,6 +35,12 @@ export default function HomePage() {
     heroBanner?.characters.find((c) => c.rarity === 5 && c.isNew) ??
     heroBanner?.characters.find((c) => c.rarity === 5);
   const heroElement = heroChar ? elementColor(heroChar.element) : null;
+  const featuredBanner = activeBanners[0];
+  const secondBanner = activeBanners[1];
+  const endingSoon = [...activeEvents]
+    .filter((e) => e.endsAt)
+    .sort((a, b) => (a.endsAt! < b.endsAt! ? -1 : 1))
+    .slice(0, 3);
 
   return (
     <>
@@ -70,156 +64,118 @@ export default function HomePage() {
       {heroElement && (
         <style>{`:root{--el-accent:${heroElement}}`}</style>
       )}
-      <section className="og-hero" aria-label="Today in Wuthering Waves">
-        {/* eslint-disable-next-line @next/next/no-img-element -- contained-panel hero art layer; next/image's wrapper spans would break the panel and scrim styling, and images are unoptimized in this static export so next/image adds nothing. */}
-        <img
-          className="og-hero-art"
-          src={heroArt}
-          srcSet={heroSrcSet}
-          sizes="(max-width: 1080px) 100vw, 1080px"
-          alt={`Official key art for the Wuthering Waves version ${bannerMeta.version} featured banner`}
-          loading="eager"
-          fetchPriority="high"
-          decoding="async"
-        />
-        <div className="og-hero-inner">
-          <div className="og-hero-panel">
-            <p className="og-kicker">
-              Version {bannerMeta.version} — {bannerMeta.versionTitle}
-            </p>
-            <h1 className="og-display og-hero-title">Today in Wuthering Waves</h1>
-            <p className="og-hero-sub">
-              Live banners with countdowns, working redeem codes, and active
-              events — verified against multiple sources, updated daily.
-            </p>
-            <ObsidianButton
-              href="/pull-planner"
-              variant="ghost"
-              className="og-hero-cta"
-            >
-              Plan my pulls
-            </ObsidianButton>
-            {heroBanner && (
-              <div className="og-hero-count">
-                <p className="og-hero-count-label">
-                  {heroChar ? `${heroChar.name}'s banner ends in` : "Featured banner ends in"}
-                </p>
-                <ObsidianCountdown
-                  target={heroBanner.endsAt}
-                  label={`Ends ${formatServerDate(heroBanner.endsAt)}`}
-                />
-              </div>
-            )}
-          </div>
+      <header className="og-masthead">
+        <div className="og-masthead-text">
+          <p className="og-kicker">
+            Version {bannerMeta.version} — {bannerMeta.versionTitle}
+          </p>
+          <h1 className="og-display og-masthead-title">
+            Today in Wuthering Waves
+          </h1>
+          <p className="og-masthead-sub">
+            Live banners with countdowns, working redeem codes, and active
+            events — verified against multiple sources, updated daily.
+          </p>
         </div>
-        {heroChar?.sprite?.includes("-sprite.webp") && (
-          /* eslint-disable-next-line @next/next/no-img-element -- official full-sprite cut-out, decorative layer over the hero art */
-          <img
-            className="og-hero-sprite"
-            src={heroChar.sprite}
-            alt=""
-            aria-hidden="true"
-            loading="eager"
-            decoding="async"
-          />
-        )}
-      </section>
+        <div className="og-masthead-side">
+          <UpdatedStamp />
+          <ObsidianButton href="/pull-planner" variant="ghost">
+            Plan my pulls
+          </ObsidianButton>
+        </div>
+      </header>
 
-      {/* In-page anchor jumps only — labels mirror the section headings
-          below so they never read as a duplicate of the main page nav. */}
-      <ObsidianToolbar
-        label="On this page"
-        items={[
-          { href: "#banners", label: "Live banners" },
-          { href: "#events", label: "Active events" },
-          { href: "#resets", label: "Reset timers" },
-          { href: "#codes", label: "Redeem codes" },
-        ]}
-      />
-
-      <div className="og-section">
-        <ObsidianSectionHead
-          id="banners"
-          title="Live banners"
-          blurb="Featured Resonators and their weapons, with live countdowns to the phase flip."
-          linkHref="/banners"
-          linkText="All banners, upcoming phases & history"
-        />
-        <div className="grid grid-2">
-          {activeBanners.length === 0 ? (
+<div className={`og-today-grid${secondBanner ? "" : " og-today-grid--solo"}`}>
+        <Reveal className="og-today-feat">
+          {featuredBanner ? (
+            <BannerCard
+              banner={featuredBanner}
+              featured
+              priority
+              events={activeEvents}
+            />
+          ) : (
             <p className="og-empty">
               No live banners right now — check back after the next version
               livestream.
             </p>
-          ) : (
-            activeBanners.map((b, i) => (
-              <Reveal key={b.id} delay={i * 70}>
-                <BannerCard
-                  banner={b}
-                  featured={i === 0}
-                  priority={i === 0}
-                  events={i === 0 ? activeEvents : undefined}
-                />
-              </Reveal>
-            ))
           )}
-        </div>
-      </div>
+        </Reveal>
 
-      <div className="og-section">
-        <ObsidianSectionHead
-          id="events"
-          title="Active events"
-          blurb="What's live right now and when each one closes."
-          linkHref="/events"
-          linkText="Full event calendar"
-        />
-        <div className="grid grid-2">
-          {activeEvents.length === 0 ? (
-            <p className="og-empty">
-              No active events right now — check back after the next version
-              livestream.
-            </p>
-          ) : (
-            activeEvents.map((e, i) => (
-              <Reveal key={e.id} delay={i * 70}>
-                <EventCard event={e} compact />
-              </Reveal>
-            ))
-          )}
-        </div>
-      </div>
-
-      <div className="og-section">
-        <ObsidianSectionHead
-          id="resets"
-          title="Reset timers"
-          blurb="Daily and weekly resets, shown for your server region."
-        />
-        <ResetTimers />
-      </div>
-
-      <div className="og-section">
-        <ObsidianSectionHead
-          id="codes"
-          title="Working redeem codes"
-          blurb="Every code verified against multiple sources before it lands here."
-        />
-        <div className="grid">
+        <section className="og-tile og-today-codes" aria-label="Redeem codes">
+          <div className="og-tile-head">
+            <h2 className="og-tile-title">Redeem codes</h2>
+            <span className="og-tile-note">Tap to copy</span>
+          </div>
           {activeCodes.length === 0 ? (
-            <p className="og-empty">
-              No verified working codes right now — check back after the next
-              livestream.
+            <p className="og-tile-empty">
+              No verified working codes right now.
             </p>
           ) : (
-            activeCodes.map((c, i) => (
-              <Reveal key={c.code} delay={Math.min(i, 3) * 60}>
-                <CodeRow code={c} />
-              </Reveal>
-            ))
+            activeCodes.map((c) => <CodeRow key={c.code} code={c} />)
           )}
+        </section>
+
+        <div className="og-today-resets">
+          <ResetTimers />
         </div>
+
+        {secondBanner && (
+          <Reveal className="og-today-second">
+            <BannerCard banner={secondBanner} variant="tile" />
+          </Reveal>
+        )}
+
+        <section className="og-tile og-today-events" aria-label="Events ending soon">
+          <div className="og-tile-head">
+            <h2 className="og-tile-title">Events ending soon</h2>
+            <a className="og-tile-link" href="/events">
+              Full calendar →
+            </a>
+          </div>
+          {endingSoon.length === 0 ? (
+            <p className="og-tile-empty">No dated events live right now.</p>
+          ) : (
+            <ul className="og-event-rows">
+              {endingSoon.map((e) => (
+                <li key={e.id} className="og-event-row">
+                  <div className="og-event-row-text">
+                    <span className="og-event-row-name">{e.name}</span>
+                    <span className="og-event-row-rewards">{e.rewards}</span>
+                  </div>
+                  {e.endsAt && (
+                    <div className="og-ends-chip">
+                      <ObsidianCountdown
+                        target={e.endsAt}
+                        label={`Ends ${formatServerDate(e.endsAt)}`}
+                      />
+                    </div>
+                  )}
+                </li>
+              ))}
+            </ul>
+          )}
+        </section>
       </div>
+
+      {upcomingBanners.length > 0 && (
+        <div className="og-section">
+          <ObsidianSectionHead
+            id="upcoming"
+            title="Coming next"
+            blurb="The next phase's banners, with start countdowns."
+            linkHref="/banners"
+            linkText="All banners & history"
+          />
+          <div className="grid grid-2">
+            {upcomingBanners.map((b, i) => (
+              <Reveal key={b.id} delay={i * 70}>
+                <BannerCard banner={b} />
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      )}
 
       {/* New-player on-ramp: the bottom tab bar is full at 7 tabs, so the
           Beginner section lives here on home rather than as an 8th tab. */}

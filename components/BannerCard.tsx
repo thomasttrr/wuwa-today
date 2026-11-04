@@ -66,26 +66,72 @@ export default function BannerCard({
   featured = false,
   events = [],
   priority = false,
+  variant = "card",
 }: {
   banner: Banner;
   showCountdown?: boolean;
   featured?: boolean;
   events?: GameEvent[];
   priority?: boolean;
+  /** "tile" = the compact art-fill tile used in the Today grid. */
+  variant?: "card" | "tile";
 }) {
   const fiveStars = banner.characters.filter((c) => c.rarity === 5);
   const fourStars = banner.characters.filter((c) => c.rarity === 4);
   const bannerBase = banner.image?.replace(/\.webp$/, "");
+  const accentStyle = fiveStars[0]
+    ? ({ "--el-accent": elementColor(fiveStars[0].element) } as React.CSSProperties)
+    : undefined;
+  const countdownTarget =
+    banner.status === "active" ? banner.endsAt : banner.startsAt;
+
+  if (variant === "tile") {
+    return (
+      <article
+        className="og-banner-card og-banner-tile"
+        aria-label={`${banner.version} ${banner.phase} banner`}
+        style={accentStyle}
+      >
+        {banner.image && (
+          /* eslint-disable-next-line @next/next/no-img-element -- art-fill tile, static export */
+          <img
+            src={banner.image}
+            srcSet={`${bannerBase}-512.webp 512w, ${bannerBase}-1024.webp 1024w, ${bannerBase}-1200.webp 1200w`}
+            sizes="(max-width: 640px) 100vw, 380px"
+            alt=""
+            aria-hidden="true"
+            loading="lazy"
+            decoding="async"
+          />
+        )}
+        <div className="og-banner-tile-body">
+          <div className="og-badge-row">
+            <span className="og-badge">{banner.phase}</span>
+            {banner.status === "active" ? (
+              <span className="og-live">Live now</span>
+            ) : (
+              <span className="og-badge">Upcoming</span>
+            )}
+          </div>
+          <h3 className="og-banner-tile-name">
+            {fiveStars.map((c) => c.name).join(" · ")}
+          </h3>
+          {showCountdown && (
+            <ObsidianCountdown
+              target={countdownTarget}
+              label={`${banner.status === "active" ? "Ends" : "Starts"} ${formatServerDate(countdownTarget)}`}
+            />
+          )}
+        </div>
+      </article>
+    );
+  }
 
   return (
     <article
       className={`og-banner-card${featured ? " og-banner-card-featured" : ""}`}
       aria-label={`${banner.version} ${banner.phase} banner`}
-      style={
-        fiveStars[0]
-          ? ({ "--el-accent": elementColor(fiveStars[0].element) } as React.CSSProperties)
-          : undefined
-      }
+      style={accentStyle}
     >
       {banner.image && (
         <div className="og-banner-art">
@@ -113,6 +159,17 @@ export default function BannerCard({
             decoding="async"
             fetchPriority={priority ? "high" : "low"}
           />
+          {featured && fiveStars[0]?.sprite?.includes("-sprite.webp") && (
+            /* eslint-disable-next-line @next/next/no-img-element -- official full-sprite cut-out over the banner art */
+            <img
+              className="og-banner-sprite"
+              src={fiveStars[0].sprite}
+              alt=""
+              aria-hidden="true"
+              loading="lazy"
+              decoding="async"
+            />
+          )}
           {featured && showCountdown && (
             <div className="og-banner-overlay">
               <ObsidianCountdown

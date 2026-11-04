@@ -211,3 +211,27 @@ unified tokens/components (§2–§9) remain the plumbing it runs on.
   no art at all, so there is nothing truthful to show; sourcing event
   art is a content job, not a design one. The beam follows the element
   accent now (it was gold); flipping it back is a one-line change.
+
+## 13. Layout redesign (Tom's order, 2026-11-04)
+
+Resonance changed the skin; Tom asked for the layout too. Now law:
+
+- **One measure:** every page edge — masthead, bands, tiles, sections,
+  grids — aligns to the same 1120px measure. Nothing sits at its own
+  width ever again.
+- **Home is the Today tile screen** (spec Trait 5, literal): a compact
+  masthead (title, freshness stamp, one CTA), then a 12-column tile
+  grid — featured banner (8) with the codes tile and reset timers in
+  the right rail (4), the second banner as an art tile (4) beside
+  Events ending soon (8). Below the screen: Coming next, beginner
+  picks, the verification block. On mobile the tiles stack in that
+  priority order and the banner countdown is in the first screen.
+- **Page heroes are a band:** full measure, title block left, the
+  freshness meta in a capped right rail (it wraps there — a sentence
+  never crushes the title column again).
+- **Bars stick:** "on this page" jump bars and the character filter
+  bar stick under the nav (top bar on desktop, top edge on mobile).
+- **Character hero is a full-bleed band** washed in the character's
+  element, its content still aligned to the measure.
+- Grid tracks are `minmax(0, 1fr)` — a card's min-content never
+  stretches a track past the viewport again.

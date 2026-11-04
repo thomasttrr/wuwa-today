@@ -3179,3 +3179,213 @@ a.og-tier-name:hover { text-decoration: underline; }
     padding-bottom: 3.5rem;
   }
 }
+
+/* ============================================================================
+   LAYOUT REDESIGN (2026-11-04) — Tom: "an entire redesign, that includes
+   layout and alignments". One measure (1120px) for every page edge;
+   the home page becomes the Today tile screen; page heroes become a
+   band; jump bars and filter bars stick; the character hero breaks out
+   into a full-bleed tinted band.
+   ========================================================================== */
+
+/* --- home masthead: compact — the tiles own the first screen now --- */
+.og-masthead {
+  display: flex; align-items: flex-end; justify-content: space-between;
+  gap: 1.5rem; flex-wrap: wrap;
+  padding: 1.75rem 0 1.4rem;
+  margin-bottom: 1.25rem;
+  border-bottom: 1px solid var(--og-hairline-soft);
+  position: relative;
+}
+.og-masthead::after {
+  content: "";
+  position: absolute; left: 0; bottom: -1px;
+  width: 2.5rem; height: 2px;
+  background: var(--el-accent);
+  border-radius: 2px;
+}
+.og-masthead-title {
+  font-size: clamp(1.9rem, 4.5vw, 2.9rem);
+  margin: 0.55rem 0 0.6rem;
+  max-width: 16ch;
+  text-wrap: balance;
+}
+.og-masthead-sub {
+  color: var(--og-muted);
+  font-size: 1rem; line-height: 1.55;
+  margin: 0; max-width: 52ch;
+}
+.og-masthead-side {
+  display: flex; flex-direction: column; align-items: flex-end;
+  gap: 0.8rem;
+}
+
+/* --- the Today tile screen --- */
+.og-today-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1rem;
+  margin-bottom: 3.25rem;
+}
+.og-today-grid > * { min-width: 0; }
+@media (min-width: 1024px) {
+  .og-today-grid {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    grid-template-areas:
+      "feat feat feat feat feat feat feat feat codes codes codes codes"
+      "feat feat feat feat feat feat feat feat resets resets resets resets"
+      "second second second second events events events events events events events events";
+  }
+  .og-today-grid--solo {
+    grid-template-areas:
+      "feat feat feat feat feat feat feat feat codes codes codes codes"
+      "feat feat feat feat feat feat feat feat resets resets resets resets"
+      "events events events events events events events events events events events events";
+  }
+  .og-today-feat { grid-area: feat; }
+  .og-today-codes { grid-area: codes; }
+  .og-today-resets { grid-area: resets; }
+  .og-today-second { grid-area: second; }
+  .og-today-events { grid-area: events; }
+}
+.og-today-feat > .og-banner-card,
+.og-today-second > .og-banner-card,
+.og-today-resets > .og-reset { height: 100%; }
+
+/* Tiles share the card shell: solid surface, hairline, card radius. */
+.og-tile {
+  background: var(--og-surface);
+  border: 1px solid var(--og-hairline);
+  border-radius: var(--og-radius-card);
+  padding: 1.1rem 1.15rem 1.2rem;
+  display: flex; flex-direction: column; gap: 0.7rem;
+}
+.og-tile-head {
+  display: flex; align-items: baseline; justify-content: space-between;
+  gap: 1rem;
+}
+.og-tile-title {
+  font-family: var(--og-display);
+  font-weight: 700;
+  font-size: 1.02rem;
+  letter-spacing: 0.01em;
+  margin: 0;
+  color: var(--og-ink);
+}
+.og-tile-note { color: var(--og-faint); font-size: 0.8rem; }
+.og-tile-link {
+  color: var(--og-muted); font-size: 0.85rem; font-weight: 600;
+  white-space: nowrap;
+}
+.og-tile-link:hover { color: var(--el-accent); }
+.og-tile-empty { color: var(--og-muted); margin: 0; font-size: 0.92rem; }
+
+/* Event rows inside the ending-soon tile. */
+.og-event-rows { list-style: none; margin: 0; padding: 0; }
+.og-event-row {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 1rem;
+  padding: 0.65rem 0;
+  border-top: 1px solid var(--og-hairline-soft);
+}
+.og-event-row:first-child { border-top: none; padding-top: 0.1rem; }
+.og-event-row-text { display: flex; flex-direction: column; gap: 0.15rem; min-width: 0; }
+.og-event-row-name { font-weight: 600; color: var(--og-ink); }
+.og-event-row-rewards {
+  color: var(--og-muted); font-size: 0.85rem;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+
+/* --- compact banner tile (second banner on the Today screen) --- */
+.og-banner-tile {
+  position: relative;
+  overflow: hidden;
+  min-height: 230px;
+  display: flex; align-items: flex-end;
+  padding: 0;
+}
+.og-banner-tile > img {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: 50% 18%;
+}
+.og-banner-tile-body {
+  position: relative; z-index: 1;
+  width: 100%;
+  padding: 2.4rem 1.15rem 1rem;
+  background: linear-gradient(180deg, transparent,
+    color-mix(in srgb, var(--el-accent) 16%, rgba(2, 4, 8, 0.86)) 64%);
+}
+.og-banner-tile-name {
+  font-family: var(--og-display);
+  font-weight: 700;
+  font-size: 1.25rem;
+  margin: 0.5rem 0 0.35rem;
+  color: #ffffff;
+}
+.og-banner-tile .og-countdown { color: #ffffff; font-size: 1.3rem; }
+.og-banner-tile .og-countdown-label {
+  color: color-mix(in srgb, var(--el-accent) 55%, #ffffff);
+}
+
+/* Cut-out sprite over the featured banner's art. */
+.og-banner-sprite {
+  position: absolute;
+  right: clamp(0.25rem, 3vw, 2.5rem);
+  bottom: 0;
+  height: 112%;
+  max-width: 38%;
+  object-fit: contain;
+  object-position: bottom center;
+  pointer-events: none;
+  filter: drop-shadow(0 14px 26px rgba(0, 0, 0, 0.5));
+}
+@media (max-width: 640px) {
+  .og-banner-sprite { display: none; }
+}
+
+/* --- page heroes become a band: full measure, meta on the right --- */
+.og-page-hero {
+  max-width: none;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-areas: "kicker" "title" "lede" "meta";
+  padding: 2.25rem 0 1.6rem;
+}
+.og-page-kicker { grid-area: kicker; }
+.og-page-title { grid-area: title; }
+.og-page-lede { grid-area: lede; }
+.og-page-hero .og-meta-row { grid-area: meta; }
+@media (min-width: 1024px) {
+  .og-page-hero {
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas: "kicker meta" "title meta" "lede meta";
+    column-gap: 2.5rem;
+  }
+  .og-page-hero .og-meta-row {
+    align-self: end; text-align: right; margin: 0;
+    /* The freshness stamp is a full sentence — cap its rail so it wraps
+       there instead of crushing the title column. */
+    max-width: 300px;
+  }
+}
+
+/* --- jump bars and filter bars stick --- */
+.og-toolbar { position: sticky; top: 0.5rem; z-index: 40; }
+.og-filterbar { position: sticky; top: 0.5rem; z-index: 40; }
+@media (min-width: 1024px) {
+  .og-toolbar { top: 4.75rem; }
+  .og-filterbar { top: 4.75rem; }
+}
+
+/* --- character hero: a full-bleed band washed in the element --- */
+body { overflow-x: clip; }
+.og-char-hero {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  padding-inline: max(1.25rem, calc(50vw - 560px + 1.25rem));
+  padding-top: 1.9rem;
+  background: linear-gradient(180deg,
+    color-mix(in srgb, var(--el-accent) 10%, transparent), transparent 80%);
+  border-bottom: 1px solid var(--og-hairline-soft);
+}
