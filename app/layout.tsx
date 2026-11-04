@@ -1,24 +1,16 @@
 import type { Metadata, Viewport } from "next";
 import Link from "next/link";
-import localFont from "next/font/local";
 import { Martian_Mono } from "next/font/google";
 import ObsidianNav from "@/components/ObsidianNav";
 import ScrollTop from "@/components/ScrollTop";
 import NowProvider from "@/components/NowProvider";
 import SearchPalette from "@/components/SearchPalette";
-import SpotlightInit from "@/components/SpotlightInit";
 import "./design.css";
 
 /* Resonance type (DESIGN.md §3): Mona Sans for headlines (wide, heavy),
    Martian Mono for every number (countdowns, codes, stats, dates),
    system sans for body text — speed and legibility. Two shipped
    variable fonts, both preloaded by next/font; body ships nothing. */
-const monaSans = localFont({
-  src: "./fonts/mona-sans.woff2",
-  weight: "200 900",
-  variable: "--font-mona",
-  display: "swap",
-});
 const martianMono = Martian_Mono({
   weight: ["400", "500", "700", "800"],
   subsets: ["latin"],
@@ -55,7 +47,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${monaSans.variable} ${martianMono.variable}`}>
+    <html lang="en" className={martianMono.variable}>
       <body className="og">
         {/* One shared 1s ticker for every countdown/progress bar on the page. */}
         <NowProvider>
@@ -93,7 +85,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </footer>
         <ScrollTop />
         <SearchPalette />
-        <SpotlightInit />
         </NowProvider>
       </body>
     </html>

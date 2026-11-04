@@ -7,7 +7,6 @@ import ResetTimers from "../components/ResetTimers";
 import Reveal from "../components/Reveal";
 import UpdatedStamp from "../components/UpdatedStamp";
 import ObsidianCountdown from "../components/ObsidianCountdown";
-import { elementColor } from "../lib/elements";
 import {
   activeBanners,
   activeCodes,
@@ -25,22 +24,20 @@ export const metadata: Metadata = {
 };
 
 export default function HomePage() {
-  // The hero's key art follows the live banner: when the featured banner
-  // changes, the hero follows it. Falls back to Hsin's art if no banner is live.
-  const heroBanner = activeBanners[0];
-  // Resonance Trait 1+2: the page themes to the featured banner's lead
-  // character — their element becomes the accent, their cut-out sprite
-  // stands in front of the headline.
-  const heroChar =
-    heroBanner?.characters.find((c) => c.rarity === 5 && c.isNew) ??
-    heroBanner?.characters.find((c) => c.rarity === 5);
-  const heroElement = heroChar ? elementColor(heroChar.element) : null;
   const featuredBanner = activeBanners[0];
-  const secondBanner = activeBanners[1];
+  const otherBanners = activeBanners.slice(1);
   const endingSoon = [...activeEvents]
     .filter((e) => e.endsAt)
     .sort((a, b) => (a.endsAt! < b.endsAt! ? -1 : 1))
     .slice(0, 3);
+  // The editor's one-line summary, composed from the same verified data
+  // the page below shows — never hand-written, so it can't go stale.
+  const lead =
+    featuredBanner?.characters.find((c) => c.rarity === 5 && c.isNew) ??
+    featuredBanner?.characters.find((c) => c.rarity === 5);
+  const summary = featuredBanner
+    ? `${lead ? `${lead.name}'s banner` : "The current banner"} ends ${formatServerDate(featuredBanner.endsAt)}. ${activeCodes.length === 1 ? "One verified code" : `${activeCodes.length} verified codes`}, ${activeEvents.length} events live.`
+    : "No banner is live right now — the next phase will be written up here as soon as its dates are confirmed.";
 
   return (
     <>
@@ -58,24 +55,16 @@ export default function HomePage() {
           }),
         }}
       />
-      {/* Direction A "The Viewport": contained 1080px panel aligned with the
-          page content measure — official key art as atmosphere behind a
-          glass panel, monochrome dark scrim, sharp headline, one ghost CTA. */}
-      {heroElement && (
-        <style>{`:root{--el-accent:${heroElement}}`}</style>
-      )}
-      <header className="og-masthead">
+
+      {/* The dispatch head (DESIGN.md §14): serif wordmark, dateline,
+          the editor's summary, the stamp. No hero panel. */}
+      <header className="og-dispatch-head">
         <div className="og-masthead-text">
           <p className="og-kicker">
             Version {bannerMeta.version} — {bannerMeta.versionTitle}
           </p>
-          <h1 className="og-display og-masthead-title">
-            Today in Wuthering Waves
-          </h1>
-          <p className="og-masthead-sub">
-            Live banners with countdowns, working redeem codes, and active
-            events — verified against multiple sources, updated daily.
-          </p>
+          <h1 className="og-serif og-dispatch-title">WuWa Today</h1>
+          <p className="og-masthead-sub">{summary}</p>
         </div>
         <div className="og-masthead-side">
           <UpdatedStamp />
@@ -85,77 +74,99 @@ export default function HomePage() {
         </div>
       </header>
 
-<div className={`og-today-grid${secondBanner ? "" : " og-today-grid--solo"}`}>
-        <Reveal className="og-today-feat">
-          {featuredBanner ? (
-            <BannerCard
-              banner={featuredBanner}
-              featured
-              priority
-              events={activeEvents}
-            />
-          ) : (
-            <p className="og-empty">
-              No live banners right now — check back after the next version
-              livestream.
-            </p>
-          )}
+      {/* The featured banner, written up as the day's lead entry. */}
+      {featuredBanner ? (
+        <Reveal>
+          <BannerCard
+            banner={featuredBanner}
+            featured
+            priority
+            events={activeEvents}
+          />
         </Reveal>
+      ) : (
+        <p className="og-empty">
+          No live banners right now — check back after the next version
+          livestream.
+        </p>
+      )}
 
-        <section className="og-tile og-today-codes" aria-label="Redeem codes">
-          <div className="og-tile-head">
-            <h2 className="og-tile-title">Redeem codes</h2>
-            <span className="og-tile-note">Tap to copy</span>
-          </div>
-          {activeCodes.length === 0 ? (
-            <p className="og-tile-empty">
-              No verified working codes right now.
-            </p>
-          ) : (
-            activeCodes.map((c) => <CodeRow key={c.code} code={c} />)
-          )}
-        </section>
-
-        <div className="og-today-resets">
-          <ResetTimers />
+      {otherBanners.length > 0 && (
+        <div className="og-section">
+          <ObsidianSectionHead
+            id="also-live"
+            title="Also live"
+            blurb="The other Convene banners running right now."
+            linkHref="/banners"
+            linkText="All banners & history"
+          />
+          {otherBanners.map((b, i) => (
+            <Reveal key={b.id} delay={i * 70}>
+              <BannerCard banner={b} />
+            </Reveal>
+          ))}
         </div>
+      )}
 
-        {secondBanner && (
-          <Reveal className="og-today-second">
-            <BannerCard banner={secondBanner} variant="tile" />
-          </Reveal>
+      <div className="og-section">
+        <ObsidianSectionHead
+          id="codes"
+          title="Working redeem codes"
+          blurb="Every code verified against multiple sources before it lands here. Tap a code to copy it."
+        />
+        {activeCodes.length === 0 ? (
+          <p className="og-empty">
+            No verified working codes right now — check back after the next
+            livestream.
+          </p>
+        ) : (
+          activeCodes.map((c, i) => (
+            <Reveal key={c.code} delay={Math.min(i, 3) * 60}>
+              <CodeRow code={c} />
+            </Reveal>
+          ))
         )}
+      </div>
 
-        <section className="og-tile og-today-events" aria-label="Events ending soon">
-          <div className="og-tile-head">
-            <h2 className="og-tile-title">Events ending soon</h2>
-            <a className="og-tile-link" href="/events">
-              Full calendar →
-            </a>
-          </div>
-          {endingSoon.length === 0 ? (
-            <p className="og-tile-empty">No dated events live right now.</p>
-          ) : (
-            <ul className="og-event-rows">
-              {endingSoon.map((e) => (
-                <li key={e.id} className="og-event-row">
-                  <div className="og-event-row-text">
-                    <span className="og-event-row-name">{e.name}</span>
-                    <span className="og-event-row-rewards">{e.rewards}</span>
+      <div className="og-section">
+        <ObsidianSectionHead
+          id="events"
+          title="Events ending soon"
+          blurb="What's closing first, so nothing expires unclaimed."
+          linkHref="/events"
+          linkText="Full event calendar"
+        />
+        {endingSoon.length === 0 ? (
+          <p className="og-empty">No dated events live right now.</p>
+        ) : (
+          <ul className="og-event-rows">
+            {endingSoon.map((e) => (
+              <li key={e.id} className="og-event-row">
+                <div className="og-event-row-text">
+                  <span className="og-event-row-name">{e.name}</span>
+                  <span className="og-event-row-rewards">{e.rewards}</span>
+                </div>
+                {e.endsAt && (
+                  <div className="og-ends-chip">
+                    <ObsidianCountdown
+                      target={e.endsAt}
+                      label={`Ends ${formatServerDate(e.endsAt)}`}
+                    />
                   </div>
-                  {e.endsAt && (
-                    <div className="og-ends-chip">
-                      <ObsidianCountdown
-                        target={e.endsAt}
-                        label={`Ends ${formatServerDate(e.endsAt)}`}
-                      />
-                    </div>
-                  )}
-                </li>
-              ))}
-            </ul>
-          )}
-        </section>
+                )}
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
+
+      <div className="og-section">
+        <ObsidianSectionHead
+          id="resets"
+          title="Reset timers"
+          blurb="Daily and weekly resets, shown for your server region."
+        />
+        <ResetTimers />
       </div>
 
       {upcomingBanners.length > 0 && (
@@ -167,18 +178,16 @@ export default function HomePage() {
             linkHref="/banners"
             linkText="All banners & history"
           />
-          <div className="grid grid-2">
-            {upcomingBanners.map((b, i) => (
-              <Reveal key={b.id} delay={i * 70}>
-                <BannerCard banner={b} />
-              </Reveal>
-            ))}
-          </div>
+          {upcomingBanners.map((b, i) => (
+            <Reveal key={b.id} delay={i * 70}>
+              <BannerCard banner={b} />
+            </Reveal>
+          ))}
         </div>
       )}
 
-      {/* New-player on-ramp: the bottom tab bar is full at 7 tabs, so the
-          Beginner section lives here on home rather than as an 8th tab. */}
+      {/* New-player on-ramp as a plain list — the bottom tab bar is full
+          at 7 tabs, so the Beginner section lives here on home. */}
       <div className="og-section">
         <ObsidianSectionHead
           id="beginner"
@@ -187,41 +196,38 @@ export default function HomePage() {
           linkHref="/beginner"
           linkText="All beginner guides"
         />
-        <div className="grid grid-2">
-          <Reveal>
-            <a
-              href="/beginner/start-here"
-              className="og-pick-card"
-              style={{ display: "block", textDecoration: "none" }}
-            >
-              <span className="og-kicker">Start here</span>
-              <h3>Your first week</h3>
-              <p className="og-pick-desc">
-                Your free roster, the unlocks that matter, and the Union Level
-                milestones that gate your power.
-              </p>
+        <ul className="og-link-rows">
+          <li>
+            <a href="/beginner/start-here">
+              <span className="og-link-row-title">Your first week</span>
+              <span className="og-link-row-desc">
+                Your free roster, the unlocks that matter, and the Union
+                Level milestones that gate your power.
+              </span>
             </a>
-          </Reveal>
-          <Reveal delay={70}>
-            <a
-              href="/beginner/convene-guide"
-              className="og-pick-card"
-              style={{ display: "block", textDecoration: "none" }}
-            >
-              <span className="og-kicker">Beginner Convene guide</span>
-              <h3>Beginner banners, decoded</h3>
-              <p className="og-pick-desc">
+          </li>
+          <li>
+            <a href="/beginner/convene-guide">
+              <span className="og-link-row-title">
+                Beginner banners, decoded
+              </span>
+              <span className="og-link-row-desc">
                 The beginner banner flow, pity rules, and where your pulls
                 should actually go.
-              </p>
+              </span>
             </a>
-          </Reveal>
-        </div>
+          </li>
+        </ul>
       </div>
 
-      {/* Verification stamp as a proper footer block — not a faint line. */}
+      {/* Verification stamp + colophon. */}
       <div className="og-verify-block">
         <UpdatedStamp />
+        <p className="og-colophon">
+          WuWa Today is a fan-kept reference: every date and code is checked
+          against at least two sources before it is posted, and anything
+          unconfirmed is labelled as a leak or an estimate.
+        </p>
       </div>
     </>
   );

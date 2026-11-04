@@ -6,7 +6,6 @@ import OgPageHero from "../../components/OgPageHero";
 import Reveal from "../../components/Reveal";
 import UpdatedStamp from "../../components/UpdatedStamp";
 import { activeBanners, upcomingBanners, bannerHistory, bannerMeta, formatServerDate } from "../../lib/data";
-import { elementColor } from "../../lib/elements";
 
 export const metadata: Metadata = {
   title: "Wuthering Waves Banners — Current, Upcoming & History",
@@ -16,11 +15,8 @@ export const metadata: Metadata = {
 };
 
 export default function BannersPage() {
-  // Trait 1: the page themes to the featured (first live) banner's lead.
-  const lead = activeBanners[0]?.characters.find((c) => c.rarity === 5);
   return (
     <>
-      {lead && <style>{`:root{--el-accent:${elementColor(lead.element)}}`}</style>}
       <OgPageHero
         kicker={`Version ${bannerMeta.version} · Current & upcoming`}
         title="Wuthering Waves banners"

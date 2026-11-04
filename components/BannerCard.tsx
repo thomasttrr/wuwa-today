@@ -79,9 +79,6 @@ export default function BannerCard({
   const fiveStars = banner.characters.filter((c) => c.rarity === 5);
   const fourStars = banner.characters.filter((c) => c.rarity === 4);
   const bannerBase = banner.image?.replace(/\.webp$/, "");
-  const accentStyle = fiveStars[0]
-    ? ({ "--el-accent": elementColor(fiveStars[0].element) } as React.CSSProperties)
-    : undefined;
   const countdownTarget =
     banner.status === "active" ? banner.endsAt : banner.startsAt;
 
@@ -90,8 +87,7 @@ export default function BannerCard({
       <article
         className="og-banner-card og-banner-tile"
         aria-label={`${banner.version} ${banner.phase} banner`}
-        style={accentStyle}
-      >
+        >
         {banner.image && (
           /* eslint-disable-next-line @next/next/no-img-element -- art-fill tile, static export */
           <img
@@ -131,7 +127,6 @@ export default function BannerCard({
     <article
       className={`og-banner-card${featured ? " og-banner-card-featured" : ""}`}
       aria-label={`${banner.version} ${banner.phase} banner`}
-      style={accentStyle}
     >
       {banner.image && (
         <div className="og-banner-art">
@@ -159,18 +154,7 @@ export default function BannerCard({
             decoding="async"
             fetchPriority={priority ? "high" : "low"}
           />
-          {featured && fiveStars[0]?.sprite?.includes("-sprite.webp") && (
-            /* eslint-disable-next-line @next/next/no-img-element -- official full-sprite cut-out over the banner art */
-            <img
-              className="og-banner-sprite"
-              src={fiveStars[0].sprite}
-              alt=""
-              aria-hidden="true"
-              loading="lazy"
-              decoding="async"
-            />
-          )}
-          {featured && showCountdown && (
+                    {featured && showCountdown && (
             <div className="og-banner-overlay">
               <ObsidianCountdown
                 target={banner.status === "active" ? banner.endsAt : banner.startsAt}

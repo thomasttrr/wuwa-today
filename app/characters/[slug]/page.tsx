@@ -289,7 +289,6 @@ export default async function CharacterPage({
 
   return (
     <>
-      <style>{`:root{--el-accent:${el}}`}</style>
       <Link href="/characters" className="og-back">
         ← Characters
       </Link>
@@ -309,6 +308,9 @@ export default async function CharacterPage({
               priority
               decoding="async"
             />
+            <p className="og-art-caption">
+              {char.name}, official portrait via the Wuthering Waves Wiki.
+            </p>
           </div>
         </Reveal>
         <div>
@@ -349,6 +351,7 @@ export default async function CharacterPage({
       <ObsidianToolbar
         label="On this page"
         items={[
+          { href: "#pull-verdict", label: "Pull verdict" },
           { href: "#plain-words", label: "In plain words" },
           { href: "#build", label: "Build" },
           ...(char.sequences
@@ -358,7 +361,6 @@ export default async function CharacterPage({
             ? [{ href: "#farming", label: "Farming" }]
             : []),
           { href: "#teams", label: "Teams" },
-          { href: "#pull-verdict", label: "Pull verdict" },
         ]}
       />
 
@@ -375,6 +377,24 @@ export default async function CharacterPage({
       )}
 
       {/* Build in plain words */}
+      {/* Pull verdict */}
+      <section className="og-section" aria-label="Pull verdict">
+        <ObsidianSectionHead id="pull-verdict" title="Pull verdict" />
+        <Reveal>
+          <div className="og-verdict-card">
+            <p className="og-verdict-kicker">Pull verdict</p>
+            <span className="og-verdict-label">{char.pull_verdict.verdict_label}</span>
+            <p className="og-verdict-text">{char.pull_verdict.verdict}</p>
+            <p className="og-verdict-meta">
+              Banner {char.pull_verdict.banner_id} · Published {char.pull_verdict.published_at}
+            </p>
+            {char.pull_verdict.uncertain_or_prerelease && !preRelease && (
+              <Caveat>This verdict is based on uncertain or incomplete data.</Caveat>
+            )}
+          </div>
+        </Reveal>
+      </section>
+
       <section className="og-section" aria-label="Build in plain words">
         <ObsidianSectionHead
           id="plain-words"
@@ -539,23 +559,7 @@ export default async function CharacterPage({
         </div>
       </section>
 
-      {/* Pull verdict */}
-      <section className="og-section" aria-label="Pull verdict">
-        <ObsidianSectionHead id="pull-verdict" title="Pull verdict" />
-        <Reveal>
-          <div className="og-verdict-card">
-            <p className="og-verdict-kicker">Pull verdict</p>
-            <span className="og-verdict-label">{char.pull_verdict.verdict_label}</span>
-            <p className="og-verdict-text">{char.pull_verdict.verdict}</p>
-            <p className="og-verdict-meta">
-              Banner {char.pull_verdict.banner_id} · Published {char.pull_verdict.published_at}
-            </p>
-            {char.pull_verdict.uncertain_or_prerelease && !preRelease && (
-              <Caveat>This verdict is based on uncertain or incomplete data.</Caveat>
-            )}
-          </div>
-        </Reveal>
-      </section>
+
 
       <p className="og-version-note">
         Data current as of game version {char.game_version}.

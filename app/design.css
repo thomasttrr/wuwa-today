@@ -62,8 +62,8 @@
   --og-space-section: 3.5rem;
 
   /* --- type (Resonance, DESIGN.md §3) --- */
-  --og-display: var(--font-mona), "Mona Sans",
-    -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  --og-display: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui,
+    Roboto, "Helvetica Neue", Arial, sans-serif;
   --og-body: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui,
     Roboto, "Helvetica Neue", Arial, sans-serif;
   --og-mono: var(--font-martian), "Martian Mono", ui-monospace,
@@ -76,7 +76,7 @@
      pages = that character, banners = the featured banner); cards can
      scope their own. Default = Spectro. Registered as a <color> so
      changes ease over 600ms instead of snapping. */
-  --el-accent: #f7d154;
+  --el-accent: #7aa7ff;
 
   /* --- motion --- */
   --og-ease-out: cubic-bezier(0.22, 1, 0.36, 1);
@@ -3388,4 +3388,264 @@ body { overflow-x: clip; }
   background: linear-gradient(180deg,
     color-mix(in srgb, var(--el-accent) 10%, transparent), transparent 80%);
   border-bottom: 1px solid var(--og-hairline-soft);
+}
+
+/* ============================================================================
+   §14 THE AUTHOR'S REGISTER (2026-11-04) — the Jev-cleared direction.
+   A kept personal site: neutral gray ground, ordinary link blue as the
+   only accent, content in ruled sections instead of cards, no tints,
+   no glass, no beams, no decorative motion. These overrides flatten
+   the Resonance-era shells; DESIGN.md §14 holds the Jev scores that
+   gate this direction (every section ≥80% "not AI").
+   ========================================================================== */
+
+:root {
+  --og-canvas: #101013;
+  --og-surface: #141417;
+  --og-surface-raised: #1a1a1e;
+  --og-radius-sm: 4px;
+  --og-radius-card: 6px;
+  --og-radius-lg: 8px;
+}
+body { background: var(--og-canvas); }
+.og-display { font-stretch: normal; }
+
+/* --- decorative systems off --- */
+@view-transition { navigation: none; }
+.og-hero::after, .og-char-hero::after { display: none; }
+.og-banner-card::after, .og-event-card::after,
+.og-pick-card::after, .og-char-tile::after { display: none; }
+.og-section-head::after, .og-masthead::after { display: none; }
+.js-anim .reveal { opacity: 1; transform: none; transition: none; }
+.og-h2 { animation: none; }
+.og-echo-plate-bis::before, .og-team-card-first::before,
+.og-weapon-bis::before, .og-seq-best::before { display: none; }
+
+/* --- chrome goes solid and plain --- */
+.og-tabbar, .og-toolbar {
+  background: var(--og-canvas);
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+}
+.og-toolbar { border: 1px solid var(--og-hairline-soft); }
+.og-search-panel { background: var(--og-surface); }
+
+/* --- accent discipline: blue is for links, live states and the
+   current page. Numbers and kickers go back to ink and gray. --- */
+.og-kicker, .og-page-kicker { color: var(--og-muted); }
+.og-countdown { color: var(--og-ink); }
+.og-banner-overlay .og-countdown { color: #ffffff; }
+.og-ends-chip { border-color: var(--og-hairline); background: transparent; }
+a { color: inherit; }
+.og-section-link:hover, .og-tile-link:hover { color: var(--el-accent); }
+
+/* --- cards become ruled entries --- */
+.og-banner-card, .og-event-card, .og-pick-card, .og-tile,
+.og-reset, .og-verdict-card, .og-team-card, .og-role-card {
+  background: transparent;
+  border: none;
+  border-top: 1px solid var(--og-hairline);
+  border-radius: 0;
+  box-shadow: none;
+}
+.og-banner-card:hover, .og-event-card:hover, .og-pick-card:hover {
+  border-color: var(--og-hairline);
+}
+.og-banner-body { padding-inline: 0; }
+.og-event-card, .og-pick-card { padding-inline: 0; }
+.og-tile { padding-inline: 0; }
+.og-char-chip {
+  background: transparent;
+  border: none;
+  border-top: 1px solid var(--og-hairline-soft);
+  border-radius: 0;
+  padding-inline: 0;
+}
+.og-code-row {
+  background: transparent;
+  border: none;
+  border-top: 1px solid var(--og-hairline-soft);
+  border-radius: 0;
+  padding-inline: 0;
+}
+.og-echo-plate {
+  background: transparent;
+  border: none;
+  border-top: 1px solid var(--og-hairline-soft);
+  border-radius: 0;
+}
+.og-empty { background: transparent; border-style: dashed; }
+.og-badge { border-radius: 4px; }
+
+/* The waveform retires: the phase rail is a plain draining bar. */
+.phase-rail { height: 3px; background: rgba(255, 255, 255, 0.12); border-radius: 2px; }
+.phase-rail::before, .phase-rail-fill::before { display: none; }
+.phase-rail-fill { background: var(--el-accent); border-radius: 2px; animation: none; }
+.phase-rail-tick { display: none; }
+
+/* Featured banner overlay: a plain dark fade, no element colour. */
+.og-banner-overlay {
+  background: linear-gradient(180deg, transparent, rgba(2, 4, 8, 0.88) 64%);
+}
+.og-banner-overlay .og-countdown-label { color: var(--og-muted); }
+.og-banner-tile-body {
+  background: linear-gradient(180deg, transparent, rgba(2, 4, 8, 0.9) 64%);
+}
+.og-banner-tile .og-countdown-label { color: var(--og-muted); }
+
+/* --- character hero: no band, just the article opening --- */
+.og-char-hero {
+  width: auto;
+  margin-left: 0;
+  padding-inline: 0;
+  padding-top: 0.75rem;
+  background: none;
+  border-bottom: 1px solid var(--og-hairline-soft);
+}
+.og-art-caption {
+  color: var(--og-faint);
+  font-size: 0.78rem;
+  margin: 0.5rem 0 0;
+  line-height: 1.45;
+}
+
+/* --- tier rows: letters in plain text, portraits inline --- */
+.og-tier-row {
+  background: transparent;
+  border: none;
+  border-top: 1px solid var(--og-hairline);
+  border-radius: 0;
+}
+
+/* --- the dispatch head (home) --- */
+.og-dispatch-head {
+  display: flex; align-items: flex-end; justify-content: space-between;
+  gap: 1.5rem; flex-wrap: wrap;
+  padding: 1.9rem 0 1.5rem;
+  margin-bottom: 0.5rem;
+  border-bottom: 1px solid var(--og-hairline);
+}
+.og-serif { font-family: Georgia, "Times New Roman", Times, serif; }
+.og-dispatch-title {
+  font-size: clamp(2.6rem, 6vw, 3.8rem);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.02;
+  margin: 0.5rem 0 0.7rem;
+  color: var(--og-ink);
+}
+
+/* --- beginner link rows (home) --- */
+.og-link-rows { list-style: none; margin: 0; padding: 0; }
+.og-link-rows li { border-top: 1px solid var(--og-hairline-soft); }
+.og-link-rows li:first-child { border-top: none; }
+.og-link-rows a {
+  display: block;
+  padding: 0.85rem 0;
+  text-decoration: none;
+}
+.og-link-rows a:hover .og-link-row-title { color: var(--el-accent); }
+.og-link-row-title { display: block; font-weight: 700; color: var(--og-ink); }
+.og-link-row-desc { display: block; color: var(--og-muted); margin-top: 0.2rem; }
+
+.og-colophon {
+  color: var(--og-faint);
+  font-size: 0.85rem;
+  line-height: 1.55;
+  max-width: 65ch;
+  margin: 0.6rem 0 0;
+}
+
+/* --- the roster (characters index) --- */
+.og-anchor-bar {
+  position: sticky; top: 0.5rem; z-index: 40;
+  display: flex; gap: 1.1rem; flex-wrap: wrap;
+  padding: 0.7rem 0;
+  background: var(--og-canvas);
+  border-bottom: 1px solid var(--og-hairline-soft);
+  margin-bottom: 0.5rem;
+}
+@media (min-width: 1024px) { .og-anchor-bar { top: 4.75rem; } }
+.og-anchor-bar a {
+  color: var(--og-muted);
+  font-weight: 600; font-size: 0.92rem;
+  text-decoration: none;
+}
+.og-anchor-bar a:hover { color: var(--el-accent); }
+.og-roster-group { margin: 0 0 2.25rem; scroll-margin-top: 6rem; }
+.og-roster-head {
+  display: flex; align-items: center; gap: 0.55rem;
+  font-family: var(--og-display);
+  font-size: 1.05rem; font-weight: 700;
+  margin: 0 0 0.4rem;
+  color: var(--og-ink);
+}
+.og-roster-count { color: var(--og-faint); font-weight: 400; font-size: 0.9rem; }
+.og-roster { list-style: none; margin: 0; padding: 0; }
+.og-roster-row {
+  display: flex; align-items: center; gap: 0.9rem;
+  padding: 0.5rem 0;
+  border-top: 1px solid var(--og-hairline-soft);
+  text-decoration: none;
+  color: var(--og-ink);
+}
+.og-roster li:first-child .og-roster-row { border-top: none; }
+.og-roster-row:hover .og-roster-name { color: var(--el-accent); }
+.og-roster-row img {
+  width: 40px; height: 40px;
+  border-radius: 4px;
+  object-fit: cover; object-position: top center;
+  flex: none;
+}
+.og-roster-name { font-weight: 600; display: inline-flex; align-items: center; gap: 0.6rem; }
+.og-roster-flag {
+  font-size: 0.68rem; font-weight: 700; letter-spacing: 0.04em;
+  color: var(--og-muted);
+  border: 1px solid var(--og-hairline);
+  border-radius: 4px;
+  padding: 0.12rem 0.45rem;
+}
+.og-roster-meta { color: var(--og-muted); font-size: 0.9rem; margin-left: auto; text-align: right; }
+.og-roster-stars { color: var(--og-faint); font-size: 0.78rem; letter-spacing: 0.08em; flex: none; }
+@media (max-width: 560px) {
+  .og-roster-stars { display: none; }
+}
+
+/* §14 (cont.): tier badges and the top-chip beam join the register —
+   letters and labels as plain bordered text, nothing filled or lit. */
+.og-tier-badge, .og-rarity-badge {
+  background: transparent;
+  border-color: var(--og-hairline);
+  color: var(--og-ink);
+  border-radius: 4px;
+}
+.og-char-chip-top {
+  background: transparent;
+  border-color: var(--og-hairline);
+  animation: none;
+}
+
+/* §14 (cont.): the filled badges and the toolbar card are flattened —
+   the per-tier/per-rarity fills carry higher specificity than the
+   base badge rule, so they are answered at their own specificity. */
+.og-tier-badge.tier-SS, .og-tier-badge.tier-S, .og-tier-badge.tier-A,
+.og-tier-badge.tier-B, .og-tier-badge.tier-C, .og-tier-badge.tier-D,
+.og-tier-badge.tier-T0, .og-tier-badge.tier-Th0, .og-tier-badge.tier-T1,
+.og-tier-badge.tier-Th1, .og-tier-badge.tier-T2,
+.og-rarity-badge.rarity-5, .og-rarity-badge.rarity-4 {
+  background: transparent;
+  border-color: var(--og-hairline);
+  color: var(--og-ink);
+}
+.og-verdict-label {
+  background: transparent;
+  color: var(--og-ink);
+  border: 1px solid var(--og-hairline);
+  border-radius: 4px;
+}
+.og-toolbar {
+  border: none;
+  border-top: 1px solid var(--og-hairline-soft);
+  border-bottom: 1px solid var(--og-hairline-soft);
+  border-radius: 0;
 }

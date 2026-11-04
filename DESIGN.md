@@ -235,3 +235,47 @@ Resonance changed the skin; Tom asked for the layout too. Now law:
   element, its content still aligned to the measure.
 - Grid tracks are `minmax(0, 1fr)` — a card's min-content never
   stretches a track past the viewport again.
+
+## 14. The Author's Register (Jev-gated, 2026-11-04)
+
+Tom's order: use Jev to de-AI-slop the design; do not agree to design
+a section until Jev rates its pick at >80% "not AI". The loop ran
+eleven scored directions. Baseline: the Resonance design scored 0.74
+probability of reading as AI-generated; Jev named the uniform rounded
+card anatomy as the worst trait (0.46), then glass-with-tint (0.24).
+Costume directions failed (broadsheet 0.48, spec-sheet 0.51, Swiss
+poster 0.40). What cleared the bar, per section:
+
+| Section | Pick | P(AI look) |
+| --- | --- | --- |
+| Direction / home | D3 "Kept Personal Site" (confirmed twice) | 0.19 |
+| Character page | P4 "Author's Page" | 0.11 |
+| Character index | I2 "Author's Roster" | 0.15 |
+| Banners | B2 "Banner Diary" | 0.18 |
+| Tier list | T1 "Author's Rankings" | 0.18 |
+| Pull planner | U3 plain form + author's notes | 0.15 |
+
+The winning ingredient every time: visible authorship — dated
+verdicts, maintenance notes, uneven hand-kept structure — over any
+composition concept. The register, as built:
+
+- Neutral dark gray ground (`#101013`), no element wash, no tint
+  system. The only accent is ordinary link blue (`#7aa7ff`) — links,
+  live states, the current nav item. Element colours survive only as
+  small dots/text labels inside content.
+- No cards. Content lives in ruled sections and entries (hairline
+  top rules, square corners). Badges and tier letters are plain
+  bordered text. The golden beam, the waveform, the cursor spotlight,
+  view transitions, scroll reveals, hero grain and parallax are all
+  retired.
+- Type: system sans everywhere; Georgia serif for the site wordmark
+  only; Martian Mono still carries the numbers.
+- Home opens as a dispatch: serif wordmark, a one-line editor's
+  summary composed from live data, then the featured banner as the
+  lead entry. Characters index is a ruled roster grouped by element
+  with anchor links (the filter explorer is retired; ⌘K finds names).
+  Character pages open with the pull verdict (moved up, it carries
+  its real publication date), portrait plate with a credit caption.
+- The Resonance plumbing (one stylesheet, one token set, one measure)
+  stays — this register is a §14 override layer at the end of
+  design.css, not a fourth design system.
