@@ -18,8 +18,12 @@ export default function ObsidianCharTile({ char }: { char: CharacterHubTile }) {
       href={`/characters/${char.slug}`}
       className="og-char-tile"
       aria-label={`${char.name} — ${char.role}, ${char.element}`}
+      style={{ "--tile-el": el } as React.CSSProperties}
     >
-      <span className="og-char-tile-art">
+      <span
+        className="og-char-tile-art"
+        style={{ viewTransitionName: `char-art-${char.slug}` }}
+      >
         <span className="og-char-tile-mono" aria-hidden="true">
           {char.name.charAt(0)}
         </span>

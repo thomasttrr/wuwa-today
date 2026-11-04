@@ -64,7 +64,11 @@ export default function EventCard({
       >
         {badgeRow}
         <h3 className="og-event-title">{event.name}</h3>
-        {countdown}
+        {event.endsAt ? (
+          <div className="og-ends-chip">{countdown}</div>
+        ) : (
+          countdown
+        )}
         <p className="og-event-rewards">
           <strong>Rewards:</strong> {event.rewards}
         </p>

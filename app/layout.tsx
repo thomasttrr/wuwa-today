@@ -1,23 +1,29 @@
 import type { Metadata, Viewport } from "next";
 import Link from "next/link";
-import { Space_Grotesk, Source_Sans_3 } from "next/font/google";
+import localFont from "next/font/local";
+import { Martian_Mono } from "next/font/google";
 import ObsidianNav from "@/components/ObsidianNav";
 import ScrollTop from "@/components/ScrollTop";
 import NowProvider from "@/components/NowProvider";
+import SearchPalette from "@/components/SearchPalette";
+import SpotlightInit from "@/components/SpotlightInit";
 import "./design.css";
 
-/* Obsidian Glass type (DESIGN.md §3): Space Grotesk for display,
-   Source Sans 3 for body — a real shipped font, never the visitor's
-   system stack — and the tabular mono stack for data. */
-const spaceGrotesk = Space_Grotesk({
-  weight: ["500", "600", "700"],
-  subsets: ["latin"],
-  variable: "--font-space-grotesk",
+/* Resonance type (DESIGN.md §3): Mona Sans for headlines (wide, heavy),
+   Martian Mono for every number (countdowns, codes, stats, dates),
+   system sans for body text — speed and legibility. Two shipped
+   variable fonts, both preloaded by next/font; body ships nothing. */
+const monaSans = localFont({
+  src: "./fonts/mona-sans.woff2",
+  weight: "200 900",
+  variable: "--font-mona",
+  display: "swap",
 });
-const sourceSans = Source_Sans_3({
-  weight: ["400", "600", "700"],
+const martianMono = Martian_Mono({
+  weight: ["400", "500", "700", "800"],
   subsets: ["latin"],
-  variable: "--font-source-sans",
+  variable: "--font-martian",
+  display: "swap",
 });
 
 export const viewport: Viewport = {
@@ -49,7 +55,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${spaceGrotesk.variable} ${sourceSans.variable}`}>
+    <html lang="en" className={`${monaSans.variable} ${martianMono.variable}`}>
       <body className="og">
         {/* One shared 1s ticker for every countdown/progress bar on the page. */}
         <NowProvider>
@@ -86,6 +92,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           </div>
         </footer>
         <ScrollTop />
+        <SearchPalette />
+        <SpotlightInit />
         </NowProvider>
       </body>
     </html>

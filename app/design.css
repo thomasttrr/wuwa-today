@@ -61,18 +61,38 @@
   --og-space-6: 32px;
   --og-space-section: 3.5rem;
 
-  /* --- type --- */
-  --og-display: var(--font-space-grotesk), "Space Grotesk",
+  /* --- type (Resonance, DESIGN.md §3) --- */
+  --og-display: var(--font-mona), "Mona Sans",
     -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
-  --og-body: var(--font-source-sans), "Source Sans 3",
-    -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
-  --og-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --og-body: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui,
+    Roboto, "Helvetica Neue", Arial, sans-serif;
+  --og-mono: var(--font-martian), "Martian Mono", ui-monospace,
+    "SF Mono", Menlo, Consolas, monospace;
+
+  /* --- the element accent (Resonance Trait 1) ---
+     One element colour themes the page: accent, background tint,
+     waveform lines, focus rings, progress fills. Set per page via a
+     :root override (home = featured banner's character, character
+     pages = that character, banners = the featured banner); cards can
+     scope their own. Default = Spectro. Registered as a <color> so
+     changes ease over 600ms instead of snapping. */
+  --el-accent: #f7d154;
 
   /* --- motion --- */
   --og-ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --og-ease-spring: cubic-bezier(0.34, 1.3, 0.64, 1);
   --og-d1: 160ms;
   --og-d2: 320ms;
 }
+
+/* The element accent is a real <color> property so a change of element
+   (banner switch, page theme) eases over 600ms instead of snapping. */
+@property --el-accent {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #f7d154;
+}
+:root { transition: --el-accent 600ms ease; }
 
 /* ==========================================================================
    Base — element defaults and the shared layout frame.
@@ -83,7 +103,12 @@ html { scroll-behavior: smooth; }
 
 body {
   margin: 0;
-  background: var(--og-canvas);
+  /* The ground itself carries a faint wash of the page's element. */
+  background:
+    radial-gradient(70rem 34rem at 50% -12%,
+      color-mix(in srgb, var(--el-accent) 8%, transparent), transparent 70%),
+    var(--og-canvas);
+  background-attachment: fixed;
   color: var(--og-ink);
   font-family: var(--og-body);
   line-height: 1.55;
@@ -92,7 +117,7 @@ body {
   overflow-x: clip; /* guard against any wide element escaping the viewport */
 }
 
-::selection { background: rgba(232, 180, 79, 0.32); color: #fff; }
+::selection { background: color-mix(in srgb, var(--el-accent) 32%, transparent); color: #fff; }
 
 /* Links are monochrome: affordance comes from weight, chevrons and
    underlines — never from a blue accent. */
@@ -153,7 +178,7 @@ h3 { font-size: 1.05rem; margin: 1.25rem 0 0.5rem; font-weight: 700; }
 
 .element-dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; flex-shrink: 0; }
 
-:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
+:focus-visible { outline: 2px solid var(--el-accent); outline-offset: 2px; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { transition: none !important; animation: none !important; }
@@ -175,26 +200,29 @@ h3 { font-size: 1.05rem; margin: 1.25rem 0 0.5rem; font-weight: 700; }
   }
 }
 
-/* ---------- phase rail ----------
-   3px track beneath the featured banner's countdown: phase elapsed vs.
-   remaining. The fill carries a slow, faint shimmer sweep so "time passing"
-   feels alive — the only animation on the rail. */
-.phase-rail { position: relative; height: 3px; background: rgba(255, 255, 255, 0.12);
-  border-radius: 2px; margin: 0.8rem 0 0.2rem; }
-.phase-rail-fill { position: relative; height: 100%; background: var(--og-gold); border-radius: 2px; overflow: hidden; }
-.phase-rail-tick { position: absolute; top: -2px; width: 2px; height: 7px;
-  background: var(--og-gold); border-radius: 1px; transform: translateX(-1px); }
+/* ---------- phase waveform (Resonance Trait 2) ----------
+   A thin waveform under the featured countdown shows time left: the
+   element-coloured wave is the elapsed share and drains as the phase
+   runs down. It draws itself in once when it appears and never loops. */
+.phase-rail { position: relative; height: 12px; margin: 0.8rem 0 0.2rem; }
+.phase-rail::before,
+.phase-rail-fill::before {
+  content: ""; position: absolute; inset: 0;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='8' viewBox='0 0 24 8'%3E%3Cpath d='M0 4 Q6 1 12 4 T24 4' fill='none' stroke='black' stroke-width='1.6'/%3E%3C/svg%3E") repeat-x center / 24px 8px;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='8' viewBox='0 0 24 8'%3E%3Cpath d='M0 4 Q6 1 12 4 T24 4' fill='none' stroke='black' stroke-width='1.6'/%3E%3C/svg%3E") repeat-x center / 24px 8px;
+}
+.phase-rail::before { background: rgba(255, 255, 255, 0.16); }
+.phase-rail-fill { position: relative; height: 100%; }
+.phase-rail-fill::before { background: var(--el-accent); }
 @media (prefers-reduced-motion: no-preference) {
-  .phase-rail-fill::after {
-    content: ""; position: absolute; inset: 0;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.35), transparent);
-    animation: rail-sheen 3s ease-in-out infinite;
-  }
+  .phase-rail-fill { animation: og-wave-in 1.1s var(--og-ease-out) both; transform-origin: left center; }
 }
-@keyframes rail-sheen {
-  0% { transform: translateX(-100%); }
-  100% { transform: translateX(100%); }
+@keyframes og-wave-in {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
 }
+.phase-rail-tick { position: absolute; top: 1px; width: 2px; height: 10px;
+  background: var(--el-accent); border-radius: 1px; transform: translateX(-1px); }
 
 /* ---------- reset cycle progress ---------- */
 
@@ -202,7 +230,7 @@ h3 { font-size: 1.05rem; margin: 1.25rem 0 0.5rem; font-weight: 700; }
   height: 3px; background: rgba(255, 255, 255, 0.1);
   border-radius: 2px; margin-top: 0.55rem; overflow: hidden;
 }
-.cycle-fill { height: 100%; background: var(--og-gold); border-radius: 2px; transition: width 1s linear; }
+.cycle-fill { height: 100%; background: var(--el-accent); border-radius: 2px; transition: width 1s linear; }
 @media (prefers-reduced-motion: reduce) {
   .cycle-fill { transition: none; }
 }
@@ -225,7 +253,8 @@ body.og main {
      other uppercase use has been demoted per caps discipline — do not
      re-add text-transform to functional UI. */
   font-family: var(--og-display);
-  font-weight: 700;
+  font-weight: 800;
+  font-stretch: 118%; /* Mona Sans wide — headlines run wide and heavy */
   text-transform: uppercase;
   letter-spacing: -0.015em;
   line-height: 1.05;
@@ -245,7 +274,7 @@ body.og main {
   font-weight: 600;
   letter-spacing: 0.08em;
   font-size: 0.72rem;
-  color: var(--og-gold); /* gold is allowed here: it's a time/urgency signal */
+  color: var(--el-accent); /* gold is allowed here: it's a time/urgency signal */
 }
 .og-mono { font-family: var(--og-mono); font-variant-numeric: tabular-nums; }
 
@@ -293,7 +322,10 @@ body.og main {
   /* 8px padding + 55px tabs + 8px padding = 71px bar height
      (18% taller than the original 60px). */
   padding: 0.5rem;
+  display: flex;
+  align-items: center;
 }
+.og-tabbar-tabs { flex: 1; min-width: 0; }
 .og-tabbar-tabs {
   position: relative;
   display: flex;
@@ -369,13 +401,13 @@ body.og main {
   text-decoration: none;
 }
 .og-tabbar-tabs a[aria-current="page"] {
-  color: var(--og-gold); /* the current page wears the gold thread */
+  color: var(--el-accent); /* the current page wears the gold thread */
   text-decoration: none;
 }
 /* Keyboard / focus states on glass controls. */
 .og-tabbar a:focus-visible,
 .og-btn:focus-visible {
-  outline: 2px solid #ffffff;
+  outline: 2px solid var(--el-accent);
   outline-offset: 2px;
   border-radius: var(--og-radius-pill);
 }
@@ -480,7 +512,7 @@ body.og main {
 .og-char-tile:hover {
   text-decoration: none;
   transform: translateY(-4px);
-  border-color: rgba(232, 180, 79, 0.40);
+  border-color: color-mix(in srgb, var(--el-accent) 40%, transparent);
   box-shadow: 0 20px 44px -18px rgba(0, 0, 0, 0.75);
 }
 .og-char-tile-art {
@@ -574,7 +606,7 @@ body.og main {
   font-variant-numeric: tabular-nums;
   font-weight: 700;
   font-size: 1.5rem;
-  color: var(--og-gold);
+  color: var(--el-accent);
   letter-spacing: 0.02em;
   line-height: 1.2;
 }
@@ -596,10 +628,11 @@ body.og main {
 }
 .og-cd-roll > span { display: inline-block; }
 @media (prefers-reduced-motion: no-preference) {
-  .og-cd-roll > span { animation: og-cd-in 0.24s var(--og-ease-out); }
+  .og-cd-roll > span { animation: og-cd-in 0.3s var(--og-ease-spring); }
 }
 @keyframes og-cd-in {
   from { opacity: 0; transform: translateY(0.7em); }
+  60% { opacity: 1; transform: translateY(-0.07em); }
   to { opacity: 1; transform: none; }
 }
 
@@ -611,11 +644,11 @@ body.og main {
   display: inline-flex; align-items: center; gap: 0.45rem;
   font-size: 0.72rem; font-weight: 700;
   letter-spacing: 0.04em;
-  color: var(--og-gold);
+  color: var(--el-accent);
 }
 .og-live::before {
   content: ""; width: 7px; height: 7px; border-radius: 50%;
-  background: var(--og-gold); flex: none;
+  background: var(--el-accent); flex: none;
 }
 @media (prefers-reduced-motion: no-preference) {
   .og-live::before { animation: og-live-dot 2.2s ease-in-out infinite; }
@@ -687,7 +720,7 @@ body.og { overflow-x: clip; }
   content: "";
   position: absolute; left: 0; bottom: -1px;
   width: 2.5rem; height: 2px;
-  background: var(--og-gold);
+  background: var(--el-accent);
   border-radius: 2px;
 }
 /* Jump targets live on the head, not the section, so the head itself
@@ -699,7 +732,7 @@ body.og { overflow-x: clip; }
   font-weight: 600; font-size: 0.92rem; color: var(--og-ink);
   white-space: nowrap;
 }
-.og-section-link:hover { color: var(--og-gold); text-decoration: underline; text-underline-offset: 3px; }
+.og-section-link:hover { color: var(--el-accent); text-decoration: underline; text-underline-offset: 3px; }
 .og-empty {
   color: var(--og-muted);
   background: var(--og-surface);
@@ -714,7 +747,7 @@ body.og { overflow-x: clip; }
   transition: border-color var(--og-d1) var(--og-ease-out);
 }
 .og-banner-card:hover, .og-event-card:hover, .og-pick-card:hover {
-  border-color: rgba(232, 180, 79, 0.38);
+  border-color: color-mix(in srgb, var(--el-accent) 38%, transparent);
 }
 
 /* --- badges: monochrome by default. .og-badge-gold is ONLY for
@@ -733,9 +766,9 @@ body.og { overflow-x: clip; }
 }
 .og-badge-row { display: flex; gap: 0.45rem; flex-wrap: wrap; align-items: center; }
 .og-badge-gold {
-  color: var(--og-gold);
-  border-color: rgba(232, 180, 79, 0.45);
-  background: var(--og-gold-soft);
+  color: var(--el-accent);
+  border-color: color-mix(in srgb, var(--el-accent) 45%, transparent);
+  background: color-mix(in srgb, var(--el-accent) 14%, transparent);
 }
 /* Dim kicker for non-time labels: gold is rationed, so content labels
    stay muted white. Caps discipline: no uppercase outside display heads. */
@@ -1305,7 +1338,7 @@ body.og { overflow-x: clip; }
 
   letter-spacing: 0.05em;
   font-size: 0.72rem;
-  color: var(--og-gold); /* kickers are structural gold — DESIGN.md §2 */
+  color: var(--el-accent); /* kickers are structural gold — DESIGN.md §2 */
   margin: 0 0 0.6rem;
 }
 .og-page-title {
@@ -1650,8 +1683,8 @@ body.og { overflow-x: clip; }
   white-space: nowrap;
 }
 .og-tier-badge.tier-SS {
-  background: var(--og-gold);
-  border-color: var(--og-gold);
+  background: var(--el-accent);
+  border-color: var(--el-accent);
   color: #14100a; /* ~9.4:1 on gold */
 }
 .og-tier-badge.tier-S {
@@ -1672,8 +1705,8 @@ body.og { overflow-x: clip; }
 
 /* Rarity pill: 5-star gold, 4-star purple (in-game convention). */
 .og-rarity-badge.rarity-5 {
-  background: var(--og-gold);
-  border-color: var(--og-gold);
+  background: var(--el-accent);
+  border-color: var(--el-accent);
   color: #14100a;
 }
 .og-rarity-badge.rarity-4 {
@@ -1986,7 +2019,7 @@ body.og { overflow-x: clip; }
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: var(--og-gold);
+  background: var(--el-accent);
   pointer-events: none;
 }
 
@@ -2788,7 +2821,7 @@ a.og-tier-name:hover { text-decoration: underline; }
    T0 solid gold, half-tiers are glass versions of their parent,
    T2 bronze sits clearly below silver, T3/T4 fade to ghost. */
 .og-tier-badge.tier-T0 {
-  background: var(--og-gold); border-color: var(--og-gold); color: #14100a;
+  background: var(--el-accent); border-color: var(--el-accent); color: #14100a;
 }
 .og-tier-badge.tier-Th0 {
   background: rgba(212,175,55,0.14); border-color: rgba(212,175,55,0.45); color: #d9b84a;
@@ -2903,4 +2936,246 @@ a.og-tier-name:hover { text-decoration: underline; }
 }
 .og-gloss-term strong {
   color: var(--og-ink);
+}
+
+/* ============================================================================
+   RESONANCE systems (2026-11-04) — the element-tuned layer.
+   ========================================================================== */
+
+/* --- cross-document view transitions: pages morph instead of cutting.
+   The character tile's art and the character hero share a transition
+   name (set inline per character), so the tile grows into the hero. --- */
+@view-transition { navigation: auto; }
+::view-transition-old(root),
+::view-transition-new(root) { animation-duration: 0.28s; }
+
+/* --- hero grain: a faint film grain, hero areas only --- */
+.og-hero::after,
+.og-char-hero::after {
+  content: "";
+  position: absolute; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+  opacity: 0.05;
+  pointer-events: none;
+}
+
+/* --- home hero: the featured character's cut-out stands in front of
+   the headline panel; layers drift at different speeds on scroll --- */
+.og-hero-sprite {
+  position: absolute;
+  right: clamp(0.5rem, 4vw, 3.5rem);
+  bottom: 0;
+  height: 97%;
+  max-width: 44%;
+  object-fit: contain;
+  object-position: bottom center;
+  z-index: 3;
+  pointer-events: none;
+  filter: drop-shadow(0 18px 32px rgba(0, 0, 0, 0.55));
+}
+.og-hero-count { margin-top: 1.1rem; }
+.og-hero-count .og-countdown { font-size: 1.15rem; }
+.og-hero-count-label {
+  font-family: var(--og-mono);
+  font-size: 0.66rem; letter-spacing: 0.07em; text-transform: uppercase;
+  color: var(--og-muted); margin: 0 0 0.3rem;
+}
+@media (max-width: 760px) {
+  /* On phones the panel owns the width; the cut-out slips behind it. */
+  .og-hero-sprite { z-index: 0; opacity: 0.55; right: -8%; height: 82%; }
+}
+@supports (animation-timeline: scroll()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .og-hero-art { animation: og-para-bg linear both; animation-timeline: scroll(); animation-range: 0 620px; }
+    .og-hero-panel { animation: og-para-panel linear both; animation-timeline: scroll(); animation-range: 0 620px; }
+    .og-hero-sprite { animation: og-para-sprite linear both; animation-timeline: scroll(); animation-range: 0 620px; }
+  }
+}
+@keyframes og-para-bg { to { transform: translateY(38px); } }
+@keyframes og-para-panel { to { transform: translateY(12px); } }
+@keyframes og-para-sprite { to { transform: translateY(-22px); } }
+
+/* --- featured banner tile: countdown over the art's lower third,
+   on a fade of the banner's own element colour; waveform below --- */
+.og-banner-overlay {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  padding: 2.6rem 1.25rem 0.9rem;
+  background: linear-gradient(180deg, transparent,
+    color-mix(in srgb, var(--el-accent) 20%, rgba(2, 4, 8, 0.82)) 62%);
+}
+.og-banner-overlay .og-countdown {
+  color: #ffffff;
+  font-size: 1.9rem;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.65);
+}
+.og-banner-overlay .og-countdown-label {
+  color: color-mix(in srgb, var(--el-accent) 55%, #ffffff);
+  margin-top: 0.15rem;
+}
+.og-banner-card-featured .og-banner-art img { object-position: 50% 16%; }
+@media (max-width: 480px) {
+  /* The full readout must stay on one line inside a phone-width tile. */
+  .og-banner-overlay .og-countdown { font-size: 1.45rem; }
+}
+
+/* --- event "ends in" chip (compact cards): the countdown as a pill --- */
+.og-ends-chip {
+  display: inline-flex; align-items: center;
+  align-self: flex-start;
+  background: var(--og-surface-raised);
+  border: 1px solid color-mix(in srgb, var(--el-accent) 30%, transparent);
+  border-radius: var(--og-radius-pill);
+  padding: 0.3rem 0.75rem;
+}
+.og-ends-chip .og-countdown { font-size: 0.95rem; }
+.og-ends-chip .og-countdown-label { display: none; }
+
+/* --- character tiles: the frame wears the character's element --- */
+.og-char-tile {
+  border-color: color-mix(in srgb, var(--tile-el, var(--el-accent)) 24%, transparent);
+}
+.og-char-tile:hover {
+  transform: none;
+  border-color: color-mix(in srgb, var(--tile-el, var(--el-accent)) 60%, transparent);
+}
+.og-char-tile-art img { transition: transform var(--og-d2) var(--og-ease-out); }
+.og-char-tile:hover .og-char-tile-art img,
+.og-char-tile:focus-visible .og-char-tile-art img { transform: translateY(-4px); }
+@media (prefers-reduced-motion: reduce) {
+  .og-char-tile:hover .og-char-tile-art img { transform: none; }
+}
+
+/* --- desktop spotlight: the element colour follows the cursor along
+   card borders (positions arrive from SpotlightInit as --mx/--my) --- */
+.og-banner-card, .og-event-card, .og-pick-card, .og-char-tile { position: relative; }
+.og-banner-card::after, .og-event-card::after,
+.og-pick-card::after, .og-char-tile::after {
+  content: "";
+  position: absolute; inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: radial-gradient(260px circle at var(--mx, 50%) var(--my, 50%),
+    var(--tile-el, var(--el-accent)), transparent 70%);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity var(--og-d2) ease;
+  pointer-events: none;
+  z-index: 2;
+}
+@media (hover: hover) and (pointer: fine) {
+  .og-banner-card:hover::after, .og-event-card:hover::after,
+  .og-pick-card:hover::after, .og-char-tile:hover::after { opacity: 0.85; }
+}
+
+/* --- springy presses: one spring curve on every pressable thing --- */
+.og-btn, .og-chip, .og-tabbar-tabs a, .og-tabbar-search,
+.og-search-item, .og-event-expand, .og-copy-btn {
+  transition: scale var(--og-d1) var(--og-ease-spring);
+}
+.og-btn:active, .og-chip:active, .og-tabbar-tabs a:active,
+.og-tabbar-search:active, .og-search-item:active,
+.og-event-expand:active, .og-copy-btn:active { scale: 0.97; }
+
+/* --- section headings tighten a touch as they scroll into view --- */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .og-h2 {
+      animation: og-tighten linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 55%;
+    }
+  }
+}
+@keyframes og-tighten {
+  from { letter-spacing: 0.012em; }
+  to { letter-spacing: -0.01em; }
+}
+
+/* --- nav search button --- */
+.og-tabbar-search {
+  flex: none;
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 40px; height: 40px;
+  margin-right: 0.35rem;
+  border-radius: var(--og-radius-pill);
+  border: 1px solid var(--og-hairline);
+  background: transparent;
+  color: var(--og-muted);
+  cursor: pointer;
+}
+.og-tabbar-search:hover { color: var(--og-ink); }
+
+/* --- ⌘K search palette --- */
+.og-search-backdrop {
+  position: fixed; inset: 0; z-index: 90;
+  background: rgba(2, 4, 8, 0.62);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  display: flex; justify-content: center; align-items: flex-start;
+  padding: max(4.5rem, env(safe-area-inset-top)) 1rem 1rem;
+}
+.og-search-panel {
+  width: 100%; max-width: 560px;
+  background: color-mix(in srgb, var(--og-surface) 88%, transparent);
+  border: 1px solid var(--og-hairline);
+  border-radius: var(--og-radius-lg);
+  box-shadow: 0 28px 70px -18px rgba(0, 0, 0, 0.8);
+  overflow: hidden;
+}
+.og-search-input {
+  width: 100%;
+  background: transparent;
+  border: none; outline: none;
+  color: var(--og-ink);
+  font-family: var(--og-body);
+  font-size: 1.05rem;
+  padding: 1rem 1.15rem;
+}
+.og-search-input::placeholder { color: var(--og-faint); }
+.og-search-list {
+  border-top: 1px solid var(--og-hairline-soft);
+  padding: 0.4rem;
+  max-height: 46vh; overflow-y: auto;
+}
+.og-search-item {
+  display: flex; align-items: baseline; justify-content: space-between;
+  gap: 1rem;
+  width: 100%;
+  padding: 0.6rem 0.7rem;
+  border: none; border-radius: var(--og-radius-sm);
+  background: transparent;
+  color: var(--og-ink);
+  font-family: var(--og-body);
+  font-size: 0.98rem; text-align: left;
+  cursor: pointer;
+}
+.og-search-item.is-active { background: var(--og-surface-raised); }
+.og-search-hint {
+  font-family: var(--og-mono);
+  font-size: 0.66rem; letter-spacing: 0.05em;
+  color: var(--og-faint);
+  white-space: nowrap;
+}
+.og-search-empty { color: var(--og-muted); padding: 0.8rem 0.7rem; margin: 0; }
+
+/* --- desktop: the nav becomes a slim glass top bar (spec Trait 5) --- */
+@media (min-width: 1024px) {
+  .og-tabbar {
+    top: 0; bottom: auto;
+    padding-bottom: 0;
+    padding-top: env(safe-area-inset-top);
+    border-top: none;
+    border-bottom: 1px solid var(--og-hairline);
+    background:
+      linear-gradient(180deg, rgba(10, 12, 17, 0.94), rgba(10, 12, 17, 0.88)),
+      var(--og-glass);
+  }
+  body.og main {
+    padding-top: 5.25rem;
+    padding-bottom: 3.5rem;
+  }
 }

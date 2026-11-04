@@ -41,7 +41,7 @@ Semantic roles only — components reference these tokens, never hex values.
 | `--og-faint` | `#8d99ae` | captions, meta (≥4.5:1 on surface) |
 | `--og-hairline` | `rgba(190,205,235,.12)` | card borders, strong dividers |
 | `--og-hairline-soft` | `rgba(190,205,235,.06)` | quiet dividers |
-| `--og-gold` | `#e8b44f` | time, countdowns, live, the beam, and small structural gold: kickers/eyebrows, active states, link hovers — never body text, never fills |
+| `--el-accent` | per page | THE accent (Resonance §12): the live element's colour — kickers, countdowns, live states, active nav, section marks, focus rings, progress fills, the beam. Set by the page's character/banner; Spectro `#f7d154` by default |
 | `--og-gold-soft` | `rgba(232,180,79,.14)` | gold wash behind gold text |
 | `--og-green` | `#30d158` | success state (e.g. a working code) |
 | `--og-red` | `#ff453a` | expired / error state |
@@ -55,14 +55,16 @@ data components that render them and never leak into chrome.
 
 Three voices, each with one job:
 
-- **Display** — Space Grotesk 500/600/700, uppercase, tight tracking
-  (`--og-display`). Headings, titles, big numbers' labels. Never body text.
-- **Body** — Source Sans 3 400/600/700 (`--og-body`). A real shipped font
-  (loaded via next/font), never the visitor's system stack. Everything
-  readable: ledes, blurbs, card text, prose.
-- **Data** — ui-monospace stack (`--og-mono`), tabular. Countdown digits,
-  meta lines, micro-captions (10–11px uppercase, letterspaced — the game's
-  own HUD voice).
+- **Display** — Mona Sans variable, wide (font-stretch 118%) and heavy
+  (800), uppercase, tight tracking (`--og-display`). Headings and titles.
+  Never body text. Section headings tighten slightly as they scroll in.
+- **Body** — the system sans stack (`--og-body`), per the Resonance spec
+  (Trait 3: system for speed and legibility). This reverses the
+  unification pass's shipped body font on Tom's direct order — flagged
+  to him 2026-11-04; his call stands unless he says otherwise.
+- **Data** — Martian Mono (`--og-mono`), tabular. EVERY number is a
+  readout: countdown digits, pity counts, stats, codes, dates,
+  meta lines, micro-captions.
 
 Type scale (size / line-height): display-1 2.6rem/1.04 · title 2rem/1.1 ·
 h2 1.35rem/1.2 · h3 1.05rem/1.3 · body 1rem/1.55 · small .875rem/1.5 ·
@@ -174,3 +176,38 @@ Considered: their deep navy canvas — adopted in spirit with §10 (the
 ground tinted to our own deep navy-black). Not adopted: their
 tool-first homepage shape (a design-only pass does not change what our
 pages are for) and their teal brand colour.
+
+## 12. Resonance (Tom's spec, 2026-11-04 — the current direction)
+
+Tom handed over a full design spec named "Resonance" and ordered it
+done exactly. It supersedes the accent and type rules above; the
+unified tokens/components (§2–§9) remain the plumbing it runs on.
+
+- **Element tinting is the system.** One element colour themes each
+  page (`--el-accent`, a registered `<color>` property, 600ms ease):
+  home = the featured banner's lead character, character pages = that
+  character, banners = the featured banner (each banner card also
+  scopes its own). All six element colours share one HSL lightness, so
+  contrast is identical in every theme. The ground itself carries a
+  faint wash of the element. Spectro's colour was corrected to the
+  game's yellow (the old map had fuchsia).
+- **Art lives in its place.** Featured banner tile: countdown over the
+  art's lower third on an element fade, waveform (the phase rail,
+  redrawn as a draining wave) beneath it. Home hero: the featured
+  character's cut-out sprite stands in front of the headline with
+  scroll parallax — only when a true `-sprite.webp` cut-out exists
+  (today: Hsin, Chisa, Iuno); splash art is never faked as a cut-out.
+  Character tiles: element-tinted frames, art shifts up on hover, no
+  zoom. Event cards carry an "ends in" chip (compact cards).
+- **Motion is native CSS only**, all of it off under reduced motion:
+  cross-document view transitions (tile art morphs into the character
+  hero via a shared transition name), rolling digits with a spring
+  bounce, waveforms that draw in once, one spring curve on presses,
+  a cursor spotlight along card borders on desktop (fine pointers).
+- **Layout:** desktop nav is a slim glass TOP bar (≥1024px); mobile
+  keeps the floating bottom bar. ⌘K search jumps to any character,
+  code, page or guide.
+- **Not built, honestly:** event key-art strips — the events data has
+  no art at all, so there is nothing truthful to show; sourcing event
+  art is a content job, not a design one. The beam follows the element
+  accent now (it was gold); flipping it back is a one-line change.

@@ -289,6 +289,7 @@ export default async function CharacterPage({
 
   return (
     <>
+      <style>{`:root{--el-accent:${el}}`}</style>
       <Link href="/characters" className="og-back">
         ← Characters
       </Link>
@@ -296,7 +297,10 @@ export default async function CharacterPage({
       {/* Hero: portrait plate, kicker/title, badges, verdict. */}
       <header className="og-char-hero" style={{ "--el": el } as CSSProperties}>
         <Reveal>
-          <div className="og-char-art">
+          <div
+            className="og-char-art"
+            style={{ viewTransitionName: `char-art-${slug}` }}
+          >
             <Image
               src={p.portrait_url}
               alt={`${char.name} portrait`}

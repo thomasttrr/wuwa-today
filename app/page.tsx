@@ -8,11 +8,14 @@ import ObsidianToolbar from "../components/ObsidianToolbar";
 import ResetTimers from "../components/ResetTimers";
 import Reveal from "../components/Reveal";
 import UpdatedStamp from "../components/UpdatedStamp";
+import ObsidianCountdown from "../components/ObsidianCountdown";
+import { elementColor } from "../lib/elements";
 import {
   activeBanners,
   activeCodes,
   activeEvents,
   bannerMeta,
+  formatServerDate,
 } from "../lib/data";
 
 export const metadata: Metadata = {
@@ -37,6 +40,13 @@ export default function HomePage() {
   // because upscaling past the genuine source is forbidden.
   const heroBase = heroArt.replace(/\.webp$/, "");
   const heroSrcSet = `${heroArt} 640w, ${heroBase}-1200.webp 1200w, ${heroBase}-1920.webp 1920w`;
+  // Resonance Trait 1+2: the page themes to the featured banner's lead
+  // character — their element becomes the accent, their cut-out sprite
+  // stands in front of the headline.
+  const heroChar =
+    heroBanner?.characters.find((c) => c.rarity === 5 && c.isNew) ??
+    heroBanner?.characters.find((c) => c.rarity === 5);
+  const heroElement = heroChar ? elementColor(heroChar.element) : null;
 
   return (
     <>
@@ -57,6 +67,9 @@ export default function HomePage() {
       {/* Direction A "The Viewport": contained 1080px panel aligned with the
           page content measure — official key art as atmosphere behind a
           glass panel, monochrome dark scrim, sharp headline, one ghost CTA. */}
+      {heroElement && (
+        <style>{`:root{--el-accent:${heroElement}}`}</style>
+      )}
       <section className="og-hero" aria-label="Today in Wuthering Waves">
         {/* eslint-disable-next-line @next/next/no-img-element -- contained-panel hero art layer; next/image's wrapper spans would break the panel and scrim styling, and images are unoptimized in this static export so next/image adds nothing. */}
         <img
@@ -86,8 +99,30 @@ export default function HomePage() {
             >
               Plan my pulls
             </ObsidianButton>
+            {heroBanner && (
+              <div className="og-hero-count">
+                <p className="og-hero-count-label">
+                  {heroChar ? `${heroChar.name}'s banner ends in` : "Featured banner ends in"}
+                </p>
+                <ObsidianCountdown
+                  target={heroBanner.endsAt}
+                  label={`Ends ${formatServerDate(heroBanner.endsAt)}`}
+                />
+              </div>
+            )}
           </div>
         </div>
+        {heroChar?.sprite?.includes("-sprite.webp") && (
+          /* eslint-disable-next-line @next/next/no-img-element -- official full-sprite cut-out, decorative layer over the hero art */
+          <img
+            className="og-hero-sprite"
+            src={heroChar.sprite}
+            alt=""
+            aria-hidden="true"
+            loading="eager"
+            decoding="async"
+          />
+        )}
       </section>
 
       {/* In-page anchor jumps only — labels mirror the section headings

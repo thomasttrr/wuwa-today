@@ -90,6 +90,17 @@ export default function ObsidianNav() {
   return (
     <nav className="og-tabbar" aria-label="Primary">
       <div className="og-tabbar-inner">
+        <button
+          type="button"
+          className="og-tabbar-search"
+          aria-label="Search (Command K)"
+          onClick={() => window.dispatchEvent(new CustomEvent("wuwa:search"))}
+        >
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" aria-hidden="true">
+            <circle cx="11" cy="11" r="7" />
+            <path d="m20 20-3.8-3.8" />
+          </svg>
+        </button>
         <div ref={listRef} className="og-tabbar-tabs">
           {pill && activeIndex >= 0 && (
             <div

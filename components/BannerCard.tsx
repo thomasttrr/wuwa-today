@@ -2,6 +2,7 @@ import ObsidianCountdown from "./ObsidianCountdown";
 import PhaseRail from "./PhaseRail";
 import Image from "next/image";
 import {
+  formatServerDate,
   formatServerDateWithNote,
   type Banner,
   type GameCharacter,
@@ -80,6 +81,11 @@ export default function BannerCard({
     <article
       className={`og-banner-card${featured ? " og-banner-card-featured" : ""}`}
       aria-label={`${banner.version} ${banner.phase} banner`}
+      style={
+        fiveStars[0]
+          ? ({ "--el-accent": elementColor(fiveStars[0].element) } as React.CSSProperties)
+          : undefined
+      }
     >
       {banner.image && (
         <div className="og-banner-art">
@@ -107,9 +113,28 @@ export default function BannerCard({
             decoding="async"
             fetchPriority={priority ? "high" : "low"}
           />
+          {featured && showCountdown && (
+            <div className="og-banner-overlay">
+              <ObsidianCountdown
+                target={banner.status === "active" ? banner.endsAt : banner.startsAt}
+                label={`${
+                  banner.status === "active" ? "Ends" : "Starts"
+                } ${formatServerDate(
+                  banner.status === "active" ? banner.endsAt : banner.startsAt
+                )}`}
+              />
+            </div>
+          )}
         </div>
       )}
       <div className="og-banner-body">
+        {featured && banner.status === "active" && (
+          <PhaseRail
+            startsAt={banner.startsAt}
+            endsAt={banner.endsAt}
+            events={events}
+          />
+        )}
         <div className="og-badge-row">
           <span className="og-badge">{banner.version}</span>
           <span className="og-badge">{banner.phase}</span>
@@ -125,7 +150,10 @@ export default function BannerCard({
         <h3 className="og-banner-headline">
           {fiveStars.map((c) => c.name).join(" · ")}
         </h3>
-        {showCountdown && (
+        {featured && banner.timeNote && (
+          <p className="og-event-meta">{banner.timeNote}</p>
+        )}
+        {showCountdown && !featured && (
           <ObsidianCountdown
             target={banner.status === "active" ? banner.endsAt : banner.startsAt}
             label={`${
@@ -134,13 +162,6 @@ export default function BannerCard({
               banner.status === "active" ? banner.endsAt : banner.startsAt,
               banner.timeNote
             )}`}
-          />
-        )}
-        {featured && banner.status === "active" && (
-          <PhaseRail
-            startsAt={banner.startsAt}
-            endsAt={banner.endsAt}
-            events={events}
           />
         )}
         <ul className="og-char-chip-list">

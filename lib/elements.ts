@@ -1,13 +1,15 @@
-/** Game-element accent colors for dots, rings, and pills.
- * The page itself stays dark; color appears only as these accents.
+/** Game-element accent colors — the Resonance tint system (DESIGN.md).
+ * All six share one HSL lightness (~72%), so text contrast and accent
+ * weight feel identical whichever element themes the page. Spectro is
+ * the game's yellow (an earlier map had it as fuchsia — corrected).
  * (Moved out of components/TeamCard.tsx so hub tiles + hero can share it.) */
 export const ELEMENT_COLORS: Record<string, string> = {
-  Electro: "#a78bfa",
-  Aero: "#6ee7a0",
-  Havoc: "#f472b6",
-  Spectro: "#e879f9",
-  Glacio: "#7dd3fc",
-  Fusion: "#fb923c",
+  Electro: "#b79cff",
+  Aero: "#63dfae",
+  Havoc: "#f77ca6",
+  Spectro: "#f7d154",
+  Glacio: "#6ed0fa",
+  Fusion: "#ffa25e",
 };
 
 export const ELEMENT_FALLBACK = "#6e6e73";
