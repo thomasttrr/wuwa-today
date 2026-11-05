@@ -5,7 +5,7 @@ import ObsidianToolbar from "../../components/ObsidianToolbar";
 import OgPageHero from "../../components/OgPageHero";
 import Reveal from "../../components/Reveal";
 import UpdatedStamp from "../../components/UpdatedStamp";
-import { activeBanners, upcomingBanners, bannerHistory, bannerMeta, formatServerDate } from "../../lib/data";
+import { activeBanners, activeEvents, upcomingBanners, bannerHistory, bannerMeta, formatServerDate } from "../../lib/data";
 
 export const metadata: Metadata = {
   title: "Wuthering Waves Banners — Current, Upcoming & History",
@@ -40,7 +40,7 @@ export default function BannersPage() {
         {/* The lead banner runs full width; the rest share a grid. */}
         {activeBanners.length > 0 && (
           <Reveal>
-            <BannerCard banner={activeBanners[0]} featured priority />
+            <BannerCard banner={activeBanners[0]} featured priority events={activeEvents} />
           </Reveal>
         )}
         {activeBanners.length > 1 && (

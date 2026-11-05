@@ -17,18 +17,25 @@ function stars(rarity: number): string {
 function CharacterChip({ c }: { c: GameCharacter }) {
   return (
     <li className="og-char-chip">
-      {c.sprite && (
-        <Image
-          src={c.sprite}
-          alt={`${c.name} official character art`}
-          loading="lazy"
-          width={96}
-          height={96}
-        />
-      )}
+      <span className="og-char-chip-thumb" aria-hidden="true">
+        {c.sprite ? (
+          <Image
+            src={c.sprite.replace(/\.webp$/, "-96.webp")}
+            alt=""
+            loading="lazy"
+            width={96}
+            height={96}
+          />
+        ) : (
+          <span
+            className="element-dot"
+            style={{ background: elementColor(c.element) }}
+          />
+        )}
+      </span>
       <div className="og-char-chip-body">
         <div className="og-char-chip-name">
-          <span className="og-stars" aria-label={`${c.rarity} star`}>
+          <span className="og-stars" role="img" aria-label={`${c.rarity} star`}>
             {stars(c.rarity)}
           </span>{" "}
           <strong>{c.name}</strong>
@@ -130,24 +137,20 @@ export default function BannerCard({
     >
       {banner.image && (
         <div className="og-banner-art">
-          {/* Fix 3, static-export safe: plain <img> srcset. All variants are
+          {/* Plain <img> srcset (static-export safe). All variants are
               downscales of the full-size wiki originals (same artworks,
-              WebP q80 — re-downloaded 2026-11-02, see data/SOURCES.md).
-              A new banner image needs matching -512/-1024/-1200/-1920
-              variants. CORRECTED 2026-11-02: the old srcset stopped at
-              1024w and sizes claimed a 512px display, but the cards sit in
-              an auto-fit grid — a lone/featured card spans the full 1080px
-              container, so browsers loaded the 512w file and CSS stretched
-              it ~2x (the visible blur). sizes now matches the real layout:
-              featured cards display up to 1080px, grid cards up to ~532px. */}
+              WebP q80 — see data/SOURCES.md). sizes matches the real
+              layout: the featured card's art is a ~42% column (~520px),
+              grid cards ~600px tops — no slot needs the old 1920w file. */}
           {/* eslint-disable-next-line @next/next/no-img-element -- key-art strip: next/image's wrapper spans would break the fade-mask styling, and images are unoptimized in this static export so next/image adds nothing. */}
           <img
+            className="art"
             src={banner.image}
-            srcSet={`${bannerBase}-512.webp 512w, ${bannerBase}-1024.webp 1024w, ${bannerBase}-1200.webp 1200w, ${bannerBase}-1920.webp 1920w`}
+            srcSet={`${bannerBase}-512.webp 512w, ${bannerBase}-1024.webp 1024w, ${bannerBase}-1200.webp 1200w`}
             sizes={
               featured
-                ? "(max-width: 640px) 100vw, 1080px"
-                : "(max-width: 640px) 100vw, 532px"
+                ? "(max-width: 819px) 100vw, 520px"
+                : "(max-width: 640px) 100vw, 600px"
             }
             alt={`Official key art for the ${banner.version} ${banner.phase} banner${fiveStars.length > 0 ? `, featuring ${fiveStars.map((c) => c.name).join(" and ")}` : ""}`}
             loading={priority ? "eager" : "lazy"}
@@ -212,7 +215,7 @@ export default function BannerCard({
         </ul>
         {fourStars.length > 0 && (
           <p className="og-four-star">
-            <span className="og-stars" aria-label="4 star">
+            <span className="og-stars" role="img" aria-label="4 star">
               {stars(4)}
             </span>{" "}
             {fourStars.map((c) => c.name).join(" · ")}{" "}

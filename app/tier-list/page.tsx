@@ -3,6 +3,7 @@ import Link from "next/link";
 import OgPageHero from "@/components/OgPageHero";
 import UpdatedStamp from "@/components/UpdatedStamp";
 import TierListViews from "@/components/TierListViews";
+import Reveal from "@/components/Reveal";
 import PrydwenTierList from "@/components/PrydwenTierList";
 import EditorialTierList from "@/components/EditorialTierList";
 import tierList from "@/data/tier-list.json";
@@ -36,10 +37,12 @@ export default function TierListPage() {
         meta={<UpdatedStamp />}
       />
 
-      <TierListViews
-        prydwen={<PrydwenTierList hubSlugs={[...hubSlugs]} />}
-        editorial={<EditorialTierList />}
-      />
+      <Reveal>
+        <TierListViews
+          prydwen={<PrydwenTierList hubSlugs={[...hubSlugs]} />}
+          editorial={<EditorialTierList />}
+        />
+      </Reveal>
 
       {unranked.length > 0 && (
         <div id="unranked" className="og-tier-unranked" role="note">

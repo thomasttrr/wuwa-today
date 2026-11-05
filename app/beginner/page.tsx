@@ -61,24 +61,21 @@ export default function BeginnerHub() {
         }
       />
 
-      <div className="og-grid">
+      <div className="og-grid og-guide-grid">
         {GUIDES.map((g, i) => (
           <Reveal key={g.slug} delay={Math.min(i * 60, 240)}>
             <Link
               href={`/beginner/${g.slug}`}
-              className="og-radius-card"
-              style={{ display: "block", textDecoration: "none" }}
+              className="og-guide-card"
             >
-              <div className="og-char-art" style={{ maxWidth: 220 }}>
-                <Image
-                  src={g.art}
-                  alt={`${g.title} guide art`}
-                  width={440}
-                  height={440}
-                  loading="lazy"
-                  decoding="async"
-                />
-              </div>
+              <Image
+                src={g.art}
+                alt={`${g.title} guide art`}
+                width={440}
+                height={440}
+                loading="lazy"
+                decoding="async"
+              />
               <p className="og-char-kicker">Beginner guide</p>
               <h2 className="og-h2" style={{ margin: "0.25rem 0" }}>
                 {g.title}

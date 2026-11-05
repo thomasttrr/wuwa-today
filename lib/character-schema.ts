@@ -115,7 +115,7 @@ export interface RankedWeapon {
   name: string;
   rarity: 4 | 5;
   signature: boolean;
-  /** Local verified weapon icon, e.g. "/images/weapons/variation.png". */
+  /** Local verified weapon icon, e.g. "/images/weapons/variation.webp". */
   icon?: string;
   /** Why this weapon ranks here, condensed from the guide. */
   note: string;

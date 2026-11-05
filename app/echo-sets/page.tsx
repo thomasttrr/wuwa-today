@@ -284,10 +284,10 @@ function SetCard({ set }: { set: EchoSet }) {
           {set.pill}
         </span>
       </p>
-      <p>
+      <p className="og-echo-bonus">
         <strong>2-pc:</strong> {set.twoPc}
       </p>
-      <p>
+      <p className="og-echo-bonus">
         <strong>5-pc:</strong> {set.fivePc}
       </p>
       <p>{set.who}</p>
@@ -295,14 +295,14 @@ function SetCard({ set }: { set: EchoSet }) {
         <strong>Member echoes:</strong>
       </p>
       {set.members.map((g) => (
-        <p key={g.cost}>
+        <p key={g.cost} className="og-echo-members">
           <strong>{g.cost}:</strong> <MemberChips echoes={g.echoes} />
         </p>
       ))}
-      <p>
+      <p className="og-echo-dataline">
         <strong>Where to farm:</strong> {set.farm}
       </p>
-      <p>
+      <p className="og-echo-dataline">
         <strong>Main stats:</strong> {set.stats}
       </p>
     </section>

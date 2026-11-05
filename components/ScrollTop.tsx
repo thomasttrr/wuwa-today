@@ -31,7 +31,7 @@ export default function ScrollTop() {
     return () => obs.disconnect();
   }, []);
 
-  if (!visible || footerVisible) return null;
+  const on = visible && !footerVisible;
 
   const goTop = () => {
     const reduced = window.matchMedia(
@@ -44,8 +44,10 @@ export default function ScrollTop() {
     <button
       type="button"
       onClick={goTop}
-      className="og-scrolltop"
+      className={on ? "og-scrolltop is-on" : "og-scrolltop"}
       aria-label="Scroll back to top"
+      aria-hidden={!on}
+      tabIndex={on ? 0 : -1}
     >
       <svg
         width="18"

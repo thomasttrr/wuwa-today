@@ -1,14 +1,18 @@
 import Link from "next/link";
+import OgPageHero from "@/components/OgPageHero";
 
 export default function NotFound() {
   return (
     <>
-      <h1>Page not found</h1>
-      <p className="lede">
-        That page doesn&apos;t exist — maybe it expired like a livestream code.
-      </p>
+      <OgPageHero
+        kicker="404"
+        title="Page not found"
+        lede="That page doesn't exist — maybe it expired like a livestream code."
+      />
       <p>
-        <Link href="/">Back to today&apos;s dashboard →</Link>
+        <Link href="/" className="og-btn">
+          Back to today&apos;s dashboard
+        </Link>
       </p>
     </>
   );

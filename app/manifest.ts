@@ -5,7 +5,7 @@ export const dynamic = "force-static";
 
 /**
  * Web app manifest — lets users install WuWa Today to their home screen.
- * Dark-first to match the Obsidian Glass theme.
+ * Dark-first to match the site's current theme.
  */
 export default function manifest(): MetadataRoute.Manifest {
   return {
@@ -15,8 +15,8 @@ export default function manifest(): MetadataRoute.Manifest {
       "Your daily Wuthering Waves dashboard: current banners with countdowns, working redeem codes, active events, and reset timers.",
     start_url: "/",
     display: "standalone",
-    background_color: "#0a0a0c",
-    theme_color: "#0a0a0c",
+    background_color: "#07090d",
+    theme_color: "#07090d",
     icons: [
       {
         src: "/icons/icon-192.png",

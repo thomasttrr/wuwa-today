@@ -14,21 +14,21 @@ import type { MaterialEntry } from "@/lib/character-schema";
 /** Base material name → item icon (Game8 item pages, verified).
  *  Tiered rows ("LF / MF / HF / FF Howler Core") use the highest-tier icon. */
 const MATERIAL_ICONS: Record<string, string> = {
-  "Howler Core": "/images/items/ff-howler-core.png",
-  "Wing Polarizer": "/images/items/layered-wing-polarizer.png",
-  "Forged Empyrean's Sigh": "/images/items/forged-empyreans-sigh.png",
-  "Miasmic Branch": "/images/items/miasmic-branch.png",
-  "Remnant of the Wheel": "/images/items/remnant-of-the-wheel.png",
-  "Shell Credits": "/images/items/shell-credit.png",
-  "Exoswarm Core": "/images/items/ff-exoswarm-core.png",
-  Combustor: "/images/items/reverb-combustor.png",
-  "Dreamless Feather": "/images/items/dreamless-feather.png",
-  "Forget-Me-Not": "/images/items/forget-me-not.png",
-  Rimewisp: "/images/items/rimewisp.png",
-  "Mech Core": "/images/items/ff-mech-core.png",
-  String: "/images/items/melodic-string.png",
-  "Suncoveter's Reach": "/images/items/suncoveters-reach.png",
-  "We Who Question": "/images/items/we-who-question.png",
+  "Howler Core": "/images/items/ff-howler-core.webp",
+  "Wing Polarizer": "/images/items/layered-wing-polarizer.webp",
+  "Forged Empyrean's Sigh": "/images/items/forged-empyreans-sigh.webp",
+  "Miasmic Branch": "/images/items/miasmic-branch.webp",
+  "Remnant of the Wheel": "/images/items/remnant-of-the-wheel.webp",
+  "Shell Credits": "/images/items/shell-credit.webp",
+  "Exoswarm Core": "/images/items/ff-exoswarm-core.webp",
+  Combustor: "/images/items/reverb-combustor.webp",
+  "Dreamless Feather": "/images/items/dreamless-feather.webp",
+  "Forget-Me-Not": "/images/items/forget-me-not.webp",
+  Rimewisp: "/images/items/rimewisp.webp",
+  "Mech Core": "/images/items/ff-mech-core.webp",
+  String: "/images/items/melodic-string.webp",
+  "Suncoveter's Reach": "/images/items/suncoveters-reach.webp",
+  "We Who Question": "/images/items/we-who-question.webp",
 };
 
 export function MaterialIcon({ name }: { name: string }) {

@@ -128,7 +128,7 @@ export default function BeginnerFirstTeams() {
           title="Three starter teams"
           blurb="Visual-first: portraits lead, roles and notes follow. Rotations are simple on purpose — you're learning the game, not memorizing combos."
         />
-        <div className="grid grid-2">
+        <div className="grid grid-2 og-card-grid">
           {TEAMS.map((t, i) => (
             <Reveal key={t.name} delay={(i % 2) * 70}>
               <ObsidianTeamCard team={t} />
@@ -143,7 +143,7 @@ export default function BeginnerFirstTeams() {
           title="Team rules for beginners"
           blurb="The principles behind every team above."
         />
-        <div className="grid grid-2">
+        <div className="grid grid-2 og-card-grid">
           <Reveal>
             <section className="og-pick-card" aria-label="Team rules">
               <ul className="og-q-list">

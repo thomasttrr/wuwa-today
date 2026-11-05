@@ -81,7 +81,7 @@ export default function HomePage() {
           so the strip is aria-hidden; nothing here is exclusive. */}
       <div className="ticker" aria-hidden="true">
         <div className="ticker-track">
-          {[0, 1].map((dup) => (
+          {[0, 1, 2, 3].map((dup) => (
             <span key={dup} className="ticker-set">
               <span className="ticker-item ticker-live">Live now</span>
               {featuredBanner && lead && (
@@ -114,14 +114,12 @@ export default function HomePage() {
 
       {/* The featured banner, full width. */}
       {featuredBanner ? (
-        <Reveal>
-          <BannerCard
-            banner={featuredBanner}
-            featured
-            priority
-            events={activeEvents}
-          />
-        </Reveal>
+        <BannerCard
+          banner={featuredBanner}
+          featured
+          priority
+          events={activeEvents}
+        />
       ) : (
         <p className="og-empty">
           No live banners right now — check back after the next version
@@ -138,11 +136,13 @@ export default function HomePage() {
             linkHref="/banners"
             linkText="All banners & history"
           />
-          {otherBanners.map((b, i) => (
-            <Reveal key={b.id} delay={i * 70}>
-              <BannerCard banner={b} />
-            </Reveal>
-          ))}
+          <div className="grid grid-2">
+            {otherBanners.map((b, i) => (
+              <Reveal key={b.id} delay={i * 70}>
+                <BannerCard banner={b} />
+              </Reveal>
+            ))}
+          </div>
         </div>
       )}
 
@@ -193,7 +193,7 @@ export default function HomePage() {
               />
               {upcomingBanners.map((b, i) => (
                 <Reveal key={b.id} delay={i * 70}>
-                  <BannerCard banner={b} />
+                  <BannerCard banner={b} variant="tile" />
                 </Reveal>
               ))}
             </div>
@@ -227,7 +227,7 @@ export default function HomePage() {
               title="Reset timers"
               blurb="Daily and weekly resets, shown for your server region."
             />
-            <ResetTimers />
+            <ResetTimers showTitle={false} />
           </div>
         </div>
       </div>
@@ -260,6 +260,24 @@ export default function HomePage() {
               <span className="og-link-row-desc">
                 The beginner banner flow, pity rules, and where your pulls
                 should actually go.
+              </span>
+            </a>
+          </li>
+          <li>
+            <a href="/beginner/first-teams">
+              <span className="og-link-row-title">Your first teams</span>
+              <span className="og-link-row-desc">
+                F2P-friendly starter teams built from free characters and
+                beginner-banner picks, with simple rotations.
+              </span>
+            </a>
+          </li>
+          <li>
+            <a href="/beginner/mistakes">
+              <span className="og-link-row-title">5 mistakes to avoid</span>
+              <span className="og-link-row-desc">
+                The traps every new account walks into — and what to do
+                instead before they cost you resources.
               </span>
             </a>
           </li>

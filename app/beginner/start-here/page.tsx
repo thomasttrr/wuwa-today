@@ -75,7 +75,7 @@ export default function BeginnerStartHere() {
           title="Your free roster"
           blurb="Every one of these is earnable without spending — a full team before you touch a single banner."
         />
-        <div className="grid grid-2">
+        <div className="grid grid-2 og-card-grid">
           {FREE_SLugs.map((f, i) => {
             const char = getCharacter(f.slug);
             if (!char) return null;
@@ -117,12 +117,12 @@ export default function BeginnerStartHere() {
           title="Union Level milestones"
           blurb="Union Level is your account level — it gates content, echoes, and some of the best free pulls."
         />
-        <div className="grid grid-2">
+        <div className="grid grid-2 og-card-grid">
           <Reveal>
             <section className="og-pick-card" aria-label="Union Level rewards">
               <span className="og-kicker">Claimed from the Awakening Journey</span>
               <h3>Reward milestones</h3>
-              <ul className="og-q-list">
+              <ul className="og-q-list og-data-list">
                 {UL_MILESTONES.map((m) => (
                   <li key={m.ul}>
                     <strong>UL {m.ul}:</strong> {m.reward} — {m.note}
@@ -135,7 +135,7 @@ export default function BeginnerStartHere() {
             <section className="og-pick-card" aria-label="Content unlocks">
               <span className="og-kicker">Gated by Union Level</span>
               <h3>Content unlocks</h3>
-              <ul className="og-q-list">
+              <ul className="og-q-list og-data-list">
                 {UNLOCKS.map((u) => (
                   <li key={u.ul}>
                     <strong>UL {u.ul}:</strong> {u.what}
@@ -157,7 +157,7 @@ export default function BeginnerStartHere() {
           title="Echoes & the Data Bank"
           blurb="The one system beginners underestimate — and the one that gates your gear quality."
         />
-        <div className="grid grid-2">
+        <div className="grid grid-2 og-card-grid">
           <Reveal>
             <section className="og-pick-card" aria-label="Echo basics">
               <span className="og-kicker">Echo basics</span>

@@ -1,5 +1,6 @@
 "use client";
 
+import { memo } from "react";
 import useNow from "./useNow";
 
 function pad(n: number): string {
@@ -12,7 +13,7 @@ function breakdown(target: Date, now: Date): string {
   const h = Math.floor((diff % 86_400_000) / 3_600_000);
   const m = Math.floor((diff % 3_600_000) / 60_000);
   const s = Math.floor((diff % 60_000) / 1000);
-  return `${d}d ${pad(h)}h ${pad(m)}m ${pad(s)}s`;
+  return `${pad(d)}d ${pad(h)}h ${pad(m)}m ${pad(s)}s`;
 }
 
 /**
@@ -38,18 +39,35 @@ export default function ObsidianCountdown({
 
   return (
     <div>
-      <div
-        className={`og-countdown${ended ? " og-countdown-ended" : ""}`}
-        aria-live="off"
-      >
-        {text.split("").map((ch, i) => (
-          <span key={`${i}-${ch}`} className="og-cd-roll" aria-hidden="true">
-            <span>{ch === " " ? "\u00A0" : ch}</span>
-          </span>
-        ))}
-        <span className="og-visually-hidden">{text}</span>
-      </div>
+      <Digits text={text} ended={ended} />
       <div className="og-countdown-label">{label}</div>
     </div>
   );
 }
+
+/**
+ * The digit row, memoized on the rendered string: the shared 1s clock
+ * re-renders every countdown each tick, but countdowns whose text only
+ * changes once a minute skip re-splitting and re-mapping their spans.
+ */
+const Digits = memo(function Digits({
+  text,
+  ended,
+}: {
+  text: string;
+  ended: boolean;
+}) {
+  return (
+    <div
+      className={`og-countdown${ended ? " og-countdown-ended" : ""}`}
+      aria-live="off"
+    >
+      {text.split("").map((ch, i) => (
+        <span key={`${i}-${ch}`} className="og-cd-roll" aria-hidden="true">
+          <span>{ch === " " ? "\u00A0" : ch}</span>
+        </span>
+      ))}
+      <span className="og-visually-hidden">{text}</span>
+    </div>
+  );
+});

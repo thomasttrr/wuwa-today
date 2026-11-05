@@ -401,14 +401,14 @@ export default async function PrefarmPage({
       )}
 
       {/* Farming priorities */}
-      <section className="og-section" aria-label="Farming priorities">
+      <section className="og-section og-prio" aria-label="Farming priorities">
         <ObsidianSectionHead
           id="farming-priorities"
           title="Farming priorities"
           blurb="How to spend your Waveplates and time before the banner."
         />
         {guide.tips.map((tip, i) => (
-          <Reveal key={tip.heading} delay={Math.min(i * 60, 240)}>
+          <Reveal key={tip.heading} delay={Math.min(i * 60, 240)} className="og-prio-item">
             <h3 className="og-sub-h">{tip.heading}</h3>
             <p className="og-section-blurb" style={{ maxWidth: "65ch" }}>
               {tip.body}

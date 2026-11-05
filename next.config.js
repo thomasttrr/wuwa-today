@@ -5,6 +5,9 @@ const nextConfig = {
   // pre-rendered at build time from the data files — exactly what we want.
   output: "export",
   images: { unoptimized: true },
+  // Note: portrait view-transition names are wired in markup/CSS,
+  // but this Next version has no viewTransition flag — names stay
+  // inert until the framework supports it (navigation is unaffected).
   // The old /guides model is retired. Every legacy guide URL (and the /guides
   // index itself) permanently redirects to its replacement in the character hub.
   // The /codes index is also retired (active codes live on the homepage now)

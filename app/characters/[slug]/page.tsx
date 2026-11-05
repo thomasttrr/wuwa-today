@@ -105,7 +105,7 @@ function WeaponPlate({ weapon, bis }: { weapon: RankedWeapon; bis: boolean }) {
           <span className="og-weapon-name">{weapon.name}</span>
           {bis && <span className="og-bis-pill">BiS</span>}
           {weapon.signature && <span className="og-sig">Signature</span>}
-          <span className="og-stars" aria-label={`${weapon.rarity} star`}>
+          <span className="og-stars" role="img" aria-label={`${weapon.rarity} star`}>
             {"★".repeat(weapon.rarity)}
           </span>
         </div>
@@ -308,10 +308,10 @@ export default async function CharacterPage({
               priority
               decoding="async"
             />
-            <p className="og-art-caption">
-              {char.name}, official portrait via the Wuthering Waves Wiki.
-            </p>
           </div>
+          <p className="og-art-caption">
+            {char.name}, official portrait via the Wuthering Waves Wiki.
+          </p>
         </Reveal>
         <div>
           <Reveal delay={60}>

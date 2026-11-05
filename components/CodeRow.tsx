@@ -22,7 +22,9 @@ export default function CodeRow({ code }: { code: RedeemCode }) {
       </div>
       <p className="og-code-meta">{code.rewards}</p>
       {code.expiresAt && (
-        <ObsidianCountdown target={code.expiresAt} label="Time left" />
+        <div className="og-code-countdown">
+          <ObsidianCountdown target={code.expiresAt} label="Time left" />
+        </div>
       )}
       {code.notes && <p className="og-code-meta">{code.notes}</p>}
     </article>

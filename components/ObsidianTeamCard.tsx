@@ -29,7 +29,7 @@ export default function ObsidianTeamCard({ team, first = false }: { team: Team; 
             <div key={m.slug} className="og-team-slot-flow">
               <div className="og-team-slot">
                 <Image
-                  src={`/images/chars/${m.slug}.webp`}
+                  src={`/images/chars/thumbs/${m.slug}.webp`}
                   alt={`${m.name} portrait`}
                   className="og-team-portrait"
                   width={104}

@@ -3,7 +3,7 @@
 import { useEffect } from "react";
 
 const CARD_SELECTOR =
-  ".og-banner-card, .og-event-card, .og-pick-card, .og-char-tile, .res-card, .og-team-card, .og-role-card, .og-code-row, .og-link-rows li";
+  ".og-banner-card, .og-event-card, .og-pick-card, .res-card, .og-team-card, .og-role-card, .og-code-row, .og-link-rows li, .og-tier-member, .og-weapon, .og-echo-plate, .og-stat-panel, .og-reset, .og-banner-tile";
 
 /**
  * Desktop spotlight (Resonance Trait 4): an element-coloured highlight

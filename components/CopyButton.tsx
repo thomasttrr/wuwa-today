@@ -48,7 +48,7 @@ export default function CopyButton({
   return (
     <button
       type="button"
-      className="og-btn og-btn-glass og-btn-sm"
+      className={`og-btn og-btn-glass og-btn-sm${copied ? " is-copied" : ""}`}
       onClick={copy}
       aria-label={label ?? `Copy code ${text}`}
     >

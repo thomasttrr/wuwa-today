@@ -94,6 +94,7 @@ export default function PrydwenTierList({ hubSlugs: hubSlugList }: { hubSlugs: s
   return (
     <div>
       {/* List toggle */}
+      <div className="og-control-row">
       <p className="og-mode-label" id="og-list-label">Tier list</p>
       <div className="og-mode-toggle" role="tablist" aria-labelledby="og-list-label">
         {([{ key: "normal", label: "Normal" }, { key: "value", label: "Value" }] as const).map((l) => (
@@ -113,7 +114,10 @@ export default function PrydwenTierList({ hubSlugs: hubSlugList }: { hubSlugs: s
         ))}
       </div>
 
+      </div>
+
       {/* Mode toggle */}
+      <div className="og-control-row">
       <p className="og-mode-label" id="og-mode-label">Game mode</p>
       <div className="og-mode-toggle" role="tablist" aria-labelledby="og-mode-label">
         {LIST_MODES[list].map((m) => (
@@ -129,8 +133,10 @@ export default function PrydwenTierList({ hubSlugs: hubSlugList }: { hubSlugs: s
           </button>
         ))}
       </div>
+      </div>
 
       {/* Role sections — one card per role, flat tier rows inside */}
+      <div key={`${list}-${mode}`} className="swap-in">
       {ROLES.map(({ key, label, color }) => {
         const roleData = modeData[key];
         const total = TIERS.reduce((n, t) => n + (roleData[t]?.length ?? 0), 0);
@@ -151,7 +157,7 @@ export default function PrydwenTierList({ hubSlugs: hubSlugList }: { hubSlugs: s
                 const isTop = tier === "T0";
                 const sparse = chars.length <= 2 ? " og-ptier-sparse" : "";
                 return (
-                  <div key={tier} className={`og-ptier${sparse}`}>
+                  <div key={tier} className={`og-ptier${sparse}`} data-tier={tier}>
                     <span className={`og-tier-badge og-ptier-badge tier-${tier.replace(".", "h")}`}>
                       {tier}
                     </span>
@@ -161,6 +167,17 @@ export default function PrydwenTierList({ hubSlugs: hubSlugList }: { hubSlugs: s
                         const inHub = slug && hubSlugs.has(slug);
                         const chip = (
                           <span className={`og-char-chip${isTop ? " og-char-chip-top" : ""}`}>
+                            {inHub && (
+                              // eslint-disable-next-line @next/next/no-img-element -- 26px chip face from the shared thumb set
+                              <img
+                                src={`/images/chars/thumbs/${slug}.webp`}
+                                alt=""
+                                width={26}
+                                height={26}
+                                loading="lazy"
+                                decoding="async"
+                              />
+                            )}
                             {name}
                           </span>
                         );
@@ -184,6 +201,8 @@ export default function PrydwenTierList({ hubSlugs: hubSlugList }: { hubSlugs: s
           </section>
         );
       })}
+
+      </div>
 
       {/* Attribution */}
       <p className="og-tier-source">

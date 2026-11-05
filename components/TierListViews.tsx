@@ -51,7 +51,9 @@ export default function TierListViews({
       </div>
       <p className="og-source-blurb">{active.blurb}</p>
       <div role="tabpanel" aria-label={active.label}>
-        {source === "prydwen" ? prydwen : editorial}
+        <div key={source} className="swap-in">
+          {source === "prydwen" ? prydwen : editorial}
+        </div>
       </div>
     </div>
   );

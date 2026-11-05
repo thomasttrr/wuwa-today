@@ -47,7 +47,7 @@ export default function BeginnerConveneGuide() {
           title="The beginner banner flow"
           blurb="Whichever starter flow your account shows, it hands you a guaranteed 5-star — check your in-game Convene list for which one applies to you."
         />
-        <div className="grid grid-2">
+        <div className="grid grid-2 og-card-grid">
           <Reveal>
             <section className="og-pick-card" aria-label="Utterance of Marvels">
               <span className="og-kicker">Classic flow · discounted novice banner</span>
@@ -136,7 +136,7 @@ export default function BeginnerConveneGuide() {
           title="Pity rules, in one pass"
           blurb="How guarantees work across every banner family."
         />
-        <div className="grid grid-2">
+        <div className="grid grid-2 og-card-grid">
           <Reveal>
             <section className="og-pick-card" aria-label="Pity guarantees">
               <span className="og-kicker">All banners</span>
@@ -188,7 +188,7 @@ export default function BeginnerConveneGuide() {
           title="Where your pulls go"
           blurb="The short version of the whole game."
         />
-        <div className="grid grid-2">
+        <div className="grid grid-2 og-card-grid">
           <Reveal>
             <section className="og-pick-card" aria-label="Do this">
               <span className="og-kicker">Do this</span>

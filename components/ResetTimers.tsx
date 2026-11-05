@@ -13,7 +13,7 @@ const STORAGE_KEY = "wuwa-today:server-id";
  * Presentation is Obsidian Glass (gold mono countdowns, HUD-style server
  * select); all server-time math stays in lib/dates.ts, untouched.
  */
-export default function ResetTimers() {
+export default function ResetTimers({ showTitle = true }: { showTitle?: boolean }) {
   const [serverId, setServerId] = useState<string>(SERVER_OPTIONS[0].id);
   const server = SERVER_OPTIONS.find((s) => s.id === serverId) ?? SERVER_OPTIONS[0];
 
@@ -47,7 +47,7 @@ export default function ResetTimers() {
   return (
     <div className="og-reset">
       <div className="og-reset-head">
-        <h3 className="og-reset-title">Reset timers</h3>
+        {showTitle && <h3 className="og-reset-title">Reset timers</h3>}
         <label className="og-reset-label">
           Server{" "}
           <select

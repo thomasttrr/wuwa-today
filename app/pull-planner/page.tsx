@@ -39,7 +39,7 @@ function PickRow({ slug, note }: { slug: FiveStarSlug; note: string }) {
   return (
     <div className="og-pick-row">
       <Image
-        src={`/images/chars/${v.slug}.webp`}
+        src={`/images/chars/thumbs/${v.slug}.webp`}
         alt={`${v.name} portrait`}
         width={64}
         height={64}
@@ -141,7 +141,7 @@ export default function PullPlannerPage() {
 
       <div className="og-section">
         <ObsidianSectionHead id="schedule" title="Banner schedule" />
-        <div className="grid grid-2">
+        <div className="grid grid-2 og-card-grid">
           <Reveal>
             <section className="og-pick-card" aria-label="Phase 1 banners">
               <span className="og-kicker">Phase 1 · live now</span>
@@ -169,7 +169,7 @@ export default function PullPlannerPage() {
 
       <div className="og-section">
         <ObsidianSectionHead id="questions" title="The big questions" />
-        <div className="grid grid-2">
+        <div className="grid grid-2 og-card-grid">
           <QuestionCard question="Question 1" title="Pull Hsin or save for Suoming?" delay={0}>
             <>
               <ul className="og-q-list">
@@ -301,7 +301,7 @@ export default function PullPlannerPage() {
 
       <div className="og-section">
         <ObsidianSectionHead id="accounts" title="Pick by your account" />
-        <div className="grid grid-2">
+        <div className="grid grid-2 og-card-grid">
           <ProfileCard
             title="New player"
             profile="Fresh roster, everything is an upgrade. Priority is units that work everywhere and rerun rarely."
@@ -378,7 +378,7 @@ export default function PullPlannerPage() {
           title="Every 5-star, verdict at a glance"
           blurb="The source of truth behind every pick above. Verdicts are published per character and re-checked when banner data changes."
         />
-        <div className="grid grid-2">
+        <div className="grid grid-2 og-card-grid">
           {FIVE_STARS.map((slug, i) => {
             const v = getVerdict(slug);
             const hasPrefarm = Boolean(getPrefarmGuide(slug));
@@ -387,7 +387,7 @@ export default function PullPlannerPage() {
                 <section className="og-pick-card" aria-label={`${v.name} pull verdict`}>
                   <div className="og-pick-row">
                     <Image
-                      src={`/images/chars/${v.slug}.webp`}
+                      src={`/images/chars/thumbs/${v.slug}.webp`}
                       alt={`${v.name} portrait`}
                       width={64}
                       height={64}

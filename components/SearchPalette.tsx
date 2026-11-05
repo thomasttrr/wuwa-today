@@ -2,9 +2,6 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
-import { characters } from "@/lib/characters";
-import { activeCodes } from "@/lib/data";
-import { prefarmGuides } from "@/lib/prefarm";
 
 type Entry = { label: string; hint: string; href: string };
 
@@ -24,24 +21,9 @@ const PAGES: Entry[] = [
   { label: "Mistakes to skip", hint: "Beginner guide", href: "/beginner/mistakes" },
 ];
 
-const INDEX: Entry[] = [
-  ...PAGES,
-  ...characters.map((c) => ({
-    label: c.name,
-    hint: `Character · ${c.profile.element}`,
-    href: `/characters/${c.slug}`,
-  })),
-  ...prefarmGuides.map((g) => ({
-    label: `${g.character} pre-farm`,
-    hint: "Pre-farm guide",
-    href: `/pre-farm/${g.slug}`,
-  })),
-  ...activeCodes.map((c) => ({
-    label: c.code,
-    hint: "Redeem code · copy on the Today page",
-    href: "/",
-  })),
-];
+// Character / guide / code entries live in lib/search-index.ts (a slim
+// generated label/hint/href list) and are lazy-loaded on first open —
+// importing the full records here shipped ~680 KB of JSON on every page.
 
 /**
  * ⌘K search (Resonance Trait 5): one palette that jumps to any
@@ -54,12 +36,29 @@ export default function SearchPalette() {
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState("");
   const [cursor, setCursor] = useState(0);
+  const [dynEntries, setDynEntries] = useState<Entry[]>([]);
   const inputRef = useRef<HTMLInputElement>(null);
   const listRef = useRef<HTMLDivElement>(null);
+  const openRef = useRef(false);
+  const indexRequested = useRef(false);
+
+  const INDEX = useMemo<Entry[]>(() => [...PAGES, ...dynEntries], [dynEntries]);
+
+  const closePalette = () => {
+    openRef.current = false;
+    setOpen(false);
+  };
 
   const openPalette = () => {
+    if (!indexRequested.current) {
+      indexRequested.current = true;
+      import("@/lib/search-index")
+        .then((m) => setDynEntries(m.SEARCH_ENTRIES))
+        .catch(() => {});
+    }
     setQuery("");
     setCursor(0);
+    openRef.current = true;
     setOpen(true);
   };
 
@@ -67,10 +66,10 @@ export default function SearchPalette() {
     const onKey = (e: KeyboardEvent) => {
       if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k") {
         e.preventDefault();
-        setOpen((v) => {
-          if (!v) openPalette();
-          return !v;
-        });
+        // Deterministic toggle via the ref mirror — no side effects
+        // inside a state updater.
+        if (openRef.current) closePalette();
+        else openPalette();
       }
     };
     const onOpen = () => openPalette();
@@ -95,23 +94,30 @@ export default function SearchPalette() {
       (e) =>
         e.label.toLowerCase().includes(q) || e.hint.toLowerCase().includes(q),
     ).slice(0, 9);
-  }, [query]);
+  }, [query, INDEX]);
 
   // The cursor clamps to whatever the current filter leaves standing.
   const activeCursor = Math.min(cursor, Math.max(0, results.length - 1));
+
+  // Keep the keyboard-selected row in view while arrowing through results.
+  useEffect(() => {
+    listRef.current
+      ?.querySelector('[aria-selected="true"]')
+      ?.scrollIntoView({ block: "nearest" });
+  }, [activeCursor, results]);
 
   if (!open) return null;
 
   const go = (entry: Entry | undefined) => {
     if (!entry) return;
-    setOpen(false);
+    closePalette();
     router.push(entry.href);
   };
 
   return (
     <div
       className="og-search-backdrop"
-      onClick={() => setOpen(false)}
+      onClick={closePalette}
       role="presentation"
     >
       <div
@@ -128,9 +134,15 @@ export default function SearchPalette() {
           value={query}
           placeholder="Search characters, codes, guides…"
           aria-label="Search"
+          autoCapitalize="off"
+          autoCorrect="off"
+          autoComplete="off"
+          spellCheck={false}
+          enterKeyHint="search"
+          inputMode="search"
           onChange={(e) => setQuery(e.target.value)}
           onKeyDown={(e) => {
-            if (e.key === "Escape") setOpen(false);
+            if (e.key === "Escape") closePalette();
             if (e.key === "ArrowDown") {
               e.preventDefault();
               setCursor((c) => Math.min(c + 1, results.length - 1));

@@ -11,7 +11,7 @@ import "./style.css";
 /* Type system follows the reference Tom picked: Inter for text,
    Bebas Neue for display, IBM Plex Mono for data. */
 const inter = Inter({
-  weight: ["300", "400", "500", "600", "700", "800"],
+  weight: ["300", "400", "600", "700"],
   subsets: ["latin"],
   variable: "--font-inter",
   display: "swap",
@@ -23,7 +23,7 @@ const bebas = Bebas_Neue({
   display: "swap",
 });
 const plexMono = IBM_Plex_Mono({
-  weight: ["400", "500", "600"],
+  weight: ["400", "600"],
   subsets: ["latin"],
   variable: "--font-plex",
   display: "swap",
@@ -33,6 +33,7 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   viewportFit: "cover",
+  themeColor: "#07090d",
 };
 
 export const metadata: Metadata = {
@@ -44,13 +45,7 @@ export const metadata: Metadata = {
   description:
     "Your daily Wuthering Waves dashboard: current banners with countdowns, working redeem codes, active events, reset timers, and pull guides — updated every day.",
   keywords: ["Wuthering Waves", "WuWa", "banners", "redeem codes", "events", "pull guide", "countdown"],
-  openGraph: {
-    type: "website",
-    siteName: "WuWa Today",
-    title: "WuWa Today — Wuthering Waves Banners, Codes & Events",
-    description:
-      "Current banners with countdowns, working redeem codes, active events, and reset timers — updated daily.",
-  },
+  icons: { icon: "/icons/icon-192.png", apple: "/icons/icon-192.png" },
   robots: { index: true, follow: true },
 };
 
@@ -58,6 +53,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={`${inter.variable} ${bebas.variable} ${plexMono.variable}`}>
       <body>
+        {/* Arm the reveal hidden state before first paint (Reveal's
+            useEffect add stays as a no-op fallback). No-JS never gets
+            the class, so content stays visible — progressive rule. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: "document.documentElement.classList.add('js-anim')",
+          }}
+        />
         {/* One shared 1s ticker for every countdown/progress bar on the page. */}
         <NowProvider>
         <a className="skip-link" href="#main">
@@ -78,6 +81,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <Link href="/pre-farm">Pre-Farm</Link>
               <Link href="/pull-planner">Pull Planner</Link>
               <Link href="/tier-list">Tier List</Link>
+              <Link href="/echo-sets">Echo Sets</Link>
               <Link href="/glossary">Glossary</Link>
             </nav>
             <p>

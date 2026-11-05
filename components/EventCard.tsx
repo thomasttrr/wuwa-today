@@ -70,7 +70,8 @@ export default function EventCard({
           countdown
         )}
         <p className="og-event-rewards">
-          <strong>Rewards:</strong> {event.rewards}
+          <strong>Rewards:</strong>{" "}
+          <span className="og-reward-value">{event.rewards}</span>
         </p>
         <p
           className="og-event-desc"
@@ -94,11 +95,12 @@ export default function EventCard({
     <article className="og-event-card" aria-label={`Event: ${event.name}`}>
       {badgeRow}
       <h3 className="og-event-title">{event.name}</h3>
+      <div className="og-event-time">{countdown}</div>
       <p className="og-event-desc">{event.description}</p>
-      <p className="og-event-meta">
-        <strong>Rewards:</strong> {event.rewards}
+      <p className="og-event-rewards">
+        <strong>Rewards:</strong>{" "}
+        <span className="og-reward-value">{event.rewards}</span>
       </p>
-      {countdown}
     </article>
   );
 }

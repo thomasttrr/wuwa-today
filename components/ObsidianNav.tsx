@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 /**
  * Sidebar chrome, modelled on the layout Tom picked: a fixed
@@ -33,6 +33,9 @@ const Icon = {
   book: <path d="M5 3h13a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H5zM5 3v18M9 7h6" />,
   search: (
     <path d="M11 18a7 7 0 1 0 0-14 7 7 0 0 0 0 14ZM20 20l-3.8-3.8" />
+  ),
+  layers: (
+    <path d="M12 3 3 8l9 5 9-5-9-5ZM3 13l9 5 9-5" />
   ),
 };
 
@@ -67,6 +70,7 @@ const SECTIONS: {
       { href: "/banners", label: "Banners", icon: Icon.banner },
       { href: "/events", label: "Events", icon: Icon.calendar },
       { href: "/tier-list", label: "Tier List", icon: Icon.trophy },
+      { href: "/echo-sets", label: "Echo Sets", icon: Icon.layers },
     ],
   },
   {
@@ -132,6 +136,36 @@ function NavBody({ onNavigate }: { onNavigate?: () => void }) {
 
 export default function ObsidianNav() {
   const [open, setOpen] = useState(false);
+  const [closing, setClosing] = useState(false);
+  const menuBtnRef = useRef<HTMLButtonElement>(null);
+  const closeBtnRef = useRef<HTMLButtonElement>(null);
+  const closeTimer = useRef<number | null>(null);
+
+  const requestClose = () => {
+    if (closeTimer.current !== null) return;
+    setClosing(true);
+    closeTimer.current = window.setTimeout(() => {
+      closeTimer.current = null;
+      setOpen(false);
+      setClosing(false);
+      menuBtnRef.current?.focus();
+    }, 220);
+  };
+
+  useEffect(() => {
+    if (!open) return;
+    const prevOverflow = document.documentElement.style.overflow;
+    document.documentElement.style.overflow = "hidden";
+    closeBtnRef.current?.focus();
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") requestClose();
+    };
+    document.addEventListener("keydown", onKey);
+    return () => {
+      document.documentElement.style.overflow = prevOverflow;
+      document.removeEventListener("keydown", onKey);
+    };
+  }, [open ]);
 
   return (
     <>
@@ -151,10 +185,11 @@ export default function ObsidianNav() {
           </button>
           <button
             type="button"
+            ref={menuBtnRef}
             className="topbar-btn"
             aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
-            onClick={() => setOpen((v) => !v)}
+            onClick={() => (open ? requestClose() : setOpen(true))}
           >
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true">
               {open ? <path d="M5 5l14 14M19 5L5 19" /> : <path d="M4 7h16M4 12h16M4 17h16" />}
@@ -175,15 +210,31 @@ export default function ObsidianNav() {
 
       {/* Mobile drawer */}
       {open && (
-        <div className="drawer-wrap">
+        <div className={closing ? "drawer-wrap closing" : "drawer-wrap"}>
           <button
             type="button"
             className="drawer-scrim"
             aria-label="Close menu"
-            onClick={() => setOpen(false)}
+            onClick={requestClose}
           />
-          <aside className="drawer">
-            <NavBody onNavigate={() => setOpen(false)} />
+          <aside className="drawer" role="dialog" aria-modal="true" aria-label="Menu">
+            <div className="drawer-head">
+              <Link href="/" className="topbar-word" onClick={requestClose}>
+                WUWA <span>TODAY</span>
+              </Link>
+              <button
+                type="button"
+                ref={closeBtnRef}
+                className="topbar-btn"
+                aria-label="Close menu"
+                onClick={requestClose}
+              >
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true">
+                  <path d="M5 5l14 14M19 5L5 19" />
+                </svg>
+              </button>
+            </div>
+            <NavBody onNavigate={requestClose} />
           </aside>
         </div>
       )}

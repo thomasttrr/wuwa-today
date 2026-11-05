@@ -86,7 +86,7 @@ export default function BeginnerMistakes() {
         {MISTAKES.map((m, i) => (
           <Reveal key={m.n} delay={Math.min(i * 60, 240)}>
             <section
-              className="og-pick-card"
+              className="og-pick-card og-mistake-card"
               id={`mistake-${i + 1}`}
               aria-label={`Mistake ${i + 1}: ${m.title}`}
               style={{ scrollMarginTop: "120px" }}

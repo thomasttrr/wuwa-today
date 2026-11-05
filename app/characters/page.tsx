@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import OgPageHero from "@/components/OgPageHero";
 import UpdatedStamp from "@/components/UpdatedStamp";
+import Reveal from "@/components/Reveal";
 import {
   characters,
   toCharacterHubTile,
@@ -55,8 +56,8 @@ export default function CharactersPage() {
       </nav>
 
       {groups.map((g) => (
+        <Reveal key={g.element}>
         <section
-          key={g.element}
           id={`element-${g.element.toLowerCase()}`}
           className="res-group"
         >
@@ -76,7 +77,10 @@ export default function CharactersPage() {
                 href={`/characters/${t.slug}`}
                 className="res-card"
               >
-                <span className="res-art">
+                <span
+                  className="res-art"
+                  style={{ viewTransitionName: `char-art-${t.slug}` }}
+                >
                   {t.preRelease && (
                     <span className="res-flag">Pre-release</span>
                   )}
@@ -97,8 +101,10 @@ export default function CharactersPage() {
                       style={{ background: elementColor(t.element) }}
                       aria-hidden="true"
                     />
-                    {t.element} · {t.weapon_type}
-                    <span className="og-stars" aria-label={`${t.rarity} stars`}>
+                    <span className="res-meta-text">
+                      {t.element} · {t.weapon_type}
+                    </span>
+                    <span className="og-stars" role="img" aria-label={`${t.rarity} stars`}>
                       {"★".repeat(t.rarity)}
                     </span>
                   </span>
@@ -107,6 +113,7 @@ export default function CharactersPage() {
             ))}
           </div>
         </section>
+        </Reveal>
       ))}
     </>
   );

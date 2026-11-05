@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import OgPageHero from "@/components/OgPageHero";
+import ObsidianToolbar from "@/components/ObsidianToolbar";
+import Reveal from "@/components/Reveal";
 
 export function generateMetadata(): Metadata {
   return {
@@ -11,18 +13,31 @@ export function generateMetadata(): Metadata {
   };
 }
 
+const groupId = (title: string) =>
+  `gloss-${title.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`;
+
 function Group({ title, terms }: { title: string; terms: [string, string][] }) {
   return (
-    <>
-      <h3 className="og-sub-h">{title}</h3>
-      {terms.map(([term, def]) => (
-        <p key={term} className="og-gloss-term">
-          <strong>{term}.</strong> {def}
-        </p>
-      ))}
-    </>
+    <Reveal>
+      <div className="og-gloss-group" id={groupId(title)}>
+        <h3 className="og-sub-h">{title}</h3>
+        {terms.map(([term, def]) => (
+          <p key={term} className="og-gloss-term">
+            <strong>{term}.</strong> {def}
+          </p>
+        ))}
+      </div>
+    </Reveal>
   );
 }
+
+const GROUP_TITLES = [
+  "Jobs in a team",
+  "The numbers",
+  "Damage words",
+  "Echoes",
+  "Other words",
+];
 
 export default function GlossaryPage() {
   return (
@@ -36,6 +51,14 @@ export default function GlossaryPage() {
       <Link href="/characters" className="og-back">
         ← Characters
       </Link>
+
+      <ObsidianToolbar
+        label="Glossary sections"
+        items={GROUP_TITLES.map((t) => ({
+          href: `#${groupId(t)}`,
+          label: t,
+        }))}
+      />
 
       <section className="og-section" aria-label="Plain-words glossary">
         <Group

@@ -45,7 +45,7 @@ export default function PrefarmIndex() {
         />
       )}
 
-      <div className="og-grid">
+      <div className="og-grid og-guide-grid">
         {upcoming.map((g, i) => {
           const char = getCharacter(g.character_slug);
           if (!char) return null;
@@ -55,19 +55,16 @@ export default function PrefarmIndex() {
               <Link
                 id={`prefarm-${g.slug}`}
                 href={`/pre-farm/${g.slug}`}
-                className="og-radius-card"
-                style={{ display: "block", textDecoration: "none" }}
+                className="og-guide-card"
               >
-                <div className="og-char-art" style={{ maxWidth: 220 }}>
-                  <Image
-                    src={p.portrait_url}
-                    alt={`${char.name} portrait`}
-                    width={440}
-                    height={440}
-                    loading="lazy"
-                    decoding="async"
-                  />
-                </div>
+                <Image
+                  src={p.portrait_url}
+                  alt={`${char.name} portrait`}
+                  width={440}
+                  height={440}
+                  loading="lazy"
+                  decoding="async"
+                />
                 <p className="og-char-kicker">
                   {p.element} · {p.weapon_type} · {"★".repeat(p.rarity)}
                 </p>
