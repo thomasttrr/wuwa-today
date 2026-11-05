@@ -243,3 +243,26 @@ body.rs .site-footer-nav a { color: var(--rs-ink-2); font-weight: 600; }
 body.rs .site-footer-nav a:hover { color: var(--el); text-decoration: none; }
 body.rs .site-footer p { color: var(--rs-ink-3); }
 body.rs .site-footer strong { color: var(--rs-ink-2); }
+
+/* Prev/next character cards: show only the top 73% of the portrait (a box
+   shorter than the image, anchored to the top) so the file's baked-in name
+   label and rarity bar fall outside, as on the hub tiles. */
+body.rs .og-prevnext img {
+  width: 60px;
+  height: 44px;
+  border-radius: 12px;
+  object-fit: cover;
+  object-position: 50% 0;
+}
+body.rs .og-prevnext a { border-radius: 20px; background: var(--rs-surface); border-color: var(--rs-line-soft); }
+body.rs .og-prevnext a:hover { border-color: var(--rs-el-line); }
+
+/* Footer clears the floating bottom nav on narrow screens. */
+@media (max-width: 899px) {
+  body.rs .site-footer { padding-bottom: calc(6.5rem + env(safe-area-inset-bottom)); }
+}
+
+/* Portrait cards on the beginner and pre-farm hubs: hide the file's
+   baked-in name label and rarity bar (top 73% shown, as on hub tiles). */
+body.rs .og-grid .og-char-art { aspect-ratio: 1 / 0.73; }
+body.rs .og-grid .og-char-art img { width: 100%; height: 137%; aspect-ratio: auto; object-fit: cover; object-position: 50% 0; }

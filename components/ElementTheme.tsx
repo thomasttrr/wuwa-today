@@ -1,21 +1,17 @@
 "use client";
 
 import { useEffect } from "react";
+import { popElement, pushElement } from "@/lib/site-element";
 
 /**
- * ElementTheme — re-tunes the whole site to one element while mounted.
- * Sets --el on <body>; @property makes the change ease across the canvas,
- * accents and borders. On unmount it restores the site default (the
- * featured banner's element) stored on body[data-site-el].
+ * ElementTheme — re-tunes the whole site to one element while mounted
+ * (character pages). @property makes the change ease across the canvas,
+ * accents and borders; on unmount the live site default comes back.
  */
 export default function ElementTheme({ color }: { color: string }) {
   useEffect(() => {
-    const body = document.body;
-    body.style.setProperty("--el", color);
-    return () => {
-      const fallback = body.dataset.siteEl;
-      if (fallback) body.style.setProperty("--el", fallback);
-    };
+    pushElement(color);
+    return () => popElement();
   }, [color]);
   return null;
 }

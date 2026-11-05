@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { popElement, pushElement } from "@/lib/site-element";
 import { ViewTransition, startTransition, useEffect, useMemo, useState, type CSSProperties } from "react";
 
 export interface HubChar {
@@ -60,13 +61,9 @@ export default function CharactersHub({
   // One element selected -> the page resonates with it.
   const single = els.size === 1 ? [...els][0] : null;
   useEffect(() => {
-    const body = document.body;
-    const fallback = body.dataset.siteEl;
-    if (single && elementColors[single]) body.style.setProperty("--el", elementColors[single]);
-    else if (fallback) body.style.setProperty("--el", fallback);
-    return () => {
-      if (fallback) body.style.setProperty("--el", fallback);
-    };
+    if (!single || !elementColors[single]) return;
+    pushElement(elementColors[single]);
+    return () => popElement();
   }, [single, elementColors]);
 
   const list = useMemo(() => {

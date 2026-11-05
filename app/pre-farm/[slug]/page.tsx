@@ -21,6 +21,7 @@ import {
   type PrefarmGuide,
 } from "@/lib/prefarm";
 import { elementColor } from "@/lib/elements";
+import ElementTheme from "@/components/ElementTheme";
 
 export const dynamicParams = false;
 
@@ -219,6 +220,7 @@ export default async function PrefarmPage({
       </Link>
 
       {/* Hero */}
+      <ElementTheme color={el} />
       <header className="og-char-hero" style={{ "--el": el } as CSSProperties}>
         <Reveal>
           <div className="og-char-art">

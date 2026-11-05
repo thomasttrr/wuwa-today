@@ -3,9 +3,10 @@
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
+import { getThemeMode, setThemeMode, type ThemeMode } from "@/lib/theme-mode";
 
 export interface SearchItem {
-  kind: "page" | "character";
+  kind: "page" | "character" | "action";
   label: string;
   href: string;
   hint: string;
@@ -124,10 +125,19 @@ function CommandPalette({ items, onClose }: { items: SearchItem[]; onClose: () =
   const [q, setQ] = useState("");
   const [sel, setSel] = useState(0);
 
+  // Appearance toggle as a command: label reflects the mode you'd switch to.
+  const [mode] = useState<ThemeMode>(() => (typeof document === "undefined" ? "resonance" : getThemeMode()));
+  const themeAction: SearchItem = {
+    kind: "action",
+    label: mode === "dark" ? "Switch to Resonance theme" : "Switch to Dark theme",
+    href: "#theme",
+    hint: "Appearance · theme dark resonance",
+  };
+
   const results = useMemo(() => {
     const term = q.trim().toLowerCase();
-    if (!term) return items.filter((i) => i.kind === "page").concat(items.filter((i) => i.kind === "character").slice(0, 6));
-    return items
+    if (!term) return items.filter((i) => i.kind === "page").concat(items.filter((i) => i.kind === "character").slice(0, 6), [themeAction]);
+    return [...items, themeAction]
       .map((i) => {
         const l = i.label.toLowerCase();
         const score = l.startsWith(term) ? 0 : l.includes(term) ? 1 : i.hint.toLowerCase().includes(term) ? 2 : 9;
@@ -137,7 +147,9 @@ function CommandPalette({ items, onClose }: { items: SearchItem[]; onClose: () =
       .sort((a, b) => a.score - b.score)
       .slice(0, 12)
       .map((r) => r.i);
-  }, [q, items]);
+    // themeAction is rebuilt each render from `mode`, which never changes while open.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [q, items, mode]);
 
   useEffect(() => {
     const d = dialogRef.current;
@@ -148,6 +160,10 @@ function CommandPalette({ items, onClose }: { items: SearchItem[]; onClose: () =
     (item: SearchItem | undefined) => {
       if (!item) return;
       onClose();
+      if (item.kind === "action") {
+        setThemeMode(getThemeMode() === "dark" ? "resonance" : "dark");
+        return;
+      }
       router.push(item.href);
     },
     [onClose, router]
@@ -212,7 +228,7 @@ function CommandPalette({ items, onClose }: { items: SearchItem[]; onClose: () =
                 // eslint-disable-next-line @next/next/no-img-element -- tiny 32px thumb in a client-only dialog; export is unoptimized.
                 <img src={r.image} alt="" width={32} height={32} loading="lazy" />
               ) : (
-                <span className="rs-palette-glyph" aria-hidden="true">→</span>
+                <span className="rs-palette-glyph" aria-hidden="true">{r.kind === "action" ? "◐" : "→"}</span>
               )}
               <span className="rs-palette-label">{r.label}</span>
               <span className="rs-palette-hint">{r.hint}</span>

@@ -23,7 +23,11 @@
   initial-value: #b28cf6;
 }
 
-:root {
+/* Declared on body.rs as well as :root: these tokens derive from --el,
+   which is set on <body>, and a custom property resolves where it is
+   declared, so they must be (re)computed at body to follow the live
+   element and the Dark appearance. */
+:root, body.rs {
   /* --- canvas & surfaces (tinted by the live element) --- */
   --rs-canvas: color-mix(in oklch, var(--el) 5%, #06070a);
   --rs-surface: color-mix(in oklch, var(--el) 4%, #0f1015);

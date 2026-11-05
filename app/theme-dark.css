@@ -1,0 +1,103 @@
+/* ==========================================================================
+   Appearance: Dark
+
+   A quieter, deeper take on Resonance. Element tinting is switched off: the
+   page accent becomes one warm platinum, surfaces drop to neutral graphite,
+   glows soften. Characters keep their own element colour on rings, dots and
+   tiles (--c), so identity survives while the page itself goes monochrome.
+
+   Applied by <html data-theme="dark"> (set before first paint from the
+   saved choice). The accent is locked with !important so neither the live
+   banner schedule nor character-page overrides can re-tint it.
+   ========================================================================== */
+
+html[data-theme="dark"] {
+  color-scheme: dark;
+}
+
+html[data-theme="dark"] body.rs,
+html[data-theme="dark"] body.rs [style*="--el"] {
+  --el: #d9d3c7 !important;
+}
+
+html[data-theme="dark"] body.rs {
+  --rs-canvas: #040405;
+  --rs-surface: #0b0b0d;
+  --rs-surface-2: #131316;
+  --rs-line: rgb(255 255 255 / 0.075);
+  --rs-line-soft: rgb(255 255 255 / 0.045);
+  --rs-ink: #ececee;
+  --rs-ink-2: #a7a7ae;   /* 8.6:1 on surface */
+  --rs-ink-3: #85858d;   /* 5.4:1 on surface */
+  --rs-el-soft: rgb(217 211 199 / 0.09);
+  --rs-el-line: rgb(217 211 199 / 0.26);
+  --rs-on-el: #0b0b0d;
+  background: var(--rs-canvas);
+}
+
+/* The atmospheric wash becomes a faint neutral key light. */
+html[data-theme="dark"] body.rs::before {
+  background:
+    radial-gradient(60% 50% at 70% -10%, rgb(255 255 255 / 0.05), transparent 70%),
+    radial-gradient(40% 40% at 0% 0%, rgb(255 255 255 / 0.025), transparent 70%);
+}
+
+/* Softer glows: accents read as engraved, not lit. */
+html[data-theme="dark"] .rs-tab-pill { box-shadow: none; }
+html[data-theme="dark"] .rs-live-dot { box-shadow: 0 0 0 4px rgb(217 211 199 / 0.08); }
+html[data-theme="dark"] .rs-wave-fill,
+html[data-theme="dark"] .ev-tl-now { filter: none; box-shadow: none; }
+html[data-theme="dark"] .rs-hero-art,
+html[data-theme="dark"] .bn-stage-art { filter: drop-shadow(0 30px 60px rgb(0 0 0 / 0.7)) saturate(0.92); }
+html[data-theme="dark"] .rs-hero::after { opacity: 0.035; }
+
+/* Hero titles: keep the outlined line, in platinum. */
+html[data-theme="dark"] .rs-hero-title span:nth-child(2) { -webkit-text-stroke-color: rgb(217 211 199 / 0.7); }
+
+/* Glass chrome goes a touch denser so it never tints from the art below. */
+html[data-theme="dark"] .rs-nav,
+html[data-theme="dark"] .tl-bar,
+html[data-theme="dark"] .ch-bar,
+html[data-theme="dark"] .sr {
+  background: rgb(8 8 10 / 0.86);
+}
+
+/* Theme changes ease in rather than snap. */
+body.rs { transition: --el 900ms var(--rs-ease), background-color 600ms var(--rs-ease); }
+@media (prefers-reduced-motion: reduce) { body.rs { transition: none; } }
+
+/* ==========================================================================
+   Footer appearance switch — deliberately quiet.
+   ========================================================================== */
+
+.ts { display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem; margin: 0 0 1.25rem; }
+.ts-label { font-family: var(--rs-mono); font-size: 0.62rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--rs-ink-3); }
+.ts-opts {
+  display: inline-flex;
+  padding: 3px;
+  gap: 2px;
+  border-radius: 999px;
+  background: rgb(255 255 255 / 0.03);
+  border: 1px solid var(--rs-line-soft);
+}
+.ts-opts button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  min-height: 34px;
+  padding: 0 0.85rem;
+  border: 0;
+  border-radius: 999px;
+  background: none;
+  color: var(--rs-ink-3);
+  font: inherit;
+  font-size: 0.78rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color var(--rs-d1) ease, color var(--rs-d1) ease;
+}
+.ts-opts button:hover { color: var(--rs-ink); }
+.ts-opts button[aria-checked="true"] { background: rgb(255 255 255 / 0.08); color: var(--rs-ink); }
+.ts-swatch { width: 10px; height: 10px; border-radius: 50%; }
+.ts-swatch-resonance { background: conic-gradient(#f0d46a, #ec6aa6, #b28cf6, #6fc3f2, #5fd9aa, #f5824f, #f0d46a); }
+.ts-swatch-dark { background: #d9d3c7; box-shadow: inset 0 0 0 2px #0b0b0d; outline: 1px solid rgb(255 255 255 / 0.2); }

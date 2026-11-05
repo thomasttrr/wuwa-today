@@ -6,14 +6,18 @@ import ResonanceNav, { type SearchItem } from "@/components/ResonanceNav";
 import ScrollTop from "@/components/ScrollTop";
 import NowProvider from "@/components/NowProvider";
 import Spotlight from "@/components/Spotlight";
-import { activeBanners } from "@/lib/data";
+import SiteTheme, { type ThemeSlot } from "@/components/SiteTheme";
+import ThemeSwitch from "@/components/ThemeSwitch";
+import { themeBootScript } from "@/lib/theme-mode";
+import { activeBanners, banners } from "@/lib/data";
 import { characters, toCharacterHubTile } from "@/lib/characters";
-import { elementColor } from "@/lib/elements";
+import { ELEMENT_FALLBACK, elementColor } from "@/lib/elements";
 import "./globals.css";
 import "./obsidian.css";
 import "./og-pages.css";
 import "./resonance.css";
 import "./resonance-shared.css";
+import "./theme-dark.css";
 
 /* Resonance type system. Both families are variable with a width axis, so
    headlines and numeric readouts can stretch together. Body stays system
@@ -33,10 +37,16 @@ const martianMono = Martian_Mono({
   display: "swap",
 });
 
-/* The site is tuned to the featured banner's lead Resonator: its element
-   becomes the site-wide --el accent. Character pages re-tune it. */
+/* The site is tuned to the live banner's lead Resonator: its element is
+   the site-wide --el accent. The server render uses the banner live at
+   build time; <SiteTheme> then re-picks it in the browser from the full
+   schedule and switches at each phase boundary, so no rebuild is needed.
+   Character pages override it while open. */
 const featuredElement = activeBanners[0]?.characters[0]?.element ?? "";
-const siteEl = elementColor(featuredElement);
+const siteEl = featuredElement ? elementColor(featuredElement) : ELEMENT_FALLBACK;
+const THEME_SLOTS: ThemeSlot[] = banners
+  .filter((b) => b.characters[0])
+  .map((b) => ({ start: b.startsAt, end: b.endsAt, color: elementColor(b.characters[0].element) }));
 
 const SEARCH_ITEMS: SearchItem[] = [
   { kind: "page", label: "Today", href: "/", hint: "Banners, codes, resets" },
@@ -91,7 +101,11 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${monaSans.variable} ${martianMono.variable}`}>
+    <html lang="en" className={`${monaSans.variable} ${martianMono.variable}`} suppressHydrationWarning>
+      <head>
+        {/* Applies the saved Dark appearance before first paint (no flash). */}
+        <script dangerouslySetInnerHTML={{ __html: themeBootScript }} />
+      </head>
       <body
         className="og rs"
         data-site-el={siteEl}
@@ -102,6 +116,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <a className="skip-link" href="#main">
           Skip to content
         </a>
+        <SiteTheme slots={THEME_SLOTS} fallback={ELEMENT_FALLBACK} />
         <ResonanceNav items={SEARCH_ITEMS} />
         <main id="main">
           <div className="container">{children}</div>
@@ -118,6 +133,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <Link href="/tier-list">Tier List</Link>
               <Link href="/glossary">Glossary</Link>
             </nav>
+            <ThemeSwitch />
             <p>
               <strong>WuWa Today</strong> is an unofficial fan project. Wuthering
               Waves is a trademark of Kuro Games. This site is not affiliated
