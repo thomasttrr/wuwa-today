@@ -91,17 +91,21 @@ body.rs {
   font-family: var(--rs-body);
   transition: --el 900ms var(--rs-ease);
 }
-/* Element atmosphere: a soft wash at the top of the page, nothing more. */
+/* Element atmosphere: a soft wash at the top of the page, nothing more.
+   The layer fills the fixed viewport (inset: 0) and the gradients fade out
+   well inside it — sizing the layer in vh made iOS Safari resize it
+   mid-scroll as its toolbar showed/hid, which cut the wash off with a
+   hard moving edge. Gradient sizes are scaled to the taller box so the
+   visible wash is unchanged. */
 body.rs::before {
   content: "";
   position: fixed;
-  inset: 0 0 auto;
-  height: 90vh;
+  inset: 0;
   pointer-events: none;
   z-index: -1;
   background:
-    radial-gradient(70% 60% at 70% 0%, color-mix(in oklch, var(--el) 16%, transparent), transparent 70%),
-    radial-gradient(50% 40% at 10% 10%, color-mix(in oklch, var(--el) 7%, transparent), transparent 70%);
+    radial-gradient(70% 54% at 70% 0%, color-mix(in oklch, var(--el) 16%, transparent), transparent 70%),
+    radial-gradient(50% 36% at 10% 10%, color-mix(in oklch, var(--el) 7%, transparent), transparent 70%);
 }
 body.rs ::selection { background: color-mix(in oklch, var(--el) 40%, transparent); color: #fff; }
 
