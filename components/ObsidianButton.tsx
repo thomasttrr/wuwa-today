@@ -6,7 +6,7 @@ type ObsidianButtonProps = {
   href?: string;
   /** "ghost": SpaceX-style ghost outline (transparent, 1px white border).
    *  "glass": frosted glass capsule for HUD actions (chrome only). */
-  variant?: "ghost" | "glass";
+  variant?: "ghost" | "glass" | "solid";
   size?: "md" | "sm";
   disabled?: boolean;
   className?: string;
@@ -29,7 +29,7 @@ export default function ObsidianButton({
 }: ObsidianButtonProps) {
   const cls = [
     "og-btn",
-    variant === "ghost" ? "og-btn-ghost" : "og-btn-glass",
+    variant === "ghost" ? "og-btn-ghost" : variant === "glass" ? "og-btn-glass" : "",
     size === "sm" ? "og-btn-sm" : "",
     className,
   ]

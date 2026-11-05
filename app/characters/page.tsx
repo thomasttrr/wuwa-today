@@ -41,9 +41,14 @@ export default function CharactersPage() {
         meta={<UpdatedStamp />}
       />
 
-      <nav className="mosaic-bar" aria-label="Jump to an element">
+      <nav className="res-bar" aria-label="Jump to an element">
         {groups.map((g) => (
           <a key={g.element} href={`#element-${g.element.toLowerCase()}`}>
+            <span
+              className="element-dot"
+              style={{ background: elementColor(g.element) }}
+              aria-hidden="true"
+            />
             {g.element} · {g.members.length}
           </a>
         ))}
@@ -53,9 +58,9 @@ export default function CharactersPage() {
         <section
           key={g.element}
           id={`element-${g.element.toLowerCase()}`}
-          className="mosaic-group"
+          className="res-group"
         >
-          <h2 className="mosaic-head">
+          <h2 className="res-head">
             <span
               className="element-dot"
               style={{ background: elementColor(g.element) }}
@@ -64,28 +69,38 @@ export default function CharactersPage() {
             {g.element}
             <span className="og-count">{g.members.length}</span>
           </h2>
-          <div className="mosaic">
+          <div className="res-grid">
             {g.members.map((t: CharacterHubTile) => (
               <Link
                 key={t.slug}
                 href={`/characters/${t.slug}`}
-                className="mosaic-item"
+                className="res-card"
               >
-                {t.preRelease && (
-                  <span className="mosaic-flag">Pre-release</span>
-                )}
-                <Image
-                  src={t.portrait_url}
-                  alt={`${t.name} portrait`}
-                  width={500}
-                  height={500}
-                  loading="lazy"
-                  decoding="async"
-                />
-                <span className="mosaic-plate">
-                  <span className="mosaic-name">{t.name}</span>
-                  <span className="mosaic-meta">
-                    {t.element} · {t.role}
+                <span className="res-art">
+                  {t.preRelease && (
+                    <span className="res-flag">Pre-release</span>
+                  )}
+                  <Image
+                    src={t.portrait_url}
+                    alt={`${t.name} portrait`}
+                    width={500}
+                    height={500}
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </span>
+                <span className="res-body">
+                  <span className="res-name">{t.name}</span>
+                  <span className="res-meta">
+                    <span
+                      className="element-dot"
+                      style={{ background: elementColor(t.element) }}
+                      aria-hidden="true"
+                    />
+                    {t.element} · {t.weapon_type}
+                    <span className="og-stars" aria-label={`${t.rarity} stars`}>
+                      {"★".repeat(t.rarity)}
+                    </span>
                   </span>
                 </span>
               </Link>

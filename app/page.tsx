@@ -56,22 +56,23 @@ export default function HomePage() {
         }}
       />
 
-      {/* Front page head: dateline, the big title, the summary. */}
+      {/* Centered hero: eyebrow, Bebas headline, summary, pills. */}
       <header className="front-head">
-        <div className="front-dateline">
-          <p className="og-kicker">
-            Version {bannerMeta.version} — {bannerMeta.versionTitle}
-          </p>
-          <UpdatedStamp />
-        </div>
-        <h1 className="og-display front-title">
-          Today in
-          <br />
-          Wuthering <em>Waves</em>
+        <p className="front-eyebrow">
+          Version {bannerMeta.version} — {bannerMeta.versionTitle}
+        </p>
+        <h1 className="front-title">
+          Wuthering Waves banners, codes &amp; guides
         </h1>
-        <div className="front-sub">
-          <p className="front-summary">{summary}</p>
-          <ObsidianButton href="/pull-planner">Plan my pulls</ObsidianButton>
+        <p className="front-summary">{summary}</p>
+        <div className="front-actions">
+          <ObsidianButton href="/pull-planner" variant="solid">Plan my pulls</ObsidianButton>
+          <ObsidianButton href="/characters" variant="ghost">
+            Browse characters
+          </ObsidianButton>
+          <ObsidianButton href="/tier-list" variant="ghost">
+            Tier list
+          </ObsidianButton>
         </div>
       </header>
 

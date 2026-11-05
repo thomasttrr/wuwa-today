@@ -1,18 +1,24 @@
 import type { Metadata, Viewport } from "next";
 import Link from "next/link";
-import { Archivo, IBM_Plex_Mono } from "next/font/google";
+import { Inter, Bebas_Neue, IBM_Plex_Mono } from "next/font/google";
 import ObsidianNav from "@/components/ObsidianNav";
 import ScrollTop from "@/components/ScrollTop";
 import NowProvider from "@/components/NowProvider";
 import SearchPalette from "@/components/SearchPalette";
 import "./style.css";
 
-/* Fresh type system: Archivo carries everything (900 for display,
-   400–600 for text), IBM Plex Mono carries data and labels. */
-const archivo = Archivo({
-  weight: ["400", "500", "600", "700", "800", "900"],
+/* Type system follows the reference Tom picked: Inter for text,
+   Bebas Neue for display, IBM Plex Mono for data. */
+const inter = Inter({
+  weight: ["300", "400", "500", "600", "700", "800"],
   subsets: ["latin"],
-  variable: "--font-archivo",
+  variable: "--font-inter",
+  display: "swap",
+});
+const bebas = Bebas_Neue({
+  weight: ["400"],
+  subsets: ["latin"],
+  variable: "--font-bebas",
   display: "swap",
 });
 const plexMono = IBM_Plex_Mono({
@@ -49,7 +55,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${archivo.variable} ${plexMono.variable}`}>
+    <html lang="en" className={`${inter.variable} ${bebas.variable} ${plexMono.variable}`}>
       <body>
         {/* One shared 1s ticker for every countdown/progress bar on the page. */}
         <NowProvider>
