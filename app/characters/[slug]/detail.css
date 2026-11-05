@@ -246,14 +246,23 @@
     right: auto;
     top: auto;
     align-self: center;
-    height: min(var(--cap), 520px);
+    /* Height follows the art's own aspect ratio (capped), so wide/landscape
+       renders (e.g. Lily) aren't left in a tall empty box with a hard
+       bottom edge — the fade mask then lands on the art itself. */
+    width: 100%;
+    height: auto;
+    max-height: min(var(--cap), 520px);
     max-width: 100%;
     margin: 0.5rem 0 -170px;
   }
+  /* A landscape render is short, so the content card overlaps only its
+     lower quarter instead of the fixed 170px that suits tall sprites. */
+  .cx-render-wide { margin-bottom: calc(-28% / var(--arn, 1.15)); }
   .cx-ghost { top: 150px; right: 50%; translate: 50% 0; max-width: none; white-space: nowrap; overflow-wrap: normal; text-align: center; font-size: clamp(4rem, 24vw, 8rem); }
   .cx-rings { top: 210px; right: 50%; translate: 50% -50%; width: 120%; }
   .cx-hero-render .cx-main { max-width: none; }
-  .cx-credit { top: 0.9rem; bottom: auto; }
+  /* Bottom corner, clear of the figure (it used to sit over the art's top). */
+  .cx-credit { top: auto; bottom: 0.4rem; right: 1.1rem; }
 }
 
 /* Arriving from a hub tile: the panel itself is morphing in (see the

@@ -524,7 +524,8 @@ body.rs .rs-palette-field input:focus-visible { outline: none; }
   gap: 0.35rem 0.9rem;
   margin: 1.25rem 0 0;
   padding: 0.65rem 1rem;
-  border-radius: var(--rs-r-ctl);
+  /* Modest radius: the full pill radius turns a wrapped strip into an oval. */
+  border-radius: 16px;
   border: 1px dashed var(--rs-line);
   background: rgb(255 255 255 / 0.025);
   font-size: 0.88rem;

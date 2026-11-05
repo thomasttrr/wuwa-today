@@ -324,11 +324,12 @@ export default async function CharacterPage({
             </span>
             <span className="cx-rings" aria-hidden="true" />
             <div
-              className="cx-render"
+              className={render.width > render.height ? "cx-render cx-render-wide" : "cx-render"}
               style={
                 {
                   "--cap": `${Math.round(render.height / 2)}px`,
                   "--ar": `${render.width} / ${render.height}`,
+                  "--arn": (render.width / render.height).toFixed(3),
                 } as CSSProperties
               }
             >
