@@ -283,3 +283,28 @@ html[data-vt="hero"] .cx-render { animation: none; }
     animation-range: exit 0% exit 100%;
   }
 }
+
+/* ==========================================================================
+   Landscape renders (e.g. Lily): they are short and wide, so they get their
+   own sizing instead of the tall-sprite rules above.
+   ========================================================================== */
+
+/* The giant outlined name is built for tall sprites; behind a wide crop it
+   only shows as stray outline fragments, so drop it for these heroes. */
+.cx-hero-render:has(.cx-render-wide) .cx-ghost { display: none; }
+
+@media (min-width: 861px) {
+  /* Text and art share the row without overlapping: copy takes the left
+     half, the art the right ~44%, vertically centred, sized by its own
+     aspect ratio (no empty box, no art sliding under the text). */
+  .cx-hero-render:has(.cx-render-wide) .cx-main { max-width: min(540px, 50%); }
+  .cx-render-wide {
+    right: clamp(0px, 2vw, 24px);
+    top: 50%;
+    translate: 0 -50%;
+    width: 44%;
+    max-width: 44%;
+    height: auto;
+  }
+  .cx-render-wide img { height: auto; }
+}

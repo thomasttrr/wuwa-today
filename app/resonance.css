@@ -942,3 +942,18 @@ body.rs .og-char-tile:hover { border-color: color-mix(in oklch, var(--el) 40%, t
     background: var(--rs-surface);
   }
 }
+
+/* Mobile tab strip: fade the trailing edge and leave room to scroll the last
+   tab clear of it, so a partly visible tab reads as "swipe for more" rather
+   than a truncated label. */
+@media (max-width: 899px) {
+  body.rs .rs-tabs {
+    padding-inline-end: 28px;
+    -webkit-mask-image: linear-gradient(90deg, #000 calc(100% - 32px), transparent);
+    mask-image: linear-gradient(90deg, #000 calc(100% - 32px), transparent);
+  }
+}
+
+/* Anchor jumps and keyboard focus must land above the floating mobile nav. */
+html { scroll-padding-bottom: calc(6.5rem + env(safe-area-inset-bottom)); }
+@media (min-width: 900px) { html { scroll-padding-bottom: 0; } }
