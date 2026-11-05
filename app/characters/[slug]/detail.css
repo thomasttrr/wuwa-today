@@ -122,6 +122,7 @@
    ========================================================================== */
 
 .cx-hero-render {
+  container-type: inline-size; /* cqw units size the ghost name */
   grid-template-columns: minmax(0, 1fr);
   min-height: clamp(560px, 72vh, 700px);
   padding: 2.25rem 2rem;
@@ -136,19 +137,23 @@
 .cx-ghost {
   position: absolute;
   z-index: 0;
-  right: -2%;
+  /* One line, centred on the art box and sized from the name length (--len,
+     set in page.tsx) against the hero width, so every name sits fully inside
+     the hero instead of wrapping or running off the edge. */
+  right: clamp(0px, 4vw, 64px);
+  width: 58%;
   top: 50%;
-  translate: 0 -55%;
-  max-width: 70%;
+  translate: 0 -50%;
+  max-width: none;
   font-family: var(--rs-display);
   font-weight: 800;
   font-stretch: 125%;
   text-transform: uppercase;
-  font-size: clamp(6rem, 15vw, 15rem);
+  font-size: clamp(2.2rem, calc(76cqw / var(--len, 8)), 15rem);
   line-height: 0.8;
   letter-spacing: -0.05em;
-  text-align: right;
-  overflow-wrap: anywhere;
+  text-align: center;
+  white-space: nowrap;
   color: transparent;
   -webkit-text-stroke: 1.5px color-mix(in oklch, var(--el) 38%, transparent);
   pointer-events: none;
@@ -258,7 +263,7 @@
   /* A landscape render is short, so the content card overlaps only its
      lower quarter instead of the fixed 170px that suits tall sprites. */
   .cx-render-wide { margin-bottom: calc(-28% / var(--arn, 1.15)); }
-  .cx-ghost { top: 150px; right: 50%; translate: 50% 0; max-width: none; white-space: nowrap; overflow-wrap: normal; text-align: center; font-size: clamp(4rem, 24vw, 8rem); }
+  .cx-ghost { top: 150px; right: 0; left: 0; width: auto; translate: 0 0; font-size: clamp(2.2rem, calc(130cqw / var(--len, 8)), 8rem); }
   .cx-rings { top: 210px; right: 50%; translate: 50% -50%; width: 120%; }
   .cx-hero-render .cx-main { max-width: none; }
   /* Bottom corner, clear of the figure (it used to sit over the art's top). */
@@ -289,9 +294,6 @@ html[data-vt="hero"] .cx-render { animation: none; }
    own sizing instead of the tall-sprite rules above.
    ========================================================================== */
 
-/* The giant outlined name is built for tall sprites; behind a wide crop it
-   only shows as stray outline fragments, so drop it for these heroes. */
-.cx-hero-render:has(.cx-render-wide) .cx-ghost { display: none; }
 
 @media (min-width: 861px) {
   /* Text and art share the row without overlapping: copy takes the left
@@ -307,4 +309,10 @@ html[data-vt="hero"] .cx-render { animation: none; }
     height: auto;
   }
   .cx-render-wide img { height: auto; }
+  /* Name centred on the (narrower) wide-art box. */
+  .cx-hero-render:has(.cx-render-wide) .cx-ghost {
+    right: clamp(0px, 2vw, 24px);
+    width: 44%;
+    font-size: clamp(2.2rem, calc(57cqw / var(--len, 8)), 15rem);
+  }
 }

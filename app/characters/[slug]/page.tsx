@@ -319,7 +319,11 @@ export default async function CharacterPage({
         <ElementTheme color={el} />
         {render ? (
           <>
-            <span className="cx-ghost" aria-hidden="true">
+            <span
+              className="cx-ghost"
+              aria-hidden="true"
+              style={{ "--len": Math.max(4, char.name.length) } as CSSProperties}
+            >
               {char.name}
             </span>
             <span className="cx-rings" aria-hidden="true" />
