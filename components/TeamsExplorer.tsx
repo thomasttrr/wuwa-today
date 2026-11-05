@@ -111,6 +111,27 @@ export default function TeamsExplorer({ model }: { model: TeamsModel }) {
     } as Record<(typeof SECTIONS)[number]["id"], number>;
   }, [model, focus, fieldable, owned]);
 
+  // How many distinct trios on the page the saved roster covers. The same
+  // trio can sit in several sections, so count each member set once.
+  const fieldableCount = useMemo(() => {
+    const all = [
+      ...model.general,
+      ...model.variants,
+      ...model.tower.towers.flatMap((t) => t.teams),
+      ...model.wastes.halves.flatMap((h) => h.teams),
+      ...model.budget,
+    ];
+    const trios = new Set(
+      all.filter((t) => t.members.every((m) => owned.has(m.slug))).map((t) => t.members.map((m) => m.slug).sort().join("/"))
+    );
+    return trios.size;
+  }, [model, owned]);
+
+  const startRoster = () => {
+    setEditRoster(true);
+    document.getElementById("index")?.scrollIntoView({ behavior: "smooth" });
+  };
+
   const cardProps = { focus, owned, showOwned: ownedHere > 0 };
 
   const byElement = ELEMENT_ORDER.map((el) => ({
@@ -145,16 +166,31 @@ export default function TeamsExplorer({ model }: { model: TeamsModel }) {
               <a href="#index">Pick a Resonator</a> to see only their teams
             </span>
           )}
-          <button
-            type="button"
-            className="tm-pill"
-            aria-pressed={fieldable}
-            disabled={ownedHere === 0 && !fieldable}
-            onClick={() => setFieldable((v) => !v)}
-            title={ownedHere === 0 ? "Mark your roster in the character index first" : undefined}
-          >
-            Teams I can field <span className="tm-pill-n">{ownedHere}</span>
-          </button>
+          {ownedHere === 0 ? (
+            /* No roster yet: a count of 0 would read as "you can field
+               nothing", so offer the first step instead. */
+            <span className="tm-roster-cta">
+              <button type="button" className="tm-pill" onClick={startRoster}>
+                Teams I can field
+              </button>
+              <span className="tm-hint">
+                <button type="button" className="tm-link" onClick={startRoster}>
+                  Mark your roster
+                </button>{" "}
+                in the index first
+              </span>
+            </span>
+          ) : (
+            <button
+              type="button"
+              className="tm-pill"
+              aria-pressed={fieldable}
+              onClick={() => setFieldable((v) => !v)}
+              aria-label={`Teams I can field: ${fieldableCount} from the ${ownedHere} Resonators in your roster`}
+            >
+              Teams I can field <span className="tm-pill-n">{fieldableCount}</span>
+            </button>
+          )}
         </div>
       </div>
 
@@ -174,7 +210,7 @@ export default function TeamsExplorer({ model }: { model: TeamsModel }) {
         title="Tower of Adversity"
         kicker={`Current reset · ${dateRange(model.tower.resetStart, model.tower.resetEnd)}`}
         blurb="Which teams to send up which tower this reset."
-        aside={<RollingCountdown target={model.tower.nextReset} label="Hazard Zone resets in" size="md" />}
+        aside={<RollingCountdown target={model.tower.nextReset} label="Hazard Zone resets in · America server" size="md" />}
       >
         <div className="tm-notes">
           <p>{model.tower.resetLine}</p>
@@ -250,7 +286,7 @@ export default function TeamsExplorer({ model }: { model: TeamsModel }) {
         title="Whimpering Wastes"
         kicker={`Current reset · ${dateRange(model.wastes.resetStart, model.wastes.resetEnd)}`}
         blurb={model.wastes.teamsLine}
-        aside={<RollingCountdown target={model.wastes.nextReset} label="Respawning Waters resets in" size="md" />}
+        aside={<RollingCountdown target={model.wastes.nextReset} label="Respawning Waters resets in · America server" size="md" />}
       >
         <div className="tm-notes">
           <p>{model.wastes.resetLine}</p>
@@ -462,6 +498,12 @@ function TeamCard({ team, focus, owned, showOwned }: { team: Team } & CardProps)
         )}
       </header>
       {team.badge && <p className={`tm-badge tm-badge-${team.badge.tone}`}>{team.badge.text}</p>}
+      {team.alsoIn && team.alsoIn.length > 0 && (
+        <p className="tm-also">
+          Same team also listed under {team.alsoIn.join(" and ")}. No character can be used twice in a full clear,
+          so send it up one tower.
+        </p>
+      )}
 
       <ol className="tm-members">
         {team.members.map((m) => (

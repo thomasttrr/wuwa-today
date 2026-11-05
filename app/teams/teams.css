@@ -72,6 +72,17 @@
 .tm-filters { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; padding: 0 4px; }
 .tm-hint { font-size: 0.78rem; color: var(--rs-ink-3); }
 .tm-hint a { color: var(--el); }
+.tm-link {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--el);
+  font: inherit;
+  cursor: pointer;
+}
+.tm-link:hover { text-decoration: underline; }
+.tm-roster-cta { margin-left: auto; display: inline-flex; flex-wrap: wrap; align-items: center; gap: 0.6rem; }
+.tm-roster-cta .tm-pill { margin-left: 0; }
 .tm-focus {
   display: inline-flex;
   align-items: center;
@@ -254,6 +265,12 @@
 .tm-badge-best { color: var(--el); background: var(--rs-el-soft); }
 .tm-badge-note { color: var(--rs-ink-2); background: rgb(255 255 255 / 0.05); }
 .tm-badge-warn { color: #f0b48a; background: rgb(240 140 90 / 0.12); }
+.tm-also {
+  margin: -0.35rem 0 0;
+  font-size: 0.76rem;
+  line-height: 1.45;
+  color: var(--rs-ink-3);
+}
 
 /* Members: three slots, portrait-led. */
 .tm-members {

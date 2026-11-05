@@ -39,6 +39,8 @@ export interface Team {
   badge?: { text: string; tone: BadgeTone };
   members: TeamMember[];
   how: string;
+  /** Tower only: the other towers listing this exact trio (derived). */
+  alsoIn?: string[];
 }
 
 export interface Tower {
@@ -136,6 +138,16 @@ export function buildTeamsModel(): TeamsModel {
   const general = list(raw.general, "best");
   const variants = list(raw.variants, "var");
   const towers: Tower[] = raw.tower.towers.map((tw) => ({ ...tw, teams: list(tw.teams, `toa-${tw.id}`) }));
+  // The same trio can be listed in two towers as alternatives, but a full
+  // clear spends each character once — point each copy at the other.
+  const trio = (t: Team) => t.members.map((m) => m.slug).sort().join("/");
+  const towerLabel = (tw: Tower) => (tw.floors ? `${tw.name} · ${tw.floors}` : tw.name);
+  for (const tw of towers) {
+    for (const t of tw.teams) {
+      const others = towers.filter((o) => o !== tw && o.teams.some((x) => trio(x) === trio(t))).map(towerLabel);
+      if (others.length > 0) t.alsoIn = others;
+    }
+  }
   const halves = raw.wastes.halves.map((h, i) => ({ name: h.name, teams: list(h.teams, `ww-${i + 1}`) }));
   const budget = list(raw.budget, "f2p");
 
