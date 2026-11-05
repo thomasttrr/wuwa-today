@@ -1123,6 +1123,26 @@
    "sourceUrl": "https://static.wikia.nocookie.net/wutheringwaves/images/8/81/Zhezhi_Full_Sprite.png/revision/latest?cb=20250628075115",
    "focusX": 0.421,
    "zoom": 158
+  },
+  "lily": {
+   "width": 1260,
+   "height": 1089,
+   "sizes": [
+    {
+     "file": "/images/renders/lily-1089.webp",
+     "w": 1260,
+     "h": 1089
+    },
+    {
+     "file": "/images/renders/lily-800.webp",
+     "w": 926,
+     "h": 800
+    }
+   ],
+   "source": "lily_full.webp (Prydwen)",
+   "sourceUrl": "https://cdn.prydwen.gg/images/wuthering-waves/characters/lily_full.webp",
+   "focusX": 0.577,
+   "zoom": 128
   }
  }
 }

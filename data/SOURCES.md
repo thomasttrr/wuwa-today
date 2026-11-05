@@ -348,3 +348,6 @@ Official Kuro Games full sprites for the character-page hero, from each Resonato
 | `renders/yuanwu-*.webp` | Yuanwu_Full_Sprite.png | https://static.wikia.nocookie.net/wutheringwaves/images/1/17/Yuanwu_Full_Sprite.png/revision/latest?cb=20240202081324 |
 | `renders/zani-*.webp` | Zani_Full_Sprite.png | https://static.wikia.nocookie.net/wutheringwaves/images/e/ea/Zani_Full_Sprite.png/revision/latest?cb=20250427051211 |
 | `renders/zhezhi-*.webp` | Zhezhi_Full_Sprite.png | https://static.wikia.nocookie.net/wutheringwaves/images/8/81/Zhezhi_Full_Sprite.png/revision/latest?cb=20250628075115 |
+
+### Lily full render (2026-11-04)
+`renders/lily-*.webp` — transparent bust from https://cdn.prydwen.gg/images/wuthering-waves/characters/lily_full.webp (1318×1100, supplied by the site owner; the wiki has no Lily sprite). Official Kuro Games art as hosted by Prydwen; trimmed, WebP q82 at 1100/800px tall, never upscaled. Pre-release character: replace if a wiki full sprite appears.

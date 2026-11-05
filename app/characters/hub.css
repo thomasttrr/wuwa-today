@@ -433,12 +433,3 @@ body.rs .ch-search input:focus-visible { outline: none; }
 }
 
 
-/* Lily has no render yet: her key-art portrait is a scene with the
-   character small at the lower right, so frame her instead of the top. */
-.cp[data-slug="lily"] .cp-art.is-portrait {
-  width: 230%;
-  height: auto;
-  left: -120%;
-  top: -58%;
-  object-fit: fill;
-}
