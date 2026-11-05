@@ -338,9 +338,10 @@ body.rs .tl-search input:focus-visible { outline: none; }
     var(--rs-surface);
   border: 1px solid color-mix(in oklch, var(--c) 26%, transparent);
   box-shadow: 0 -20px 60px rgb(0 0 0 / 0.5);
-  animation: tl-sheet-up var(--rs-d3) var(--rs-spring) both;
+  /* Plain ease-out, no spring: an overshoot on a panel this size reads as a wobble. */
+  animation: tl-sheet-up var(--rs-d2) var(--rs-ease) both;
 }
-@keyframes tl-sheet-up { from { transform: translateY(40%); opacity: 0; } }
+@keyframes tl-sheet-up { from { transform: translateY(32px); opacity: 0; } }
 @media (min-width: 760px) {
   .tl-sheet-box {
     left: auto; top: 12px; right: 12px; bottom: 12px;
@@ -350,7 +351,7 @@ body.rs .tl-search input:focus-visible { outline: none; }
     animation-name: tl-sheet-in;
   }
 }
-@keyframes tl-sheet-in { from { transform: translateX(30%); opacity: 0; } }
+@keyframes tl-sheet-in { from { transform: translateX(24px); opacity: 0; } }
 .tl-sheet-x {
   position: absolute;
   top: 14px; right: 14px;
