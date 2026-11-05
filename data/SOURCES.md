@@ -284,3 +284,67 @@ Banners: Phase 2 FLIPPED LIVE — Phase 1 (Hsin/Chisa/Iuno) status active → en
 Events: Bountiful Crescendo status active → ended (ended Oct 22 03:59 UTC+8, before run time). Echo Erase and Gifts of Singing Drizzle stay upcoming — both start 2026-10-22 10:00 UTC+8 per the official patch notes (= 22:00 EDT tonight), after this run. No other status changes.
 Codes: no new codes. `WUTHERINGGIFT` still the only confirmed working code (urgametips.com "Checked for latest codes in October 2026", shanethegamer.com Oct 12, keygold.gg FAQ Oct 14, topuplive.com crawled ~2h ago). `DVME2MOHOQJT` stays excluded per Tom's 2026-10-16 pull order. u7buy/buffbuff/fossbytes pages still stale (expired codes listed as active) — ignored. Next codes expected with the Version 3.8 Preview Special Broadcast, estimated ~Oct 31–Nov 1 (Kuro has not confirmed; broadcast still unannounced).
 Other: official news feed mirror (https://openrss.org/wutheringwaves.kurogames.com/en/main, full feed re-read ~18:45 EDT) still shows only the Version 3.7 patch notes — no new posts. Suoming pull guide flipped from pre-release to launch-day wording in guides.json (kit details from officially revealed info + community analysis). Lily (5★ Spectro Pistols, 3.8) still the only officially confirmed future unit. Push to main + Vercel auto-deploy.
+
+
+## Character full-body renders (2026-11-04, branch redesign/resonance)
+
+Official Kuro Games full sprites for the character-page hero, from each Resonator's Wuthering Waves Wiki gallery page (https://wutheringwaves.fandom.com/wiki/<Name>/Gallery). File URLs resolved through the wiki API (prop=imageinfo) and downloaded once; no hotlinking. Each PNG was verified (format, dimensions, alpha), trimmed of transparent margins, and converted to WebP q82 at up to 1400px and 800px tall (true downscales, never upscaled). Display rule: a render never shows taller than half its trimmed source height (--cap in detail.css). Manifest with dimensions: data/renders.json. No full sprite exists on the wiki for the four Rovers or Lily (pre-release); those pages keep the portrait hero.
+
+| File | Wiki file | Source URL |
+|---|---|---|
+| `renders/aalto-*.webp` | Aalto_Full_Sprite.png | https://static.wikia.nocookie.net/wutheringwaves/images/3/3d/Aalto_Full_Sprite.png/revision/latest?cb=20240129090949 |
+| `renders/aemeath-*.webp` | Aemeath_Full_Sprite.png | https://static.wikia.nocookie.net/wutheringwaves/images/6/60/Aemeath_Full_Sprite.png/revision/latest?cb=20260204133237 |
+| `renders/augusta-*.webp` | Augusta_Full_Sprite.png | https://static.wikia.nocookie.net/wutheringwaves/images/b/b5/Augusta_Full_Sprite.png/revision/latest?cb=20250827031647 |
+| `renders/baizhi-*.webp` | Baizhi_Full_Sprite.png | https://static.wikia.nocookie.net/wutheringwaves/images/c/cc/Baizhi_Full_Sprite.png/revision/latest?cb=20240202080219 |
+| `renders/brant-*.webp` | Brant_Full_Sprite.png | https://static.wikia.nocookie.net/wutheringwaves/images/1/1c/Brant_Full_Sprite.png/revision/latest?cb=20250310043217 |
+| `renders/buling-*.webp` | Buling_Full_Sprite.png | https://static.wikia.nocookie.net/wutheringwaves/images/1/11/Buling_Full_Sprite.png/revision/latest?cb=20251114181312 |
+| `renders/calcharo-*.webp` | Calcharo_Full_Sprite.png | https://static.wikia.nocookie.net/wutheringwaves/images/9/9c/Calcharo_Full_Sprite.png/revision/latest?cb=20240522194656 |
+| `renders/camellya-*.webp` | Camellya_Full_Sprite.png | https://static.wikia.nocookie.net/wutheringwaves/images/d/d4/Camellya_Full_Sprite.png/revision/latest?cb=20241210024027 |
+| `renders/cantarella-*.webp` | Cantarella_Full_Sprite.png | https://static.wikia.nocookie.net/wutheringwaves/images/b/b3/Cantarella_Full_Sprite.png/revision/latest?cb=20250328205054 |
+| `renders/carlotta-*.webp` | Carlotta_Full_Sprite.png | https://static.wikia.nocookie.net/wutheringwaves/images/d/da/Carlotta_Full_Sprite.png/revision/latest?cb=20250103065623 |
+| `renders/cartethyia-*.webp` | Cartethyia_Full_Sprite.png | https://static.wikia.nocookie.net/wutheringwaves/images/e/ee/Cartethyia_Full_Sprite.png/revision/latest?cb=20250620084445 |
+| `renders/changli-*.webp` | Changli_Full_Sprite.png | https://static.wikia.nocookie.net/wutheringwaves/images/d/d2/Changli_Full_Sprite.png/revision/latest?cb=20240723101836 |
+| `renders/chisa-*.webp` | Chisa_Full_Sprite.png | https://static.wikia.nocookie.net/wutheringwaves/images/8/8a/Chisa_Full_Sprite.png/revision/latest?cb=20251118043547 |
+| `renders/chixia-*.webp` | Chixia_Full_Sprite.png | https://static.wikia.nocookie.net/wutheringwaves/images/8/87/Chixia_Full_Sprite.png/revision/latest?cb=20240202080517 |
+| `renders/ciaccona-*.webp` | Ciaccona_Full_Sprite.png | https://static.wikia.nocookie.net/wutheringwaves/images/f/f9/Ciaccona_Full_Sprite.png/revision/latest?cb=20250427051539 |
+| `renders/danjin-*.webp` | Danjin_Full_Sprite.png | https://static.wikia.nocookie.net/wutheringwaves/images/4/4f/Danjin_Full_Sprite.png/revision/latest?cb=20230403035004 |
+| `renders/denia-*.webp` | Denia_Full_Sprite.png | https://static.wikia.nocookie.net/wutheringwaves/images/b/b8/Denia_Full_Sprite.png/revision/latest?cb=20260521062738 |
+| `renders/encore-*.webp` | Encore_Full_Sprite.png | https://static.wikia.nocookie.net/wutheringwaves/images/f/f7/Encore_Full_Sprite.png/revision/latest?cb=20260804173204 |
+| `renders/galbrena-*.webp` | Galbrena_Full_Sprite.png | https://static.wikia.nocookie.net/wutheringwaves/images/f/f0/Galbrena_Full_Sprite.png/revision/latest?cb=20251008040416 |
+| `renders/hiyuki-*.webp` | Hiyuki_Full_Sprite.png | https://static.wikia.nocookie.net/wutheringwaves/images/7/72/Hiyuki_Full_Sprite.png/revision/latest?cb=20260430155021 |
+| `renders/hsin-*.webp` | Hsin_Full_Sprite.png | https://static.wikia.nocookie.net/wutheringwaves/images/0/08/Hsin_Full_Sprite.png/revision/latest?cb=20261001060352 |
+| `renders/iuno-*.webp` | Iuno_Full_Sprite.png | https://static.wikia.nocookie.net/wutheringwaves/images/2/20/Iuno_Full_Sprite.png/revision/latest?cb=20250909182139 |
+| `renders/jianxin-*.webp` | Jianxin_Full_Sprite.png | https://static.wikia.nocookie.net/wutheringwaves/images/d/d4/Jianxin_Full_Sprite.png/revision/latest?cb=20240518003041 |
+| `renders/jingran-*.webp` | Jingran_Full_Sprite.png | https://static.wikia.nocookie.net/wutheringwaves/images/9/94/Jingran_Full_Sprite.png/revision/latest?cb=20260817091938 |
+| `renders/jinhsi-*.webp` | Jinhsi_Full_Sprite.png | https://static.wikia.nocookie.net/wutheringwaves/images/b/b2/Jinhsi_Full_Sprite.png/revision/latest?cb=20251017041901 |
+| `renders/jiyan-*.webp` | Jiyan_Full_Sprite.png | https://static.wikia.nocookie.net/wutheringwaves/images/5/56/Jiyan_Full_Sprite.png/revision/latest?cb=20251017041637 |
+| `renders/lingyang-*.webp` | Lingyang_Full_Sprite.png | https://static.wikia.nocookie.net/wutheringwaves/images/3/36/Lingyang_Full_Sprite.png/revision/latest?cb=20240502113913 |
+| `renders/lucilla-*.webp` | Lucilla_Full_Sprite.png | https://static.wikia.nocookie.net/wutheringwaves/images/8/88/Lucilla_Full_Sprite.png/revision/latest?cb=20260613213337 |
+| `renders/lucy-*.webp` | Lucy_Full_Sprite.png | https://static.wikia.nocookie.net/wutheringwaves/images/c/cb/Lucy_Full_Sprite.png/revision/latest?cb=20260608193408 |
+| `renders/lumi-*.webp` | Lumi_Full_Sprite.png | https://static.wikia.nocookie.net/wutheringwaves/images/4/4f/Lumi_Full_Sprite.png/revision/latest?cb=20241215024548 |
+| `renders/lupa-*.webp` | Lupa_Full_Sprite.png | https://static.wikia.nocookie.net/wutheringwaves/images/1/12/Lupa_Full_Sprite.png/revision/latest?cb=20250705033445 |
+| `renders/luuk-herssen-*.webp` | Luuk_Herssen_Full_Sprite.png | https://static.wikia.nocookie.net/wutheringwaves/images/2/22/Luuk_Herssen_Full_Sprite.png/revision/latest?cb=20260204133211 |
+| `renders/lynae-*.webp` | Lynae_Full_Sprite.png | https://static.wikia.nocookie.net/wutheringwaves/images/7/72/Lynae_Full_Sprite.png/revision/latest?cb=20260101051310 |
+| `renders/mornye-*.webp` | Mornye_Full_Sprite.png | https://static.wikia.nocookie.net/wutheringwaves/images/d/db/Mornye_Full_Sprite.png/revision/latest?cb=20260101051234 |
+| `renders/mortefi-*.webp` | Mortefi_Full_Sprite.png | https://static.wikia.nocookie.net/wutheringwaves/images/2/20/Mortefi_Full_Sprite.png/revision/latest?cb=20240202080638 |
+| `renders/phoebe-*.webp` | Phoebe_Full_Sprite.png | https://static.wikia.nocookie.net/wutheringwaves/images/c/c5/Phoebe_Full_Sprite.png/revision/latest?cb=20250213050527 |
+| `renders/phrolova-*.webp` | Phrolova_Full_Sprite.png | https://static.wikia.nocookie.net/wutheringwaves/images/3/32/Phrolova_Full_Sprite.png/revision/latest?cb=20250724030941 |
+| `renders/qingxiao-*.webp` | Qingxiao_Full_Sprite.png | https://static.wikia.nocookie.net/wutheringwaves/images/2/26/Qingxiao_Full_Sprite.png/revision/latest?cb=20260817091859 |
+| `renders/qiuyuan-*.webp` | Qiuyuan_Full_Sprite.png | https://static.wikia.nocookie.net/wutheringwaves/images/1/14/Qiuyuan_Full_Sprite.png/revision/latest?cb=20251008040539 |
+| `renders/rebecca-*.webp` | Rebecca_Full_Sprite.png | https://static.wikia.nocookie.net/wutheringwaves/images/5/5d/Rebecca_Full_Sprite.png/revision/latest?cb=20260608193542 |
+| `renders/roccia-*.webp` | Roccia_Full_Sprite.png | https://static.wikia.nocookie.net/wutheringwaves/images/c/c6/Roccia_Full_Sprite.png/revision/latest?cb=20250123135546 |
+| `renders/sanhua-*.webp` | Sanhua_Full_Sprite.png | https://static.wikia.nocookie.net/wutheringwaves/images/9/94/Sanhua_Full_Sprite.png/revision/latest?cb=20240218224717 |
+| `renders/shorekeeper-*.webp` | Shorekeeper_Full_Sprite.png | https://static.wikia.nocookie.net/wutheringwaves/images/8/8c/Shorekeeper_Full_Sprite.png/revision/latest?cb=20241001031343 |
+| `renders/sigrika-*.webp` | Sigrika_Full_Sprite.png | https://static.wikia.nocookie.net/wutheringwaves/images/7/7c/Sigrika_Full_Sprite.png/revision/latest?cb=20260314162517 |
+| `renders/suisui-*.webp` | Suisui_Full_Sprite.png | https://static.wikia.nocookie.net/wutheringwaves/images/8/84/Suisui_Full_Sprite.png/revision/latest?cb=20260711114717 |
+| `renders/suoming-*.webp` | Suoming_Full_Sprite.png | https://static.wikia.nocookie.net/wutheringwaves/images/f/fb/Suoming_Full_Sprite.png/revision/latest?cb=20261023030257 |
+| `renders/taoqi-*.webp` | Taoqi_Full_Sprite.png | https://static.wikia.nocookie.net/wutheringwaves/images/1/18/Taoqi_Full_Sprite.png/revision/latest?cb=20240202080916 |
+| `renders/verina-*.webp` | Verina_Full_Sprite.png | https://static.wikia.nocookie.net/wutheringwaves/images/a/ab/Verina_Full_Sprite.png/revision/latest?cb=20260710080959 |
+| `renders/xiangli-yao-*.webp` | Xiangli_Yao_Full_Sprite.png | https://static.wikia.nocookie.net/wutheringwaves/images/c/c8/Xiangli_Yao_Full_Sprite.png/revision/latest?cb=20240904063531 |
+| `renders/yangyang-*.webp` | Yangyang_Full_Sprite.png | https://static.wikia.nocookie.net/wutheringwaves/images/d/d0/Yangyang_Full_Sprite.png/revision/latest?cb=20240703175222 |
+| `renders/yangyang-xuanling-*.webp` | Yangyang_Xuanling_Full_Sprite.png | https://static.wikia.nocookie.net/wutheringwaves/images/0/01/Yangyang_Xuanling_Full_Sprite.png/revision/latest?cb=20260725151912 |
+| `renders/yinlin-*.webp` | Yinlin_Full_Sprite.png | https://static.wikia.nocookie.net/wutheringwaves/images/4/45/Yinlin_Full_Sprite.png/revision/latest?cb=20251017041415 |
+| `renders/youhu-*.webp` | Youhu_Full_Sprite.png | https://static.wikia.nocookie.net/wutheringwaves/images/2/27/Youhu_Full_Sprite.png/revision/latest?cb=20241024101158 |
+| `renders/yuanwu-*.webp` | Yuanwu_Full_Sprite.png | https://static.wikia.nocookie.net/wutheringwaves/images/1/17/Yuanwu_Full_Sprite.png/revision/latest?cb=20240202081324 |
+| `renders/zani-*.webp` | Zani_Full_Sprite.png | https://static.wikia.nocookie.net/wutheringwaves/images/e/ea/Zani_Full_Sprite.png/revision/latest?cb=20250427051211 |
+| `renders/zhezhi-*.webp` | Zhezhi_Full_Sprite.png | https://static.wikia.nocookie.net/wutheringwaves/images/8/81/Zhezhi_Full_Sprite.png/revision/latest?cb=20250628075115 |

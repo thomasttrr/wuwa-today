@@ -284,7 +284,7 @@ export default function TierExplorer({ model }: { model: TierModel }) {
                         aria-pressed={editRoster ? mine : undefined}
                         onClick={() => (editRoster ? toggleOwned(char.slug) : setSelected(char.slug))}
                       >
-                        <span className="tl-face">
+                        <span className="tl-face" data-slug={char.slug}>
                           {char.portrait ? (
                             // eslint-disable-next-line @next/next/no-img-element -- 256px source shown at <=96px; export is unoptimized.
                             <img src={char.portrait} alt="" width={96} height={96} loading="lazy" decoding="async" />

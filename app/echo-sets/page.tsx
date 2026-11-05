@@ -8,7 +8,7 @@ import Reveal from "@/components/Reveal";
 import UpdatedStamp from "@/components/UpdatedStamp";
 
 export const metadata: Metadata = {
-  title: "3.7 Echo Sets Guide — Sworn Vigil, Electric Reflection, Tinged Yearning | WuWa Today",
+  title: "3.7 Echo Sets Guide — Sworn Vigil, Electric Reflection, Tinged Yearning",
   description:
     "Version 3.7 added three Sonata Effects to Wuthering Waves: Heart of Sworn Vigil, Flash of Electric Reflection, and Flower of Tinged Yearning. Full set bonuses, every member echo by cost, where to farm them, and who each set is actually for.",
   alternates: { canonical: "/echo-sets" },

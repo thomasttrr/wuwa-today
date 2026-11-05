@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import CopyButton from "../components/CopyButton";
 import ResetTimers from "../components/ResetTimers";
+import HomeEndingSoon from "../components/HomeEndingSoon";
 import Reveal from "../components/Reveal";
 import RollingCountdown from "../components/RollingCountdown";
 import UpdatedStamp from "../components/UpdatedStamp";
@@ -11,7 +12,7 @@ import WaveProgress from "../components/WaveProgress";
 import {
   activeBanners,
   activeCodes,
-  activeEvents,
+  events,
   bannerMeta,
   formatServerDate,
 } from "../lib/data";
@@ -28,11 +29,8 @@ export const metadata: Metadata = {
 const slugByName = new Map(characters.map((c) => [c.name, c.slug]));
 const portraitBySlug = new Map(characters.map((c) => [c.slug, c.profile.portrait_url]));
 
-// Static export: drop events that had already closed when the site was built.
+// Build time seeds the client clock for the event list (hydration-safe).
 const BUILT_AT = Date.now();
-const liveEvents = activeEvents
-  .filter((e) => !e.endsAt || new Date(e.endsAt).getTime() > BUILT_AT)
-  .slice(0, 4);
 
 function srcSetFor(art: string) {
   const base = art.replace(/\.webp$/, "");
@@ -226,25 +224,7 @@ export default function HomePage() {
                 All events →
               </Link>
             </header>
-            {liveEvents.length === 0 ? (
-              <p className="rs-muted">No active events right now.</p>
-            ) : (
-              <ul className="rs-events">
-                {liveEvents.map((e) => (
-                  <li key={e.id}>
-                    <div className="rs-event-main">
-                      <span className="rs-event-name">{e.name}</span>
-                      <span className="rs-event-rewards">{e.rewards}</span>
-                    </div>
-                    {e.endsAt ? (
-                      <RollingCountdown size="sm" target={e.endsAt} label="Ends in" />
-                    ) : (
-                      <span className="rs-chip">Permanent</span>
-                    )}
-                  </li>
-                ))}
-              </ul>
-            )}
+            <HomeEndingSoon events={events} builtAt={BUILT_AT} />
           </article>
         </Reveal>
 

@@ -5,7 +5,7 @@ import { buildTierModel } from "@/lib/tiers";
 import "./tier-list.css";
 
 export const metadata: Metadata = {
-  title: "Character Tier List (3.7) — WuWa Today",
+  title: "Character Tier List (3.7)",
   description:
     "Who's actually worth building in Wuthering Waves 3.7? Community tier lists by game mode (Tower of Adversity / Whimpering Wastes) and role, plus our editorial rankings — with portraits, element filters and your own roster.",
   alternates: { canonical: "/tier-list" },

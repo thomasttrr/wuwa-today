@@ -24,7 +24,6 @@ export default function useNow(intervalMs: number = 1000): Date | null {
     const t = ctx.getTime();
     if (lastEmittedRef.current === 0 || t - lastEmittedRef.current >= intervalMs) {
       lastEmittedRef.current = t;
-      // eslint-disable-next-line react-hooks/set-state-in-effect -- intentional client-only clock sync: the static export renders a placeholder, the effect swaps in live time after mount to stay hydration-safe.
       setSnapshot(ctx);
     }
   }, [ctx, intervalMs]);

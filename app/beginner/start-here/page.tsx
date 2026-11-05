@@ -9,7 +9,7 @@ import UpdatedStamp from "@/components/UpdatedStamp";
 import { getCharacter } from "@/lib/characters";
 
 export const metadata: Metadata = {
-  title: "Start Here — Your First Week in Wuthering Waves | WuWa Today",
+  title: "Start Here — Your First Week in Wuthering Waves",
   description:
     "Your free roster, the first things to unlock, and the Union Level milestones that matter — a beginner's first-week checklist for Wuthering Waves.",
   alternates: { canonical: "/beginner/start-here" },

@@ -1,0 +1,245 @@
+/* ==========================================================================
+   Resonance — shared-component bridge.
+
+   The guide pages (pre-farm, echo sets, beginner, glossary, 404, and the
+   body of each character page) are assembled from the older og-* pieces:
+   page hero, section head, pick cards, notices, lists, tables, chips.
+   Restyling those pieces here brings every remaining page onto the
+   Resonance system in one place. Scoped to body.rs and loaded last.
+   ========================================================================== */
+
+/* --- page hero --- */
+body.rs .og-page-hero { padding: 1.25rem 0 1.75rem; max-width: 920px; }
+body.rs .og-page-kicker {
+  font-family: var(--rs-mono);
+  font-weight: 500;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--el);
+  margin: 0 0 0.75rem;
+}
+body.rs .og-page-title {
+  font-weight: 800;
+  font-stretch: 125%;
+  text-transform: uppercase;
+  font-size: clamp(2.6rem, 8vw, 5.6rem);
+  line-height: 0.88;
+  letter-spacing: -0.035em;
+}
+body.rs .og-page-lede { color: var(--rs-ink-2); font-size: 1.04rem; margin-top: 1rem; }
+@media (prefers-reduced-motion: no-preference) {
+  body.rs .og-page-title { animation: rs-rise var(--rs-d3) var(--rs-spring) both; }
+  body.rs .og-page-lede, body.rs .og-page-hero .og-meta-row { animation: rs-rise var(--rs-d3) var(--rs-ease) 120ms both; }
+}
+
+/* Title-only pages (pre-farm, beginner hubs) use og-display h1s directly. */
+body.rs h1.og-display {
+  font-weight: 800;
+  font-stretch: 125%;
+  letter-spacing: -0.035em;
+  line-height: 0.9;
+}
+
+/* --- back link --- */
+body.rs .og-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  min-height: 36px;
+  padding: 0 0.85rem 0 0.7rem;
+  margin-bottom: 0.9rem;
+  border-radius: 999px;
+  border: 1px solid var(--rs-line-soft);
+  background: rgb(255 255 255 / 0.03);
+  color: var(--rs-ink-2);
+  font-size: 0.84rem;
+  transition: color var(--rs-d1) ease, border-color var(--rs-d1) ease, transform var(--rs-d2) var(--rs-spring);
+}
+body.rs .og-back:hover { color: var(--rs-ink); border-color: var(--rs-el-line); text-decoration: none; }
+body.rs .og-back:active { transform: scale(0.96); }
+
+/* --- section heads --- */
+body.rs .og-section { margin-bottom: 3rem; }
+body.rs .og-section-head {
+  align-items: flex-end;
+  gap: 0.75rem 1.5rem;
+  margin-bottom: 1.1rem;
+  padding-bottom: 0.85rem;
+  border-bottom: 1px solid var(--rs-line-soft);
+}
+body.rs .og-h2 {
+  font-family: var(--rs-display);
+  font-weight: 750;
+  font-stretch: 112%;
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  letter-spacing: -0.02em;
+}
+body.rs .og-section-blurb { color: var(--rs-ink-3); font-size: 0.9rem; line-height: 1.55; margin-top: 0.4rem; max-width: 64ch; }
+body.rs .og-section-link { color: var(--el); font-size: 0.86rem; font-weight: 650; white-space: nowrap; }
+body.rs .og-sub-h { font-family: var(--rs-display); font-weight: 700; font-stretch: 108%; font-size: 1.08rem; }
+
+/* --- kickers --- */
+body.rs .og-kicker,
+body.rs .og-kicker-dim,
+body.rs .og-char-kicker {
+  font-family: var(--rs-mono);
+  font-weight: 500;
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+body.rs .og-kicker { color: var(--el); }
+body.rs .og-kicker-dim { color: var(--rs-ink-3); }
+
+/* --- pick cards (beginner guides, planner remnants) --- */
+body.rs .og-pick-card {
+  position: relative;
+  border-radius: var(--rs-r-tile);
+  background: var(--rs-surface);
+  border: 1px solid var(--rs-line-soft);
+  padding: 1.35rem 1.45rem 1.45rem;
+  transition: border-color var(--rs-d1) ease, transform var(--rs-d2) var(--rs-spring);
+}
+body.rs a.og-pick-card:hover { border-color: var(--rs-el-line); text-decoration: none; }
+body.rs a.og-pick-card:active { transform: scale(0.985); }
+body.rs .og-pick-card h3 { font-family: var(--rs-display); font-weight: 750; font-stretch: 110%; font-size: 1.25rem; }
+body.rs .og-pick-desc, body.rs .og-pick-why { color: var(--rs-ink-2); }
+body.rs .og-pick-desc a, body.rs .og-pick-also a, body.rs .og-q-links a { color: var(--el); }
+body.rs .og-pick-portrait { border-radius: 16px; box-shadow: 0 0 0 1.5px var(--rs-el-line); }
+
+/* --- lists: element-colored markers --- */
+body.rs .og-q-list { list-style: none; padding-left: 0; }
+body.rs .og-q-list li { position: relative; padding-left: 1.15rem; }
+body.rs .og-q-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.62em;
+  width: 6px;
+  height: 6px;
+  border-radius: 2px;
+  background: var(--el);
+  rotate: 45deg;
+}
+body.rs .og-q-list li strong { color: var(--rs-ink); }
+
+/* --- notices and caveats --- */
+body.rs .og-notice {
+  border-radius: 18px;
+  background:
+    linear-gradient(90deg, color-mix(in oklch, var(--el) 12%, transparent), transparent 60%),
+    var(--rs-surface);
+  border: 1px solid color-mix(in oklch, var(--el) 28%, transparent);
+  padding: 1rem 1.25rem 1rem 1.4rem;
+  position: relative;
+}
+body.rs .og-notice::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 14px;
+  bottom: 14px;
+  width: 3px;
+  border-radius: 0 3px 3px 0;
+  background: var(--el);
+}
+body.rs .og-notice p { color: var(--rs-ink-2); }
+body.rs .og-caveat { color: var(--rs-ink-3); }
+
+/* --- chips, badges --- */
+body.rs .og-chip {
+  display: inline-flex;
+  align-items: center;
+  min-height: 40px;
+  padding: 0 1rem;
+  border-radius: 999px;
+  border: 1px solid var(--rs-el-line);
+  background: var(--rs-el-soft);
+  color: var(--rs-ink);
+  font-weight: 650;
+  font-size: 0.86rem;
+  transition: transform var(--rs-d2) var(--rs-spring), background-color var(--rs-d1) ease;
+}
+body.rs .og-chip:hover { text-decoration: none; background: color-mix(in oklch, var(--el) 26%, transparent); }
+body.rs .og-chip:active { transform: scale(0.96); }
+body.rs .og-badge, body.rs .og-char-badge {
+  border-radius: 999px;
+  border: 1px solid var(--rs-line);
+  background: rgb(255 255 255 / 0.03);
+  color: var(--rs-ink-2);
+  font-family: var(--rs-mono);
+  font-weight: 500;
+  font-size: 0.66rem;
+  letter-spacing: 0.02em;
+}
+
+/* --- tables --- */
+body.rs .og-table-wrap { border-radius: var(--rs-r-tile); border: 1px solid var(--rs-line-soft); background: var(--rs-surface); overflow-x: auto; }
+body.rs .og-table th {
+  font-family: var(--rs-mono);
+  font-weight: 500;
+  font-size: 0.66rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--rs-ink-3);
+  background: rgb(255 255 255 / 0.02);
+}
+body.rs .og-table td, body.rs .og-table th { border-color: var(--rs-line-soft); padding: 0.8rem 1rem; }
+body.rs .og-table tbody tr { transition: background-color var(--rs-d1) ease; }
+body.rs .og-table tbody tr:hover { background: color-mix(in oklch, var(--el) 6%, transparent); }
+
+/* --- echo plates, stat panels (echo sets + character pages) --- */
+body.rs .og-echo-plate,
+body.rs .og-stat-panel {
+  border-radius: 20px;
+  background: var(--rs-surface);
+  border: 1px solid var(--rs-line-soft);
+}
+body.rs .og-echo-plate-bis {
+  border-color: color-mix(in oklch, var(--el) 40%, transparent);
+  background:
+    radial-gradient(80% 90% at 0% 0%, color-mix(in oklch, var(--el) 12%, transparent), transparent 70%),
+    var(--rs-surface);
+}
+body.rs .og-echo-name { font-family: var(--rs-display); font-weight: 700; font-stretch: 108%; }
+body.rs .og-echo-cost { font-family: var(--rs-mono); color: var(--el); }
+
+/* --- character page body pieces --- */
+body.rs .og-weapon { border-radius: 18px; background: var(--rs-surface); border-color: var(--rs-line-soft); }
+body.rs .og-weapon-bis {
+  border-color: color-mix(in oklch, var(--el) 40%, transparent);
+  background:
+    radial-gradient(70% 120% at 0% 0%, color-mix(in oklch, var(--el) 12%, transparent), transparent 70%),
+    var(--rs-surface);
+}
+body.rs .og-weapon-rank { font-family: var(--rs-mono); color: var(--rs-ink-3); }
+body.rs .og-weapon-bis .og-weapon-rank { color: var(--el); }
+body.rs .og-weapon-name { font-family: var(--rs-display); font-weight: 700; font-stretch: 108%; }
+body.rs .og-bis-pill { background: var(--el); color: var(--rs-on-el); border-color: transparent; }
+
+/* --- glossary --- */
+body.rs .og-gloss-term {
+  padding: 0.9rem 1.1rem;
+  border-radius: 14px;
+  background: var(--rs-surface);
+  border: 1px solid var(--rs-line-soft);
+  color: var(--rs-ink-2);
+}
+body.rs .og-gloss-term strong { font-family: var(--rs-display); font-weight: 700; color: var(--el); }
+
+/* --- footnotes --- */
+body.rs .og-version-note { color: var(--rs-ink-3); font-size: 0.82rem; }
+body.rs .og-verify-block {
+  border-radius: var(--rs-r-tile);
+  background: var(--rs-surface);
+  border: 1px solid var(--rs-line-soft);
+}
+body.rs .og-verify-block, body.rs .og-updated { font-family: var(--rs-mono); font-size: 0.74rem; color: var(--rs-ink-3); }
+
+/* --- footer: match the new chrome --- */
+body.rs .site-footer { border-top-color: var(--rs-line-soft); background: color-mix(in oklch, var(--rs-canvas) 80%, black); }
+body.rs .site-footer-nav a { color: var(--rs-ink-2); font-weight: 600; }
+body.rs .site-footer-nav a:hover { color: var(--el); text-decoration: none; }
+body.rs .site-footer p { color: var(--rs-ink-3); }
+body.rs .site-footer strong { color: var(--rs-ink-2); }

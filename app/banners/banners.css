@@ -270,3 +270,6 @@ a.bn-card:active { transform: scale(0.985); }
 .bn-unranked { font-family: var(--rs-body); font-weight: 500; font-size: 0.78rem; color: var(--rs-ink-3); }
 /* Phones: open the timeline scrolled to the live phase (progressive). */
 .bn-node-now { scroll-initial-target: nearest; }
+
+/* Crop the baked-in name label and rarity bar from lineup portraits. */
+.bn-card-face img { transform: scale(1.38); transform-origin: 50% 0; }

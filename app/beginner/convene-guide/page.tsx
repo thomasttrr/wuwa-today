@@ -7,7 +7,7 @@ import Reveal from "@/components/Reveal";
 import UpdatedStamp from "@/components/UpdatedStamp";
 
 export const metadata: Metadata = {
-  title: "Beginner Convene Guide — Which Banners to Pull | WuWa Today",
+  title: "Beginner Convene Guide — Which Banners to Pull",
   description:
     "Utterance of Marvels and Beginner's Choice explained: beginner banner flow, pity rules, weapon banners, and what your Lustrous Tides are for.",
   alternates: { canonical: "/beginner/convene-guide" },

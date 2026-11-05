@@ -1,177 +1,142 @@
+import type { CSSProperties } from "react";
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
-import ObsidianSectionHead from "../../components/ObsidianSectionHead";
-import ObsidianToolbar from "../../components/ObsidianToolbar";
-import OgPageHero from "../../components/OgPageHero";
-import Reveal from "../../components/Reveal";
+import Availability from "../../components/Availability";
+import PhaseTrack, { type PhaseNode } from "../../components/PhaseTrack";
+import PlannerAccounts, { type AccountPlan } from "../../components/PlannerAccounts";
 import UpdatedStamp from "../../components/UpdatedStamp";
-import { activeBanners, upcomingBanners, bannerMeta, formatServerDate } from "../../lib/data";
-import { getCharacter } from "../../lib/characters";
+import { banners, bannerMeta } from "../../lib/data";
+import { characters, getCharacter } from "../../lib/characters";
+import { elementColor } from "../../lib/elements";
 import { getPrefarmGuide } from "../../lib/prefarm";
+import { tierFor } from "../../lib/tiers";
+import "./planner.css";
 
 export const metadata: Metadata = {
   title: "Pull Planner — Who to Pull in Version 3.7",
   description:
-    "Version 3.7 pull planner: pull Hsin or save for Suoming, F2P guarantee priorities, whether Lynae and Lucilla are worth it, and whether to save for Lily in 3.8 — every pick traced to a verified pull verdict.",
+    "Version 3.7 pull planner: who's on the banner right now, picks by account type, whether Lynae and Lucilla are worth it, and whether to save for Lily in 3.8 — every pick traced to a verified pull verdict.",
   alternates: { canonical: "/pull-planner" },
 };
 
-const FIVE_STARS = ["hsin", "iuno", "chisa", "suoming", "lynae", "lucilla"] as const;
-
+const BUILT_AT = Date.now();
+const FIVE_STARS = ["suoming", "lynae", "lucilla", "hsin", "iuno", "chisa"] as const;
 type FiveStarSlug = (typeof FIVE_STARS)[number];
 
-function getVerdict(slug: FiveStarSlug) {
-  const char = getCharacter(slug);
-  if (!char) throw new Error(`pull-planner: missing character record for ${slug}`);
+const slugByName = new Map(characters.map((c) => [c.name, c.slug]));
+const bannerById = new Map(banners.map((b) => [b.id, b]));
+
+function info(slug: FiveStarSlug) {
+  const c = getCharacter(slug);
+  if (!c) throw new Error(`pull-planner: missing character record for ${slug}`);
+  const b = bannerById.get(c.pull_verdict.banner_id);
   return {
-    name: char.name,
     slug,
-    label: char.pull_verdict.verdict_label,
-    text: char.pull_verdict.verdict,
-    prerelease: char.pull_verdict.uncertain_or_prerelease,
-    published: char.pull_verdict.published_at,
+    name: c.name,
+    portrait: c.profile.portrait_url,
+    color: elementColor(c.profile.element),
+    element: c.profile.element,
+    role: c.profile.role,
+    label: c.pull_verdict.verdict_label,
+    text: c.pull_verdict.verdict,
+    prerelease: c.pull_verdict.uncertain_or_prerelease,
+    start: b?.startsAt ?? null,
+    end: b?.endsAt ?? null,
+    tier: tierFor(slug).ours?.tier ?? null,
   };
 }
 
-function PickRow({ slug, note }: { slug: FiveStarSlug; note: string }) {
-  const v = getVerdict(slug);
-  return (
-    <div className="og-pick-row">
-      <Image
-        src={`/images/chars/${v.slug}.webp`}
-        alt={`${v.name} portrait`}
-        width={64}
-        height={64}
-        className="og-pick-portrait"
-      />
-      <div className="og-pick-body">
-        <p className="og-pick-name">
-          <Link href={`/characters/${v.slug}`}>{v.name}</Link>
-          {v.prerelease && <span className="og-badge">pre-release data</span>}
-        </p>
-        <p className="og-pick-why">{note}</p>
-        <p className="og-pick-verdict">
-          <span className="og-badge">{v.label}</span>
-        </p>
-      </div>
-    </div>
-  );
-}
-
-function ProfileCard({
-  title,
-  profile,
-  pick,
-  note,
-  also,
-  delay,
-}: {
-  title: string;
-  profile: string;
-  pick: FiveStarSlug;
-  note: string;
-  also: React.ReactNode;
-  delay: number;
-}) {
-  return (
-    <Reveal delay={delay}>
-      <section className="og-pick-card" aria-label={`${title} pull plan`}>
-        <h3>
-          <span className="og-kicker-dim">{title}</span>
-        </h3>
-        <p className="og-pick-desc">{profile}</p>
-        <p className="og-pick-label">Ranked pick</p>
-        <PickRow slug={pick} note={note} />
-        <div className="og-pick-also">{also}</div>
-      </section>
-    </Reveal>
-  );
-}
-
-function QuestionCard({
-  question,
-  title,
-  delay,
-  children,
-}: {
-  question: string;
-  title: string;
-  delay: number;
-  children: React.ReactNode;
-}) {
-  return (
-    <Reveal delay={delay}>
-      <section className="og-pick-card" aria-label={title}>
-        <span className="og-kicker-dim">{question}</span>
-        <h3>{title}</h3>
-        <div className="og-pick-desc">{children}</div>
-      </section>
-    </Reveal>
-  );
+function plan(key: string, title: string, profile: string, pick: FiveStarSlug, note: string, also: string): AccountPlan {
+  const v = info(pick);
+  return {
+    key,
+    title,
+    profile,
+    note,
+    also,
+    pick: { slug: v.slug, name: v.name, portrait: v.portrait, color: v.color, label: v.label, start: v.start, end: v.end },
+  };
 }
 
 export default function PullPlannerPage() {
-  const phase1 = activeBanners.find((b) => b.id === "3.7-phase-1");
-  const phase2 = upcomingBanners.find((b) => b.id === "3.7-phase-2");
+  const p1 = bannerById.get("3.7-phase-1");
+  const p2 = bannerById.get("3.7-phase-2");
 
-  const phase2Start = phase2 ? formatServerDate(phase2.startsAt) : "Oct 22, 2026";
-  const phase1End = phase1 ? formatServerDate(phase1.endsAt) : "Oct 22, 2026";
+  const phases: PhaseNode[] = banners
+    .filter((b) => b.version === bannerMeta.version)
+    .sort((a, b) => a.startsAt.localeCompare(b.startsAt))
+    .map((b) => ({
+      id: b.id,
+      label: `${b.version} · ${b.phase}`,
+      start: b.startsAt,
+      end: b.endsAt,
+      stars: b.characters
+        .filter((c) => c.rarity === 5)
+        .map((c) => {
+          const slug = slugByName.get(c.name);
+          return {
+            name: c.name,
+            portrait: slug ? getCharacter(slug)?.profile.portrait_url ?? null : null,
+            color: elementColor(c.element),
+          };
+        }),
+    }));
+
+  // Plan text is the planner's original editorial copy, unchanged.
+  const plans: AccountPlan[] = [
+    plan("new", "New player", "Fresh roster, everything is an upgrade. Priority is units that work everywhere and rerun rarely.", "lynae",
+      "The safest rerun of 3.7 — a fresh account doesn't own her, and universal value beats a conditional DPS.",
+      "Runner-up: Hsin — a new Electro main DPS fills the biggest hole on a fresh roster."),
+    plan("f2p", "F2P", "One guaranteed 5-star for the whole version. No second chances — pick the lowest-risk option.", "hsin",
+      "Conditional pick: missing an Electro DPS, she's a strong pull. Electro covered? Hold everything for Lynae in Phase 2.",
+      "Why the condition: Lynae’s verdict (“safest rerun — pull if you don’t own her”) is the floor; Hsin’s is the ceiling when you need her role. Don’t spend on Iuno’s banner — third pick of Phase 1."),
+    plan("low", "Low-spender", "Welkin / battle pass income — one to two 5-stars per version plus a signature weapon if you plan it.", "hsin",
+      "Strong for accounts missing an Electro DPS — and she's the top of the Phase 1 value order (Hsin > Chisa > Iuno).",
+      "Second pick: Chisa — “one of the best supports for Negative Status teams”, worth it if you’re building around your new Hsin. Skip Iuno unless you love Heavy Attack teams — luxury for full sustain slots."),
+    plan("vet", "Veteran", "Deep roster, most sustains and DPS slots already covered. Pull for niches and upgrades, not bodies.", "chisa",
+      "Niche but excellent: worth it if you're pulling Hsin or running Negative Status squads; skip if sustain is covered.",
+      "Only-if conditions: Lynae only if you missed her earlier (“pull her if you don’t own her”); Lucilla only with Hiyuki, a Glacio DPS, or Echo Skill carries — “otherwise skip: she’s niche, not a generalist”."),
+  ];
+
+  const verdicts = FIVE_STARS.map(info);
 
   return (
     <>
-      <OgPageHero
-        kicker={`Version ${bannerMeta.version} · Pull strategy`}
-        title="Pull planner"
-        lede="Who to pull while 3.7 runs, answered per account type. Every pick below is traced to a verified pull verdict on this site — nothing is invented, and pre-release picks (Suoming) are marked as uncertain until launch-day numbers land."
-        meta={
-          <UpdatedStamp />
-        }
-      />
+      <header className="pp-hero">
+        <p className="rs-kicker">Version {bannerMeta.version} · Pull strategy</p>
+        <h1 className="pp-hero-title">Pull planner</h1>
+        <p className="pp-hero-lede">
+          Who to pull, answered per account type. Every pick traces to a
+          verified pull verdict on this site, and each one shows whether its
+          banner is still running.
+        </p>
+      </header>
 
-      <ObsidianToolbar
-        label="Pull planner sections"
-        items={[
-          { href: "#schedule", label: "Schedule" },
-          { href: "#questions", label: "Big questions" },
-          { href: "#accounts", label: "By account" },
-          { href: "#verdicts", label: "All verdicts" },
-        ]}
-      />
+      <section className="pp-section" aria-labelledby="pp-sched-h">
+        <h2 id="pp-sched-h" className="pp-h">Where the version stands</h2>
+        <PhaseTrack phases={phases} builtAt={BUILT_AT} />
+      </section>
 
-      <div className="og-section">
-        <ObsidianSectionHead id="schedule" title="Banner schedule" />
-        <div className="grid grid-2">
-          <Reveal>
-            <section className="og-pick-card" aria-label="Phase 1 banners">
-              <span className="og-kicker">Phase 1 · live now</span>
-              <h3>Ends {phase1End} (server time)</h3>
-              <p className="og-pick-desc">
-                5-stars: <strong>Hsin</strong> (new, Electro Main DPS),{" "}
-                <strong>Iuno</strong> (rerun, Aero Support), <strong>Chisa</strong>{" "}
-                (rerun, Havoc Support). 4-star rate-ups: Buling, Taoqi, Youhu.
-              </p>
-            </section>
-          </Reveal>
-          <Reveal delay={70}>
-            <section className="og-pick-card" aria-label="Phase 2 banners">
-              <span className="og-kicker">Phase 2 · starts {phase2Start}</span>
-              <h3>Starts {phase2Start} (server time)</h3>
-              <p className="og-pick-desc">
-                5-stars: <strong>Suoming</strong> (new, Sub-DPS / Support),{" "}
-                <strong>Lynae</strong> (rerun), <strong>Lucilla</strong> (rerun).
-                4-star rate-ups: Lumi, Danjin, Chixia.
-              </p>
-            </section>
-          </Reveal>
-        </div>
-      </div>
+      <section className="pp-section" aria-labelledby="pp-acc-h">
+        <h2 id="pp-acc-h" className="pp-h">Pick by your account</h2>
+        <p className="pp-sub">
+          Plans were written at the start of {bannerMeta.version}. When a
+          pick&apos;s banner has ended it&apos;s flagged, and the advice applies to
+          that Resonator&apos;s next rerun.
+        </p>
+        <PlannerAccounts plans={plans} builtAt={BUILT_AT} />
+      </section>
 
-      <div className="og-section">
-        <ObsidianSectionHead id="questions" title="The big questions" />
-        <div className="grid grid-2">
-          <QuestionCard question="Question 1" title="Pull Hsin or save for Suoming?" delay={0}>
-            <>
+      <section className="pp-section" aria-labelledby="pp-q-h">
+        <h2 id="pp-q-h" className="pp-h">The big questions</h2>
+        <div className="pp-qs">
+          <details className="pp-q">
+            <summary>
+              <span className="pp-q-n">01</span>
+              <span className="pp-q-t">Pull Hsin or save for Suoming?</span>
+              <Availability start={p1?.startsAt ?? null} end={p1?.endsAt ?? null} builtAt={BUILT_AT} />
+            </summary>
+            <div className="pp-q-body">
               <ul className="og-q-list">
                 <li>
                   <strong>They pair together.</strong> The Suoming verdict
@@ -195,10 +160,15 @@ export default function PullPlannerPage() {
                 <Link href="/characters/hsin">Hsin verdict</Link> ·{" "}
                 <Link href="/characters/suoming">Suoming verdict</Link>
               </p>
-            </>
-          </QuestionCard>
-          <QuestionCard question="Question 2" title="F2P with one guarantee: who?" delay={70}>
-            <>
+            </div>
+          </details>
+          <details className="pp-q">
+            <summary>
+              <span className="pp-q-n">02</span>
+              <span className="pp-q-t">F2P with one guarantee: who?</span>
+              <Availability start={p1?.startsAt ?? null} end={p1?.endsAt ?? null} builtAt={BUILT_AT} />
+            </summary>
+            <div className="pp-q-body">
               <ul className="og-q-list">
                 <li>
                   <strong>Make it count:</strong> if you’re missing an Electro
@@ -219,10 +189,15 @@ export default function PullPlannerPage() {
                 <Link href="/characters/hsin">Hsin verdict</Link> ·{" "}
                 <Link href="/characters/lynae">Lynae verdict</Link>
               </p>
-            </>
-          </QuestionCard>
-          <QuestionCard question="Question 3" title="Do I need the Lynae / Lucilla reruns?" delay={0}>
-            <>
+            </div>
+          </details>
+          <details className="pp-q" open>
+            <summary>
+              <span className="pp-q-n">03</span>
+              <span className="pp-q-t">Do I need the Lynae / Lucilla reruns?</span>
+              <Availability start={p2?.startsAt ?? null} end={p2?.endsAt ?? null} builtAt={BUILT_AT} />
+            </summary>
+            <div className="pp-q-body">
               <ul className="og-q-list">
                 <li>
                   <strong>Lynae:</strong> “the safest rerun of 3.7 — pull her
@@ -242,10 +217,15 @@ export default function PullPlannerPage() {
                 <Link href="/characters/lynae">Lynae verdict</Link> ·{" "}
                 <Link href="/characters/lucilla">Lucilla verdict</Link>
               </p>
-            </>
-          </QuestionCard>
-          <QuestionCard question="Question 4" title="What about Chisa and Iuno?" delay={70}>
-            <>
+            </div>
+          </details>
+          <details className="pp-q">
+            <summary>
+              <span className="pp-q-n">04</span>
+              <span className="pp-q-t">What about Chisa and Iuno?</span>
+              <Availability start={p1?.startsAt ?? null} end={p1?.endsAt ?? null} builtAt={BUILT_AT} />
+            </summary>
+            <div className="pp-q-body">
               <ul className="og-q-list">
                 <li>
                   <strong>Chisa</strong> is “one of the best supports for
@@ -262,10 +242,15 @@ export default function PullPlannerPage() {
                 <Link href="/characters/chisa">Chisa verdict</Link> ·{" "}
                 <Link href="/characters/iuno">Iuno verdict</Link>
               </p>
-            </>
-          </QuestionCard>
-          <QuestionCard question="Question 5" title="Pull 3.7 Phase 2 or save for Lily (3.8)?" delay={0}>
-            <>
+            </div>
+          </details>
+          <details className="pp-q">
+            <summary>
+              <span className="pp-q-n">05</span>
+              <span className="pp-q-t">Pull 3.7 Phase 2 or save for Lily (3.8)?</span>
+              <Availability start={p2?.startsAt ?? null} end={p2?.endsAt ?? null} builtAt={BUILT_AT} />
+            </summary>
+            <div className="pp-q-body">
               <ul className="og-q-list">
                 <li>
                   <strong>What’s official:</strong> Lily is a 5-star Spectro
@@ -294,141 +279,51 @@ export default function PullPlannerPage() {
                 <Link href="/characters/lynae">Lynae verdict</Link> ·{" "}
                 <Link href="/characters/lily">Lily preview</Link>
               </p>
-            </>
-          </QuestionCard>
+            </div>
+          </details>
         </div>
-      </div>
+      </section>
 
-      <div className="og-section">
-        <ObsidianSectionHead id="accounts" title="Pick by your account" />
-        <div className="grid grid-2">
-          <ProfileCard
-            title="New player"
-            profile="Fresh roster, everything is an upgrade. Priority is units that work everywhere and rerun rarely."
-            pick="lynae"
-            note="The safest rerun of 3.7 — a fresh account doesn't own her, and universal value beats a conditional DPS."
-            delay={0}
-            also={
-              <>
-                <p>
-                  Runner-up: <strong>Hsin</strong> — a new Electro main DPS fills
-                  the biggest hole on a fresh roster.
-                </p>
-              </>
-            }
-          />
-          <ProfileCard
-            title="F2P with one guarantee"
-            profile="One guaranteed 5-star for the whole version. No second chances — pick the lowest-risk option."
-            pick="hsin"
-            note="Conditional pick: missing an Electro DPS, she's a strong pull. Electro covered? Hold everything for Lynae in Phase 2."
-            delay={70}
-            also={
-              <>
-                <p>
-                  Why the condition: Lynae’s verdict (“safest rerun — pull if you
-                  don’t own her”) is the floor; Hsin’s is the ceiling when you
-                  need her role. Don’t spend on Iuno’s banner — third pick of
-                  Phase 1.
-                </p>
-              </>
-            }
-          />
-          <ProfileCard
-            title="Low-spender"
-            profile="Welkin / battle pass income — one to two 5-stars per version plus a signature weapon if you plan it."
-            pick="hsin"
-            note="Strong for accounts missing an Electro DPS — and she's the top of the Phase 1 value order (Hsin > Chisa > Iuno)."
-            delay={0}
-            also={
-              <>
-                <p>
-                  Second pick: <strong>Chisa</strong> — “one of the best supports
-                  for Negative Status teams”, worth it if you’re building around
-                  your new Hsin. Skip <strong>Iuno</strong> unless you love Heavy
-                  Attack teams — luxury for full sustain slots.
-                </p>
-              </>
-            }
-          />
-          <ProfileCard
-            title="Veteran"
-            profile="Deep roster, most sustains and DPS slots already covered. Pull for niches and upgrades, not bodies."
-            pick="chisa"
-            note="Niche but excellent: worth it if you're pulling Hsin or running Negative Status squads; skip if sustain is covered."
-            delay={70}
-            also={
-              <>
-                <p>
-                  Only-if conditions: <strong>Lynae</strong> only if you missed
-                  her earlier (“pull her if you don’t own her”);{" "}
-                  <strong>Lucilla</strong> only with Hiyuki, a Glacio DPS, or
-                  Echo Skill carries — “otherwise skip: she’s niche, not a
-                  generalist”.
-                </p>
-              </>
-            }
-          />
-        </div>
-      </div>
+      <section className="pp-section" aria-labelledby="pp-v-h">
+        <h2 id="pp-v-h" className="pp-h">Every 5-star, verdict at a glance</h2>
+        <p className="pp-sub">The source of truth behind every pick above.</p>
+        <ul className="pp-verdicts">
+          {verdicts.map((v) => (
+            <li key={v.slug} className="pp-v rs-spot" style={{ "--c": v.color } as CSSProperties}>
+              <div className="pp-v-head">
+                {/* eslint-disable-next-line @next/next/no-img-element -- 64px portrait. */}
+                <img src={v.portrait} alt="" width={64} height={64} loading="lazy" />
+                <div>
+                  <h3>
+                    <Link href={`/characters/${v.slug}`}>{v.name}</Link>
+                  </h3>
+                  <p className="pp-v-meta">
+                    {v.element} · {v.role}
+                    {v.tier && <span className="pp-v-tier">{v.tier}</span>}
+                  </p>
+                </div>
+              </div>
+              <span className="pp-verdict">{v.label}</span>
+              <p className="pp-v-text">{v.text}</p>
+              <div className="pp-v-foot">
+                <Availability start={v.start} end={v.end} builtAt={BUILT_AT} />
+                {v.prerelease && <span className="pp-avail pp-avail-unknown">Pre-release data</span>}
+              </div>
+              <p className="pp-v-links">
+                <Link href={`/characters/${v.slug}`}>Full verdict →</Link>
+                {getPrefarmGuide(v.slug) && <Link href={`/pre-farm/${v.slug}`}>Pre-farm →</Link>}
+              </p>
+            </li>
+          ))}
+        </ul>
+      </section>
 
-      <div className="og-section">
-        <ObsidianSectionHead
-          id="verdicts"
-          title="Every 5-star, verdict at a glance"
-          blurb="The source of truth behind every pick above. Verdicts are published per character and re-checked when banner data changes."
-        />
-        <div className="grid grid-2">
-          {FIVE_STARS.map((slug, i) => {
-            const v = getVerdict(slug);
-            const hasPrefarm = Boolean(getPrefarmGuide(slug));
-            return (
-              <Reveal key={slug} delay={(i % 2) * 70}>
-                <section className="og-pick-card" aria-label={`${v.name} pull verdict`}>
-                  <div className="og-pick-row">
-                    <Image
-                      src={`/images/chars/${v.slug}.webp`}
-                      alt={`${v.name} portrait`}
-                      width={64}
-                      height={64}
-                      className="og-pick-portrait"
-                    />
-                    <div className="og-pick-body">
-                      <h3 className="og-pick-name">
-                        <Link href={`/characters/${v.slug}`}>{v.name}</Link>
-                        {v.prerelease && (
-                          <span className="og-badge">pre-release data</span>
-                        )}
-                      </h3>
-                      <p className="og-pick-why">{v.text}</p>
-                      <p className="og-pick-verdict">
-                        <span className="og-badge">{v.label}</span>
-                        <span className="og-pick-verdict-meta">
-                          Published {v.published}
-                        </span>
-                      </p>
-                      {hasPrefarm && (
-                        <p className="og-q-links">
-                          <Link href={`/pre-farm/${slug}`}>
-                            Pre-farm {v.name} →
-                          </Link>
-                        </p>
-                      )}
-                    </div>
-                  </div>
-                </section>
-              </Reveal>
-            );
-          })}
-        </div>
-      </div>
-
-      <p className="og-version-note">
+      <p className="pp-note">
         All picks trace to the verified pull verdicts above (published Oct
-        13–14, 2026). Suoming’s recommendation uses pre-release data — wait for
-        launch-day numbers unless you already pulled Hsin. All dates are server
-        time (UTC+8). Phase 1 ends {phase1End}; Phase 2 begins {phase2Start}.
+        13–14, 2026). Suoming&apos;s recommendation uses pre-release data. All
+        dates are server time (UTC+8).
       </p>
+      <UpdatedStamp />
     </>
   );
 }

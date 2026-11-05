@@ -11,7 +11,7 @@ import {
 } from "@/lib/characters";
 import { activeBanners } from "@/lib/data";
 import { ELEMENT_COLORS, elementColor } from "@/lib/elements";
-import { buildTierModel } from "@/lib/tiers";
+import { buildTierModel, OUR_TIER_LABELS } from "@/lib/tiers";
 import "./hub.css";
 
 export const metadata: Metadata = {
@@ -43,14 +43,13 @@ export default function CharactersPage() {
   return (
     <>
       <header className="ch-hero">
-        <div>
-          <p className="rs-kicker">Version 3.7 · {chars.length} Resonators</p>
-          <h1 className="ch-hero-title">Characters</h1>
+        <p className="rs-kicker">Version 3.7 · {chars.length} Resonators</p>
+        <h1 className="ch-hero-title">Characters</h1>
+        <div className="ch-hero-row">
           <p className="ch-hero-lede">
             Builds, ranked weapons, echo sets, teams and pull verdicts for every
             Resonator. Pick an element and the whole page tunes to it.
           </p>
-        </div>
         {live.length > 0 && (
           <div className="ch-live" aria-label="On the live banner">
             <p className="ch-live-h">
@@ -69,6 +68,7 @@ export default function CharactersPage() {
             </ul>
           </div>
         )}
+        </div>
       </header>
       <CharactersHub
         chars={chars}
@@ -76,6 +76,7 @@ export default function CharactersPage() {
         weapons={CHARACTER_WEAPONS}
         roles={CHARACTER_ROLES}
         elementColors={ELEMENT_COLORS}
+        tierLabels={OUR_TIER_LABELS}
       />
     </>
   );

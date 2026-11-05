@@ -38,12 +38,14 @@ export default function CharactersHub({
   weapons,
   roles,
   elementColors,
+  tierLabels,
 }: {
   chars: HubChar[];
   elements: string[];
   weapons: string[];
   roles: string[];
   elementColors: Record<string, string>;
+  tierLabels: Record<string, string>;
 }) {
   const [q, setQ] = useState("");
   const [els, setEls] = useState<Set<string>>(new Set());
@@ -86,6 +88,20 @@ export default function CharactersHub({
     });
     return out;
   }, [chars, q, els, weapon, rarity, role, upcoming, sort]);
+
+  // Tier sort renders labelled tier sections. Unranked Resonators are new
+  // or upcoming, so they lead ("New, not ranked yet") instead of trailing C.
+  const groups = useMemo(() => {
+    if (sort !== "tier") return [{ key: "all", title: "", badge: null as string | null, items: list }];
+    const out: { key: string; title: string; badge: string | null; items: HubChar[] }[] = [];
+    const unranked = list.filter((c) => !c.tier);
+    if (unranked.length) out.push({ key: "new", title: "New, not ranked yet", badge: null, items: unranked });
+    for (const tier of TIER_ORDER) {
+      const items = list.filter((c) => c.tier === tier);
+      if (items.length) out.push({ key: tier, title: tierLabels[tier] ?? "", badge: tier, items });
+    }
+    return out;
+  }, [list, sort, tierLabels]);
 
   const active = q || els.size || weapon || rarity || role || upcoming;
   const clear = () =>
@@ -172,27 +188,38 @@ export default function CharactersHub({
           </button>
         </div>
       ) : (
-        <ul className="ch-grid">
-          {list.map((c) => (
-            <li key={c.slug}>
-              <Link href={`/characters/${c.slug}`} className="ch-tile rs-spot" style={{ "--c": c.color } as CSSProperties}>
-                <span className="ch-art">
-                  <ViewTransition name={`char-${c.slug}`}>
-                    {/* eslint-disable-next-line @next/next/no-img-element -- 256px portrait shown at <=128px; export is unoptimized. */}
-                    <img src={c.portrait} alt="" width={128} height={128} loading="lazy" decoding="async" />
-                  </ViewTransition>
-                  {c.tier && <span className={`ch-tier ch-tier-${c.tier}`}>{c.tier}</span>}
-                  {c.onBanner && <span className="ch-flag">On banner</span>}
-                  {!c.onBanner && c.preRelease && <span className="ch-flag ch-flag-soon">Upcoming</span>}
-                </span>
-                <span className="ch-name">{c.name}</span>
-                <span className="ch-meta">
-                  {c.role} · {c.weapon}
-                </span>
-              </Link>
-            </li>
-          ))}
-        </ul>
+        groups.map((g) => (
+          <section key={g.key} className="ch-group" aria-label={g.title}>
+            {g.title && (
+              <header className="ch-group-head">
+                <h2 className={`ch-group-tier ch-group-${g.key}`}>{g.badge ?? g.title}</h2>
+                {g.badge && <span className="ch-group-label">{g.title}</span>}
+                <span className="ch-group-n">{g.items.length}</span>
+              </header>
+            )}
+            <ul className="ch-grid">
+              {g.items.map((c) => (
+                <li key={c.slug}>
+                  <Link href={`/characters/${c.slug}`} className="ch-tile rs-spot" style={{ "--c": c.color } as CSSProperties}>
+                    <span className={`ch-art ch-r${c.rarity}`} data-slug={c.slug}>
+                      <ViewTransition name={`char-${c.slug}`}>
+                        {/* eslint-disable-next-line @next/next/no-img-element -- 500px portrait shown at <=160px; export is unoptimized. */}
+                        <img src={c.portrait} alt="" width={128} height={128} loading="lazy" decoding="async" />
+                      </ViewTransition>
+                      {c.tier && sort !== "tier" && <span className={`ch-tier ch-tier-${c.tier}`}>{c.tier}</span>}
+                      {c.onBanner && <span className="ch-flag">On banner</span>}
+                      {!c.onBanner && c.preRelease && <span className="ch-flag ch-flag-soon">Upcoming</span>}
+                    </span>
+                    <span className="ch-name">{c.name}</span>
+                    <span className="ch-meta">
+                      <span className="ch-stars" aria-label={`${c.rarity} star`}>{c.rarity}★</span> {c.role} · {c.weapon}
+                    </span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </section>
+        ))
       )}
     </>
   );

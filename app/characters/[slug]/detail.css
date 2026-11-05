@@ -1,0 +1,254 @@
+/* ==========================================================================
+   Character detail hero — Resonance
+   ========================================================================== */
+
+.cx-hero {
+  position: relative;
+  display: grid;
+  grid-template-columns: 300px minmax(0, 1fr);
+  gap: 2.5rem;
+  align-items: center;
+  margin: 0.5rem 0 1.5rem;
+  padding: 1.75rem;
+  border-radius: 28px;
+  overflow: hidden;
+  isolation: isolate;
+  background:
+    radial-gradient(60% 90% at 12% 30%, color-mix(in oklch, var(--el) 26%, transparent), transparent 70%),
+    radial-gradient(50% 60% at 100% 0%, color-mix(in oklch, var(--el) 10%, transparent), transparent 70%),
+    var(--rs-surface);
+  border: 1px solid color-mix(in oklch, var(--el) 22%, transparent);
+}
+
+/* Portrait: cropped to hide the file's baked-in name label + rarity bar;
+   a clean rarity bar is redrawn under it. 300px from a 500px source. */
+.cx-art {
+  position: relative;
+  width: 300px;
+  aspect-ratio: 1 / 0.92;
+  border-radius: 24px;
+  overflow: hidden;
+  background: var(--rs-surface-2);
+  box-shadow:
+    0 0 0 2px color-mix(in oklch, var(--el) 60%, transparent),
+    0 0 0 8px color-mix(in oklch, var(--el) 10%, transparent),
+    0 30px 80px color-mix(in oklch, var(--el) 26%, transparent);
+}
+.cx-art img {
+  display: block;
+  width: 100%;
+  height: auto;
+  transform: scale(1.38);
+  transform-origin: 50% 6%; /* skip the file's dark top frame edge */
+}
+.cx-rarity { position: absolute; left: 0; right: 0; bottom: 0; height: 4px; }
+.cx-rarity.cx-r5 { background: #f0c75e; }
+.cx-rarity.cx-r4 { background: #b28cf6; }
+
+.cx-main { display: grid; gap: 0.7rem; min-width: 0; }
+.cx-name {
+  margin: 0;
+  font-weight: 800;
+  font-stretch: 125% !important;
+  text-transform: uppercase;
+  font-size: clamp(2.8rem, 7vw, 5.6rem);
+  line-height: 0.86;
+  letter-spacing: -0.035em;
+  overflow-wrap: anywhere;
+}
+.cx-verdict { margin: 0.2rem 0 0; font-family: var(--rs-display); font-weight: 700; font-stretch: 112%; font-size: 1.2rem; color: var(--el); }
+.cx-note { margin: 0; max-width: 56ch; color: var(--rs-ink-2); line-height: 1.55; }
+
+.cx-stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+  margin: 0.5rem 0 0;
+}
+.cx-stats > div {
+  display: grid;
+  align-content: start;
+  gap: 0.2rem;
+  padding: 0.7rem 0.85rem;
+  border-radius: 14px;
+  background: rgb(255 255 255 / 0.04);
+  border: 1px solid rgb(255 255 255 / 0.07);
+  min-width: 0;
+}
+.cx-stats dt { font-size: 0.66rem; color: var(--rs-ink-3); }
+.cx-stats dd { margin: 0; font-family: var(--rs-mono); font-weight: 700; font-size: 0.95rem; color: var(--rs-ink); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.cx-stats small { font-size: 0.66rem; color: var(--rs-ink-2); }
+.cx-stat-tier { background: color-mix(in oklch, var(--el) 14%, transparent) !important; border-color: color-mix(in oklch, var(--el) 35%, transparent) !important; }
+.cx-stat-tier dd { font-family: var(--rs-display); font-weight: 800; font-stretch: 125%; font-size: 1.6rem; line-height: 1; color: var(--el); }
+.cx-stars.cx-r5 { color: #f0c75e; letter-spacing: 0.1em; }
+.cx-stars.cx-r4 { color: #b28cf6; letter-spacing: 0.1em; }
+
+.cx-actions { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 0.4rem; }
+/* Copy build becomes the primary action. */
+.cx-actions .og-btn {
+  min-height: 44px;
+  padding: 0 1.2rem;
+  border-radius: 999px;
+  border: 0;
+  background: var(--el);
+  color: var(--rs-on-el);
+  font-weight: 650;
+  font-size: 0.92rem;
+  box-shadow: none;
+  transition: transform var(--rs-d2) var(--rs-spring), background-color var(--rs-d1) ease;
+}
+.cx-actions .og-btn::before, .cx-actions .og-btn::after { display: none; }
+.cx-actions .og-btn:hover { background: color-mix(in oklch, var(--el) 88%, white); }
+.cx-actions .og-btn:active { transform: scale(0.95); }
+
+@media (prefers-reduced-motion: no-preference) {
+  .cx-name { animation: rs-rise var(--rs-d3) var(--rs-spring) 60ms both; }
+  .cx-verdict, .cx-note, .cx-stats, .cx-actions { animation: rs-rise var(--rs-d3) var(--rs-ease) 160ms both; }
+}
+
+@media (max-width: 860px) {
+  .cx-hero { grid-template-columns: 1fr; gap: 1.25rem; padding: 1.1rem; border-radius: 24px; }
+  .cx-art { width: min(260px, 70%); justify-self: center; }
+  .cx-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+/* ==========================================================================
+   Render stage: the full-body render stands right, the name ghosts behind
+   it, readouts stay sharp on the left. Layers (back to front):
+   panel glow -> resonance rings -> ghost name -> render -> scrim -> content.
+   ========================================================================== */
+
+.cx-hero-render {
+  grid-template-columns: minmax(0, 1fr);
+  min-height: clamp(560px, 72vh, 700px);
+  padding: 2.25rem 2rem;
+  align-items: center;
+  background:
+    radial-gradient(55% 80% at 74% 38%, color-mix(in oklch, var(--el) 30%, transparent), transparent 70%),
+    radial-gradient(40% 50% at 0% 100%, color-mix(in oklch, var(--el) 10%, transparent), transparent 70%),
+    var(--rs-surface);
+}
+
+/* Giant outlined name, behind the figure. */
+.cx-ghost {
+  position: absolute;
+  z-index: 0;
+  right: -2%;
+  top: 50%;
+  translate: 0 -55%;
+  max-width: 70%;
+  font-family: var(--rs-display);
+  font-weight: 800;
+  font-stretch: 125%;
+  text-transform: uppercase;
+  font-size: clamp(6rem, 15vw, 15rem);
+  line-height: 0.8;
+  letter-spacing: -0.05em;
+  text-align: right;
+  overflow-wrap: anywhere;
+  color: transparent;
+  -webkit-text-stroke: 1.5px color-mix(in oklch, var(--el) 38%, transparent);
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Faint concentric "resonance" rings centred on the figure. */
+.cx-rings {
+  position: absolute;
+  z-index: 0;
+  right: 8%;
+  top: 50%;
+  width: min(760px, 70%);
+  aspect-ratio: 1;
+  translate: 0 -50%;
+  border-radius: 50%;
+  pointer-events: none;
+  background: repeating-radial-gradient(circle, transparent 0 46px, color-mix(in oklch, var(--el) 14%, transparent) 46px 47px);
+  -webkit-mask-image: radial-gradient(circle, #000 20%, transparent 68%);
+  mask-image: radial-gradient(circle, #000 20%, transparent 68%);
+}
+
+/* The render. Height never exceeds half the source (display cap), and the
+   lower legs fade out so it reads as framed, not floating. */
+.cx-render {
+  position: absolute;
+  z-index: 1;
+  right: clamp(0px, 4vw, 64px);
+  /* Tall renders start near the top and bleed off the bottom; short ones
+     (small sources, capped at half size) sit centred in the stage. */
+  top: max(4%, calc((100% - min(var(--cap), 118%)) / 2));
+  height: min(var(--cap), 118%);
+  aspect-ratio: var(--ar);
+  max-width: 58%;
+  pointer-events: none;
+  -webkit-mask-image: linear-gradient(#000 62%, transparent 92%);
+  mask-image: linear-gradient(#000 62%, transparent 92%);
+}
+.cx-render img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: 50% 0;
+  filter: drop-shadow(0 24px 50px rgb(0 0 0 / 0.5));
+}
+
+/* Scrim so left-side content always reads over the art. */
+.cx-hero-render::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background: linear-gradient(90deg, var(--rs-surface) 14%, color-mix(in oklch, var(--rs-surface) 72%, transparent) 38%, transparent 58%);
+}
+.cx-hero-render .cx-main { position: relative; z-index: 3; max-width: 540px; }
+.cx-hero-render .cx-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+@media (min-width: 1100px) { .cx-hero-render .cx-stats { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+
+.cx-credit {
+  position: absolute;
+  z-index: 3;
+  right: 1.1rem;
+  bottom: 0.9rem;
+  font-family: var(--rs-mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.06em;
+  color: var(--rs-ink-3);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .cx-render { animation: cx-render-in 1100ms var(--rs-ease) 60ms both; }
+  .cx-ghost { animation: cx-ghost-in 1400ms var(--rs-ease) both; }
+  @supports (animation-timeline: view()) {
+    .cx-render {
+      animation: cx-render-in 1100ms var(--rs-ease) 60ms both, cx-drift linear both;
+      animation-timeline: auto, view();
+      animation-range: normal, exit 0% exit 100%;
+    }
+  }
+}
+@keyframes cx-render-in { from { opacity: 0; translate: 0 28px; filter: blur(10px); } }
+@keyframes cx-ghost-in { from { opacity: 0; letter-spacing: 0.02em; } }
+@keyframes cx-drift { to { transform: translateY(-14%); } }
+
+/* Phones / narrow: render on top, content card overlaps its faded legs. */
+@media (max-width: 860px) {
+  .cx-hero-render { min-height: 0; padding: 0 1.1rem 1.25rem; display: flex; flex-direction: column; }
+  .cx-hero-render::after {
+    background: linear-gradient(0deg, var(--rs-surface) 40%, color-mix(in oklch, var(--rs-surface) 60%, transparent) 56%, transparent 72%);
+  }
+  .cx-render {
+    position: relative;
+    right: auto;
+    top: auto;
+    align-self: center;
+    height: min(var(--cap), 520px);
+    max-width: 100%;
+    margin: 0.5rem 0 -170px;
+  }
+  .cx-ghost { top: 150px; right: 50%; translate: 50% 0; max-width: none; white-space: nowrap; overflow-wrap: normal; text-align: center; font-size: clamp(4rem, 24vw, 8rem); }
+  .cx-rings { top: 210px; right: 50%; translate: 50% -50%; width: 120%; }
+  .cx-hero-render .cx-main { max-width: none; }
+  .cx-credit { top: 0.9rem; bottom: auto; }
+}

@@ -37,7 +37,7 @@ export async function generateMetadata({
   const guide = getPrefarmGuide(slug);
   if (!guide) return { title: "Pre-farm guide not found" };
   return {
-    title: `${guide.character} Pre-Farm Guide — Materials & Farming Routes | WuWa Today`,
+    title: `${guide.character} Pre-Farm Guide — Materials & Farming Routes`,
     description: guide.description,
   };
 }

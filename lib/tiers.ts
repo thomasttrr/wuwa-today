@@ -145,3 +145,21 @@ export function buildTierModel(): TierModel {
     unranked,
   };
 }
+
+let cached: Map<string, TierChar> | null = null;
+
+/** One character's placements, from the same model the tier list renders.
+ * The single source of truth for tiers anywhere on the site: the per-
+ * character `tier_badge` fields predate the October 2026 re-tier. */
+export function tierFor(slug: string): {
+  ours: TierChar["ours"];
+  community: string | null;
+} {
+  cached ??= new Map(buildTierModel().chars.map((c) => [c.slug, c]));
+  const c = cached.get(slug);
+  const ps = c?.prydwen["Tower of Adversity"] ?? [];
+  const best = ps.length
+    ? ps.reduce((a, b) => (PRYDWEN_TIERS.indexOf(b.tier) < PRYDWEN_TIERS.indexOf(a.tier) ? b : a))
+    : null;
+  return { ours: c?.ours ?? null, community: best ? `${best.tier} ${best.role}` : null };
+}

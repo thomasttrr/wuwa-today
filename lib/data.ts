@@ -86,16 +86,30 @@ export const codesMeta = (codesRaw as { _meta: { updatedAt: string } })._meta;
 export const events = (eventsRaw as { events: GameEvent[] }).events;
 export const eventsMeta = (eventsRaw as { _meta: { updatedAt: string } })._meta;
 
-export const activeBanners = banners.filter((b) => b.status === "active");
-export const upcomingBanners = banners.filter((b) => b.status === "upcoming");
+// Status comes from the dates at build time, not the stored `status` field:
+// the stored field only changes when someone edits the JSON, so a phase that
+// ends between data updates would otherwise stay "live" on the site. The
+// stored value is the fallback only when a record has no usable dates.
+const BUILD_NOW = Date.now();
+function statusFromDates<T extends { startsAt: string; endsAt: string | null; status: string }>(x: T): string {
+  const s = Date.parse(x.startsAt);
+  const e = x.endsAt ? Date.parse(x.endsAt) : null;
+  if (Number.isNaN(s)) return x.status;
+  if (BUILD_NOW < s) return "upcoming";
+  if (e === null) return "active";
+  return BUILD_NOW < e ? "active" : "ended";
+}
+
+export const activeBanners = banners.filter((b) => statusFromDates(b) === "active");
+export const upcomingBanners = banners.filter((b) => statusFromDates(b) === "upcoming");
 export const activeEvents = events
-  .filter((e) => e.status === "active")
+  .filter((e) => statusFromDates(e) === "active")
   .sort((a, b) => {
     if (!a.endsAt) return 1;
     if (!b.endsAt) return -1;
     return a.endsAt < b.endsAt ? -1 : 1;
   });
-export const upcomingEvents = events.filter((e) => e.status === "upcoming");
+export const upcomingEvents = events.filter((e) => statusFromDates(e) === "upcoming");
 
 /** Site-wide "last verified" stamp: the most recent data-file update. */
 export function dataUpdatedAt(): string {

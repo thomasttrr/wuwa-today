@@ -13,6 +13,7 @@ import "./globals.css";
 import "./obsidian.css";
 import "./og-pages.css";
 import "./resonance.css";
+import "./resonance-shared.css";
 
 /* Resonance type system. Both families are variable with a width axis, so
    headlines and numeric readouts can stretch together. Body stays system

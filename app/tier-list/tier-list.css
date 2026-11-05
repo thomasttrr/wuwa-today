@@ -211,7 +211,10 @@ body.rs .tl-search input:focus-visible { outline: none; }
   box-shadow: 0 0 0 1.5px color-mix(in oklch, var(--c) 55%, transparent), 0 8px 20px rgb(0 0 0 / 0.35);
   transition: box-shadow var(--rs-d2) var(--rs-ease), transform var(--rs-d2) var(--rs-spring);
 }
-.tl-face img { display: block; width: 100%; height: 100%; object-fit: cover; }
+/* Crop the portrait's baked-in name label and rarity bar (bottom ~22%):
+   zoom from the top so the face fills the square. 76px box from a 500px
+   source stays well inside the display cap. */
+.tl-face img { display: block; width: 100%; height: 100%; object-fit: cover; transform: scale(1.38); transform-origin: 50% 0; }
 .tl-mono { display: grid; place-items: center; height: 100%; font-family: var(--rs-display); font-weight: 800; font-size: 1.6rem; color: var(--c); }
 .tl-name {
   max-width: 100%;
@@ -412,3 +415,6 @@ body.rs .tl-search input:focus-visible { outline: none; }
 @media (prefers-reduced-transparency: reduce) {
   .tl-bar { backdrop-filter: none; -webkit-backdrop-filter: none; background: var(--rs-surface); }
 }
+
+/* Two-line baked label sits higher on this portrait. */
+.tl-face[data-slug="yangyang-xuanling"] img { transform: scale(1.52); }

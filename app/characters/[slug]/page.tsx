@@ -23,8 +23,17 @@ import {
 } from "@/lib/characters";
 import { elementColor } from "@/lib/elements";
 import { getPrefarmGuide } from "@/lib/prefarm";
+import { tierFor } from "@/lib/tiers";
+import rendersData from "@/data/renders.json";
+import "./detail.css";
 
 export const dynamicParams = false;
+
+interface RenderEntry {
+  width: number;
+  height: number;
+  sizes: { file: string; w: number; h: number }[];
+}
 
 export function generateStaticParams() {
   return characterSlugs().map((slug) => ({ slug }));
@@ -280,10 +289,9 @@ export default async function CharacterPage({
   const el = elementColor(p.element);
   const preRelease = isPreRelease(char);
   const tier = char.tier_badge;
-  const showTierBadge = tier !== null && tier.tier !== "UNKNOWN";
   const { prev, next } = prevNextCharacter(slug);
-
-  const kicker = `${p.element} · ${p.weapon_type}`;
+  const tiers = tierFor(slug);
+  const render = (rendersData.renders as Record<string, RenderEntry>)[slug] ?? null;
 
   const visibleWeapons = build.ranked_weapons.slice(0, 4);
   const extraWeapons = build.ranked_weapons.slice(4);
@@ -294,53 +302,105 @@ export default async function CharacterPage({
         ← Characters
       </Link>
 
-      {/* Hero: portrait plate, kicker/title, badges, verdict. */}
-      <header className="og-char-hero" style={{ "--el": el } as CSSProperties}>
+      {/* Hero: portrait plate, name, verdict, a readout strip of the numbers
+          people come for, and the two actions they take next. Tiers come
+          from the tier list (lib/tiers) so every page agrees. */}
+      <header
+        className={render ? "cx-hero cx-hero-render" : "cx-hero"}
+        style={{ "--el": el } as CSSProperties}
+      >
         <ElementTheme color={el} />
-        <div className="og-char-art">
-          <ViewTransition name={`char-${slug}`}>
-            <Image
-              src={p.portrait_url}
-              alt={`${char.name} portrait`}
-              width={500}
-              height={500}
-              priority
-              decoding="async"
-            />
-          </ViewTransition>
-        </div>
-        <div>
-          <Reveal delay={60}>
-            <p className="og-char-kicker">{kicker}</p>
-            <h1 className="og-char-name og-display">{char.name}</h1>
-          </Reveal>
-          <Reveal delay={120}>
-            <div className="og-char-badges">
-              {showTierBadge ? (
-                <span className={`og-tier-badge tier-${tier.tier}`}>
-                  {tier.tier}
-                </span>
-              ) : (
-                <span className="og-char-badge og-char-badge-dim">Pre-release · Not ranked</span>
-              )}
-              <span className={`og-rarity-badge rarity-${p.rarity}`}>
-                {p.rarity}★
-              </span>
-              {showTierBadge && <span className="og-char-badge">{tier.label}</span>}
-              <span className="og-char-badge">{p.role}</span>
-              <span className="og-char-badge">
-                <span className="element-dot" style={{ background: el }} aria-hidden="true" />{" "}
-                {p.element}
-              </span>
+        {render ? (
+          <>
+            <span className="cx-ghost" aria-hidden="true">
+              {char.name}
+            </span>
+            <span className="cx-rings" aria-hidden="true" />
+            <div
+              className="cx-render"
+              style={
+                {
+                  "--cap": `${Math.round(render.height / 2)}px`,
+                  "--ar": `${render.width} / ${render.height}`,
+                } as CSSProperties
+              }
+            >
+              <ViewTransition name={`char-${slug}`}>
+                {/* eslint-disable-next-line @next/next/no-img-element -- trimmed full-body render; srcset of true downscales, static export is unoptimized. */}
+                <img
+                  src={render.sizes[render.sizes.length - 1].file}
+                  srcSet={render.sizes.map((z) => `${z.file} ${z.w}w`).join(", ")}
+                  sizes="(max-width: 860px) 80vw, 560px"
+                  width={render.width}
+                  height={render.height}
+                  alt={`Official full-body art of ${char.name}`}
+                  fetchPriority="high"
+                  decoding="async"
+                />
+              </ViewTransition>
             </div>
-          </Reveal>
-          <Reveal delay={180}>
-            <p className="og-hero-verdict">{char.pull_verdict.verdict_label}</p>
-            {p.role_note && <p className="og-hero-note">{p.role_note}</p>}
-            {tier?.uncertain_or_prerelease && !preRelease && (
-              <Caveat>Tier sources disagree — treat this placement as approximate.</Caveat>
+            <span className="cx-credit">Art: Kuro Games</span>
+          </>
+        ) : (
+          <div className="cx-art">
+            <ViewTransition name={`char-${slug}`}>
+              <Image
+                src={p.portrait_url}
+                alt={`${char.name} portrait`}
+                width={500}
+                height={500}
+                priority
+                decoding="async"
+              />
+            </ViewTransition>
+            <span className={`cx-rarity cx-r${p.rarity}`} aria-hidden="true" />
+          </div>
+        )}
+        <div className="cx-main">
+          <p className="rs-kicker">
+            {p.element} · {p.weapon_type} · {p.rarity}★
+          </p>
+          <h1 className="cx-name">{char.name}</h1>
+          <p className="cx-verdict">{char.pull_verdict.verdict_label}</p>
+          {p.role_note && <p className="cx-note">{p.role_note}</p>}
+          <dl className="cx-stats">
+            <div className="cx-stat-tier">
+              <dt>Our tier</dt>
+              <dd>{tiers.ours ? tiers.ours.tier : preRelease ? "Pre-release" : "Not ranked"}</dd>
+              {tiers.ours && <small>{tiers.ours.label}</small>}
+            </div>
+            <div>
+              <dt>Community · ToA</dt>
+              <dd>{tiers.community ? tiers.community.split(" ")[0] : "Not ranked"}</dd>
+              {tiers.community && <small>{tiers.community.split(" ").slice(1).join(" ")}</small>}
+            </div>
+            <div>
+              <dt>Role</dt>
+              <dd>{p.role}</dd>
+            </div>
+            <div>
+              <dt>Rarity</dt>
+              <dd className={`cx-stars cx-r${p.rarity}`}>{"★".repeat(p.rarity)}</dd>
+            </div>
+          </dl>
+          <div className="cx-actions">
+            <CopyButton
+              text={buildSummaryText(char)}
+              buttonLabel="Copy build"
+              label={`Copy ${char.name} build summary`}
+            />
+            {getPrefarmGuide(slug) && (
+              <Link href={`/pre-farm/${slug}`} className="rs-btn">
+                Pre-farm guide
+              </Link>
             )}
-          </Reveal>
+            <Link href="/tier-list" className="rs-btn">
+              Tier list
+            </Link>
+          </div>
+          {tier?.uncertain_or_prerelease && !preRelease && (
+            <Caveat>Tier sources disagree — treat this placement as approximate.</Caveat>
+          )}
         </div>
       </header>
 

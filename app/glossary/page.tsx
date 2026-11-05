@@ -1,10 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import ObsidianSectionHead from "@/components/ObsidianSectionHead";
 
 export function generateMetadata(): Metadata {
   return {
-    title: "Plain-words glossary — WuWa Today",
+    title: "Plain-words glossary",
     description:
       "Every build word on WuWa Today, explained in short everyday sentences.",
     alternates: { canonical: "/glossary" },
@@ -31,12 +30,16 @@ export default function GlossaryPage() {
         ← Characters
       </Link>
 
-      <section className="og-section" aria-label="Plain-words glossary">
-        <ObsidianSectionHead
-          id="glossary"
-          title="Plain-words glossary"
-          blurb="Every build word on this site, explained the way you would explain it to someone who has never played."
-        />
+      <header className="og-page-hero">
+        <p className="og-page-kicker">Glossary</p>
+        <h1 className="og-page-title">Plain words</h1>
+        <p className="og-page-lede">
+          Every build word on this site, explained the way you would explain it
+          to someone who has never played.
+        </p>
+      </header>
+
+      <section className="og-section" id="glossary" aria-label="Plain-words glossary">
         <Group
           title="Jobs in a team"
           terms={[
