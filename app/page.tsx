@@ -1,5 +1,4 @@
 import type { CSSProperties } from "react";
-import { ViewTransition } from "react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import CopyButton from "../components/CopyButton";
@@ -153,10 +152,10 @@ export default function HomePage() {
                       const inner = (
                         <>
                           {portrait ? (
-                            <ViewTransition name={`char-${slug}`}>
+                            <>
                               {/* eslint-disable-next-line @next/next/no-img-element -- 56px portrait chip. */}
                               <img src={portrait} alt="" width={56} height={56} loading="lazy" decoding="async" />
-                            </ViewTransition>
+                            </>
                           ) : (
                             <span className="rs-rateup-mono" aria-hidden="true">{c.name.charAt(0)}</span>
                           )}

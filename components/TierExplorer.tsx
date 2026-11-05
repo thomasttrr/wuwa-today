@@ -435,10 +435,10 @@ function QuickLook({
         </button>
         <header className="tl-sheet-head">
           {char.portrait && (
-            <ViewTransition name={`char-${char.slug}`}>
+            <>
               {/* eslint-disable-next-line @next/next/no-img-element -- quick-look portrait. */}
               <img src={char.portrait} alt="" width={88} height={88} />
-            </ViewTransition>
+            </>
           )}
           <div>
             <p className="tl-sheet-kicker">

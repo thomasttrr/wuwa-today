@@ -201,12 +201,19 @@ export default function CharactersHub({
             <ul className="ch-grid">
               {g.items.map((c) => (
                 <li key={c.slug}>
-                  <Link href={`/characters/${c.slug}`} className="cp rs-spot" data-slug={c.slug} style={{ "--c": c.color, "--fx": c.fx, "--z": c.zoom } as CSSProperties}>
+                  <ViewTransition name={`char-${c.slug}`} share="vt-card">
+                  <Link
+                    href={`/characters/${c.slug}`}
+                    className="cp rs-spot"
+                    data-slug={c.slug}
+                    onClick={() => {
+                      // Tells the hero it is arriving by card morph, so it skips its own entrance.
+                      document.documentElement.dataset.vt = "hero";
+                    }}
+                    style={{ "--c": c.color, "--fx": c.fx, "--z": c.zoom } as CSSProperties}>
                     <span className="cp-ghost" aria-hidden="true">{c.ghost}</span>
-                    <ViewTransition name={`char-${c.slug}`}>
-                      {/* eslint-disable-next-line @next/next/no-img-element -- trimmed render cropped in CSS; export is unoptimized. */}
-                      <img className={`cp-art${c.art ? "" : " is-portrait"}`} src={c.art ?? c.portrait} alt="" loading="lazy" decoding="async" />
-                    </ViewTransition>
+                    {/* eslint-disable-next-line @next/next/no-img-element -- trimmed render cropped in CSS; export is unoptimized. */}
+                    <img className={`cp-art${c.art ? "" : " is-portrait"}`} src={c.art ?? c.portrait} alt="" loading="lazy" decoding="async" />
                     {c.tier && sort !== "tier" && <span className={`cp-tier cp-tier-${c.tier}`}>{c.tier}</span>}
                     <span className="cp-el" aria-hidden="true" />
                     <span className="cp-info">
@@ -217,6 +224,7 @@ export default function CharactersHub({
                     </span>
                     <span className={`cp-rar r${c.rarity}`} aria-hidden="true" />
                   </Link>
+                  </ViewTransition>
                 </li>
               ))}
             </ul>

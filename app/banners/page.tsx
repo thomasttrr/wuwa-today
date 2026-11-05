@@ -1,4 +1,4 @@
-import { ViewTransition, type CSSProperties } from "react";
+import type { CSSProperties } from "react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import Reveal from "../../components/Reveal";
@@ -56,10 +56,10 @@ function LineupCard({ c, banner, lead }: { c: GameCharacter; banner: Banner; lea
     <>
       <div className="bn-card-face">
         {rec ? (
-          <ViewTransition name={`char-${slug}`}>
+          <>
             {/* eslint-disable-next-line @next/next/no-img-element -- 256px portrait shown at 112px. */}
             <img src={rec.profile.portrait_url} alt="" width={112} height={112} loading="lazy" decoding="async" />
-          </ViewTransition>
+          </>
         ) : (
           <span className="bn-mono" aria-hidden="true">{c.name.charAt(0)}</span>
         )}

@@ -11,7 +11,10 @@ import { popElement, pushElement } from "@/lib/site-element";
 export default function ElementTheme({ color }: { color: string }) {
   useEffect(() => {
     pushElement(color);
-    return () => popElement();
+    return () => {
+      popElement();
+      delete document.documentElement.dataset.vt;
+    };
   }, [color]);
   return null;
 }

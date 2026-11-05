@@ -255,3 +255,22 @@
   .cx-hero-render .cx-main { max-width: none; }
   .cx-credit { top: 0.9rem; bottom: auto; }
 }
+
+/* Arriving from a hub tile: the panel itself is morphing in (see the
+   view-transition rules in resonance.css), so the hero's own entrance
+   animations stand down. One motion, not two. The scroll drift on the
+   render is kept. */
+html[data-vt="hero"] .cx-name,
+html[data-vt="hero"] .cx-verdict,
+html[data-vt="hero"] .cx-note,
+html[data-vt="hero"] .cx-stats,
+html[data-vt="hero"] .cx-actions,
+html[data-vt="hero"] .cx-ghost { animation: none; }
+html[data-vt="hero"] .cx-render { animation: none; }
+@supports (animation-timeline: view()) {
+  html[data-vt="hero"] .cx-render {
+    animation: cx-drift linear both;
+    animation-timeline: view();
+    animation-range: exit 0% exit 100%;
+  }
+}

@@ -305,6 +305,7 @@ export default async function CharacterPage({
       {/* Hero: portrait plate, name, verdict, a readout strip of the numbers
           people come for, and the two actions they take next. Tiers come
           from the tier list (lib/tiers) so every page agrees. */}
+      <ViewTransition name={`char-${slug}`} share="vt-card">
       <header
         className={render ? "cx-hero cx-hero-render" : "cx-hero"}
         style={{ "--el": el } as CSSProperties}
@@ -325,7 +326,7 @@ export default async function CharacterPage({
                 } as CSSProperties
               }
             >
-              <ViewTransition name={`char-${slug}`}>
+              <>
                 {/* eslint-disable-next-line @next/next/no-img-element -- trimmed full-body render; srcset of true downscales, static export is unoptimized. */}
                 <img
                   src={render.sizes[render.sizes.length - 1].file}
@@ -337,22 +338,20 @@ export default async function CharacterPage({
                   fetchPriority="high"
                   decoding="async"
                 />
-              </ViewTransition>
+              </>
             </div>
             <span className="cx-credit">Art: Kuro Games</span>
           </>
         ) : (
           <div className="cx-art">
-            <ViewTransition name={`char-${slug}`}>
-              <Image
-                src={p.portrait_url}
-                alt={`${char.name} portrait`}
-                width={500}
-                height={500}
-                priority
-                decoding="async"
-              />
-            </ViewTransition>
+            <Image
+              src={p.portrait_url}
+              alt={`${char.name} portrait`}
+              width={500}
+              height={500}
+              priority
+              decoding="async"
+            />
             <span className={`cx-rarity cx-r${p.rarity}`} aria-hidden="true" />
           </div>
         )}
@@ -408,6 +407,7 @@ export default async function CharacterPage({
           )}
         </div>
       </header>
+      </ViewTransition>
 
       <ObsidianToolbar
         label="On this page"
