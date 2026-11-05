@@ -79,7 +79,7 @@ export function CharMedal({
       style={vars(thumb ?? { src: "", fx: 0.5, z: 100, render: false }, { "--s": `${size}px` })}
     >
       <span className="ct-medal-in">
-        {thumb ? <Art t={thumb} eager={eager} /> : <span className="ct-mono" aria-hidden="true">{name.charAt(0)}</span>}
+        {thumb ? <Art t={thumb.medalSrc ? { ...thumb, src: thumb.medalSrc } : thumb} eager={eager} /> : <span className="ct-mono" aria-hidden="true">{name.charAt(0)}</span>}
       </span>
     </span>
   );

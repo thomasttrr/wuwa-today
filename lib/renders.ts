@@ -8,6 +8,12 @@ import rendersData from "@/data/renders.json";
  */
 export interface Thumb {
   src: string;
+  /**
+   * Optional height-480 variant of the same render, for CharMedal's small
+   * circles (30–88px). Same crop and aspect as src — only the resolution
+   * differs. Posters keep using src. Absent for portrait fallbacks.
+   */
+  medalSrc?: string;
   /** Head x position, 0..1, clamped so the crop never shows empty edges. */
   fx: number;
   /** Render width as % of the poster width (the hub's framing). */
@@ -16,14 +22,14 @@ export interface Thumb {
   render: boolean;
 }
 
-type Render = { sizes: { file: string; w: number }[]; focusX?: number; zoom?: number };
+type Render = { sizes: { file: string; w: number }[]; medalFile?: string; focusX?: number; zoom?: number };
 const renders = rendersData.renders as Record<string, Render>;
 
 export function thumbFor(slug: string | null | undefined, portrait?: string | null): Thumb | null {
   const r = slug ? renders[slug] : undefined;
   if (r) {
     const smallest = r.sizes.reduce((a, b) => (b.w < a.w ? b : a));
-    return { src: smallest.file, fx: Math.min(0.75, Math.max(0.25, r.focusX ?? 0.5)), z: r.zoom ?? 138, render: true };
+    return { src: smallest.file, medalSrc: r.medalFile, fx: Math.min(0.75, Math.max(0.25, r.focusX ?? 0.5)), z: r.zoom ?? 138, render: true };
   }
   const src = portrait ?? (slug ? `/images/chars/${slug}.webp` : null);
   return src ? { src, fx: 0.5, z: 100, render: false } : null;
