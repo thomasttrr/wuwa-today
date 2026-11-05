@@ -11,6 +11,7 @@ import {
 } from "@/lib/characters";
 import { activeBanners } from "@/lib/data";
 import { ELEMENT_COLORS, elementColor } from "@/lib/elements";
+import rendersData from "@/data/renders.json";
 import { buildTierModel, OUR_TIER_LABELS } from "@/lib/tiers";
 import "./hub.css";
 
@@ -25,6 +26,7 @@ export default function CharactersPage() {
   const ours = new Map(buildTierModel().chars.map((c) => [c.slug, c.ours?.tier ?? null]));
   const bannerNames = new Set(activeBanners.flatMap((b) => b.characters.map((c) => c.name)));
 
+  const renders = rendersData.renders as Record<string, { sizes: { file: string }[]; focusX?: number; zoom?: number }>;
   const chars: HubChar[] = characters.map((c) => ({
     slug: c.slug,
     name: c.name,
@@ -37,6 +39,11 @@ export default function CharactersPage() {
     preRelease: isPreRelease(c),
     tier: ours.get(c.slug) ?? null,
     onBanner: bannerNames.has(c.name),
+    art: renders[c.slug]?.sizes.at(-1)?.file ?? null,
+    // Head x position (0..1), clamped so the crop never exposes empty edges.
+    fx: Math.min(0.75, Math.max(0.25, renders[c.slug]?.focusX ?? 0.5)),
+    zoom: renders[c.slug]?.zoom ?? 138,
+    ghost: c.name.split(" ")[0],
   }));
   const live = chars.filter((c) => c.onBanner);
 

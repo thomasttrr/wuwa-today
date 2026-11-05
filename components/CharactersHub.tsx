@@ -16,6 +16,10 @@ export interface HubChar {
   preRelease: boolean;
   tier: string | null;
   onBanner: boolean;
+  art: string | null;
+  fx: number;
+  zoom: number;
+  ghost: string;
 }
 
 type SortKey = "tier" | "name" | "rarity";
@@ -197,20 +201,21 @@ export default function CharactersHub({
             <ul className="ch-grid">
               {g.items.map((c) => (
                 <li key={c.slug}>
-                  <Link href={`/characters/${c.slug}`} className="ch-tile rs-spot" style={{ "--c": c.color } as CSSProperties}>
-                    <span className={`ch-art ch-r${c.rarity}`} data-slug={c.slug}>
-                      <ViewTransition name={`char-${c.slug}`}>
-                        {/* eslint-disable-next-line @next/next/no-img-element -- 500px portrait shown at <=160px; export is unoptimized. */}
-                        <img src={c.portrait} alt="" width={128} height={128} loading="lazy" decoding="async" />
-                      </ViewTransition>
-                      {c.tier && sort !== "tier" && <span className={`ch-tier ch-tier-${c.tier}`}>{c.tier}</span>}
-                      {c.onBanner && <span className="ch-flag">On banner</span>}
-                      {!c.onBanner && c.preRelease && <span className="ch-flag ch-flag-soon">Upcoming</span>}
+                  <Link href={`/characters/${c.slug}`} className="cp rs-spot" data-slug={c.slug} style={{ "--c": c.color, "--fx": c.fx, "--z": c.zoom } as CSSProperties}>
+                    <span className="cp-ghost" aria-hidden="true">{c.ghost}</span>
+                    <ViewTransition name={`char-${c.slug}`}>
+                      {/* eslint-disable-next-line @next/next/no-img-element -- trimmed render cropped in CSS; export is unoptimized. */}
+                      <img className={`cp-art${c.art ? "" : " is-portrait"}`} src={c.art ?? c.portrait} alt="" loading="lazy" decoding="async" />
+                    </ViewTransition>
+                    {c.tier && sort !== "tier" && <span className={`cp-tier cp-tier-${c.tier}`}>{c.tier}</span>}
+                    <span className="cp-el" aria-hidden="true" />
+                    <span className="cp-info">
+                      {c.onBanner && <span className="cp-flag">On banner</span>}
+                      {!c.onBanner && c.preRelease && <span className="cp-flag cp-flag-soon">Upcoming</span>}
+                      <span className="cp-name">{c.name}</span>
+                      <span className="cp-meta">{c.role} · {c.weapon}</span>
                     </span>
-                    <span className="ch-name">{c.name}</span>
-                    <span className="ch-meta">
-                      <span className="ch-stars" aria-label={`${c.rarity} star`}>{c.rarity}★</span> {c.role} · {c.weapon}
-                    </span>
+                    <span className={`cp-rar r${c.rarity}`} aria-hidden="true" />
                   </Link>
                 </li>
               ))}
