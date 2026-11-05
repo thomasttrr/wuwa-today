@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useEffect, useMemo, useState, type CSSProperties, type ReactNode } from "react";
 import RollingCountdown from "./RollingCountdown";
+import useNow from "./useNow";
 import { CharPoster } from "./CharThumb";
 import { elementColor } from "@/lib/elements";
 import type { Team, TeamMember, TeamsModel } from "@/lib/teams";
@@ -25,6 +26,22 @@ const SECTIONS = [
 const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
 /** "2026-10-12" + "2026-11-09" -> "Oct 12 – Nov 9, 2026" (no Date, no TZ drift). */
+/**
+ * Shown once a reset date baked into teams.json has passed. The 28-day
+ * rotations bring new enemy lineups, so we never guess the next window —
+ * we just say the picks below belong to the previous rotation.
+ */
+function RotationEndedNote({ target }: { target: string }) {
+  const now = useNow(60_000);
+  if (!now || now.getTime() < Date.parse(target)) return null;
+  return (
+    <p className="tm-hint" role="status">
+      This rotation has reset. The teams below are from the previous rotation
+      until the next data update.
+    </p>
+  );
+}
+
 function dateRange(start: string, end: string): string {
   const [, sm, sd] = start.split("-").map(Number);
   const [ey, em, ed] = end.split("-").map(Number);
@@ -214,6 +231,7 @@ export default function TeamsExplorer({ model }: { model: TeamsModel }) {
         aside={<RollingCountdown target={model.tower.nextReset} label="Hazard Zone resets in · America server" size="md" />}
       >
         <div className="tm-notes">
+          <RotationEndedNote target={model.tower.nextReset} />
           <p>{model.tower.resetLine}</p>
           {model.tower.notes.map((n) => (
             <p key={n}>{n}</p>
@@ -290,6 +308,7 @@ export default function TeamsExplorer({ model }: { model: TeamsModel }) {
         aside={<RollingCountdown target={model.wastes.nextReset} label="Respawning Waters resets in · America server" size="md" />}
       >
         <div className="tm-notes">
+          <RotationEndedNote target={model.wastes.nextReset} />
           <p>{model.wastes.resetLine}</p>
         </div>
 

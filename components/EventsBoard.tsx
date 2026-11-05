@@ -45,19 +45,24 @@ export default function EventsBoard({ events, builtAt }: { events: GameEvent[]; 
   const types = useMemo(() => [...new Set(events.map((e) => e.type))].sort(), [events]);
   const list = events.filter((e) => !type || e.type === type);
   const withStatus = list.map((e) => ({ e, st: statusOf(e, now) }));
-  const byEnd = (a: { e: GameEvent }, b: { e: GameEvent }) =>
-    (a.e.endsAt ?? "9999").localeCompare(b.e.endsAt ?? "9999");
+  // Compare instants, not strings — stored times can carry different offsets.
+  const ts = (iso: string | null) => (iso ? Date.parse(iso) : Infinity);
+  const byEnd = (a: { e: GameEvent }, b: { e: GameEvent }) => {
+    const x = ts(a.e.endsAt);
+    const y = ts(b.e.endsAt);
+    return x === y ? 0 : x < y ? -1 : 1;
+  };
   const live = withStatus.filter((x) => x.st === "live").sort(byEnd);
-  const soon = withStatus.filter((x) => x.st === "soon").sort((a, b) => a.e.startsAt.localeCompare(b.e.startsAt));
+  const soon = withStatus.filter((x) => x.st === "soon").sort((a, b) => ts(a.e.startsAt) - ts(b.e.startsAt));
   const always = withStatus.filter((x) => x.st === "always");
   const ended = withStatus.filter((x) => x.st === "ended").sort((a, b) => byEnd(b, a));
 
   // Timeline window: earliest start to latest end among dated events.
   const dated = events.filter((e) => e.endsAt);
-  const t0 = Math.min(...dated.map((e) => new Date(e.startsAt).getTime()));
-  const t1 = Math.max(...dated.map((e) => new Date(e.endsAt!).getTime()));
+  const t0 = dated.length ? Math.min(...dated.map((e) => new Date(e.startsAt).getTime())) : builtAt;
+  const t1 = dated.length ? Math.max(...dated.map((e) => new Date(e.endsAt!).getTime())) : builtAt;
   const span = t1 - t0;
-  const pct = (t: number) => `${((Math.min(Math.max(t, t0), t1) - t0) / span) * 100}%`;
+  const pct = (t: number) => (span > 0 ? `${((Math.min(Math.max(t, t0), t1) - t0) / span) * 100}%` : "0%");
   const ticks: number[] = [];
   const first = new Date(t0);
   first.setUTCHours(0, 0, 0, 0);

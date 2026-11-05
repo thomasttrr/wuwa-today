@@ -5,7 +5,7 @@ import useNow from "./useNow";
 /**
  * Thin progress bar showing how far through a reset cycle we are
  * (daily = 24h, weekly = 7d). Ticks every 10s via useNow(10_000) on the
- * shared NowProvider clock — plenty for a bar that moves this slowly.
+ * shared useNow clock — plenty for a bar that moves this slowly.
  * Renders a static placeholder pre-mount so the static export stays
  * hydration-safe.
  */

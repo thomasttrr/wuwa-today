@@ -51,7 +51,7 @@ export default function PhaseTrack({ phases, builtAt }: { phases: PhaseNode[]; b
       <li className="pp-phase pp-phase-tba">
         <p className="pp-phase-kicker">Next phase</p>
         <p className="pp-phase-tba-t">Not announced</p>
-        <p className="pp-phase-dates">Lily (3.8) is expected; no date is official yet.</p>
+        <p className="pp-phase-dates">The next version&apos;s banner is expected; no date is official yet.</p>
       </li>
     </ol>
   );

@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import RollingCountdown from "./RollingCountdown";
 import CycleProgress from "./CycleProgress";
+import useNow from "./useNow";
 import { SERVER_OPTIONS, nextDailyReset, nextWeeklyReset } from "../lib/dates";
 
 const STORAGE_KEY = "wuwa-today:server-id";
@@ -40,9 +41,13 @@ export default function ResetTimers() {
     }
   }
 
-  // Recompute each render; ObsidianCountdown ticks every second on its own.
-  const daily = nextDailyReset(server.offsetHours).toISOString();
-  const weekly = nextWeeklyReset(server.offsetHours).toISOString();
+  // Re-derive the targets from the shared clock so they roll forward the
+  // moment a reset passes (a tab left open across a reset must not freeze at
+  // "Ended"). `now` is null until hydration, so the static render is stable.
+  const now = useNow();
+  const anchor = now ?? new Date(0);
+  const daily = nextDailyReset(server.offsetHours, anchor).toISOString();
+  const weekly = nextWeeklyReset(server.offsetHours, anchor).toISOString();
 
   return (
     <div className="og-reset">

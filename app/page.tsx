@@ -35,7 +35,7 @@ const BUILT_AT = Date.now();
 
 function srcSetFor(art: string) {
   const base = art.replace(/\.webp$/, "");
-  return `${base}-1024.webp 1024w, ${base}-1200.webp 1200w, ${base}-1920.webp 1920w`;
+  return `${base}-512.webp 512w, ${base}.webp 640w, ${base}-1024.webp 1024w, ${base}-1200.webp 1200w, ${base}-1920.webp 1920w`;
 }
 
 export default function HomePage() {
@@ -84,6 +84,8 @@ export default function HomePage() {
           src={heroArt}
           srcSet={srcSetFor(heroArt)}
           sizes="(max-width: 760px) 100vw, 640px"
+          width={640}
+          height={640}
           alt={banner?.imageAlt ?? "Official Wuthering Waves key art"}
           loading="eager"
           fetchPriority="high"

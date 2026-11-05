@@ -166,7 +166,7 @@
 
 /* --- cards --- */
 .ev-section { margin-bottom: 2.25rem; }
-.ev-grid { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); }
+.ev-grid { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); }
 .ev-card {
   position: relative;
   display: grid;

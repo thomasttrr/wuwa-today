@@ -19,7 +19,9 @@ export default function WaveProgress({
   const now = useNow(30_000);
   const s = new Date(start).getTime();
   const e = new Date(end).getTime();
-  const left = now ? Math.min(1, Math.max(0, (e - now.getTime()) / (e - s))) : 1;
+  const span = e - s;
+  const left =
+    now && span > 0 ? Math.min(1, Math.max(0, (e - now.getTime()) / span)) : now ? 0 : 1;
   const W = 600;
   let d = "M0 12";
   for (let x = 0; x <= W; x += 10) d += ` L${x} ${(12 + Math.sin(x / 14) * 7).toFixed(2)}`;

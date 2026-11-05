@@ -59,6 +59,12 @@ export async function generateMetadata({
 }
 
 /** Small honest caveat for uncertain / pre-release sections. */
+/** "3.7-phase-2" → "Version 3.7 Phase 2 · "; internal ids like "no-active-banner" are hidden. */
+function bannerLabel(id: string | null | undefined): string {
+  const m = id?.match(/^(\d+\.\d+)-phase-(\d+)$/);
+  return m ? `Version ${m[1]} Phase ${m[2]} · ` : "";
+}
+
 function Caveat({ children }: { children: ReactNode }) {
   return (
     <p className="og-caveat" role="note">
@@ -501,7 +507,7 @@ export default async function CharacterPage({
             <div className="og-stat-panel">
               <ul className="og-stat-bars">
                 {build.stat_priorities.map((sp, i) => (
-                  <li key={sp.piece}>
+                  <li key={`${sp.piece}-${i}`}>
                     <div className="og-stat-head">
                       <span className="og-stat-label">
                         <strong>{sp.piece}</strong> · {sp.main_stat}
@@ -611,7 +617,8 @@ export default async function CharacterPage({
             <span className="og-verdict-label">{char.pull_verdict.verdict_label}</span>
             <p className="og-verdict-text">{char.pull_verdict.verdict}</p>
             <p className="og-verdict-meta">
-              Banner {char.pull_verdict.banner_id} · Published {char.pull_verdict.published_at}
+              {bannerLabel(char.pull_verdict.banner_id)}
+              Published {char.pull_verdict.published_at}
             </p>
             {char.pull_verdict.uncertain_or_prerelease && !preRelease && (
               <Caveat>This verdict is based on uncertain or incomplete data.</Caveat>

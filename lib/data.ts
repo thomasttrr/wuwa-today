@@ -61,7 +61,16 @@ export interface RedeemCode {
   notes?: string;
 }
 
-export type EventType = "limited" | "login" | "spending" | "permanent" | "web";
+export type EventType =
+  | "limited"
+  | "login"
+  | "spending"
+  | "permanent"
+  | "web"
+  | "leisure"
+  | "exploration"
+  | "community"
+  | "trial";
 export type EventStatus = "active" | "upcoming" | "ended";
 
 export interface GameEvent {
@@ -80,7 +89,12 @@ export const banners = (bannersRaw as { banners: Banner[] }).banners;
 export const bannerHistory = (bannersRaw as { history: BannerHistoryEntry[] }).history;
 export const bannerMeta = (bannersRaw as { _meta: { version: string; versionTitle: string; updatedAt: string } })._meta;
 
-export const activeCodes = (codesRaw as { active: RedeemCode[] }).active;
+// Codes whose announced expiry has passed are dropped at build time so a stale
+// JSON file never advertises a dead code (codes without an expiry stay).
+const allActiveCodes = (codesRaw as { active: RedeemCode[] }).active;
+export const activeCodes = allActiveCodes.filter(
+  (c) => !c.expiresAt || Number.isNaN(Date.parse(c.expiresAt)) || Date.parse(c.expiresAt) > Date.now(),
+);
 export const codesMeta = (codesRaw as { _meta: { updatedAt: string } })._meta;
 
 export const events = (eventsRaw as { events: GameEvent[] }).events;
@@ -101,20 +115,33 @@ function statusFromDates<T extends { startsAt: string; endsAt: string | null; st
 }
 
 export const activeBanners = banners.filter((b) => statusFromDates(b) === "active");
+if (activeBanners.length === 0) {
+  // The home hero, banners page and accent colour are decided at build time.
+  // See UPDATE_PLAYBOOK.md ("Scheduled redeploys") — rebuild at each phase boundary.
+  console.warn("[wuwa-today] No active banner at build time — the home hero will use fallback art.");
+}
 export const upcomingBanners = banners.filter((b) => statusFromDates(b) === "upcoming");
 export const activeEvents = events
   .filter((e) => statusFromDates(e) === "active")
   .sort((a, b) => {
     if (!a.endsAt) return 1;
     if (!b.endsAt) return -1;
-    return a.endsAt < b.endsAt ? -1 : 1;
+    return Date.parse(a.endsAt) - Date.parse(b.endsAt);
   });
 export const upcomingEvents = events.filter((e) => statusFromDates(e) === "upcoming");
 
-/** Site-wide "last verified" stamp: the most recent data-file update. */
+function newest(stamps: string[]): string {
+  return stamps.reduce((a, b) => (Date.parse(b) > Date.parse(a) ? b : a));
+}
+
+/** Banner/event "last verified" stamp: the most recent of the two files. */
 export function dataUpdatedAt(): string {
-  const stamps = [bannerMeta.updatedAt, codesMeta.updatedAt, eventsMeta.updatedAt];
-  return stamps.sort().reverse()[0];
+  return newest([bannerMeta.updatedAt, eventsMeta.updatedAt]);
+}
+
+/** When the redeem-code list was last verified (tracked separately — it ages faster). */
+export function codesUpdatedAt(): string {
+  return codesMeta.updatedAt;
 }
 
 // ---------------------------------------------------------------------------

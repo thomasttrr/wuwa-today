@@ -154,8 +154,9 @@ export default function PullPlannerPage() {
                   best partner — budget for both.
                 </li>
                 <li>
-                  <strong>Skipped Hsin?</strong> Save and wait: Suoming’s
-                  numbers are still pre-release data.
+                  <strong>Skipped Hsin?</strong> Save and compare: Suoming’s
+                  verdict was written from pre-release numbers, so check her
+                  verdict page for launch-day updates first.
                 </li>
               </ul>
               <p className="og-q-links">
@@ -321,7 +322,7 @@ export default function PullPlannerPage() {
 
       <p className="pp-note">
         All picks trace to the verified pull verdicts above (published Oct
-        13–14, 2026). Suoming&apos;s recommendation uses pre-release data. All
+        13–14, 2026). Suoming&apos;s recommendation was written from pre-release data. All
         dates are server time (UTC+8).
       </p>
       <UpdatedStamp />

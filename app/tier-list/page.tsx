@@ -56,7 +56,9 @@ export default function TierListPage() {
                   <Link href={`/characters/${c.slug}`}>{c.name}</Link>
                 </span>
               ))}
-              . Pre-release Resonators get no placement until launch.
+              . Our editorial list hasn&apos;t placed these yet — unreleased Resonators get
+              no placement until launch, and newly launched ones follow once there&apos;s enough
+              data. Community tiers above may already rank them.
             </p>
           </div>
         )}

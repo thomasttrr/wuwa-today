@@ -4,7 +4,6 @@ import Link from "next/link";
 import { Martian_Mono, Mona_Sans } from "next/font/google";
 import ResonanceNav, { type SearchItem } from "@/components/ResonanceNav";
 import ScrollTop from "@/components/ScrollTop";
-import NowProvider from "@/components/NowProvider";
 import Spotlight from "@/components/Spotlight";
 import SiteTheme, { type ThemeSlot } from "@/components/SiteTheme";
 import ThemeSwitch from "@/components/ThemeSwitch";
@@ -79,6 +78,9 @@ export const viewport: Viewport = {
   /* viewport-fit=cover engages the iPhone notch/home-indicator safe-area
      insets so env(safe-area-inset-bottom) on the floating nav is real. */
   viewportFit: "cover",
+  /* Tint mobile browser chrome / overscroll to the dark canvas. */
+  themeColor: "#06070a",
+  colorScheme: "dark",
 };
 
 export const metadata: Metadata = {
@@ -105,8 +107,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         data-site-el={siteEl}
         style={{ "--el": siteEl } as CSSProperties}
       >
-        {/* One shared 1s ticker for every countdown/progress bar on the page. */}
-        <NowProvider>
         <a className="skip-link" href="#main">
           Skip to content
         </a>
@@ -144,7 +144,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </footer>
         <ScrollTop />
         <Spotlight />
-        </NowProvider>
       </body>
     </html>
   );

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, type ReactNode } from "react";
+import { useEffect, useLayoutEffect, useRef, type ReactNode } from "react";
 
 /**
  * Staggered scroll reveal, progressively enhanced.
@@ -21,8 +21,18 @@ export default function Reveal({
 }) {
   const ref = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
+  // Runs before first paint after hydration: arm the hidden state and, in the
+  // same frame, mark anything already on screen as visible — so above-the-fold
+  // content never blinks out and back in.
+  useLayoutEffect(() => {
     document.documentElement.classList.add("js-anim");
+    const el = ref.current;
+    if (!el) return;
+    const r = el.getBoundingClientRect();
+    if (r.bottom > 0 && r.top < window.innerHeight * 0.96) el.classList.add("is-visible");
+  }, []);
+
+  useEffect(() => {
     const el = ref.current;
     if (!el) return;
     if (delay > 0) el.style.transitionDelay = `${delay}ms`;

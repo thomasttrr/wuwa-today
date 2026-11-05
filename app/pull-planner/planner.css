@@ -43,7 +43,7 @@
   padding: 0;
   display: grid;
   gap: 10px;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
 }
 .pp-phase {
   position: relative;
@@ -164,7 +164,7 @@
 }
 
 /* --- verdict grid --- */
-.pp-verdicts { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); }
+.pp-verdicts { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr)); }
 .pp-v {
   position: relative;
   display: grid;

@@ -53,7 +53,11 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
 
 /* ---------- layout ---------- */
 
-.container { max-width: 1080px; margin: 0 auto; padding: 0 1.25rem; }
+.container {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 max(1.25rem, env(safe-area-inset-right)) 0 max(1.25rem, env(safe-area-inset-left));
+}
 
 /* The solid bottom tab bar (.og-tabbar) replaced the old sticky header
    and the floating capsule nav. Its styles live in obsidian.css. */
@@ -97,7 +101,7 @@ h3 { font-size: 1.05rem; margin: 1.25rem 0 0.5rem; font-weight: 700; }
 
 
 .grid { display: grid; gap: 1rem; }
-.grid-2 { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+.grid-2 { grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); }
 
 /* iOS grouped cards: flat #1C1C1E on black, no heavy borders. */
 .card {

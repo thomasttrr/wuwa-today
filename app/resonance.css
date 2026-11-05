@@ -107,7 +107,9 @@ body.rs ::selection { background: color-mix(in oklch, var(--el) 40%, transparent
 
 body.rs main {
   padding-top: 1rem;
-  padding-bottom: calc(6.5rem + env(safe-area-inset-bottom));
+  /* The footer below already clears the floating mobile nav (6.5rem), so
+     main only needs breathing room — avoids ~100px of doubled dead space. */
+  padding-bottom: 2rem;
 }
 @media (min-width: 900px) {
   body.rs main { padding-top: 1.75rem; padding-bottom: 4rem; }
@@ -122,6 +124,15 @@ body.rs h1, body.rs h2, body.rs h3 {
 }
 
 body.rs :focus-visible { outline: 2px solid var(--el); outline-offset: 3px; }
+/* Items inside horizontally scrolling strips: the scroller clips anything
+   drawn outside its box, so keep the focus ring inside it. */
+body.rs .rs-tabs > a:focus-visible,
+body.rs .sr-links a:focus-visible,
+body.rs .ch-chips > :focus-visible,
+body.rs .tl-els > :focus-visible,
+body.rs .tm-jump a:focus-visible,
+body.rs .ev-filters > :focus-visible,
+body.rs .bn-timeline :focus-visible { outline-offset: -3px; }
 
 .rs-kicker {
   font-family: var(--rs-mono);
@@ -168,8 +179,8 @@ body.rs :focus-visible { outline: 2px solid var(--el); outline-offset: 3px; }
 .rs-nav {
   position: fixed;
   z-index: 50;
-  left: 12px;
-  right: 12px;
+  left: max(12px, env(safe-area-inset-left));
+  right: max(12px, env(safe-area-inset-right));
   bottom: calc(10px + env(safe-area-inset-bottom));
   display: flex;
   align-items: center;
@@ -225,7 +236,10 @@ body.rs :focus-visible { outline: 2px solid var(--el); outline-offset: 3px; }
   transition: color var(--rs-d1) ease;
 }
 .rs-tabs > a:hover { color: var(--rs-ink); text-decoration: none; }
-.rs-tabs > a[aria-current="page"] { color: var(--rs-on-el); }
+/* Dark on-accent text only once the accent pill exists behind it; before
+   hydration (or without JS) the current tab keeps readable light text. */
+.rs-tabs > a[aria-current="page"] { color: var(--rs-ink); }
+.rs-tabs:has(.rs-tab-pill) > a[aria-current="page"] { color: var(--rs-on-el); }
 .rs-tab-pill {
   position: absolute;
   top: 0;
@@ -281,7 +295,7 @@ body.rs :focus-visible { outline: 2px solid var(--el); outline-offset: 3px; }
   }
   body.rs main { padding-top: calc(1.75rem + 72px); }
   .rs-brand { display: inline-flex; }
-  .rs-tabs { justify-content: center; }
+  .rs-tabs { justify-content: safe center; }
   .rs-search-label, .rs-search-btn kbd { display: inline; }
 }
 
@@ -419,6 +433,7 @@ body.rs .rs-palette-field input:focus-visible { outline: none; }
   right: -3%;
   width: min(640px, 58%);
   height: auto;
+  aspect-ratio: 1;
   pointer-events: none;
   filter: drop-shadow(0 30px 60px rgb(0 0 0 / 0.55));
 }
@@ -800,6 +815,11 @@ a.rs-tile:active { transform: scale(0.985); }
    ========================================================================== */
 
 .js-anim body.rs .reveal { transform: translateY(18px) scale(0.985); }
+@media (prefers-reduced-motion: reduce) {
+  /* Out-specify the rule above so reduced-motion users never see the offset. */
+  .js-anim body.rs .reveal,
+  .js-anim body.rs .reveal.is-visible { opacity: 1; transform: none; transition: none; }
+}
 .js-anim body.rs .reveal.is-visible {
   transform: none;
   transition: opacity var(--rs-d3) var(--rs-ease), transform var(--rs-d3) var(--rs-spring);

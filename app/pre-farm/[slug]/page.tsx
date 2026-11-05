@@ -313,8 +313,8 @@ export default async function PrefarmPage({
                 covers only what is confirmed today — who she is, when she is
                 expected, and the echo set you can already farm. Full
                 materials, kit details and farming routes land here after the
-                Version 3.8 preview broadcast on Friday, Nov 6, 2026 at
-                6:00 AM ET.
+                Version 3.8 preview broadcast (Friday, Nov 6, 2026, 6:00 AM
+                ET).
                 Estimated dates are labeled as estimates.
               </p>
             ) : (
