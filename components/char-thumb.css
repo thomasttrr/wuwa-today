@@ -13,11 +13,13 @@
   box-shadow: none;
   /* Head centred, but never so far that the render's edge shows. */
   left: clamp(calc(100% - var(--w)), calc(50% - var(--fx, 0.5) * var(--w)), 0%);
-  top: var(--t, 3%);
+  top: var(--t, 0%);
   transition: transform var(--rs-d3) var(--rs-ease);
 }
 /* No render yet: square portrait, baked-in label cropped off the bottom. */
-.ct-art.is-portrait { --w: 100%; left: 0; top: 0; height: 128%; object-fit: cover; object-position: 50% 0; }
+/* Square icon fallback (rovers): crop past its rounded margin and the
+   element badge baked into the top-right corner. */
+.ct-art.is-portrait { --w: 150%; left: -8%; top: -6%; height: auto; }
 .ct-mono { position: absolute; inset: 0; display: grid; place-items: center; font-family: var(--rs-display); font-weight: 800; font-size: 1.6rem; color: var(--c, var(--rs-ink-3)); }
 .r5 { --rar: #f0c75e; }
 .r4 { --rar: #b28cf6; }
@@ -37,8 +39,7 @@
   background:
     radial-gradient(95% 70% at 50% 26%, color-mix(in oklch, var(--c, #6d6e79) 40%, transparent), transparent 72%),
     linear-gradient(180deg, color-mix(in oklch, var(--c, #6d6e79) 9%, var(--rs-surface-2)), var(--rs-surface));
-  border: 1px solid color-mix(in oklch, var(--c, #6d6e79) 24%, transparent);
-  transition: transform var(--rs-d2) var(--rs-spring), border-color var(--rs-d1) ease, box-shadow var(--rs-d2) var(--rs-ease);
+  transition: transform var(--rs-d2) var(--rs-spring), box-shadow var(--rs-d2) var(--rs-ease);
 }
 .ct-ghost {
   position: absolute;
@@ -68,6 +69,9 @@
   z-index: 2;
   pointer-events: none;
   background: linear-gradient(0deg, color-mix(in oklch, var(--rs-surface) 96%, transparent) 6%, color-mix(in oklch, var(--rs-surface) 50%, transparent) 26%, transparent 48%);
+  /* Edge drawn over the art (not a border) so the art reaches the very top. */
+  border-radius: inherit;
+  box-shadow: inset 0 0 0 1px color-mix(in oklch, var(--c, #6d6e79) 28%, transparent);
 }
 .ct-poster > :not(.ct-ghost, .ct-art, .ct-name, .ct-rar, .ct-mono) { z-index: 3; }
 .ct-name {
@@ -94,8 +98,7 @@
   :is(a, button):hover > .ct-poster,
   :is(a, button):hover > * > .ct-poster {
     transform: translateY(-3px);
-    border-color: color-mix(in oklch, var(--c) 60%, transparent);
-    box-shadow: 0 14px 30px color-mix(in oklch, var(--c) 22%, transparent);
+    box-shadow: 0 0 0 1px color-mix(in oklch, var(--c) 60%, transparent), 0 14px 30px color-mix(in oklch, var(--c) 22%, transparent);
   }
   :is(a, button):hover .ct-poster .ct-art:not(.is-portrait) { transform: translateY(-5px); }
 }
@@ -124,7 +127,7 @@
   background: radial-gradient(70% 70% at 50% 35%, color-mix(in oklch, var(--c, #6d6e79) 45%, var(--rs-surface-2)), var(--rs-surface) 90%);
   box-shadow: inset 0 0 0 1.5px var(--rs-canvas, #0a0a0d);
 }
-.ct-medal .ct-art { --k: 1.55; --t: 4%; }
+.ct-medal .ct-art { --k: 1.55; }
 .ct-medal .ct-mono { font-size: calc(var(--s, 48px) * 0.4); }
 @media (pointer: fine) {
   a:hover .ct-medal { box-shadow: 0 0 18px color-mix(in oklch, var(--c) 45%, transparent); }

@@ -380,7 +380,7 @@ body.rs .ch-search input:focus-visible { outline: none; }
   width: calc(var(--z, 138) * 1%);
   max-width: none;
   height: auto;
-  top: 3%;
+  top: 0;
   /* Head centred, but never so far that the art's edge shows. */
   left: clamp(calc(100% - var(--z, 138) * 1%), calc(50% - var(--fx, 0.5) * var(--z, 138) * 1%), 0%);
   filter: drop-shadow(0 14px 22px rgb(0 0 0 / 0.5));
