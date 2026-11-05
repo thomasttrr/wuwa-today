@@ -45,16 +45,19 @@
 .cx-rarity.cx-r5 { background: #f0c75e; }
 .cx-rarity.cx-r4 { background: #b28cf6; }
 
-.cx-main { display: grid; gap: 0.7rem; min-width: 0; }
+.cx-main { display: grid; gap: 0.7rem; min-width: 0; width: 100%; container-type: inline-size; }
 .cx-name {
   margin: 0;
   font-weight: 800;
   font-stretch: 125% !important;
   text-transform: uppercase;
-  font-size: clamp(2.8rem, 7vw, 5.6rem);
+  /* Fit the longest word to the column (a wide uppercase letter is about
+     0.82em), never past the design maximum. Breaks only at spaces. */
+  font-size: min(clamp(2.8rem, 7vw, 5.6rem), calc(100cqw / (var(--len, 8) * 0.82)));
   line-height: 0.86;
   letter-spacing: -0.035em;
-  overflow-wrap: anywhere;
+  overflow-wrap: normal;
+  word-break: normal;
 }
 .cx-verdict { margin: 0.2rem 0 0; font-family: var(--rs-display); font-weight: 700; font-stretch: 112%; font-size: 1.2rem; color: var(--el); }
 .cx-note { margin: 0; max-width: 56ch; color: var(--rs-ink-2); line-height: 1.55; }

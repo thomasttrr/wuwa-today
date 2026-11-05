@@ -360,7 +360,12 @@ export default async function CharacterPage({
           <p className="rs-kicker">
             {p.element} · {p.weapon_type} · {p.rarity}★
           </p>
-          <h1 className="cx-name">{char.name}</h1>
+          <h1
+            className="cx-name"
+            style={{ "--len": Math.max(...char.name.split(" ").map((w) => w.length)) } as CSSProperties}
+          >
+            {char.name}
+          </h1>
           <p className="cx-verdict">{char.pull_verdict.verdict_label}</p>
           {p.role_note && <p className="cx-note">{p.role_note}</p>}
           <dl className="cx-stats">
