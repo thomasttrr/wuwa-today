@@ -12,6 +12,7 @@ export const metadata: Metadata = {
   title: "Pre-Farm Guides — What to Farm Before the Banner",
   description:
     "Pre-farm checklists for upcoming Wuthering Waves banners: every ascension and forte material with verified quantities and farming routes.",
+  alternates: { canonical: "/pre-farm" },
 };
 
 export default function PrefarmIndex() {

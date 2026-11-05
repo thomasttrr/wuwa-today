@@ -40,6 +40,7 @@ export async function generateMetadata({
   return {
     title: `${guide.character} Pre-Farm Guide — Materials & Farming Routes`,
     description: guide.description,
+    alternates: { canonical: `/pre-farm/${slug}` },
   };
 }
 
