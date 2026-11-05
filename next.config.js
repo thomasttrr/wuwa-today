@@ -6,8 +6,11 @@ const nextConfig = {
   output: "export",
   images: { unoptimized: true },
   // React <ViewTransition> shared-element morphs on client navigation
-  // (character tile -> character hero).
-  experimental: { viewTransition: true },
+  // (character tile -> character hero) need no config in Next 16:
+  // view transitions work in the App Router out of the box with
+  // React 19.3. The old experimental.viewTransition flag was removed
+  // in Nov 2026 — Next 16.4.5 no longer recognises the key and warned
+  // about it on every build.
   // The old /guides model is retired. Every legacy guide URL (and the /guides
   // index itself) permanently redirects to its replacement in the character hub.
   // The /codes index is also retired (active codes live on the homepage now)
