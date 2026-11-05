@@ -351,3 +351,5 @@ Official Kuro Games full sprites for the character-page hero, from each Resonato
 
 ### Lily full render (2026-11-04)
 `renders/lily-*.webp` — transparent bust from https://cdn.prydwen.gg/images/wuthering-waves/characters/lily_full.webp (1318×1100, supplied by the site owner; the wiki has no Lily sprite). Official Kuro Games art as hosted by Prydwen; trimmed, WebP q82 at 1100/800px tall, never upscaled. Pre-release character: replace if a wiki full sprite appears.
+
+**Rovers (2026-11-05):** the four Rover pages share one art piece supplied by Tom (`renders/rover-840.webp`, 610x840, male + female Rover pair, alpha). It replaces the old portrait hero and thumbnails; not from the wiki, source URL unknown.

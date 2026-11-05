@@ -1143,6 +1143,66 @@
    "sourceUrl": "https://cdn.prydwen.gg/images/wuthering-waves/characters/lily_full.webp",
    "focusX": 0.577,
    "zoom": 128
+  },
+  "aero-rover": {
+   "width": 610,
+   "height": 840,
+   "sizes": [
+    {
+     "file": "/images/renders/rover-840.webp",
+     "w": 610,
+     "h": 840
+    }
+   ],
+   "source": "Rover pair art supplied by Tom (2026-11-05)",
+   "sourceUrl": "",
+   "focusX": 0.5,
+   "zoom": 100
+  },
+  "havoc-rover": {
+   "width": 610,
+   "height": 840,
+   "sizes": [
+    {
+     "file": "/images/renders/rover-840.webp",
+     "w": 610,
+     "h": 840
+    }
+   ],
+   "source": "Rover pair art supplied by Tom (2026-11-05)",
+   "sourceUrl": "",
+   "focusX": 0.5,
+   "zoom": 100
+  },
+  "electro-rover": {
+   "width": 610,
+   "height": 840,
+   "sizes": [
+    {
+     "file": "/images/renders/rover-840.webp",
+     "w": 610,
+     "h": 840
+    }
+   ],
+   "source": "Rover pair art supplied by Tom (2026-11-05)",
+   "sourceUrl": "",
+   "focusX": 0.5,
+   "zoom": 100
+  },
+  "spectro-rover": {
+   "width": 610,
+   "height": 840,
+   "sizes": [
+    {
+     "file": "/images/renders/rover-840.webp",
+     "w": 610,
+     "h": 840
+    }
+   ],
+   "source": "Rover pair art supplied by Tom (2026-11-05)",
+   "sourceUrl": "",
+   "focusX": 0.5,
+   "zoom": 100
   }
  }
 }
