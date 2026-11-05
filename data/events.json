@@ -1,7 +1,7 @@
 {
   "_meta": {
     "comment": "Active and upcoming in-game events. Times in server time (UTC+8) unless noted; end dates from community coverage are estimates — mark timeNote accordingly.",
-    "updatedAt": "2026-10-21T18:45:00-04:00"
+    "updatedAt": "2026-11-04T20:37:00-05:00"
   },
   "events": [
     {
@@ -11,7 +11,7 @@
       "name": "Artisan's Search",
       "rewards": "Astrite, character upgrade materials",
       "startsAt": "2026-10-08T04:00:00+08:00",
-      "status": "active",
+      "status": "ended",
       "timeNote": "Exact daily boundary (03:59) from official Version 3.7 patch notes; reward totals from community coverage.",
       "type": "limited"
     },
@@ -120,7 +120,7 @@
       "name": "Waking Moon Fishing",
       "rewards": "Astrite, Advanced Sealed Tubes, event items",
       "startsAt": "2026-10-15T10:00:00+08:00",
-      "status": "active",
+      "status": "ended",
       "timeNote": "Times from the official Version 3.7 patch notes (2026-10-15 10:00 – 2026-11-01 09:59 UTC+8).",
       "type": "web"
     },
@@ -131,7 +131,7 @@
       "name": "Echo Erase",
       "rewards": "Astrite, event items (verify in-game)",
       "startsAt": "2026-10-22T10:00:00+08:00",
-      "status": "upcoming",
+      "status": "active",
       "timeNote": "Dates/times from the official Version 3.7 patch notes as reported by coverage; verify in-game.",
       "type": "leisure"
     },
@@ -142,7 +142,7 @@
       "name": "Gifts of Singing Drizzle",
       "rewards": "10 Radiant Tides, 100 Premium Tuner, 5 Crystal Solvent",
       "startsAt": "2026-10-22T10:00:00+08:00",
-      "status": "upcoming",
+      "status": "active",
       "timeNote": "Reward breakdown from the official Version 3.7 patch notes as reported by coverage; verify in-game.",
       "type": "login"
     },
@@ -153,7 +153,7 @@
       "name": "Beyond the Waves: Land of Xuanfang",
       "rewards": "Astrite, Lustrous Tide, Crystal Solvent, Premium Tuner, event materials (per Game8 guide)",
       "startsAt": "2026-10-29T04:00:00+08:00",
-      "status": "upcoming",
+      "status": "active",
       "timeNote": "Dates from the official Version 3.7 patch notes as reported by coverage; verify in-game.",
       "type": "exploration"
     },
@@ -164,7 +164,7 @@
       "name": "Chord Cleansing",
       "rewards": "Double Echo drops, double Echo leveling materials",
       "startsAt": "2026-11-04T04:00:00+08:00",
-      "status": "upcoming",
+      "status": "active",
       "timeNote": "Dates from Game8's event schedule; verify in-game.",
       "type": "limited"
     },
@@ -175,7 +175,7 @@
       "name": "Battle Rush (community contest)",
       "rewards": "Astrite x2,000 (main winners), $50 Amazon Gift Card (10 extra winners)",
       "startsAt": "2026-09-30T00:00:00-07:00",
-      "status": "active",
+      "status": "ended",
       "timeNote": "Covered by earlygg.com; confirm the rules on the official announcement before entering.",
       "type": "community"
     },
