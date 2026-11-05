@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Inter, Bebas_Neue, IBM_Plex_Mono } from "next/font/google";
 import ObsidianNav from "@/components/ObsidianNav";
 import ScrollTop from "@/components/ScrollTop";
+import SpotlightInit from "@/components/SpotlightInit";
 import NowProvider from "@/components/NowProvider";
 import SearchPalette from "@/components/SearchPalette";
 import "./style.css";
@@ -92,7 +93,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             </p>
           </div>
         </footer>
+        <div className="scroll-progress" aria-hidden="true" />
         <ScrollTop />
+        <SpotlightInit />
         <SearchPalette />
         </NowProvider>
       </body>

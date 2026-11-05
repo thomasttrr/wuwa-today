@@ -977,3 +977,173 @@ main input[type="number"], main input[type="text"], main input[type="search"] {
 }
 main input[type="range"] { accent-color: var(--acc); }
 main label { color: var(--sub); }
+
+/* ============================================================================
+   MOTION + REFINEMENT PASS (Tom, 2026-11-04 evening): smaller imagery,
+   and a 2026-grade motion layer — scroll reveals, cursor spotlight,
+   digit-roll countdowns, page transitions, a live ticker. Every
+   effect is progressive: content is fully visible without JS, and
+   the reduced-motion block at the end of this section quiets all
+   of it.
+   ========================================================================== */
+
+/* --- smaller imagery ---------------------------------------------------------- */
+.og-banner-tile { min-height: 172px; }
+.og-banner-card-featured .og-banner-art { aspect-ratio: 21 / 9; }
+@media (min-width: 820px) {
+  /* The featured banner is a wide editorial card now, not a poster:
+     art takes a left column, the writing sits beside it. */
+  .og-banner-card-featured {
+    display: grid;
+    grid-template-columns: 42% minmax(0, 1fr);
+  }
+  .og-banner-card-featured .og-banner-art {
+    aspect-ratio: auto; height: 100%; min-height: 248px;
+  }
+  .og-banner-card-featured .og-banner-body {
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 1.3rem 1.5rem;
+  }
+}
+.og-banner-art img.art { transition: transform 1.2s var(--ease); }
+.og-banner-card:hover .og-banner-art img.art { transform: scale(1.035); }
+
+/* --- scroll reveals (Reveal.tsx adds .js-anim, IO adds .is-visible) ------------ */
+html.js-anim .reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  filter: blur(6px);
+  transition:
+    opacity 0.85s var(--ease),
+    transform 0.85s var(--ease),
+    filter 0.85s var(--ease);
+  will-change: opacity, transform, filter;
+}
+html.js-anim .reveal.is-visible {
+  opacity: 1; transform: none; filter: none;
+}
+
+/* --- cursor spotlight wash (SpotlightInit sets --mx/--my) ---------------------- */
+.og-banner-card, .og-event-card, .og-pick-card, .res-card,
+.og-team-card, .og-role-card, .og-code-row, .og-link-rows li {
+  position: relative;
+}
+.og-event-card, .og-code-row, .og-team-card, .og-role-card, .og-link-rows li {
+  overflow: hidden;
+}
+.og-banner-card::after, .og-event-card::after, .og-pick-card::after,
+.res-card::after, .og-team-card::after, .og-role-card::after,
+.og-code-row::after, .og-link-rows li::after {
+  content: ""; position: absolute; inset: 0; z-index: 1;
+  pointer-events: none; opacity: 0;
+  background: radial-gradient(
+    340px circle at var(--mx, 50%) var(--my, 50%),
+    rgba(143, 178, 255, 0.13), transparent 65%
+  );
+  transition: opacity 0.45s var(--ease);
+}
+.og-banner-card:hover::after, .og-event-card:hover::after,
+.og-pick-card:hover::after, .res-card:hover::after,
+.og-team-card:hover::after, .og-role-card:hover::after,
+.og-code-row:hover::after, .og-link-rows li:hover::after {
+  opacity: 1;
+}
+
+/* --- countdown digit roll (ObsidianCountdown remounts changed digits) ---------- */
+.og-cd-roll { display: inline-block; overflow: hidden; vertical-align: bottom; }
+.og-cd-roll > span { display: inline-block; animation: cd-roll 0.45s var(--ease); }
+@keyframes cd-roll {
+  from { transform: translateY(70%); opacity: 0; }
+  to { transform: none; opacity: 1; }
+}
+
+/* --- page transition (app/template.tsx) ----------------------------------------- */
+.page-in { animation: page-in 0.55s var(--ease); }
+@keyframes page-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: none; }
+}
+
+/* --- scroll progress (CSS scroll-timeline; absent where unsupported) ------------ */
+.scroll-progress {
+  position: fixed; top: 0; left: 0; right: 0; height: 2px; z-index: 130;
+  background: var(--acc); transform-origin: 0 50%; transform: scaleX(0);
+  animation: scroll-grow linear both;
+  animation-timeline: scroll(root block);
+}
+@keyframes scroll-grow { to { transform: scaleX(1); } }
+
+/* --- hero load-in ------------------------------------------------------------------ */
+.front-head > * { animation: rise-in 0.65s var(--ease) both; }
+.front-head > *:nth-child(2) { animation-delay: 0.05s; }
+.front-head > *:nth-child(3) { animation-delay: 0.1s; }
+.front-head > *:nth-child(4) { animation-delay: 0.15s; }
+@keyframes rise-in {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: none; }
+}
+
+/* --- live ticker ---------------------------------------------------------------------- */
+.ticker {
+  overflow: hidden;
+  border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
+  padding: 0.55rem 0; margin-bottom: 1.6rem;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+}
+.ticker-track {
+  display: flex; width: max-content;
+  animation: ticker-scroll 36s linear infinite;
+}
+.ticker:hover .ticker-track { animation-play-state: paused; }
+.ticker-set { display: flex; align-items: center; flex: none; }
+.ticker-item {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  font-family: var(--mono); font-size: 0.74rem;
+  text-transform: uppercase; letter-spacing: 0.1em; color: var(--mut);
+  padding-right: 2.6rem; white-space: nowrap;
+}
+.ticker-item::after {
+  content: ""; width: 5px; height: 5px; border-radius: 50%;
+  background: var(--ghost); margin-left: 2.6rem;
+}
+.ticker-item strong { color: var(--ink); font-weight: 600; }
+.ticker-live { color: #7ee2a0; font-weight: 700; }
+.ticker-live::before {
+  content: ""; width: 6px; height: 6px; border-radius: 50%;
+  background: #7ee2a0; animation: live-pulse 2.2s ease-in-out infinite;
+}
+@keyframes ticker-scroll { to { transform: translateX(-50%); } }
+@keyframes live-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(126, 226, 160, 0.45); }
+  55% { box-shadow: 0 0 0 6px rgba(126, 226, 160, 0); }
+}
+.og-live::before { animation: live-pulse 2.2s ease-in-out infinite; }
+
+/* --- micro-interactions ------------------------------------------------------------------ */
+.og-btn { position: relative; overflow: hidden; }
+.og-btn::after {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(105deg, transparent 40%, rgba(255, 255, 255, 0.35) 50%, transparent 60%);
+  transform: translateX(-110%);
+  transition: transform 0.7s var(--ease);
+  pointer-events: none;
+}
+.og-btn:hover::after { transform: translateX(110%); }
+.og-btn-ghost::after, .og-btn-glass::after { display: none; }
+.snav-link { transition: background 0.3s var(--ease), color 0.3s var(--ease), transform 0.3s var(--ease); }
+.snav-link:hover { transform: translateX(2px); }
+.snav-link .snav-ico { transition: transform 0.3s var(--ease); }
+.snav-link:hover .snav-ico { transform: scale(1.1); }
+.og-event-expand { transition: color 0.3s var(--ease); }
+.res-bar a, .og-chip, .og-toolbar-links a { transition: all 0.3s var(--ease); }
+
+@media (prefers-reduced-motion: reduce) {
+  html.js-anim .reveal { opacity: 1; transform: none; filter: none; }
+  .ticker-track { animation: none; }
+  .scroll-progress { display: none; }
+  .front-head > * { animation: none; }
+  .page-in { animation: none; }
+  .og-cd-roll > span { animation: none; }
+  .og-live::before, .ticker-live::before { animation: none; }
+}

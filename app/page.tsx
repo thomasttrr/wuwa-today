@@ -76,6 +76,42 @@ export default function HomePage() {
         </div>
       </header>
 
+      {/* Live ticker: the day's facts, scrolling. Real data only —
+          the same values the page below shows. Decorative motion,
+          so the strip is aria-hidden; nothing here is exclusive. */}
+      <div className="ticker" aria-hidden="true">
+        <div className="ticker-track">
+          {[0, 1].map((dup) => (
+            <span key={dup} className="ticker-set">
+              <span className="ticker-item ticker-live">Live now</span>
+              {featuredBanner && lead && (
+                <span className="ticker-item">
+                  {lead.name}&rsquo;s banner ends{" "}
+                  {formatServerDate(featuredBanner.endsAt)}
+                </span>
+              )}
+              {activeCodes[0] && (
+                <span className="ticker-item">
+                  Working code: <strong>{activeCodes[0].code}</strong>
+                </span>
+              )}
+              <span className="ticker-item">
+                {activeEvents.length} events live
+              </span>
+              {endingSoon[0] && (
+                <span className="ticker-item">
+                  {endingSoon[0].name} ends{" "}
+                  {formatServerDate(endingSoon[0].endsAt!)}
+                </span>
+              )}
+              <span className="ticker-item">
+                Version {bannerMeta.version} — {bannerMeta.versionTitle}
+              </span>
+            </span>
+          ))}
+        </div>
+      </div>
+
       {/* The featured banner, full width. */}
       {featuredBanner ? (
         <Reveal>

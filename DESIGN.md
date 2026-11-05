@@ -56,6 +56,26 @@ site's own markup and data. No assets, copy, or code were taken.
 - Everything else (banners, events, codes, tier list, planner,
   pre-farm, glossary) restyled through the same tokens
 
+## Motion + image pass (Tom, 2026-11-04 evening)
+
+Tom liked the layout but ordered the big images gone and a
+top-tier 2026 motion layer added "where it makes sense."
+
+- Imagery: the featured banner is now a split editorial card
+  (art in a 42% column, writing beside it) on home and /banners;
+  home tiles slimmed to 172px. Character portraits stay — they
+  are the content, at card size.
+- Motion (all progressive, all killed by prefers-reduced-motion):
+  staggered scroll reveals with a soft blur (the existing Reveal
+  component + CSS), cursor spotlight wash on cards (SpotlightInit,
+  fine pointers only), countdown digits roll as they change,
+  route-change fade/rise via app/template.tsx, a CSS scroll-
+  timeline progress bar, hero load-in stagger, primary-button
+  sheen sweep, pulsing live dots, sidebar micro-shifts.
+- A live ticker under the home hero scrolls the day's real facts
+  (banner end, working code, events live) — data-composed like
+  the summary, never hand-written; aria-hidden as pure decoration.
+
 ## Not copied
 
 Their intro loader, their 3D-tilted logo gimmick, their content,
