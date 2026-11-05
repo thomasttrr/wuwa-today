@@ -5,7 +5,7 @@ import Availability from "../../components/Availability";
 import PhaseTrack, { type PhaseNode } from "../../components/PhaseTrack";
 import PlannerAccounts, { type AccountPlan } from "../../components/PlannerAccounts";
 import UpdatedStamp from "../../components/UpdatedStamp";
-import { banners, bannerMeta } from "../../lib/data";
+import { banners, bannerMeta, nextVersion } from "../../lib/data";
 import { characters, getCharacter } from "../../lib/characters";
 import { elementColor } from "../../lib/elements";
 import { getPrefarmGuide } from "../../lib/prefarm";
@@ -116,7 +116,7 @@ export default function PullPlannerPage() {
 
       <section className="pp-section" aria-labelledby="pp-sched-h">
         <h2 id="pp-sched-h" className="pp-h">Where the version stands</h2>
-        <PhaseTrack phases={phases} builtAt={BUILT_AT} />
+        <PhaseTrack phases={phases} builtAt={BUILT_AT} next={nextVersion} />
       </section>
 
       <section className="pp-section" aria-labelledby="pp-acc-h">

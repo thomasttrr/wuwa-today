@@ -52,6 +52,20 @@ export interface BannerHistoryEntry {
   note: string;
 }
 
+/** Confirmed facts about the next version before its banners are announced. */
+export interface NextVersion {
+  version: string;
+  expectedCharacter: string;
+  characterSlug: string;
+  prefarmSlug: string;
+  /** ISO time of the preview broadcast. */
+  revealAt: string;
+  /** Human label for revealAt, e.g. "Fri Nov 6, 6:00 AM ET". */
+  revealLabel: string;
+  /** ISO time after which the homepage strip auto-hides. */
+  hideAfter: string;
+}
+
 export interface RedeemCode {
   code: string;
   rewards: string;
@@ -92,6 +106,9 @@ export const bannerMeta = (bannersRaw as { _meta: { version: string; versionTitl
 // Codes whose announced expiry has passed are dropped at build time so a stale
 // JSON file never advertises a dead code (codes without an expiry stay).
 const allActiveCodes = (codesRaw as { active: RedeemCode[] }).active;
+export const nextVersion: NextVersion | null =
+  (bannersRaw as { nextVersion?: NextVersion }).nextVersion ?? null;
+
 export const activeCodes = allActiveCodes.filter(
   (c) => !c.expiresAt || Number.isNaN(Date.parse(c.expiresAt)) || Date.parse(c.expiresAt) > Date.now(),
 );

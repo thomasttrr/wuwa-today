@@ -5,6 +5,16 @@
     "version": "3.7",
     "versionTitle": "Prism's Illusion, Heart's Illumination"
   },
+  "nextVersion": {
+    "_comment": "Drives the 'Next phase' slot on /banners, the pull-planner timeline, and the homepage broadcast strip. States only what is confirmed: version, expected headliner, reveal time. No phase dates or reruns. After the broadcast, replace this with real banner entries and delete this block (the homepage strip also auto-hides after hideAfter).",
+    "version": "3.8",
+    "expectedCharacter": "Lily",
+    "characterSlug": "lily",
+    "prefarmSlug": "lily",
+    "revealAt": "2026-11-06T06:00:00-05:00",
+    "revealLabel": "Fri Nov 6, 6:00 AM ET",
+    "hideAfter": "2026-11-08T23:59:59-05:00"
+  },
   "banners": [
     {
       "characters": [

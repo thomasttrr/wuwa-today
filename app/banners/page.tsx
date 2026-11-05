@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Reveal from "../../components/Reveal";
 import RollingCountdown from "../../components/RollingCountdown";
+import NextVersionNote from "../../components/NextVersionNote";
 import UpdatedStamp from "../../components/UpdatedStamp";
 import WaveProgress from "../../components/WaveProgress";
 import {
@@ -10,6 +11,7 @@ import {
   upcomingBanners,
   bannerHistory,
   bannerMeta,
+  nextVersion,
   formatServerDate,
   type Banner,
   type GameCharacter,
@@ -27,6 +29,9 @@ export const metadata: Metadata = {
     "Who's on the current Wuthering Waves banner right now? Live featured banners with countdowns, who's worth pulling, what's coming next (official vs. leak labeled), and the full banner timeline.",
   alternates: { canonical: "/banners" },
 };
+
+// Build time seeds the client clock for the next-version note (hydration-safe).
+const BUILT_AT = Date.now();
 
 const bySlug = new Map(characters.map((c) => [c.slug, c]));
 const slugByName = new Map(characters.map((c) => [c.name, c.slug]));
@@ -272,9 +277,15 @@ export default function BannersPage() {
             <li className="bn-node bn-node-tba">
               <div>
                 <CharMedal className="bn-node-face" thumb={null} name="?" size={56} />
-                <span className="bn-node-ver">Next phase</span>
-                <span className="bn-node-name">Not announced</span>
-                <span className="bn-node-date">Lands here once Kuro Games confirms it</span>
+                {nextVersion ? (
+                  <NextVersionNote next={nextVersion} builtAt={BUILT_AT} variant="node" />
+                ) : (
+                  <>
+                    <span className="bn-node-ver">Next phase</span>
+                    <span className="bn-node-name">Not announced</span>
+                    <span className="bn-node-date">Lands here once Kuro Games confirms it</span>
+                  </>
+                )}
               </div>
             </li>
           )}

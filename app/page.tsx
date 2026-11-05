@@ -4,6 +4,7 @@ import Link from "next/link";
 import CopyButton from "../components/CopyButton";
 import ResetTimers from "../components/ResetTimers";
 import HomeEndingSoon from "../components/HomeEndingSoon";
+import NextVersionNote from "../components/NextVersionNote";
 import Reveal from "../components/Reveal";
 import RollingCountdown from "../components/RollingCountdown";
 import UpdatedStamp from "../components/UpdatedStamp";
@@ -13,6 +14,7 @@ import {
   activeCodes,
   events,
   bannerMeta,
+  nextVersion,
   formatServerDate,
 } from "../lib/data";
 import { characters } from "../lib/characters";
@@ -106,6 +108,8 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {nextVersion && <NextVersionNote next={nextVersion} builtAt={BUILT_AT} variant="strip" />}
 
       <section id="today" className="rs-today" aria-label="Today at a glance">
         {/* Featured banner: the art IS the tile. */}

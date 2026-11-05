@@ -514,6 +514,46 @@ body.rs .rs-palette-field input:focus-visible { outline: none; }
 }
 
 /* ==========================================================================
+   Broadcast strip — thin "what's next" line between hero and today grid
+   ========================================================================== */
+
+.rs-broadcast {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem 0.9rem;
+  margin: 1.25rem 0 0;
+  padding: 0.65rem 1rem;
+  border-radius: var(--rs-r-ctl);
+  border: 1px dashed var(--rs-line);
+  background: rgb(255 255 255 / 0.025);
+  font-size: 0.88rem;
+  color: var(--rs-ink-2);
+}
+.rs-broadcast-tag {
+  font-family: var(--rs-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--el);
+}
+.rs-broadcast-links { display: inline-flex; flex-wrap: wrap; gap: 0.25rem 1rem; margin-left: auto; }
+.rs-broadcast-links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  font-weight: 600;
+  color: var(--rs-ink);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: var(--rs-el-line);
+}
+.rs-broadcast-links a:hover { color: var(--el); }
+@media (max-width: 640px) {
+  .rs-broadcast-links { margin-left: 0; }
+}
+
+/* ==========================================================================
    Today grid
    ========================================================================== */
 

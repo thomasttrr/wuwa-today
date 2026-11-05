@@ -6,7 +6,9 @@ import { CharMedal } from "./CharThumb";
 import RollingCountdown from "./RollingCountdown";
 import useNow from "./useNow";
 import { availOf } from "./Availability";
+import NextVersionNote from "./NextVersionNote";
 import { formatServerDate } from "../lib/dates";
+import type { NextVersion } from "../lib/data";
 
 export interface PhaseNode {
   id: string;
@@ -17,7 +19,15 @@ export interface PhaseNode {
 }
 
 /** Version phases as a track: ended -> live (with countdown) -> next (TBA). */
-export default function PhaseTrack({ phases, builtAt }: { phases: PhaseNode[]; builtAt: number }) {
+export default function PhaseTrack({
+  phases,
+  builtAt,
+  next,
+}: {
+  phases: PhaseNode[];
+  builtAt: number;
+  next?: NextVersion | null;
+}) {
   const clock = useNow(30_000);
   const now = clock ? clock.getTime() : builtAt;
   return (
@@ -49,9 +59,15 @@ export default function PhaseTrack({ phases, builtAt }: { phases: PhaseNode[]; b
         );
       })}
       <li className="pp-phase pp-phase-tba">
-        <p className="pp-phase-kicker">Next phase</p>
-        <p className="pp-phase-tba-t">Not announced</p>
-        <p className="pp-phase-dates">The next version&apos;s banner is expected; no date is official yet.</p>
+        {next ? (
+          <NextVersionNote next={next} builtAt={builtAt} variant="phase" />
+        ) : (
+          <>
+            <p className="pp-phase-kicker">Next phase</p>
+            <p className="pp-phase-tba-t">Not announced</p>
+            <p className="pp-phase-dates">The next version&apos;s banner is expected; no date is official yet.</p>
+          </>
+        )}
       </li>
     </ol>
   );
