@@ -17,6 +17,8 @@ import {
 } from "../lib/data";
 import { characters } from "../lib/characters";
 import { elementColor } from "../lib/elements";
+import { thumbFor } from "../lib/renders";
+import { CharMedal } from "../components/CharThumb";
 
 export const metadata: Metadata = {
   title: "WuWa Today — Wuthering Waves Banners, Codes & Events",
@@ -26,7 +28,7 @@ export const metadata: Metadata = {
 };
 
 const slugByName = new Map(characters.map((c) => [c.name, c.slug]));
-const portraitBySlug = new Map(characters.map((c) => [c.slug, c.profile.portrait_url]));
+const thumbBySlug = new Map(characters.map((c) => [c.slug, thumbFor(c.slug, c.profile.portrait_url)]));
 
 // Build time seeds the client clock for the event list (hydration-safe).
 const BUILT_AT = Date.now();
@@ -148,17 +150,10 @@ export default function HomePage() {
                   <ul>
                     {rateUps.map((c) => {
                       const slug = slugByName.get(c.name);
-                      const portrait = slug ? portraitBySlug.get(slug) : undefined;
+                      const thumb = slug ? thumbBySlug.get(slug) ?? null : null;
                       const inner = (
                         <>
-                          {portrait ? (
-                            <>
-                              {/* eslint-disable-next-line @next/next/no-img-element -- 56px portrait chip. */}
-                              <img src={portrait} alt="" width={56} height={56} loading="lazy" decoding="async" />
-                            </>
-                          ) : (
-                            <span className="rs-rateup-mono" aria-hidden="true">{c.name.charAt(0)}</span>
-                          )}
+                          <CharMedal className="rs-rateup-face" thumb={thumb} name={c.name} size={40} rarity={c.rarity} />
                           <span className="rs-rateup-name">{c.name}</span>
                           <span className="rs-rateup-meta">
                             {c.rarity}★ · {c.element}

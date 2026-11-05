@@ -8,6 +8,7 @@ import prydwen from "@/data/tier-list-prydwen.json";
 import editorial from "@/data/tier-list.json";
 import { characters } from "@/lib/characters";
 import { elementColor } from "@/lib/elements";
+import { thumbFor, type Thumb } from "@/lib/renders";
 
 export type TierRole = "DPS" | "Hybrid" | "Support";
 export type SourceKey = "prydwen" | "value" | "ours";
@@ -30,6 +31,7 @@ export interface TierChar {
   element: string;
   color: string;
   portrait: string | null;
+  thumb: Thumb | null;
   weapon: string;
   role: string;
   rarity: number;
@@ -110,6 +112,7 @@ export function buildTierModel(): TierModel {
       element,
       color: elementColor(element),
       portrait: c?.profile.portrait_url ?? null,
+      thumb: c ? thumbFor(slug, c.profile.portrait_url) : null,
       weapon: c?.profile.weapon_type ?? "",
       role: c?.profile.role ?? "",
       rarity: c?.profile.rarity ?? 0,

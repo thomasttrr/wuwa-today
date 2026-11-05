@@ -41,7 +41,6 @@
 }
 .ch-live a:hover { text-decoration: none; border-color: color-mix(in oklch, var(--c) 55%, transparent); }
 .ch-live a:active { transform: scale(0.95); }
-.ch-live img { width: 32px; height: 32px; border-radius: 50%; box-shadow: 0 0 0 1.5px var(--c); }
 
 /* --- sticky filter bar --- */
 .ch-bar {

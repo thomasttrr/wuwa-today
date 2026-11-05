@@ -3,12 +3,14 @@
 import Link from "next/link";
 import { useState, type CSSProperties } from "react";
 import Availability from "./Availability";
+import { CharMedal } from "./CharThumb";
+import type { Thumb } from "@/lib/renders";
 
 export interface AccountPlan {
   key: string;
   title: string;
   profile: string;
-  pick: { slug: string; name: string; portrait: string; color: string; label: string; start: string | null; end: string | null };
+  pick: { slug: string; name: string; thumb: Thumb | null; color: string; label: string; start: string | null; end: string | null };
   note: string;
   also: string;
 }
@@ -30,8 +32,7 @@ export default function PlannerAccounts({ plans, builtAt }: { plans: AccountPlan
       <article key={p.key} className="pp-acc-card" role="tabpanel" aria-label={`${p.title} plan`} style={{ "--c": p.pick.color } as CSSProperties}>
         <p className="pp-acc-profile">{p.profile}</p>
         <div className="pp-acc-pick">
-          {/* eslint-disable-next-line @next/next/no-img-element -- 88px portrait. */}
-          <img src={p.pick.portrait} alt="" width={88} height={88} />
+          <CharMedal className="pp-acc-face" thumb={p.pick.thumb} name={p.pick.name} size={88} rarity={5} eager />
           <div>
             <p className="pp-acc-label">Ranked pick</p>
             <h3>

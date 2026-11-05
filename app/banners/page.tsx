@@ -17,6 +17,8 @@ import {
 import { characters } from "../../lib/characters";
 import { elementColor } from "../../lib/elements";
 import { buildTierModel, PRYDWEN_TIERS } from "../../lib/tiers";
+import { thumbFor } from "../../lib/renders";
+import { CharMedal, CharPoster } from "../../components/CharThumb";
 import "./banners.css";
 
 export const metadata: Metadata = {
@@ -55,14 +57,7 @@ function LineupCard({ c, banner, lead }: { c: GameCharacter; banner: Banner; lea
   const body = (
     <>
       <div className="bn-card-face">
-        {rec ? (
-          <>
-            {/* eslint-disable-next-line @next/next/no-img-element -- 256px portrait shown at 112px. */}
-            <img src={rec.profile.portrait_url} alt="" width={112} height={112} loading="lazy" decoding="async" />
-          </>
-        ) : (
-          <span className="bn-mono" aria-hidden="true">{c.name.charAt(0)}</span>
-        )}
+        <CharPoster thumb={rec ? thumbFor(rec.slug, rec.profile.portrait_url) : null} name={c.name} rarity={c.rarity} hideName />
       </div>
       <div className="bn-card-main">
         <p className="bn-card-kicker">
@@ -221,12 +216,7 @@ export default function BannersPage() {
                   const rec = slug ? bySlug.get(slug) : undefined;
                   const inner = (
                     <>
-                      {rec ? (
-                        // eslint-disable-next-line @next/next/no-img-element -- 40px chip portrait.
-                        <img src={rec.profile.portrait_url} alt="" width={40} height={40} loading="lazy" decoding="async" />
-                      ) : (
-                        <span className="bn-mono" aria-hidden="true">{c.name.charAt(0)}</span>
-                      )}
+                      <CharMedal thumb={rec ? thumbFor(rec.slug, rec.profile.portrait_url) : null} name={c.name} size={34} rarity={4} />
                       <span className="bn-four-name">{c.name}</span>
                       <span className="bn-four-meta">{c.element}</span>
                     </>
@@ -255,14 +245,13 @@ export default function BannersPage() {
             const color = rec ? elementColor(rec.profile.element) : undefined;
             const node = (
               <>
-                <span className="bn-node-face">
-                  {rec ? (
-                    // eslint-disable-next-line @next/next/no-img-element -- timeline node portrait.
-                    <img src={rec.profile.portrait_url} alt="" width={56} height={56} loading="lazy" decoding="async" />
-                  ) : (
-                    <span className="bn-mono" aria-hidden="true">?</span>
-                  )}
-                </span>
+                <CharMedal
+                  className="bn-node-face"
+                  thumb={rec ? thumbFor(rec.slug, rec.profile.portrait_url) : null}
+                  name={n.headliner ?? "?"}
+                  size={56}
+                  rarity={5}
+                />
                 <span className="bn-node-ver">
                   {n.version} · {n.phase}
                 </span>
@@ -282,9 +271,7 @@ export default function BannersPage() {
           {upcomingBanners.length === 0 && (
             <li className="bn-node bn-node-tba">
               <div>
-                <span className="bn-node-face">
-                  <span className="bn-mono" aria-hidden="true">?</span>
-                </span>
+                <CharMedal className="bn-node-face" thumb={null} name="?" size={56} />
                 <span className="bn-node-ver">Next phase</span>
                 <span className="bn-node-name">Not announced</span>
                 <span className="bn-node-date">Lands here once Kuro Games confirms it</span>

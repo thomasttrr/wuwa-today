@@ -1,6 +1,8 @@
 "use client";
 
 import type { CSSProperties } from "react";
+import type { Thumb } from "@/lib/renders";
+import { CharMedal } from "./CharThumb";
 import RollingCountdown from "./RollingCountdown";
 import useNow from "./useNow";
 import { availOf } from "./Availability";
@@ -11,7 +13,7 @@ export interface PhaseNode {
   label: string;
   start: string;
   end: string;
-  stars: { name: string; portrait: string | null; color: string }[];
+  stars: { name: string; thumb: Thumb | null; color: string }[];
 }
 
 /** Version phases as a track: ended -> live (with countdown) -> next (TBA). */
@@ -31,10 +33,7 @@ export default function PhaseTrack({ phases, builtAt }: { phases: PhaseNode[]; b
             <ul className="pp-phase-stars">
               {p.stars.map((s) => (
                 <li key={s.name} style={{ "--c": s.color } as CSSProperties}>
-                  {s.portrait && (
-                    // eslint-disable-next-line @next/next/no-img-element -- 44px portrait.
-                    <img src={s.portrait} alt="" width={44} height={44} loading="lazy" />
-                  )}
+                  <CharMedal thumb={s.thumb} name={s.name} size={30} rarity={5} />
                   <span>{s.name}</span>
                 </li>
               ))}

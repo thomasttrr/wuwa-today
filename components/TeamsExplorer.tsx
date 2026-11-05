@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useEffect, useMemo, useState, type CSSProperties, type ReactNode } from "react";
 import RollingCountdown from "./RollingCountdown";
+import { CharPoster } from "./CharThumb";
 import { elementColor } from "@/lib/elements";
 import type { Team, TeamMember, TeamsModel } from "@/lib/teams";
 
@@ -386,16 +387,13 @@ export default function TeamsExplorer({ model }: { model: TeamsModel }) {
                             : `${c.name}, ${c.teamCount} teams. Show only their teams`
                         }
                       >
-                        <span className="tm-face">
-                          {/* eslint-disable-next-line @next/next/no-img-element -- small portrait; export is unoptimized. */}
-                          <img src={`/images/chars/${c.slug}.webp`} alt="" width={72} height={72} loading="lazy" decoding="async" />
+                        <CharPoster thumb={c.thumb} name={c.name} rarity={c.rarity}>
                           {isOwned && (
                             <span className="tm-owned" aria-hidden="true">
                               ✓
                             </span>
                           )}
-                        </span>
-                        <span className="tm-ix-name">{c.name}</span>
+                        </CharPoster>
                         <span className="tm-ix-meta">
                           <Stars n={c.rarity} /> · {c.teamCount} {c.teamCount === 1 ? "team" : "teams"}
                         </span>
@@ -527,15 +525,13 @@ function TeamCard({ team, focus, owned, showOwned }: { team: Team } & CardProps)
 
 function Member({ m, focused, owned }: { m: TeamMember; focused: boolean; owned: boolean }) {
   const face = (
-    <span className="tm-face">
-      {/* eslint-disable-next-line @next/next/no-img-element -- small portrait; export is unoptimized. */}
-      <img src={`/images/chars/${m.slug}.webp`} alt="" width={88} height={88} loading="lazy" decoding="async" />
+    <CharPoster thumb={m.thumb} name={m.name} rarity={m.rarity}>
       {owned && (
         <span className="tm-owned" aria-hidden="true">
           ✓
         </span>
       )}
-    </span>
+    </CharPoster>
   );
   return (
     <li className="tm-member" style={elStyle(m.element)} data-focus={focused ? "" : undefined}>
@@ -547,7 +543,6 @@ function Member({ m, focused, owned }: { m: TeamMember; focused: boolean; owned:
       ) : (
         face
       )}
-      <p className="tm-member-name">{m.name}</p>
       <p className="tm-member-meta">
         <span className="tm-dot" aria-hidden="true" />
         {m.element} <Stars n={m.rarity} />

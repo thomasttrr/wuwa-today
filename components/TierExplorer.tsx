@@ -11,6 +11,7 @@ import {
   type CSSProperties,
 } from "react";
 import type { Placement, SourceKey, TierChar, TierModel, TierRole } from "@/lib/tiers";
+import { CharMedal, CharPoster } from "./CharThumb";
 
 const PRYDWEN_TIERS = ["T0", "T0.5", "T1", "T1.5", "T2", "T3", "T4"];
 const ROLES: ("All" | TierRole)[] = ["All", "DPS", "Hybrid", "Support"];
@@ -284,13 +285,7 @@ export default function TierExplorer({ model }: { model: TierModel }) {
                         aria-pressed={editRoster ? mine : undefined}
                         onClick={() => (editRoster ? toggleOwned(char.slug) : setSelected(char.slug))}
                       >
-                        <span className="tl-face" data-slug={char.slug}>
-                          {char.portrait ? (
-                            // eslint-disable-next-line @next/next/no-img-element -- 256px source shown at <=96px; export is unoptimized.
-                            <img src={char.portrait} alt="" width={96} height={96} loading="lazy" decoding="async" />
-                          ) : (
-                            <span className="tl-mono" aria-hidden="true">{char.name.charAt(0)}</span>
-                          )}
+                        <CharPoster thumb={char.thumb} name={char.name} rarity={char.rarity}>
                           {mine && (
                             <span className="tl-owned" aria-hidden="true">
                               <svg width="12" height="12" viewBox="0 0 24 24">
@@ -301,8 +296,7 @@ export default function TierExplorer({ model }: { model: TierModel }) {
                           {role === "All" && roles.length > 0 && (
                             <span className="tl-role" aria-hidden="true">{roles.map((r) => r[0]).join("/")}</span>
                           )}
-                        </span>
-                        <span className="tl-name">{char.name}</span>
+                        </CharPoster>
                       </button>
                     </ViewTransition>
                   </li>
@@ -434,12 +428,7 @@ function QuickLook({
           </svg>
         </button>
         <header className="tl-sheet-head">
-          {char.portrait && (
-            <>
-              {/* eslint-disable-next-line @next/next/no-img-element -- quick-look portrait. */}
-              <img src={char.portrait} alt="" width={88} height={88} />
-            </>
-          )}
+          {char.thumb && <CharMedal thumb={char.thumb} name={char.name} size={88} rarity={char.rarity} eager />}
           <div>
             <p className="tl-sheet-kicker">
               {[char.element, char.weapon, char.rarity ? `${char.rarity}★` : ""].filter(Boolean).join(" · ")}

@@ -10,6 +10,8 @@ import { characters, getCharacter } from "../../lib/characters";
 import { elementColor } from "../../lib/elements";
 import { getPrefarmGuide } from "../../lib/prefarm";
 import { tierFor } from "../../lib/tiers";
+import { thumbFor } from "../../lib/renders";
+import { CharMedal } from "../../components/CharThumb";
 import "./planner.css";
 
 export const metadata: Metadata = {
@@ -33,7 +35,7 @@ function info(slug: FiveStarSlug) {
   return {
     slug,
     name: c.name,
-    portrait: c.profile.portrait_url,
+    thumb: thumbFor(slug, c.profile.portrait_url),
     color: elementColor(c.profile.element),
     element: c.profile.element,
     role: c.profile.role,
@@ -54,7 +56,7 @@ function plan(key: string, title: string, profile: string, pick: FiveStarSlug, n
     profile,
     note,
     also,
-    pick: { slug: v.slug, name: v.name, portrait: v.portrait, color: v.color, label: v.label, start: v.start, end: v.end },
+    pick: { slug: v.slug, name: v.name, thumb: v.thumb, color: v.color, label: v.label, start: v.start, end: v.end },
   };
 }
 
@@ -76,7 +78,7 @@ export default function PullPlannerPage() {
           const slug = slugByName.get(c.name);
           return {
             name: c.name,
-            portrait: slug ? getCharacter(slug)?.profile.portrait_url ?? null : null,
+            thumb: slug ? thumbFor(slug, getCharacter(slug)?.profile.portrait_url) : null,
             color: elementColor(c.element),
           };
         }),
@@ -291,8 +293,7 @@ export default function PullPlannerPage() {
           {verdicts.map((v) => (
             <li key={v.slug} className="pp-v rs-spot" style={{ "--c": v.color } as CSSProperties}>
               <div className="pp-v-head">
-                {/* eslint-disable-next-line @next/next/no-img-element -- 64px portrait. */}
-                <img src={v.portrait} alt="" width={64} height={64} loading="lazy" />
+                <CharMedal thumb={v.thumb} name={v.name} size={56} rarity={5} />
                 <div>
                   <h3>
                     <Link href={`/characters/${v.slug}`}>{v.name}</Link>

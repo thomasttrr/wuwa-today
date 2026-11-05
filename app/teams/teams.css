@@ -290,39 +290,10 @@
   text-transform: uppercase;
   color: var(--rs-ink-3);
 }
-.tm-member-link { display: block; border-radius: 18px; }
-.tm-face {
-  position: relative;
-  display: block;
-  width: 76px;
-  max-width: 100%;
-  aspect-ratio: 1;
-  border-radius: 18px;
-  overflow: hidden;
-  background: var(--rs-surface-2);
-  box-shadow: 0 0 0 1.5px color-mix(in oklch, var(--c) 55%, transparent), 0 8px 20px rgb(0 0 0 / 0.35);
-  transition: box-shadow var(--rs-d2) var(--rs-ease), transform var(--rs-d2) var(--rs-spring);
-}
-/* Crop the portrait's baked-in name label and rarity bar (bottom ~22%),
-   same framing as the Tier List. */
-.tm-face img { display: block; width: 100%; height: 100%; object-fit: cover; transform: scale(1.38); transform-origin: 50% 0; }
-@media (pointer: fine) {
-  .tm-member-link:hover .tm-face {
-    transform: translateY(-3px);
-    box-shadow: 0 0 0 2px var(--c), 0 12px 28px color-mix(in oklch, var(--c) 30%, transparent);
-  }
-}
-.tm-member-link:active .tm-face { transform: scale(0.94); }
-.tm-member[data-focus] .tm-face { box-shadow: 0 0 0 2.5px var(--c), 0 0 24px color-mix(in oklch, var(--c) 45%, transparent); }
-.tm-member[data-focus] .tm-member-name { color: var(--c); }
-.tm-member-name {
-  margin: 0.15rem 0 0;
-  max-width: 100%;
-  font-size: 0.82rem;
-  font-weight: 650;
-  line-height: 1.2;
-  overflow-wrap: anywhere;
-}
+/* Portraits are mini posters (components/CharThumb). */
+.tm-member > .ct-poster, .tm-member-link { width: 100%; max-width: 112px; }
+.tm-member-link { display: block; border-radius: 14px; }
+.tm-member[data-focus] .ct-poster { border-color: var(--c); box-shadow: 0 0 0 1.5px var(--c), 0 0 24px color-mix(in oklch, var(--c) 45%, transparent); }
 .tm-member-meta {
   margin: 0;
   display: inline-flex;
@@ -340,8 +311,8 @@
 
 .tm-owned {
   position: absolute;
-  right: 4px;
-  bottom: 4px;
+  right: 5px;
+  top: 5px;
   display: grid;
   place-items: center;
   width: 20px;
@@ -528,17 +499,9 @@
   cursor: pointer;
   transition: background-color var(--rs-d1) ease;
 }
-.tm-ix .tm-face { width: 72px; }
-@media (pointer: fine) {
-  .tm-ix:hover .tm-face {
-    transform: translateY(-3px);
-    box-shadow: 0 0 0 2px var(--c), 0 12px 28px color-mix(in oklch, var(--c) 30%, transparent);
-  }
-}
-.tm-ix:active .tm-face { transform: scale(0.94); }
+.tm-ix > .ct-poster { max-width: 104px; }
 .tm-ix[aria-pressed="true"] { background: color-mix(in oklch, var(--c) 12%, transparent); }
-.tm-ix[aria-pressed="true"] .tm-face { box-shadow: 0 0 0 2.5px var(--c), 0 0 22px color-mix(in oklch, var(--c) 40%, transparent); }
-.tm-ix-name { max-width: 100%; font-size: 0.76rem; font-weight: 600; line-height: 1.2; text-align: center; overflow-wrap: anywhere; }
+.tm-ix[aria-pressed="true"] .ct-poster { border-color: var(--c); box-shadow: 0 0 0 1.5px var(--c), 0 0 22px color-mix(in oklch, var(--c) 40%, transparent); }
 .tm-ix-meta { font-family: var(--rs-mono); font-size: 0.6rem; color: var(--rs-ink-3); }
 
 .tm-foot {
@@ -564,14 +527,12 @@
   }
   .tm-section { scroll-margin-top: 16px; }
   .tm-card { padding: 0.9rem; }
-  .tm-face { width: 68px; }
   .tm-tower { padding: 0.9rem; }
   .tm-index-grid { grid-template-columns: repeat(auto-fill, minmax(84px, 1fr)); }
-  .tm-ix .tm-face { width: 64px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .tm-face, .tm-jump a, .tm-pill, .tm-focus, .tm-owned { transition: none !important; animation: none !important; }
+  .tm-jump a, .tm-pill, .tm-focus, .tm-owned { transition: none !important; animation: none !important; }
 }
 
 /* Dark appearance: the warn and token tints stay, the rest follows tokens. */

@@ -661,14 +661,7 @@ a.rs-tile:active { transform: scale(0.985); }
 }
 .rs-rateups li > a:hover { text-decoration: none; border-color: color-mix(in oklch, var(--opt) 60%, transparent); }
 .rs-rateups li > a:active { transform: scale(0.96); }
-.rs-rateups img, .rs-rateup-mono {
-  grid-row: span 2;
-  width: 40px; height: 40px;
-  border-radius: 10px;
-  display: grid; place-items: center;
-  background: rgb(255 255 255 / 0.06);
-  box-shadow: 0 0 0 1px color-mix(in oklch, var(--opt) 50%, transparent);
-}
+.rs-rateup-face { grid-row: span 2; --c: var(--opt); }
 .rs-rateup-name { font-weight: 650; font-size: 0.9rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .rs-rateup-meta { font-family: var(--rs-mono); font-size: 0.64rem; color: var(--opt); }
 

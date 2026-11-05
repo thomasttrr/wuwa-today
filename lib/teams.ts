@@ -7,6 +7,7 @@
  * one place. Unknown names fail the build rather than rendering a blank slot.
  */
 import raw from "@/data/teams.json";
+import { thumbFor, type Thumb } from "./renders";
 import { getCharacter } from "./characters";
 
 export const TEAM_ROLES = ["Main DPS", "Sub-DPS", "Support"] as const;
@@ -19,6 +20,7 @@ export interface TeamCharacter {
   rarity: number;
   /** True when /characters/[slug] exists, so the portrait can link there. */
   hasPage: boolean;
+  thumb: Thumb | null;
 }
 
 export interface TeamMember extends TeamCharacter {
@@ -103,7 +105,14 @@ export function teamSlug(name: string): string {
 const index = new Map<string, TeamCharacter>(
   raw.characters.map((c) => {
     const slug = teamSlug(c.name);
-    return [c.name, { name: c.name, slug, element: c.element, rarity: c.rarity, hasPage: Boolean(getCharacter(slug)) }];
+    return [c.name, {
+      name: c.name,
+      slug,
+      element: c.element,
+      rarity: c.rarity,
+      hasPage: Boolean(getCharacter(slug)),
+      thumb: thumbFor(slug, getCharacter(slug)?.profile.portrait_url),
+    }];
   })
 );
 

@@ -76,7 +76,7 @@
 .bn-card {
   position: relative;
   display: grid;
-  grid-template-columns: 96px minmax(0, 1fr);
+  grid-template-columns: 104px minmax(0, 1fr);
   gap: 1rem;
   padding: 1.1rem;
   border-radius: var(--rs-r-tile);
@@ -90,16 +90,9 @@
 }
 a.bn-card:hover { text-decoration: none; border-color: color-mix(in oklch, var(--c) 45%, transparent); }
 a.bn-card:active { transform: scale(0.985); }
-.bn-card-face {
-  width: 96px;
-  height: 96px;
-  border-radius: 22px;
-  overflow: hidden;
-  background: var(--rs-surface-2);
-  box-shadow: 0 0 0 2px color-mix(in oklch, var(--c) 70%, transparent), 0 12px 30px color-mix(in oklch, var(--c) 22%, transparent);
-}
-.bn-card-face img { display: block; width: 100%; height: 100%; object-fit: cover; }
-.bn-mono { display: grid; place-items: center; width: 100%; height: 100%; font-family: var(--rs-display); font-weight: 800; font-size: 1.4rem; color: var(--c, var(--rs-ink-3)); }
+/* Featured portrait: a bare mini poster (components/CharThumb). */
+.bn-card-face { width: 100%; }
+.bn-card-face .ct-poster { box-shadow: 0 12px 30px color-mix(in oklch, var(--c) 22%, transparent); }
 .bn-card-main { display: grid; gap: 0.45rem; align-content: start; min-width: 0; }
 .bn-card-kicker { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; margin: 0; font-family: var(--rs-mono); font-size: 0.66rem; letter-spacing: 0.05em; text-transform: uppercase; color: var(--c); }
 .bn-status {
@@ -128,8 +121,7 @@ a.bn-card:active { transform: scale(0.985); }
 .bn-card-lead { border-color: color-mix(in oklch, var(--c) 35%, transparent); }
 
 @media (max-width: 420px) {
-  .bn-card { grid-template-columns: 72px minmax(0, 1fr); gap: 0.85rem; }
-  .bn-card-face { width: 72px; height: 72px; border-radius: 18px; }
+  .bn-card { grid-template-columns: 80px minmax(0, 1fr); gap: 0.85rem; }
   .bn-card-name { font-size: 1.5rem !important; }
 }
 
@@ -149,7 +141,6 @@ a.bn-card:active { transform: scale(0.985); }
 }
 .bn-fours li > a:hover { text-decoration: none; border-color: color-mix(in oklch, var(--c) 55%, transparent); }
 .bn-fours li > a:active { transform: scale(0.96); }
-.bn-fours img, .bn-fours .bn-mono { width: 34px; height: 34px; border-radius: 50%; box-shadow: 0 0 0 1.5px color-mix(in oklch, var(--c) 60%, transparent); }
 .bn-four-name { font-weight: 650; font-size: 0.88rem; }
 .bn-four-meta { font-family: var(--rs-mono); font-size: 0.62rem; color: var(--c); }
 
@@ -193,16 +184,7 @@ a.bn-card:active { transform: scale(0.985); }
   background: var(--rs-line);
   z-index: -1;
 }
-.bn-node-face {
-  width: 56px;
-  height: 56px;
-  border-radius: 16px;
-  overflow: hidden;
-  margin-bottom: 0.4rem;
-  background: var(--rs-surface-2);
-  box-shadow: 0 0 0 1.5px color-mix(in oklch, var(--c, #6d6e79) 55%, transparent);
-}
-.bn-node-face img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.bn-node-face { margin-bottom: 0.4rem; }
 .bn-node-ver { font-family: var(--rs-mono); font-size: 0.64rem; letter-spacing: 0.05em; text-transform: uppercase; color: var(--rs-ink-3); }
 .bn-node-name { font-family: var(--rs-display); font-weight: 750; font-stretch: 115%; font-size: 1.15rem; }
 .bn-node-date { font-family: var(--rs-mono); font-size: 0.66rem; color: var(--rs-ink-3); }
@@ -271,5 +253,3 @@ a.bn-card:active { transform: scale(0.985); }
 /* Phones: open the timeline scrolled to the live phase (progressive). */
 .bn-node-now { scroll-initial-target: nearest; }
 
-/* Crop the baked-in name label and rarity bar from lineup portraits. */
-.bn-card-face img { transform: scale(1.38); transform-origin: 50% 0; }

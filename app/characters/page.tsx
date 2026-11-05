@@ -12,6 +12,8 @@ import {
 import { activeBanners } from "@/lib/data";
 import { ELEMENT_COLORS, elementColor } from "@/lib/elements";
 import rendersData from "@/data/renders.json";
+import { thumbFor } from "@/lib/renders";
+import { CharMedal } from "@/components/CharThumb";
 import { buildTierModel, OUR_TIER_LABELS } from "@/lib/tiers";
 import "./hub.css";
 
@@ -66,8 +68,7 @@ export default function CharactersPage() {
               {live.map((c) => (
                 <li key={c.slug} style={{ "--c": c.color } as CSSProperties}>
                   <Link href={`/characters/${c.slug}`}>
-                    {/* eslint-disable-next-line @next/next/no-img-element -- 44px chip portrait. */}
-                    <img src={c.portrait} alt="" width={44} height={44} loading="eager" decoding="async" />
+                    <CharMedal thumb={thumbFor(c.slug, c.portrait)} name={c.name} size={32} rarity={c.rarity} eager />
                     <span>{c.name}</span>
                   </Link>
                 </li>
