@@ -56,6 +56,7 @@ const SEARCH_ITEMS: SearchItem[] = [
   { kind: "page", label: "Pre-Farm", href: "/pre-farm", hint: "Materials ahead of release" },
   { kind: "page", label: "Pull Planner", href: "/pull-planner", hint: "Astrite and pity" },
   { kind: "page", label: "Tier List", href: "/tier-list", hint: "Current rankings" },
+  { kind: "page", label: "Teams", href: "/teams", hint: "Best teams, Tower, Whimpering Wastes" },
   { kind: "page", label: "Echo Sets", href: "/echo-sets", hint: "Sonata effects" },
   { kind: "page", label: "Beginner guides", href: "/beginner", hint: "New to Solaris-3" },
   { kind: "page", label: "Glossary", href: "/glossary", hint: "Game terms" },
@@ -89,13 +90,6 @@ export const metadata: Metadata = {
   description:
     "Your daily Wuthering Waves dashboard: current banners with countdowns, working redeem codes, active events, reset timers, and pull guides — updated every day.",
   keywords: ["Wuthering Waves", "WuWa", "banners", "redeem codes", "events", "pull guide", "countdown"],
-  openGraph: {
-    type: "website",
-    siteName: "WuWa Today",
-    title: "WuWa Today — Wuthering Waves Banners, Codes & Events",
-    description:
-      "Current banners with countdowns, working redeem codes, active events, and reset timers — updated daily.",
-  },
   robots: { index: true, follow: true },
 };
 
@@ -131,6 +125,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <Link href="/pre-farm">Pre-Farm</Link>
               <Link href="/pull-planner">Pull Planner</Link>
               <Link href="/tier-list">Tier List</Link>
+              <Link href="/teams">Teams</Link>
               <Link href="/glossary">Glossary</Link>
             </nav>
             <ThemeSwitch />

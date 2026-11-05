@@ -1,0 +1,238 @@
+{
+  "version": "3.7",
+  "versionNote": "Pre-3.8",
+  "characters": [
+    { "name": "Aemeath", "element": "Fusion", "rarity": 5 },
+    { "name": "Aero Rover", "element": "Aero", "rarity": 5 },
+    { "name": "Augusta", "element": "Electro", "rarity": 5 },
+    { "name": "Baizhi", "element": "Glacio", "rarity": 4 },
+    { "name": "Brant", "element": "Fusion", "rarity": 5 },
+    { "name": "Buling", "element": "Electro", "rarity": 4 },
+    { "name": "Calcharo", "element": "Electro", "rarity": 5 },
+    { "name": "Cantarella", "element": "Havoc", "rarity": 5 },
+    { "name": "Carlotta", "element": "Glacio", "rarity": 5 },
+    { "name": "Cartethyia", "element": "Aero", "rarity": 5 },
+    { "name": "Chisa", "element": "Havoc", "rarity": 5 },
+    { "name": "Chixia", "element": "Fusion", "rarity": 4 },
+    { "name": "Ciaccona", "element": "Aero", "rarity": 5 },
+    { "name": "Denia", "element": "Fusion", "rarity": 5 },
+    { "name": "Electro Rover", "element": "Electro", "rarity": 5 },
+    { "name": "Encore", "element": "Fusion", "rarity": 5 },
+    { "name": "Galbrena", "element": "Fusion", "rarity": 5 },
+    { "name": "Havoc Rover", "element": "Havoc", "rarity": 5 },
+    { "name": "Hiyuki", "element": "Glacio", "rarity": 5 },
+    { "name": "Hsin", "element": "Electro", "rarity": 5 },
+    { "name": "Iuno", "element": "Aero", "rarity": 5 },
+    { "name": "Jingran", "element": "Fusion", "rarity": 5 },
+    { "name": "Jiyan", "element": "Aero", "rarity": 5 },
+    { "name": "Lucilla", "element": "Glacio", "rarity": 5 },
+    { "name": "Lucy", "element": "Spectro", "rarity": 5 },
+    { "name": "Lupa", "element": "Fusion", "rarity": 5 },
+    { "name": "Luuk Herssen", "element": "Spectro", "rarity": 5 },
+    { "name": "Lynae", "element": "Spectro", "rarity": 5 },
+    { "name": "Mornye", "element": "Fusion", "rarity": 5 },
+    { "name": "Mortefi", "element": "Fusion", "rarity": 4 },
+    { "name": "Phoebe", "element": "Spectro", "rarity": 5 },
+    { "name": "Phrolova", "element": "Havoc", "rarity": 5 },
+    { "name": "Qingxiao", "element": "Aero", "rarity": 5 },
+    { "name": "Qiuyuan", "element": "Aero", "rarity": 5 },
+    { "name": "Rebecca", "element": "Electro", "rarity": 5 },
+    { "name": "Roccia", "element": "Havoc", "rarity": 5 },
+    { "name": "Sanhua", "element": "Glacio", "rarity": 4 },
+    { "name": "Shorekeeper", "element": "Spectro", "rarity": 5 },
+    { "name": "Sigrika", "element": "Aero", "rarity": 5 },
+    { "name": "Spectro Rover", "element": "Spectro", "rarity": 5 },
+    { "name": "Suisui", "element": "Glacio", "rarity": 5 },
+    { "name": "Suoming", "element": "Electro", "rarity": 5 },
+    { "name": "Verina", "element": "Spectro", "rarity": 5 },
+    { "name": "Yangyang", "element": "Aero", "rarity": 4 },
+    { "name": "Yangyang: Xuanling", "element": "Havoc", "rarity": 5 },
+    { "name": "Yinlin", "element": "Electro", "rarity": 5 },
+    { "name": "Zani", "element": "Spectro", "rarity": 5 },
+    { "name": "Zhezhi", "element": "Glacio", "rarity": 5 }
+  ],
+
+  "general": [
+    { "name": "Havoc Bane", "tier": "T0", "members": ["Yangyang: Xuanling", "Chisa", "Suisui"], "how": "Chisa and Suisui strip enemy defence while Xuanling builds marks — her heavy attacks then cash them in for huge damage." },
+    { "name": "Glacio Chafe", "tier": "T0", "members": ["Hiyuki", "Lucilla", "Suisui"], "how": "Lucilla and Suisui stack freeze — Hiyuki's biggest hits land hardest on frozen enemies. Suisui also heals." },
+    { "name": "Tune Strain", "tier": "T0", "members": ["Qingxiao", "Denia", "Mornye"], "how": "Denia and Mornye speed up and boost the team's Tune Break attacks. Qingxiao does the main hitting." },
+    { "name": "Unison", "tier": "T0", "members": ["Hsin", "Suoming", "Shorekeeper"], "how": "Hsin and Suoming swap fast, building a shared meter that makes both hit harder. Shorekeeper heals and boosts crits." },
+    { "name": "Echo Skill", "tier": "T0 / T0.5", "members": ["Sigrika", "Qiuyuan", "Shorekeeper"], "how": "Qiuyuan boosts Echo Skill damage — Sigrika's main damage source. Shorekeeper heals and raises crits." },
+    { "name": "Heavy Attack", "tier": "T0", "members": ["Jingran", "Iuno", "Shorekeeper"], "how": "Iuno feeds Jingran heavy-attack buffs and healing, Shorekeeper adds crit buffs — Jingran stays out doing the big damage." },
+    { "name": "Electro Flare", "tier": "T0.5", "members": ["Hsin", "Electro Rover", "Suisui"], "how": "Electro Rover builds Hsin's Flare marks fast, Suisui boosts her skill damage and heals — then Hsin sets the marks off." },
+    { "name": "Tune Rupture", "tier": "T0.5", "members": ["Aemeath", "Lynae", "Mornye"], "how": "Lynae buffs all of Aemeath's damage, especially her ultimate. Mornye speeds up Tune Breaks and adds more buffs." },
+    { "name": "Heavy Attack Burst", "members": ["Augusta", "Iuno", "Shorekeeper"], "how": "Iuno boosts Augusta's heavy attacks and heals her, Shorekeeper raises crits — Augusta does almost all the damage." },
+    { "name": "Tune Strain", "variant": "Spectro", "tier": "T0.5", "members": ["Luuk Herssen", "Denia", "Mornye"], "how": "Denia damages enemies over time and boosts Luuk's normal attacks on swap-out. Mornye adds buffs and speeds up Tune Breaks." },
+    { "name": "Suoming On-Field Carry", "tier": "T0.5", "members": ["Suoming", "Sanhua", "Shorekeeper"], "how": "Suoming stays out as the main hitter. Sanhua boosts her normal attacks; Shorekeeper heals and raises crits." },
+    { "name": "Aero Erosion", "variant": "Chisa", "members": ["Cartethyia", "Ciaccona", "Chisa"], "how": "Ciaccona stacks wind marks (Aero Erosion) — Cartethyia's damage grows with every mark. Chisa heals and shields, so no separate healer is needed." },
+    { "name": "Spectro Frazzle", "members": ["Zani", "Phoebe", "Shorekeeper"], "how": "Phoebe piles light marks (Spectro Frazzle) on enemies, Zani turns them into her biggest damage. Shorekeeper heals and boosts crits." },
+    { "name": "Echo Skill", "variant": "Galbrena", "members": ["Galbrena", "Qiuyuan", "Shorekeeper"], "how": "Qiuyuan boosts Echo Skill damage, powering up Galbrena's attacks. Shorekeeper heals and raises crits." },
+    { "name": "Aero Erosion", "variant": "Aero Rover", "members": ["Cartethyia", "Ciaccona", "Aero Rover"], "how": "Ciaccona and Aero Rover keep wind marks maxed, so Cartethyia fights at full power almost nonstop. No healer in this version." },
+    { "name": "Echo Havoc", "members": ["Phrolova", "Roccia", "Cantarella"], "how": "Roccia groups enemies and boosts Havoc damage. Cantarella powers up Phrolova's partner Hecate, who deals big damage from off-field." },
+    { "name": "Fusion Burst", "variant": "Denia + Chisa", "tier": "T0.5", "members": ["Aemeath", "Denia", "Chisa"], "how": "Denia burns enemies over time, her buff growing stronger the longer the fight runs. Chisa heals, shields, and cuts defence." },
+    { "name": "Fusion Burst", "variant": "Denia + Suisui", "members": ["Aemeath", "Denia", "Suisui"], "how": "Denia burns enemies over time and keeps boosting Aemeath. Suisui boosts Aemeath's skill damage and helps heal." }
+  ],
+
+  "variants": [
+    { "name": "Glacio Chafe", "variant": "Chisa support", "members": ["Hiyuki", "Lucilla", "Chisa"], "how": "Chisa takes Suisui's slot for more damage — she cuts defence and helps keep freeze stacked for Hiyuki." },
+    { "name": "Spectro Frazzle", "variant": "Chisa support", "members": ["Zani", "Phoebe", "Chisa"], "how": "Phoebe piles light marks on enemies, Zani cashes them in. Chisa stacks the marks higher, cuts defence, and covers healing and shields." },
+    { "name": "Mono Fusion", "members": ["Galbrena", "Lupa", "Shorekeeper"], "how": "Lupa lowers enemy Fusion resistance and boosts the team's Fusion damage. Shorekeeper heals and raises crits." },
+    { "name": "Phrolova Echo", "variant": "Shorekeeper", "members": ["Phrolova", "Cantarella", "Shorekeeper"], "how": "Cantarella boosts Phrolova's Havoc damage and triggers extra attacks from her partner Hecate. Shorekeeper heals and raises everyone's crits." },
+    { "name": "Phrolova Echo", "variant": "Qiuyuan", "members": ["Phrolova", "Qiuyuan", "Cantarella"], "how": "Qiuyuan's buffs supercharge Echo Skill damage — exactly what Hecate and Cantarella deal. Cantarella also heals, so no separate healer is needed." },
+    { "name": "Sigrika Variant", "variant": "Galbrena support slot", "members": ["Sigrika", "Qiuyuan", "Galbrena"], "how": "Galbrena doesn't buff Sigrika — she's a second damage dealer whose attacks count as Echo Skill damage. No healer; Qiuyuan's Echo buffs feed them both." },
+    { "name": "Tune Hack", "members": ["Lucy", "Rebecca", "Mornye"], "how": "Rebecca's turret boosts Lucy's heavy attacks and adds its own damage. Mornye speeds up Tune Breaks and buffs everyone." },
+    { "name": "Luuk Tune Strain", "variant": "Lynae", "members": ["Luuk Herssen", "Lynae", "Mornye"], "how": "Lynae buffs Luuk's damage, especially his ultimate. Mornye adds more buffs and speeds up Tune Breaks." },
+    { "name": "Jingran Variant", "members": ["Jingran", "Brant", "Lupa"], "how": "Lupa boosts team Fusion damage and lowers enemy Fusion resistance. Brant hands Jingran a Fusion boost, healing and shields — and Jingran hits harder when shielded." }
+  ],
+
+  "tower": {
+    "resetStart": "2026-10-12",
+    "resetEnd": "2026-11-09",
+    "nextReset": "2026-11-09T04:00:00-05:00",
+    "resetLine": "The Hazard Zone resets every 28 days — next reset Monday, November 9, 2026 at 4:00 AM server time (4:00 AM ET on the America server).",
+    "notes": [
+      "Bosses also resist their own element: a boss takes about a third less damage from its own element, every reset.",
+      "A full clear needs at least 4 different teams — the game's Vigor system stops one team clearing everything, and no character can be spent twice."
+    ],
+    "towers": [
+      {
+        "id": "resonant",
+        "name": "Resonant Tower",
+        "position": "Left",
+        "effects": [
+          "Enemy Havoc RES down 10%.",
+          "Using Echo Skills raises the whole team's damage, stacking 4 times — at 4 stacks the team's Crit DMG rises 36%."
+        ],
+        "resist": [{ "label": "All 4 floors", "elements": ["Fusion"] }],
+        "teams": [
+          { "name": "Echo Havoc", "members": ["Phrolova", "Roccia", "Cantarella"], "how": "Roccia groups enemies and boosts Havoc damage, Cantarella heals and boosts Havoc and Echo damage — Phrolova cashes in with constant Echo Skill attacks, exactly what this tower rewards." },
+          { "name": "Echo Skill", "members": ["Sigrika", "Qiuyuan", "Shorekeeper"], "how": "Qiuyuan boosts Echo Skill damage — Sigrika's main damage source. Shorekeeper heals and raises crits." },
+          { "name": "Havoc Bane", "members": ["Yangyang: Xuanling", "Chisa", "Suisui"], "how": "Chisa and Suisui strip enemy defence while Xuanling builds marks — her heavy attacks then cash them in for huge damage." },
+          { "name": "Tune Strain", "badge": { "text": "Aero parks here this reset", "tone": "note" }, "members": ["Qingxiao", "Denia", "Mornye"], "how": "Denia and Mornye speed up and boost the team's Tune Break attacks. Qingxiao does the main hitting." }
+        ]
+      },
+      {
+        "id": "echoing",
+        "name": "Echoing Tower",
+        "position": "Right",
+        "effects": [
+          "Enemy Glacio RES down 10%.",
+          "Using Intro Skills steadily raises ATK — at full stacks, Resonance Skill DMG rises 40%."
+        ],
+        "resist": [{ "label": "All 4 floors", "elements": ["Aero"] }],
+        "teams": [
+          { "name": "Glacio Chafe", "variant": "Chisa", "members": ["Hiyuki", "Lucilla", "Chisa"], "how": "Chisa takes Suisui's slot for more damage — she cuts defence and helps keep freeze stacked for Hiyuki." },
+          { "name": "Glacio Chafe", "members": ["Hiyuki", "Lucilla", "Suisui"], "how": "Lucilla and Suisui stack freeze — Hiyuki's biggest hits land hardest on frozen enemies. Suisui also heals." },
+          { "name": "Glacio Skill Team", "members": ["Carlotta", "Zhezhi", "Shorekeeper"], "how": "Zhezhi's swap-out buff raises Resonance Skill damage — Carlotta's main damage — and this tower boosts it further. Shorekeeper heals and boosts crits." },
+          { "name": "Spectro Frazzle", "badge": { "text": "Parked here this reset", "tone": "note" }, "members": ["Zani", "Phoebe", "Shorekeeper"], "how": "Phoebe piles light marks (Spectro Frazzle) on enemies, Zani turns them into her biggest damage. Shorekeeper heals and boosts crits." }
+        ]
+      },
+      {
+        "id": "hazard-1-2",
+        "name": "Hazard Tower",
+        "position": "Middle",
+        "floors": "Floors 1–2",
+        "effects": [
+          "Enemy Electro RES and Fusion RES down 10%.",
+          "Enemy Spectro RES and Glacio RES up 10%.",
+          "Electro and Fusion damage up 30%.",
+          "Hitting enemies with status effects raises Crit DMG by 25%."
+        ],
+        "resist": [
+          { "label": "Floor 1", "elements": ["Glacio"] },
+          { "label": "Floor 2", "elements": ["Spectro"] }
+        ],
+        "teams": [
+          { "name": "Fusion Burst", "members": ["Aemeath", "Denia", "Chisa"], "how": "Denia burns enemies over time, her buff growing stronger the longer the fight runs. Chisa heals, shields, and cuts defence." },
+          { "name": "Electro Flare", "variant": "Buling", "members": ["Hsin", "Electro Rover", "Buling"], "how": "Electro Rover builds Hsin's Flare marks fast. Buling is the cheap support — she boosts skill damage, no rare gear needed." },
+          { "name": "Aero Erosion", "variant": "Chisa", "members": ["Cartethyia", "Ciaccona", "Chisa"], "how": "Ciaccona stacks wind marks (Aero Erosion) — Cartethyia's damage grows with every mark. Chisa heals and shields, so no separate healer is needed." },
+          { "name": "Heavy Attack Burst", "members": ["Augusta", "Iuno", "Shorekeeper"], "how": "Iuno boosts Augusta's heavy attacks and heals her, Shorekeeper raises crits — Augusta does almost all the damage." }
+        ]
+      },
+      {
+        "id": "hazard-3-4",
+        "name": "Hazard Tower",
+        "position": "Middle",
+        "floors": "Floors 3–4",
+        "effects": [
+          "Enemy resistance to all elements up 15% — except Electro and Spectro, which stay normal.",
+          "The longer a fight runs past 60 seconds, the more damage enemies take.",
+          "Intro Skills raise team damage 15%.",
+          "Electro Flare damage up 55%.",
+          "Unison Electro damage up 50%."
+        ],
+        "resist": [
+          { "label": "Floor 3", "elements": ["Havoc"] },
+          { "label": "Floor 4", "elements": ["Glacio", "Havoc"] }
+        ],
+        "teams": [
+          { "name": "Electro Flare", "members": ["Hsin", "Electro Rover", "Suisui"], "how": "Electro Rover builds Hsin's Flare marks fast, Suisui boosts her skill damage and heals — then Hsin sets the marks off." },
+          { "name": "Unison", "members": ["Hsin", "Suoming", "Shorekeeper"], "how": "Hsin and Suoming swap fast, building a shared meter that makes both hit harder. Shorekeeper heals and boosts crits." },
+          { "name": "Spectro Frazzle", "members": ["Zani", "Phoebe", "Shorekeeper"], "how": "Phoebe piles light marks (Spectro Frazzle) on enemies, Zani turns them into her biggest damage. Shorekeeper heals and boosts crits." },
+          { "name": "Tune Strain", "variant": "Spectro", "members": ["Luuk Herssen", "Denia", "Mornye"], "how": "Denia damages enemies over time and boosts Luuk's normal attacks on swap-out. Mornye adds buffs and speeds up Tune Breaks." },
+          { "name": "Tune Hack", "members": ["Lucy", "Rebecca", "Mornye"], "how": "Rebecca's turret boosts Lucy's heavy attacks and adds its own damage. Mornye speeds up Tune Breaks and buffs everyone." }
+        ]
+      }
+    ],
+    "keepOut": [
+      { "element": "Spectro", "text": "Keep out of Hazard Floors 1–2 — enemy Spectro RES is up 10% there. They are fine in Hazard Floors 3–4, where Spectro is one of the two elements not taxed." },
+      { "element": "Glacio", "text": "Keep out of Hazard Floors 1–2 — Glacio RES is up 10% there, and the Floor 1 boss resists Glacio itself. Their home this reset is Echoing Tower." },
+      { "element": "Aero", "text": "Keep out of Echoing Tower — every boss there resists Aero. They park in Resonant Tower this reset." },
+      { "element": "Fusion", "text": "Keep out of Resonant Tower — every boss there resists Fusion. Their boosted home this reset is Hazard Floors 1–2." },
+      { "element": "Havoc", "text": "Boosted in Resonant Tower this reset, but taxed in Hazard Floors 3–4 — the bosses there resist Havoc and the 15% rise applies to Havoc too." }
+    ]
+  },
+
+  "wastes": {
+    "resetStart": "2026-10-26",
+    "resetEnd": "2026-11-23",
+    "nextReset": "2026-11-23T04:00:00-05:00",
+    "resetLine": "Respawning Waters (Chasm stages 7–11 and Infinite Torrents) resets every 28 days — next reset Monday, November 23, 2026 at 4:00 AM server time (4:00 AM ET on the America server). Forbidden Waters (stages 1–6) never resets.",
+    "teamsLine": "Best teams below are for Infinite Torrents, split by half.",
+    "tokens": [
+      { "name": "The Craft of Endless Inspiration", "text": "Electro Flare damage up 65%. Unison Electro damage up 60%." },
+      { "name": "The Scale of Heart and Soul", "text": "Tune Strain shifting raises damage 40%. Tune Breaks give the whole team +30% damage of every element and +30% Aero damage." },
+      { "name": "Lamp That Illuminates the Illusion", "text": "Gaining a shield stacks Fusion damage and Heavy Attack damage, up to 15 stacks." }
+    ],
+    "stageEffect": "Enemies take 30% more damage, and even more while the Burning Waves state is running.",
+    "harder": {
+      "elements": ["Glacio", "Havoc"],
+      "text": "Glacio and Havoc teams perform badly this reset — this cycle's enemies resist those elements. Hiyuki and Yangyang: Xuanling have a harder cycle."
+    },
+    "halves": [
+      {
+        "name": "1st Half",
+        "teams": [
+          { "name": "Tune Strain", "badge": { "text": "Best 1st half", "tone": "best" }, "members": ["Qingxiao", "Denia", "Mornye"], "how": "Denia and Mornye speed up and boost the team's Tune Break attacks. Qingxiao does the main hitting." },
+          { "name": "Heavy Attack", "members": ["Jingran", "Iuno", "Shorekeeper"], "how": "Iuno feeds Jingran heavy-attack buffs and healing, Shorekeeper adds crit buffs — Jingran stays out doing the big damage." },
+          { "name": "Echo Skill", "members": ["Sigrika", "Qiuyuan", "Shorekeeper"], "how": "Qiuyuan boosts Echo Skill damage — Sigrika's main damage source. Shorekeeper heals and raises crits." },
+          { "name": "Heavy Attack", "variant": "Lynae", "members": ["Augusta", "Iuno", "Lynae"], "how": "Iuno boosts Augusta's heavy attacks and heals. Lynae brings damage buffs instead of a second support, so Augusta hits harder." },
+          { "name": "Fusion Burst", "members": ["Aemeath", "Denia", "Chisa"], "how": "Denia burns enemies over time, her buff growing stronger the longer the fight runs. Chisa heals, shields, and cuts defence." }
+        ]
+      },
+      {
+        "name": "2nd Half",
+        "teams": [
+          { "name": "Unison", "badge": { "text": "Best 2nd half", "tone": "best" }, "members": ["Hsin", "Suoming", "Shorekeeper"], "how": "Hsin and Suoming swap fast, building a shared meter that makes both hit harder. Shorekeeper heals and boosts crits." },
+          { "name": "Electro Flare", "members": ["Hsin", "Electro Rover", "Suisui"], "how": "Electro Rover builds Hsin's Flare marks fast, Suisui boosts her skill damage and heals — then Hsin sets the marks off." },
+          { "name": "Glacio Chafe", "badge": { "text": "Harder this reset — enemy Glacio resistance", "tone": "warn" }, "members": ["Hiyuki", "Lucilla", "Suisui"], "how": "Lucilla and Suisui stack freeze — Hiyuki's biggest hits land hardest on frozen enemies. Suisui also heals." }
+        ]
+      }
+    ]
+  },
+
+  "budget": [
+    { "tag": "F2P", "name": "Xuanling", "members": ["Yangyang: Xuanling", "Mortefi", "Verina"], "how": "Mortefi makes Xuanling's heavy attacks hit much harder on swap-out, and keeps firing extra shots. Verina heals and boosts everyone's attack." },
+    { "tag": "F2P", "name": "Hsin Flare", "variant": "Buling", "members": ["Hsin", "Electro Rover", "Buling"], "how": "Electro Rover builds Hsin's Flare marks fast. Buling is the cheap support — she boosts skill damage, no rare gear needed." },
+    { "tag": "F2P", "name": "Spectro Rover", "members": ["Spectro Rover", "Yangyang", "Baizhi"], "how": "Yangyang groups enemies and feeds Rover energy, so his ultimate comes up more often. Baizhi heals." },
+    { "tag": "F2P", "name": "Havoc Rover", "members": ["Havoc Rover", "Sanhua", "Baizhi"], "how": "Sanhua makes Rover's normal attacks hit much harder — exactly what he spams in Dark Surge form. Baizhi heals." },
+    { "tag": "F2P", "name": "Chixia", "members": ["Chixia", "Yangyang", "Baizhi"], "how": "Yangyang feeds Chixia energy and groups enemies, so she can keep firing as the damage dealer. Baizhi heals and buffs attack." },
+    { "tag": "F2P", "name": "Sigrika", "members": ["Sigrika", "Mortefi", "Verina"], "how": "Mortefi adds extra fire hits whenever Sigrika lands normal or heavy attacks. Verina heals and buffs attack. Works — but nobody gives Sigrika the Echo Skill boost Qiuyuan would." },
+    { "tag": "F2P", "name": "Luuk", "members": ["Luuk Herssen", "Spectro Rover", "Verina"], "how": "Spectro Rover chips in side damage, so Luuk barely has to leave the field. Verina heals and hands out attack buffs." },
+    { "tag": "F2P", "name": "Spectro Budget", "members": ["Spectro Rover", "Sanhua", "Verina"], "how": "Sanhua boosts the next fighter's normal attacks on swap-out; Verina heals and adds attack buffs. A cheap, safe team built around Rover." },
+    { "tag": "Standard", "name": "Encore Quickswap", "members": ["Encore", "Sanhua", "Verina"], "how": "Sanhua boosts Encore's normal attacks on swap-out. Verina heals and buffs while Encore and her woolly partner do the damage." },
+    { "tag": "Standard", "name": "Calcharo", "variant": "Sanhua", "members": ["Calcharo", "Sanhua", "Verina"], "how": "Sanhua boosts Calcharo's normal attacks — his ultimate form turns them into fast, heavy lightning strikes. Verina heals and buffs." },
+    { "tag": "Standard", "name": "Calcharo", "variant": "Yinlin", "members": ["Calcharo", "Yinlin", "Verina"], "how": "Yinlin boosts Calcharo's lightning and ultimate damage on swap-out, and her puppet keeps hitting from off-field. Verina heals and buffs." },
+    { "tag": "Classic", "name": "Jiyan", "members": ["Jiyan", "Mortefi", "Verina"], "how": "Mortefi fires extra shots alongside Jiyan and boosts his heavy attacks, feeding his wind-spear ultimate form. Verina heals and buffs." }
+  ]
+}

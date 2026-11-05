@@ -22,6 +22,7 @@ const NAV = [
   { href: "/pre-farm", label: "Pre-Farm" },
   { href: "/pull-planner", label: "Planner" },
   { href: "/tier-list", label: "Tier List" },
+  { href: "/teams", label: "Teams" },
 ];
 
 /**
