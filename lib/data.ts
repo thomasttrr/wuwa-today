@@ -136,6 +136,7 @@ export interface OutfitItem {
 }
 
 export const outfits = (outfitsRaw as { items: OutfitItem[] }).items;
+export const outfitsMeta = (outfitsRaw as { _meta: { updatedAt: string } })._meta;
 
 // Status comes from the dates at build time, not the stored `status` field:
 // the stored field only changes when someone edits the JSON, so a phase that

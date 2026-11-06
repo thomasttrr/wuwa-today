@@ -21,7 +21,8 @@
     "dev": "next dev",
     "lint": "eslint .",
     "start": "next start",
-    "thumbs": "node scripts/make-thumbs.mjs"
+    "thumbs": "node scripts/make-thumbs.mjs",
+    "thumbs:outfits": "node scripts/make-outfit-thumbs.mjs"
   },
   "version": "0.1.0",
   "overrides": {

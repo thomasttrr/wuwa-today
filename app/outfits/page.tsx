@@ -1,8 +1,12 @@
-import PageHero from "@/components/PageHero";
+import { existsSync } from "node:fs";
+import path from "node:path";
 import type { Metadata } from "next";
-import Link from "next/link";
-import UpdatedStamp from "../../components/UpdatedStamp";
-import { outfits, bannerMeta, type OutfitItem } from "../../lib/data";
+import PageHero from "@/components/PageHero";
+import { outfits, outfitsMeta, formatServerDate } from "../../lib/data";
+import { getCharacter } from "../../lib/characters";
+import { ELEMENT_COLORS, elementColor } from "../../lib/elements";
+import Wardrobe from "./Wardrobe";
+import type { Cosmetic, Shelf, ShelfKey } from "./types";
 import "./outfits.css";
 
 export const metadata: Metadata = {
@@ -12,84 +16,125 @@ export const metadata: Metadata = {
   alternates: { canonical: "/outfits" },
 };
 
-const SECTIONS: { title: string; compact: boolean; match: (kind: string) => boolean }[] = [
-  { title: "Outfits", compact: false, match: (k) => k.endsWith("Outfit") },
-  { title: "Accessories", compact: true, match: (k) => k === "Accessory" },
-  { title: "Weapon Skins", compact: true, match: (k) => k === "Weapon Skin" },
-  { title: "Bike Skins", compact: true, match: (k) => k === "Bike Skin" },
-  { title: "Display Themes", compact: true, match: (k) => k === "Display Theme" },
-  { title: "Gliders", compact: true, match: (k) => k === "Glider Skin" },
-  { title: "Wings", compact: true, match: (k) => k === "Wing Skin" },
-  { title: "Phantom Echo Skins", compact: true, match: (k) => k === "Phantom Echo Skin" },
-  { title: "Collection Items", compact: true, match: (k) => k === "Collection Item" },
+/** Shelf order, copy and accent. Each shelf borrows an element colour so the
+ *  catalog reads as distinct "departments" at the site's fixed lightness. */
+const SHELVES: Shelf[] = [
+  { key: "outfits", title: "Outfits", blurb: "Full costume changes for Resonators, deluxe and signature.", color: ELEMENT_COLORS.Havoc, shape: "wide" },
+  { key: "accessories", title: "Accessories", blurb: "Hats, ribbons and trinkets worn on top of any outfit.", color: ELEMENT_COLORS.Spectro, shape: "square" },
+  { key: "weapons", title: "Weapon Skins", blurb: "New looks for a Resonator's weapon. Stats stay the same.", color: ELEMENT_COLORS.Fusion, shape: "square" },
+  { key: "bikes", title: "Bike Skins", blurb: "Liveries for the Expedition Motorbike.", color: ELEMENT_COLORS.Electro, shape: "wide", preview: 12 },
+  { key: "echoes", title: "Phantom Echo Skins", blurb: "Alternate appearances for Echoes you summon in combat.", color: ELEMENT_COLORS.Aero, shape: "square", preview: 12 },
+  { key: "flight", title: "Gliders & Wings", blurb: "Traversal cosmetics for gliding and flight.", color: ELEMENT_COLORS.Glacio, shape: "square" },
+  { key: "themes", title: "Display Themes", blurb: "Backdrops for your in-game profile and terminal.", color: ELEMENT_COLORS.Havoc, shape: "square" },
+  { key: "collection", title: "Collection", blurb: "Keepsakes and one-offs.", color: ELEMENT_COLORS.Spectro, shape: "wide" },
+  { key: "other", title: "Everything else", blurb: "Cosmetics that don't fit a shelf yet.", color: "#a7a9b4", shape: "square" },
 ];
 
-function Card({ o, compact }: { o: OutfitItem; compact: boolean }) {
-  return (
-    <article className="of-card">
-      {o.image ? (
-        // eslint-disable-next-line @next/next/no-img-element
-        <img className="of-img" src={o.image} alt={o.imageAlt} loading="lazy" />
-      ) : (
-        <div className={compact ? "of-noimg" : "of-noimg of-noimg-wide"}>
-          No official art found yet
-        </div>
-      )}
-      <div className="of-body">
-        <p className="of-meta">
-          {o.kind} · Version {o.version}
-        </p>
-        <h3 className="of-name">{o.name}</h3>
-        <p className="of-for">
-          For{" "}
-          {o.characterSlug ? (
-            <Link href={`/characters/${o.characterSlug}`}>{o.character}</Link>
-          ) : (
-            o.character
-          )}
-        </p>
-        <p className="of-desc">{o.description}</p>
-        <p className="of-avail">{o.availability}</p>
-        {o.image ? <p className="of-credit">Art: {o.imageCredit}</p> : null}
-      </div>
-    </article>
-  );
+function shelfFor(kind: string): ShelfKey {
+  if (kind.endsWith("Outfit")) return "outfits";
+  switch (kind) {
+    case "Accessory": return "accessories";
+    case "Weapon Skin": return "weapons";
+    case "Bike Skin": return "bikes";
+    case "Phantom Echo Skin": return "echoes";
+    case "Glider Skin":
+    case "Wing Skin": return "flight";
+    case "Display Theme": return "themes";
+    case "Collection Item": return "collection";
+    default: return "other";
+  }
 }
+
+const isPlainVersion = (v: string) => /^\d+\.\d+$/.test(v);
+const versionNum = (v: string) => (isPlainVersion(v) ? parseFloat(v) : -1);
+const NEWEST = Math.max(...outfits.map((o) => versionNum(o.version)));
+
+function host(url: string): string {
+  try {
+    return new URL(url).hostname.replace(/^www\./, "");
+  } catch {
+    return url;
+  }
+}
+
+/** A generated "-w480" sibling, when scripts/make-outfit-thumbs.mjs made one. */
+function thumbOf(image: string | null): string | null {
+  if (!image) return null;
+  const thumb = image.replace(/\.webp$/, "-w480.webp");
+  return thumb !== image && existsSync(path.join(process.cwd(), "public", thumb)) ? thumb : null;
+}
+
+const shelfColor = new Map(SHELVES.map((s) => [s.key, s.color]));
+
+const items: Cosmetic[] = outfits.map((o) => {
+  const shelf = shelfFor(o.kind);
+  const char = o.characterSlug ? getCharacter(o.characterSlug) : undefined;
+  return {
+    id: o.id,
+    name: o.name,
+    character: o.character,
+    characterSlug: o.characterSlug && char ? o.characterSlug : null,
+    kind: o.kind,
+    version: o.version,
+    versionShort: isPlainVersion(o.version) ? o.version : null,
+    isNew: versionNum(o.version) === NEWEST,
+    availability: o.availability,
+    description: o.description,
+    image: o.image || null,
+    thumb: thumbOf(o.image || null),
+    imageAlt: o.imageAlt,
+    imageCredit: o.imageCredit,
+    sources: (o.sources ?? []).map((url) => ({ url, host: host(url) })),
+    shelf,
+    color: char ? elementColor(char.profile.element) : shelfColor.get(shelf) ?? "#a7a9b4",
+  };
+});
+
+const shelves = SHELVES.filter((s) => items.some((i) => i.shelf === s.key));
+const count = (k: ShelfKey) => items.filter((i) => i.shelf === k).length;
+const plainVersions = outfits.map((o) => versionNum(o.version)).filter((v) => v > 0);
+const oldest = Math.min(...plainVersions).toFixed(1);
 
 export default function OutfitsPage() {
   return (
     <>
-      <PageHero
-        kicker={
-          <>
-            Version {bannerMeta.version} · {bannerMeta.versionTitle}
-          </>
-        }
-        title="Outfits & Cosmetics"
-      >
-        The complete catalog — all {outfits.length} outfits, accessories,
-        weapon skins, bike skins and more, newest first in each section, with
-        the official art and how to get each one.
+      <PageHero kicker={<>The Wardrobe · {items.length} pieces</>} title="Outfits & Cosmetics">
+        Every outfit, accessory, weapon skin, bike livery and Phantom Echo skin
+        in Wuthering Waves, with the official art and how to get each one.
       </PageHero>
-      {SECTIONS.map((s) => {
-        const items = outfits.filter((o) => s.match(o.kind));
-        if (items.length === 0) return null;
-        return (
-          <section key={s.title} className="of-section">
-            <h2 className="of-section-h">
-              {s.title} <span className="of-section-n">{items.length}</span>
-            </h2>
-            <div className={s.compact ? "of-grid of-grid-compact" : "of-grid"}>
-              {items.map((o) => (
-                <Card key={o.id} o={o} compact={s.compact} />
-              ))}
-            </div>
-          </section>
-        );
-      })}
-      <div className="of-stamp">
-        <UpdatedStamp />
-      </div>
+
+      <dl className="wd-stats" aria-label="Catalog at a glance">
+        <div>
+          <dt>Pieces</dt>
+          <dd>{items.length}</dd>
+        </div>
+        <div>
+          <dt>Outfits</dt>
+          <dd>{count("outfits")}</dd>
+        </div>
+        <div>
+          <dt>Bike liveries</dt>
+          <dd>{count("bikes")}</dd>
+        </div>
+        <div>
+          <dt>Echo skins</dt>
+          <dd>{count("echoes")}</dd>
+        </div>
+        <div>
+          <dt>Versions</dt>
+          <dd>
+            {oldest}–{NEWEST.toFixed(1)}
+          </dd>
+        </div>
+      </dl>
+
+      <Wardrobe items={items} shelves={shelves} newest={NEWEST.toFixed(1)} />
+
+      <p className="wd-stamp">
+        Catalog verified {formatServerDate(outfitsMeta.updatedAt)}. Art © Kuro
+        Games. Where no official art exists anywhere, the card says so instead
+        of guessing.
+      </p>
     </>
   );
 }
