@@ -1,0 +1,74 @@
+/* Outfits — gallery cards in the Resonance system. */
+.of-grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: minmax(0, 1fr);
+  max-width: 1080px;
+}
+@media (min-width: 760px) {
+  .of-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+.of-card {
+  background: var(--rs-surface);
+  border: 1px solid var(--rs-line-soft);
+  border-radius: var(--rs-r-tile);
+  overflow: hidden;
+  min-width: 0;
+}
+.of-img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.of-body {
+  display: grid;
+  gap: 0.45rem;
+  padding: 1.1rem 1.25rem 1.3rem;
+}
+.of-meta {
+  margin: 0;
+  font-family: var(--rs-mono);
+  font-size: var(--fs-1);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--el);
+}
+.of-name {
+  margin: 0;
+  font-family: var(--rs-display);
+  font-size: 1.45rem;
+  font-weight: 750;
+  line-height: 1.1;
+  color: var(--rs-ink);
+}
+.of-for {
+  margin: 0;
+  color: var(--rs-ink-2);
+  font-size: var(--fs-4);
+}
+.of-for a {
+  color: var(--rs-ink);
+  font-weight: 650;
+}
+.of-desc {
+  margin: 0;
+  color: var(--rs-ink-2);
+  font-size: var(--fs-4);
+  line-height: 1.55;
+}
+.of-avail {
+  margin: 0;
+  color: var(--rs-ink);
+  font-size: var(--fs-3);
+  font-weight: 600;
+}
+.of-credit {
+  margin: 0;
+  color: var(--rs-ink-3);
+  font-size: var(--fs-2);
+}
+.of-stamp {
+  margin-top: 1.5rem;
+}

@@ -1,6 +1,7 @@
 import bannersRaw from "../data/banners.json";
 import codesRaw from "../data/codes.json";
 import eventsRaw from "../data/events.json";
+import outfitsRaw from "../data/outfits.json";
 
 export type BannerStatus = "active" | "upcoming" | "ended";
 export type CharacterStatus = "new" | "rerun" | "rate-up";
@@ -118,6 +119,23 @@ export const codesMeta = (codesRaw as { _meta: { updatedAt: string } })._meta;
 
 export const events = (eventsRaw as { events: GameEvent[] }).events;
 export const eventsMeta = (eventsRaw as { _meta: { updatedAt: string } })._meta;
+
+export interface OutfitItem {
+  id: string;
+  name: string;
+  character: string;
+  characterSlug: string;
+  kind: string;
+  version: string;
+  availability: string;
+  description: string;
+  image: string;
+  imageAlt: string;
+  imageCredit: string;
+  sources: string[];
+}
+
+export const outfits = (outfitsRaw as { items: OutfitItem[] }).items;
 
 // Status comes from the dates at build time, not the stored `status` field:
 // the stored field only changes when someone edits the JSON, so a phase that
