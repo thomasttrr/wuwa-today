@@ -359,3 +359,17 @@ Official Kuro Games full sprites for the character-page hero, from each Resonato
 **Rovers (2026-11-05):** the four Rover pages share one art piece supplied by Tom (`renders/rover-840.webp`, 610x840, male + female Rover pair, alpha). It replaces the old portrait hero and thumbnails; not from the wiki, source URL unknown.
 
 **Version 3.8 banners (2026-11-06):** Phase 1 (Nov 12 – Dec 3, 2026) Lily (new) + Sigrika + Qiuyuan, 4-stars Youhu / Aalto / Yangyang, weapons Lullaby / Solsworn Ciphers / Emerald Sentence; Phase 2 (Dec 3 – Dec 21, 2026) Yangyang: Xuanling + Suisui + Hiyuki, 4-stars Danjin / Baizhi / Yuanwu, weapons Azure Oath / Firstlight's Herald / Frostburn. Lineups and weapons confirmed at the Nov 6, 2026 preview broadcast per Game8's banner schedule, Sportskeeda's livestream summary and Inven Global's broadcast report. Phase dates follow Game8's post-broadcast schedule; exact flip times await the in-game Convene notice.
+
+## Banners + Events (Version 3.8, stream sync 2026-11-06)
+
+Primary source for everything in this section: the official Version 3.8 Preview Special Broadcast (Kuro Games, YouTube, Nov 6, 2026) — https://www.youtube.com/watch?v=Ic8dDOPKdlE — with Kuro's 3.8 press-release overview (via Gematsu / PSU) and Game8 as second sources. Stream timestamps: codes ~00:19:56 / ~00:27:04 / ~00:42:16; Lily kit ~00:20–00:26; Lullaby debut ~00:25:46; convene cards ~00:27:26–00:28:34; Reverb convenes + Gifts of Starpath ~00:28:40+.
+
+**Convene titles (stream English, confirmed in the press release):** Lily — Bloom of Yesterday's Dreamsoil (Dreamsoil, not "Dreams"); Sigrika — When the Runes Glitter; Qiuyuan — Wanderer Knows No Far and Near; Yangyang: Xuanling — Voices on Azure Feathers; Suisui — Blessings From Dewy Winds; Hiyuki — Thousand Futures Mirrored in Snow. Titles live in the banner entries' timeNote — the banner schema has no title field.
+
+**Still pending:** Phase 2's 4-star rate-ups (Danjin / Baizhi / Yuanwu) come from post-broadcast coverage, not a readable stream card — they stay flagged in uncertainFields until the in-game Convene notice. Phase 2 end (Dec 21) follows Game8; Prydwen says Dec 23 — not changed without a stream or in-game source.
+
+**Reverb convenes:** Starpath Reverbs II (Resonator) and Tideforge Reverbs II (Weapon) confirmed by the broadcast and the press release — select a 5-star target, changeable anytime. The full selectable pools are NOT published here: Kuro has not released a clean English pool list and secondary sources disagree.
+
+**Events added for 3.8:** Starpath Reverbs II, Tideforge Reverbs II, Gifts of Starpath, Second Coming of Solaris: Unwritten Dreams, Lahai-Roi Blocks: Turnabout (stream English is Lahai-Roi, not "Taha-Ri"), Dreamfield Odyssey, Gifts of Bygone Dreams (7-day login), Whither the Wind (login), Lollo Campaign: Groundwork, Hiyuki's Accessory [Flaming Sakura] (stream English wins over Inven's "Blazing Cherry Blossom"; bundle during 3.8, then a permanent Astrite purchase), and Tactical Hologram: Sparring (permanent). Event dates: start at the Nov 12, 2026 version launch; end dates are not yet published, so endsAt is null and each entry's timeNote says so. Hiyuki's deluxe outfit Lune Noire (Games Press English) is an outfit, not an event, so it has no events.json row.
+
+**Codes:** the three 3.8 livestream codes now cite the broadcast itself as first verifier (stream cards show rewards and the 2026/11/08 07:59 PT expiry), with Kuro's official Instagram post and Sportskeeda kept as second sources.

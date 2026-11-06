@@ -1,7 +1,7 @@
 {
   "_meta": {
     "comment": "Banner schedule. All phase boundary dates are ESTIMATES based on community trackers unless the in-game notice gives an exact time \u2014 mark them as such. Server flip happens at daily reset on the boundary day.",
-    "updatedAt": "2026-11-06T09:45:00-05:00",
+    "updatedAt": "2026-11-06T12:25:00-05:00",
     "version": "3.8",
     "versionTitle": "Lilies in a Dying Dream"
   },
@@ -259,13 +259,14 @@
       "id": "3.8-phase-1",
       "phase": "Phase 1",
       "sources": [
+        "https://www.youtube.com/watch?v=Ic8dDOPKdlE",
         "https://game8.co/games/Wuthering-Waves/archives/453303",
         "https://www.sportskeeda.com/esports/wuwa-3-8-livestream-summary-release-date-banners-codes-everything-new-wuthering-waves",
         "https://www.invenglobal.com/articles/28282/wuthering-waves-version-38-special-broadcast-teases-soul-train-to-new-federation-and-year-end-special-event"
       ],
       "startsAt": "2026-11-12T10:00:00+08:00",
       "status": "upcoming",
-      "timeNote": "Lineup and featured weapons confirmed at the Nov 6, 2026 preview broadcast (Game8, Sportskeeda, Inven Global). Phase dates follow Game8's post-broadcast schedule; the exact flip time comes from the in-game Convene notice.",
+      "timeNote": "Lineup, featured weapons and convene titles confirmed at the Nov 6, 2026 preview broadcast: Bloom of Yesterday's Dreamsoil (Lily), When the Runes Glitter (Sigrika), Wanderer Knows No Far and Near (Qiuyuan). Titles also confirmed in Kuro Games' 3.8 press release. Phase flip times remain estimates until the in-game Convene notice.",
       "uncertainFields": [
         "startsAt",
         "endsAt"
@@ -351,13 +352,14 @@
       "id": "3.8-phase-2",
       "phase": "Phase 2",
       "sources": [
+        "https://www.youtube.com/watch?v=Ic8dDOPKdlE",
         "https://game8.co/games/Wuthering-Waves/archives/453303",
         "https://www.sportskeeda.com/esports/wuwa-3-8-livestream-summary-release-date-banners-codes-everything-new-wuthering-waves",
         "https://www.invenglobal.com/articles/28282/wuthering-waves-version-38-special-broadcast-teases-soul-train-to-new-federation-and-year-end-special-event"
       ],
       "startsAt": "2026-12-03T04:00:00+08:00",
       "status": "upcoming",
-      "timeNote": "Lineup and featured weapons confirmed at the Nov 6, 2026 preview broadcast (Game8, Sportskeeda, Inven Global). Phase dates follow Game8's post-broadcast schedule; the exact flip time comes from the in-game Convene notice.",
+      "timeNote": "Lineup, featured weapons and convene titles confirmed at the Nov 6, 2026 preview broadcast: Voices on Azure Feathers (Yangyang: Xuanling), Blessings From Dewy Winds (Suisui), Thousand Futures Mirrored in Snow (Hiyuki). Titles also confirmed in Kuro Games' 3.8 press release. Phase dates and the 4-star lineup remain estimates until the in-game Convene notice.",
       "uncertainFields": [
         "startsAt",
         "endsAt"

@@ -1,11 +1,11 @@
 {
   "_meta": {
-    "comment": "Active and upcoming in-game events. Times in server time (UTC+8) unless noted; end dates from community coverage are estimates — mark timeNote accordingly.",
-    "updatedAt": "2026-11-04T20:37:00-05:00"
+    "comment": "Active and upcoming in-game events. Times in server time (UTC+8) unless noted; end dates from community coverage are estimates \u2014 mark timeNote accordingly. Current version: 3.8.",
+    "updatedAt": "2026-11-06T12:25:00-05:00"
   },
   "events": [
     {
-      "description": "Limited-time combat event: clear waves of enemies with special bonuses. Ends ~16 days before Version 3.7 closes — finish it early.",
+      "description": "Limited-time combat event: clear waves of enemies with special bonuses. Ends ~16 days before Version 3.7 closes \u2014 finish it early.",
       "endsAt": "2026-10-26T03:59:00+08:00",
       "id": "artisans-search",
       "name": "Artisan's Search",
@@ -60,11 +60,11 @@
       "rewardsUnconfirmed": true,
       "startsAt": "2026-09-30T10:00:00+08:00",
       "status": "active",
-      "timeNote": "End date from the official Version 3.7 patch notes (2026-11-11 23:59 UTC+8); start date is an estimate — verify in-game.",
+      "timeNote": "End date from the official Version 3.7 patch notes (2026-11-11 23:59 UTC+8); start date is an estimate \u2014 verify in-game.",
       "type": "web"
     },
     {
-      "description": "Photo collection event: Hsin has arranged a task for Suoming — join her to record the sights of the Simulacrum Nexus of Mengzhou and draw out the long-sealed memories of the Ten Seals Covenant.",
+      "description": "Photo collection event: Hsin has arranged a task for Suoming \u2014 join her to record the sights of the Simulacrum Nexus of Mengzhou and draw out the long-sealed memories of the Ten Seals Covenant.",
       "endsAt": null,
       "id": "past-dreams-traced-seals",
       "name": "Past Dreams, Traced Seals",
@@ -76,7 +76,7 @@
       "type": "permanent"
     },
     {
-      "description": "Login events across Version 3.7: Gifts of Waking Moon 7-day login (Sep 30 – Nov 11) plus Gifts of Singing Drizzle (Oct 22 – Nov 11) — see those entries for verified reward details. Community coverage also reports extra Lustrous Tides in the early weeks.",
+      "description": "Login events across Version 3.7: Gifts of Waking Moon 7-day login (Sep 30 \u2013 Nov 11) plus Gifts of Singing Drizzle (Oct 22 \u2013 Nov 11) \u2014 see those entries for verified reward details. Community coverage also reports extra Lustrous Tides in the early weeks.",
       "endsAt": "2026-11-11T04:00:00+08:00",
       "id": "3.7-login-tides",
       "name": "Version 3.7 Login Events",
@@ -91,14 +91,14 @@
       "endsAt": "2026-11-11T04:00:00+08:00",
       "id": "moonlit-path",
       "name": "Moonlit Path (returns)",
-      "rewards": "5★ selector: Carlotta / Shorekeeper / Phoebe (980-ring tier)",
+      "rewards": "5\u2605 selector: Carlotta / Shorekeeper / Phoebe (980-ring tier)",
       "startsAt": "2026-09-30T10:00:00+08:00",
       "status": "active",
       "timeNote": "Details from leak/community coverage; verify the milestone track in-game before spending.",
       "type": "spending"
     },
     {
-      "description": "Permanent event added in Version 3.7. No expiry — work through it at your own pace.",
+      "description": "Permanent event added in Version 3.7. No expiry \u2014 work through it at your own pace.",
       "endsAt": null,
       "id": "blooms-for-the-shadow",
       "name": "Blooms for the Shadow",
@@ -119,14 +119,14 @@
       "type": "limited"
     },
     {
-      "description": "Web event: a mysterious stall appears at the Waking Moon Festival — take on the fishing challenge, unlock Fishing Index entries for Astrites, and complete event tasks for Advanced Sealed Tubes.",
+      "description": "Web event: a mysterious stall appears at the Waking Moon Festival \u2014 take on the fishing challenge, unlock Fishing Index entries for Astrites, and complete event tasks for Advanced Sealed Tubes.",
       "endsAt": "2026-11-01T09:59:00+08:00",
       "id": "waking-moon-fishing",
       "name": "Waking Moon Fishing",
       "rewards": "Astrite, Advanced Sealed Tubes, event items",
       "startsAt": "2026-10-15T10:00:00+08:00",
       "status": "ended",
-      "timeNote": "Times from the official Version 3.7 patch notes (2026-10-15 10:00 – 2026-11-01 09:59 UTC+8).",
+      "timeNote": "Times from the official Version 3.7 patch notes (2026-10-15 10:00 \u2013 2026-11-01 09:59 UTC+8).",
       "type": "web"
     },
     {
@@ -195,6 +195,127 @@
       "status": "active",
       "timeNote": "Sep 30 - Nov 11 per Game8's event guide and event schedule; unlocked by default, no Union Level requirement.",
       "type": "trial"
+    },
+    {
+      "description": "Reverb Resonator Convene II: select one of the offered 5-star Resonators as your featured target, and change your selection at any time. Kuro has not published the full selectable pool in English \u2014 check the in-game Convene notice.",
+      "endsAt": null,
+      "id": "starpath-reverbs-ii",
+      "name": "Starpath Reverbs II",
+      "rewards": "Selectable 5-star Resonator convene",
+      "startsAt": "2026-11-12T10:00:00+08:00",
+      "status": "upcoming",
+      "timeNote": "Announced at the Nov 6, 2026 preview broadcast; runs during Version 3.8 (Nov 12 \u2013 Dec 21, 2026). Exact times come from the in-game event notice.",
+      "type": "limited"
+    },
+    {
+      "description": "Reverb Weapon Convene II: select one of the offered 5-star Weapons as your featured target, and change your selection at any time. Kuro has not published the full selectable pool in English \u2014 check the in-game Convene notice.",
+      "endsAt": null,
+      "id": "tideforge-reverbs-ii",
+      "name": "Tideforge Reverbs II",
+      "rewards": "Selectable 5-star Weapon convene",
+      "startsAt": "2026-11-12T10:00:00+08:00",
+      "status": "upcoming",
+      "timeNote": "Announced at the Nov 6, 2026 preview broadcast; runs during Version 3.8 (Nov 12 \u2013 Dec 21, 2026). Exact times come from the in-game event notice.",
+      "type": "limited"
+    },
+    {
+      "description": "Pull on the Starpath Reverbs II convene during Version 3.8 to earn additional Radiant Tides.",
+      "endsAt": null,
+      "id": "gifts-of-starpath-3-8",
+      "name": "Gifts of Starpath",
+      "rewards": "Radiant Tide (bonus pulls)",
+      "startsAt": "2026-11-12T10:00:00+08:00",
+      "status": "upcoming",
+      "timeNote": "Announced at the Nov 6, 2026 preview broadcast; runs during Version 3.8 (Nov 12 \u2013 Dec 21, 2026). Exact times come from the in-game event notice.",
+      "type": "spending"
+    },
+    {
+      "description": "Leisure event set at the Second Solaris school \u2014 story scenes and light activities with the students.",
+      "endsAt": null,
+      "id": "second-coming-solaris-unwritten-dreams",
+      "name": "Second Coming of Solaris: Unwritten Dreams",
+      "rewards": "Astrite (verify in-game)",
+      "startsAt": "2026-11-12T10:00:00+08:00",
+      "status": "upcoming",
+      "timeNote": "Announced at the Nov 6, 2026 preview broadcast; runs during Version 3.8 (Nov 12 \u2013 Dec 21, 2026). Exact times come from the in-game event notice.",
+      "type": "leisure"
+    },
+    {
+      "description": "Block puzzle event: drag and place geometric blocks of different shapes to fill and clear rows across different levels.",
+      "endsAt": null,
+      "id": "lahai-roi-blocks-turnabout",
+      "name": "Lahai-Roi Blocks: Turnabout",
+      "rewards": "Astrite, EXP materials (verify in-game)",
+      "startsAt": "2026-11-12T10:00:00+08:00",
+      "status": "upcoming",
+      "timeNote": "Announced at the Nov 6, 2026 preview broadcast; runs during Version 3.8 (Nov 12 \u2013 Dec 21, 2026). Exact times come from the in-game event notice.",
+      "type": "leisure"
+    },
+    {
+      "description": "Combat event: clear stages with designated Resonators and unlock augments as you progress through the challenges.",
+      "endsAt": null,
+      "id": "dreamfield-odyssey",
+      "name": "Dreamfield Odyssey",
+      "rewards": "Astrite (verify in-game)",
+      "startsAt": "2026-11-12T10:00:00+08:00",
+      "status": "upcoming",
+      "timeNote": "Announced at the Nov 6, 2026 preview broadcast; runs during Version 3.8 (Nov 12 \u2013 Dec 21, 2026). Exact times come from the in-game event notice.",
+      "type": "limited"
+    },
+    {
+      "description": "7-day login event during Version 3.8 \u2014 log in on seven days to claim every reward.",
+      "endsAt": null,
+      "id": "gifts-of-bygone-dreams",
+      "name": "Gifts of Bygone Dreams",
+      "rewards": "Lustrous Tide, Radiant Tide",
+      "startsAt": "2026-11-12T10:00:00+08:00",
+      "status": "upcoming",
+      "timeNote": "Announced at the Nov 6, 2026 preview broadcast; runs during Version 3.8 (Nov 12 \u2013 Dec 21, 2026). Exact times come from the in-game event notice.",
+      "type": "login"
+    },
+    {
+      "description": "Limited-time login event during Version 3.8.",
+      "endsAt": null,
+      "id": "whither-the-wind",
+      "name": "Whither the Wind",
+      "rewards": "Astrite, Echo enhancement materials (verify in-game)",
+      "startsAt": "2026-11-12T10:00:00+08:00",
+      "status": "upcoming",
+      "timeNote": "Announced at the Nov 6, 2026 preview broadcast; runs during Version 3.8 (Nov 12 \u2013 Dec 21, 2026). Exact times come from the in-game event notice.",
+      "type": "login"
+    },
+    {
+      "description": "Featured commission event with Lollo \u2014 take on commissions and earn spins for rewards.",
+      "endsAt": null,
+      "id": "lollo-campaign-groundwork",
+      "name": "Lollo Campaign: Groundwork",
+      "rewards": "Astrite, materials (verify in-game)",
+      "startsAt": "2026-11-12T10:00:00+08:00",
+      "status": "upcoming",
+      "timeNote": "Announced at the Nov 6, 2026 preview broadcast; runs during Version 3.8 (Nov 12 \u2013 Dec 21, 2026). Exact times come from the in-game event notice.",
+      "type": "limited"
+    },
+    {
+      "description": "Hiyuki's Flaming Sakura accessory, sold as a bundle during Version 3.8; after the version ends it becomes a permanent Astrite purchase.",
+      "endsAt": null,
+      "id": "hiyuki-accessory-flaming-sakura",
+      "name": "Hiyuki's Accessory [Flaming Sakura]",
+      "rewards": "Accessory: Flaming Sakura (Hiyuki)",
+      "startsAt": "2026-11-12T10:00:00+08:00",
+      "status": "upcoming",
+      "timeNote": "Announced at the Nov 6, 2026 preview broadcast; runs during Version 3.8 (Nov 12 \u2013 Dec 21, 2026). Exact times come from the in-game event notice.",
+      "type": "limited"
+    },
+    {
+      "description": "New permanent Tactical Hologram challenge: Sparring \u2014 Calamity Effigy.",
+      "endsAt": null,
+      "id": "tactical-hologram-sparring",
+      "name": "Tactical Hologram: Sparring",
+      "rewards": "Challenge rewards (verify in-game)",
+      "startsAt": "2026-11-12T10:00:00+08:00",
+      "status": "upcoming",
+      "timeNote": "Permanent content added with Version 3.8 on Nov 12, 2026, per the preview broadcast.",
+      "type": "permanent"
     }
   ]
 }

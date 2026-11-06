@@ -1,7 +1,7 @@
 {
   "_meta": {
-    "comment": "Active = verified working by at least 2 independent aggregator sources checked on updatedAt, OR by an official Kuro Games post. Never add a code from a single aggregator without a second source. Before adding any code, also check data/codes-excluded.json — anything listed there was confirmed dead or pulled and must NOT be re-added.",
-    "updatedAt": "2026-11-06T09:04:00-05:00"
+    "comment": "Active = verified working by at least 2 independent aggregator sources checked on updatedAt, OR by an official Kuro Games post. Never add a code from a single aggregator without a second source. Before adding any code, also check data/codes-excluded.json \u2014 anything listed there was confirmed dead or pulled and must NOT be re-added.",
+    "updatedAt": "2026-11-06T12:25:00-05:00"
   },
   "active": [
     {
@@ -11,6 +11,7 @@
       "notes": "Version 3.8 livestream code, announced by Kuro Games during the Nov 6, 2026 Preview Special Broadcast. Expires Nov 8, 2026 at 07:59 PT.",
       "rewards": "100 Astrite, 3 Premium Resonance Potion, 2 Advanced Revival Inhaler",
       "verifiedBy": [
+        "https://www.youtube.com/watch?v=Ic8dDOPKdlE",
         "https://www.instagram.com/p/DfZrWiPPQYh/",
         "https://www.sportskeeda.com/esports/wuwa-3-8-livestream-summary-release-date-banners-codes-everything-new-wuthering-waves",
         "https://hindi3.sportskeeda.com/esports/wuwa-3-8-livestream-codes-wuthering-waves-how-get-300-astrites"
@@ -23,6 +24,7 @@
       "notes": "Version 3.8 livestream code, announced by Kuro Games during the Nov 6, 2026 Preview Special Broadcast. Expires Nov 8, 2026 at 07:59 PT.",
       "rewards": "100 Astrite, 2 Premium Enclosure Tank III, 40,000 Shell Credit",
       "verifiedBy": [
+        "https://www.youtube.com/watch?v=Ic8dDOPKdlE",
         "https://www.instagram.com/p/DfZrWiPPQYh/",
         "https://www.sportskeeda.com/esports/wuwa-3-8-livestream-summary-release-date-banners-codes-everything-new-wuthering-waves",
         "https://hindi3.sportskeeda.com/esports/wuwa-3-8-livestream-codes-wuthering-waves-how-get-300-astrites"
@@ -35,6 +37,7 @@
       "notes": "Version 3.8 livestream code, announced by Kuro Games during the Nov 6, 2026 Preview Special Broadcast. Expires Nov 8, 2026 at 07:59 PT.",
       "rewards": "100 Astrite, 20 Premium Tuner, 5 Advanced Sealed Tube",
       "verifiedBy": [
+        "https://www.youtube.com/watch?v=Ic8dDOPKdlE",
         "https://www.instagram.com/p/DfZrWiPPQYh/",
         "https://www.sportskeeda.com/esports/wuwa-3-8-livestream-summary-release-date-banners-codes-everything-new-wuthering-waves",
         "https://hindi3.sportskeeda.com/esports/wuwa-3-8-livestream-codes-wuthering-waves-how-get-300-astrites"
