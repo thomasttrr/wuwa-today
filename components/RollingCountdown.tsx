@@ -1,6 +1,6 @@
 "use client";
 
-import { memo } from "react";
+import { memo, type ReactNode } from "react";
 import useNow from "./useNow";
 
 const DIGITS = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
@@ -38,31 +38,46 @@ function parts(target: Date, now: Date) {
 /**
  * RollingCountdown — Martian Mono readout where every digit is a column of
  * 0-9 that springs to its value, so digits roll instead of swapping.
- * Server render shows dashes; the shared useNow clock drives ticks.
+ * Server render shows dashes; the shared useNow clock drives ticks, so every
+ * countdown on a page turns over on the same second.
+ *
+ * `hideDays` drops the days reel for timers that never exceed 24h (daily
+ * reset). `labelExtra` is appended to the visible label only (e.g. the
+ * viewer's local time) and kept out of the spoken value.
  */
 export default function RollingCountdown({
   target,
   label,
+  labelExtra,
   size = "lg",
+  hideDays = false,
 }: {
   target: string;
   label: string;
+  labelExtra?: ReactNode;
   size?: "lg" | "md" | "sm";
+  hideDays?: boolean;
 }) {
   const now = useNow();
   const t = new Date(target);
   const ended = now ? now.getTime() >= t.getTime() : false;
-  const p = now ? parts(t, now) : null;
+  const all = now ? parts(t, now) : null;
+  const p = all && hideDays ? all.slice(1) : all;
+  const placeholder = [{ u: "days" }, { u: "hrs" }, { u: "min" }, { u: "sec" }].slice(hideDays ? 1 : 0);
+  const units = p ?? placeholder;
   const spoken = !p ? "Loading" : ended ? "Ended" : p.map((x) => `${x.v} ${x.u}`).join(", ");
 
   return (
     <div className={`rs-cd rs-cd-${size}`}>
-      <div className="rs-cd-label">{label}</div>
+      <div className="rs-cd-label">
+        {label}
+        {labelExtra}
+      </div>
       {ended ? (
         <div className="rs-cd-ended">Ended</div>
       ) : (
         <div className="rs-cd-row" aria-hidden="true">
-          {(p ?? [{ u: "days" }, { u: "hrs" }, { u: "min" }, { u: "sec" }]).map((x, i) => {
+          {units.map((x, i) => {
             const str = "v" in x ? String(x.v).padStart(2, "0") : "--";
             return (
               <div className="rs-cd-unit" key={x.u}>
@@ -72,13 +87,15 @@ export default function RollingCountdown({
                   ))}
                 </div>
                 <div className="rs-cd-u">{x.u}</div>
-                {i < 3 && <span className="rs-cd-sep" />}
+                {i < units.length - 1 && <span className="rs-cd-sep" />}
               </div>
             );
           })}
         </div>
       )}
-      <span className="og-visually-hidden">{`${label}: ${spoken}`}</span>
+      {/* role="timer" is implicitly aria-live="off": readers can find the
+          value but are not interrupted by it every second. */}
+      <span className="og-visually-hidden" role="timer" aria-atomic="true">{`${label}: ${spoken}`}</span>
     </div>
   );
 }

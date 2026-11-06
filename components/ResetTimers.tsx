@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import RollingCountdown from "./RollingCountdown";
 import CycleProgress from "./CycleProgress";
 import useNow from "./useNow";
-import { SERVER_OPTIONS, nextDailyReset, nextWeeklyReset } from "../lib/dates";
+import { SERVER_OPTIONS, formatLocalTime, nextDailyReset, nextWeeklyReset } from "../lib/dates";
 
 const STORAGE_KEY = "wuwa-today:server-id";
 
@@ -71,11 +71,23 @@ export default function ResetTimers() {
       </div>
       <div className="og-reset-grid">
         <div>
-          <RollingCountdown size="md" target={daily} label="Daily reset · 04:00" />
+          {/* Never more than 24h away, so no days reel. */}
+          <RollingCountdown
+            size="md"
+            hideDays
+            target={daily}
+            label="Daily reset · 04:00 server"
+            labelExtra={now && <span className="rs-cd-local"> · {formatLocalTime(daily)} your time</span>}
+          />
           <CycleProgress target={daily} cycleMs={86_400_000} label="Daily reset cycle" />
         </div>
         <div>
-          <RollingCountdown size="md" target={weekly} label="Weekly reset · Mon 04:00" />
+          <RollingCountdown
+            size="md"
+            target={weekly}
+            label="Weekly reset · Mon 04:00 server"
+            labelExtra={now && <span className="rs-cd-local"> · {formatLocalTime(weekly, true)} your time</span>}
+          />
           <CycleProgress target={weekly} cycleMs={7 * 86_400_000} label="Weekly reset cycle" />
         </div>
       </div>

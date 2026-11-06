@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import dynamic from "next/dynamic";
-import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useLayoutEffect, useRef, useState, useSyncExternalStore } from "react";
 import { DESKTOP_PRIMARY, MOBILE_PRIMARY, NAV_ITEMS, SEARCH_EVENT, isActiveHref } from "@/lib/nav";
 
 // The palette and the More sheet only mount on demand, so keep them out of
@@ -19,6 +19,13 @@ export interface SearchItem {
   color?: string;
   image?: string;
 }
+
+/* Shortcut hint: ⌘K on Apple devices, Ctrl K everywhere else. Read through
+   useSyncExternalStore so the static HTML (and hydration) uses "Ctrl K" and
+   Apple visitors switch to ⌘K right after, without a mismatch. */
+const noopSubscribe = () => () => {};
+const isApple = () => /Mac|iPhone|iPad|iPod/.test(navigator.platform || navigator.userAgent);
+const notApple = () => false;
 
 /** Tabs shown in the bar; each knows on which layouts it is visible. */
 const TABS = NAV_ITEMS.filter((i) => MOBILE_PRIMARY.includes(i.href) || DESKTOP_PRIMARY.includes(i.href));
@@ -38,6 +45,7 @@ export default function ResonanceNav() {
   const [open, setOpen] = useState(false);
   const [moreOpen, setMoreOpen] = useState(false);
   const [moreCurrent, setMoreCurrent] = useState(false);
+  const apple = useSyncExternalStore(noopSubscribe, isApple, notApple);
 
   useLayoutEffect(() => {
     const list = listRef.current;
@@ -134,7 +142,7 @@ export default function ResonanceNav() {
             <path d="m20 20-3.5-3.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
           </svg>
           <span className="rs-search-label">Search</span>
-          <kbd>⌘K</kbd>
+          <kbd>{apple ? "⌘K" : "Ctrl K"}</kbd>
         </button>
       </nav>
       {open && <CommandPalette onClose={() => setOpen(false)} />}

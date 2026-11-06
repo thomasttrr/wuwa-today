@@ -316,7 +316,7 @@ html:has(dialog[open]) { overflow: hidden; scrollbar-gutter: stable; }
   font-family: var(--rs-mono);
   font-size: var(--fs-1);
   letter-spacing: 0.02em;
-  color: var(--rs-ink-3);
+  color: var(--rs-ink-2);
   vertical-align: 0.1em;
   white-space: nowrap;
 }

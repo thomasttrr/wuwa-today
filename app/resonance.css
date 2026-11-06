@@ -44,6 +44,9 @@
   --rs-el-soft: color-mix(in oklch, var(--el) 16%, transparent);
   --rs-el-line: color-mix(in oklch, var(--el) 45%, transparent);
   --rs-on-el: #0a0a0d;
+  /* --- status: deadlines inside 72h (codes). Same lightness as the
+     element colours, so it reads at >= 4.5:1 on every surface. --- */
+  --rs-warn: #f2b35e;
 
   /* --- type --- */
   --rs-display: var(--font-mona), "Mona Sans", system-ui, sans-serif;
@@ -551,17 +554,35 @@ body.rs .rs-palette-field input:focus-visible { outline: none; }
   color: transparent;
   -webkit-text-stroke: 1.5px color-mix(in oklch, var(--el) 80%, white);
 }
+.rs-hero-kicker { flex-wrap: wrap; row-gap: 0.25rem; }
+/* "Next: 3.8 …" — the announced version, labelled as next, not as now. */
+.rs-hero-next {
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
+  padding: 0 0.6rem;
+  border-radius: 999px;
+  border: 1px solid var(--rs-line);
+  color: var(--rs-ink-2);
+  text-decoration: none;
+}
+.rs-hero-next:hover { color: var(--rs-ink); border-color: var(--rs-el-line); text-decoration: none; }
+.rs-hero-next { white-space: nowrap; }
+/* Phones: the pill stays one line; the version title is in the Up next tile. */
+@media (max-width: 560px) {
+  .rs-hero-next-title { display: none; }
+}
 .rs-hero-sub { margin: 0; max-width: 36rem; color: var(--rs-ink-2); font-size: 1rem; line-height: 1.5; }
 .rs-verified {
   margin: -0.35rem 0 0.75rem;
   font-family: var(--rs-mono);
-  font-size: var(--fs-1);
-  letter-spacing: 0.04em;
-  color: var(--rs-ink-3);
+  font-size: var(--fs-2);
+  letter-spacing: 0.02em;
+  line-height: 1.5;
+  color: var(--rs-ink-2);
 }
 .rs-tile-sublink {
   display: inline-block;
-  margin-top: 0.6rem;
   font-size: var(--fs-4);
   color: var(--rs-ink-2);
 }
@@ -633,6 +654,10 @@ body.rs .rs-palette-field input:focus-visible { outline: none; }
    Today grid
    ========================================================================== */
 
+/* Two independent columns (main + side). A shared row grid tied the banner
+   to the codes + resets stack and left a ~380px hole under the banner, so
+   each column now flows on its own. On phones the columns dissolve
+   (display: contents) and `order` interleaves the tiles into one list. */
 .rs-today {
   display: grid;
   gap: 14px;
@@ -640,16 +665,23 @@ body.rs .rs-palette-field input:focus-visible { outline: none; }
   margin-top: 1.5rem;
   scroll-margin-top: 96px;
 }
-.rs-today > * { min-width: 0; }
-.rs-today > .reveal { display: grid; }
+.rs-col { display: contents; }
+/* In-page jumps (#codes from "Ending soon", #up-next from the masthead)
+   land below the fixed desktop bar. */
+.rs-col .rs-tile { scroll-margin-top: 96px; }
+.rs-col > * { min-width: 0; }
+.rs-col > .reveal { display: grid; }
+.rs-tile-banner-wrap { order: 1; }
+.rs-tile-codes-wrap { order: 2; }
+.rs-tile-events-wrap { order: 3; }
+.rs-tile-resets-wrap { order: 4; }
+.rs-tile-next-wrap { order: 5; }
+.rs-tile-upnext-wrap { order: 6; }
+.rs-tile-prefarm-wrap { order: 7; }
+.rs-tile-new-wrap { order: 8; }
 @media (min-width: 900px) {
-  .rs-today { grid-template-columns: repeat(6, minmax(0, 1fr)); }
-  .rs-tile-banner-wrap { grid-column: span 4; grid-row: span 2; }
-  .rs-tile-codes-wrap { grid-column: span 2; }
-  .rs-tile-resets-wrap { grid-column: span 2; }
-  .rs-tile-events-wrap { grid-column: span 4; }
-  .rs-tile-new-wrap { grid-column: span 2; }
-  .rs-tile-next-wrap { grid-column: span 4; align-self: start; }
+  .rs-today { grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); align-items: start; }
+  .rs-col { display: grid; gap: 14px; align-content: start; min-width: 0; }
 }
 
 .rs-tile {
@@ -763,7 +795,9 @@ a.rs-tile:active { transform: scale(0.985); }
 }
 .rs-banner-weapon { margin: 0 0 0.6rem; color: var(--rs-ink-2); }
 .rs-banner-weapon strong { color: var(--rs-ink); }
-.rs-banner-date { margin: 0; font-family: var(--rs-mono); font-size: var(--fs-2); color: var(--rs-ink-3); }
+.rs-banner-date { display: grid; margin: 0; max-width: 26rem; font-family: var(--rs-mono); font-size: var(--fs-2); line-height: 1.6; color: var(--rs-ink-2); }
+.rs-banner-local { color: var(--rs-ink-3); }
+.rs-banner-local:empty { display: none; }
 .rs-banner-actions { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 0.6rem; }
 
 .rs-rateups { position: relative; z-index: 2; margin-top: 1.5rem; }
@@ -793,6 +827,15 @@ a.rs-tile:active { transform: scale(0.985); }
 }
 .rs-rateups li > a:hover { text-decoration: none; border-color: color-mix(in oklch, var(--opt) 60%, transparent); }
 .rs-rateups li > a:active { transform: scale(0.96); }
+/* Wider than a phone: every rate-up shares one row (equal columns), so the
+   last chip can never wrap onto a line of its own. */
+@media (min-width: 761px) {
+  .rs-rateups ul { grid-template-columns: repeat(var(--n, 5), minmax(0, 1fr)); }
+  .rs-rateups li > a, .rs-rateups li > span { grid-template-columns: 36px minmax(0, 1fr); column-gap: 0.5rem; }
+  .rs-rateups .ct-medal { --s: 36px !important; }
+  /* Body face here: Martian Mono is too wide to fit "5★ · Glacio" in a fifth of the tile. */
+  .rs-rateups .rs-rateup-meta { font-family: var(--rs-body); font-size: var(--fs-2); font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+}
 .rs-rateup-face { grid-row: span 2; --c: var(--opt); }
 .rs-rateup-name { font-weight: 650; font-size: var(--fs-4); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .rs-rateup-meta { font-family: var(--rs-mono); font-size: var(--fs-1); color: var(--opt); }
@@ -851,7 +894,38 @@ a.rs-tile:active { transform: scale(0.985); }
 .rs-codes .og-btn:active { transform: scale(0.94); }
 .rs-code { font-family: var(--rs-mono); font-weight: 600; font-size: 1rem; letter-spacing: 0.04em; overflow-wrap: anywhere; }
 .rs-code-rewards { font-size: var(--fs-3); color: var(--rs-ink-2); }
-.rs-code-exp { font-family: var(--rs-mono); font-size: var(--fs-1); color: var(--rs-ink-3); }
+.rs-code-exp {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.2rem 0.45rem;
+  margin-top: 0.15rem;
+  font-family: var(--rs-mono);
+  font-size: var(--fs-2);
+  line-height: 1.45;
+  color: var(--rs-ink-2);
+}
+/* Expiring within 72h: warm edge + tag, so it stops looking like the
+   standing code below it. Amber sits at the element colours' lightness. */
+.rs-codes li.is-soon {
+  border-style: solid;
+  border-color: color-mix(in oklch, var(--rs-warn) 45%, transparent);
+  background:
+    linear-gradient(90deg, color-mix(in oklch, var(--rs-warn) 9%, transparent), transparent 70%),
+    var(--rs-surface-2);
+}
+.rs-codes li.is-soon .rs-code-exp { color: var(--rs-warn); }
+.rs-soon-tag {
+  padding: 0.05rem 0.45rem;
+  border-radius: 6px;
+  background: color-mix(in oklch, var(--rs-warn) 16%, transparent);
+  color: var(--rs-warn);
+  font-size: var(--fs-1);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
 
 /* --- events --- */
 .rs-events { list-style: none; margin: 0; padding: 0; display: grid; }
@@ -866,10 +940,129 @@ a.rs-tile:active { transform: scale(0.985); }
 .rs-events li:first-child { border-top: 0; padding-top: 0.2rem; }
 .rs-event-main { display: grid; gap: 0.15rem; min-width: 0; }
 .rs-event-name { font-weight: 650; }
+.rs-event-name a { color: inherit; text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--rs-el-line); }
 .rs-event-rewards { font-size: var(--fs-3); color: var(--rs-ink-2); }
+/* Code deadlines inside "Ending soon": same warm cue as the codes tile. */
+.rs-events li.is-codes .rs-event-name a { text-decoration-color: color-mix(in oklch, var(--rs-warn) 60%, transparent); }
+.rs-events li.is-codes .rs-event-name::before {
+  content: "Codes";
+  margin-right: 0.5rem;
+  padding: 0.05rem 0.4rem;
+  border-radius: 6px;
+  background: color-mix(in oklch, var(--rs-warn) 16%, transparent);
+  color: var(--rs-warn);
+  font-family: var(--rs-mono);
+  font-size: var(--fs-1);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  vertical-align: 0.12em;
+}
+.rs-events-foot {
+  display: grid;
+  gap: 0.4rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--rs-line-soft);
+  font-size: var(--fs-3);
+  line-height: 1.5;
+  color: var(--rs-ink-2);
+}
+.rs-events-foot p { margin: 0; }
+.rs-events-foot .rs-unconfirmed { margin-left: 0; }
 @media (max-width: 560px) {
   .rs-events li { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
 }
+
+/* --- up next --- */
+.rs-upnext-head { align-items: flex-end; flex-wrap: wrap; gap: 0.5rem 1rem; }
+.rs-upnext-head > div { display: grid; gap: 0.3rem; min-width: 0; flex: 1 1 16rem; }
+.rs-upnext-head .rs-tile-link { white-space: nowrap; }
+.rs-upnext-start {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem 1rem;
+  padding: 0.7rem 0.9rem;
+  border-radius: 14px;
+  background: var(--rs-surface-2);
+}
+.rs-upnext-start-l { font-size: var(--fs-4); font-weight: 600; }
+.rs-phases {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 14px;
+  grid-template-columns: minmax(0, 1fr);
+}
+@media (min-width: 640px) {
+  .rs-phases { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+.rs-phase { display: grid; gap: 0.6rem; align-content: start; min-width: 0; }
+.rs-phase-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.25rem 0.75rem;
+  margin: 0;
+  padding-bottom: 0.45rem;
+  border-bottom: 1px solid var(--rs-line-soft);
+}
+.rs-phase-name { font-family: var(--rs-display); font-weight: 700; font-stretch: 112%; }
+.rs-phase-dates { font-family: var(--rs-mono); font-size: var(--fs-2); color: var(--rs-ink-2); white-space: nowrap; }
+.rs-est {
+  margin-left: 0.4rem;
+  padding: 0 0.35rem;
+  border-radius: 5px;
+  border: 1px dashed var(--rs-line);
+  font-size: var(--fs-1);
+  color: var(--rs-ink-2);
+}
+.rs-phase-chars { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
+.rs-phase-chars li > a, .rs-phase-chars li > span {
+  display: grid;
+  grid-template-columns: 44px minmax(0, 1fr);
+  column-gap: 0.7rem;
+  align-items: center;
+  min-height: 52px;
+  padding: 4px 10px 4px 4px;
+  border-radius: 14px;
+  border: 1px solid transparent;
+  color: var(--rs-ink);
+  transition: border-color var(--rs-d1) ease, background-color var(--rs-d1) ease;
+}
+.rs-phase-chars li > a:hover {
+  text-decoration: none;
+  border-color: color-mix(in oklch, var(--opt) 45%, transparent);
+  background: color-mix(in oklch, var(--opt) 7%, transparent);
+}
+.rs-phase-chars li.is-new > a, .rs-phase-chars li.is-new > span {
+  border-color: color-mix(in oklch, var(--opt) 35%, transparent);
+  background: color-mix(in oklch, var(--opt) 8%, var(--rs-surface-2));
+}
+.rs-phase-face { grid-row: span 3; --c: var(--opt); }
+.rs-phase-char-name { font-weight: 650; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.rs-phase-char-meta { font-family: var(--rs-mono); font-size: var(--fs-2); color: var(--opt); }
+.rs-phase-char-meta strong { font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; }
+.rs-phase-char-weapon { font-size: var(--fs-3); color: var(--rs-ink-2); }
+.rs-upnext-note { margin: 0; font-family: var(--rs-mono); font-size: var(--fs-2); color: var(--rs-ink-3); }
+
+/* --- pre-farm tile --- */
+.rs-tile-prefarm {
+  gap: 0.8rem;
+  background:
+    radial-gradient(90% 80% at 100% 0%, color-mix(in oklch, var(--opt, var(--el)) 16%, transparent), transparent 70%),
+    var(--rs-surface);
+}
+.rs-tile-prefarm .rs-kicker { color: var(--opt, var(--el)); }
+.rs-prefarm-top { display: flex; align-items: center; gap: 0.9rem; }
+.rs-prefarm-top > div { display: grid; gap: 0.2rem; min-width: 0; }
+.rs-prefarm-face { flex: none; --c: var(--opt, var(--el)); }
+.rs-prefarm-when { margin: 0; font-family: var(--rs-mono); font-size: var(--fs-2); color: var(--rs-ink-2); }
+.rs-tile-prefarm .rs-muted { font-size: var(--fs-4); line-height: 1.5; }
+.rs-tile-prefarm .rs-tile-link { color: var(--opt, var(--el)); }
 
 /* --- beginner tile --- */
 .rs-tile-new {
@@ -879,6 +1072,8 @@ a.rs-tile:active { transform: scale(0.985); }
     radial-gradient(90% 80% at 100% 0%, color-mix(in oklch, var(--el) 14%, transparent), transparent 70%),
     var(--rs-surface);
 }
+.rs-tile-new-links { display: flex; flex-wrap: wrap; align-items: center; gap: 0.25rem 1.25rem; }
+.rs-tile-new-links a { display: inline-flex; align-items: center; min-height: 44px; }
 
 /* --- reset tile: restyle the existing ResetTimers inside a tile --- */
 .rs-tile .og-reset { background: none; border: 0; padding: 0; box-shadow: none; display: grid; gap: 1rem; }
@@ -898,13 +1093,14 @@ a.rs-tile:active { transform: scale(0.985); }
 
 .rs-cd { display: grid; gap: 0.45rem; }
 .rs-cd-label { font-size: var(--fs-2); color: var(--rs-ink-2); }
+.rs-cd-local { color: var(--rs-ink-3); }
 .rs-cd-row { display: flex; align-items: flex-start; gap: 0.2em; font-family: var(--rs-mono); }
 .rs-cd-unit { position: relative; display: grid; justify-items: start; padding-right: 0.55em; }
 .rs-cd-digits { display: flex; font-weight: 500; font-stretch: 112%; line-height: 1; color: var(--rs-ink); }
 .rs-cd-win { display: inline-block; height: 1em; overflow: hidden; }
 .rs-cd-col { display: flex; flex-direction: column; transition: transform var(--rs-d3) var(--rs-spring); }
 .rs-cd-col > span, .rs-cd-dash { display: block; height: 1em; line-height: 1; text-align: center; }
-.rs-cd-u { margin-top: 0.45rem; font-size: var(--fs-1); letter-spacing: 0.1em; text-transform: uppercase; color: var(--rs-ink-3); }
+.rs-cd-u { margin-top: 0.45rem; font-size: var(--fs-1); letter-spacing: 0.1em; text-transform: uppercase; color: var(--rs-ink-2); }
 .rs-cd-sep {
   position: absolute;
   right: 0.12em;
