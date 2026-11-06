@@ -78,9 +78,9 @@
   border: 1px solid rgb(255 255 255 / 0.07);
   min-width: 0;
 }
-.cx-stats dt { font-size: 0.66rem; color: var(--rs-ink-3); }
-.cx-stats dd { margin: 0; font-family: var(--rs-mono); font-weight: 700; font-size: 0.95rem; color: var(--rs-ink); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.cx-stats small { font-size: 0.66rem; color: var(--rs-ink-2); }
+.cx-stats dt { font-size: var(--fs-1); color: var(--rs-ink-3); }
+.cx-stats dd { margin: 0; font-family: var(--rs-mono); font-weight: 700; font-size: var(--fs-5); color: var(--rs-ink); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.cx-stats small { font-size: var(--fs-1); color: var(--rs-ink-2); }
 .cx-stat-tier { background: color-mix(in oklch, var(--el) 14%, transparent) !important; border-color: color-mix(in oklch, var(--el) 35%, transparent) !important; }
 .cx-stat-tier dd { font-family: var(--rs-display); font-weight: 800; font-stretch: 125%; font-size: 1.6rem; line-height: 1; color: var(--el); }
 .cx-stars.cx-r5 { color: #f0c75e; letter-spacing: 0.1em; }
@@ -96,7 +96,7 @@
   background: var(--el);
   color: var(--rs-on-el);
   font-weight: 650;
-  font-size: 0.92rem;
+  font-size: var(--fs-5);
   box-shadow: none;
   transition: transform var(--rs-d2) var(--rs-spring), background-color var(--rs-d1) ease;
 }
@@ -110,7 +110,7 @@
 }
 
 @media (max-width: 860px) {
-  .cx-hero { grid-template-columns: 1fr; gap: 1.25rem; padding: 1.1rem; border-radius: 24px; }
+  .cx-hero { grid-template-columns: minmax(0, 1fr); gap: 1.25rem; padding: 1.1rem; border-radius: 24px; overflow-x: clip; }
   .cx-art { width: min(260px, 70%); justify-self: center; }
   .cx-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
@@ -220,7 +220,7 @@
   right: 1.1rem;
   bottom: 0.9rem;
   font-family: var(--rs-mono);
-  font-size: 0.58rem;
+  font-size: var(--fs-1);
   letter-spacing: 0.06em;
   color: var(--rs-ink-3);
 }
@@ -315,4 +315,34 @@ html[data-vt="hero"] .cx-render { animation: none; }
     width: 44%;
     font-size: clamp(2.2rem, calc(57cqw / var(--len, 8)), 15rem);
   }
+}
+
+/* ==========================================================================
+   At a glance — the first answers, before the long read (plan P5-2)
+   ========================================================================== */
+.cx-glance {
+  margin: 0 0 1.5rem;
+  padding: 1rem 1.15rem;
+  border-radius: var(--rs-r-tile);
+  background: var(--rs-surface);
+  border: 1px solid var(--rs-line-soft);
+}
+.cx-glance-h {
+  margin: 0 0 0.6rem !important;
+  font-family: var(--rs-mono);
+  font-size: var(--fs-1) !important;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--rs-ink-3);
+}
+.cx-glance dl { margin: 0; display: grid; gap: 0.6rem 1.5rem; grid-template-columns: minmax(0, 1fr); }
+.cx-glance dl > div { min-width: 0; }
+.cx-glance dt { font-size: var(--fs-2); color: var(--rs-ink-3); }
+.cx-glance dd { margin: 0.1rem 0 0; font-weight: 650; font-size: var(--fs-5); color: var(--rs-ink); overflow-wrap: anywhere; }
+.cx-glance dd a { color: inherit; text-decoration: underline; text-decoration-color: var(--rs-el-line); text-underline-offset: 3px; }
+.cx-glance-sub { font-weight: 500; color: var(--rs-ink-3); font-family: var(--rs-mono); font-size: var(--fs-2); }
+.cx-glance-more { font-weight: 500; font-size: var(--fs-3); white-space: nowrap; }
+@media (min-width: 640px) {
+  .cx-glance dl { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }

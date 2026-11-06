@@ -33,14 +33,11 @@ export const metadata: Metadata = {
 // Build time seeds the client clock for the next-version note (hydration-safe).
 const BUILT_AT = Date.now();
 
+import { srcSetFor } from "@/lib/images";
 const bySlug = new Map(characters.map((c) => [c.slug, c]));
 const slugByName = new Map(characters.map((c) => [c.name, c.slug]));
 const tiers = new Map(buildTierModel().chars.map((c) => [c.slug, c]));
 
-function srcSetFor(art: string) {
-  const base = art.replace(/\.webp$/, "");
-  return `${base}-512.webp 512w, ${base}.webp 640w, ${base}-1024.webp 1024w, ${base}-1200.webp 1200w, ${base}-1920.webp 1920w`;
-}
 
 /** Best Prydwen Tower of Adversity placement, for the lineup cards. */
 function communityTier(slug: string | undefined): string | null {

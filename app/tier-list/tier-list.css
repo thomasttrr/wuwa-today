@@ -2,17 +2,6 @@
    Tier list — portrait-led explorer (Resonance)
    ========================================================================== */
 
-.tl-hero { padding: 1.25rem 0 1.5rem; display: grid; gap: 0.7rem; }
-.tl-hero-title {
-  margin: 0;
-  font-weight: 800;
-  font-stretch: 125% !important;
-  text-transform: uppercase;
-  font-size: clamp(3rem, 10vw, 7rem);
-  line-height: 0.86;
-  letter-spacing: -0.035em;
-}
-.tl-hero-lede { margin: 0; max-width: 38rem; color: var(--rs-ink-2); font-size: 1.02rem; line-height: 1.55; }
 
 /* --- sticky control bar --- */
 .tl-bar {
@@ -67,7 +56,7 @@
   background: none;
   color: var(--rs-ink-2);
   font: inherit;
-  font-size: 0.82rem;
+  font-size: var(--fs-3);
   font-weight: 650;
   white-space: nowrap;
   overflow: hidden;
@@ -91,7 +80,7 @@
   color: var(--rs-ink-3);
 }
 .tl-search:focus-within { border-color: var(--rs-el-line); }
-.tl-search input { flex: 1; min-width: 0; background: none; border: 0; outline: 0; color: var(--rs-ink); font: inherit; font-size: 0.9rem; }
+.tl-search input { flex: 1; min-width: 0; background: none; border: 0; outline: 0; color: var(--rs-ink); font: inherit; font-size: var(--fs-4); }
 body.rs .tl-search input:focus-visible { outline: none; }
 .tl-search input::placeholder { color: var(--rs-ink-3); }
 
@@ -117,7 +106,7 @@ body.rs .tl-search input:focus-visible { outline: none; }
   background: rgb(255 255 255 / 0.03);
   color: var(--rs-ink-2);
   font: inherit;
-  font-size: 0.8rem;
+  font-size: var(--fs-3);
   font-weight: 600;
   cursor: pointer;
   transition: transform var(--rs-d2) var(--rs-spring), background-color var(--rs-d1) ease, border-color var(--rs-d1) ease, color var(--rs-d1) ease;
@@ -131,9 +120,9 @@ body.rs .tl-search input:focus-visible { outline: none; }
 }
 .tl-pill[aria-pressed="true"] { color: var(--rs-on-el); background: var(--el); border-color: transparent; }
 .tl-pill:disabled { opacity: 0.45; cursor: default; }
-.tl-pill-n { font-family: var(--rs-mono); font-size: 0.7rem; }
+.tl-pill-n { font-family: var(--rs-mono); font-size: var(--fs-2); }
 .tl-roster-ctl { display: flex; gap: 6px; margin-left: auto; }
-.tl-status { display: flex; align-items: center; gap: 0.75rem; margin: 0 4px; font-size: 0.74rem; color: var(--rs-ink-3); font-family: var(--rs-mono); }
+.tl-status { display: flex; align-items: center; gap: 0.75rem; margin: 0 4px; font-size: var(--fs-2); color: var(--rs-ink-3); font-family: var(--rs-mono); }
 .tl-clear { border: 0; background: none; color: var(--el); font: inherit; cursor: pointer; padding: 0.25rem; }
 
 /* --- tier rows: strength steps down from the element color to gray --- */
@@ -176,8 +165,8 @@ body.rs .tl-search input:focus-visible { outline: none; }
 }
 /* Digits in Martian Mono so T0 never reads as "TO". */
 .tl-tier-num { font-family: var(--rs-mono); font-weight: 700; font-stretch: 100%; font-size: 0.86em; letter-spacing: -0.04em; margin-left: 0.04em; }
-.tl-tier-label { font-size: 0.72rem; color: var(--rs-ink-2); line-height: 1.3; }
-.tl-tier-n { font-family: var(--rs-mono); font-size: 0.66rem; color: var(--rs-ink-3); }
+.tl-tier-label { font-size: var(--fs-2); color: var(--rs-ink-2); line-height: 1.3; }
+.tl-tier-n { font-family: var(--rs-mono); font-size: var(--fs-1); color: var(--rs-ink-3); }
 
 .tl-grid {
   list-style: none;
@@ -220,10 +209,10 @@ body.rs .tl-search input:focus-visible { outline: none; }
   border-radius: 6px;
   background: rgb(6 7 10 / 0.75);
   font-family: var(--rs-mono);
-  font-size: 0.56rem;
+  font-size: var(--fs-1);
   color: var(--rs-ink);
 }
-.tl-legend { margin: 1rem 4px 0; font-size: 0.78rem; color: var(--rs-ink-3); }
+.tl-legend { margin: 1rem 4px 0; font-size: var(--fs-2); color: var(--rs-ink-3); }
 .tl-legend b { font-family: var(--rs-mono); color: var(--rs-ink-2); }
 
 @media (max-width: 640px) {
@@ -332,9 +321,9 @@ body.rs .tl-search input:focus-visible { outline: none; }
   cursor: pointer;
 }
 .tl-sheet-head { display: flex; align-items: center; gap: 1rem; padding-right: 3rem; }
-.tl-sheet-kicker { margin: 0; font-family: var(--rs-mono); font-size: 0.68rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--c); }
+.tl-sheet-kicker { margin: 0; font-family: var(--rs-mono); font-size: var(--fs-1); letter-spacing: 0.06em; text-transform: uppercase; color: var(--c); }
 .tl-sheet-head h2 { margin: 0.25rem 0 0; font-size: 2rem; font-weight: 800; font-stretch: 125%; text-transform: uppercase; line-height: 0.95; }
-.tl-sheet-role { margin: 0.3rem 0 0; font-size: 0.85rem; color: var(--rs-ink-2); }
+.tl-sheet-role { margin: 0.3rem 0 0; font-size: var(--fs-4); color: var(--rs-ink-2); }
 .tl-sheet-ours {
   display: grid;
   grid-template-columns: auto minmax(0, 1fr);
@@ -346,15 +335,15 @@ body.rs .tl-search input:focus-visible { outline: none; }
 }
 .tl-sheet-badge { display: grid; justify-items: center; align-content: center; min-width: 64px; }
 .tl-sheet-badge span { font-family: var(--rs-display); font-weight: 800; font-stretch: 125%; font-size: 2.2rem; line-height: 1; color: var(--c); }
-.tl-sheet-badge small { font-size: 0.6rem; color: var(--rs-ink-3); white-space: nowrap; }
+.tl-sheet-badge small { font-size: var(--fs-1); color: var(--rs-ink-3); white-space: nowrap; }
 .tl-sheet-label { margin: 0; font-weight: 700; }
-.tl-sheet-note { margin: 0.3rem 0 0; font-size: 0.88rem; line-height: 1.5; color: var(--rs-ink-2); }
-.tl-sheet-group h3 { margin: 0 0 0.5rem; font-family: var(--rs-mono) !important; font-size: 0.68rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: var(--rs-ink-3); }
+.tl-sheet-note { margin: 0.3rem 0 0; font-size: var(--fs-4); line-height: 1.5; color: var(--rs-ink-2); }
+.tl-sheet-group h3 { margin: 0 0 0.5rem; font-family: var(--rs-mono) !important; font-size: var(--fs-1); font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: var(--rs-ink-3); }
 .tl-sheet-group dl { margin: 0; display: grid; border-radius: 14px; overflow: hidden; border: 1px solid rgb(255 255 255 / 0.06); }
 .tl-sheet-group dl > div { display: flex; justify-content: space-between; gap: 1rem; padding: 0.65rem 0.85rem; background: rgb(255 255 255 / 0.02); }
 .tl-sheet-group dl > div + div { border-top: 1px solid rgb(255 255 255 / 0.05); }
-.tl-sheet-group dt { font-size: 0.86rem; color: var(--rs-ink-2); }
-.tl-sheet-group dd { margin: 0; font-family: var(--rs-mono); font-size: 0.8rem; font-weight: 600; text-align: right; }
+.tl-sheet-group dt { font-size: var(--fs-4); color: var(--rs-ink-2); }
+.tl-sheet-group dd { margin: 0; font-family: var(--rs-mono); font-size: var(--fs-3); font-weight: 600; text-align: right; }
 .tl-muted { color: var(--rs-ink-3); font-weight: 400; }
 .tl-sheet-actions { display: flex; flex-wrap: wrap; gap: 0.6rem; }
 
@@ -368,10 +357,10 @@ body.rs .tl-search input:focus-visible { outline: none; }
   border-radius: var(--rs-r-tile);
   background: var(--rs-surface);
   border: 1px solid var(--rs-line-soft);
-  font-size: 0.86rem;
+  font-size: var(--fs-4);
   color: var(--rs-ink-2);
 }
-.tl-foot h2 { margin: 0 0 0.4rem; font-size: 0.95rem; color: var(--rs-ink); }
+.tl-foot h2 { margin: 0 0 0.4rem; font-size: var(--fs-5); color: var(--rs-ink); }
 .tl-foot p { margin: 0 0 0.4rem; line-height: 1.55; }
 .tl-foot a { color: var(--el); }
 

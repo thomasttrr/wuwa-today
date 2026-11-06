@@ -38,7 +38,7 @@
   font-weight: 600;
 
   letter-spacing: 0.05em;
-  font-size: 0.72rem;
+  font-size: var(--fs-2);
   color: var(--og-muted);
   margin: 0 0 0.6rem;
 }
@@ -60,59 +60,10 @@
 }
 
 /* --- character hub: filter toolbar (chrome -> glass is allowed) --------- */
-
-.og-filterbar {
-  /* In normal flow like .og-toolbar: scrolls away with the page. */
-  position: relative;
-  z-index: 40;
-  display: flex;
-  flex-direction: column;
-  gap: 0.7rem;
-  margin: 0 0 1.6rem;
-  padding: 0.85rem 1.1rem;
-  border-radius: 20px;
-  /* Neutral-dark base under the glass: the blur samples whatever art is
-     behind the bar, and saturate(180%) amplified bright portrait yellows
-     into an olive tint. The opaque dark layer + gentler saturation keeps
-     the chrome neutral dark over busy art. */
-  background:
-    linear-gradient(180deg, rgba(8, 8, 10, 0.55), rgba(8, 8, 10, 0.55)),
-    var(--og-glass);
-  -webkit-backdrop-filter: saturate(130%) blur(24px);
-  backdrop-filter: saturate(130%) blur(24px);
-  border: 1px solid var(--og-hairline);
-  box-shadow: 0 12px 40px -12px rgba(0, 0, 0, 0.7);
-}
-.og-filterbar::before {
-  content: "";
-  position: absolute;
-  inset: 0 0 auto 0;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, var(--og-glint), transparent);
-  pointer-events: none;
-}
-.og-filter-groups {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.7rem 1.4rem;
-}
-.og-filter-group {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 0.4rem;
-}
-.og-filter-label {
-  font-family: var(--og-display);
-  font-size: 0.66rem;
-  font-weight: 600;
-
-  letter-spacing: 0.05em;
-  color: var(--og-muted);
-  margin-right: 0.15rem;
-}
 .og-chip {
   display: inline-flex;
+  max-width: 100%;
+  white-space: normal;
   align-items: center;
   gap: 0.45rem;
   min-height: 44px; /* iPhone-safe touch target */
@@ -121,7 +72,7 @@
   border: 1px solid var(--og-hairline);
   background: transparent;
   color: var(--og-muted);
-  font-size: 0.85rem;
+  font-size: var(--fs-4);
   font-weight: 600;
   cursor: pointer;
   transition: background-color var(--og-d1) ease, border-color var(--og-d1) ease,
@@ -143,49 +94,9 @@
   flex: none;
   display: inline-block;
 }
-.og-chip-reset {
-  border-style: dashed;
-  color: var(--og-ink);
-}
-.og-count {
-  margin: 0;
-  color: var(--og-muted);
-  font-size: 0.85rem;
-}
-.og-count strong {
-  color: var(--og-ink);
-  font-family: var(--og-mono);
-  font-variant-numeric: tabular-nums;
-}
 
 @media (max-width: 640px) {
-  .og-filterbar {
-    padding: 0.7rem 0.85rem;
-    border-radius: 18px;
-    /* No overflow:hidden — it clips grid/count content on iOS. The glint
-       bar is inset within bounds and needs no clipping context. */
-    overflow: visible;
-  }
-  .og-filter-groups {
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    scrollbar-width: none;
-    /* Negative-margin bleed removed — it pushed the first column/count
-       off-screen on iOS. scroll-padding keeps scrolled chips aligned. */
-    scroll-padding-inline: 0.85rem;
-  }
-  .og-filter-groups::-webkit-scrollbar { display: none; }
-  .og-filter-group { flex-wrap: nowrap; }
   .og-chip { white-space: nowrap; }
-}
-
-@media (prefers-reduced-transparency: reduce) {
-  .og-filterbar {
-    background: var(--og-surface);
-    -webkit-backdrop-filter: none;
-    backdrop-filter: none;
-  }
-  .og-filterbar::before { opacity: 0.3; }
 }
 
 /* --- character hub: portrait grid ---------------------------------------- */
@@ -202,7 +113,6 @@
 }
 /* Pre-farm index jump targets: 1rem breathing room, same as .og-section. */
 .og-grid a[id^="prefarm-"] { scroll-margin-top: 1rem; }
-.og-cell { min-width: 0; }
 /* DISPLAY-CAP enforcement for the character hub only (.og-grid--cap):
    auto-fill minmax(195px, 1fr) stretches tiles past the 250px cap in
    two narrow windows — 2 columns at 641–656px viewports (tiles up to
@@ -210,23 +120,6 @@
    extra column in each window keeps every 500px portrait tile at or
    under 250px (3 cols ≈ 195px, 4 cols ≈ 195px). Scoped to the hub grid
    so the beginner/pre-farm .og-grid cards are untouched. */
-@media (min-width: 641px) and (max-width: 656px) {
-  .og-grid--cap { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-}
-@media (min-width: 822px) and (max-width: 868px) {
-  .og-grid--cap { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-}
-.og-char-empty {
-  grid-column: 1 / -1;
-  background: var(--og-surface);
-  border: 1px solid var(--og-hairline-soft);
-  border-radius: var(--og-radius-card);
-  padding: 3rem 1.5rem;
-  text-align: center;
-  color: var(--og-muted);
-}
-.og-char-empty p { margin: 0; }
-.og-char-empty .og-btn { margin-top: 1rem; }
 
 /* Phones: dense 3-column roster so many characters fit one screen.
    (Root cause of the giant-tile bug: the old single <=400px breakpoint
@@ -253,7 +146,7 @@
   min-height: 44px;
   color: var(--og-muted);
   font-weight: 600;
-  font-size: 0.92rem;
+  font-size: var(--fs-5);
   margin-bottom: 0.75rem;
 }
 .og-back:hover { color: var(--og-ink); text-decoration: none; }
@@ -292,7 +185,7 @@
   font-weight: 600;
 
   letter-spacing: 0.05em;
-  font-size: 0.72rem;
+  font-size: var(--fs-2);
   color: var(--og-muted);
   margin: 0;
 }
@@ -307,17 +200,9 @@
   align-items: center;
   gap: 0.5rem;
 }
-.og-hero-verdict {
-  font-size: 1.06rem;
-  font-weight: 600;
-  color: var(--og-ink);
-  margin: 1.1rem 0 0;
-  max-width: 56ch;
-  line-height: 1.55;
-}
 .og-hero-note {
   color: var(--og-muted);
-  font-size: 0.92rem;
+  font-size: var(--fs-5);
   margin: 0.5rem 0 0;
   max-width: 60ch;
   line-height: 1.55;
@@ -342,7 +227,7 @@
   gap: 0.45rem;
   padding: 0.42rem 0.95rem;
   border-radius: var(--og-radius-pill);
-  font-size: 0.78rem;
+  font-size: var(--fs-2);
   font-weight: 700;
   letter-spacing: 0.03em;
   border: 1px solid var(--og-hairline);
@@ -366,61 +251,14 @@
 
 /* Tier badges: color-coordinated per tier (content requirement). SS gold,
    S silver, A bronze, B muted slate. Shared with the tier-list page. */
-.og-tier-badge,
-.og-rarity-badge {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 44px;
-  height: 28px;
-  padding: 0 0.65rem;
-  border-radius: 999px;
-  font-family: var(--og-display);
-  font-weight: 700;
-  font-size: 0.72rem; /* ~11.5px */
-  letter-spacing: 0.09em;
-  border: 1px solid transparent;
-  flex: none;
-  white-space: nowrap;
-}
-.og-tier-badge.tier-SS {
-  background: var(--og-gold);
-  border-color: var(--og-gold);
-  color: #14100a; /* ~9.4:1 on gold */
-}
-.og-tier-badge.tier-S {
-  background: #d9d9e0;
-  border-color: #d9d9e0;
-  color: #17171c;
-}
-.og-tier-badge.tier-A {
-  background: #c08a4d;
-  border-color: #c08a4d;
-  color: #17110a;
-}
-.og-tier-badge.tier-B {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: var(--og-hairline-soft);
-  color: var(--og-muted);
-}
 
 /* Rarity pill: 5-star gold, 4-star purple (in-game convention). */
-.og-rarity-badge.rarity-5 {
-  background: var(--og-gold);
-  border-color: var(--og-gold);
-  color: #14100a;
-}
-.og-rarity-badge.rarity-4 {
-  background: #a78bfa;
-  border-color: #a78bfa;
-  color: #191325;
-}
 
 /* --- honest caveat labels -------------------------------------------------- */
 
 .og-caveat {
   margin: 0.7rem 0 0;
-  font-size: 0.82rem;
+  font-size: var(--fs-3);
   color: var(--og-muted);
   display: flex;
   align-items: baseline;
@@ -446,7 +284,7 @@
   padding: 1rem 1.25rem;
   margin: 0 0 0.5rem;
 }
-.og-notice p { margin: 0; color: var(--og-muted); font-size: 0.92rem; line-height: 1.55; }
+.og-notice p { margin: 0; color: var(--og-muted); font-size: var(--fs-5); line-height: 1.55; }
 .og-notice strong { color: var(--og-ink); }
 
 /* --- sub-headings ------------------------------------------------------------ */
@@ -460,7 +298,7 @@
 .og-mono-line {
   font-family: var(--og-mono);
   font-variant-numeric: tabular-nums;
-  font-size: 0.85rem;
+  font-size: var(--fs-4);
   color: var(--og-muted);
   margin: 0 0 0.9rem;
 }
@@ -472,6 +310,7 @@
   margin: 0;
   padding: 0;
   display: grid;
+  grid-template-columns: minmax(0, 1fr); /* never let a plate set the track width */
   gap: 0.75rem;
 }
 .og-weapon {
@@ -488,7 +327,7 @@
 .og-weapon-rank {
   font-family: var(--og-mono);
   font-variant-numeric: tabular-nums;
-  font-size: 0.8rem;
+  font-size: var(--fs-3);
   font-weight: 700;
   color: var(--og-muted);
   padding-top: 0.15rem;
@@ -516,7 +355,7 @@
 }
 .og-sig {
   font-family: var(--og-display);
-  font-size: 0.62rem;
+  font-size: var(--fs-1);
   font-weight: 600;
 
   letter-spacing: 0.04em;
@@ -528,7 +367,7 @@
 }
 .og-bis-pill {
   font-family: var(--og-display);
-  font-size: 0.62rem;
+  font-size: var(--fs-1);
   font-weight: 700;
 
   letter-spacing: 0.04em;
@@ -541,12 +380,12 @@
 .og-stars {
   color: var(--og-muted);
   letter-spacing: 0.12em;
-  font-size: 0.78rem;
+  font-size: var(--fs-2);
   white-space: nowrap;
 }
 .og-weapon-note {
   color: var(--og-muted);
-  font-size: 0.9rem;
+  font-size: var(--fs-4);
   line-height: 1.55;
   margin: 0.45rem 0 0;
 }
@@ -557,7 +396,7 @@
   min-height: 44px;
   color: var(--og-ink);
   font-weight: 600;
-  font-size: 0.92rem;
+  font-size: var(--fs-5);
   cursor: pointer;
 }
 .og-showmore .og-weapons { margin-top: 0.75rem; }
@@ -699,14 +538,14 @@
 }
 .og-seq-tag {
   font-family: var(--og-display);
-  font-size: 0.68rem;
+  font-size: var(--fs-1);
   font-weight: 700;
   letter-spacing: 0.04em;
   color: var(--og-muted);
 }
 .og-seq-why {
   margin: 0;
-  font-size: 0.86rem;
+  font-size: var(--fs-4);
   line-height: 1.5;
   color: var(--og-muted);
 }
@@ -744,7 +583,7 @@
 .og-seq-n {
   font-family: var(--og-mono);
   font-variant-numeric: tabular-nums;
-  font-size: 0.8rem;
+  font-size: var(--fs-3);
   font-weight: 700;
   color: var(--og-muted);
   flex: none;
@@ -754,19 +593,19 @@
 .og-seq-name {
   margin: 0 0 0.2rem;
   font-weight: 700;
-  font-size: 0.92rem;
+  font-size: var(--fs-5);
   color: var(--og-ink);
 }
 .og-seq-effect {
   margin: 0;
-  font-size: 0.85rem;
+  font-size: var(--fs-4);
   line-height: 1.5;
   color: var(--og-muted);
 }
 .og-prio {
   flex: none;
   font-family: var(--og-display);
-  font-size: 0.64rem;
+  font-size: var(--fs-1);
   font-weight: 700;
   letter-spacing: 0.04em;
   padding: 0.28rem 0.7rem;
@@ -782,14 +621,14 @@
 
 .og-seq-weapon {
   margin: 0.9rem 0 0;
-  font-size: 0.88rem;
+  font-size: var(--fs-4);
   line-height: 1.55;
   color: var(--og-muted);
 }
 
 .og-seq-provenance {
   margin: 0.6rem 0 0;
-  font-size: 0.76rem;
+  font-size: var(--fs-2);
   line-height: 1.5;
   color: var(--og-muted);
   opacity: 0.75;
@@ -820,7 +659,7 @@
 .og-echo-cost {
   font-family: var(--og-mono);
   font-variant-numeric: tabular-nums;
-  font-size: 0.82rem;
+  font-size: var(--fs-3);
   color: var(--og-muted);
   white-space: nowrap;
   flex: none;
@@ -829,7 +668,7 @@
 .og-usage-pill {
   display: inline-block;
   font-family: var(--og-display);
-  font-size: 0.66rem;
+  font-size: var(--fs-1);
   font-weight: 700;
 
   letter-spacing: 0.04em;
@@ -838,9 +677,9 @@
 }
 .og-usage-bis { background: #ffffff; color: #0b0b0d; }
 .og-usage-alt { border: 1px solid var(--og-hairline); color: var(--og-muted); }
-.og-echo-plate p { color: var(--og-muted); font-size: 0.9rem; line-height: 1.55; margin: 0.45rem 0 0; }
+.og-echo-plate p { color: var(--og-muted); font-size: var(--fs-4); line-height: 1.55; margin: 0.45rem 0 0; }
 .og-echo-plate p strong { color: var(--og-ink); }
-.og-echo-note { color: var(--og-muted); font-size: 0.9rem; line-height: 1.55; margin: 0.75rem 0 0; }
+.og-echo-note { color: var(--og-muted); font-size: var(--fs-4); line-height: 1.55; margin: 0.75rem 0 0; }
 
 /* --- stat priorities: solid panel, honest ordinal bars --------------------- */
 
@@ -850,20 +689,21 @@
   border-radius: var(--og-radius-card);
   padding: 1.25rem 1.35rem;
 }
-.og-stat-bars { list-style: none; margin: 0; padding: 0; display: grid; gap: 1rem; }
+.og-stat-bars { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: minmax(0, 1fr); gap: 1rem; }
 .og-stat-head {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: baseline;
   gap: 1rem;
-  font-size: 0.92rem;
+  font-size: var(--fs-5);
   min-width: 0;
 }
 .og-stat-label { color: var(--og-muted); min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .og-stat-label strong { color: var(--og-ink); font-weight: 700; }
 .og-stat-rank {
   font-family: var(--og-mono);
-  font-size: 0.72rem;
+  font-size: var(--fs-2);
 
   letter-spacing: 0.04em;
   color: var(--og-muted);
@@ -883,7 +723,7 @@
   width: var(--w, 28%);
   background: rgba(255, 255, 255, 0.8);
 }
-.og-stat-note { color: var(--og-muted); font-size: 0.85rem; margin: 0.45rem 0 0; line-height: 1.5; }
+.og-stat-note { color: var(--og-muted); font-size: var(--fs-4); margin: 0.45rem 0 0; line-height: 1.5; }
 .og-stat-note .og-stat-alt { color: var(--og-ink); }
 
 /* --- substats: numbered solid rows ------------------------------------------ */
@@ -897,13 +737,13 @@
   border: 1px solid var(--og-hairline-soft);
   border-radius: 12px;
   padding: 0.7rem 1.05rem;
-  font-size: 0.94rem;
+  font-size: var(--fs-5);
   color: var(--og-ink);
 }
 .og-sub-rank {
   font-family: var(--og-mono);
   font-variant-numeric: tabular-nums;
-  font-size: 0.8rem;
+  font-size: var(--fs-3);
   font-weight: 700;
   color: var(--og-muted);
   min-width: 1.4rem;
@@ -912,7 +752,7 @@
 .og-er {
   margin: 0.9rem 0 0;
   color: var(--og-muted);
-  font-size: 0.92rem;
+  font-size: var(--fs-5);
 }
 .og-er strong {
   font-family: var(--og-mono);
@@ -934,12 +774,12 @@
   padding: 1.1rem 1.25rem;
   min-width: 0;
 }
-.og-materials-group .og-sub-h { font-size: 0.95rem; margin: 0 0 0.5rem; color: var(--og-ink); }
+.og-materials-group .og-sub-h { font-size: var(--fs-5); margin: 0 0 0.5rem; color: var(--og-ink); }
 .og-materials-list { list-style: none; margin: 0; padding: 0; }
 .og-material {
   padding: 0.7rem 0;
   border-top: 1px solid var(--og-hairline-soft);
-  font-size: 0.9rem;
+  font-size: var(--fs-4);
 }
 .og-material:first-child { border-top: none; }
 .og-material-top {
@@ -974,7 +814,7 @@
 .og-tier-chip {
   font-family: var(--og-mono);
   font-variant-numeric: tabular-nums;
-  font-size: 0.75rem;
+  font-size: var(--fs-2);
   line-height: 1.5;
   padding: 0.1rem 0.55rem;
   border: 1px solid var(--og-hairline-soft);
@@ -984,7 +824,7 @@
 }
 .og-material-farm {
   color: var(--og-muted);
-  font-size: 0.8rem;
+  font-size: var(--fs-3);
   line-height: 1.5;
   margin-top: 0.35rem;
 }
@@ -1018,7 +858,7 @@
   cursor: pointer;
   padding: 1rem 1.25rem;
   font-weight: 700;
-  font-size: 0.95rem;
+  font-size: var(--fs-5);
   color: var(--og-ink);
   display: flex;
   align-items: center;
@@ -1084,7 +924,7 @@
 }
 .og-team-tag {
   font-family: var(--og-display);
-  font-size: 0.66rem;
+  font-size: var(--fs-1);
   font-weight: 700;
 
   letter-spacing: 0.05em;
@@ -1134,7 +974,7 @@
 }
 .og-team-name {
   font-weight: 700;
-  font-size: 0.84rem;
+  font-size: var(--fs-3);
   color: var(--og-ink);
   margin: 0.55rem 0 0;
   white-space: nowrap;
@@ -1147,7 +987,7 @@
   justify-content: center;
   gap: 0.35rem;
   color: var(--og-muted);
-  font-size: 0.74rem;
+  font-size: var(--fs-2);
   margin: 0.25rem 0 0;
   white-space: nowrap;
   overflow: hidden;
@@ -1177,7 +1017,7 @@
      mobile widths without truncation. */
   grid-template-columns: 10rem minmax(0, 1fr);
   gap: 0.45rem 0.75rem;
-  font-size: 0.88rem;
+  font-size: var(--fs-4);
   line-height: 1.55;
   border-left: 2px solid var(--el, var(--og-hairline));
   padding-left: 0.85rem;
@@ -1193,13 +1033,13 @@
 }
 .og-team-rotation-label {
   font-family: var(--og-mono);
-  font-size: 0.68rem;
+  font-size: var(--fs-1);
 
   letter-spacing: 0.05em;
   color: var(--og-muted);
   margin: 0 0 0.35rem;
 }
-.og-team-rotation p:last-child { margin: 0; font-size: 0.9rem; line-height: 1.6; color: var(--og-ink); }
+.og-team-rotation p:last-child { margin: 0; font-size: var(--fs-4); line-height: 1.6; color: var(--og-ink); }
 
 @media (max-width: 640px) {
   .og-team-card { padding: 1.1rem; border-radius: 18px; }
@@ -1222,7 +1062,7 @@
   font-weight: 600;
 
   letter-spacing: 0.05em;
-  font-size: 0.68rem;
+  font-size: var(--fs-1);
   color: var(--og-muted);
   margin: 0;
 }
@@ -1231,7 +1071,7 @@
   background: #ffffff;
   color: #0b0b0d;
   font-weight: 800;
-  font-size: 0.85rem;
+  font-size: var(--fs-4);
 
   letter-spacing: 0.02em;
   padding: 0.5rem 1.15rem;
@@ -1249,12 +1089,12 @@
   font-family: var(--og-mono);
   font-variant-numeric: tabular-nums;
   color: var(--og-muted);
-  font-size: 0.78rem;
+  font-size: var(--fs-2);
   margin: 1.1rem 0 0;
 }
 .og-version-note {
   color: var(--og-muted);
-  font-size: 0.82rem;
+  font-size: var(--fs-3);
   margin: 1.5rem 0 0;
 }
 
@@ -1289,7 +1129,7 @@
 .og-pn-label {
   display: block;
   font-family: var(--og-mono);
-  font-size: 0.66rem;
+  font-size: var(--fs-1);
 
   letter-spacing: 0.05em;
   color: var(--og-muted);
@@ -1313,274 +1153,22 @@
 
 /* --- tier list --------------------------------------------------------------- */
 
-.og-tier-row {
-  display: grid;
-  grid-template-columns: 128px minmax(0, 1fr);
-  gap: 1.25rem;
-  background: var(--og-surface);
-  border: 1px solid var(--og-hairline-soft);
-  border-radius: 20px;
-  padding: 1.25rem 1.4rem;
-  margin: 0 0 1rem;
-  /* Anchor target for the toolbar — same offset as .og-section. */
-  scroll-margin-top: 1rem;
-}
-.og-tier-side {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 0.55rem;
-}
-.og-tier-label {
-  font-family: var(--og-display);
-  font-size: 0.7rem;
-  font-weight: 600;
-
-  letter-spacing: 0.05em;
-  color: var(--og-muted);
-  line-height: 1.4;
-}
-.og-tier-members { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.6rem; min-width: 0; }
-.og-tier-member {
-  display: grid;
-  grid-template-columns: 64px minmax(0, 1fr);
-  gap: 0.9rem;
-  align-items: center;
-  background: var(--og-surface-raised);
-  border: 1px solid var(--og-hairline-soft);
-  border-radius: 14px;
-  padding: 0.7rem 0.95rem;
-  min-width: 0;
-}
-.og-tier-face {
-  width: 64px;
-  height: 64px;
-  border-radius: 12px;
-  object-fit: cover;
-  object-position: top center;
-  flex: none;
-  display: block;
-  background: #0a0a0c;
-}
-a.og-tier-face-link { display: block; flex: none; border-radius: 12px; }
-.og-tier-info { min-width: 0; }
-.og-tier-name {
-  display: block;
-  font-weight: 700;
-  color: var(--og-ink);
-  font-size: 0.95rem;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  padding: 0.2rem 0; /* comfortable tap target on the name link */
-}
-a.og-tier-name:hover { text-decoration: underline; }
-.og-tier-meta {
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
-  color: var(--og-muted);
-  font-size: 0.78rem;
-  margin-top: 0.15rem;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  max-width: 100%;
-}
-.og-tier-meta .element-dot {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  flex: none;
-  display: inline-block;
-}
-.og-tier-meta > span { overflow: hidden; text-overflow: ellipsis; }
-.og-tier-note {
-  color: var(--og-muted);
-  font-size: 0.85rem;
-  line-height: 1.55;
-  margin: 0.3rem 0 0;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-.og-tier-foot { margin: 1.75rem 0 0.5rem; color: var(--og-muted); }
-.og-tier-foot a { color: var(--og-ink); font-weight: 600; }
-.og-tier-unranked {
-  background: var(--og-surface);
-  border: 1px dashed var(--og-hairline);
-  border-radius: var(--og-radius-card);
-  padding: 1rem 1.25rem;
-  margin: 1.5rem 0 0;
-  color: var(--og-muted);
-  font-size: 0.88rem;
-  line-height: 1.55;
-  /* Anchor target for the toolbar — same offset as .og-section. */
-  scroll-margin-top: 1rem;
-}
-.og-tier-unranked strong { color: var(--og-ink); }
-.og-tier-unranked a { color: var(--og-ink); font-weight: 600; }
-
-@media (max-width: 640px) {
-  .og-tier-row {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 0.9rem;
-    padding: 1.1rem;
-  }
-  .og-tier-side {
-    flex-direction: row;
-    align-items: center;
-    gap: 0.8rem;
-  }
-}
-
 /* ===== Tier list: source switcher ===== */
-
-.og-source-toggle {
-  display: flex; gap: 6px; margin: 0 0 0.6rem;
-  background: rgba(255,255,255,0.05);
-  border: 1px solid var(--og-hairline);
-  border-radius: 16px; padding: 5px;
-}
-.og-source-toggle button {
-  flex: 1; padding: 0.8rem 1rem; border: none; border-radius: 11px;
-  background: transparent; color: var(--og-muted);
-  font-family: var(--og-display); font-size: 0.95rem; font-weight: 700;
-  letter-spacing: 0.02em; cursor: pointer; min-height: 52px;
-}
-.og-source-toggle button.active {
-  background: rgba(255,255,255,0.12); color: #fff;
-  box-shadow: 0 2px 14px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.12);
-}
-.og-source-blurb {
-  color: var(--og-muted); font-size: 0.85rem; line-height: 1.5;
-  margin: 0 0 1.5rem;
-}
 
 /* ===== Tier list: game mode toggle ===== */
 
-.og-mode-label {
-  font-family: var(--og-display); font-size: 0.7rem; font-weight: 700;
-  letter-spacing: 0.14em; text-transform: uppercase;
-  color: var(--og-muted); margin: 0 0 0.5rem;
-}
-.og-mode-toggle {
-  display: flex; gap: 8px; margin: 0 0 1.25rem;
-  background: rgba(255,255,255,0.04);
-  border: 1px solid var(--og-hairline-soft);
-  border-radius: 14px; padding: 4px;
-}
-.og-mode-toggle button {
-  flex: 1; padding: 0.8rem 0.75rem; border: none; border-radius: 10px;
-  background: transparent; color: var(--og-muted);
-  font-size: 0.85rem; font-weight: 600; cursor: pointer;
-  font-family: inherit; min-height: 52px; line-height: 1.3;
-}
-.og-mode-toggle button.active {
-  background: rgba(255,255,255,0.12); color: #fff;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.1);
-}
-
 /* ===== Tier list: Prydwen role cards with flat tier rows ===== */
-
-.og-role-card {
-  background: var(--og-surface);
-  border: 1px solid var(--og-hairline-soft);
-  border-radius: 20px;
-  padding: 1.1rem 1.25rem 0.4rem;
-  margin: 0 0 1rem;
-  scroll-margin-top: 1rem;
-}
-.og-role-header {
-  font-size: 0.95rem; font-weight: 700; margin: 0 0 0.25rem;
-  display: flex; align-items: center; gap: 0.5rem;
-  font-family: var(--og-display);
-}
-.og-role-icon {
-  display: inline-flex; align-items: center; justify-content: center;
-  width: 22px; height: 22px; flex: none;
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.1);
-  border-radius: 6px;
-}
-.og-role-icon svg { display: block; }
-.og-role-count {
-  font-size: 0.75rem; color: var(--og-muted); font-weight: 400;
-  background: rgba(255,255,255,0.06); padding: 0.15rem 0.5rem; border-radius: 999px;
-}
-.og-ptiers { margin: 0; padding: 0; }
-.og-ptier {
-  display: flex; gap: 0.9rem; align-items: flex-start;
-  padding: 0.75rem 0;
-}
-.og-ptier + .og-ptier { border-top: 1px solid var(--og-hairline-soft); }
-.og-ptier-badge { flex: none; margin-top: 0.35rem; }
-.og-ptier .og-tier-chips { padding: 0; }
 
 /* Prydwen tier badges: clean metallic descent T0 → T4.
    T0 solid gold, half-tiers are glass versions of their parent,
    T2 bronze sits clearly below silver, T3/T4 fade to ghost. */
-.og-tier-badge.tier-T0 {
-  background: var(--og-gold); border-color: var(--og-gold); color: #14100a;
-}
-.og-tier-badge.tier-Th0 {
-  background: rgba(212,175,55,0.14); border-color: rgba(212,175,55,0.45); color: #d9b84a;
-}
-.og-tier-badge.tier-T1 {
-  background: #d9d9e0; border-color: #d9d9e0; color: #17171c;
-}
-.og-tier-badge.tier-Th1 {
-  background: rgba(217,217,224,0.08); border-color: rgba(217,217,224,0.3); color: #a8a8b8;
-}
-.og-tier-badge.tier-T2 {
-  background: rgba(160,110,60,0.35); border-color: rgba(160,110,60,0.5); color: #d8a86a;
-}
-.og-tier-badge.tier-T3 {
-  background: transparent; border-color: var(--og-hairline-soft); color: var(--og-muted);
-}
-.og-tier-badge.tier-T4 {
-  background: transparent; border-color: rgba(255,255,255,0.06); color: #55555e;
-}
 
 /* Sparse tier rows (1-2 characters): tighter, less dead space */
-.og-ptier-sparse { padding: 0.45rem 0; }
-.og-ptier-sparse .og-ptier-badge { margin-top: 0.15rem; }
 
 /* Character chips */
-.og-tier-chips {
-  display: flex; flex-wrap: wrap; gap: 0.45rem;
-  list-style: none; margin: 0; padding: 0;
-  align-items: center; min-width: 0; flex: 1;
-}
-.og-char-chip {
-  display: inline-flex; align-items: center; min-height: 44px;
-  background: rgba(255,255,255,0.07);
-  border: 1px solid rgba(255,255,255,0.1);
-  border-radius: 10px; padding: 0.4rem 0.75rem;
-  font-size: 0.84rem; color: #e8e8ea;
-  position: relative;
-}
-.og-chip-link { text-decoration: none; }
-.og-chip-link:hover .og-char-chip {
-  background: rgba(255,255,255,0.12);
-  border-color: rgba(255,255,255,0.2);
-}
 
 /* T0 "top tier" beam: a whisper of purple light tracing the pill edge.
    Very subtle — just a hint of color on the outside. */
-.og-char-chip-top {
-  border: 1px solid transparent;
-  background:
-    linear-gradient(rgba(18,14,22,0.94), rgba(18,14,22,0.94)) padding-box,
-    conic-gradient(from var(--beam-angle, 0deg),
-      rgba(150,110,180,0.12),
-      rgba(170,130,200,0.45),
-      rgba(150,110,180,0.5),
-      rgba(170,130,200,0.45),
-      rgba(150,110,180,0.12)) border-box;
-  animation: og-top-beam 8s linear infinite;
-}
 @property --beam-angle {
   syntax: "<angle>";
   initial-value: 0deg;
@@ -1588,22 +1176,6 @@ a.og-tier-name:hover { text-decoration: underline; }
 }
 @keyframes og-top-beam {
   to { --beam-angle: 360deg; }
-}
-@media (prefers-reduced-motion: reduce) {
-  .og-char-chip-top { animation: none; }
-}
-
-.og-tier-source {
-  font-size: 0.8rem; color: var(--og-muted);
-  margin-top: 1.25rem; padding-top: 1rem;
-  border-top: 1px solid var(--og-hairline-soft);
-}
-.og-tier-source a { color: #8ab0e0; }
-
-@media (max-width: 560px) {
-  .og-role-card { padding: 1rem 1rem 0.35rem; border-radius: 16px; }
-  .og-ptier { gap: 0.7rem; }
-  .og-mode-toggle button { font-size: 0.8rem; }
 }
 
 /* Plain-words box (character pages) + glossary terms. Flat glass card
@@ -1618,7 +1190,7 @@ a.og-tier-name:hover { text-decoration: underline; }
 .og-plain-box p {
   margin: 0 0 0.6rem;
   color: var(--og-muted);
-  font-size: 0.95rem;
+  font-size: var(--fs-5);
   line-height: 1.6;
 }
 .og-plain-box p:last-child {
@@ -1632,7 +1204,7 @@ a.og-tier-name:hover { text-decoration: underline; }
 .og-gloss-term {
   margin: 0 0 0.75rem;
   color: var(--og-muted);
-  font-size: 0.95rem;
+  font-size: var(--fs-5);
   line-height: 1.6;
 }
 .og-gloss-term strong {

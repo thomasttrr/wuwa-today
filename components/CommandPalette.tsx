@@ -3,9 +3,44 @@
 import { useRouter } from "next/navigation";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { getThemeMode, setThemeMode, type ThemeMode } from "@/lib/theme-mode";
+import { NAV_ITEMS } from "@/lib/nav";
 import type { SearchItem } from "./ResonanceNav";
 
-export default function CommandPalette({ items, onClose }: { items: SearchItem[]; onClose: () => void }) {
+const PAGE_ITEMS: SearchItem[] = NAV_ITEMS.map((i) => ({ kind: "page", label: i.label, href: i.href, hint: i.hint }));
+
+/* Character entries load once per visit, on first open. */
+let charactersPromise: Promise<SearchItem[]> | null = null;
+function loadCharacters() {
+  charactersPromise ??= fetch("/search-index.json")
+    .then((r) => {
+      if (!r.ok) throw new Error(String(r.status));
+      return r.json() as Promise<SearchItem[]>;
+    })
+    .catch((e) => {
+      charactersPromise = null;
+      throw e;
+    });
+  return charactersPromise;
+}
+
+export default function CommandPalette({ onClose }: { onClose: () => void }) {
+  const [chars, setChars] = useState<SearchItem[] | null>(null);
+  const [loadError, setLoadError] = useState(false);
+  const retry = useCallback(() => {
+    setLoadError(false);
+    loadCharacters().then(setChars, () => setLoadError(true));
+  }, []);
+  useEffect(() => {
+    let live = true;
+    loadCharacters().then(
+      (c) => live && setChars(c),
+      () => live && setLoadError(true),
+    );
+    return () => {
+      live = false;
+    };
+  }, []);
+  const items = useMemo(() => PAGE_ITEMS.concat(chars ?? []), [chars]);
   const router = useRouter();
   const dialogRef = useRef<HTMLDialogElement>(null);
   const [q, setQ] = useState("");
@@ -15,9 +50,9 @@ export default function CommandPalette({ items, onClose }: { items: SearchItem[]
   const [mode] = useState<ThemeMode>(() => (typeof document === "undefined" ? "resonance" : getThemeMode()));
   const themeAction: SearchItem = {
     kind: "action",
-    label: mode === "dark" ? "Switch to Resonance theme" : "Switch to Dark theme",
+    label: mode === "dark" ? "Switch to Element appearance" : "Switch to Neutral appearance",
     href: "#theme",
-    hint: "Appearance · theme dark resonance",
+    hint: "Appearance · theme element neutral dark",
   };
 
   const results = useMemo(() => {
@@ -98,6 +133,13 @@ export default function CommandPalette({ items, onClose }: { items: SearchItem[]
           <kbd>Esc</kbd>
         </div>
         <ul id="rs-palette-list" role="listbox" className="rs-palette-list">
+          {loadError && (
+            <li className="rs-palette-empty">
+              Couldn&apos;t load Resonators. Check your connection and{" "}
+              <button type="button" className="rs-palette-retry" onClick={retry}>try again</button>.
+            </li>
+          )}
+          {!chars && !loadError && <li className="rs-palette-empty">Loading Resonators…</li>}
           {results.length === 0 && <li className="rs-palette-empty">No matches. Try a Resonator name.</li>}
           {results.map((r, i) => (
             <li

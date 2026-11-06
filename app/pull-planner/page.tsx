@@ -1,3 +1,4 @@
+import PageHero from "@/components/PageHero";
 import type { CSSProperties } from "react";
 import type { Metadata } from "next";
 import Link from "next/link";
@@ -104,15 +105,11 @@ export default function PullPlannerPage() {
 
   return (
     <>
-      <header className="pp-hero">
-        <p className="rs-kicker">Version {bannerMeta.version} · Pull strategy</p>
-        <h1 className="pp-hero-title">Pull planner</h1>
-        <p className="pp-hero-lede">
-          Who to pull, answered per account type. Every pick traces to a
+      <PageHero kicker={<>Version {bannerMeta.version} · Pull strategy</>} title="Pull Planner">
+        Who to pull, answered per account type. Every pick traces to a
           verified pull verdict on this site, and each one shows whether its
           banner is still running.
-        </p>
-      </header>
+      </PageHero>
 
       <section className="pp-section" aria-labelledby="pp-sched-h">
         <h2 id="pp-sched-h" className="pp-h">Where the version stands</h2>

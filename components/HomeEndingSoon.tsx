@@ -24,7 +24,14 @@ export default function HomeEndingSoon({ events, builtAt }: { events: GameEvent[
         <li key={e.id}>
           <div className="rs-event-main">
             <span className="rs-event-name">{e.name}</span>
-            <span className="rs-event-rewards">{e.rewards}</span>
+            <span className="rs-event-rewards">
+        {e.rewards}
+        {e.rewardsUnconfirmed && (
+          <span className="rs-unconfirmed" title="Rewards from early coverage — check the in-game notice">
+            Unconfirmed
+          </span>
+        )}
+      </span>
           </div>
           <RollingCountdown size="sm" target={e.endsAt!} label="Ends in" />
         </li>

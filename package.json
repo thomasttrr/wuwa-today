@@ -11,6 +11,7 @@
     "@types/react-dom": "19.3.0",
     "eslint": "^9.39.5",
     "eslint-config-next": "^16.4.5",
+    "sharp": "^0.35.5",
     "typescript": "5.9.3"
   },
   "name": "wuwa-today",
@@ -19,7 +20,8 @@
     "build": "next build",
     "dev": "next dev",
     "lint": "eslint .",
-    "start": "next start"
+    "start": "next start",
+    "thumbs": "node scripts/make-thumbs.mjs"
   },
   "version": "0.1.0",
   "overrides": {

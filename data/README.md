@@ -73,7 +73,8 @@ All game data lives in three JSON files. **Updating the site = editing these fil
       "status": "active | upcoming | ended",
       "startsAt": "ISO-8601", "endsAt": "ISO-8601 | null",
       "timeNote": "human note when a date is estimated",
-      "description": "...", "rewards": "..." }
+      "description": "...", "rewards": "...",
+      "rewardsUnconfirmed": true }   // optional: rewards from early coverage, shown as an "Unconfirmed" badge
   ]
 }
 ```

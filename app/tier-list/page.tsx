@@ -1,3 +1,4 @@
+import PageHero from "@/components/PageHero";
 import type { Metadata } from "next";
 import Link from "next/link";
 import TierExplorer from "@/components/TierExplorer";
@@ -17,17 +18,11 @@ export default function TierListPage() {
 
   return (
     <>
-      <header className="tl-hero">
-        <p className="rs-kicker">
-          Version {meta.oursVersion} · {model.chars.length} Resonators
-        </p>
-        <h1 className="tl-hero-title">Tier list</h1>
-        <p className="tl-hero-lede">
-          Who&apos;s worth building right now. Switch game mode to watch the
+      <PageHero kicker={<>Version {meta.oursVersion} · {model.chars.length} Resonators</>} title="Tier List">
+        Who&apos;s worth building right now. Switch game mode to watch the
           meta shift, filter by element, or mark your roster to see what you
           already own that&apos;s strong.
-        </p>
-      </header>
+      </PageHero>
 
       <TierExplorer model={model} />
 

@@ -9,6 +9,7 @@ import Reveal from "../components/Reveal";
 import RollingCountdown from "../components/RollingCountdown";
 import UpdatedStamp from "../components/UpdatedStamp";
 import WaveProgress from "../components/WaveProgress";
+import { srcSetFor } from "../lib/images";
 import {
   activeBanners,
   activeCodes,
@@ -16,6 +17,7 @@ import {
   bannerMeta,
   nextVersion,
   formatServerDate,
+  codesUpdatedAt,
 } from "../lib/data";
 import { characters } from "../lib/characters";
 import { elementColor } from "../lib/elements";
@@ -35,10 +37,9 @@ const thumbBySlug = new Map(characters.map((c) => [c.slug, thumbFor(c.slug, c.pr
 // Build time seeds the client clock for the event list (hydration-safe).
 const BUILT_AT = Date.now();
 
-function srcSetFor(art: string) {
-  const base = art.replace(/\.webp$/, "");
-  return `${base}-512.webp 512w, ${base}.webp 640w, ${base}-1024.webp 1024w, ${base}-1200.webp 1200w, ${base}-1920.webp 1920w`;
-}
+/* Banner tile art: full container width on phones, 4/6 of the 1080px
+   container on desktop. */
+const BANNER_ART_SIZES = "(max-width: 760px) calc(100vw - 2.5rem), 720px";
 
 export default function HomePage() {
   const banner = activeBanners[0];
@@ -66,65 +67,36 @@ export default function HomePage() {
         }}
       />
 
-      {/* Hero: the headline sits BEHIND the splash art. The art's own
-          transparent silhouette lets the type show around it, so the
-          character reads as standing in front of the title. Scroll drives a
-          slight depth split (CSS scroll timeline, no JS). */}
-      <section className="rs-hero" aria-label="Today in Wuthering Waves">
+      {/* Masthead: compact so the live banner, codes and resets lead the
+          first screen. The splash art lives once, in the banner tile. */}
+      <section className="rs-hero" aria-labelledby="home-h1">
         <p className="rs-kicker rs-hero-kicker">
           <span className="rs-live-dot" aria-hidden="true" />
           Version {bannerMeta.version} · {bannerMeta.versionTitle}
         </p>
-        <h1 className="rs-hero-title">
-          <span>Today in</span>
-          <span>Wuthering</span>
-          <span>Waves</span>
+        <h1 id="home-h1" className="rs-hero-title">
+          Wuthering Waves <span>today</span>
         </h1>
-        {/* eslint-disable-next-line @next/next/no-img-element -- layered hero art; static export is unoptimized so next/image adds nothing. */}
-        <img
-          className="rs-hero-art"
-          src={heroArt}
-          srcSet={srcSetFor(heroArt)}
-          sizes="(max-width: 760px) 100vw, 640px"
-          width={640}
-          height={640}
-          alt={banner?.imageAlt ?? "Official Wuthering Waves key art"}
-          loading="eager"
-          fetchPriority="high"
-          decoding="async"
-        />
-        <div className="rs-hero-foot">
-          <p className="rs-hero-sub">
-            Live banners, working codes and every reset, verified against
-            multiple sources and updated daily.
-          </p>
-          <div className="rs-hero-ctas">
-            <a href="#today" className="rs-btn rs-btn-solid">
-              See today
-            </a>
-            <Link href="/pull-planner" className="rs-btn">
-              Plan my pulls
-            </Link>
-          </div>
-        </div>
+        <p className="rs-hero-sub">
+          Live banners, working codes and every reset, verified against
+          multiple sources.
+        </p>
       </section>
-
-      {nextVersion && <NextVersionNote next={nextVersion} builtAt={BUILT_AT} variant="strip" />}
 
       <section id="today" className="rs-today" aria-label="Today at a glance">
         {/* Featured banner: the art IS the tile. */}
         {banner && lead ? (
-          <Reveal className="rs-tile-banner-wrap">
+          <div className="rs-tile-banner-wrap">
             <article className="rs-tile rs-tile-banner rs-spot">
               {/* eslint-disable-next-line @next/next/no-img-element -- tile art layer. */}
               <img
                 className="rs-banner-art"
                 src={heroArt}
                 srcSet={srcSetFor(heroArt)}
-                sizes="(max-width: 760px) 100vw, 720px"
-                alt=""
-                loading="lazy"
-                decoding="async"
+                sizes={BANNER_ART_SIZES}
+                alt={banner.imageAlt ?? ""}
+                loading="eager"
+                fetchPriority="high"
               />
               <div className="rs-banner-body">
                 <p className="rs-kicker">
@@ -147,6 +119,9 @@ export default function HomePage() {
                   )}
                   <Link href="/banners" className="rs-btn">
                     All banners
+                  </Link>
+                  <Link href="/pull-planner" className="rs-btn">
+                    Plan my pulls
                   </Link>
                 </div>
               </div>
@@ -176,7 +151,7 @@ export default function HomePage() {
                 </div>
               )}
             </article>
-          </Reveal>
+          </div>
         ) : (
           <article className="rs-tile">
             <p className="og-empty">No live banners right now. Check back after the next version livestream.</p>
@@ -189,6 +164,7 @@ export default function HomePage() {
               <h2 id="codes-h">Redeem codes</h2>
               <span className="rs-count">{activeCodes.length}</span>
             </header>
+            <p className="rs-verified">Verified {formatServerDate(codesUpdatedAt())} · two sources or official</p>
             {activeCodes.length === 0 ? (
               <p className="rs-muted">No verified working codes right now.</p>
             ) : (
@@ -228,6 +204,12 @@ export default function HomePage() {
           </article>
         </Reveal>
 
+        {nextVersion && (
+          <div className="rs-tile-next-wrap">
+            <NextVersionNote next={nextVersion} builtAt={BUILT_AT} variant="strip" />
+          </div>
+        )}
+
         <Reveal delay={120} className="rs-tile-new-wrap">
           <Link href="/beginner" className="rs-tile rs-tile-new rs-spot">
             <p className="rs-kicker">New to Solaris-3?</p>
@@ -237,6 +219,9 @@ export default function HomePage() {
               first teams, and the mistakes to skip.
             </p>
             <span className="rs-tile-link">Start here →</span>
+          </Link>
+          <Link href="/glossary" className="rs-tile-sublink">
+            Game terms in plain words →
           </Link>
         </Reveal>
       </section>

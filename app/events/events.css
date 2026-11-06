@@ -2,17 +2,6 @@
    Events — Resonance
    ========================================================================== */
 
-.ev-hero { padding: 1.25rem 0 1.25rem; display: grid; gap: 0.7rem; }
-.ev-hero-title {
-  margin: 0;
-  font-weight: 800;
-  font-stretch: 125% !important;
-  text-transform: uppercase;
-  font-size: clamp(3rem, 10vw, 7rem);
-  line-height: 0.86;
-  letter-spacing: -0.035em;
-}
-.ev-hero-lede { margin: 0; max-width: 38rem; color: var(--rs-ink-2); font-size: 1.02rem; line-height: 1.55; }
 
 /* --- summary --- */
 .ev-summary { display: grid; gap: 10px; grid-template-columns: auto minmax(0, 1fr) auto; margin: 0.5rem 0 1rem; }
@@ -27,7 +16,7 @@
 }
 .ev-sum-n { font-family: var(--rs-mono); font-weight: 600; font-size: 2.4rem; line-height: 1; font-stretch: 112%; }
 .ev-sum-main .ev-sum-n { color: var(--el); }
-.ev-sum-l { font-size: 0.78rem; color: var(--rs-ink-2); }
+.ev-sum-l { font-size: var(--fs-2); color: var(--rs-ink-2); }
 .ev-sum-urgent {
   background:
     radial-gradient(80% 120% at 0% 0%, color-mix(in oklch, var(--el) 18%, transparent), transparent 70%),
@@ -52,7 +41,7 @@
   background: rgb(255 255 255 / 0.03);
   color: var(--rs-ink-2);
   font: inherit;
-  font-size: 0.82rem;
+  font-size: var(--fs-3);
   font-weight: 600;
   cursor: pointer;
   transition: transform var(--rs-d2) var(--rs-spring), background-color var(--rs-d1) ease, color var(--rs-d1) ease;
@@ -63,10 +52,10 @@
 /* --- section heads --- */
 .ev-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 0.3rem 1rem; margin-bottom: 0.9rem; scroll-margin-top: 110px; }
 .ev-head h2 { margin: 0; display: flex; align-items: center; gap: 0.6rem; font-size: clamp(1.35rem, 3vw, 1.8rem); font-weight: 750; }
-.ev-head p { margin: 0; font-family: var(--rs-mono); font-size: 0.72rem; color: var(--rs-ink-3); }
+.ev-head p { margin: 0; font-family: var(--rs-mono); font-size: var(--fs-2); color: var(--rs-ink-3); }
 .ev-count {
   font-family: var(--rs-mono);
-  font-size: 0.72rem;
+  font-size: var(--fs-2);
   font-weight: 500;
   padding: 0.15rem 0.5rem;
   border-radius: 999px;
@@ -92,7 +81,7 @@
   padding-left: 6px;
   border-left: 1px dashed rgb(255 255 255 / 0.07);
   font-family: var(--rs-mono);
-  font-size: 0.6rem;
+  font-size: var(--fs-1);
   color: var(--rs-ink-3);
   white-space: nowrap;
 }
@@ -119,7 +108,7 @@
   background: var(--el);
   color: var(--rs-on-el);
   font-family: var(--rs-mono);
-  font-size: 0.58rem;
+  font-size: var(--fs-1);
   font-weight: 700;
 }
 .ev-tl-rows { position: relative; list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
@@ -143,7 +132,7 @@
 .ev-st-live .ev-tl-bar { justify-content: flex-end; }
 .ev-tl-name {
   padding: 0 0.6rem;
-  font-size: 0.72rem;
+  font-size: var(--fs-2);
   font-weight: 650;
   white-space: nowrap;
   overflow: hidden;
@@ -185,24 +174,24 @@
     var(--rs-surface);
 }
 .ev-card-top { display: flex; flex-wrap: wrap; align-items: center; gap: 0.45rem; }
-.ev-type { font-family: var(--rs-mono); font-size: 0.64rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--rs-ink-3); }
+.ev-type { font-family: var(--rs-mono); font-size: var(--fs-1); letter-spacing: 0.06em; text-transform: uppercase; color: var(--rs-ink-3); }
 .ev-pill {
   padding: 0.12rem 0.5rem;
   border-radius: 999px;
   border: 1px solid var(--rs-line);
   font-family: var(--rs-mono);
-  font-size: 0.62rem;
+  font-size: var(--fs-1);
   color: var(--rs-ink-2);
 }
 .ev-pill-live { border-color: transparent; background: var(--el); color: var(--rs-on-el); font-weight: 700; }
-.ev-est { margin-left: auto; font-family: var(--rs-mono); font-size: 0.6rem; color: var(--rs-ink-3); cursor: help; }
+.ev-est { margin-left: auto; font-family: var(--rs-mono); font-size: var(--fs-1); color: var(--rs-ink-3); cursor: help; }
 .ev-name { margin: 0; font-size: 1.15rem !important; font-weight: 750; line-height: 1.2; }
-.ev-rewards { margin: 0; font-size: 0.86rem; line-height: 1.5; color: var(--rs-ink-2); }
+.ev-rewards { margin: 0; font-size: var(--fs-4); line-height: 1.5; color: var(--rs-ink-2); }
 .ev-card .rs-cd { margin-top: 0.2rem; }
 .ev-more summary {
   list-style: none;
   cursor: pointer;
-  font-size: 0.78rem;
+  font-size: var(--fs-2);
   font-weight: 650;
   color: var(--el);
   min-height: 32px;
@@ -212,9 +201,9 @@
 .ev-more summary::-webkit-details-marker { display: none; }
 .ev-more summary::after { content: "+"; margin-left: 0.3rem; font-family: var(--rs-mono); }
 .ev-more[open] summary::after { content: "–"; }
-.ev-more p { margin: 0.35rem 0 0; font-size: 0.84rem; line-height: 1.55; color: var(--rs-ink-2); }
-.ev-dates { font-family: var(--rs-mono); font-size: 0.7rem !important; color: var(--rs-ink-3) !important; }
-.ev-note { font-size: 0.76rem !important; color: var(--rs-ink-3) !important; }
+.ev-more p { margin: 0.35rem 0 0; font-size: var(--fs-3); line-height: 1.55; color: var(--rs-ink-2); }
+.ev-dates { font-family: var(--rs-mono); font-size: var(--fs-2) !important; color: var(--rs-ink-3) !important; }
+.ev-note { font-size: var(--fs-2) !important; color: var(--rs-ink-3) !important; }
 
 /* --- recently ended --- */
 .ev-ended { margin-bottom: 2rem; border-radius: var(--rs-r-tile); background: var(--rs-surface); border: 1px solid var(--rs-line-soft); }
@@ -230,6 +219,6 @@
 }
 .ev-ended summary::-webkit-details-marker { display: none; }
 .ev-ended ul { list-style: none; margin: 0; padding: 0 1.2rem 1rem; display: grid; }
-.ev-ended li { display: flex; justify-content: space-between; gap: 1rem; padding: 0.6rem 0; border-top: 1px solid var(--rs-line-soft); color: var(--rs-ink-2); font-size: 0.88rem; }
-.ev-ended-d { font-family: var(--rs-mono); font-size: 0.7rem; color: var(--rs-ink-3); white-space: nowrap; }
+.ev-ended li { display: flex; justify-content: space-between; gap: 1rem; padding: 0.6rem 0; border-top: 1px solid var(--rs-line-soft); color: var(--rs-ink-2); font-size: var(--fs-4); }
+.ev-ended-d { font-family: var(--rs-mono); font-size: var(--fs-2); color: var(--rs-ink-3); white-space: nowrap; }
 .ev-stamp { margin-top: 1rem; }

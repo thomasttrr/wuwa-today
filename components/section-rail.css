@@ -45,7 +45,7 @@
   min-height: 40px;
   padding: 0 0.95rem;
   border-radius: 13px;
-  font-size: 0.85rem;
+  font-size: var(--fs-4);
   font-weight: 600;
   white-space: nowrap;
   color: var(--rs-ink-2, #b4b5c0);
@@ -57,7 +57,7 @@
 
 .sr-n {
   font-family: var(--rs-mono, ui-monospace, monospace);
-  font-size: 0.64rem;
+  font-size: var(--fs-1);
   font-weight: 500;
   color: var(--rs-ink-3, #8f909c);
   transition: color 180ms ease;

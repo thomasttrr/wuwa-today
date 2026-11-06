@@ -8,22 +8,6 @@
    Resonator" and the live accent always means "the site".
    ========================================================================== */
 
-.tm-hero { padding: 1.25rem 0 1.5rem; display: grid; gap: 0.7rem; }
-.tm-hero-title {
-  margin: 0;
-  font-weight: 800;
-  font-stretch: 125% !important;
-  text-transform: uppercase;
-  font-size: clamp(3rem, 10vw, 7rem);
-  line-height: 0.86;
-  letter-spacing: -0.035em;
-}
-.tm-hero-lede { margin: 0; max-width: 40rem; color: var(--rs-ink-2); font-size: 1.02rem; line-height: 1.55; }
-@media (prefers-reduced-motion: no-preference) {
-  .tm-hero-title { animation: rs-rise var(--rs-d3) var(--rs-spring) both; }
-  .tm-hero-lede { animation: rs-rise var(--rs-d3) var(--rs-ease) 120ms both; }
-}
-
 .tm-dot { flex: none; width: 8px; height: 8px; border-radius: 50%; background: var(--c, var(--el)); }
 
 /* --- sticky jump bar ----------------------------------------------------- */
@@ -58,7 +42,7 @@
   padding: 0 0.85rem;
   border-radius: 12px;
   color: var(--rs-ink-2);
-  font-size: 0.82rem;
+  font-size: var(--fs-3);
   font-weight: 650;
   text-decoration: none;
   transition: background-color var(--rs-d1) ease, color var(--rs-d1) ease, transform var(--rs-d2) var(--rs-spring);
@@ -66,11 +50,11 @@
 .tm-jump a:hover { color: var(--rs-ink); background: rgb(255 255 255 / 0.05); text-decoration: none; }
 .tm-jump a:active { transform: scale(0.95); }
 .tm-jump a[aria-current] { color: var(--rs-on-el); background: var(--el); }
-.tm-jump-n { font-family: var(--rs-mono); font-size: 0.66rem; opacity: 0.75; }
+.tm-jump-n { font-family: var(--rs-mono); font-size: var(--fs-1); opacity: 0.75; }
 .tm-short { display: none; }
 
 .tm-filters { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; padding: 0 4px; }
-.tm-hint { font-size: 0.78rem; color: var(--rs-ink-3); }
+.tm-hint { font-size: var(--fs-2); color: var(--rs-ink-3); }
 .tm-hint a { color: var(--el); }
 .tm-link {
   padding: 0;
@@ -90,7 +74,7 @@
   min-height: 34px;
   padding: 0 0.3rem 0 0.75rem;
   border-radius: 999px;
-  font-size: 0.8rem;
+  font-size: var(--fs-3);
   color: var(--rs-ink-2);
   background: color-mix(in oklch, var(--c) 14%, transparent);
   border: 1px solid color-mix(in oklch, var(--c) 50%, transparent);
@@ -107,7 +91,7 @@
   background: rgb(255 255 255 / 0.06);
   color: var(--rs-ink-2);
   font: inherit;
-  font-size: 0.7rem;
+  font-size: var(--fs-2);
   cursor: pointer;
 }
 .tm-focus button:hover { color: var(--rs-ink); background: rgb(255 255 255 / 0.12); }
@@ -124,7 +108,7 @@
   background: rgb(255 255 255 / 0.03);
   color: var(--rs-ink-2);
   font: inherit;
-  font-size: 0.8rem;
+  font-size: var(--fs-3);
   font-weight: 600;
   cursor: pointer;
   transition: transform var(--rs-d2) var(--rs-spring), background-color var(--rs-d1) ease, color var(--rs-d1) ease;
@@ -133,7 +117,7 @@
 .tm-pill:active { transform: scale(0.94); }
 .tm-pill[aria-pressed="true"] { color: var(--rs-on-el); background: var(--el); border-color: transparent; }
 .tm-pill:disabled { opacity: 0.45; cursor: default; }
-.tm-pill-n { font-family: var(--rs-mono); font-size: 0.7rem; }
+.tm-pill-n { font-family: var(--rs-mono); font-size: var(--fs-2); }
 
 /* --- sections ------------------------------------------------------------ */
 .tm-section { margin-bottom: 3.5rem; scroll-margin-top: 150px; }
@@ -156,13 +140,13 @@
   letter-spacing: -0.02em;
   line-height: 1.05;
 }
-.tm-blurb { margin: 0.45rem 0 0; color: var(--rs-ink-3); font-size: 0.92rem; line-height: 1.55; max-width: 62ch; }
+.tm-blurb { margin: 0.45rem 0 0; color: var(--rs-ink-3); font-size: var(--fs-5); line-height: 1.55; max-width: 62ch; }
 .tm-section-aside { flex: none; }
 .tm-sub-h { margin: 2rem 0 0.9rem; font-weight: 700; font-stretch: 108%; font-size: 1.12rem; }
 .tm-label {
   margin: 0 0 0.35rem;
   font-family: var(--rs-mono);
-  font-size: 0.62rem;
+  font-size: var(--fs-1);
   font-weight: 500;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -174,10 +158,10 @@
   border-radius: 16px;
   border: 1px dashed var(--rs-line);
   color: var(--rs-ink-3);
-  font-size: 0.86rem;
+  font-size: var(--fs-4);
 }
 .tm-notes { display: grid; gap: 0.35rem; margin-bottom: 1.5rem; max-width: 72ch; }
-.tm-notes p { margin: 0; color: var(--rs-ink-2); font-size: 0.88rem; line-height: 1.55; }
+.tm-notes p { margin: 0; color: var(--rs-ink-2); font-size: var(--fs-4); line-height: 1.55; }
 
 /* --- team grid + card ---------------------------------------------------- */
 .tm-grid {
@@ -225,7 +209,7 @@
   border-radius: 6px;
   vertical-align: 0.12em;
   font-family: var(--rs-mono);
-  font-size: 0.6rem;
+  font-size: var(--fs-1);
   font-weight: 600;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -239,7 +223,7 @@
   padding: 0.2rem 0.55rem;
   border-radius: 8px;
   font-family: var(--rs-mono);
-  font-size: 0.72rem;
+  font-size: var(--fs-2);
   font-weight: 700;
   white-space: nowrap;
   color: var(--el);
@@ -257,7 +241,7 @@
   gap: 0.4rem;
   padding: 0.2rem 0.6rem;
   border-radius: 999px;
-  font-size: 0.74rem;
+  font-size: var(--fs-2);
   font-weight: 600;
   line-height: 1.35;
 }
@@ -267,7 +251,7 @@
 .tm-badge-warn { color: #f0b48a; background: rgb(240 140 90 / 0.12); }
 .tm-also {
   margin: -0.35rem 0 0;
-  font-size: 0.76rem;
+  font-size: var(--fs-2);
   line-height: 1.45;
   color: var(--rs-ink-3);
 }
@@ -285,7 +269,7 @@
 .tm-role {
   margin: 0;
   font-family: var(--rs-mono);
-  font-size: 0.58rem;
+  font-size: var(--fs-1);
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--rs-ink-3);
@@ -301,11 +285,11 @@
   flex-wrap: wrap;
   justify-content: center;
   gap: 0.3rem;
-  font-size: 0.7rem;
+  font-size: var(--fs-2);
   color: var(--rs-ink-3);
 }
 .tm-member-meta .tm-dot { width: 6px; height: 6px; }
-.tm-stars { font-family: var(--rs-mono); font-size: 0.64rem; color: var(--rs-ink-3); }
+.tm-stars { font-family: var(--rs-mono); font-size: var(--fs-1); color: var(--rs-ink-3); }
 .tm-stars-5 { color: #e8c76a; }
 .tm-stars-4 { color: #b79cf2; }
 
@@ -320,7 +304,7 @@
   border-radius: 50%;
   background: var(--c);
   color: var(--rs-on-el);
-  font-size: 0.7rem;
+  font-size: var(--fs-2);
   font-weight: 800;
   animation: rs-pop var(--rs-d2) var(--rs-spring) both;
 }
@@ -332,9 +316,9 @@
   background: rgb(255 255 255 / 0.03);
   border-left: 2px solid color-mix(in oklch, var(--c) 60%, transparent);
 }
-.tm-how p:last-child { margin: 0; font-size: 0.88rem; line-height: 1.5; color: var(--rs-ink-2); }
+.tm-how p:last-child { margin: 0; font-size: var(--fs-4); line-height: 1.5; color: var(--rs-ink-2); }
 
-.tm-have { margin: -0.3rem 0 0; font-family: var(--rs-mono); font-size: 0.68rem; color: var(--rs-ink-3); }
+.tm-have { margin: -0.3rem 0 0; font-family: var(--rs-mono); font-size: var(--fs-1); color: var(--rs-ink-3); }
 .tm-have-all { color: var(--el); }
 
 /* --- Tower of Adversity -------------------------------------------------- */
@@ -349,7 +333,7 @@
 .tm-tower-pos {
   margin: 0 0 0.25rem;
   font-family: var(--rs-mono);
-  font-size: 0.64rem;
+  font-size: var(--fs-1);
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--el);
@@ -367,7 +351,7 @@
 .tm-effects li {
   position: relative;
   padding-left: 1rem;
-  font-size: 0.86rem;
+  font-size: var(--fs-4);
   line-height: 1.5;
   color: var(--rs-ink-2);
 }
@@ -383,14 +367,14 @@
 }
 .tm-resist { margin: 0; padding: 0; list-style: none; display: grid; gap: 0.4rem; }
 .tm-resist li { display: flex; flex-wrap: wrap; align-items: center; gap: 0.4rem; }
-.tm-resist-k { min-width: 6.5rem; font-family: var(--rs-mono); font-size: 0.7rem; color: var(--rs-ink-3); }
+.tm-resist-k { min-width: 6.5rem; font-family: var(--rs-mono); font-size: var(--fs-2); color: var(--rs-ink-3); }
 .tm-el {
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
   padding: 0.18rem 0.6rem 0.18rem 0.5rem;
   border-radius: 999px;
-  font-size: 0.78rem;
+  font-size: var(--fs-2);
   font-weight: 600;
   color: var(--rs-ink);
   background: color-mix(in oklch, var(--c) 14%, transparent);
@@ -412,7 +396,7 @@
 }
 .tm-keepout li[data-match] { border-color: color-mix(in oklch, var(--c) 55%, transparent); box-shadow: 0 0 0 1px color-mix(in oklch, var(--c) 35%, transparent); }
 .tm-keepout .tm-el { justify-self: start; }
-.tm-keepout p { margin: 0; font-size: 0.86rem; line-height: 1.5; color: var(--rs-ink-2); }
+.tm-keepout p { margin: 0; font-size: var(--fs-4); line-height: 1.5; color: var(--rs-ink-2); }
 
 /* --- Whimpering Wastes --------------------------------------------------- */
 .tm-tokens {
@@ -434,9 +418,9 @@
     var(--rs-surface);
   border: 1px solid rgb(232 199 106 / 0.22);
 }
-.tm-token p { margin: 0; font-size: 0.86rem; line-height: 1.5; color: var(--rs-ink-2); }
-.tm-token .tm-token-k { font-family: var(--rs-mono); font-size: 0.6rem; letter-spacing: 0.08em; text-transform: uppercase; color: #e8c76a; }
-.tm-token .tm-token-name { font-family: var(--rs-display); font-stretch: 108%; font-weight: 700; font-size: 0.98rem; color: var(--rs-ink); line-height: 1.25; }
+.tm-token p { margin: 0; font-size: var(--fs-4); line-height: 1.5; color: var(--rs-ink-2); }
+.tm-token .tm-token-k { font-family: var(--rs-mono); font-size: var(--fs-1); letter-spacing: 0.08em; text-transform: uppercase; color: #e8c76a; }
+.tm-token .tm-token-name { font-family: var(--rs-display); font-stretch: 108%; font-weight: 700; font-size: var(--fs-5); color: var(--rs-ink); line-height: 1.25; }
 .tm-token-stage { background: var(--rs-surface); border-color: var(--rs-el-line); }
 .tm-token-stage .tm-token-k { color: var(--el); }
 
@@ -451,9 +435,9 @@
   background: rgb(240 140 90 / 0.07);
   border: 1px solid rgb(240 140 90 / 0.25);
 }
-.tm-warn-k { font-family: var(--rs-mono); font-size: 0.66rem; letter-spacing: 0.08em; text-transform: uppercase; color: #f0b48a; }
+.tm-warn-k { font-family: var(--rs-mono); font-size: var(--fs-1); letter-spacing: 0.08em; text-transform: uppercase; color: #f0b48a; }
 .tm-warn-els { display: inline-flex; gap: 0.4rem; }
-.tm-warn p { flex-basis: 100%; margin: 0; font-size: 0.88rem; line-height: 1.5; color: var(--rs-ink-2); }
+.tm-warn p { flex-basis: 100%; margin: 0; font-size: var(--fs-4); line-height: 1.5; color: var(--rs-ink-2); }
 
 .tm-halves { display: grid; gap: 1.5rem; margin-top: 2rem; }
 @media (min-width: 900px) { .tm-halves { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; align-items: start; } }
@@ -473,7 +457,7 @@
   align-items: center;
   gap: 0.5rem;
   margin: 0 0 0.75rem;
-  font-size: 0.95rem;
+  font-size: var(--fs-5);
   font-weight: 700;
   color: var(--c);
 }
@@ -502,7 +486,7 @@
 .tm-ix > .ct-poster { max-width: 104px; }
 .tm-ix[aria-pressed="true"] { background: color-mix(in oklch, var(--c) 12%, transparent); }
 .tm-ix[aria-pressed="true"] .ct-poster { border-color: var(--c); box-shadow: 0 0 0 1.5px var(--c), 0 0 22px color-mix(in oklch, var(--c) 40%, transparent); }
-.tm-ix-meta { font-family: var(--rs-mono); font-size: 0.6rem; color: var(--rs-ink-3); }
+.tm-ix-meta { font-family: var(--rs-mono); font-size: var(--fs-1); color: var(--rs-ink-3); }
 
 .tm-foot {
   margin: 1rem 0 0;
@@ -510,7 +494,7 @@
   border-top: 1px solid var(--rs-line-soft);
   max-width: 72ch;
 }
-.tm-foot p { margin: 0; font-size: 0.86rem; line-height: 1.6; color: var(--rs-ink-3); }
+.tm-foot p { margin: 0; font-size: var(--fs-4); line-height: 1.6; color: var(--rs-ink-3); }
 .tm-foot a { color: var(--el); }
 
 /* --- mobile ------------------------------------------------------------- */
@@ -537,3 +521,35 @@
 
 /* Dark appearance: the warn and token tints stay, the rest follows tokens. */
 html[data-theme="dark"] .tm-bar { background: rgb(4 4 5 / 0.92); }
+
+/* --- Scannable list (plan P5-3) ------------------------------------------ */
+/* "How they work together" is a disclosure: closed by default, in the DOM. */
+.tm-how > summary {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  min-height: 44px;
+  margin: 0;
+  cursor: pointer;
+  list-style: none;
+}
+.tm-how > summary::-webkit-details-marker { display: none; }
+.tm-how > summary::after {
+  content: "";
+  width: 0.45rem; height: 0.45rem;
+  margin-left: auto;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  rotate: 45deg;
+  translate: 0 -2px;
+  transition: rotate var(--rs-d1) ease;
+}
+.tm-how[open] > summary::after { rotate: 225deg; translate: 0 2px; }
+.tm-how { padding-block: 0; }
+.tm-how > p { margin: 0 0 0.75rem !important; }
+/* Off-screen sections skip layout and paint until scrolled near. */
+.tm-section { content-visibility: auto; contain-intrinsic-size: auto 1200px; }
+@media (max-width: 760px) {
+  /* Shorter posters on phones: the head and shoulders are what identify. */
+  .tm-member .ct-poster { aspect-ratio: 3 / 3.4; }
+}
