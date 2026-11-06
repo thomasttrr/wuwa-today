@@ -72,3 +72,62 @@
 .of-stamp {
   margin-top: 1.5rem;
 }
+
+/* Catalog sections + compact icon grids (added with the full catalog). */
+.of-section {
+  margin-top: 2.6rem;
+}
+.of-section-h {
+  font-family: var(--rs-display);
+  font-size: var(--fs-5, 1.6rem);
+  color: var(--rs-ink);
+  margin: 0 0 1rem;
+}
+.of-section-n {
+  font-family: var(--rs-mono);
+  font-size: var(--fs-1);
+  color: var(--rs-ink-3);
+  vertical-align: middle;
+}
+.of-grid-compact {
+  grid-template-columns: repeat(auto-fill, minmax(168px, 1fr));
+  max-width: 1180px;
+}
+@media (min-width: 760px) {
+  .of-grid-compact {
+    grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+  }
+}
+.of-grid-compact .of-img {
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+  background: var(--rs-surface-2);
+  padding: 10px;
+  box-sizing: border-box;
+}
+.of-grid-compact .of-body {
+  padding: 0.85rem 0.95rem 1rem;
+  gap: 0.35rem;
+}
+.of-grid-compact .of-name {
+  font-size: 1.02rem;
+  line-height: 1.25;
+}
+.of-grid-compact .of-desc {
+  font-size: 0.86rem;
+}
+.of-noimg {
+  aspect-ratio: 1 / 1;
+  display: grid;
+  place-items: center;
+  background: var(--rs-surface-2);
+  color: var(--rs-ink-3);
+  font-family: var(--rs-mono);
+  font-size: var(--fs-1);
+  letter-spacing: 0.04em;
+  text-align: center;
+  padding: 1rem;
+}
+.of-noimg-wide {
+  aspect-ratio: 16 / 8;
+}

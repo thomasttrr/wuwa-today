@@ -22,7 +22,7 @@ export const NAV_ITEMS: NavItem[] = [
   { href: "/teams", label: "Teams", group: "Characters & builds", hint: "Best teams, Tower, Whimpering Wastes" },
   { href: "/tier-list", label: "Tier List", group: "Characters & builds", hint: "Current rankings" },
   { href: "/echo-sets", label: "Echo Sets", group: "Characters & builds", hint: "Sonata effects and where to farm" },
-  { href: "/outfits", label: "Outfits", group: "Characters & builds", hint: "Outfits and accessories by version" },
+  { href: "/outfits", label: "Outfits & Cosmetics", group: "Characters & builds", hint: "Every outfit, accessory and skin" },
   { href: "/pull-planner", label: "Pull Planner", short: "Planner", group: "Plan", hint: "Who to pull, by account type" },
   { href: "/pre-farm", label: "Pre-Farm", group: "Plan", hint: "Materials ahead of release" },
   { href: "/beginner", label: "Beginner Guides", short: "Beginner", group: "Learn", hint: "New to Solaris-3" },

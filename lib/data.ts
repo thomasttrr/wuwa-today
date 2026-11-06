@@ -57,7 +57,7 @@ export interface BannerHistoryEntry {
 export interface NextVersion {
   version: string;
   expectedCharacter: string;
-  characterSlug: string;
+  characterSlug: string | null;
   prefarmSlug: string;
   /** ISO time of the preview broadcast. */
   revealAt: string;
@@ -124,7 +124,7 @@ export interface OutfitItem {
   id: string;
   name: string;
   character: string;
-  characterSlug: string;
+  characterSlug: string | null;
   kind: string;
   version: string;
   availability: string;
