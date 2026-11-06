@@ -16,14 +16,14 @@ import { CharMedal } from "../../components/CharThumb";
 import "./planner.css";
 
 export const metadata: Metadata = {
-  title: "Pull Planner — Who to Pull in Version 3.7",
+  title: "Pull Planner — Who to Pull in Version 3.8",
   description:
-    "Version 3.7 pull planner: who's on the banner right now, picks by account type, whether Lynae and Lucilla are worth it, and whether to save for Lily in 3.8 — every pick traced to a verified pull verdict.",
+    "Version 3.8 pull planner: Lily's Phase 1 value, the Sigrika and Qiuyuan reruns, picks by account type, and whether to save for Phase 2 — every pick traced to a verified pull verdict.",
   alternates: { canonical: "/pull-planner" },
 };
 
 const BUILT_AT = Date.now();
-const FIVE_STARS = ["suoming", "lynae", "lucilla", "hsin", "iuno", "chisa"] as const;
+const FIVE_STARS = ["lily", "sigrika", "qiuyuan", "yangyang-xuanling", "suisui", "hiyuki"] as const;
 type FiveStarSlug = (typeof FIVE_STARS)[number];
 
 const slugByName = new Map(characters.map((c) => [c.name, c.slug]));
@@ -62,8 +62,8 @@ function plan(key: string, title: string, profile: string, pick: FiveStarSlug, n
 }
 
 export default function PullPlannerPage() {
-  const p1 = bannerById.get("3.7-phase-1");
-  const p2 = bannerById.get("3.7-phase-2");
+  const p1 = bannerById.get("3.8-phase-1");
+  const p2 = bannerById.get("3.8-phase-2");
 
   const phases: PhaseNode[] = banners
     .filter((b) => b.version === bannerMeta.version)
@@ -85,20 +85,20 @@ export default function PullPlannerPage() {
         }),
     }));
 
-  // Plan text is the planner's original editorial copy, unchanged.
+  // Plan text is editorial copy traced to the pull verdicts below.
   const plans: AccountPlan[] = [
-    plan("new", "New player", "Fresh roster, everything is an upgrade. Priority is units that work everywhere and rerun rarely.", "lynae",
-      "The safest rerun of 3.7 — a fresh account doesn't own her, and universal value beats a conditional DPS.",
-      "Runner-up: Hsin — a new Electro main DPS fills the biggest hole on a fresh roster."),
-    plan("f2p", "F2P", "One guaranteed 5-star for the whole version. No second chances — pick the lowest-risk option.", "hsin",
-      "Conditional pick: missing an Electro DPS, she's a strong pull. Electro covered? Hold everything for Lynae in Phase 2.",
-      "Why the condition: Lynae’s verdict (“safest rerun — pull if you don’t own her”) is the floor; Hsin’s is the ceiling when you need her role. Don’t spend on Iuno’s banner — third pick of Phase 1."),
-    plan("low", "Low-spender", "Welkin / battle pass income — one to two 5-stars per version plus a signature weapon if you plan it.", "hsin",
-      "Strong for accounts missing an Electro DPS — and she's the top of the Phase 1 value order (Hsin > Chisa > Iuno).",
-      "Second pick: Chisa — “one of the best supports for Negative Status teams”, worth it if you’re building around your new Hsin. Skip Iuno unless you love Heavy Attack teams — luxury for full sustain slots."),
-    plan("vet", "Veteran", "Deep roster, most sustains and DPS slots already covered. Pull for niches and upgrades, not bodies.", "chisa",
-      "Niche but excellent: worth it if you're pulling Hsin or running Negative Status squads; skip if sustain is covered.",
-      "Only-if conditions: Lynae only if you missed her earlier (“pull her if you don’t own her”); Lucilla only with Hiyuki, a Glacio DPS, or Echo Skill carries — “otherwise skip: she’s niche, not a generalist”."),
+    plan("new", "New player", "Fresh roster, everything is an upgrade. Priority is units that work everywhere and rerun rarely.", "lily",
+      "The safest first 5-star of 3.8 — a premium sustain is never wasted, and her buffs cover the Unison and Echo teams this version is built around.",
+      "Runner-up: save for Yangyang: Xuanling in Phase 2 if you'd rather open with a top-tier carry — she wants a status team around her, which a fresh roster builds slowly."),
+    plan("f2p", "F2P", "One guaranteed 5-star for the whole version. No second chances — pick the lowest-risk option.", "lily",
+      "One guarantee, spent on the support who fits the most teams. DPS rotate out; premium sustain is the floor every account stands on.",
+      "Why not the DPS: Sigrika's damage drops hard outside Echo Skill teams, and her best version needs Qiuyuan too — that's two pulls, not one. Xuanling is Phase 2 and also wants her support shell built first."),
+    plan("low", "Low-spender", "Welkin / battle pass income — one to two 5-stars per version plus a signature weapon if you plan it.", "sigrika",
+      "Phase 1's package for Echo accounts: Sigrika carries, Qiuyuan buffs her, and neither needs a signature weapon — two pulls, no weapon banner.",
+      "Alternative: Lily at S0 and save the rest — her S2 is the breakpoint that turns her universal, so going deep on one banner beats spreading thin."),
+    plan("vet", "Veteran", "Deep roster, most sustains and DPS slots already covered. Pull for niches and upgrades, not bodies.", "yangyang-xuanling",
+      "Phase 2 holds the patch's strongest single pull — a top-tier Havoc carry — provided you can field her Chisa / Suisui status shell around her.",
+      "Only-if conditions: Lily's S2 if her slot is your main upgrade; Sigrika only if Echo is your main team. Can't field Xuanling's shell? Then 3.8 is a save version for you."),
   ];
 
   const verdicts = FIVE_STARS.map(info);
@@ -129,36 +129,35 @@ export default function PullPlannerPage() {
       <section className="pp-section" aria-labelledby="pp-q-h">
         <h2 id="pp-q-h" className="pp-h">The big questions</h2>
         <div className="pp-qs">
-          <details className="pp-q">
+          <details className="pp-q" open>
             <summary>
               <span className="pp-q-n">01</span>
-              <span className="pp-q-t">Pull Hsin or save for Suoming?</span>
+              <span className="pp-q-t">Pull Lily or save for Phase 2?</span>
               <Availability start={p1?.startsAt ?? null} end={p1?.endsAt ?? null} builtAt={BUILT_AT} />
             </summary>
             <div className="pp-q-body">
               <ul className="og-q-list">
                 <li>
-                  <strong>They pair together.</strong> The Suoming verdict
-                  reads:{" "}
-                  <em>
-                    “If you pulled Hsin, Suoming is her best partner and a
-                    strong pull. Everyone else should wait for launch-day
-                    numbers before deciding.”
-                  </em>
+                  <strong>What Lily is:</strong> a 5-star Spectro Pistols
+                  healer/support whose buffs are strongest in Unison and Echo
+                  Skill teams — kit confirmed at the Nov 6 broadcast, numbers
+                  still beta until launch.
                 </li>
                 <li>
-                  <strong>Already have or pull Hsin?</strong> Suoming is her
-                  best partner — budget for both.
+                  <strong>Pull Lily if:</strong> you run Unison or Echo teams,
+                  or you lack a premium sustain. Her S2 is the breakpoint that
+                  makes her universal.
                 </li>
                 <li>
-                  <strong>Skipped Hsin?</strong> Save and compare: Suoming’s
-                  verdict was written from pre-release numbers, so check her
-                  verdict page for launch-day updates first.
+                  <strong>Save for Phase 2 if:</strong> Shorekeeper already
+                  covers you and what you actually want is a carry —
+                  Yangyang: Xuanling (Dec 3) is the patch&apos;s strongest DPS,
+                  with Suisui and Hiyuki beside her.
                 </li>
               </ul>
               <p className="og-q-links">
-                <Link href="/characters/hsin">Hsin verdict</Link> ·{" "}
-                <Link href="/characters/suoming">Suoming verdict</Link>
+                <Link href="/characters/lily">Lily verdict</Link> ·{" "}
+                <Link href="/characters/yangyang-xuanling">Xuanling verdict</Link>
               </p>
             </div>
           </details>
@@ -171,113 +170,118 @@ export default function PullPlannerPage() {
             <div className="pp-q-body">
               <ul className="og-q-list">
                 <li>
-                  <strong>Make it count:</strong> if you’re missing an Electro
-                  DPS, <strong>Hsin</strong> is “a strong pull for accounts
-                  missing an Electro DPS”.
+                  <strong>Make it count:</strong> <strong>Lily</strong> — the
+                  support who fits the most teams, and the only Phase 1 pull
+                  that needs nothing else to work.
                 </li>
                 <li>
-                  <strong>Electro slots covered?</strong> Hold for{" "}
-                  <strong>Lynae</strong> in Phase 2 — she’s “the safest rerun
-                  of 3.7”.
+                  <strong>The Echo exception:</strong> Sigrika is a top Aero
+                  DPS only inside Echo Skill teams, and her best version
+                  needs Qiuyuan as well — two guarantees, not one.
                 </li>
                 <li>
-                  <strong>Phase 1 value order:</strong> Hsin &gt; Chisa &gt;
-                  Iuno for most accounts.
+                  <strong>Phase 1 value order:</strong> Lily &gt; Sigrika
+                  (with Qiuyuan) &gt; Qiuyuan alone, for most accounts.
                 </li>
               </ul>
               <p className="og-q-links">
-                <Link href="/characters/hsin">Hsin verdict</Link> ·{" "}
-                <Link href="/characters/lynae">Lynae verdict</Link>
+                <Link href="/characters/lily">Lily verdict</Link> ·{" "}
+                <Link href="/characters/sigrika">Sigrika verdict</Link>
               </p>
             </div>
           </details>
-          <details className="pp-q" open>
+          <details className="pp-q">
             <summary>
               <span className="pp-q-n">03</span>
-              <span className="pp-q-t">Do I need the Lynae / Lucilla reruns?</span>
-              <Availability start={p2?.startsAt ?? null} end={p2?.endsAt ?? null} builtAt={BUILT_AT} />
+              <span className="pp-q-t">Do I need the Sigrika / Qiuyuan reruns?</span>
+              <Availability start={p1?.startsAt ?? null} end={p1?.endsAt ?? null} builtAt={BUILT_AT} />
             </summary>
             <div className="pp-q-body">
               <ul className="og-q-list">
                 <li>
-                  <strong>Lynae:</strong> “the safest rerun of 3.7 — pull her
-                  if you don’t own her.”
+                  <strong>Sigrika:</strong> “top Aero DPS for dedicated Echo
+                  Skill compositions” — and her damage drops significantly
+                  outside them.
                 </li>
                 <li>
-                  <strong>Lucilla is conditional:</strong> pull her if you run
-                  Hiyuki, a Glacio DPS, or Echo Skill carries — “she’s arguably
-                  their best support”.
+                  <strong>Qiuyuan is the enabler:</strong> a niche but strong
+                  Echo-Skill buffer who elevates Sigrika, Phrolova, and
+                  Galbrena — without needing his signature weapon.
                 </li>
                 <li>
-                  <strong>Otherwise:</strong> she’s niche, not a generalist,
-                  and safe to skip.
+                  <strong>Skip both if:</strong> you already have Lucilla, who
+                  covers Qiuyuan&apos;s niche more consistently, or Echo teams
+                  aren&apos;t your thing.
                 </li>
               </ul>
               <p className="og-q-links">
-                <Link href="/characters/lynae">Lynae verdict</Link> ·{" "}
-                <Link href="/characters/lucilla">Lucilla verdict</Link>
+                <Link href="/characters/sigrika">Sigrika verdict</Link> ·{" "}
+                <Link href="/characters/qiuyuan">Qiuyuan verdict</Link>
               </p>
             </div>
           </details>
           <details className="pp-q">
             <summary>
               <span className="pp-q-n">04</span>
-              <span className="pp-q-t">What about Chisa and Iuno?</span>
+              <span className="pp-q-t">What about Lullaby — pull the weapon banner?</span>
               <Availability start={p1?.startsAt ?? null} end={p1?.endsAt ?? null} builtAt={BUILT_AT} />
             </summary>
             <div className="pp-q-body">
               <ul className="og-q-list">
                 <li>
-                  <strong>Chisa</strong> is “one of the best supports for
-                  Negative Status teams — worth it if you’re building around
-                  Hsin or status squads”.
+                  <strong>The math is friendly:</strong> the weapon banner has
+                  no 50/50 — Lullaby is guaranteed within 80 pulls.
                 </li>
                 <li>
-                  <strong>Iuno</strong> is Phase 1’s third pick: a flexible
-                  Aero healer/buffer, but “a luxury if your sustain slots are
-                  full”.
+                  <strong>But sequences first:</strong> for most accounts,
+                  Lily&apos;s S2 (which makes her universal) is the better
+                  spend than her signature. Lullaby is nice to have, not
+                  needed.
+                </li>
+                <li>
+                  <strong>Budget option:</strong> Cadenza (4-star) is the
+                  recommended cheap pick; Static Mist also works.
                 </li>
               </ul>
               <p className="og-q-links">
-                <Link href="/characters/chisa">Chisa verdict</Link> ·{" "}
-                <Link href="/characters/iuno">Iuno verdict</Link>
+                <Link href="/characters/lily">Lily verdict &amp; pull guide</Link>
               </p>
             </div>
           </details>
           <details className="pp-q">
             <summary>
               <span className="pp-q-n">05</span>
-              <span className="pp-q-t">Pull 3.7 Phase 2 or save for Lily (3.8)?</span>
+              <span className="pp-q-t">What&apos;s coming in Phase 2?</span>
               <Availability start={p2?.startsAt ?? null} end={p2?.endsAt ?? null} builtAt={BUILT_AT} />
             </summary>
             <div className="pp-q-body">
               <ul className="og-q-list">
                 <li>
-                  <strong>What’s official:</strong> Lily is a 5-star Spectro
-                  Pistols Resonator announced for Version 3.8. Her kit has not
-                  been revealed — so nobody can honestly rank her yet.
+                  <strong>Yangyang: Xuanling</strong> — one of the strongest
+                  DPS units in the game and the premier Havoc Bane carry. She
+                  wants Chisa and Suisui around her to unlock her full
+                  potential.
                 </li>
                 <li>
-                  <strong>Pull Phase 2 if:</strong> you have Hsin (Suoming is
-                  her best partner), you don’t own Lynae (the safest rerun of
-                  3.7), or Lucilla fits your Hiyuki / Glacio / Echo-Skill
-                  account.
+                  <strong>Suisui</strong> — the premier Negative Status
+                  support, essential for Chafe, Bane, Flare, and Rage teams —
+                  and the piece that completes Xuanling&apos;s shell.
                 </li>
                 <li>
-                  <strong>Save for Lily if:</strong> Phase 2 offers you nothing
-                  new — and only if you’re comfortable waiting. Her 3.8 timing
-                  is an <em>estimate</em>, not an officially announced date.
+                  <strong>Hiyuki</strong> — the elite Glacio hypercarry and
+                  the best payoff for the Chafe mechanic; she wants Chafe
+                  enablers like Lucilla or Chisa around her.
                 </li>
                 <li>
-                  <strong>Bottom line:</strong> a guaranteed strong pull now
-                  beats a hypothetical later. Only hold Astrite for Lily if
-                  your roster can genuinely wait.
+                  <strong>Bottom line:</strong> Phase 2 (Dec 3 – Dec 21) is a
+                  carry patch. If Phase 1 offers you nothing, this is what
+                  your Astrite is waiting for.
                 </li>
               </ul>
               <p className="og-q-links">
-                <Link href="/characters/suoming">Suoming verdict</Link> ·{" "}
-                <Link href="/characters/lynae">Lynae verdict</Link> ·{" "}
-                <Link href="/characters/lily">Lily preview</Link>
+                <Link href="/characters/yangyang-xuanling">Xuanling verdict</Link> ·{" "}
+                <Link href="/characters/suisui">Suisui verdict</Link> ·{" "}
+                <Link href="/characters/hiyuki">Hiyuki verdict</Link>
               </p>
             </div>
           </details>
@@ -318,9 +322,10 @@ export default function PullPlannerPage() {
       </section>
 
       <p className="pp-note">
-        All picks trace to the verified pull verdicts above (published Oct
-        13–14, 2026). Suoming&apos;s recommendation was written from pre-release data. All
-        dates are server time (UTC+8).
+        All picks trace to the verified pull verdicts above. Lily&apos;s verdict
+        was published Nov 6, 2026 from broadcast-confirmed info; her kit numbers
+        stay labelled beta until the Nov 12 launch check. All dates are server
+        time (UTC+8).
       </p>
       <UpdatedStamp />
     </>
