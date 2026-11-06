@@ -29,7 +29,7 @@ How WuWa Today stays fresh. This is the runbook for Kit's scheduled refresh jobs
 3. Bump `_meta.updatedAt` in `banners.json` and `guides.json`; update `SOURCES.md`.
 4. Rebuild/redeploy.
 
-**Scheduled redeploys.** The home hero, `/banners`, the accent colour and the "ended/live" filters are decided at **build time** (`lib/data.ts`). If nobody rebuilds when a phase ends, the home page keeps showing the old banner (its countdown reads "Ended"). Create a Vercel Deploy Hook and fire it at each `endsAt` boundary (a calendar reminder or a scheduled GitHub Action that `curl`s the hook). A build with no live banner logs `[wuwa-today] No active banner at build time`.
+**Scheduled redeploys.** The home hero, `/banners`, the accent colour and the "ended/live" filters are decided at **build time** (`lib/data.ts`). If nobody rebuilds when a phase ends, the home page keeps showing the old banner (its countdown reads "Ended"). **Automated since 2026-11-06:** `.github/workflows/rebuild-at-phase-boundaries.yml` checks `data/banners.json` hourly and fires the Vercel Deploy Hook (repo secret `VERCEL_DEPLOY_HOOK_URL`) just after any phase `startsAt`/`endsAt`, plus one fallback rebuild daily at 09:00 UTC. Until the secret is added in GitHub, the workflow runs but skips quietly. A build with no live banner logs `[wuwa-today] No active banner at build time`.
 
 ## 3. Patch update (~every 6 weeks)
 

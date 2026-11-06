@@ -1,0 +1,73 @@
+name: Rebuild at banner phase boundaries
+
+# The home hero, /banners, the accent colour and the live/ended filters are
+# decided at build time (see UPDATE_PLAYBOOK.md). This workflow fires the
+# Vercel Deploy Hook shortly after every phase start/end recorded in
+# data/banners.json, plus one unconditional rebuild a day as a fallback.
+# Requires the repo secret VERCEL_DEPLOY_HOOK_URL (Vercel project ->
+# Settings -> Git -> Deploy Hooks). Until the secret exists the jobs
+# succeed quietly and do nothing.
+
+on:
+  schedule:
+    - cron: "7 * * * *" # hourly boundary check
+    - cron: "0 9 * * *" # daily fallback rebuild (~4 AM ET)
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+jobs:
+  boundary-check:
+    if: github.event.schedule != '0 9 * * *'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fire the deploy hook if a phase boundary just passed
+        env:
+          HOOK: ${{ secrets.VERCEL_DEPLOY_HOOK_URL }}
+        run: |
+          if [ -z "$HOOK" ]; then
+            echo "::notice::VERCEL_DEPLOY_HOOK_URL secret is not set yet - skipping."
+            exit 0
+          fi
+          DUE=$(python3 - <<'PY'
+          import json, datetime
+          now = datetime.datetime.now(datetime.timezone.utc)
+          lo = now - datetime.timedelta(minutes=70)
+          hi = now + datetime.timedelta(minutes=5)
+          due = []
+          for b in json.load(open("data/banners.json"))["banners"]:
+              for key in ("startsAt", "endsAt"):
+                  raw = b.get(key)
+                  if not raw:
+                      continue
+                  t = datetime.datetime.fromisoformat(raw)
+                  if lo <= t <= hi:
+                      due.append(f"{b['id']} {key} {raw}")
+          print("\n".join(due))
+          PY
+          )
+          if [ -n "$DUE" ]; then
+            echo "Phase boundary passed:"
+            echo "$DUE"
+            curl -fsS -X POST "$HOOK"
+            echo "Deploy hook fired."
+          else
+            echo "No phase boundary in the last 70 minutes."
+          fi
+
+  daily-fallback:
+    if: github.event.schedule == '0 9 * * *'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Fire the deploy hook (daily fallback)
+        env:
+          HOOK: ${{ secrets.VERCEL_DEPLOY_HOOK_URL }}
+        run: |
+          if [ -z "$HOOK" ]; then
+            echo "::notice::VERCEL_DEPLOY_HOOK_URL secret is not set yet - skipping."
+            exit 0
+          fi
+          curl -fsS -X POST "$HOOK"
+          echo "Deploy hook fired (daily fallback)."
