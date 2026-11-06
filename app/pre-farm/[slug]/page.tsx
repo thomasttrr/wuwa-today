@@ -151,7 +151,7 @@ function PartialSections({ guide }: { guide: PrefarmGuide }) {
           <ObsidianSectionHead
             id="farm-now"
             title="Farm right now"
-            blurb="The one thing you can stockpile today — echoes. Everything else waits for the kit reveal."
+            blurb="The one thing you can stockpile today — echoes. Everything else waits for launch."
           />
           {guide.echoFarm.map((set, i) => (
             <Reveal key={set.name} delay={Math.min(i * 60, 240)}>
@@ -172,7 +172,7 @@ function PartialSections({ guide }: { guide: PrefarmGuide }) {
           <ObsidianSectionHead
             id="still-to-come"
             title="Still to come"
-            blurb="Not revealed yet — this guide fills these in when the preview broadcast airs."
+            blurb="Still unpublished — these land here once they can be verified in-game at launch."
           />
           <Reveal>
             <div className="og-notice" role="note">
@@ -310,12 +310,11 @@ export default async function PrefarmPage({
             {guide.partial ? (
               <p>
                 <strong>Partial guide.</strong> {guide.character}&apos;s kit
-                and material lists have not been revealed yet, so this page
-                covers only what is confirmed today — who she is, when she is
-                expected, and the echo set you can already farm. Full
-                materials, kit details and farming routes land here after the
-                Version 3.8 preview broadcast (Friday, Nov 6, 2026, 6:00 AM
-                ET).
+                has been revealed, but the official material list and final
+                kit numbers are still unpublished — so this page covers what
+                is confirmed today, and labels everything sourced from beta
+                coverage as beta. Full materials and farming routes land
+                here once they can be verified in-game at launch.
                 Estimated dates are labeled as estimates.
               </p>
             ) : (
