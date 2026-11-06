@@ -1,6 +1,10 @@
 # Sources
 
-Every fact in `data/` was checked against these sources. Code data last checked on **2026-10-16** (morning); banner data last checked on **2026-10-16** (morning); event schedule refreshed on **2026-10-15** (morning, official patch-note times for Waking Moon Fishing and Back to Solaris). Source URLs are also stored per-record in the JSON files.
+Every fact in `data/` was checked against these sources. Code data last checked on **2026-11-06** (morning); banner data last checked on **2026-10-16** (morning); event schedule refreshed on **2026-10-15** (morning, official patch-note times for Waking Moon Fishing and Back to Solaris). Source URLs are also stored per-record in the JSON files.
+
+## Codes (re-checked 2026-11-06, morning)
+
+Three new Version 3.8 livestream codes added to `codes.json`, announced by Kuro Games during the Nov 6, 2026 Preview Special Broadcast (19:00 UTC+8): TRAINOFSOULS, BLOOMINGFLOWERS, SCHOOLLIFE — 100 Astrite each, all expiring Nov 8, 2026 at 07:59 PT. Verified by the official Wuthering Waves Instagram post (https://www.instagram.com/p/DfZrWiPPQYh/), Sportskeeda's livestream summary and codes articles, screenshots of the official livestream code cards, and in-game "Redeem Complete" videos. Reward details taken from the official code cards (BLOOMINGFLOWERS = Premium Enclosure Tank III x2 + 40,000 Shell Credit; Sportskeeda's two articles disagreed on the tank count, the official card wins). Other aggregators (Game8, Pocket Gamer, Keygold, Kardz, Beebom, urgametips) still showed pre-broadcast lists at check time. `WUTHERINGGIFT` remains active; `DVME2MOHOQJT` stays excluded (Keygold/Kardz list it expired).
 
 ## Banners (Version 3.7)
 
