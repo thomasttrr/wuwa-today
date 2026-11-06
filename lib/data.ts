@@ -97,6 +97,8 @@ export interface GameEvent {
   timeNote?: string;
   description: string;
   rewards: string;
+  /** Rewards come from early coverage, not the in-game notice yet. */
+  rewardsUnconfirmed?: boolean;
 }
 
 export const banners = (bannersRaw as { banners: Banner[] }).banners;

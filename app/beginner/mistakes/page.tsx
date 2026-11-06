@@ -90,7 +90,7 @@ export default function BeginnerMistakes() {
               aria-label={`Mistake ${i + 1}: ${m.title}`}
               style={{ scrollMarginTop: "120px" }}
             >
-              <span className="og-kicker">Mistake {m.n}</span>
+              <span className="rs-kicker">Mistake {m.n}</span>
               <h3>{m.title}</h3>
               <div className="og-pick-desc">
                 <ul className="og-q-list">

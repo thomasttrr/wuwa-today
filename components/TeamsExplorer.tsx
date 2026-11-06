@@ -62,7 +62,22 @@ function visible(team: Team, f: Filter): boolean {
   return true;
 }
 
+function openHashedTeam() {
+  const id = decodeURIComponent(location.hash.slice(1));
+  if (!id) return;
+  const el = document.getElementById(id);
+  if (el instanceof HTMLDetailsElement) {
+    el.open = true;
+    el.closest("article")?.scrollIntoView({ block: "start" });
+  }
+}
+
 export default function TeamsExplorer({ model }: { model: TeamsModel }) {
+  useEffect(() => {
+    openHashedTeam();
+    window.addEventListener("hashchange", openHashedTeam);
+    return () => window.removeEventListener("hashchange", openHashedTeam);
+  }, []);
   const [focus, setFocus] = useState<string | null>(null);
   const [owned, setOwned] = useState<Set<string>>(() => new Set());
   const [fieldable, setFieldable] = useState(false);
@@ -528,10 +543,12 @@ function TeamCard({ team, focus, owned, showOwned }: { team: Team } & CardProps)
         ))}
       </ol>
 
-      <div className="tm-how">
-        <p className="tm-label">How they work together</p>
+      {/* Native disclosure: the text stays in the HTML (search, Ctrl+F),
+          but the list is scannable. Opens itself when linked by hash. */}
+      <details className="tm-how" id={`team-${team.id}`}>
+        <summary className="tm-label">How they work together</summary>
         <p>{team.how}</p>
-      </div>
+      </details>
 
       {showOwned && (
         <p className={`tm-have${have === 3 ? " tm-have-all" : ""}`}>

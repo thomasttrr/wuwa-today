@@ -221,7 +221,14 @@ function EventItem({ e, st, now }: { e: GameEvent; st: Live; now: number }) {
         {e.timeNote && <span className="ev-est" title={e.timeNote}>Est.</span>}
       </div>
       <h3 className="ev-name">{e.name}</h3>
-      <p className="ev-rewards">{e.rewards}</p>
+      <p className="ev-rewards">
+        {e.rewards}
+        {e.rewardsUnconfirmed && (
+          <span className="rs-unconfirmed" title="Rewards from early coverage — check the in-game notice">
+            Unconfirmed
+          </span>
+        )}
+      </p>
       {st === "live" && e.endsAt && <RollingCountdown size="sm" target={e.endsAt} label="Ends in" />}
       {st === "soon" && <RollingCountdown size="sm" target={e.startsAt} label="Starts in" />}
       <details className="ev-more">

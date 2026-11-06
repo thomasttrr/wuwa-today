@@ -11,12 +11,20 @@ import "./char-thumb.css";
 const vars = (t: Thumb, extra?: Record<string, string | number>) =>
   ({ "--fx": t.fx, "--z": t.z, ...extra }) as CSSProperties;
 
-function Art({ t, eager }: { t: Thumb; eager?: boolean }) {
+/* The art is drawn at --z% (x a per-shape factor) of its frame, so `sizes`
+   is the frame width scaled the same way. Posters vary by grid; 160px is the
+   largest common frame. Medals know their exact diameter. */
+const POSTER_FRAME = 160;
+const sizesFor = (t: Thumb, frame: number, k: number) => `${Math.round((frame * t.z * k) / 100)}px`;
+
+function Art({ t, eager, sizes }: { t: Thumb; eager?: boolean; sizes: string }) {
   return (
     // eslint-disable-next-line @next/next/no-img-element -- static export is unoptimized; sizes come from renders.json.
     <img
       className={`ct-art${t.render ? "" : " is-portrait"}`}
       src={t.src}
+      srcSet={t.srcSet}
+      sizes={t.srcSet ? sizes : undefined}
       alt=""
       loading={eager ? "eager" : "lazy"}
       decoding="async"
@@ -46,7 +54,7 @@ export function CharPoster({
   return (
     <span className={`ct-poster${hideName ? " ct-poster-bare" : ""}${className ? ` ${className}` : ""}`} style={thumb ? vars(thumb) : undefined}>
       <span className="ct-ghost" aria-hidden="true">{name.split(/[\s:]/)[0]}</span>
-      {thumb ? <Art t={thumb} eager={eager} /> : <span className="ct-mono" aria-hidden="true">{name.charAt(0)}</span>}
+      {thumb ? <Art t={thumb} eager={eager} sizes={sizesFor(thumb, POSTER_FRAME, 1.05)} /> : <span className="ct-mono" aria-hidden="true">{name.charAt(0)}</span>}
       {children}
       {!hideName && (
         // Shrink rather than split long single words ("Shorekeeper").
@@ -79,7 +87,7 @@ export function CharMedal({
       style={vars(thumb ?? { src: "", fx: 0.5, z: 100, render: false }, { "--s": `${size}px` })}
     >
       <span className="ct-medal-in">
-        {thumb ? <Art t={thumb} eager={eager} /> : <span className="ct-mono" aria-hidden="true">{name.charAt(0)}</span>}
+        {thumb ? <Art t={thumb} eager={eager} sizes={sizesFor(thumb, size, 1.55)} /> : <span className="ct-mono" aria-hidden="true">{name.charAt(0)}</span>}
       </span>
     </span>
   );

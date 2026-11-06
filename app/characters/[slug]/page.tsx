@@ -3,6 +3,7 @@ import ElementTheme from "@/components/ElementTheme";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { echoGuideHref } from "@/lib/echo-guide";
 import Reveal from "@/components/Reveal";
 import CopyButton from "@/components/CopyButton";
 import ObsidianSectionHead from "@/components/ObsidianSectionHead";
@@ -217,7 +218,7 @@ function EchoPlate({ set }: { set: EchoSetLoose }) {
               />
             </span>
           ))}
-          {set.name}
+          {echoGuideHref(set.name) ? <Link href={echoGuideHref(set.name)!}>{set.name}</Link> : set.name}
         </span>
         <span className="og-echo-cost">{set.pieces}</span>
       </div>
@@ -435,6 +436,53 @@ export default async function CharacterPage({
           { href: "#pull-verdict", label: "Pull verdict" },
         ]}
       />
+
+      {/* At a glance: the answers people come for, before the long read.
+          Every value is the first entry of a section below (same fields
+          as the Copy build summary), so the two can never disagree. */}
+      {(() => {
+        const bestWeapon = build.ranked_weapons[0];
+        const bestSet = build.echo_sets.find((s) => s.usage === "best-in-slot") ?? build.echo_sets[0];
+        const bestTeam = char.teams[0];
+        const setHref = bestSet ? echoGuideHref(bestSet.name) : null;
+        return (
+          <section className="cx-glance" aria-labelledby="glance-h">
+            <h2 id="glance-h" className="cx-glance-h">At a glance</h2>
+            <dl>
+              {bestWeapon && (
+                <div>
+                  <dt>Best weapon</dt>
+                  <dd>{bestWeapon.name} <span className="cx-glance-sub">{bestWeapon.rarity}★</span></dd>
+                </div>
+              )}
+              {bestSet && (
+                <div>
+                  <dt>Echo set</dt>
+                  <dd>
+                    {setHref ? <Link href={setHref}>{bestSet.name}</Link> : bestSet.name}{" "}
+                    <span className="cx-glance-sub">{bestSet.pieces}</span>
+                  </dd>
+                </div>
+              )}
+              {bestTeam && (
+                <div>
+                  <dt>Top team</dt>
+                  <dd>{bestTeam.members.map((m) => m.name).join(" · ")}</dd>
+                </div>
+              )}
+              {char.pull_verdict?.verdict_label && (
+                <div>
+                  <dt>Pull verdict</dt>
+                  <dd>
+                    {char.pull_verdict.verdict_label}{" "}
+                    <a href="#pull-verdict" className="cx-glance-more">Full verdict ↓</a>
+                  </dd>
+                </div>
+              )}
+            </dl>
+          </section>
+        );
+      })()}
 
       {preRelease && (
         <Reveal>

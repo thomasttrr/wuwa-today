@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { getThemeMode, setThemeMode, THEME_EVENT, type ThemeMode } from "@/lib/theme-mode";
 
-/** Quiet appearance control for the footer: Resonance or Dark. */
+/** Appearance control: Element (tuned to the live banner) or Neutral. Stored values stay "resonance" / "dark". */
 export default function ThemeSwitch() {
   const [mode, setMode] = useState<ThemeMode>("resonance");
 
@@ -15,8 +15,8 @@ export default function ThemeSwitch() {
   }, []);
 
   const options: { key: ThemeMode; label: string; hint: string }[] = [
-    { key: "resonance", label: "Resonance", hint: "Tuned to the live banner" },
-    { key: "dark", label: "Dark", hint: "Neutral, low-color" },
+    { key: "resonance", label: "Element", hint: "Colours follow the live banner" },
+    { key: "dark", label: "Neutral", hint: "Quiet greys, no element colour" },
   ];
 
   return (

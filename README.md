@@ -38,7 +38,7 @@ components/   # cards, countdowns, navigation, search palette
 lib/          # data loading, types, helpers
 data/         # all game data as JSON — schemas in data/README.md
 public/       # images and static assets
-scripts/      # data tooling (search index generation)
+scripts/      # image tooling (thumbnail generation)
 ```
 
 ## Disclaimer

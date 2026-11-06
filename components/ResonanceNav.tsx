@@ -3,11 +3,13 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import dynamic from "next/dynamic";
-import { useEffect, useLayoutEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
+import { DESKTOP_PRIMARY, MOBILE_PRIMARY, NAV_ITEMS, SEARCH_EVENT, isActiveHref } from "@/lib/nav";
 
-// The palette only mounts after a keypress/click, so keep it out of every
-// page's initial JS and fetch it on first open.
+// The palette and the More sheet only mount on demand, so keep them out of
+// every page's initial JS and fetch them on first open.
 const CommandPalette = dynamic(() => import("./CommandPalette"));
+const MoreSheet = dynamic(() => import("./MoreSheet"));
 
 export interface SearchItem {
   kind: "page" | "character" | "action";
@@ -18,60 +20,46 @@ export interface SearchItem {
   image?: string;
 }
 
-const NAV = [
-  { href: "/", label: "Today" },
-  { href: "/banners", label: "Banners" },
-  { href: "/events", label: "Events" },
-  { href: "/characters", label: "Characters" },
-  { href: "/pre-farm", label: "Pre-Farm" },
-  { href: "/pull-planner", label: "Planner" },
-  { href: "/tier-list", label: "Tier List" },
-  { href: "/teams", label: "Teams" },
-];
+/** Tabs shown in the bar; each knows on which layouts it is visible. */
+const TABS = NAV_ITEMS.filter((i) => MOBILE_PRIMARY.includes(i.href) || DESKTOP_PRIMARY.includes(i.href));
 
 /**
  * ResonanceNav — one glass bar, two homes: a slim top bar on desktop, a
  * floating capsule above the home indicator on mobile (CSS decides).
- * The active-tab highlight glides between tabs on the shared spring.
- * The search button (and ⌘K / Ctrl+K / "/") opens the command palette.
+ * Phones get 4 tabs + More; desktop gets 6 + More. More opens a sheet with
+ * every section, grouped. The active pill glides on the shared spring and
+ * lands on More when the current page lives there.
  */
-export default function ResonanceNav({ items }: { items: SearchItem[] }) {
+export default function ResonanceNav() {
   const pathname = usePathname();
-  const isActive = (href: string) =>
-    href === "/" ? pathname === "/" : pathname === href || pathname.startsWith(`${href}/`);
-  const activeIndex = NAV.findIndex((item) => isActive(item.href));
-
   const listRef = useRef<HTMLDivElement>(null);
+  const moreRef = useRef<HTMLButtonElement>(null);
   const [pill, setPill] = useState<{ x: number; w: number } | null>(null);
   const [open, setOpen] = useState(false);
+  const [moreOpen, setMoreOpen] = useState(false);
+  const [moreCurrent, setMoreCurrent] = useState(false);
 
   useLayoutEffect(() => {
     const list = listRef.current;
-    if (!list || activeIndex < 0) {
-      setPill(null);
-      return;
-    }
-    const tab = () => list.querySelectorAll<HTMLElement>(":scope > a")[activeIndex];
+    if (!list) return;
     const measure = () => {
-      const t = tab();
-      if (!t) return;
+      const visible = [...list.querySelectorAll<HTMLElement>(":scope > a, :scope > button")].filter((el) => el.offsetWidth > 0);
+      const link = visible.find((el) => el.getAttribute("aria-current") === "page");
+      const onPage = NAV_ITEMS.some((i) => isActiveHref(pathname, i.href));
+      // The current page's tab is hidden on this layout: it lives under More.
+      const current = link ?? (onPage ? moreRef.current : null);
+      setMoreCurrent(!link && onPage);
       setPill((prev) => {
-        const next = { x: t.offsetLeft, w: t.offsetWidth };
+        if (!current) return null;
+        const next = { x: current.offsetLeft, w: current.offsetWidth };
         return prev && prev.x === next.x && prev.w === next.w ? prev : next;
       });
     };
     measure();
-    const t = tab();
-    if (t && list.scrollWidth > list.clientWidth) {
-      list.scrollTo({
-        left: t.offsetLeft - (list.clientWidth - t.offsetWidth) / 2,
-        behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
-      });
-    }
     const ro = new ResizeObserver(measure);
     ro.observe(list);
     return () => ro.disconnect();
-  }, [activeIndex]);
+  }, [pathname]);
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -83,9 +71,24 @@ export default function ResonanceNav({ items }: { items: SearchItem[] }) {
         setOpen((v) => !v);
       }
     };
+    const onSearch = () => {
+      setMoreOpen(false);
+      setOpen(true);
+    };
     window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
+    window.addEventListener(SEARCH_EVENT, onSearch);
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      window.removeEventListener(SEARCH_EVENT, onSearch);
+    };
   }, []);
+
+  const closeMore = useCallback(() => {
+    setMoreOpen(false);
+    moreRef.current?.focus();
+  }, []);
+
+  const activeHref = NAV_ITEMS.find((i) => isActiveHref(pathname, i.href))?.href;
 
   return (
     <>
@@ -104,11 +107,26 @@ export default function ResonanceNav({ items }: { items: SearchItem[] }) {
               style={{ transform: `translateX(${pill.x}px)`, width: pill.w }}
             />
           )}
-          {NAV.map((item, i) => (
-            <Link key={item.href} href={item.href} aria-current={i === activeIndex ? "page" : undefined}>
+          {TABS.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              className={`${MOBILE_PRIMARY.includes(item.href) ? "" : "rs-tab-d"} ${DESKTOP_PRIMARY.includes(item.href) ? "" : "rs-tab-m"}`.trim() || undefined}
+              aria-current={item.href === activeHref ? "page" : undefined}
+            >
               {item.label}
             </Link>
           ))}
+          <button
+            ref={moreRef}
+            type="button"
+            className={`rs-tab-more${moreCurrent ? " is-current" : ""}`}
+            aria-haspopup="dialog"
+            aria-expanded={moreOpen}
+            onClick={() => setMoreOpen(true)}
+          >
+            More
+          </button>
         </div>
         <button type="button" className="rs-search-btn" onClick={() => setOpen(true)} aria-label="Search characters and pages">
           <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
@@ -119,7 +137,8 @@ export default function ResonanceNav({ items }: { items: SearchItem[] }) {
           <kbd>⌘K</kbd>
         </button>
       </nav>
-      {open && <CommandPalette items={items} onClose={() => setOpen(false)} />}
+      {open && <CommandPalette onClose={() => setOpen(false)} />}
+      {moreOpen && <MoreSheet pathname={pathname} onClose={closeMore} />}
     </>
   );
 }

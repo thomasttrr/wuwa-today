@@ -50,7 +50,7 @@ export default function BeginnerConveneGuide() {
         <div className="grid grid-2">
           <Reveal>
             <section className="og-pick-card" aria-label="Utterance of Marvels">
-              <span className="og-kicker">Classic flow · discounted novice banner</span>
+              <span className="rs-kicker">Classic flow · discounted novice banner</span>
               <h3>Utterance of Marvels</h3>
               <ul className="og-q-list">
                 <li>
@@ -69,7 +69,7 @@ export default function BeginnerConveneGuide() {
           </Reveal>
           <Reveal delay={70}>
             <section className="og-pick-card" aria-label="Beginner's Choice Convene">
-              <span className="og-kicker">Classic flow · your pick, guaranteed</span>
+              <span className="rs-kicker">Classic flow · your pick, guaranteed</span>
               <h3>Beginner&apos;s Choice Convene</h3>
               <ul className="og-q-list">
                 <li>
@@ -100,7 +100,7 @@ export default function BeginnerConveneGuide() {
         />
         <Reveal>
           <section className="og-pick-card" aria-label="New Voyage Companions uncertainty">
-            <span className="og-kicker">New Voyage Companions Convene</span>
+            <span className="rs-kicker">New Voyage Companions Convene</span>
             <h3>Pending in-game verification</h3>
             <div className="og-pick-desc">
               <ul className="og-q-list">
@@ -139,7 +139,7 @@ export default function BeginnerConveneGuide() {
         <div className="grid grid-2">
           <Reveal>
             <section className="og-pick-card" aria-label="Pity guarantees">
-              <span className="og-kicker">All banners</span>
+              <span className="rs-kicker">All banners</span>
               <h3>The guarantees</h3>
               <ul className="og-q-list">
                 <li>
@@ -162,7 +162,7 @@ export default function BeginnerConveneGuide() {
           </Reveal>
           <Reveal delay={70}>
             <section className="og-pick-card" aria-label="Weapon banners">
-              <span className="og-kicker">Weapon banners</span>
+              <span className="rs-kicker">Weapon banners</span>
               <h3>No 50/50 on weapons</h3>
               <ul className="og-q-list">
                 <li>
@@ -191,7 +191,7 @@ export default function BeginnerConveneGuide() {
         <div className="grid grid-2">
           <Reveal>
             <section className="og-pick-card" aria-label="Do this">
-              <span className="og-kicker">Do this</span>
+              <span className="rs-kicker">Do this</span>
               <h3>Spend on beginners &amp; limited</h3>
               <ul className="og-q-list">
                 <li>
@@ -209,7 +209,7 @@ export default function BeginnerConveneGuide() {
           </Reveal>
           <Reveal delay={70}>
             <section className="og-pick-card" aria-label="Don't do this">
-              <span className="og-kicker">Don&apos;t do this</span>
+              <span className="rs-kicker">Don&apos;t do this</span>
               <h3>Leave the standard banner alone</h3>
               <ul className="og-q-list">
                 <li>

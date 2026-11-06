@@ -2,14 +2,14 @@ import type { CSSProperties } from "react";
 import type { Metadata, Viewport } from "next";
 import Link from "next/link";
 import { Martian_Mono, Mona_Sans } from "next/font/google";
-import ResonanceNav, { type SearchItem } from "@/components/ResonanceNav";
+import ResonanceNav from "@/components/ResonanceNav";
 import ScrollTop from "@/components/ScrollTop";
 import Spotlight from "@/components/Spotlight";
 import SiteTheme, { type ThemeSlot } from "@/components/SiteTheme";
 import ThemeSwitch from "@/components/ThemeSwitch";
 import { themeBootScript } from "@/lib/theme-mode";
 import { activeBanners, banners } from "@/lib/data";
-import { characters, toCharacterHubTile } from "@/lib/characters";
+import { NAV_GROUPS, NAV_ITEMS } from "@/lib/nav";
 import { ELEMENT_FALLBACK, elementColor } from "@/lib/elements";
 import "./globals.css";
 import "./obsidian.css";
@@ -47,30 +47,6 @@ const THEME_SLOTS: ThemeSlot[] = banners
   .filter((b) => b.characters[0])
   .map((b) => ({ start: b.startsAt, end: b.endsAt, color: elementColor(b.characters[0].element) }));
 
-const SEARCH_ITEMS: SearchItem[] = [
-  { kind: "page", label: "Today", href: "/", hint: "Banners, codes, resets" },
-  { kind: "page", label: "Banners", href: "/banners", hint: "Live, upcoming, history" },
-  { kind: "page", label: "Events", href: "/events", hint: "Event calendar" },
-  { kind: "page", label: "Characters", href: "/characters", hint: "Every Resonator" },
-  { kind: "page", label: "Pre-Farm", href: "/pre-farm", hint: "Materials ahead of release" },
-  { kind: "page", label: "Pull Planner", href: "/pull-planner", hint: "Astrite and pity" },
-  { kind: "page", label: "Tier List", href: "/tier-list", hint: "Current rankings" },
-  { kind: "page", label: "Teams", href: "/teams", hint: "Best teams, Tower, Whimpering Wastes" },
-  { kind: "page", label: "Echo Sets", href: "/echo-sets", hint: "Sonata effects" },
-  { kind: "page", label: "Beginner guides", href: "/beginner", hint: "New to Solaris-3" },
-  { kind: "page", label: "Glossary", href: "/glossary", hint: "Game terms" },
-  ...characters.map((c) => {
-    const t = toCharacterHubTile(c);
-    return {
-      kind: "character" as const,
-      label: t.name,
-      href: `/characters/${t.slug}`,
-      hint: `${t.element} · ${t.weapon_type}`,
-      color: elementColor(t.element),
-      image: t.portrait_url,
-    };
-  }),
-];
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -111,22 +87,27 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           Skip to content
         </a>
         <SiteTheme slots={THEME_SLOTS} fallback={ELEMENT_FALLBACK} />
-        <ResonanceNav items={SEARCH_ITEMS} />
+        <ResonanceNav />
         <main id="main">
           <div className="container">{children}</div>
         </main>
         <footer className="site-footer">
           <div className="container">
             <nav className="site-footer-nav" aria-label="Site">
-              <Link href="/">Today</Link>
-              <Link href="/banners">Banners</Link>
-              <Link href="/events">Events</Link>
-              <Link href="/characters">Characters</Link>
-              <Link href="/pre-farm">Pre-Farm</Link>
-              <Link href="/pull-planner">Pull Planner</Link>
-              <Link href="/tier-list">Tier List</Link>
-              <Link href="/teams">Teams</Link>
-              <Link href="/glossary">Glossary</Link>
+              {NAV_GROUPS.map((g) => (
+                <div key={g} className="site-footer-group">
+                  <h2>{g}</h2>
+                  <ul>
+                    {NAV_ITEMS.filter((i) => i.group === g).map((i) => (
+                      <li key={i.href}>
+                        <Link href={i.href} prefetch={false}>
+                          {i.label}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
             </nav>
             <ThemeSwitch />
             <p>

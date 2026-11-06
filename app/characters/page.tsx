@@ -42,6 +42,7 @@ export default function CharactersPage() {
     tier: ours.get(c.slug) ?? null,
     onBanner: bannerNames.has(c.name),
     art: renders[c.slug]?.sizes.at(-1)?.file ?? null,
+    artSrcSet: renders[c.slug] ? thumbFor(c.slug)?.srcSet ?? null : null,
     // Head x position (0..1), clamped so the crop never exposes empty edges.
     fx: Math.min(0.75, Math.max(0.25, renders[c.slug]?.focusX ?? 0.5)),
     zoom: renders[c.slug]?.zoom ?? 138,

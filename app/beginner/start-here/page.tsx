@@ -120,7 +120,7 @@ export default function BeginnerStartHere() {
         <div className="grid grid-2">
           <Reveal>
             <section className="og-pick-card" aria-label="Union Level rewards">
-              <span className="og-kicker">Claimed from the Awakening Journey</span>
+              <span className="rs-kicker">Claimed from the Awakening Journey</span>
               <h3>Reward milestones</h3>
               <ul className="og-q-list">
                 {UL_MILESTONES.map((m) => (
@@ -133,7 +133,7 @@ export default function BeginnerStartHere() {
           </Reveal>
           <Reveal delay={70}>
             <section className="og-pick-card" aria-label="Content unlocks">
-              <span className="og-kicker">Gated by Union Level</span>
+              <span className="rs-kicker">Gated by Union Level</span>
               <h3>Content unlocks</h3>
               <ul className="og-q-list">
                 {UNLOCKS.map((u) => (
@@ -160,7 +160,7 @@ export default function BeginnerStartHere() {
         <div className="grid grid-2">
           <Reveal>
             <section className="og-pick-card" aria-label="Echo basics">
-              <span className="og-kicker">Echo basics</span>
+              <span className="rs-kicker">Echo basics</span>
               <h3>What to know first</h3>
               <ul className="og-q-list">
                 <li>
@@ -182,7 +182,7 @@ export default function BeginnerStartHere() {
           </Reveal>
           <Reveal delay={70}>
             <section className="og-pick-card" aria-label="Data Bank progression chain">
-              <span className="og-kicker">The progression chain</span>
+              <span className="rs-kicker">The progression chain</span>
               <h3>Data Bank is the gate</h3>
               <ul className="og-q-list">
                 <li>

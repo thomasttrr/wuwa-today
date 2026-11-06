@@ -22,7 +22,14 @@
    "source": "Aalto_Full_Sprite.png",
    "sourceUrl": "https://static.wikia.nocookie.net/wutheringwaves/images/3/3d/Aalto_Full_Sprite.png/revision/latest?cb=20240129090949",
    "focusX": 0.564,
-   "zoom": 164
+   "zoom": 164,
+   "thumbs": [
+    {
+     "file": "/images/renders/aalto-w240.webp",
+     "w": 240,
+     "h": 440
+    }
+   ]
   },
   "aemeath": {
    "width": 1215,
@@ -42,7 +49,19 @@
    "source": "Aemeath_Full_Sprite.png",
    "sourceUrl": "https://static.wikia.nocookie.net/wutheringwaves/images/6/60/Aemeath_Full_Sprite.png/revision/latest?cb=20260204133237",
    "focusX": 0.425,
-   "zoom": 125
+   "zoom": 125,
+   "thumbs": [
+    {
+     "file": "/images/renders/aemeath-w240.webp",
+     "w": 240,
+     "h": 329
+    },
+    {
+     "file": "/images/renders/aemeath-w480.webp",
+     "w": 480,
+     "h": 658
+    }
+   ]
   },
   "augusta": {
    "width": 1297,
@@ -62,7 +81,19 @@
    "source": "Augusta_Full_Sprite.png",
    "sourceUrl": "https://static.wikia.nocookie.net/wutheringwaves/images/b/b5/Augusta_Full_Sprite.png/revision/latest?cb=20250827031647",
    "focusX": 0.556,
-   "zoom": 133
+   "zoom": 133,
+   "thumbs": [
+    {
+     "file": "/images/renders/augusta-w240.webp",
+     "w": 240,
+     "h": 331
+    },
+    {
+     "file": "/images/renders/augusta-w480.webp",
+     "w": 480,
+     "h": 661
+    }
+   ]
   },
   "baizhi": {
    "width": 866,
@@ -82,7 +113,19 @@
    "source": "Baizhi_Full_Sprite.png",
    "sourceUrl": "https://static.wikia.nocookie.net/wutheringwaves/images/c/cc/Baizhi_Full_Sprite.png/revision/latest?cb=20240202080219",
    "focusX": 0.508,
-   "zoom": 136
+   "zoom": 136,
+   "thumbs": [
+    {
+     "file": "/images/renders/baizhi-w240.webp",
+     "w": 240,
+     "h": 324
+    },
+    {
+     "file": "/images/renders/baizhi-w480.webp",
+     "w": 480,
+     "h": 648
+    }
+   ]
   },
   "brant": {
    "width": 1000,
@@ -102,7 +145,19 @@
    "source": "Brant_Full_Sprite.png",
    "sourceUrl": "https://static.wikia.nocookie.net/wutheringwaves/images/1/1c/Brant_Full_Sprite.png/revision/latest?cb=20250310043217",
    "focusX": 0.475,
-   "zoom": 170
+   "zoom": 170,
+   "thumbs": [
+    {
+     "file": "/images/renders/brant-w240.webp",
+     "w": 240,
+     "h": 338
+    },
+    {
+     "file": "/images/renders/brant-w480.webp",
+     "w": 480,
+     "h": 675
+    }
+   ]
   },
   "buling": {
    "width": 750,
@@ -122,7 +177,14 @@
    "source": "Buling_Full_Sprite.png",
    "sourceUrl": "https://static.wikia.nocookie.net/wutheringwaves/images/1/11/Buling_Full_Sprite.png/revision/latest?cb=20251114181312",
    "focusX": 0.508,
-   "zoom": 146
+   "zoom": 146,
+   "thumbs": [
+    {
+     "file": "/images/renders/buling-w240.webp",
+     "w": 240,
+     "h": 371
+    }
+   ]
   },
   "calcharo": {
    "width": 772,
@@ -142,7 +204,19 @@
    "source": "Calcharo_Full_Sprite.png",
    "sourceUrl": "https://static.wikia.nocookie.net/wutheringwaves/images/9/9c/Calcharo_Full_Sprite.png/revision/latest?cb=20240522194656",
    "focusX": 0.511,
-   "zoom": 163
+   "zoom": 163,
+   "thumbs": [
+    {
+     "file": "/images/renders/calcharo-w240.webp",
+     "w": 240,
+     "h": 275
+    },
+    {
+     "file": "/images/renders/calcharo-w480.webp",
+     "w": 480,
+     "h": 549
+    }
+   ]
   },
   "camellya": {
    "width": 749,
@@ -162,7 +236,14 @@
    "source": "Camellya_Full_Sprite.png",
    "sourceUrl": "https://static.wikia.nocookie.net/wutheringwaves/images/d/d4/Camellya_Full_Sprite.png/revision/latest?cb=20241210024027",
    "focusX": 0.514,
-   "zoom": 149
+   "zoom": 149,
+   "thumbs": [
+    {
+     "file": "/images/renders/camellya-w240.webp",
+     "w": 240,
+     "h": 411
+    }
+   ]
   },
   "cantarella": {
    "width": 1404,
@@ -182,7 +263,19 @@
    "source": "Cantarella_Full_Sprite.png",
    "sourceUrl": "https://static.wikia.nocookie.net/wutheringwaves/images/b/b3/Cantarella_Full_Sprite.png/revision/latest?cb=20250328205054",
    "focusX": 0.449,
-   "zoom": 170
+   "zoom": 170,
+   "thumbs": [
+    {
+     "file": "/images/renders/cantarella-w240.webp",
+     "w": 240,
+     "h": 303
+    },
+    {
+     "file": "/images/renders/cantarella-w480.webp",
+     "w": 480,
+     "h": 606
+    }
+   ]
   },
   "carlotta": {
    "width": 966,
@@ -202,7 +295,14 @@
    "source": "Carlotta_Full_Sprite.png",
    "sourceUrl": "https://static.wikia.nocookie.net/wutheringwaves/images/d/da/Carlotta_Full_Sprite.png/revision/latest?cb=20250103065623",
    "focusX": 0.518,
-   "zoom": 134
+   "zoom": 134,
+   "thumbs": [
+    {
+     "file": "/images/renders/carlotta-w240.webp",
+     "w": 240,
+     "h": 347
+    }
+   ]
   },
   "cartethyia": {
    "width": 1338,
@@ -222,7 +322,14 @@
    "source": "Cartethyia_Full_Sprite.png",
    "sourceUrl": "https://static.wikia.nocookie.net/wutheringwaves/images/e/ee/Cartethyia_Full_Sprite.png/revision/latest?cb=20250620084445",
    "focusX": 0.421,
-   "zoom": 125
+   "zoom": 125,
+   "thumbs": [
+    {
+     "file": "/images/renders/cartethyia-w240.webp",
+     "w": 240,
+     "h": 355
+    }
+   ]
   },
   "changli": {
    "width": 1106,
@@ -242,7 +349,19 @@
    "source": "Changli_Full_Sprite.png",
    "sourceUrl": "https://static.wikia.nocookie.net/wutheringwaves/images/d/d2/Changli_Full_Sprite.png/revision/latest?cb=20240723101836",
    "focusX": 0.568,
-   "zoom": 160
+   "zoom": 160,
+   "thumbs": [
+    {
+     "file": "/images/renders/changli-w240.webp",
+     "w": 240,
+     "h": 337
+    },
+    {
+     "file": "/images/renders/changli-w480.webp",
+     "w": 480,
+     "h": 674
+    }
+   ]
   },
   "chisa": {
    "width": 1628,
@@ -262,7 +381,19 @@
    "source": "Chisa_Full_Sprite.png",
    "sourceUrl": "https://static.wikia.nocookie.net/wutheringwaves/images/8/8a/Chisa_Full_Sprite.png/revision/latest?cb=20251118043547",
    "focusX": 0.447,
-   "zoom": 144
+   "zoom": 144,
+   "thumbs": [
+    {
+     "file": "/images/renders/chisa-w240.webp",
+     "w": 240,
+     "h": 250
+    },
+    {
+     "file": "/images/renders/chisa-w480.webp",
+     "w": 480,
+     "h": 500
+    }
+   ]
   },
   "chixia": {
    "width": 520,
@@ -282,7 +413,14 @@
    "source": "Chixia_Full_Sprite.png",
    "sourceUrl": "https://static.wikia.nocookie.net/wutheringwaves/images/8/87/Chixia_Full_Sprite.png/revision/latest?cb=20240202080517",
    "focusX": 0.4,
-   "zoom": 170
+   "zoom": 170,
+   "thumbs": [
+    {
+     "file": "/images/renders/chixia-w240.webp",
+     "w": 240,
+     "h": 441
+    }
+   ]
   },
   "ciaccona": {
    "width": 1176,
@@ -302,7 +440,14 @@
    "source": "Ciaccona_Full_Sprite.png",
    "sourceUrl": "https://static.wikia.nocookie.net/wutheringwaves/images/f/f9/Ciaccona_Full_Sprite.png/revision/latest?cb=20250427051539",
    "focusX": 0.601,
-   "zoom": 126
+   "zoom": 126,
+   "thumbs": [
+    {
+     "file": "/images/renders/ciaccona-w240.webp",
+     "w": 240,
+     "h": 373
+    }
+   ]
   },
   "danjin": {
    "width": 528,
@@ -322,7 +467,14 @@
    "source": "Danjin_Full_Sprite.png",
    "sourceUrl": "https://static.wikia.nocookie.net/wutheringwaves/images/4/4f/Danjin_Full_Sprite.png/revision/latest?cb=20230403035004",
    "focusX": 0.398,
-   "zoom": 170
+   "zoom": 170,
+   "thumbs": [
+    {
+     "file": "/images/renders/danjin-w240.webp",
+     "w": 240,
+     "h": 420
+    }
+   ]
   },
   "denia": {
    "width": 1059,
@@ -342,7 +494,14 @@
    "source": "Denia_Full_Sprite.png",
    "sourceUrl": "https://static.wikia.nocookie.net/wutheringwaves/images/b/b8/Denia_Full_Sprite.png/revision/latest?cb=20260521062738",
    "focusX": 0.448,
-   "zoom": 125
+   "zoom": 125,
+   "thumbs": [
+    {
+     "file": "/images/renders/denia-w240.webp",
+     "w": 240,
+     "h": 401
+    }
+   ]
   },
   "encore": {
    "width": 991,
@@ -362,7 +521,14 @@
    "source": "Encore_Full_Sprite.png",
    "sourceUrl": "https://static.wikia.nocookie.net/wutheringwaves/images/f/f7/Encore_Full_Sprite.png/revision/latest?cb=20260804173204",
    "focusX": 0.488,
-   "zoom": 128
+   "zoom": 128,
+   "thumbs": [
+    {
+     "file": "/images/renders/encore-w240.webp",
+     "w": 240,
+     "h": 455
+    }
+   ]
   },
   "galbrena": {
    "width": 1245,
@@ -382,7 +548,14 @@
    "source": "Galbrena_Full_Sprite.png",
    "sourceUrl": "https://static.wikia.nocookie.net/wutheringwaves/images/f/f0/Galbrena_Full_Sprite.png/revision/latest?cb=20251008040416",
    "focusX": 0.596,
-   "zoom": 133
+   "zoom": 133,
+   "thumbs": [
+    {
+     "file": "/images/renders/galbrena-w240.webp",
+     "w": 240,
+     "h": 368
+    }
+   ]
   },
   "hiyuki": {
    "width": 1798,
@@ -402,7 +575,14 @@
    "source": "Hiyuki_Full_Sprite.png",
    "sourceUrl": "https://static.wikia.nocookie.net/wutheringwaves/images/7/72/Hiyuki_Full_Sprite.png/revision/latest?cb=20260430155021",
    "focusX": 0.527,
-   "zoom": 148
+   "zoom": 148,
+   "thumbs": [
+    {
+     "file": "/images/renders/hiyuki-w240.webp",
+     "w": 240,
+     "h": 354
+    }
+   ]
   },
   "hsin": {
    "width": 1373,
@@ -422,7 +602,14 @@
    "source": "Hsin_Full_Sprite.png",
    "sourceUrl": "https://static.wikia.nocookie.net/wutheringwaves/images/0/08/Hsin_Full_Sprite.png/revision/latest?cb=20261001060352",
    "focusX": 0.574,
-   "zoom": 125
+   "zoom": 125,
+   "thumbs": [
+    {
+     "file": "/images/renders/hsin-w240.webp",
+     "w": 240,
+     "h": 340
+    }
+   ]
   },
   "iuno": {
    "width": 1546,
@@ -442,7 +629,19 @@
    "source": "Iuno_Full_Sprite.png",
    "sourceUrl": "https://static.wikia.nocookie.net/wutheringwaves/images/2/20/Iuno_Full_Sprite.png/revision/latest?cb=20250909182139",
    "focusX": 0.432,
-   "zoom": 125
+   "zoom": 125,
+   "thumbs": [
+    {
+     "file": "/images/renders/iuno-w240.webp",
+     "w": 240,
+     "h": 256
+    },
+    {
+     "file": "/images/renders/iuno-w480.webp",
+     "w": 480,
+     "h": 512
+    }
+   ]
   },
   "jianxin": {
    "width": 490,
@@ -462,7 +661,14 @@
    "source": "Jianxin_Full_Sprite.png",
    "sourceUrl": "https://static.wikia.nocookie.net/wutheringwaves/images/d/d4/Jianxin_Full_Sprite.png/revision/latest?cb=20240518003041",
    "focusX": 0.539,
-   "zoom": 170
+   "zoom": 170,
+   "thumbs": [
+    {
+     "file": "/images/renders/jianxin-w240.webp",
+     "w": 240,
+     "h": 450
+    }
+   ]
   },
   "jingran": {
    "width": 1207,
@@ -482,7 +688,14 @@
    "source": "Jingran_Full_Sprite.png",
    "sourceUrl": "https://static.wikia.nocookie.net/wutheringwaves/images/9/94/Jingran_Full_Sprite.png/revision/latest?cb=20260817091938",
    "focusX": 0.445,
-   "zoom": 170
+   "zoom": 170,
+   "thumbs": [
+    {
+     "file": "/images/renders/jingran-w240.webp",
+     "w": 240,
+     "h": 389
+    }
+   ]
   },
   "jinhsi": {
    "width": 1023,
@@ -502,7 +715,14 @@
    "source": "Jinhsi_Full_Sprite.png",
    "sourceUrl": "https://static.wikia.nocookie.net/wutheringwaves/images/b/b2/Jinhsi_Full_Sprite.png/revision/latest?cb=20251017041901",
    "focusX": 0.491,
-   "zoom": 144
+   "zoom": 144,
+   "thumbs": [
+    {
+     "file": "/images/renders/jinhsi-w240.webp",
+     "w": 240,
+     "h": 361
+    }
+   ]
   },
   "jiyan": {
    "width": 1740,
@@ -522,7 +742,19 @@
    "source": "Jiyan_Full_Sprite.png",
    "sourceUrl": "https://static.wikia.nocookie.net/wutheringwaves/images/5/56/Jiyan_Full_Sprite.png/revision/latest?cb=20251017041637",
    "focusX": 0.566,
-   "zoom": 143
+   "zoom": 143,
+   "thumbs": [
+    {
+     "file": "/images/renders/jiyan-w240.webp",
+     "w": 240,
+     "h": 243
+    },
+    {
+     "file": "/images/renders/jiyan-w480.webp",
+     "w": 480,
+     "h": 486
+    }
+   ]
   },
   "lingyang": {
    "width": 657,
@@ -542,7 +774,19 @@
    "source": "Lingyang_Full_Sprite.png",
    "sourceUrl": "https://static.wikia.nocookie.net/wutheringwaves/images/3/36/Lingyang_Full_Sprite.png/revision/latest?cb=20240502113913",
    "focusX": 0.516,
-   "zoom": 128
+   "zoom": 128,
+   "thumbs": [
+    {
+     "file": "/images/renders/lingyang-w240.webp",
+     "w": 240,
+     "h": 320
+    },
+    {
+     "file": "/images/renders/lingyang-w480.webp",
+     "w": 480,
+     "h": 641
+    }
+   ]
   },
   "lucilla": {
    "width": 1326,
@@ -562,7 +806,14 @@
    "source": "Lucilla_Full_Sprite.png",
    "sourceUrl": "https://static.wikia.nocookie.net/wutheringwaves/images/8/88/Lucilla_Full_Sprite.png/revision/latest?cb=20260613213337",
    "focusX": 0.484,
-   "zoom": 148
+   "zoom": 148,
+   "thumbs": [
+    {
+     "file": "/images/renders/lucilla-w240.webp",
+     "w": 240,
+     "h": 432
+    }
+   ]
   },
   "lucy": {
    "width": 1673,
@@ -582,7 +833,14 @@
    "source": "Lucy_Full_Sprite.png",
    "sourceUrl": "https://static.wikia.nocookie.net/wutheringwaves/images/c/cb/Lucy_Full_Sprite.png/revision/latest?cb=20260608193408",
    "focusX": 0.481,
-   "zoom": 170
+   "zoom": 170,
+   "thumbs": [
+    {
+     "file": "/images/renders/lucy-w240.webp",
+     "w": 240,
+     "h": 377
+    }
+   ]
   },
   "lumi": {
    "width": 750,
@@ -602,7 +860,14 @@
    "source": "Lumi_Full_Sprite.png",
    "sourceUrl": "https://static.wikia.nocookie.net/wutheringwaves/images/4/4f/Lumi_Full_Sprite.png/revision/latest?cb=20241215024548",
    "focusX": 0.511,
-   "zoom": 151
+   "zoom": 151,
+   "thumbs": [
+    {
+     "file": "/images/renders/lumi-w240.webp",
+     "w": 240,
+     "h": 481
+    }
+   ]
   },
   "lupa": {
    "width": 1600,
@@ -622,7 +887,19 @@
    "source": "Lupa_Full_Sprite.png",
    "sourceUrl": "https://static.wikia.nocookie.net/wutheringwaves/images/1/12/Lupa_Full_Sprite.png/revision/latest?cb=20250705033445",
    "focusX": 0.487,
-   "zoom": 125
+   "zoom": 125,
+   "thumbs": [
+    {
+     "file": "/images/renders/lupa-w240.webp",
+     "w": 240,
+     "h": 265
+    },
+    {
+     "file": "/images/renders/lupa-w480.webp",
+     "w": 480,
+     "h": 530
+    }
+   ]
   },
   "luuk-herssen": {
    "width": 1074,
@@ -642,7 +919,14 @@
    "source": "Luuk_Herssen_Full_Sprite.png",
    "sourceUrl": "https://static.wikia.nocookie.net/wutheringwaves/images/2/22/Luuk_Herssen_Full_Sprite.png/revision/latest?cb=20260204133211",
    "focusX": 0.503,
-   "zoom": 170
+   "zoom": 170,
+   "thumbs": [
+    {
+     "file": "/images/renders/luuk-herssen-w240.webp",
+     "w": 240,
+     "h": 406
+    }
+   ]
   },
   "lynae": {
    "width": 1038,
@@ -662,7 +946,14 @@
    "source": "Lynae_Full_Sprite.png",
    "sourceUrl": "https://static.wikia.nocookie.net/wutheringwaves/images/7/72/Lynae_Full_Sprite.png/revision/latest?cb=20260101051310",
    "focusX": 0.384,
-   "zoom": 130
+   "zoom": 130,
+   "thumbs": [
+    {
+     "file": "/images/renders/lynae-w240.webp",
+     "w": 240,
+     "h": 401
+    }
+   ]
   },
   "mornye": {
    "width": 1086,
@@ -682,7 +973,14 @@
    "source": "Mornye_Full_Sprite.png",
    "sourceUrl": "https://static.wikia.nocookie.net/wutheringwaves/images/d/db/Mornye_Full_Sprite.png/revision/latest?cb=20260101051234",
    "focusX": 0.537,
-   "zoom": 147
+   "zoom": 147,
+   "thumbs": [
+    {
+     "file": "/images/renders/mornye-w240.webp",
+     "w": 240,
+     "h": 342
+    }
+   ]
   },
   "mortefi": {
    "width": 589,
@@ -702,7 +1000,14 @@
    "source": "Mortefi_Full_Sprite.png",
    "sourceUrl": "https://static.wikia.nocookie.net/wutheringwaves/images/2/20/Mortefi_Full_Sprite.png/revision/latest?cb=20240202080638",
    "focusX": 0.545,
-   "zoom": 156
+   "zoom": 156,
+   "thumbs": [
+    {
+     "file": "/images/renders/mortefi-w240.webp",
+     "w": 240,
+     "h": 424
+    }
+   ]
   },
   "phoebe": {
    "width": 1209,
@@ -722,7 +1027,14 @@
    "source": "Phoebe_Full_Sprite.png",
    "sourceUrl": "https://static.wikia.nocookie.net/wutheringwaves/images/c/c5/Phoebe_Full_Sprite.png/revision/latest?cb=20250213050527",
    "focusX": 0.611,
-   "zoom": 131
+   "zoom": 131,
+   "thumbs": [
+    {
+     "file": "/images/renders/phoebe-w240.webp",
+     "w": 240,
+     "h": 391
+    }
+   ]
   },
   "phrolova": {
    "width": 1244,
@@ -742,7 +1054,19 @@
    "source": "Phrolova_Full_Sprite.png",
    "sourceUrl": "https://static.wikia.nocookie.net/wutheringwaves/images/3/32/Phrolova_Full_Sprite.png/revision/latest?cb=20250724030941",
    "focusX": 0.526,
-   "zoom": 139
+   "zoom": 139,
+   "thumbs": [
+    {
+     "file": "/images/renders/phrolova-w240.webp",
+     "w": 240,
+     "h": 330
+    },
+    {
+     "file": "/images/renders/phrolova-w480.webp",
+     "w": 480,
+     "h": 659
+    }
+   ]
   },
   "qingxiao": {
    "width": 1396,
@@ -762,7 +1086,19 @@
    "source": "Qingxiao_Full_Sprite.png",
    "sourceUrl": "https://static.wikia.nocookie.net/wutheringwaves/images/2/26/Qingxiao_Full_Sprite.png/revision/latest?cb=20260817091859",
    "focusX": 0.564,
-   "zoom": 134
+   "zoom": 134,
+   "thumbs": [
+    {
+     "file": "/images/renders/qingxiao-w240.webp",
+     "w": 240,
+     "h": 309
+    },
+    {
+     "file": "/images/renders/qingxiao-w480.webp",
+     "w": 480,
+     "h": 617
+    }
+   ]
   },
   "qiuyuan": {
    "width": 1121,
@@ -782,7 +1118,14 @@
    "source": "Qiuyuan_Full_Sprite.png",
    "sourceUrl": "https://static.wikia.nocookie.net/wutheringwaves/images/1/14/Qiuyuan_Full_Sprite.png/revision/latest?cb=20251008040539",
    "focusX": 0.402,
-   "zoom": 158
+   "zoom": 158,
+   "thumbs": [
+    {
+     "file": "/images/renders/qiuyuan-w240.webp",
+     "w": 240,
+     "h": 394
+    }
+   ]
   },
   "rebecca": {
    "width": 1894,
@@ -802,7 +1145,14 @@
    "source": "Rebecca_Full_Sprite.png",
    "sourceUrl": "https://static.wikia.nocookie.net/wutheringwaves/images/5/5d/Rebecca_Full_Sprite.png/revision/latest?cb=20260608193542",
    "focusX": 0.474,
-   "zoom": 143
+   "zoom": 143,
+   "thumbs": [
+    {
+     "file": "/images/renders/rebecca-w240.webp",
+     "w": 240,
+     "h": 395
+    }
+   ]
   },
   "roccia": {
    "width": 982,
@@ -822,7 +1172,14 @@
    "source": "Roccia_Full_Sprite.png",
    "sourceUrl": "https://static.wikia.nocookie.net/wutheringwaves/images/c/c6/Roccia_Full_Sprite.png/revision/latest?cb=20250123135546",
    "focusX": 0.469,
-   "zoom": 125
+   "zoom": 125,
+   "thumbs": [
+    {
+     "file": "/images/renders/roccia-w240.webp",
+     "w": 240,
+     "h": 388
+    }
+   ]
   },
   "sanhua": {
    "width": 539,
@@ -842,7 +1199,14 @@
    "source": "Sanhua_Full_Sprite.png",
    "sourceUrl": "https://static.wikia.nocookie.net/wutheringwaves/images/9/94/Sanhua_Full_Sprite.png/revision/latest?cb=20240218224717",
    "focusX": 0.573,
-   "zoom": 153
+   "zoom": 153,
+   "thumbs": [
+    {
+     "file": "/images/renders/sanhua-w240.webp",
+     "w": 240,
+     "h": 366
+    }
+   ]
   },
   "shorekeeper": {
    "width": 1040,
@@ -862,7 +1226,14 @@
    "source": "Shorekeeper_Full_Sprite.png",
    "sourceUrl": "https://static.wikia.nocookie.net/wutheringwaves/images/8/8c/Shorekeeper_Full_Sprite.png/revision/latest?cb=20241001031343",
    "focusX": 0.654,
-   "zoom": 170
+   "zoom": 170,
+   "thumbs": [
+    {
+     "file": "/images/renders/shorekeeper-w240.webp",
+     "w": 240,
+     "h": 381
+    }
+   ]
   },
   "sigrika": {
    "width": 1710,
@@ -882,7 +1253,19 @@
    "source": "Sigrika_Full_Sprite.png",
    "sourceUrl": "https://static.wikia.nocookie.net/wutheringwaves/images/7/7c/Sigrika_Full_Sprite.png/revision/latest?cb=20260314162517",
    "focusX": 0.537,
-   "zoom": 157
+   "zoom": 157,
+   "thumbs": [
+    {
+     "file": "/images/renders/sigrika-w240.webp",
+     "w": 240,
+     "h": 327
+    },
+    {
+     "file": "/images/renders/sigrika-w480.webp",
+     "w": 480,
+     "h": 654
+    }
+   ]
   },
   "suisui": {
    "width": 1148,
@@ -902,7 +1285,14 @@
    "source": "Suisui_Full_Sprite.png",
    "sourceUrl": "https://static.wikia.nocookie.net/wutheringwaves/images/8/84/Suisui_Full_Sprite.png/revision/latest?cb=20260711114717",
    "focusX": 0.64,
-   "zoom": 132
+   "zoom": 132,
+   "thumbs": [
+    {
+     "file": "/images/renders/suisui-w240.webp",
+     "w": 240,
+     "h": 361
+    }
+   ]
   },
   "suoming": {
    "width": 1760,
@@ -922,7 +1312,19 @@
    "source": "Suoming_Full_Sprite.png",
    "sourceUrl": "https://static.wikia.nocookie.net/wutheringwaves/images/f/fb/Suoming_Full_Sprite.png/revision/latest?cb=20261023030257",
    "focusX": 0.374,
-   "zoom": 170
+   "zoom": 170,
+   "thumbs": [
+    {
+     "file": "/images/renders/suoming-w240.webp",
+     "w": 240,
+     "h": 215
+    },
+    {
+     "file": "/images/renders/suoming-w480.webp",
+     "w": 480,
+     "h": 430
+    }
+   ]
   },
   "taoqi": {
    "width": 790,
@@ -942,7 +1344,19 @@
    "source": "Taoqi_Full_Sprite.png",
    "sourceUrl": "https://static.wikia.nocookie.net/wutheringwaves/images/1/18/Taoqi_Full_Sprite.png/revision/latest?cb=20240202080916",
    "focusX": 0.557,
-   "zoom": 170
+   "zoom": 170,
+   "thumbs": [
+    {
+     "file": "/images/renders/taoqi-w240.webp",
+     "w": 240,
+     "h": 300
+    },
+    {
+     "file": "/images/renders/taoqi-w480.webp",
+     "w": 480,
+     "h": 601
+    }
+   ]
   },
   "verina": {
    "width": 1059,
@@ -962,7 +1376,19 @@
    "source": "Verina_Full_Sprite.png",
    "sourceUrl": "https://static.wikia.nocookie.net/wutheringwaves/images/a/ab/Verina_Full_Sprite.png/revision/latest?cb=20260710080959",
    "focusX": 0.441,
-   "zoom": 125
+   "zoom": 125,
+   "thumbs": [
+    {
+     "file": "/images/renders/verina-w240.webp",
+     "w": 240,
+     "h": 294
+    },
+    {
+     "file": "/images/renders/verina-w480.webp",
+     "w": 480,
+     "h": 588
+    }
+   ]
   },
   "xiangli-yao": {
    "width": 1283,
@@ -982,7 +1408,19 @@
    "source": "Xiangli_Yao_Full_Sprite.png",
    "sourceUrl": "https://static.wikia.nocookie.net/wutheringwaves/images/c/c8/Xiangli_Yao_Full_Sprite.png/revision/latest?cb=20240904063531",
    "focusX": 0.298,
-   "zoom": 159
+   "zoom": 159,
+   "thumbs": [
+    {
+     "file": "/images/renders/xiangli-yao-w240.webp",
+     "w": 240,
+     "h": 323
+    },
+    {
+     "file": "/images/renders/xiangli-yao-w480.webp",
+     "w": 480,
+     "h": 647
+    }
+   ]
   },
   "yangyang-xuanling": {
    "width": 2815,
@@ -1002,7 +1440,19 @@
    "source": "Yangyang_Xuanling_Full_Sprite.png",
    "sourceUrl": "https://static.wikia.nocookie.net/wutheringwaves/images/0/01/Yangyang_Xuanling_Full_Sprite.png/revision/latest?cb=20260725151912",
    "focusX": 0.543,
-   "zoom": 134
+   "zoom": 134,
+   "thumbs": [
+    {
+     "file": "/images/renders/yangyang-xuanling-w240.webp",
+     "w": 240,
+     "h": 321
+    },
+    {
+     "file": "/images/renders/yangyang-xuanling-w480.webp",
+     "w": 480,
+     "h": 641
+    }
+   ]
   },
   "yangyang": {
    "width": 619,
@@ -1022,7 +1472,14 @@
    "source": "Yangyang_Full_Sprite.png",
    "sourceUrl": "https://static.wikia.nocookie.net/wutheringwaves/images/d/d0/Yangyang_Full_Sprite.png/revision/latest?cb=20240703175222",
    "focusX": 0.451,
-   "zoom": 154
+   "zoom": 154,
+   "thumbs": [
+    {
+     "file": "/images/renders/yangyang-w240.webp",
+     "w": 240,
+     "h": 383
+    }
+   ]
   },
   "yinlin": {
    "width": 890,
@@ -1042,7 +1499,14 @@
    "source": "Yinlin_Full_Sprite.png",
    "sourceUrl": "https://static.wikia.nocookie.net/wutheringwaves/images/4/45/Yinlin_Full_Sprite.png/revision/latest?cb=20251017041415",
    "focusX": 0.52,
-   "zoom": 170
+   "zoom": 170,
+   "thumbs": [
+    {
+     "file": "/images/renders/yinlin-w240.webp",
+     "w": 240,
+     "h": 431
+    }
+   ]
   },
   "youhu": {
    "width": 965,
@@ -1062,7 +1526,14 @@
    "source": "Youhu_Full_Sprite.png",
    "sourceUrl": "https://static.wikia.nocookie.net/wutheringwaves/images/2/27/Youhu_Full_Sprite.png/revision/latest?cb=20241024101158",
    "focusX": 0.438,
-   "zoom": 170
+   "zoom": 170,
+   "thumbs": [
+    {
+     "file": "/images/renders/youhu-w240.webp",
+     "w": 240,
+     "h": 430
+    }
+   ]
   },
   "yuanwu": {
    "width": 660,
@@ -1082,7 +1553,14 @@
    "source": "Yuanwu_Full_Sprite.png",
    "sourceUrl": "https://static.wikia.nocookie.net/wutheringwaves/images/1/17/Yuanwu_Full_Sprite.png/revision/latest?cb=20240202081324",
    "focusX": 0.535,
-   "zoom": 170
+   "zoom": 170,
+   "thumbs": [
+    {
+     "file": "/images/renders/yuanwu-w240.webp",
+     "w": 240,
+     "h": 387
+    }
+   ]
   },
   "zani": {
    "width": 1120,
@@ -1102,7 +1580,14 @@
    "source": "Zani_Full_Sprite.png",
    "sourceUrl": "https://static.wikia.nocookie.net/wutheringwaves/images/e/ea/Zani_Full_Sprite.png/revision/latest?cb=20250427051211",
    "focusX": 0.575,
-   "zoom": 125
+   "zoom": 125,
+   "thumbs": [
+    {
+     "file": "/images/renders/zani-w240.webp",
+     "w": 240,
+     "h": 364
+    }
+   ]
   },
   "zhezhi": {
    "width": 1741,
@@ -1122,7 +1607,14 @@
    "source": "Zhezhi_Full_Sprite.png",
    "sourceUrl": "https://static.wikia.nocookie.net/wutheringwaves/images/8/81/Zhezhi_Full_Sprite.png/revision/latest?cb=20250628075115",
    "focusX": 0.421,
-   "zoom": 158
+   "zoom": 158,
+   "thumbs": [
+    {
+     "file": "/images/renders/zhezhi-w240.webp",
+     "w": 240,
+     "h": 355
+    }
+   ]
   },
   "lily": {
    "width": 1260,
@@ -1142,7 +1634,19 @@
    "source": "lily_full.webp (Prydwen)",
    "sourceUrl": "https://cdn.prydwen.gg/images/wuthering-waves/characters/lily_full.webp",
    "focusX": 0.577,
-   "zoom": 128
+   "zoom": 128,
+   "thumbs": [
+    {
+     "file": "/images/renders/lily-w240.webp",
+     "w": 240,
+     "h": 207
+    },
+    {
+     "file": "/images/renders/lily-w480.webp",
+     "w": 480,
+     "h": 415
+    }
+   ]
   },
   "aero-rover": {
    "width": 610,
@@ -1157,7 +1661,19 @@
    "source": "Rover pair art supplied by Tom (2026-11-05)",
    "sourceUrl": "",
    "focusX": 0.5,
-   "zoom": 100
+   "zoom": 100,
+   "thumbs": [
+    {
+     "file": "/images/renders/aero-rover-w240.webp",
+     "w": 240,
+     "h": 330
+    },
+    {
+     "file": "/images/renders/aero-rover-w480.webp",
+     "w": 480,
+     "h": 661
+    }
+   ]
   },
   "havoc-rover": {
    "width": 610,
@@ -1172,7 +1688,19 @@
    "source": "Rover pair art supplied by Tom (2026-11-05)",
    "sourceUrl": "",
    "focusX": 0.5,
-   "zoom": 100
+   "zoom": 100,
+   "thumbs": [
+    {
+     "file": "/images/renders/havoc-rover-w240.webp",
+     "w": 240,
+     "h": 330
+    },
+    {
+     "file": "/images/renders/havoc-rover-w480.webp",
+     "w": 480,
+     "h": 661
+    }
+   ]
   },
   "electro-rover": {
    "width": 610,
@@ -1187,7 +1715,19 @@
    "source": "Rover pair art supplied by Tom (2026-11-05)",
    "sourceUrl": "",
    "focusX": 0.5,
-   "zoom": 100
+   "zoom": 100,
+   "thumbs": [
+    {
+     "file": "/images/renders/electro-rover-w240.webp",
+     "w": 240,
+     "h": 330
+    },
+    {
+     "file": "/images/renders/electro-rover-w480.webp",
+     "w": 480,
+     "h": 661
+    }
+   ]
   },
   "spectro-rover": {
    "width": 610,
@@ -1202,7 +1742,19 @@
    "source": "Rover pair art supplied by Tom (2026-11-05)",
    "sourceUrl": "",
    "focusX": 0.5,
-   "zoom": 100
+   "zoom": 100,
+   "thumbs": [
+    {
+     "file": "/images/renders/spectro-rover-w240.webp",
+     "w": 240,
+     "h": 330
+    },
+    {
+     "file": "/images/renders/spectro-rover-w480.webp",
+     "w": 480,
+     "h": 661
+    }
+   ]
   }
  }
 }

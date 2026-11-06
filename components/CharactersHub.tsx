@@ -17,6 +17,8 @@ export interface HubChar {
   tier: string | null;
   onBanner: boolean;
   art: string | null;
+  /** Width-described candidates for `art` (null for portraits). */
+  artSrcSet: string | null;
   fx: number;
   zoom: number;
   ghost: string;
@@ -59,6 +61,9 @@ export default function CharactersHub({
   const [role, setRole] = useState<string | null>(null);
   const [upcoming, setUpcoming] = useState(false);
   const [sort, setSort] = useState<SortKey>("tier");
+  // Phones: weapon/role/rarity/sort fold behind one toggle so the grid
+  // starts on the first screen. Desktop always shows them (CSS).
+  const [moreFilters, setMoreFilters] = useState(false);
 
   const t = (fn: () => void) => startTransition(fn);
 
@@ -148,8 +153,22 @@ export default function CharactersHub({
               </button>
             ))}
           </div>
+          <button
+            type="button"
+            className="ch-more-toggle"
+            aria-expanded={moreFilters}
+            aria-controls="ch-more-row"
+            onClick={() => setMoreFilters((v) => !v)}
+          >
+            Filters &amp; sort
+            {[weapon, role, rarity, upcoming || null, sort !== "tier" || null].filter(Boolean).length > 0 && (
+              <span className="ch-more-n">
+                {[weapon, role, rarity, upcoming || null, sort !== "tier" || null].filter(Boolean).length}
+              </span>
+            )}
+          </button>
         </div>
-        <div className="ch-row">
+        <div className="ch-row ch-row-more" id="ch-more-row" data-open={moreFilters ? "" : undefined}>
           <Select label="Weapon" value={weapon} options={weapons} onChange={(v) => t(() => setWeapon(v))} />
           <Select label="Role" value={role} options={roles} onChange={(v) => t(() => setRole(v))} />
           <div className="ch-chips" role="group" aria-label="Rarity">
@@ -213,7 +232,16 @@ export default function CharactersHub({
                     style={{ "--c": c.color, "--fx": c.fx, "--z": c.zoom } as CSSProperties}>
                     <span className="cp-ghost" aria-hidden="true">{c.ghost}</span>
                     {/* eslint-disable-next-line @next/next/no-img-element -- trimmed render cropped in CSS; export is unoptimized. */}
-                    <img className={`cp-art${c.art ? "" : " is-portrait"}`} src={c.art ?? c.portrait} alt="" loading="lazy" decoding="async" />
+                    <img
+                      className={`cp-art${c.art ? "" : " is-portrait"}`}
+                      src={c.art ?? c.portrait}
+                      srcSet={c.art && c.artSrcSet ? c.artSrcSet : undefined}
+                      /* Tiles top out near 200px wide; art is drawn at --z% of that. */
+                      sizes={c.art && c.artSrcSet ? `${Math.round((200 * c.zoom) / 100)}px` : undefined}
+                      alt=""
+                      loading="lazy"
+                      decoding="async"
+                    />
                     {c.tier && sort !== "tier" && <span className={`cp-tier cp-tier-${c.tier}`}>{c.tier}</span>}
                     <span className="cp-el" aria-hidden="true" />
                     <span className="cp-info">

@@ -1,3 +1,4 @@
+import PageHero from "@/components/PageHero";
 import type { Metadata } from "next";
 import EventsBoard from "../../components/EventsBoard";
 import UpdatedStamp from "../../components/UpdatedStamp";
@@ -16,16 +17,10 @@ const BUILT_AT = Date.now();
 export default function EventsPage() {
   return (
     <>
-      <header className="ev-hero">
-        <p className="rs-kicker">
-          Version {bannerMeta.version} · {bannerMeta.versionTitle}
-        </p>
-        <h1 className="ev-hero-title">Events</h1>
-        <p className="ev-hero-lede">
-          What&apos;s running, what ends first, and what starts next. Statuses
+      <PageHero kicker={<>Version {bannerMeta.version} · {bannerMeta.versionTitle}</>} title="Events">
+        What&apos;s running, what ends first, and what starts next. Statuses
           update live from each event&apos;s dates, in server time (UTC+8).
-        </p>
-      </header>
+      </PageHero>
       <EventsBoard events={events} builtAt={BUILT_AT} />
       <div className="ev-stamp">
         <UpdatedStamp />

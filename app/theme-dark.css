@@ -47,12 +47,12 @@ html[data-theme="dark"] .rs-tab-pill { box-shadow: none; }
 html[data-theme="dark"] .rs-live-dot { box-shadow: 0 0 0 4px rgb(217 211 199 / 0.08); }
 html[data-theme="dark"] .rs-wave-fill,
 html[data-theme="dark"] .ev-tl-now { filter: none; box-shadow: none; }
-html[data-theme="dark"] .rs-hero-art,
+html[data-theme="dark"] .rs-banner-art,
 html[data-theme="dark"] .bn-stage-art { filter: drop-shadow(0 30px 60px rgb(0 0 0 / 0.7)) saturate(0.92); }
 html[data-theme="dark"] .rs-hero::after { opacity: 0.035; }
 
 /* Hero titles: keep the outlined line, in platinum. */
-html[data-theme="dark"] .rs-hero-title span:nth-child(2) { -webkit-text-stroke-color: rgb(217 211 199 / 0.7); }
+html[data-theme="dark"] .rs-hero-title span { -webkit-text-stroke-color: rgb(217 211 199 / 0.7); }
 
 /* Glass chrome goes a touch denser so it never tints from the art below. */
 html[data-theme="dark"] .rs-nav,
@@ -71,7 +71,7 @@ body.rs { transition: --el 900ms var(--rs-ease), background-color 600ms var(--rs
    ========================================================================== */
 
 .ts { display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem; margin: 0 0 1.25rem; }
-.ts-label { font-family: var(--rs-mono); font-size: 0.62rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--rs-ink-3); }
+.ts-label { font-family: var(--rs-mono); font-size: var(--fs-1); letter-spacing: 0.08em; text-transform: uppercase; color: var(--rs-ink-3); }
 .ts-opts {
   display: inline-flex;
   padding: 3px;
@@ -91,7 +91,7 @@ body.rs { transition: --el 900ms var(--rs-ease), background-color 600ms var(--rs
   background: none;
   color: var(--rs-ink-3);
   font: inherit;
-  font-size: 0.78rem;
+  font-size: var(--fs-2);
   font-weight: 600;
   cursor: pointer;
   transition: background-color var(--rs-d1) ease, color var(--rs-d1) ease;

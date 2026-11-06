@@ -1,3 +1,4 @@
+import PageHero from "@/components/PageHero";
 import type { Metadata } from "next";
 import Link from "next/link";
 import TeamsExplorer from "@/components/TeamsExplorer";
@@ -22,17 +23,11 @@ export default function TeamsPage() {
 
   return (
     <>
-      <header className="tm-hero">
-        <p className="rs-kicker">
-          Version {model.version} · {model.versionNote} · {total} teams
-        </p>
-        <h1 className="tm-hero-title">Teams</h1>
-        <p className="tm-hero-lede">
-          Who to field together, and why it works. The best teams overall, this
+      <PageHero kicker={<>Version {model.version} · {model.versionNote} · {total} teams</>} title="Teams">
+        Who to field together, and why it works. The best teams overall, this
           reset&apos;s Tower and Whimpering Wastes picks, and teams you can build
           for free. Tap a Resonator in the index to see every team they fit.
-        </p>
-      </header>
+      </PageHero>
 
       <TeamsExplorer model={model} />
 

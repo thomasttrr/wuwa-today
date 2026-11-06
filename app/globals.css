@@ -68,26 +68,33 @@ main { padding: 2rem 0 4rem; min-height: 60vh; }
   border-top: 1px solid var(--hairline);
   padding: 2rem 0 max(2rem, env(safe-area-inset-bottom));
   color: var(--text-2);
-  font-size: 0.85rem;
+  font-size: var(--fs-4);
 }
 .site-footer p { margin: 0.25rem 0; }
 
-/* Footer hub navigation: an even grid on small screens (never a ragged
-   wrap), one quiet row on desktop. */
+/* Footer: the full sitemap in the four nav groups (lib/nav.ts). */
 .site-footer-nav {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 0.25rem 1rem;
-  margin: 0 0 1rem; font-weight: 600;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem 1.5rem;
+  margin: 0 0 1.5rem;
 }
+.site-footer-group h2 {
+  margin: 0 0 0.25rem;
+  font-family: var(--rs-mono, var(--mono));
+  font-size: var(--fs-1);
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-3);
+}
+.site-footer-group ul { list-style: none; margin: 0; padding: 0; }
 .site-footer-nav a {
   display: inline-flex; align-items: center;
-  min-height: 44px;
+  min-height: 40px;
 }
-@media (min-width: 640px) {
-  .site-footer-nav {
-    display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem;
-  }
+@media (min-width: 760px) {
+  .site-footer-nav { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 }
 
 /* ---------- type & helpers ---------- */
@@ -97,7 +104,7 @@ h2 { font-size: 1.35rem; margin: 2.25rem 0 0.9rem; letter-spacing: -0.01em; font
 h3 { font-size: 1.05rem; margin: 1.25rem 0 0.5rem; font-weight: 700; }
 .lede { color: var(--text-2); margin-top: 0; max-width: 62ch; }
 
-.updated { color: var(--text-3); font-size: 0.85rem; }
+.updated { color: var(--text-3); font-size: var(--fs-4); }
 
 
 .grid { display: grid; gap: 1rem; }
@@ -114,7 +121,7 @@ h3 { font-size: 1.05rem; margin: 1.25rem 0 0.5rem; font-weight: 700; }
 
 .badge {
   display: inline-block;
-  font-size: 0.72rem; font-weight: 700; letter-spacing: 0.02em;
+  font-size: var(--fs-2); font-weight: 700; letter-spacing: 0.02em;
   padding: 0.18rem 0.55rem; border-radius: 999px;
   background: rgba(255, 255, 255, 0.08); color: var(--text-2);
   margin-right: 0.4rem; margin-bottom: 0.25rem;
@@ -148,14 +155,9 @@ h3 { font-size: 1.05rem; margin: 1.25rem 0 0.5rem; font-weight: 700; }
   font-size: 1.35rem; font-weight: 700; color: var(--gold);
   letter-spacing: 0.02em;
 }
-.countdown-label { font-size: 0.8rem; color: var(--text-3); }
 
 /* Digit transitions: each changed digit remounts (key includes the char)
    and plays a 200ms slide. Unchanged digits keep their key and stay put. */
-.cd-ch { display: inline-block; }
-@media (prefers-reduced-motion: no-preference) {
-  .cd-ch { animation: cd-in 0.22s ease; }
-}
 @keyframes cd-in {
   from { opacity: 0; transform: translateY(0.35em); }
   to { opacity: 1; transform: none; }
@@ -180,15 +182,15 @@ h3 { font-size: 1.05rem; margin: 1.25rem 0 0.5rem; font-weight: 700; }
 /* ---------- specific components ---------- */
 
 
-.stars { color: var(--text-2); font-size: 0.8rem; letter-spacing: 0.1em; }
+.stars { color: var(--text-2); font-size: var(--fs-3); letter-spacing: 0.1em; }
 
 
 
 
 
-table.data { width: 100%; border-collapse: collapse; font-size: 0.92rem; }
+table.data { width: 100%; border-collapse: collapse; font-size: var(--fs-5); }
 table.data th, table.data td { text-align: left; padding: 0.55rem 0.7rem; border-bottom: 1px solid var(--hairline); }
-table.data th { color: var(--text-3); font-weight: 600; font-size: 0.82rem; letter-spacing: 0.02em; }
+table.data th { color: var(--text-3); font-weight: 600; font-size: var(--fs-3); letter-spacing: 0.02em; }
 table.data td { color: var(--text-2); }
 table.data td.mono { color: var(--text); }
 
@@ -215,35 +217,8 @@ table.data td.mono { color: var(--text); }
 
 
 /* ---------- banner art cards ---------- */
-
-.banner-art-card {
-  position: relative;
-  overflow: hidden;
-  padding: 0;
-}
 /* Pointer parallax lives on the art layer only (desktop, fine pointers).
    translate ~6px + 1.5deg tilt, scale bump hides the edges. */
-@media (hover: hover) and (pointer: fine) {
-  .banner-art-card::after {
-    content: "";
-    position: absolute; inset: 0;
-    border-radius: inherit;
-    background: radial-gradient(
-      480px circle at var(--sheen-x, 50%) var(--sheen-y, 50%),
-      rgba(255, 255, 255, 0.07),
-      transparent 65%
-    );
-    opacity: 0;
-    transition: opacity 0.25s ease;
-    pointer-events: none;
-  }
-  .banner-art-card:hover::after { opacity: 1; }
-}
-@media (prefers-reduced-motion: reduce) {
-  .banner-art-card::after { display: none; }
-}
-.banner-art-card .countdown { font-size: 2rem; text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6); }
-.banner-art-card .countdown-label { margin-bottom: 0.4rem; }
 
 .char-chip {
   display: flex; align-items: center; gap: 0.8rem;
@@ -261,18 +236,6 @@ table.data td.mono { color: var(--text); }
    3px track beneath the featured banner's countdown: phase elapsed vs.
    remaining. The fill carries a slow, faint shimmer sweep so "time passing"
    feels alive — the only animation on the rail. */
-.phase-rail { position: relative; height: 3px; background: rgba(255, 255, 255, 0.12);
-  border-radius: 2px; margin: 0.8rem 0 0.2rem; }
-.phase-rail-fill { position: relative; height: 100%; background: var(--gold); border-radius: 2px; overflow: hidden; }
-.phase-rail-tick { position: absolute; top: -2px; width: 2px; height: 7px;
-  background: var(--gold); border-radius: 1px; transform: translateX(-1px); }
-@media (prefers-reduced-motion: no-preference) {
-  .phase-rail-fill::after {
-    content: ""; position: absolute; inset: 0;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.35), transparent);
-    animation: rail-sheen 3s ease-in-out infinite;
-  }
-}
 @keyframes rail-sheen {
   0% { transform: translateX(-100%); }
   100% { transform: translateX(100%); }
@@ -293,7 +256,6 @@ table.data td.mono { color: var(--text); }
 
 @media (max-width: 640px) {
   .hero { padding: 1rem 0 0.25rem; }
-  .banner-art-card .countdown { font-size: 1.6rem; }
 }
 
 /* ---------- accessibility (Stage 1, extended to new effects) ---------- */
@@ -316,152 +278,17 @@ table.data td.mono { color: var(--text); }
     transform: translateY(0) scale(1);
   }
 }
-
-.team-card {
-  margin-top: 1.25rem;
-  position: relative;
-  overflow: hidden;
-  /* Gentle scroll-in; no-JS, no-op where view timelines aren't supported. */
-  animation: card-rise 0.65s cubic-bezier(0.22, 1, 0.36, 1) backwards;
-  animation-timeline: view();
-  animation-range: entry 0% cover 18%;
-  transition:
-    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
-    box-shadow 0.35s ease,
-    border-color 0.35s ease;
-}
 /* Hairline neutral accent across the top edge. */
-.team-card::before {
-  content: "";
-  position: absolute;
-  inset: 0 0 auto 0;
-  height: 1px;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    var(--line),
-    transparent
-  );
-  pointer-events: none;
-}
-.team-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 18px 44px -22px rgba(0, 0, 0, 0.7);
-  border-color: var(--line);
-}
-.team-card-head {
-  display: flex; align-items: center; gap: 0.7rem;
-  margin-bottom: 1.1rem; flex-wrap: wrap;
-}
-.team-card-title { margin: 0; font-size: 1.15rem; letter-spacing: 0.01em; }
 
 /* Portrait row: the first thing the eye hits, with flow chevrons. */
-.team-slots {
-  display: flex; align-items: stretch; justify-content: center;
-  gap: 0.35rem; margin-bottom: 1.15rem;
-}
-.team-slot-flow {
-  flex: 1 1 0; min-width: 0;
-  display: flex; align-items: stretch;
-}
-.team-slot {
-  flex: 1 1 0; min-width: 0;
-  background: var(--bg-raised);
-  border: 1px solid transparent;
-  border-radius: 16px;
-  padding: 1rem 0.5rem 0.85rem;
-  text-align: center;
-  transition:
-    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
-    border-color 0.35s ease,
-    background 0.35s ease;
-}
-.team-slot:hover {
-  transform: translateY(-4px);
-  border-color: color-mix(in srgb, var(--el) 38%, transparent);
-  background: color-mix(in srgb, var(--el) 6%, var(--bg-raised));
-}
-.team-portrait {
-  width: 96px; height: 96px; object-fit: cover;
-  border-radius: 22px; background: var(--bg-card);
-  border: 2px solid color-mix(in srgb, var(--el) 45%, transparent);
-  transition:
-    transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
-    box-shadow 0.4s ease,
-    border-color 0.4s ease;
-}
-.team-slot:hover .team-portrait {
-  transform: scale(1.07);
-  border-color: color-mix(in srgb, var(--el) 80%, transparent);
-  box-shadow: 0 10px 26px -10px color-mix(in srgb, var(--el) 55%, transparent);
-}
-.team-slot-name { font-weight: 700; margin: 0.6rem 0 0.35rem; font-size: 0.98rem; }
-.team-role-pill {
-  margin: 0;
-  display: inline-flex; align-items: center; justify-content: center; gap: 0.4rem;
-  max-width: 100%;
-  font-size: 0.68rem; font-weight: 700;
-  letter-spacing: 0.05em;
-  padding: 0.28rem 0.6rem; border-radius: 999px;
-  color: var(--text-1);
-  background: color-mix(in srgb, var(--el) 13%, transparent);
-  border: 1px solid color-mix(in srgb, var(--el) 32%, transparent);
-  backdrop-filter: blur(4px);
-}
-.pill-role { white-space: nowrap; }
-.pill-sep { opacity: 0.6; }
-.pill-el {
-  display: inline-flex; align-items: center; gap: 0.3rem;
-  white-space: nowrap;
-}
 .element-dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; flex-shrink: 0; }
-.team-flow {
-  align-self: center;
-  font-size: 1.6rem; font-weight: 300;
-  color: var(--text-2); opacity: 0.45;
-  padding: 0 0.1rem;
-  user-select: none;
-}
 
 /* Compact role notes with element accent. */
-.team-roles { list-style: none; padding: 0; margin: 0 0 1rem; display: grid; gap: 0.55rem; }
-.team-role-row {
-  border-left: 2px solid color-mix(in srgb, var(--el) 55%, transparent);
-  padding: 0.15rem 0 0.15rem 0.85rem;
-  border-radius: 0 8px 8px 0;
-  transition: background 0.3s ease, border-color 0.3s ease;
-}
-.team-role-row:hover {
-  background: color-mix(in srgb, var(--el) 5%, transparent);
-}
-.team-role-name { font-weight: 700; margin: 0 0 0.15rem; font-size: 0.92rem; }
-.team-role-name span { font-weight: 400; color: var(--text-2); }
-.team-role-note { margin: 0; color: var(--text-2); font-size: 0.92rem; line-height: 1.5; }
 
 /* Rotation box. */
-.team-rotation {
-  background: var(--bg-raised); border-radius: 12px;
-  padding: 0.8rem 1rem;
-  border-left: 2px solid var(--hairline);
-}
-.team-rotation p { margin: 0; font-size: 0.92rem; color: var(--text-2); line-height: 1.55; }
-.team-rotation-label {
-  font-family: var(--mono); font-size: 0.72rem; font-weight: 700;
-  letter-spacing: 0.06em; color: var(--text-3);
-  margin: 0 0 0.35rem !important;
-}
 
 @media (max-width: 520px) {
-  .team-portrait { width: 72px; height: 72px; border-radius: 18px; }
-  .team-slot { padding: 0.75rem 0.35rem 0.7rem; border-radius: 14px; }
-  .team-slot-name { font-size: 0.85rem; }
   /* Stack pill content on narrow screens so nothing clips. */
-  .team-role-pill {
-    flex-direction: column; gap: 0.2rem;
-    font-size: 0.6rem; padding: 0.35rem 0.45rem; line-height: 1.35;
-  }
-  .pill-sep { display: none; }
-  .team-flow { font-size: 1.2rem; }
 }
 
 
