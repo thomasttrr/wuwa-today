@@ -23,8 +23,9 @@ export default function OutfitsPage() {
         }
         title="Outfits"
       >
-        New outfits and accessories, with the official art. Who each one is
-        for, and how to get it.
+        Every outfit in the game, newest first — with the official art, who
+        each one is for, and how to get it. Accessories and more categories
+        are on the way.
       </PageHero>
       <div className="of-grid">
         {outfits.map((o) => (
