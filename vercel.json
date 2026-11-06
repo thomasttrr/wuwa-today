@@ -104,6 +104,21 @@
       "source": "/guides/suoming-build-guide",
       "destination": "/characters/suoming",
       "permanent": true
+    },
+    {
+      "source": "/pre-farm/suoming",
+      "destination": "/characters/suoming",
+      "permanent": true
+    },
+    {
+      "source": "/pre-farm/lynae",
+      "destination": "/characters/lynae",
+      "permanent": true
+    },
+    {
+      "source": "/pre-farm/lucilla",
+      "destination": "/characters/lucilla",
+      "permanent": true
     }
   ],
   "headers": [
