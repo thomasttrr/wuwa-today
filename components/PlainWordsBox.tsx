@@ -28,8 +28,19 @@ export default function PlainWordsBox({ char }: { char: CharacterRecordLoose }) 
   const build = char.build;
   const bestWeapon = build.ranked_weapons[0];
   const backupWeapon = build.ranked_weapons[1];
+  const bisSet = build.echo_sets.find((s) => s.usage === "best-in-slot");
+  // No single best set (the build note splits the pick by team): name both
+  // sets instead of crowning whichever happens to be listed first.
   const echoSet =
-    build.echo_sets.find((s) => s.usage === "best-in-slot") ?? build.echo_sets[0];
+    bisSet ??
+    (build.echo_set_note && build.echo_sets.length > 1
+      ? {
+          name: build.echo_sets.map((s) => s.name).join(" or "),
+          pieces: "5-piece — pick by team",
+          usage: "by team",
+          note: "",
+        }
+      : build.echo_sets[0]);
   const stats = build.stat_priorities;
   const substats = build.substat_priority;
 

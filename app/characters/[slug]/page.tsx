@@ -250,8 +250,19 @@ function buildSummaryText(char: CharacterRecordLoose): string {
   const build = char.build;
   const signature = build.ranked_weapons.find((w) => w.signature);
   const topWeapons = build.ranked_weapons.slice(0, 3);
+  const bisSet = build.echo_sets.find((s) => s.usage === "best-in-slot");
+  // No single best set (the build note splits the pick by team): name both
+  // sets instead of crowning whichever happens to be listed first.
   const echoSet =
-    build.echo_sets.find((s) => s.usage === "best-in-slot") ?? build.echo_sets[0];
+    bisSet ??
+    (build.echo_set_note && build.echo_sets.length > 1
+      ? {
+          name: build.echo_sets.map((s) => s.name).join(" or "),
+          pieces: "5-piece — pick by team",
+          usage: "by team",
+          note: "",
+        }
+      : build.echo_sets[0]);
   const team = char.teams[0];
 
   const lines = [
@@ -442,7 +453,19 @@ export default async function CharacterPage({
           as the Copy build summary), so the two can never disagree. */}
       {(() => {
         const bestWeapon = build.ranked_weapons[0];
-        const bestSet = build.echo_sets.find((s) => s.usage === "best-in-slot") ?? build.echo_sets[0];
+        const bisSet = build.echo_sets.find((s) => s.usage === "best-in-slot");
+        // No single best set (the build note splits the pick by team):
+        // name both sets instead of crowning the first-listed one.
+        const bestSet =
+          bisSet ??
+          (build.echo_set_note && build.echo_sets.length > 1
+            ? {
+                name: build.echo_sets.map((s) => s.name).join(" or "),
+                pieces: "5-piece — pick by team",
+                usage: "by team",
+                note: "",
+              }
+            : build.echo_sets[0]);
         const bestTeam = char.teams[0];
         const setHref = bestSet ? echoGuideHref(bestSet.name) : null;
         return (
