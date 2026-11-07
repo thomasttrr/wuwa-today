@@ -1,0 +1,42 @@
+/* Version overview — Resonance tokens, solid content surfaces. */
+.vo-section { margin-bottom: 2.75rem; }
+.vo-h { margin: 0 0 1rem; font-size: clamp(1.35rem, 3vw, 1.8rem); font-weight: 750; color: var(--rs-ink); }
+.vo-more { margin: 1rem 0 0; font-size: var(--fs-3, 0.95rem); }
+.vo-phases { display: grid; gap: 16px; grid-template-columns: minmax(0, 1fr); }
+@media (min-width: 820px) { .vo-phases { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.vo-phase, .vo-spot, .vo-event, .vo-code, .vo-tile {
+  background: var(--rs-surface);
+  border: 1px solid var(--rs-line-soft);
+  border-radius: var(--rs-r-tile);
+}
+.vo-phase { padding: 1.1rem 1.25rem 1.2rem; display: grid; gap: 0.8rem; align-content: start; }
+.vo-phase-head { display: flex; flex-wrap: wrap; gap: 0.6rem; align-items: center; justify-content: space-between; }
+.vo-phase-head h3 { margin: 0; font-size: 1.05rem; color: var(--rs-ink); }
+.vo-stars { display: grid; gap: 0.7rem; }
+.vo-star { display: flex; gap: 0.8rem; align-items: center; }
+.vo-star-name { font-weight: 650; color: var(--rs-ink); }
+.vo-star-meta { margin: 0.1rem 0 0; font-size: var(--fs-2, 0.85rem); color: var(--rs-ink-3); }
+.vo-four, .vo-weapons { margin: 0; font-size: var(--fs-2, 0.85rem); color: var(--rs-ink-3); line-height: 1.5; }
+.vo-spot { display: flex; gap: 1.1rem; padding: 1.2rem 1.3rem; align-items: flex-start; border-top: 3px solid var(--c, var(--el)); }
+.vo-spot-body { display: grid; gap: 0.55rem; min-width: 0; }
+.vo-spot-body p { margin: 0; line-height: 1.55; color: var(--rs-ink-2); }
+.vo-verdict { justify-self: start; font-family: var(--rs-mono); font-size: var(--fs-1); letter-spacing: 0.05em; text-transform: uppercase; color: var(--el); border: 1px solid var(--rs-line-soft); border-radius: 999px; padding: 0.3rem 0.7rem; }
+.vo-spot-links { display: flex; flex-wrap: wrap; gap: 0.4rem 1.2rem; font-size: var(--fs-3, 0.95rem); }
+.vo-events { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.vo-event { padding: 0.9rem 1.1rem; display: grid; gap: 0.3rem; }
+.vo-event-main { display: flex; gap: 0.7rem; align-items: baseline; flex-wrap: wrap; }
+.vo-event-name { font-weight: 650; color: var(--rs-ink); }
+.vo-event-type { font-family: var(--rs-mono); font-size: var(--fs-1); text-transform: uppercase; letter-spacing: 0.05em; color: var(--rs-ink-3); }
+.vo-event-rewards { margin: 0; color: var(--rs-ink-2); font-size: var(--fs-3, 0.95rem); }
+.vo-event-note { margin: 0; color: var(--rs-ink-3); font-size: var(--fs-2, 0.85rem); line-height: 1.5; }
+.vo-codes { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.vo-code { display: flex; flex-wrap: wrap; gap: 0.5rem 1rem; align-items: center; padding: 0.85rem 1.1rem; }
+.vo-code code { font-family: var(--rs-mono); font-weight: 700; letter-spacing: 0.06em; color: var(--rs-ink); }
+.vo-code-rewards { color: var(--rs-ink-2); font-size: var(--fs-2, 0.85rem); }
+.vo-code-exp { color: var(--rs-ink-3); font-size: var(--fs-2, 0.85rem); margin-left: auto; }
+.vo-tiles { display: grid; gap: 14px; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); }
+.vo-tile { display: grid; gap: 0.35rem; padding: 0.8rem; text-decoration: none; }
+.vo-tile img { width: 100%; height: auto; border-radius: calc(var(--rs-r-tile) - 4px); display: block; }
+.vo-tile-name { font-weight: 650; color: var(--rs-ink); }
+.vo-tile-meta { font-size: var(--fs-2, 0.85rem); color: var(--rs-ink-3); }
+.vo-stamp { margin-top: 2rem; }

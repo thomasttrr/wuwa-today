@@ -17,6 +17,7 @@ export interface NavItem {
 export const NAV_ITEMS: NavItem[] = [
   { href: "/", label: "Today", group: "Live", hint: "Banners, codes, resets" },
   { href: "/banners", label: "Banners", group: "Live", hint: "Live, upcoming, history" },
+  { href: "/version", label: "Version Overview", short: "Version", group: "Live", hint: "Everything in the current patch" },
   { href: "/events", label: "Events", group: "Live", hint: "What's live and ending soon" },
   { href: "/characters", label: "Characters", group: "Characters & builds", hint: "Builds for every Resonator" },
   { href: "/teams", label: "Teams", group: "Characters & builds", hint: "Best teams, Tower, Whimpering Wastes" },
