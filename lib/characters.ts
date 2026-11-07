@@ -164,6 +164,16 @@ export function getCharacter(slug: string): CharacterRecordLoose | undefined {
   return bySlug.get(slug);
 }
 
+/* Name lookup, matched loosely: banners.json writes "Yangyang: Xuanling"
+   where the character record says "Yangyang Xuanling". */
+const nameKey = (name: string) => name.toLowerCase().replace(/[^a-z0-9]+/g, "");
+const byNameKey = new Map<string, CharacterRecordLoose>(ALL.map((c) => [nameKey(c.name), c]));
+
+/** Character record for a display name as written in banners/events data. */
+export function getCharacterByName(name: string): CharacterRecordLoose | undefined {
+  return byNameKey.get(nameKey(name));
+}
+
 export function characterSlugs(): string[] {
   return ALL.map((c) => c.slug);
 }

@@ -21,10 +21,16 @@ export default function HomeCodes({
   codes,
   updatedAt,
   builtAt,
+  title = "Redeem codes",
+  headingId = "codes-h",
+  emptyText = "No verified working codes right now.",
 }: {
   codes: Pick<RedeemCode, "code" | "rewards" | "expiresAt">[];
   updatedAt: string;
   builtAt: number;
+  title?: string;
+  headingId?: string;
+  emptyText?: string;
 }) {
   const clock = useNow(60_000);
   const now = clock ? clock.getTime() : builtAt;
@@ -33,7 +39,7 @@ export default function HomeCodes({
   return (
     <>
       <header className="rs-tile-head">
-        <h2 id="codes-h">Redeem codes</h2>
+        <h2 id={headingId}>{title}</h2>
         <span className="rs-count" aria-label={`${live.length} working codes`}>
           {live.length}
         </span>
@@ -46,7 +52,7 @@ export default function HomeCodes({
         · two sources or official
       </p>
       {live.length === 0 ? (
-        <p className="rs-muted">No verified working codes right now.</p>
+        <p className="rs-muted">{emptyText}</p>
       ) : (
         <ul className="rs-codes">
           {live.map((c) => {

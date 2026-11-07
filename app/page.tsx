@@ -23,7 +23,7 @@ import {
   codesUpdatedAt,
 } from "../lib/data";
 import { formatServerDateTime, formatServerDay } from "../lib/dates";
-import { characters } from "../lib/characters";
+import { characters, getCharacterByName } from "../lib/characters";
 import { elementColor } from "../lib/elements";
 import { thumbFor } from "../lib/renders";
 import { prefarmGuides } from "../lib/prefarm";
@@ -36,11 +36,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/" },
 };
 
-/* Names are matched loosely: banners.json writes "Yangyang: Xuanling" where
-   the character record says "Yangyang Xuanling". */
-const nameKey = (name: string) => name.toLowerCase().replace(/[^a-z0-9]+/g, "");
-const slugByKey = new Map(characters.map((c) => [nameKey(c.name), c.slug]));
-const slugByName = { get: (name: string) => slugByKey.get(nameKey(name)) };
+const slugByName = { get: (name: string) => getCharacterByName(name)?.slug };
 const thumbBySlug = new Map(characters.map((c) => [c.slug, thumbFor(c.slug, c.profile.portrait_url)]));
 const thumbByName = (name: string) => {
   const slug = slugByName.get(name);
