@@ -289,7 +289,7 @@ export default function PullPlannerPage() {
           <details className="pp-q">
             <summary>
               <span className="pp-q-n">06</span>
-              <span className="pp-q-t">The selector convenes: who should I target?</span>
+              <span className="pp-q-t">Got the selector — who do I pick?</span>
               <Availability start="2026-11-12T10:00:00+08:00" end="2026-12-21T10:00:00+08:00" builtAt={BUILT_AT} />
             </summary>
             <div className="pp-q-body">
@@ -319,7 +319,8 @@ export default function PullPlannerPage() {
                   Havoc main DPS who needs nobody else in the pool.{" "}
                   <strong>Roccia</strong> is the support pick: she groups enemies and
                   boosts Havoc damage, and only makes sense for a Havoc carry you
-                  already own, like Phrolova.
+                  already own — she is Camellya's best buffer, and Sanhua covers
+                  the same slot for free.
                 </li>
                 <li>
                   <strong>Own none of those?</strong> Honest answer: all four sit a

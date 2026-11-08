@@ -5,7 +5,6 @@ import Reveal from "../../components/Reveal";
 import RollingCountdown from "../../components/RollingCountdown";
 import NextVersionNote from "../../components/NextVersionNote";
 import SelectorCards from "../../components/SelectorCards";
-import SelectorConvenes from "../../components/SelectorConvenes";
 import UpdatedStamp from "../../components/UpdatedStamp";
 import WaveProgress from "../../components/WaveProgress";
 import {
@@ -237,7 +236,6 @@ export default function BannersPage() {
         </section>
       )}
 
-      <SelectorConvenes />
 
       <SelectorCards />
 
