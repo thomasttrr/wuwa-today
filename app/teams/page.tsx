@@ -6,9 +6,9 @@ import { buildTeamsModel } from "@/lib/teams";
 import "./teams.css";
 
 export const metadata: Metadata = {
-  title: "Best Teams (3.7)",
+  title: "Best Teams — Team Comps & Synergies",
   description:
-    "Wuthering Waves 3.7 team compositions: the best teams overall, this reset's Tower of Adversity and Whimpering Wastes picks, F2P and budget teams — each with a plain line on how the three work together.",
+    "Wuthering Waves team compositions: the best teams overall, this reset's Tower of Adversity and Whimpering Wastes picks, F2P and budget teams — each with a plain line on how the three work together.",
   alternates: { canonical: "/teams" },
 };
 

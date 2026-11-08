@@ -8,9 +8,9 @@ import Reveal from "@/components/Reveal";
 import UpdatedStamp from "@/components/UpdatedStamp";
 
 export const metadata: Metadata = {
-  title: "3.7 Echo Sets Guide — Sworn Vigil, Electric Reflection, Tinged Yearning",
+  title: "Echo Sets Guide — Sworn Vigil, Electric Reflection, Tinged Yearning (3.8)",
   description:
-    "Version 3.7 added three Sonata Effects to Wuthering Waves: Heart of Sworn Vigil, Flash of Electric Reflection, and Flower of Tinged Yearning. Full set bonuses, every member echo by cost, where to farm them, and who each set is actually for.",
+    "Version 3.7 added three Sonata Effects to Wuthering Waves: Heart of Sworn Vigil, Flash of Electric Reflection, and Flower of Tinged Yearning. Full set bonuses, every member echo by cost, where to farm them, and who each set is actually for — updated for 3.8, where Flower gets its user: Lily.",
   alternates: { canonical: "/echo-sets" },
 };
 
@@ -124,13 +124,13 @@ const SETS: EchoSet[] = [
     id: "tinged-yearning",
     name: "Flower of Tinged Yearning",
     icon: "/images/echoes/flower-of-tinged-yearning.webp",
-    role: "Healer · unreleased",
-    pill: "No user yet — don't farm",
+    role: "Healer · Unison teams",
+    pill: "Lily's set — farm it for her",
     pillBis: false,
     twoPc: "Healing Bonus +10%.",
     fivePc:
       "Healing a Resonator in the team increases the ATK of all Resonators in the team by 10% for 30s. Effects of the same name cannot be stacked. While the effect is active, if the Resonator gains Unison or triggers Unison Response, their ATK is further increased by 15%.",
-    who: "Honest answer: nobody runs this yet. No released Resonator can trigger the Unison half of the 5-piece, and today's healers (Shorekeeper, Verina) get more from their existing sets — switching them to Flower now is a downgrade. The set is plainly built for a future Unison healer; community expectation points at Lily in 3.8, but Kuro Games has not confirmed that. Don't spend Waveplates here yet. If pieces drop while you farm the Mengzhou nests, keep them unleveled and wait.",
+    who: "Its user is confirmed: Lily, the 3.8 Spectro healer whose kit Kuro showed at the Nov 6 broadcast — a healer who gathers enemies and triggers Unison. Pick by team, the same split as her build page: Flower for Unison teams, Rejuvenating Glow for Echo teams and general play. Beta calculations found the two close; neither wins everywhere. Older healers (Shorekeeper, Verina) still get more from their existing sets — Flower is Lily's set, not a general healer upgrade.",
     members: [
       {
         cost: "4-cost",
@@ -160,7 +160,7 @@ const SETS: EchoSet[] = [
     ],
     farm: "Heart of Stillness Tacet Field in the Simulacrum Nexus of Mengzhou, plus the Tacet Discord Nests in Mengzhou (up to 90 echoes a day without spending Waveplates, though drops are shared with Mengzhou's other Sonata Effects).",
     stats:
-      "No main-stat guidance yet — with no confirmed user, locking in Healing Bonus vs ATK% vs HP% pieces now would be a guess. If Lily's kit confirms the expected Unison-healer role after the 3.8 preview broadcast, this section gets real numbers then.",
+      "4-3-3-1-1 layout. Main echo: Formrender. 4-cost: Healing Bonus (HP% is the alternate). 3-costs: Energy Regen on both. 1-costs: HP% on both. Aim for roughly 260% Energy Regen in total. These are the pre-release consensus numbers from the broadcast kit — the final check lands at launch on Nov 12.",
   },
 ];
 
@@ -342,8 +342,8 @@ export default function EchoSetsGuide() {
               <strong>Heart of Sworn Vigil</strong> if you run Hsin or Suoming, farm{" "}
               <strong>Flash of Electric Reflection</strong> for the Electro Rover /
               sub-DPS slot in the same teams, and leave{" "}
-              <strong>Flower of Tinged Yearning</strong> alone until its healer
-              actually releases. All three sets live in the Simulacrum Nexus of
+              <strong>Flower of Tinged Yearning</strong> if you&rsquo;re pulling
+              Lily in 3.8 — she&rsquo;s its confirmed Unison healer. All three sets live in the Simulacrum Nexus of
               Mengzhou, unlocked through Main Quest Chapter IV Act IV,
               &ldquo;Simulacrum of the Heart.&rdquo;
             </p>
@@ -432,13 +432,14 @@ export default function EchoSetsGuide() {
               </li>
               <li>
                 <strong>Heart of Stillness Tacet Field</strong> — Flower of Tinged
-                Yearning&rsquo;s field. Skip it until a Unison healer is confirmed;
-                your Waveplates are worth more in Heart of Flames.
+                Yearning&rsquo;s field. The pre-farm priority if you&rsquo;re pulling
+                Lily; otherwise your Waveplates are worth more in Heart of Flames.
               </li>
               <li>
                 <strong>Chord Cleansing, Nov 4–11</strong> — the recurring event
                 doubles Tacet Field echo drops for its final-week run. If you
-                can wait, it is the cheapest window to finish both Electro sets.
+                can wait, it is the cheapest window to finish both Electro sets
+                and Flower before 3.8 lands.
               </li>
             </ul>
           </div>
@@ -458,8 +459,9 @@ export default function EchoSetsGuide() {
         <Link href="/characters/hsin">Hsin</Link> and{" "}
         <Link href="/characters/suoming">Suoming</Link> build pages for the
         per-character versions of these recommendations. Flower of Tinged
-        Yearning&rsquo;s expected user (Lily, 3.8) is community expectation, not
-        a Kuro Games confirmation, and is labeled that way wherever it appears.
+        Yearning&rsquo;s user (Lily, 3.8) was confirmed at the Nov 6 version
+        broadcast; her build numbers here are the pre-release consensus and are
+        labeled that way until the Nov 12 launch check.
       </p>
     </>
   );

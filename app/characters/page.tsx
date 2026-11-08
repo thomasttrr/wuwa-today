@@ -20,7 +20,7 @@ import "./hub.css";
 export const metadata: Metadata = {
   title: "Characters — Builds, Weapons, Echoes & Teams",
   description:
-    "Every Wuthering Waves character in one hub: builds, ranked weapons, echo sets, stat priorities, team comps, pull verdicts, and tier placements — current as of version 3.7.",
+    "Every Wuthering Waves character in one hub: builds, ranked weapons, echo sets, stat priorities, team comps, pull verdicts, and tier placements — current as of version 3.8.",
   alternates: { canonical: "/characters" },
 };
 
@@ -53,7 +53,7 @@ export default function CharactersPage() {
   return (
     <>
       <header className="ch-hero">
-        <p className="rs-kicker">Version 3.7 · {chars.length} Resonators</p>
+        <p className="rs-kicker">Version 3.8 · {chars.length} Resonators</p>
         <h1 className="ch-hero-title">Characters</h1>
         <div className="ch-hero-row">
           <p className="ch-hero-lede">
