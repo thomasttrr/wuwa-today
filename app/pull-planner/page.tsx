@@ -6,7 +6,7 @@ import Availability from "../../components/Availability";
 import PhaseTrack, { type PhaseNode } from "../../components/PhaseTrack";
 import PlannerAccounts, { type AccountPlan } from "../../components/PlannerAccounts";
 import UpdatedStamp from "../../components/UpdatedStamp";
-import { banners, bannerMeta, nextVersion } from "../../lib/data";
+import { banners, bannerMeta, nextVersion, selectors } from "../../lib/data";
 import { characters, getCharacter } from "../../lib/characters";
 import { elementColor } from "../../lib/elements";
 import { getPrefarmGuide } from "../../lib/prefarm";
@@ -64,6 +64,7 @@ function plan(key: string, title: string, profile: string, pick: FiveStarSlug, n
 export default function PullPlannerPage() {
   const p1 = bannerById.get("3.8-phase-1");
   const p2 = bannerById.get("3.8-phase-2");
+  const sel = selectors.find((s) => s.kind === "resonator");
 
   const phases: PhaseNode[] = banners
     .filter((b) => b.version === bannerMeta.version)
@@ -282,6 +283,63 @@ export default function PullPlannerPage() {
                 <Link href="/characters/yangyang-xuanling">Xuanling verdict</Link> ·{" "}
                 <Link href="/characters/suisui">Suisui verdict</Link> ·{" "}
                 <Link href="/characters/hiyuki">Hiyuki verdict</Link>
+              </p>
+            </div>
+          </details>
+          <details className="pp-q">
+            <summary>
+              <span className="pp-q-n">06</span>
+              <span className="pp-q-t">The selector convenes: who should I target?</span>
+              <Availability start="2026-11-12T10:00:00+08:00" end="2026-12-21T10:00:00+08:00" builtAt={BUILT_AT} />
+            </summary>
+            <div className="pp-q-body">
+              <ul className="og-q-list">
+                <li>
+                  <strong>How they work:</strong> Starpath Reverbs II (Resonators) and
+                  Tideforge Reverbs II (weapons) run all of 3.8, Nov 12 – Dec 21. You
+                  pick the featured 5★ from a small pool and can change your pick at
+                  any time. Starpath is a 50/50 with a guarantee after a loss;
+                  Tideforge&apos;s weapon is guaranteed within 80 pulls. Their pity is
+                  separate from the featured banners and carries to future Reverb
+                  convenes.
+                </li>
+                <li>
+                  <strong>Own Zani?</strong> Target <strong>Phoebe</strong> — she stacks
+                  the Spectro Frazzle that Zani&apos;s biggest damage cashes in. She is
+                  the partner Zani&apos;s kit is built around.
+                </li>
+                <li>
+                  <strong>Own Lupa?</strong> Target <strong>Brant</strong> — her Fusion
+                  partner, who heals, shields, and hands out the Fusion boosts her kit
+                  runs on.
+                </li>
+                <li>
+                  <strong>Need a Havoc carry?</strong> Target{" "}
+                  <strong>Camellya</strong> — the self-sufficient pick, a complete
+                  Havoc main DPS who needs nobody else in the pool.{" "}
+                  <strong>Roccia</strong> is the support pick: she groups enemies and
+                  boosts Havoc damage, and only makes sense for a Havoc carry you
+                  already own, like Phrolova.
+                </li>
+                <li>
+                  <strong>Own none of those?</strong> Honest answer: all four sit a
+                  step below the current top, so this convene completes teams rather
+                  than adding power. Unless one of them is a favourite, save for the
+                  featured banners.
+                </li>
+                <li>
+                  <strong>Tideforge (weapons):</strong> only if you own the Resonator
+                  and play them often — Red Spring for Camellya, Tragicomedy for
+                  Roccia, Luminous Hymn for Phoebe, Unflickering Valor for Brant. A
+                  signature weapon is a smaller upgrade than a new character for most
+                  accounts.
+                </li>
+              </ul>
+              <p className="og-q-links">
+                <Link href="/banners">Selector cards on Banners</Link> ·{" "}
+                <Link href="/characters/phoebe">Phoebe verdict</Link> ·{" "}
+                <Link href="/characters/brant">Brant verdict</Link> ·{" "}
+                <Link href="/characters/camellya">Camellya verdict</Link>
               </p>
             </div>
           </details>

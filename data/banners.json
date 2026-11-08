@@ -387,6 +387,69 @@
       ]
     }
   ],
+  "selectors": [
+    {
+      "id": "starpath-reverbs-ii",
+      "name": "Starpath Reverbs II",
+      "kind": "resonator",
+      "conveneLabel": "Reverb Resonator Convene",
+      "startsAt": "2026-11-12T10:00:00+08:00",
+      "endsAt": "2026-12-21T10:00:00+08:00",
+      "note": "Select one of the four as your rate-up and change your selection at any time. The 50/50 still applies — lose it and a standard 5-star can land instead. Pity and guarantee are shared only with other Reverb Resonator convenes; they do not touch the featured banners.",
+      "pool": [
+        {
+          "name": "Phoebe",
+          "pickIf": "you own Zani",
+          "reason": "She piles on the Spectro Frazzle stacks and Zani cashes them in — that pair is a finished team core. Without Zani she is a niche pick; with her, she is the reason to open this banner."
+        },
+        {
+          "name": "Brant",
+          "pickIf": "you own Lupa",
+          "reason": "Lupa's Fusion engine: her resistance shred and Fusion buffs, his damage, healing and shields. His best build wants his signature weapon — that is what Tideforge is for."
+        },
+        {
+          "name": "Camellya",
+          "pickIf": "you need a Havoc carry",
+          "reason": "A real Havoc main DPS who works with Sanhua, who is free. Newer carries have power-crept her, so this is a playstyle pick or a second Havoc team for Tower and Wastes — not a meta pick."
+        },
+        {
+          "name": "Roccia",
+          "pickIf": "you own Camellya",
+          "reason": "Camellya's best buffer: Havoc buffs and enemy grouping in one slot. Without Camellya she has no team — Sanhua covers everyone else for free."
+        }
+      ],
+      "sources": [
+        "https://game8.co/games/Wuthering-Waves/archives/606968",
+        "https://game8.co/games/Wuthering-Waves/archives/453303",
+        "https://www.facebook.com/WutheringWaves.Official/posts/pfbid033dfgrb74zTR4VdNmWQ8uJKaPkmY7tNnAdcfuoiyA88NTYmGgmiZDp8ACyfuewZ3vl"
+      ]
+    },
+    {
+      "id": "tideforge-reverbs-ii",
+      "name": "Tideforge Reverbs II",
+      "kind": "weapon",
+      "conveneLabel": "Reverb Weapon Convene",
+      "startsAt": "2026-11-12T10:00:00+08:00",
+      "endsAt": "2026-12-21T10:00:00+08:00",
+      "note": "Select one of the four as your target and change your selection at any time. Pity is shared only with other Reverb Weapon convenes.",
+      "rule": "No 50/50 on weapons: the weapon you select is guaranteed within 80 pulls. Only pull the one that matches a character you own — each is that character's best-in-slot, and a small upgrade for anyone else.",
+      "pool": [
+        { "name": "Red Spring", "forCharacter": "Camellya" },
+        { "name": "Tragicomedy", "forCharacter": "Roccia" },
+        { "name": "Luminous Hymn", "forCharacter": "Phoebe" },
+        {
+          "name": "Unflickering Valor",
+          "forCharacter": "Brant",
+          "note": "The one signature here that changes the build — Brant's best setup nearly requires it."
+        }
+      ],
+      "sources": [
+        "https://game8.co/games/Wuthering-Waves/archives/606976",
+        "https://game8.co/games/Wuthering-Waves/archives/453303",
+        "https://www.facebook.com/WutheringWaves.Official/posts/pfbid033dfgrb74zTR4VdNmWQ8uJKaPkmY7tNnAdcfuoiyA88NTYmGgmiZDp8ACyfuewZ3vl"
+      ]
+    }
+  ],
   "history": [
     {
       "endsAt": "2026-10-22T04:00:00+08:00",

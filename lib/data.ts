@@ -112,6 +112,35 @@ const allActiveCodes = (codesRaw as { active: RedeemCode[] }).active;
 export const nextVersion: NextVersion | null =
   (bannersRaw as { nextVersion?: NextVersion }).nextVersion ?? null;
 
+/** One entry in a selector convene's pool. Resonator entries carry the
+ *  roster-aware pick line; weapon entries name the character they belong to. */
+export interface SelectorPick {
+  name: string;
+  pickIf?: string;
+  reason?: string;
+  forCharacter?: string;
+  note?: string;
+}
+
+/** A Reverb selector convene (Starpath / Tideforge): runs the whole version,
+ *  deliberately kept out of the banners array so phase-driven surfaces
+ *  (timeline, Up Next, PhaseTrack) are untouched. */
+export interface SelectorConvene {
+  id: string;
+  name: string;
+  kind: "resonator" | "weapon";
+  conveneLabel: string;
+  startsAt: string;
+  endsAt: string;
+  note: string;
+  rule?: string;
+  pool: SelectorPick[];
+  sources: string[];
+}
+
+export const selectors: SelectorConvene[] =
+  (bannersRaw as { selectors?: SelectorConvene[] }).selectors ?? [];
+
 export const activeCodes = allActiveCodes.filter(
   (c) => !c.expiresAt || Number.isNaN(Date.parse(c.expiresAt)) || Date.parse(c.expiresAt) > Date.now(),
 );
