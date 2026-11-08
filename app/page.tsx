@@ -6,6 +6,7 @@ import ResetTimers from "../components/ResetTimers";
 import HomeCodes from "../components/HomeCodes";
 import HomeEndingSoon from "../components/HomeEndingSoon";
 import HomeUpNext, { type UpNextPhase } from "../components/HomeUpNext";
+import HomeLaunchStrip from "../components/HomeLaunchStrip";
 import NextVersionNote from "../components/NextVersionNote";
 import Reveal from "../components/Reveal";
 import RollingCountdown from "../components/RollingCountdown";
@@ -269,9 +270,13 @@ export default function HomePage() {
             </article>
           </Reveal>
 
-          {nextVersion && (
+          {nextVersion ? (
             <div className="rs-tile-next-wrap">
               <NextVersionNote next={nextVersion} builtAt={BUILT_AT} variant="strip" />
+            </div>
+          ) : (
+            <div className="rs-tile-next-wrap">
+              <HomeLaunchStrip builtAt={BUILT_AT} />
             </div>
           )}
 

@@ -464,3 +464,13 @@ body.rs .vo-jump a:focus-visible { outline-offset: -3px; }
 @media (prefers-reduced-motion: reduce) {
   .vo-event, .vo-tile, .vo-tile-img img { transition: none; }
 }
+
+/* ------------------------------------------------------------ launch checklist */
+.vo-launch-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; grid-template-columns: minmax(0, 1fr); }
+@media (min-width: 860px) { .vo-launch-list { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.vo-launch-item { background: var(--rs-surface); border: 1px solid var(--rs-line); border-radius: var(--rs-r-tile); padding: 1.1rem 1.25rem; display: grid; gap: 0.4rem; align-content: start; min-width: 0; }
+.vo-launch-item-warn { border-color: var(--rs-warn); }
+.vo-launch-title { margin: 0; font-size: var(--fs-5); font-weight: 700; color: var(--rs-ink); line-height: 1.35; }
+.vo-launch-item-warn .vo-launch-title { color: var(--rs-warn); }
+.vo-launch-text { margin: 0; font-size: var(--fs-4); line-height: 1.55; color: var(--rs-ink-2); }
+.vo-launch-text strong { color: var(--rs-ink); }

@@ -16,6 +16,7 @@ import { thumbFor } from "../../lib/renders";
 import rendersData from "@/data/renders.json";
 import VersionClock, { type ClockPhase } from "./VersionClock";
 import PhaseStatus from "./PhaseStatus";
+import LaunchChecklist, { launchSectionActive } from "./LaunchChecklist";
 import "./version.css";
 
 export const metadata: Metadata = {
@@ -113,6 +114,7 @@ const PETALS = [
 ] as const;
 
 const SECTIONS = [
+  ...(launchSectionActive(Date.now()) ? [{ id: "vo-launch", label: "Launch checklist" }] : []),
   { id: "vo-banners", label: "Banners" },
   ...(newcomer ? [{ id: "vo-new", label: newcomer.name }] : []),
   ...(versionEvents.length ? [{ id: "vo-events", label: "Events" }] : []),
@@ -175,6 +177,8 @@ export default function VersionPage() {
           </a>
         ))}
       </nav>
+
+      <LaunchChecklist />
 
       {/* ------------------------------------------------------- banners */}
       <section className="vo-section" id="vo-banners" aria-labelledby="vo-banners-h">
