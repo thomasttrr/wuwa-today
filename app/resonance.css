@@ -1231,3 +1231,20 @@ body.rs .og-char-name {
 /* Anchor jumps and keyboard focus must land above the floating mobile nav. */
 html { scroll-padding-bottom: calc(6.5rem + env(safe-area-inset-bottom)); }
 @media (min-width: 900px) { html { scroll-padding-bottom: 0; } }
+
+/* ------------------------------------------------- launch countdown (shared) */
+.lc-card { display: grid; gap: 0.7rem; padding: 1rem 1.1rem; border-radius: var(--rs-r-tile); background: var(--rs-surface); border: 1px solid var(--rs-line); color: var(--rs-ink); min-width: 0; }
+.lc-head { display: flex; align-items: center; gap: 0.6rem; min-width: 0; }
+.lc-dot { flex: none; width: 8px; height: 8px; border-radius: 50%; background: var(--rs-warn); animation: lc-pulse 2s ease-in-out infinite; }
+.lc-dot-live { background: var(--rs-el); animation: none; }
+@keyframes lc-pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+@media (prefers-reduced-motion: reduce) { .lc-dot { animation: none; } }
+.lc-title { margin: 0; font-size: var(--fs-4); font-weight: 600; color: var(--rs-ink-2); }
+.lc-big { font-family: var(--rs-mono); font-size: var(--fs-6); font-weight: 700; color: var(--rs-ink); letter-spacing: 0.02em; white-space: nowrap; }
+.lc-rows { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.4rem 1.5rem; grid-template-columns: minmax(0, 1fr); }
+@media (min-width: 900px) { .lc-rows { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.lc-row { display: flex; align-items: baseline; gap: 0.5rem 0.8rem; flex-wrap: wrap; font-size: var(--fs-3); min-width: 0; }
+.lc-zone { font-weight: 650; color: var(--rs-ink); min-width: 7.5rem; }
+.lc-rem { font-family: var(--rs-mono); color: var(--rs-ink); white-space: nowrap; }
+.lc-open { color: var(--rs-ink-3); margin-left: auto; text-align: right; }
+@media (max-width: 560px) { .lc-open { margin-left: 0; text-align: left; flex-basis: 100%; padding-left: 8rem; } .lc-zone { min-width: 7.5rem; } }

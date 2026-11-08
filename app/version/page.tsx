@@ -17,6 +17,7 @@ import rendersData from "@/data/renders.json";
 import VersionClock, { type ClockPhase } from "./VersionClock";
 import PhaseStatus from "./PhaseStatus";
 import LaunchChecklist, { launchSectionActive } from "./LaunchChecklist";
+import LaunchCountdown from "../../components/LaunchCountdown";
 import "./version.css";
 
 export const metadata: Metadata = {
@@ -177,6 +178,8 @@ export default function VersionPage() {
           </a>
         ))}
       </nav>
+
+      <LaunchCountdown builtAt={BUILT_AT} />
 
       <LaunchChecklist />
 

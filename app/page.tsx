@@ -7,6 +7,7 @@ import HomeCodes from "../components/HomeCodes";
 import HomeEndingSoon from "../components/HomeEndingSoon";
 import HomeUpNext, { type UpNextPhase } from "../components/HomeUpNext";
 import HomeLaunchStrip from "../components/HomeLaunchStrip";
+import LaunchCountdown from "../components/LaunchCountdown";
 import NextVersionNote from "../components/NextVersionNote";
 import Reveal from "../components/Reveal";
 import RollingCountdown from "../components/RollingCountdown";
@@ -279,6 +280,8 @@ export default function HomePage() {
               <HomeLaunchStrip builtAt={BUILT_AT} />
             </div>
           )}
+
+          {!nextVersion && <LaunchCountdown builtAt={BUILT_AT} hideAtLive />}
 
           {upNextPhases.length > 0 && (
             <Reveal delay={80} className="rs-tile-upnext-wrap">
