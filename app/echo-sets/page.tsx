@@ -341,7 +341,7 @@ export default function EchoSetsGuide() {
               <strong>The short version:</strong> farm{" "}
               <strong>Heart of Sworn Vigil</strong> if you run Hsin or Suoming, farm{" "}
               <strong>Flash of Electric Reflection</strong> for the Electro Rover /
-              sub-DPS slot in the same teams, and leave{" "}
+              sub-DPS slot in the same teams, and farm{" "}
               <strong>Flower of Tinged Yearning</strong> if you&rsquo;re pulling
               Lily in 3.8 — she&rsquo;s its confirmed Unison healer. All three sets live in the Simulacrum Nexus of
               Mengzhou, unlocked through Main Quest Chapter IV Act IV,
