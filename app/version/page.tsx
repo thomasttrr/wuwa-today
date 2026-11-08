@@ -20,7 +20,7 @@ import LaunchChecklist, { launchSectionActive } from "./LaunchChecklist";
 import "./version.css";
 
 export const metadata: Metadata = {
-  title: `Version ${bannerMeta.version} Overview — ${bannerMeta.versionTitle}`,
+  title: `Wuthering Waves ${bannerMeta.version} Overview — ${bannerMeta.versionTitle}: Banners, Events & Codes`,
   description: `Everything in Wuthering Waves Version ${bannerMeta.version}: both banner phases, the new Resonator, every event, the preview codes, and what's new — on one page.`,
   alternates: { canonical: "/version" },
 };
