@@ -55,12 +55,33 @@ export interface Tower {
   teams: Team[];
 }
 
+export interface MatrixStage {
+  name: string;
+  boss: string;
+  /** One line: what the boss does that decides the fight. */
+  mechanic: string;
+  teams: Team[];
+}
+
 export interface TeamsModel {
   version: string;
   versionNote: string;
   characters: (TeamCharacter & { teamCount: number })[];
   general: Team[];
   variants: Team[];
+  /** Endstate Matrix: scaffolded Nov 9, 2026 (Tom's pick). Stages stay
+   *  empty until the first phase farm lands live phase data — the
+   *  /teams explorer does not render the section yet. */
+  matrix: {
+    cycleName: string;
+    phaseLabel: string;
+    resetStart: string;
+    resetEnd: string;
+    nextReset: string;
+    resetLine: string;
+    notes: string[];
+    stages: MatrixStage[];
+  };
   tower: {
     resetStart: string;
     resetEnd: string;
@@ -159,8 +180,26 @@ export function buildTeamsModel(): TeamsModel {
   }
   const halves = raw.wastes.halves.map((h, i) => ({ name: h.name, teams: list(h.teams, `ww-${i + 1}`) }));
   const budget = list(raw.budget, "f2p");
+  // Endstate Matrix scaffold: stages arrive with the first phase farm.
+  // The JSON block is cast because an empty stages array infers never[].
+  const rawMatrix = raw.matrix as unknown as {
+    cycleName: string;
+    phaseLabel: string;
+    resetStart: string;
+    resetEnd: string;
+    nextReset: string;
+    resetLine: string;
+    notes: string[];
+    stages: { name: string; boss: string; mechanic: string; teams: RawTeam[] }[];
+  };
+  const matrixStages: MatrixStage[] = rawMatrix.stages.map((s, i) => ({
+    name: s.name,
+    boss: s.boss,
+    mechanic: s.mechanic,
+    teams: list(s.teams, `em-${i}`),
+  }));
 
-  const all = [...general, ...variants, ...towers.flatMap((t) => t.teams), ...halves.flatMap((h) => h.teams), ...budget];
+  const all = [...general, ...variants, ...towers.flatMap((t) => t.teams), ...halves.flatMap((h) => h.teams), ...matrixStages.flatMap((s) => s.teams), ...budget];
   const counts = new Map<string, number>();
   for (const t of all) for (const m of t.members) counts.set(m.slug, (counts.get(m.slug) ?? 0) + 1);
 
@@ -172,6 +211,7 @@ export function buildTeamsModel(): TeamsModel {
     variants,
     tower: { ...raw.tower, towers },
     wastes: { ...raw.wastes, halves },
+    matrix: { ...rawMatrix, stages: matrixStages },
     budget,
   };
 }

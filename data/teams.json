@@ -221,6 +221,20 @@
     ]
   },
 
+  "matrix": {
+    "cycleName": "Adversity Vanguard",
+    "phaseLabel": "Phase 3 · Version 3.7",
+    "resetStart": "2026-10-07",
+    "resetEnd": "2026-11-12",
+    "nextReset": "2026-11-12T04:00:00-05:00",
+    "resetLine": "The current Matrix phase ends Thursday, November 12, 2026 — the last Adversity Vanguard phase opens with Version 3.8.",
+    "notes": [
+      "A boss rush with a deep roster: bosses in succession across two zones, boss HP carries between teams, and your weapons and Echo sets lock to each Resonator for the run.",
+      "Vigor is per character: everyone carries 1 and spends it by fighting; healers and shielders carry 2, so they can fight twice. One Emergency Resonator each phase gets +1.",
+      "A phase pays 400 Astrite across its reward steps — the score rows ask for about 5,000 points with each team you field."
+    ],
+    "stages": []
+  },
   "budget": [
     { "tag": "F2P", "name": "Xuanling", "members": ["Yangyang: Xuanling", "Mortefi", "Verina"], "how": "Mortefi makes Xuanling's heavy attacks hit much harder on swap-out, and keeps firing extra shots. Verina heals and boosts everyone's attack." },
     { "tag": "F2P", "name": "Hsin Flare", "variant": "Buling", "members": ["Hsin", "Electro Rover", "Buling"], "how": "Electro Rover builds Hsin's Flare marks fast. Buling is the cheap support — she boosts skill damage, no rare gear needed." },
