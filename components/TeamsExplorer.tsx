@@ -73,6 +73,12 @@ function openHashedTeam() {
 }
 
 export default function TeamsExplorer({ model }: { model: TeamsModel }) {
+  /* Live-aware section kickers: once a rotation's reset instant passes, its
+     section must stop calling itself the current reset (the data farm that
+     replaces the picks lands after the reset, not at it). */
+  const clock = useNow(60_000);
+  const resetKicker = (start: string, end: string, nextReset: string) =>
+    `${clock && clock.getTime() >= Date.parse(nextReset) ? "Last" : "Current"} reset · ${dateRange(start, end)}`;
   useEffect(() => {
     openHashedTeam();
     window.addEventListener("hashchange", openHashedTeam);
@@ -241,7 +247,7 @@ export default function TeamsExplorer({ model }: { model: TeamsModel }) {
       <Section
         id="tower"
         title="Tower of Adversity"
-        kicker={`Current reset · ${dateRange(model.tower.resetStart, model.tower.resetEnd)}`}
+        kicker={resetKicker(model.tower.resetStart, model.tower.resetEnd, model.tower.nextReset)}
         blurb="Which teams to send up which tower this reset."
         aside={<RollingCountdown target={model.tower.nextReset} label="Hazard Zone resets in · America server" size="md" />}
       >
@@ -318,7 +324,7 @@ export default function TeamsExplorer({ model }: { model: TeamsModel }) {
       <Section
         id="wastes"
         title="Whimpering Wastes"
-        kicker={`Current reset · ${dateRange(model.wastes.resetStart, model.wastes.resetEnd)}`}
+        kicker={resetKicker(model.wastes.resetStart, model.wastes.resetEnd, model.wastes.nextReset)}
         blurb={model.wastes.teamsLine}
         aside={<RollingCountdown target={model.wastes.nextReset} label="Respawning Waters resets in · America server" size="md" />}
       >

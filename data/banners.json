@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "comment": "Banner schedule. All phase boundary dates are ESTIMATES based on community trackers unless the in-game notice gives an exact time \u2014 mark them as such. Server flip happens at daily reset on the boundary day.",
+    "comment": "Banner schedule. All phase boundary dates are ESTIMATES based on community trackers unless the in-game notice gives an exact time — mark them as such. Server flip happens at daily reset on the boundary day.",
     "updatedAt": "2026-11-06T12:25:00-05:00",
     "version": "3.8",
     "versionTitle": "Lilies in a Dying Dream"
@@ -170,7 +170,7 @@
       ],
       "startsAt": "2026-10-22T04:00:00+08:00",
       "status": "active",
-      "timeNote": "Phase 2 4-star rate-ups per current aggregator consensus (Game8 banner page, sportskeeda, fandomwire, gurugamer \u2014 Oct 2026): Lumi, Danjin, Chixia. An earlier Game8 wiki snapshot listed Yangyang instead; corrected Oct 15, 2026. Still awaiting the in-game Convene notice for official confirmation.",
+      "timeNote": "Phase 2 4-star rate-ups per current aggregator consensus (Game8 banner page, sportskeeda, fandomwire, gurugamer — Oct 2026): Lumi, Danjin, Chixia. An earlier Game8 wiki snapshot listed Yangyang instead; corrected Oct 15, 2026. Still awaiting the in-game Convene notice for official confirmation.",
       "uncertainFields": [
         "startsAt",
         "endsAt"
@@ -291,7 +291,10 @@
           "rarity": 5,
           "type": "Sword"
         }
-      ]
+      ],
+      "image": "/images/lily-splash.webp",
+      "imageAlt": "Official key art for the 3.8 Phase 1 banner — Lily",
+      "imageCredit": "Art: Kuro Games, via Wuthering Waves Wiki"
     },
     {
       "characters": [
@@ -384,7 +387,10 @@
           "rarity": 5,
           "type": "Sword"
         }
-      ]
+      ],
+      "image": "/images/xuanling-splash.webp",
+      "imageAlt": "Official key art for the 3.8 Phase 2 banner — Yangyang: Xuanling",
+      "imageCredit": "Art: Kuro Games, via Wuthering Waves Wiki"
     }
   ],
   "selectors": [
@@ -434,9 +440,18 @@
       "note": "Select one of the four as your target and change your selection at any time. Pity is shared only with other Reverb Weapon convenes.",
       "rule": "No 50/50 on weapons: the weapon you select is guaranteed within 80 pulls. Only pull the one that matches a character you own — each is that character's best-in-slot, and a small upgrade for anyone else.",
       "pool": [
-        { "name": "Red Spring", "forCharacter": "Camellya" },
-        { "name": "Tragicomedy", "forCharacter": "Roccia" },
-        { "name": "Luminous Hymn", "forCharacter": "Phoebe" },
+        {
+          "name": "Red Spring",
+          "forCharacter": "Camellya"
+        },
+        {
+          "name": "Tragicomedy",
+          "forCharacter": "Roccia"
+        },
+        {
+          "name": "Luminous Hymn",
+          "forCharacter": "Phoebe"
+        },
         {
           "name": "Unflickering Valor",
           "forCharacter": "Brant",
@@ -454,7 +469,7 @@
     {
       "endsAt": "2026-10-22T04:00:00+08:00",
       "id": "3.7-phase-1",
-      "note": "Hsin (new, 5\u2605 Electro Rectifier) with Chisa and Iuno reruns.",
+      "note": "Hsin (new, 5★ Electro Rectifier) with Chisa and Iuno reruns.",
       "phase": "Phase 1",
       "startsAt": "2026-09-30T10:00:00+08:00",
       "version": "3.7"
@@ -462,7 +477,7 @@
     {
       "endsAt": "2026-09-30T10:00:00+08:00",
       "id": "3.6-phase-2",
-      "note": "Jingran (new, 5\u2605 Fusion Broadblade) with Hiyuki and Mornye reruns.",
+      "note": "Jingran (new, 5★ Fusion Broadblade) with Hiyuki and Mornye reruns.",
       "phase": "Phase 2",
       "startsAt": "2026-09-10T04:00:00+08:00",
       "version": "3.6"
@@ -470,7 +485,7 @@
     {
       "endsAt": "2026-09-10T04:00:00+08:00",
       "id": "3.6-phase-1",
-      "note": "Qingxiao (new, 5\u2605 Aero Sword) with Denia rerun.",
+      "note": "Qingxiao (new, 5★ Aero Sword) with Denia rerun.",
       "phase": "Phase 1",
       "startsAt": "2026-08-20T10:00:00+08:00",
       "version": "3.6"
