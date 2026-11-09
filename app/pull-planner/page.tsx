@@ -18,7 +18,7 @@ import "./planner.css";
 export const metadata: Metadata = {
   title: "Pull Planner — Who to Pull in Version 3.8",
   description:
-    "Version 3.8 pull planner: Lily's Phase 1 value, the Sigrika and Qiuyuan reruns, picks by account type, and whether to save for Phase 2 — every pick traced to a verified pull verdict.",
+    "Version 3.8 pull planner: Lily's Phase 1 value, the Sigrika and Qiuyuan reruns, picks by account type, and whether to save for Phase 2.",
   alternates: { canonical: "/pull-planner" },
 };
 
