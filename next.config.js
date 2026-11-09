@@ -46,6 +46,11 @@ const nextConfig = {
       { source: "/guides/best-suoming-teams", destination: "/characters/suoming", permanent: true },
       { source: "/guides/best-lynae-teams", destination: "/characters/lynae", permanent: true },
       { source: "/guides/best-lucilla-teams", destination: "/characters/lucilla", permanent: true },
+      // Retired pre-farm guides (mirror of vercel.json; these three were
+      // missing here, so dev/non-export builds disagreed with production).
+      { source: "/pre-farm/suoming", destination: "/characters/suoming", permanent: true },
+      { source: "/pre-farm/lynae", destination: "/characters/lynae", permanent: true },
+      { source: "/pre-farm/lucilla", destination: "/characters/lucilla", permanent: true },
       // Selector guide (not character-specific) -> character hub.
       { source: "/guides/moonlit-path-selector", destination: "/characters", permanent: true },
     ];
