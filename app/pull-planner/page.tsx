@@ -6,7 +6,7 @@ import Availability from "../../components/Availability";
 import PhaseTrack, { type PhaseNode } from "../../components/PhaseTrack";
 import PlannerAccounts, { type AccountPlan } from "../../components/PlannerAccounts";
 import UpdatedStamp from "../../components/UpdatedStamp";
-import { banners, bannerMeta, nextVersion, selectors } from "../../lib/data";
+import { banners, bannerMeta, nextVersion } from "../../lib/data";
 import { characters, getCharacter } from "../../lib/characters";
 import { elementColor } from "../../lib/elements";
 import { getPrefarmGuide } from "../../lib/prefarm";
@@ -64,7 +64,6 @@ function plan(key: string, title: string, profile: string, pick: FiveStarSlug, n
 export default function PullPlannerPage() {
   const p1 = bannerById.get("3.8-phase-1");
   const p2 = bannerById.get("3.8-phase-2");
-  const sel = selectors.find((s) => s.kind === "resonator");
 
   const phases: PhaseNode[] = banners
     .filter((b) => b.version === bannerMeta.version)
@@ -319,7 +318,7 @@ export default function PullPlannerPage() {
                   Havoc main DPS who needs nobody else in the pool.{" "}
                   <strong>Roccia</strong> is the support pick: she groups enemies and
                   boosts Havoc damage, and only makes sense for a Havoc carry you
-                  already own — she is Camellya's best buffer, and Sanhua covers
+                  already own — she is Camellya&#39;s best buffer, and Sanhua covers
                   the same slot for free.
                 </li>
                 <li>
