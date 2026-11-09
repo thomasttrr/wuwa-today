@@ -431,6 +431,7 @@ body.rs .vo-jump a:focus-visible { outline-offset: -3px; }
 .vo-event-rewards { margin: 0; font-size: var(--fs-3); color: var(--rs-ink); }
 .vo-event-rewards span { margin-right: 0.35rem; font-family: var(--rs-mono); font-size: var(--fs-1); letter-spacing: 0.08em; text-transform: uppercase; color: var(--t); }
 .vo-event-note { margin: 0; font-size: var(--fs-2); line-height: 1.5; color: var(--rs-ink-3); }
+.vo-change-tag { margin: 0; font-family: var(--rs-mono); font-size: var(--fs-1); letter-spacing: 0.08em; text-transform: uppercase; color: var(--t); }
 
 /* ----------------------------------------------------------------- codes */
 .vo-codes-tile { max-width: 640px; }

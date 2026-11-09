@@ -7,7 +7,7 @@ import HomeCodes from "../../components/HomeCodes";
 import Reveal from "../../components/Reveal";
 import UpdatedStamp from "../../components/UpdatedStamp";
 import { CharMedal, CharPoster } from "../../components/CharThumb";
-import { activeCodes, bannerMeta, banners, codesUpdatedAt, events, outfits, type GameEvent } from "../../lib/data";
+import { activeCodes, bannerMeta, banners, codesUpdatedAt, events, outfits, versionNotesFor, type GameEvent } from "../../lib/data";
 import { formatServerDay } from "../../lib/dates";
 import { getCharacterByName } from "../../lib/characters";
 import { elementColor } from "../../lib/elements";
@@ -54,6 +54,8 @@ const clockPhases: ClockPhase[] = phases.map((b) => ({
 
 const versionStart = phases[0]?.startsAt;
 const versionEnd = phases[phases.length - 1]?.endsAt;
+
+const versionNotes = versionNotesFor(bannerMeta.version);
 
 const versionEvents: GameEvent[] =
   versionStart && versionEnd
@@ -326,6 +328,33 @@ export default function VersionPage() {
               </div>
             </article>
           </Reveal>
+        </section>
+      )}
+
+      {/* ------------------------------------------- story & system changes */}
+      {versionNotes.length > 0 && (
+        <section className="vo-section" id="vo-changes" aria-labelledby="vo-changes-h">
+          <Reveal>
+            <div className="vo-section-head">
+              <h2 id="vo-changes-h" className="vo-h">
+                Story &amp; system changes
+              </h2>
+              <p className="vo-section-sub">From Kuro&apos;s official {bannerMeta.version} announcement.</p>
+            </div>
+          </Reveal>
+          <ul className="vo-events">
+            {versionNotes.map((n, i) => (
+              <li key={n.title}>
+                <Reveal delay={Math.min(i, 5) * 60} className="vo-event-wrap">
+                  <article className="vo-event vo-change">
+                    <p className="vo-change-tag">{n.tag}</p>
+                    <h3 className="vo-event-name">{n.title}</h3>
+                    <p className="vo-event-desc">{n.text}</p>
+                  </article>
+                </Reveal>
+              </li>
+            ))}
+          </ul>
         </section>
       )}
 

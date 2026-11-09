@@ -2,6 +2,7 @@ import bannersRaw from "../data/banners.json";
 import codesRaw from "../data/codes.json";
 import eventsRaw from "../data/events.json";
 import outfitsRaw from "../data/outfits.json";
+import versionNotesRaw from "../data/version-notes.json";
 
 export type BannerStatus = "active" | "upcoming" | "ended";
 export type CharacterStatus = "new" | "rerun" | "rate-up";
@@ -105,6 +106,19 @@ export interface GameEvent {
 export const banners = (bannersRaw as { banners: Banner[] }).banners;
 export const bannerHistory = (bannersRaw as { history: BannerHistoryEntry[] }).history;
 export const bannerMeta = (bannersRaw as { _meta: { version: string; versionTitle: string; updatedAt: string } })._meta;
+
+export interface VersionNote {
+  tag: string;
+  title: string;
+  text: string;
+}
+
+/** Story & system changes for a version, from the official announcement.
+ *  Empty for versions without an entry — /version hides the section. */
+export function versionNotesFor(version: string): VersionNote[] {
+  const notes = (versionNotesRaw as { notes: Record<string, VersionNote[]> }).notes;
+  return notes[version] ?? [];
+}
 
 // Codes whose announced expiry has passed are dropped at build time so a stale
 // JSON file never advertises a dead code (codes without an expiry stay).
