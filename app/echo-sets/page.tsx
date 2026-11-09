@@ -10,7 +10,7 @@ import UpdatedStamp from "@/components/UpdatedStamp";
 export const metadata: Metadata = {
   title: "Echo Sets Guide — Sworn Vigil, Electric Reflection, Tinged Yearning (3.8)",
   description:
-    "Version 3.7 added three Sonata Effects to Wuthering Waves: Heart of Sworn Vigil, Flash of Electric Reflection, and Flower of Tinged Yearning. Full set bonuses, every member echo by cost, where to farm them, and who each set is actually for — updated for 3.8, where Flower gets its user: Lily.",
+    "Three Wuthering Waves Sonata Effects — Sworn Vigil, Electric Reflection, Tinged Yearning: set bonuses, member echoes, farming spots, and who each set is for in 3.8.",
   alternates: { canonical: "/echo-sets" },
 };
 
