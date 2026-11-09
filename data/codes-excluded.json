@@ -14,6 +14,21 @@
   ],
   "expired": [
     {
+      "code": "TRAINOFSOULS",
+      "expiredAt": "2026-11-08",
+      "notes": "Version 3.8 livestream code"
+    },
+    {
+      "code": "BLOOMINGFLOWERS",
+      "expiredAt": "2026-11-08",
+      "notes": "Version 3.8 livestream code"
+    },
+    {
+      "code": "SCHOOLLIFE",
+      "expiredAt": "2026-11-08",
+      "notes": "Version 3.8 livestream code"
+    },
+    {
       "code": "STARRYSTAGE2",
       "expiredAt": "2026-10-13",
       "notes": "Solaris Starry Stage Season 2 code; 80 Astrite; expired 23:59 (UTC+8) Oct 13"
