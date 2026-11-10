@@ -32,6 +32,7 @@ const nextConfig = {
       { source: "/guides/is-suoming-worth-pulling", destination: "/characters/suoming", permanent: true },
       { source: "/guides/is-lynae-worth-pulling", destination: "/characters/lynae", permanent: true },
       { source: "/guides/is-lucilla-worth-pulling", destination: "/characters/lucilla", permanent: true },
+      { source: "/guides/is-lily-worth-pulling", destination: "/characters/lily", permanent: true },
       // Build guides -> character pages.
       { source: "/guides/hsin-build-guide", destination: "/characters/hsin", permanent: true },
       { source: "/guides/iuno-build-guide", destination: "/characters/iuno", permanent: true },

@@ -71,6 +71,11 @@
       "permanent": true
     },
     {
+      "source": "/guides/is-lily-worth-pulling",
+      "destination": "/characters/lily",
+      "permanent": true
+    },
+    {
       "source": "/guides/is-lynae-worth-pulling",
       "destination": "/characters/lynae",
       "permanent": true
