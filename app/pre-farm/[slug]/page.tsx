@@ -172,7 +172,7 @@ function PartialSections({ guide }: { guide: PrefarmGuide }) {
           <ObsidianSectionHead
             id="still-to-come"
             title="Still to come"
-            blurb="Still unpublished — these land here once they can be verified in-game at launch."
+            blurb="Still to verify — these land here once they can be checked in-game at launch."
           />
           <Reveal>
             <div className="og-notice" role="note">
@@ -310,8 +310,9 @@ export default async function PrefarmPage({
             {guide.partial ? (
               <p>
                 <strong>Partial guide.</strong> {guide.character}&apos;s kit
-                has been revealed, but the official material list and final
-                kit numbers are still unpublished — so this page covers what
+                has been revealed and her material names are official, but
+                the quantities and final kit numbers are still unpublished
+                — so this page covers what
                 is confirmed today, and labels everything sourced from beta
                 coverage as beta. Full materials and farming routes land
                 here once they can be verified in-game at launch.
