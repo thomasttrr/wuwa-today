@@ -151,6 +151,7 @@ const ECHO_SET_ICONS: Record<string, string> = {
   "Crown of Valor": "crown-of-valor",
   "Eternal Radiance": "eternal-radiance",
   "Flash of Electric Reflection": "flash-of-electric-reflection",
+  "Flower of Tinged Yearning": "flower-of-tinged-yearning",
   "Havoc Eclipse": "havoc-eclipse",
   "Rite of Gilded Revelation": "rite-of-gilded-revelation",
   "Windward Pilgrimage": "windward-pilgrimage",
