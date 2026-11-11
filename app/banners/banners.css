@@ -49,6 +49,11 @@
 .bn-stage-sub { margin: 0 0 0.6rem; color: var(--rs-ink-2); font-size: 1.05rem; }
 .bn-stage-dates { margin: 0; font-family: var(--rs-mono); font-size: var(--fs-2); color: var(--rs-ink-3); }
 .bn-stage-empty { min-height: 0; }
+/* Empty state has no art, so the legibility veil comes off (it painted
+   over the title and sub) and the display title drops to page-hero size
+   instead of the character-name stage size that clipped "Banners". */
+.bn-stage-empty::after { display: none; }
+.bn-stage-empty .bn-stage-title { font-size: clamp(2.4rem, 6vw, 3.6rem); line-height: 1; }
 
 @media (prefers-reduced-motion: no-preference) {
   .bn-stage-title { animation: rs-rise var(--rs-d3) var(--rs-spring) both; }
@@ -62,6 +67,8 @@
     background: linear-gradient(0deg, var(--rs-surface) 46%, color-mix(in oklch, var(--rs-surface) 50%, transparent) 64%, transparent 85%);
   }
   .bn-stage-title { font-size: clamp(2.8rem, 15vw, 4.5rem); }
+  /* No art in the empty state, so no 72% art shelf on phones either. */
+  .bn-stage-empty { padding-top: 1.25rem; }
 }
 
 /* --- sections --- */

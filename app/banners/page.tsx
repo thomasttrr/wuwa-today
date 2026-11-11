@@ -113,6 +113,7 @@ interface TimelineNode {
 
 export default function BannersPage() {
   const live = activeBanners[0];
+  const next = upcomingBanners[0];
   const lead = live?.characters[0];
   const fiveStars = live?.characters.filter((c) => c.rarity === 5) ?? [];
   const fourStars = live?.characters.filter((c) => c.rarity === 4) ?? [];
@@ -191,9 +192,18 @@ export default function BannersPage() {
           </div>
         </section>
       ) : (
-        <header className="bn-stage bn-stage-empty">
-          <h1 className="bn-stage-title">Banners</h1>
-          <p className="bn-stage-sub">No live banner right now. Check back after the next version livestream.</p>
+        <header className="bn-stage bn-stage-empty" aria-labelledby="bn-title">
+          <div className="bn-stage-body">
+            <p className="rs-kicker">Convene</p>
+            <h1 id="bn-title" className="bn-stage-title">
+              Banners
+            </h1>
+            <p className="bn-stage-sub">
+              {next
+                ? `No live banner right now. Next up: ${next.characters[0]?.name ?? "the next banner"} — Version ${next.version} ${next.phase}, from ${formatServerDate(next.startsAt)} (server time).`
+                : "No live banner right now. Check back after the next version livestream."}
+            </p>
+          </div>
         </header>
       )}
 

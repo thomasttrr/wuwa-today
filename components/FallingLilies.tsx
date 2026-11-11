@@ -8,7 +8,7 @@ import type { CSSProperties } from "react";
  * identical markup on every build — no Math.random, no hydration drift.
  */
 
-const TONES = ["#fdf6f9", "#f9dce9", "#f5c6da", "#fdf6f9", "#f9dce9", "#f6d789"];
+const TONES = ["#ffffff", "#fdf6fb", "#f9dce9", "#f3c3dd", "#e7d3f8", "#d8bce9"];
 
 type Petal = {
   left: number;
@@ -36,7 +36,7 @@ function petalAt(i: number): Petal {
     drift: 16 + r(6) * 28,
     spin: -38 + Math.round(r(7) * 76),
     tone: TONES[i % TONES.length],
-    opacity: 0.5 + r(8) * 0.45,
+    opacity: 0.26 + r(8) * 0.24,
   };
 }
 
