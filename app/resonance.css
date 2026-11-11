@@ -1259,3 +1259,17 @@ html { scroll-padding-bottom: calc(6.5rem + env(safe-area-inset-bottom)); }
 .lc-open { font-family: var(--rs-mono); color: var(--rs-ink-2); white-space: nowrap; }
 @media (max-width: 560px) { .lc-row { flex-direction: column; gap: 0.1rem; } .lc-open { align-self: flex-end; } }
 @media (prefers-reduced-motion: reduce) { .lc-card, .lc-card::after, .lc-dot, .lc-num { animation: none; } .lc-progress-fill { transition: none; } }
+
+/* FallingLilies — decorative petal drift for Lily's launch. The falling
+   span is as tall as its layer, so translateY % tracks the layer height.
+   Motion only under no-preference; the layer is gone entirely on reduce. */
+.fl-layer { position: absolute; inset: 0; overflow: clip; pointer-events: none; border-radius: inherit; z-index: 5; }
+.fl-fall { position: absolute; top: 0; height: 100%; }
+.fl-sway { display: block; }
+@media (prefers-reduced-motion: no-preference) {
+  .fl-fall { animation: fl-fall var(--fl-fall, 14s) linear var(--fl-delay, 0s) infinite; }
+  .fl-sway { animation: fl-sway var(--fl-sway, 3.4s) ease-in-out infinite alternate; }
+}
+@keyframes fl-fall { from { transform: translateY(-14%); } to { transform: translateY(103%); } }
+@keyframes fl-sway { from { transform: translateX(calc(var(--fl-drift, 24px) * -1)) rotate(calc(var(--fl-spin, 24deg) * -1)); } to { transform: translateX(var(--fl-drift, 24px)) rotate(var(--fl-spin, 24deg)); } }
+@media (prefers-reduced-motion: reduce) { .fl-layer { display: none; } }

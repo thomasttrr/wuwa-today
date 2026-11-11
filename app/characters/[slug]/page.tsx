@@ -1,5 +1,6 @@
 import { ViewTransition, type CSSProperties, type ReactNode } from "react";
 import ElementTheme from "@/components/ElementTheme";
+import FallingLilies from "@/components/FallingLilies";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -329,6 +330,7 @@ export default async function CharacterPage({
         style={{ "--el": el } as CSSProperties}
       >
         <ElementTheme color={el} />
+        {slug === "lily" && <FallingLilies count={10} />}
         {render ? (
           <>
             <span

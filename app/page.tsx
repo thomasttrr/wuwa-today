@@ -7,6 +7,7 @@ import HomeCodes from "../components/HomeCodes";
 import HomeEndingSoon from "../components/HomeEndingSoon";
 import HomeUpNext, { type UpNextPhase } from "../components/HomeUpNext";
 import HomeLaunchStrip from "../components/HomeLaunchStrip";
+import FallingLilies from "../components/FallingLilies";
 import LaunchCountdown from "../components/LaunchCountdown";
 import NextVersionNote from "../components/NextVersionNote";
 import Reveal from "../components/Reveal";
@@ -190,6 +191,7 @@ export default function HomePage() {
                   loading="eager"
                   fetchPriority="high"
                 />
+                <FallingLilies count={12} />
                 <div className="rs-banner-body">
                   <p className="rs-kicker">
                     Featured · {lead.element} · {banner.version} {banner.phase}
@@ -254,6 +256,7 @@ export default function HomePage() {
           ) : (
             <div className="rs-tile-banner-wrap">
               <article className="rs-tile">
+                <FallingLilies count={12} />
                 <p className="og-empty">No live banners right now. Check back after the next version livestream.</p>
               </article>
             </div>
