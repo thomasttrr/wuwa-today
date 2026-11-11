@@ -14,6 +14,7 @@ import launch from "../data/launch.json";
 
 const T = {
   predownload: Date.parse(launch.predownloadOpensAt),
+  compensation: Date.parse(launch.compensationDeadlineAt),
   maintenance: Date.parse(launch.maintenanceStartsAt),
   goLive: Date.parse(launch.goLiveAt),
 };
@@ -25,9 +26,11 @@ export default function HomeLaunchStrip({ builtAt }: { builtAt: number }) {
   if (now >= T.goLive) return null;
 
   const text =
-    now >= T.predownload
-      ? "Pre-download is open now. One deadline: Mail must be unlocked before Wed 3:00 PM ET to get the 300 Astrite compensation."
-      : "Pre-download opens Mon, Nov 9 · 9:00 PM ET. Mail must be unlocked before Wed 3:00 PM ET to get the 300 Astrite compensation.";
+    now >= T.compensation
+      ? "Pre-download is open now. The window for the 300 Astrite compensation closed Wed 3:00 PM ET."
+      : now >= T.predownload
+        ? "Pre-download is open now. One deadline: Mail must be unlocked before Wed 3:00 PM ET to get the 300 Astrite compensation."
+        : "Pre-download opens Mon, Nov 9 · 9:00 PM ET. Mail must be unlocked before Wed 3:00 PM ET to get the 300 Astrite compensation.";
 
   return (
     <p className="rs-broadcast">
