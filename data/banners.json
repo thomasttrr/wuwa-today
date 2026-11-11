@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "comment": "Banner schedule. All phase boundary dates are ESTIMATES based on community trackers unless the in-game notice gives an exact time — mark them as such. Server flip happens at daily reset on the boundary day.",
+    "comment": "Banner schedule. All phase boundary dates are ESTIMATES based on community trackers unless the in-game notice gives an exact time \u2014 mark them as such. Server flip happens at daily reset on the boundary day.",
     "updatedAt": "2026-11-06T12:25:00-05:00",
     "version": "3.8",
     "versionTitle": "Lilies in a Dying Dream"
@@ -156,7 +156,7 @@
         }
       ],
       "confidence": "high",
-      "endsAt": "2026-11-11T04:00:00+08:00",
+      "endsAt": "2026-11-11T11:59:00+08:00",
       "id": "3.7-phase-2",
       "phase": "Phase 2",
       "sources": [
@@ -168,13 +168,9 @@
         "https://themagicrain.com/2026/10/wuthering-waves-version-3-7-prisms-illusion-hearts-illumination-now-available/",
         "https://game8.co/games/Wuthering-Waves/archives/456482"
       ],
-      "startsAt": "2026-10-22T04:00:00+08:00",
+      "startsAt": "2026-10-22T10:00:00+08:00",
       "status": "active",
-      "timeNote": "Phase 2 4-star rate-ups per current aggregator consensus (Game8 banner page, sportskeeda, fandomwire, gurugamer — Oct 2026): Lumi, Danjin, Chixia. An earlier Game8 wiki snapshot listed Yangyang instead; corrected Oct 15, 2026. Still awaiting the in-game Convene notice for official confirmation.",
-      "uncertainFields": [
-        "startsAt",
-        "endsAt"
-      ],
+      "timeNote": "Phase 2 4-star rate-ups per current aggregator consensus (Game8 banner page, sportskeeda, fandomwire, gurugamer \u2014 Oct 2026): Lumi, Danjin, Chixia. An earlier Game8 wiki snapshot listed Yangyang instead; corrected Oct 15, 2026. Still awaiting the in-game Convene notice for official confirmation.",
       "version": "3.7",
       "weapons": [
         {
@@ -255,7 +251,7 @@
         }
       ],
       "confidence": "high",
-      "endsAt": "2026-12-03T04:00:00+08:00",
+      "endsAt": "2026-12-03T09:59:00+08:00",
       "id": "3.8-phase-1",
       "phase": "Phase 1",
       "sources": [
@@ -293,7 +289,7 @@
         }
       ],
       "image": "/images/lily-splash.webp",
-      "imageAlt": "Official key art for the 3.8 Phase 1 banner — Lily",
+      "imageAlt": "Official key art for the 3.8 Phase 1 banner \u2014 Lily",
       "imageCredit": "Art: Kuro Games, via Wuthering Waves Wiki"
     },
     {
@@ -351,7 +347,7 @@
         }
       ],
       "confidence": "high",
-      "endsAt": "2026-12-21T10:00:00+08:00",
+      "endsAt": "2026-12-21T11:59:00+08:00",
       "id": "3.8-phase-2",
       "phase": "Phase 2",
       "sources": [
@@ -389,7 +385,7 @@
         }
       ],
       "image": "/images/xuanling-splash.webp",
-      "imageAlt": "Official key art for the 3.8 Phase 2 banner — Yangyang: Xuanling",
+      "imageAlt": "Official key art for the 3.8 Phase 2 banner \u2014 Yangyang: Xuanling",
       "imageCredit": "Art: Kuro Games, via Wuthering Waves Wiki"
     }
   ],
@@ -401,27 +397,27 @@
       "conveneLabel": "Reverb Resonator Convene",
       "startsAt": "2026-11-12T10:00:00+08:00",
       "endsAt": "2026-12-21T10:00:00+08:00",
-      "note": "Select one of the four as your rate-up and change your selection at any time. The 50/50 still applies — lose it and a standard 5-star can land instead. Pity and guarantee are shared only with other Reverb Resonator convenes; they do not touch the featured banners.",
+      "note": "Select one of the four as your rate-up and change your selection at any time. The 50/50 still applies \u2014 lose it and a standard 5-star can land instead. Pity and guarantee are shared only with other Reverb Resonator convenes; they do not touch the featured banners.",
       "pool": [
         {
           "name": "Phoebe",
           "pickIf": "you own Zani",
-          "reason": "She piles on the Spectro Frazzle stacks and Zani cashes them in — that pair is a finished team core. Without Zani she is a niche pick; with her, she is the reason to open this banner."
+          "reason": "She piles on the Spectro Frazzle stacks and Zani cashes them in \u2014 that pair is a finished team core. Without Zani she is a niche pick; with her, she is the reason to open this banner."
         },
         {
           "name": "Brant",
           "pickIf": "you own Lupa",
-          "reason": "Lupa's Fusion engine: her resistance shred and Fusion buffs, his damage, healing and shields. His best build wants his signature weapon — that is what Tideforge is for."
+          "reason": "Lupa's Fusion engine: her resistance shred and Fusion buffs, his damage, healing and shields. His best build wants his signature weapon \u2014 that is what Tideforge is for."
         },
         {
           "name": "Camellya",
           "pickIf": "you need a Havoc carry",
-          "reason": "A real Havoc main DPS who works with Sanhua, who is free. Newer carries have power-crept her, so this is a playstyle pick or a second Havoc team for Tower and Wastes — not a meta pick."
+          "reason": "A real Havoc main DPS who works with Sanhua, who is free. Newer carries have power-crept her, so this is a playstyle pick or a second Havoc team for Tower and Wastes \u2014 not a meta pick."
         },
         {
           "name": "Roccia",
           "pickIf": "you own Camellya",
-          "reason": "Camellya's best buffer: Havoc buffs and enemy grouping in one slot. Without Camellya she has no team — Sanhua covers everyone else for free."
+          "reason": "Camellya's best buffer: Havoc buffs and enemy grouping in one slot. Without Camellya she has no team \u2014 Sanhua covers everyone else for free."
         }
       ],
       "sources": [
@@ -438,7 +434,7 @@
       "startsAt": "2026-11-12T10:00:00+08:00",
       "endsAt": "2026-12-21T10:00:00+08:00",
       "note": "Select one of the four as your target and change your selection at any time. Pity is shared only with other Reverb Weapon convenes.",
-      "rule": "No 50/50 on weapons: the weapon you select is guaranteed within 80 pulls. Only pull the one that matches a character you own — each is that character's best-in-slot, and a small upgrade for anyone else.",
+      "rule": "No 50/50 on weapons: the weapon you select is guaranteed within 80 pulls. Only pull the one that matches a character you own \u2014 each is that character's best-in-slot, and a small upgrade for anyone else.",
       "pool": [
         {
           "name": "Red Spring",
@@ -455,7 +451,7 @@
         {
           "name": "Unflickering Valor",
           "forCharacter": "Brant",
-          "note": "The one signature here that changes the build — Brant's best setup nearly requires it."
+          "note": "The one signature here that changes the build \u2014 Brant's best setup nearly requires it."
         }
       ],
       "sources": [
@@ -469,7 +465,7 @@
     {
       "endsAt": "2026-10-22T04:00:00+08:00",
       "id": "3.7-phase-1",
-      "note": "Hsin (new, 5★ Electro Rectifier) with Chisa and Iuno reruns.",
+      "note": "Hsin (new, 5\u2605 Electro Rectifier) with Chisa and Iuno reruns.",
       "phase": "Phase 1",
       "startsAt": "2026-09-30T10:00:00+08:00",
       "version": "3.7"
@@ -477,7 +473,7 @@
     {
       "endsAt": "2026-09-30T10:00:00+08:00",
       "id": "3.6-phase-2",
-      "note": "Jingran (new, 5★ Fusion Broadblade) with Hiyuki and Mornye reruns.",
+      "note": "Jingran (new, 5\u2605 Fusion Broadblade) with Hiyuki and Mornye reruns.",
       "phase": "Phase 2",
       "startsAt": "2026-09-10T04:00:00+08:00",
       "version": "3.6"
@@ -485,7 +481,7 @@
     {
       "endsAt": "2026-09-10T04:00:00+08:00",
       "id": "3.6-phase-1",
-      "note": "Qingxiao (new, 5★ Aero Sword) with Denia rerun.",
+      "note": "Qingxiao (new, 5\u2605 Aero Sword) with Denia rerun.",
       "phase": "Phase 1",
       "startsAt": "2026-08-20T10:00:00+08:00",
       "version": "3.6"
