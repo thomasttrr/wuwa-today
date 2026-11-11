@@ -463,6 +463,14 @@
   ],
   "history": [
     {
+      "endsAt": "2026-11-11T11:59:00+08:00",
+      "id": "3.7-phase-2",
+      "note": "Suoming (new, 5\u2605 Electro Sword) with Lynae and Lucilla reruns.",
+      "phase": "Phase 2",
+      "startsAt": "2026-10-22T10:00:00+08:00",
+      "version": "3.7"
+    },
+    {
       "endsAt": "2026-10-22T04:00:00+08:00",
       "id": "3.7-phase-1",
       "note": "Hsin (new, 5\u2605 Electro Rectifier) with Chisa and Iuno reruns.",
