@@ -3,6 +3,8 @@ import codesRaw from "../data/codes.json";
 import eventsRaw from "../data/events.json";
 import outfitsRaw from "../data/outfits.json";
 import versionNotesRaw from "../data/version-notes.json";
+import launchRaw from "../data/launch.json";
+import { formatServerDate } from "./dates";
 
 export type BannerStatus = "active" | "upcoming" | "ended";
 export type CharacterStatus = "new" | "rerun" | "rate-up";
@@ -241,3 +243,24 @@ export {
   nextWeeklyReset,
 } from "./dates";
 export type { ServerOption } from "./dates";
+// Empty-state line for the banners page and the homepage tile. When the
+// next banner is the tracked version launch and go-live is still ahead,
+// say so in reader time (ET) instead of only the server date — "Nov 12
+// (server time)" reads as tomorrow night to a US reader on launch day.
+export function nextBannerLine(next: Banner, builtAt: number): string {
+  const name = next.characters[0]?.name ?? "the next banner";
+  const launch = launchRaw as { version: string; goLiveAt: string };
+  const goLive = new Date(launch.goLiveAt).getTime();
+  if (launch.version === next.version && goLive > builtAt) {
+    const dayFmt = new Intl.DateTimeFormat("en-US", {
+      timeZone: "America/New_York", year: "numeric", month: "numeric", day: "numeric",
+    });
+    const tonight = dayFmt.format(goLive) === dayFmt.format(builtAt);
+    const time = new Intl.DateTimeFormat("en-US", {
+      timeZone: "America/New_York", hour: "numeric",
+    }).format(goLive);
+    return `No live banner right now. Next up: ${name} — Version ${next.version} ${next.phase} opens ${tonight ? "tonight" : "on launch day"} after maintenance, ~${time} ET (${formatServerDate(next.startsAt)} server time).`;
+  }
+  return `No live banner right now. Next up: ${name} — Version ${next.version} ${next.phase}, from ${formatServerDate(next.startsAt)} (server time).`;
+}
+

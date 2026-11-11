@@ -14,6 +14,7 @@ import {
   bannerMeta,
   nextVersion,
   formatServerDate,
+  nextBannerLine,
   type Banner,
   type GameCharacter,
 } from "../../lib/data";
@@ -200,7 +201,7 @@ export default function BannersPage() {
             </h1>
             <p className="bn-stage-sub">
               {next
-                ? `No live banner right now. Next up: ${next.characters[0]?.name ?? "the next banner"} — Version ${next.version} ${next.phase}, from ${formatServerDate(next.startsAt)} (server time).`
+                ? nextBannerLine(next, BUILT_AT)
                 : "No live banner right now. Check back after the next version livestream."}
             </p>
           </div>

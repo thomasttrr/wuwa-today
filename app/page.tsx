@@ -17,6 +17,7 @@ import WaveProgress from "../components/WaveProgress";
 import { YourTime } from "../components/LocalTime";
 import { srcSetFor } from "../lib/images";
 import {
+  nextBannerLine,
   activeBanners,
   activeCodes,
   events,
@@ -257,7 +258,7 @@ export default function HomePage() {
             <div className="rs-tile-banner-wrap">
               <article className="rs-tile">
                 <FallingLilies count={12} />
-                <p className="og-empty">No live banners right now. Check back after the next version livestream.</p>
+                <p className="og-empty">{upcomingBanners[0] ? nextBannerLine(upcomingBanners[0], BUILT_AT) : "No live banners right now. Check back after the next version livestream."}</p>
               </article>
             </div>
           )}
