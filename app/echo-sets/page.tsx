@@ -160,7 +160,7 @@ const SETS: EchoSet[] = [
     ],
     farm: "Heart of Stillness Tacet Field in the Simulacrum Nexus of Mengzhou, plus the Tacet Discord Nests in Mengzhou (up to 90 echoes a day without spending Waveplates, though drops are shared with Mengzhou's other Sonata Effects).",
     stats:
-      "4-3-3-1-1 layout. Main echo: Formrender. 4-cost: Healing Bonus (HP% is the alternate). 3-costs: Energy Regen on both. 1-costs: HP% on both. Aim for roughly 260% Energy Regen in total. These are the pre-release consensus numbers from the broadcast kit — the final check lands at launch on Nov 12.",
+      "3-4-3-1-1 layout. Main echo: Formrender (3-cost — it headlines this set, so the 4-cost sits second). 4-cost: Healing Bonus (HP% is the alternate). 3-costs: Energy Regen on both. 1-costs: HP% on both. Aim for roughly 260% Energy Regen in total. These are the pre-release consensus numbers from the broadcast kit — the final check lands at launch on Nov 12.",
   },
 ];
 
