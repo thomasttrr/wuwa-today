@@ -319,7 +319,7 @@ export default function EchoSetsGuide() {
       <OgPageHero
         kicker="Echo sets · Version 3.8"
         title="Three new sets, two worth farming"
-        lede="Every Sonata Effect in the game — bonuses, member echoes, and farm routes, each fact checked against two or more independent sources. The newest are Version 3.8's pair for Lily: a Unison healer set and an Echo Skill set, on top of 3.7's two Electro sets."
+        lede="The three newest Sonata Effects — Flower of Tinged Yearning, Heart of Sworn Vigil, and Flash of Electric Reflection — with every bonus, member echo, and farm route, each fact checked against two or more independent sources. For any other set, each character's build page names the set they want and where it fits."
         meta={<UpdatedStamp />}
       />
 

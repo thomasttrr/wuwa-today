@@ -94,7 +94,9 @@ export default function PrefarmIndex() {
       {upcoming.length === 0 && (
         <p className="og-section-blurb">
           No farming guides are live right now — guides are added once a
-          banner&apos;s details are confirmed.
+          banner&apos;s details are confirmed. Farming for the December 3
+          reruns? The full pre-farm lists for Yangyang: Xuanling, Suisui, and
+          Hiyuki are on the <Link href="/phase-2">Phase 2 page</Link>.
         </p>
       )}
     </>
