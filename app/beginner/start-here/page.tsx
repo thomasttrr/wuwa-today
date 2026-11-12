@@ -209,7 +209,7 @@ export default function BeginnerStartHere() {
         Shotgun (pity/voucher), beebom (Echo System, launch events), Pocket
         Tactics &amp; Siliconera (Union Level rewards). Baizhi&apos;s
         tutorial-convene acquisition currently has one strong source — noted
-        above. Echo details verified as of version 3.7.
+        above. Echo details verified as of version 3.8.
       </p>
     </>
   );

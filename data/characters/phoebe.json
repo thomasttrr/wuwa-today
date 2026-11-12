@@ -100,7 +100,7 @@
       "ATK%",
       "Flat ATK"
     ],
-    "uncertain_or_prerelease": true
+    "uncertain_or_prerelease": false
   },
   "game_version": "3.7",
   "name": "Phoebe",

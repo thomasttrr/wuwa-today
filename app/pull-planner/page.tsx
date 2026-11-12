@@ -140,8 +140,8 @@ export default function PullPlannerPage() {
                 <li>
                   <strong>What Lily is:</strong> a 5-star Spectro Pistols
                   healer/support whose buffs are strongest in Unison and Echo
-                  Skill teams — kit confirmed at the Nov 6 broadcast, numbers
-                  still beta until launch.
+                  Skill teams — kit confirmed at the Nov 6 broadcast; all
+                  numbers verified against the shipped game at launch.
                 </li>
                 <li>
                   <strong>Pull Lily if:</strong> you run Unison or Echo teams,
@@ -382,7 +382,7 @@ export default function PullPlannerPage() {
       <p className="pp-note">
         All picks trace to the verified pull verdicts above. Lily&apos;s verdict
         was published Nov 6, 2026 from broadcast-confirmed info; her kit numbers
-        stay labelled beta until the Nov 12 launch check. All dates are server
+        were verified against the shipped game at launch on Nov 12, 2026. All dates are server
         time (UTC+8).
       </p>
       <UpdatedStamp />

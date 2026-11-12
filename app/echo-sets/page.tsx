@@ -317,9 +317,9 @@ export default function EchoSetsGuide() {
       </Link>
 
       <OgPageHero
-        kicker="Echo sets · Version 3.7"
+        kicker="Echo sets · Version 3.8"
         title="Three new sets, two worth farming"
-        lede="Version 3.7 added three Sonata Effects: two Electro sets that split the patch's new teams between carry and support, and a healer set whose character doesn't exist yet. Here is every bonus, member echo, and farm route — each fact checked against two or more independent sources."
+        lede="Every Sonata Effect in the game — bonuses, member echoes, and farm routes, each fact checked against two or more independent sources. The newest are Version 3.8's pair for Lily: a Unison healer set and an Echo Skill set, on top of 3.7's two Electro sets."
         meta={<UpdatedStamp />}
       />
 

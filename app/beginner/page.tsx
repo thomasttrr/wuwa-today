@@ -90,7 +90,7 @@ export default function BeginnerHub() {
       </div>
 
       <p className="og-version-note">
-        Beginner banners are re-verified in game version 3.7. The newer New
+        Beginner banners were last re-verified in game version 3.7. The newer New
         Voyage Companions flow is still being confirmed for fresh accounts — see
         the Convene guide for what&apos;s verified so far.
       </p>

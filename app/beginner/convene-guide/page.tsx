@@ -118,7 +118,7 @@ export default function BeginnerConveneGuide() {
                 <li>
                   <strong>
                     We haven&apos;t verified which flow fresh accounts see
-                    first in 3.7.
+                    first in 3.8.
                   </strong>{" "}
                   If your account shows New Voyage Companions instead of
                   Beginner&apos;s Choice, that&apos;s the current flow — and
@@ -233,7 +233,7 @@ export default function BeginnerConveneGuide() {
         Sources: Game8 (Beginner&apos;s Choice, New Voyage Companions), Rock
         Paper Shotgun (pity, voucher), Eurogamer (banner list), ScreenRant
         &amp; shattered.io (pity rules). New Voyage Companions flow is
-        documented by Game8 but unverified for fresh accounts in 3.7.
+        documented by Game8 but unverified for fresh accounts in 3.8.
       </p>
     </>
   );
