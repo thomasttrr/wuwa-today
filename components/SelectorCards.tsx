@@ -133,8 +133,13 @@ function WeaponCard({ s }: { s: SelectorConvene }) {
   );
 }
 
+/* Build-time snapshot for the static export (same pattern as the banners
+ * page's BUILT_AT): which selectors are still running is decided when the
+ * site is built, and phase-boundary rebuilds refresh it. */
+const BUILT_AT = Date.now();
+
 export default function SelectorCards() {
-  const now = Date.now();
+  const now = BUILT_AT;
   const live = selectors.filter((s) => Date.parse(s.endsAt) > now);
   if (!live.length) return null;
   return (
