@@ -160,7 +160,7 @@ const SETS: EchoSet[] = [
     ],
     farm: "Heart of Stillness Tacet Field in the Simulacrum Nexus of Mengzhou, plus the Tacet Discord Nests in Mengzhou (up to 90 echoes a day without spending Waveplates, though drops are shared with Mengzhou's other Sonata Effects).",
     stats:
-      "3-4-3-1-1 layout. Main echo: Formrender (3-cost — it headlines this set, so the 4-cost sits second). 4-cost: Healing Bonus (HP% is the alternate). 3-costs: Energy Regen on both. 1-costs: HP% on both. Aim for roughly 260% Energy Regen in total. These are the pre-release consensus numbers from the broadcast kit — the final check lands at launch on Nov 12.",
+      "3-4-3-1-1 layout. Main echo: Formrender (3-cost — it headlines this set, so the 4-cost sits second). 4-cost: Healing Bonus (HP% is the alternate). 3-costs: Energy Regen on both. 1-costs: HP% on both. Aim for roughly 260% Energy Regen in total. These match the build numbers on Lily's page, checked against her live kit at the Version 3.8 launch.",
   },
 ];
 
@@ -432,14 +432,13 @@ export default function EchoSetsGuide() {
               </li>
               <li>
                 <strong>Heart of Stillness Tacet Field</strong> — Flower of Tinged
-                Yearning&rsquo;s field. The pre-farm priority if you&rsquo;re pulling
+                Yearning&rsquo;s field. The farm if you&rsquo;re building
                 Lily; otherwise your Waveplates are worth more in Heart of Flames.
               </li>
               <li>
-                <strong>Chord Cleansing, Nov 4–11</strong> — the recurring event
-                doubles Tacet Field echo drops for its final-week run. If you
-                can wait, it is the cheapest window to finish both Electro sets
-                and Flower before 3.8 lands.
+                <strong>Chord Cleansing, Dec 14–21</strong> — the recurring event
+                doubles Tacet Field echo drops for a week. If you can wait, it
+                is the cheapest window to finish both Electro sets and Flower.
               </li>
             </ul>
           </div>
@@ -459,9 +458,8 @@ export default function EchoSetsGuide() {
         <Link href="/characters/hsin">Hsin</Link> and{" "}
         <Link href="/characters/suoming">Suoming</Link> build pages for the
         per-character versions of these recommendations. Flower of Tinged
-        Yearning&rsquo;s user (Lily, 3.8) was confirmed at the Nov 6 version
-        broadcast; her build numbers here are the pre-release consensus and are
-        labeled that way until the Nov 12 launch check.
+        Yearning&rsquo;s user is Lily (3.8); her build numbers here were
+        checked against her live build at the 3.8 launch.
       </p>
     </>
   );

@@ -124,6 +124,11 @@
       "source": "/pre-farm/lucilla",
       "destination": "/characters/lucilla",
       "permanent": true
+    },
+    {
+      "source": "/pre-farm/lily",
+      "destination": "/characters/lily",
+      "permanent": true
     }
   ],
   "headers": [

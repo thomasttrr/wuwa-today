@@ -52,6 +52,7 @@ const nextConfig = {
       { source: "/pre-farm/suoming", destination: "/characters/suoming", permanent: true },
       { source: "/pre-farm/lynae", destination: "/characters/lynae", permanent: true },
       { source: "/pre-farm/lucilla", destination: "/characters/lucilla", permanent: true },
+      { source: "/pre-farm/lily", destination: "/characters/lily", permanent: true },
       // Selector guide (not character-specific) -> character hub.
       { source: "/guides/moonlit-path-selector", destination: "/characters", permanent: true },
     ];
