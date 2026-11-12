@@ -19,6 +19,7 @@ export const NAV_ITEMS: NavItem[] = [
   { href: "/banners", label: "Banners", group: "Live", hint: "Live, upcoming, history" },
   { href: "/version", label: "Version Overview", short: "Version", group: "Live", hint: "Everything in the current patch" },
   { href: "/events", label: "Events", group: "Live", hint: "What's live and ending soon" },
+  { href: "/leaks", label: "Leaks", group: "Live", hint: "4.0+ leaks and rumors, evidence-tagged" },
   { href: "/characters", label: "Characters", group: "Characters & builds", hint: "Builds for every Resonator" },
   { href: "/teams", label: "Teams", group: "Characters & builds", hint: "Best teams, Tower, Whimpering Wastes" },
   { href: "/tier-list", label: "Tier List", group: "Characters & builds", hint: "Current rankings" },
@@ -33,9 +34,9 @@ export const NAV_ITEMS: NavItem[] = [
 export const NAV_GROUPS: NavGroup[] = ["Live", "Characters & builds", "Plan", "Learn"];
 
 /** Always-visible tabs on phones (the rest live under More). */
-export const MOBILE_PRIMARY = ["/", "/banners", "/characters", "/teams"];
+export const MOBILE_PRIMARY = ["/", "/banners", "/characters", "/teams", "/leaks"];
 /** Always-visible tabs on desktop. */
-export const DESKTOP_PRIMARY = ["/", "/banners", "/events", "/characters", "/teams", "/tier-list"];
+export const DESKTOP_PRIMARY = ["/", "/banners", "/events", "/characters", "/teams", "/tier-list", "/leaks"];
 
 /** Window event that opens the command palette. */
 export const SEARCH_EVENT = "wuwa-today:search";
