@@ -1,11 +1,18 @@
 "use client";
 
+import { useId } from "react";
 import useNow from "./useNow";
 
 /**
  * WaveProgress — time remaining drawn as a thin sine waveform. The full
  * wave is a dim track; the element-colored stroke covers what's left and
- * drains as time passes. Draws itself in once on first paint (CSS).
+ * drains as time passes.
+ *
+ * The fill is the same path shown through a clip rect of width `left`.
+ * It used to be a stroke-dasharray sized via pathLength={1}; WebKit can
+ * resolve that dash math in raw path units instead, which draws the fill
+ * as dashes/dots along the wave (seen on iOS). A clip rect needs no dash
+ * math and renders identically everywhere.
  */
 export default function WaveProgress({
   start,
@@ -17,6 +24,7 @@ export default function WaveProgress({
   label: string;
 }) {
   const now = useNow(30_000);
+  const clipId = useId();
   const s = new Date(start).getTime();
   const e = new Date(end).getTime();
   const span = e - s;
@@ -28,13 +36,15 @@ export default function WaveProgress({
   return (
     <div className="rs-wave" role="img" aria-label={`${label}: ${Math.round(left * 100)}% of the phase remaining`}>
       <svg viewBox={`0 0 ${W} 24`} preserveAspectRatio="none" aria-hidden="true">
-        <path d={d} className="rs-wave-track" pathLength={1} />
-        <path
-          d={d}
-          className="rs-wave-fill"
-          pathLength={1}
-          style={{ strokeDasharray: `${left} 1`, "--left": left } as React.CSSProperties}
-        />
+        <defs>
+          <clipPath id={clipId}>
+            <rect x={0} y={0} width={left * W} height={24} />
+          </clipPath>
+        </defs>
+        <path d={d} className="rs-wave-track" />
+        <g clipPath={`url(#${clipId})`}>
+          <path d={d} className="rs-wave-fill" />
+        </g>
       </svg>
     </div>
   );

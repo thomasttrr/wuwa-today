@@ -16,7 +16,11 @@ const Digit = memo(function Digit({ ch }: { ch: string }) {
   }
   return (
     <span className="rs-cd-win">
-      <span className="rs-cd-col" style={{ transform: `translateY(${-Number(ch) * 10}%)` }}>
+      {/* Shift in em, never %: each digit row is exactly 1em tall, so -N em
+          lands on digit N in every engine. A % shift resolves against the
+          column's own measured height, which WebKit can mis-measure on this
+          flex column — the live digits then stick on 0 (seen on iOS). */}
+      <span className="rs-cd-col" style={{ transform: `translateY(${-Number(ch)}em)` }}>
         {DIGITS.map((d) => (
           <span key={d}>{d}</span>
         ))}

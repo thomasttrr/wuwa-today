@@ -1134,9 +1134,9 @@ a.rs-tile:active { transform: scale(0.985); }
   filter: drop-shadow(0 0 6px color-mix(in oklch, var(--el) 60%, transparent));
 }
 @media (prefers-reduced-motion: no-preference) {
-  .rs-wave-fill { animation: rs-draw 1600ms var(--rs-ease) 300ms both; }
+  .rs-wave-fill { animation: rs-wave-in 900ms var(--rs-ease) 200ms both; }
 }
-@keyframes rs-draw { from { stroke-dashoffset: var(--left, 1); } }
+@keyframes rs-wave-in { from { opacity: 0; } }
 
 /* ==========================================================================
    Scroll reveal: re-tuned onto the shared spring
