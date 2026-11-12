@@ -93,8 +93,8 @@ export default function PrefarmIndex() {
       </div>
       {upcoming.length === 0 && (
         <p className="og-section-blurb">
-          No upcoming banners have farming guides yet — check back when the
-          next character is revealed.
+          No farming guides are live right now — guides are added once a
+          banner&apos;s details are confirmed.
         </p>
       )}
     </>
