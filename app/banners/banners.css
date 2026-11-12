@@ -282,10 +282,22 @@ a.bn-card:active { transform: scale(0.985); }
 .bn-sel-picks li { font-size: var(--fs-4); line-height: 1.55; color: var(--rs-ink-2); }
 .bn-sel-picks strong { color: var(--rs-ink); }
 .bn-sel-rule { margin: 0; font-size: var(--fs-4); line-height: 1.55; color: var(--rs-ink-2); }
-.bn-sel-weapons { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.6rem; }
-.bn-sel-weapons li { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.3rem 0.8rem; font-size: var(--fs-4); }
-.bn-sel-weapon-name { font-weight: 700; color: var(--rs-ink); }
-.bn-sel-weapon-for { font-weight: 600; color: var(--el); }
-span.bn-sel-weapon-for { color: var(--rs-ink-3); font-weight: 500; }
-.bn-sel-weapon-note { flex-basis: 100%; font-size: var(--fs-3); color: var(--rs-ink-3); line-height: 1.45; }
+.bn-sel-wtiles { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.bn-sel-wtile { min-width: 0; border-radius: 16px; background: var(--rs-surface-2); border: 1px solid var(--rs-line-soft); overflow: hidden; transition: transform var(--rs-d2) var(--rs-spring), box-shadow var(--rs-d2) var(--rs-ease), border-color var(--rs-d2) var(--rs-ease); }
+.bn-sel-wtile a, .bn-sel-wtile-in { display: grid; gap: 0.3rem; justify-items: center; text-align: center; padding: 0.9rem 0.7rem 0.85rem; color: var(--rs-ink); }
+.bn-sel-wtile a:hover { text-decoration: none; }
+.bn-sel-wtile-art { position: relative; display: grid; place-items: center; width: 92px; height: 92px; }
+.bn-sel-wtile-art::before { content: ""; position: absolute; inset: 4px; border-radius: 50%; background: radial-gradient(50% 50% at 50% 50%, color-mix(in oklch, var(--c, var(--el)) 32%, transparent), transparent 72%); }
+.bn-sel-wtile-img { position: relative; width: 84px; height: 84px; object-fit: contain; filter: drop-shadow(0 6px 10px rgb(0 0 0 / 0.45)); transition: transform var(--rs-d2) var(--rs-spring); }
+.bn-sel-wtile .bn-sel-weapon-name { font-size: var(--fs-4); font-weight: 700; color: var(--rs-ink); line-height: 1.25; }
+.bn-sel-wtile .bn-sel-weapon-for { color: var(--c, var(--el)); font-size: var(--fs-3); font-weight: 600; }
+.bn-sel-wtile .bn-sel-weapon-note { font-size: var(--fs-3); color: var(--rs-ink-3); line-height: 1.45; }
+@media (pointer: fine) {
+  .bn-sel-wtile:hover { transform: translateY(-3px); border-color: color-mix(in oklch, var(--c, var(--el)) 45%, transparent); box-shadow: 0 12px 26px rgb(0 0 0 / 0.35); }
+  .bn-sel-wtile:hover .bn-sel-wtile-img { transform: scale(1.08) rotate(-2deg); }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .bn-sel-wtile-art { animation: bn-wfloat 4.6s ease-in-out infinite alternate; }
+}
+@keyframes bn-wfloat { from { transform: translateY(2px); } to { transform: translateY(-3px); } }
 .bn-sel-note { margin: 0; font-size: var(--fs-3); line-height: 1.55; color: var(--rs-ink-3); }

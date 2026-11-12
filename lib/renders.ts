@@ -14,12 +14,17 @@ export interface Thumb {
   z: number;
   /** False = square-portrait fallback. */
   render: boolean;
+  /** Head-centre height as a fraction of the render's height (medals centre
+   *  the face vertically with it); absent on the square-portrait fallback. */
+  fy?: number;
+  /** Render aspect ratio, height / width — lets CSS size the crop exactly. */
+  ar?: number;
   /** Width-described candidates (renders only); pair with a `sizes`. */
   srcSet?: string;
 }
 
-type Size = { file: string; w: number };
-type Render = { sizes: Size[]; thumbs?: Size[]; focusX?: number; zoom?: number };
+type Size = { file: string; w: number; h: number };
+type Render = { sizes: Size[]; thumbs?: Size[]; focusX?: number; focusY?: number; zoom?: number };
 
 /** All candidates, smallest first. A thumb is only offered when it is clearly
  *  smaller than the smallest full render; otherwise it would cost more bytes. */
@@ -44,6 +49,8 @@ export function thumbFor(slug: string | null | undefined, portrait?: string | nu
       fx: Math.min(0.75, Math.max(0.25, r.focusX ?? 0.5)),
       z: r.zoom ?? 138,
       render: true,
+      fy: r.focusY ?? 0.18,
+      ar: smallest.h / smallest.w,
       srcSet: all.map((c) => `${c.file} ${c.w}w`).join(", "),
     };
   }

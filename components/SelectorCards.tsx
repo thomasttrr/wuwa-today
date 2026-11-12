@@ -74,21 +74,36 @@ function WeaponCard({ s }: { s: SelectorConvene }) {
         </p>
       </header>
       {s.rule && <p className="bn-sel-rule">{s.rule}</p>}
-      <ul className="bn-sel-weapons">
-        {s.pool.map((p) => {
+      <ul className="bn-sel-wtiles">
+        {s.pool.map((p, i) => {
           const rec = p.forCharacter ? getCharacterByName(p.forCharacter) : undefined;
-          return (
-            <li key={p.name}>
+          const icon = `/images/weapons/${p.name.toLowerCase().replace(/[^a-z0-9]+/g, "-")}.png`;
+          const inner = (
+            <>
+              <span className="bn-sel-wtile-art" style={{ animationDelay: `${i * 0.55}s` }}>
+                {/* eslint-disable-next-line @next/next/no-img-element -- static export is unoptimized. */}
+                <img className="bn-sel-wtile-img" src={icon} alt="" loading="lazy" decoding="async" />
+              </span>
               <span className="bn-sel-weapon-name">{p.name}</span>
-              {p.forCharacter &&
-                (rec ? (
-                  <Link href={`/characters/${rec.slug}`} className="bn-sel-weapon-for">
-                    {p.forCharacter}&apos;s signature →
-                  </Link>
-                ) : (
-                  <span className="bn-sel-weapon-for">for {p.forCharacter}</span>
-                ))}
+              {p.forCharacter && (
+                <span className="bn-sel-weapon-for">
+                  {p.forCharacter}&apos;s signature{rec ? " →" : ""}
+                </span>
+              )}
               {p.note && <span className="bn-sel-weapon-note">{p.note}</span>}
+            </>
+          );
+          return (
+            <li
+              key={p.name}
+              className="bn-sel-wtile"
+              style={rec ? ({ "--c": elementColor(rec.profile.element) } as CSSProperties) : undefined}
+            >
+              {rec ? (
+                <Link href={`/characters/${rec.slug}`}>{inner}</Link>
+              ) : (
+                <span className="bn-sel-wtile-in">{inner}</span>
+              )}
             </li>
           );
         })}

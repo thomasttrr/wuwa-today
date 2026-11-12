@@ -9,7 +9,12 @@ import "./char-thumb.css";
    Both take a resolved Thumb from lib/renders (server-side). */
 
 const vars = (t: Thumb, extra?: Record<string, string | number>) =>
-  ({ "--fx": t.fx, "--z": t.z, ...extra }) as CSSProperties;
+  ({
+    "--fx": t.fx,
+    "--z": t.z,
+    ...(t.fy != null ? { "--fy": t.fy, "--ar": t.ar } : {}),
+    ...extra,
+  }) as CSSProperties;
 
 /* The art is drawn at --z% (x a per-shape factor) of its frame, so `sizes`
    is the frame width scaled the same way. Posters vary by grid; 160px is the
@@ -83,7 +88,7 @@ export function CharMedal({
 }) {
   return (
     <span
-      className={`ct-medal${rarity ? ` r${rarity}` : ""}${className ? ` ${className}` : ""}`}
+      className={`ct-medal${rarity ? ` r${rarity}` : ""}${thumb?.fy != null ? " ct-medal-fy" : ""}${className ? ` ${className}` : ""}`}
       style={vars(thumb ?? { src: "", fx: 0.5, z: 100, render: false }, { "--s": `${size}px` })}
     >
       <span className="ct-medal-in">

@@ -18,7 +18,7 @@ import {
   type Banner,
   type GameCharacter,
 } from "../../lib/data";
-import { characters } from "../../lib/characters";
+import { characters, getCharacterByName } from "../../lib/characters";
 import { elementColor } from "../../lib/elements";
 import { buildTierModel, PRYDWEN_TIERS } from "../../lib/tiers";
 import { thumbFor } from "../../lib/renders";
@@ -37,7 +37,9 @@ const BUILT_AT = Date.now();
 
 import { srcSetFor } from "@/lib/images";
 const bySlug = new Map(characters.map((c) => [c.slug, c]));
-const slugByName = new Map(characters.map((c) => [c.name, c.slug]));
+/* Banner data writes "Yangyang: Xuanling"; the character record says
+   "Yangyang Xuanling" — resolve through the loose name lookup. */
+const slugByName = { get: (name: string) => getCharacterByName(name)?.slug };
 const tiers = new Map(buildTierModel().chars.map((c) => [c.slug, c]));
 
 
