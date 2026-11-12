@@ -60,6 +60,15 @@ function ResonatorCard({ s }: { s: SelectorConvene }) {
   );
 }
 
+/** Where the weapon sits in each official convene splash, so the tile
+ *  crop frames the weapon itself rather than the title text. */
+const SPLASH_POS: Record<string, string> = {
+  "red-spring": "72% 50%",
+  tragicomedy: "82% 50%",
+  "luminous-hymn": "50% 50%",
+  "unflickering-valor": "74% 50%",
+};
+
 function WeaponCard({ s }: { s: SelectorConvene }) {
   return (
     <article className="bn-sel-card rs-spot">
@@ -77,20 +86,31 @@ function WeaponCard({ s }: { s: SelectorConvene }) {
       <ul className="bn-sel-wtiles">
         {s.pool.map((p, i) => {
           const rec = p.forCharacter ? getCharacterByName(p.forCharacter) : undefined;
-          const icon = `/images/weapons/${p.name.toLowerCase().replace(/[^a-z0-9]+/g, "-")}.png`;
+          const slug = p.name.toLowerCase().replace(/[^a-z0-9]+/g, "-");
+          const icon = `/images/weapons/${slug}-splash.jpg`;
+          const pos = SPLASH_POS[slug] ?? "65% 50%";
           const inner = (
             <>
-              <span className="bn-sel-wtile-art" style={{ animationDelay: `${i * 0.55}s` }}>
+              <span className="bn-sel-wtile-art">
                 {/* eslint-disable-next-line @next/next/no-img-element -- static export is unoptimized. */}
-                <img className="bn-sel-wtile-img" src={icon} alt="" loading="lazy" decoding="async" />
+                <img
+                  className="bn-sel-wtile-img"
+                  src={icon}
+                  alt={`${p.name} weapon artwork`}
+                  loading="lazy"
+                  decoding="async"
+                  style={{ objectPosition: pos, animationDelay: `${i * 0.9}s` }}
+                />
               </span>
-              <span className="bn-sel-weapon-name">{p.name}</span>
-              {p.forCharacter && (
-                <span className="bn-sel-weapon-for">
-                  {p.forCharacter}&apos;s signature{rec ? " →" : ""}
-                </span>
-              )}
-              {p.note && <span className="bn-sel-weapon-note">{p.note}</span>}
+              <span className="bn-sel-wtile-body">
+                <span className="bn-sel-weapon-name">{p.name}</span>
+                {p.forCharacter && (
+                  <span className="bn-sel-weapon-for">
+                    {p.forCharacter}&apos;s signature{rec ? " →" : ""}
+                  </span>
+                )}
+                {p.note && <span className="bn-sel-weapon-note">{p.note}</span>}
+              </span>
             </>
           );
           return (
