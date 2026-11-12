@@ -29,6 +29,7 @@ const MATERIAL_ICONS: Record<string, string> = {
   String: "/images/items/melodic-string.png",
   "Suncoveter's Reach": "/images/items/suncoveters-reach.png",
   "We Who Question": "/images/items/we-who-question.png",
+  "Reverie Lily": "/images/items/reverie-lily.png",
   "Abyssal Husk": "/images/items/abyssal-husk.png",
   "Afterlife": "/images/items/afterlife.png",
   "Arithmetic Shell": "/images/items/arithmetic-shell.png",
