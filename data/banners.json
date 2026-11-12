@@ -396,7 +396,7 @@
       "kind": "resonator",
       "conveneLabel": "Reverb Resonator Convene",
       "startsAt": "2026-11-12T10:00:00+08:00",
-      "endsAt": "2026-12-21T10:00:00+08:00",
+      "endsAt": "2026-12-21T11:59:00+08:00",
       "note": "Select one of the four as your rate-up and change your selection at any time. The 50/50 still applies \u2014 lose it and a standard 5-star can land instead. Pity and guarantee are shared only with other Reverb Resonator convenes; they do not touch the featured banners.",
       "pool": [
         {
@@ -432,7 +432,7 @@
       "kind": "weapon",
       "conveneLabel": "Reverb Weapon Convene",
       "startsAt": "2026-11-12T10:00:00+08:00",
-      "endsAt": "2026-12-21T10:00:00+08:00",
+      "endsAt": "2026-12-21T11:59:00+08:00",
       "note": "Select one of the four as your target and change your selection at any time. Pity is shared only with other Reverb Weapon convenes.",
       "rule": "No 50/50 on weapons: the weapon you select is guaranteed within 80 pulls. Only pull the one that matches a character you own \u2014 each is that character's best-in-slot, and a small upgrade for anyone else.",
       "pool": [

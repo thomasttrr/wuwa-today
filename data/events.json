@@ -1,7 +1,7 @@
 {
   "_meta": {
     "comment": "Active and upcoming in-game events. Times in server time (UTC+8) unless noted; end dates from community coverage are estimates \u2014 mark timeNote accordingly. Current version: 3.8.",
-    "updatedAt": "2026-11-11T21:00:00-05:00"
+    "updatedAt": "2026-11-11T22:55:00-05:00"
   },
   "events": [
     {
@@ -198,7 +198,7 @@
     },
     {
       "description": "Reverb Resonator Convene II: select Camellya, Roccia, Phoebe, or Brant as your featured 5-star target, and change your selection at any time. The pick is a 50/50 with a guarantee after a loss; pity is shared only with other Reverb Resonator convenes. Pick advice is on the Banners page.",
-      "endsAt": null,
+      "endsAt": "2026-12-21T11:59:00+08:00",
       "id": "starpath-reverbs-ii",
       "name": "Starpath Reverbs II",
       "rewards": "Selectable 5-star Resonator convene",
@@ -209,7 +209,7 @@
     },
     {
       "description": "Reverb Weapon Convene II: select Red Spring, Tragicomedy, Luminous Hymn, or Unflickering Valor as your featured 5-star weapon, and change your selection at any time. The selected weapon is guaranteed within 80 pulls; pity is shared only with other Reverb Weapon convenes.",
-      "endsAt": null,
+      "endsAt": "2026-12-21T11:59:00+08:00",
       "id": "tideforge-reverbs-ii",
       "name": "Tideforge Reverbs II",
       "rewards": "Selectable 5-star Weapon convene",
@@ -220,7 +220,7 @@
     },
     {
       "description": "Pull on the Starpath Reverbs II convene during Version 3.8 to earn additional Radiant Tides.",
-      "endsAt": null,
+      "endsAt": "2026-12-21T11:59:00+08:00",
       "id": "gifts-of-starpath-3-8",
       "name": "Gifts of Starpath",
       "rewards": "Radiant Tide (bonus pulls)",
@@ -231,7 +231,7 @@
     },
     {
       "description": "Leisure event set at the Second Solaris school \u2014 story scenes and light activities with the students.",
-      "endsAt": null,
+      "endsAt": "2026-12-21T11:59:00+08:00",
       "id": "second-coming-solaris-unwritten-dreams",
       "name": "Second Coming of Solaris: Unwritten Dreams",
       "rewards": "Astrite (verify in-game)",
@@ -242,13 +242,13 @@
     },
     {
       "description": "Block puzzle event: drag and place geometric blocks of different shapes to fill and clear rows across different levels.",
-      "endsAt": null,
+      "endsAt": "2026-12-03T03:59:00+08:00",
       "id": "lahai-roi-blocks-turnabout",
       "name": "Lahai-Roi Blocks: Turnabout",
       "rewards": "Astrite, EXP materials (verify in-game)",
-      "startsAt": "2026-11-12T10:00:00+08:00",
+      "startsAt": "2026-11-19T04:00:00+08:00",
       "status": "upcoming",
-      "timeNote": "Announced at the Nov 6, 2026 preview broadcast; runs during Version 3.8 (Nov 12 \u2013 Dec 21, 2026). Exact times come from the in-game event notice.",
+      "timeNote": "Runs Nov 19 \u2013 Dec 3, 2026 (server time), per Kuro's Version 3.8 update notice and Game8's event guide.",
       "type": "leisure"
     },
     {
@@ -264,7 +264,7 @@
     },
     {
       "description": "7-day login event during Version 3.8 \u2014 log in on seven days to claim every reward.",
-      "endsAt": null,
+      "endsAt": "2026-12-21T03:59:00+08:00",
       "id": "gifts-of-bygone-dreams",
       "name": "Gifts of Bygone Dreams",
       "rewards": "Lustrous Tide, Radiant Tide",
@@ -286,18 +286,18 @@
     },
     {
       "description": "Featured commission event with Lollo \u2014 take on commissions and earn spins for rewards.",
-      "endsAt": null,
+      "endsAt": "2026-12-17T03:59:00+08:00",
       "id": "lollo-campaign-groundwork",
       "name": "Lollo Campaign: Groundwork",
       "rewards": "Astrite, materials (verify in-game)",
-      "startsAt": "2026-11-12T10:00:00+08:00",
+      "startsAt": "2026-12-03T10:00:00+08:00",
       "status": "upcoming",
-      "timeNote": "Announced at the Nov 6, 2026 preview broadcast; runs during Version 3.8 (Nov 12 \u2013 Dec 21, 2026). Exact times come from the in-game event notice.",
+      "timeNote": "Runs Dec 3 \u2013 Dec 17, 2026 (server time), per Kuro's Version 3.8 update notice and Game8's event guide.",
       "type": "limited"
     },
     {
       "description": "Hiyuki's Flaming Sakura accessory, sold as a bundle during Version 3.8; after the version ends it becomes a permanent Astrite purchase.",
-      "endsAt": null,
+      "endsAt": "2026-12-21T11:59:00+08:00",
       "id": "hiyuki-accessory-flaming-sakura",
       "name": "Hiyuki's Accessory [Flaming Sakura]",
       "rewards": "Accessory: Flaming Sakura (Hiyuki)",
