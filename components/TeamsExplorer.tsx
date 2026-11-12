@@ -234,7 +234,7 @@ export default function TeamsExplorer({ model }: { model: TeamsModel }) {
       </div>
 
       {/* --- Best teams --- */}
-      <Section id="best" title="Best teams" blurb="The strongest teams in 3.7 for general play. T0 is the top of the meta; T0.5 sits just under it.">
+      <Section id="best" title="Best teams" blurb="The strongest teams in 3.8 for general play. T0 is the top of the meta; T0.5 sits just under it.">
         <TeamGrid teams={show(model.general)} {...cardProps} filtering={filtering} />
       </Section>
 

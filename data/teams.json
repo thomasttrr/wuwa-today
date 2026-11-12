@@ -1,6 +1,6 @@
 {
-  "version": "3.7",
-  "versionNote": "Pre-3.8",
+  "version": "3.8",
+  "versionNote": "Post-launch",
   "characters": [
     {
       "name": "Aemeath",
@@ -115,6 +115,11 @@
     {
       "name": "Jiyan",
       "element": "Aero",
+      "rarity": 5
+    },
+    {
+      "name": "Lily",
+      "element": "Spectro",
       "rarity": 5
     },
     {
@@ -280,9 +285,9 @@
       "members": [
         "Hsin",
         "Suoming",
-        "Shorekeeper"
+        "Lily"
       ],
-      "how": "Hsin and Suoming swap fast, building a shared meter that makes both hit harder. Shorekeeper heals and boosts crits."
+      "how": "Hsin and Suoming swap fast, building a shared meter that makes both hit harder. Lily heals the team and stacks ATK and crit buffs on top."
     },
     {
       "name": "Echo Skill",
@@ -290,9 +295,9 @@
       "members": [
         "Sigrika",
         "Qiuyuan",
-        "Shorekeeper"
+        "Lily"
       ],
-      "how": "Qiuyuan boosts Echo Skill damage \u2014 Sigrika's main damage source. Shorekeeper heals and raises crits."
+      "how": "Qiuyuan boosts Echo Skill damage \u2014 Sigrika's main damage source. Lily heals and adds Echo Skill crit buffs of her own."
     },
     {
       "name": "Heavy Attack",
