@@ -1,7 +1,7 @@
 {
   "_meta": {
     "comment": "Active = verified working by at least 2 independent aggregator sources checked on updatedAt, OR by an official Kuro Games post. Never add a code from a single aggregator without a second source. Before adding any code, also check data/codes-excluded.json \u2014 anything listed there was confirmed dead or pulled and must NOT be re-added.",
-    "updatedAt": "2026-11-09T09:00:00-05:00"
+    "updatedAt": "2026-11-11T21:00:00-05:00"
   },
   "active": [
     {
