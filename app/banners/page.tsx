@@ -165,6 +165,8 @@ export default function BannersPage() {
               src={art}
               srcSet={srcSetFor(art)}
               sizes="(max-width: 760px) 100vw, 760px"
+              width={1920}
+              height={1674}
               alt={live.imageAlt ?? `Official key art for the ${live.version} ${live.phase} banner`}
               loading="eager"
               fetchPriority="high"

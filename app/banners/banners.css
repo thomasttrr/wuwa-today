@@ -29,10 +29,14 @@
 .bn-stage-art {
   position: absolute;
   z-index: 0;
-  top: -8%;
-  right: -6%;
-  width: min(720px, 66%);
-  height: auto;
+  /* Bottom-anchored and height-sized: the art always spans the stage's
+     full height with a bleed, whatever the stage width. The old
+     top:-8% / width:66% anchoring could leave the art displaced above
+     the card on iOS WebKit, with the card's right side empty. */
+  bottom: -8%;
+  right: -4%;
+  height: 116%;
+  width: auto;
   pointer-events: none;
 }
 .bn-stage-body { position: relative; z-index: 2; display: grid; gap: 0.75rem; max-width: 34rem; }
@@ -57,12 +61,13 @@
 
 @media (prefers-reduced-motion: no-preference) {
   .bn-stage-title { animation: rs-rise var(--rs-d3) var(--rs-spring) both; }
-  .bn-stage-art { animation: rs-art-in 1100ms var(--rs-ease) 80ms both; }
 }
 
 @media (max-width: 760px) {
   .bn-stage { min-height: 0; padding: 1.25rem; padding-top: 72%; border-radius: 24px; }
-  .bn-stage-art { top: -6%; right: auto; left: 50%; width: 96%; translate: -50% 0; }
+  /* Pinned by plain edges — no standalone `translate` property and no
+     negative % offsets, both of which iOS WebKit can mishandle. */
+  .bn-stage-art { top: -1rem; bottom: auto; right: auto; left: 2%; width: 96%; height: auto; }
   .bn-stage::after {
     background: linear-gradient(0deg, var(--rs-surface) 46%, color-mix(in oklch, var(--rs-surface) 50%, transparent) 64%, transparent 85%);
   }
