@@ -293,6 +293,11 @@ export default function Phase2Page() {
               bar. If a claim can&rsquo;t be sourced, it doesn&rsquo;t go up — that is the whole
               rule for this section.
             </p>
+            <p>
+              Looking further ahead? The <Link href="/leaks">4.0+ leaks page</Link> tracks
+              the rumored New Federation arc — Anna, Lucille, and the wider 4.X cast — with
+              every claim tagged by how solid its evidence is.
+            </p>
           </div>
         </Reveal>
       </div>
