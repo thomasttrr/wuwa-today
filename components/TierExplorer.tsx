@@ -262,7 +262,6 @@ export default function TierExplorer({ model }: { model: TierModel }) {
                 })()}
               </span>
               {row.label && <span className="tl-tier-label">{row.label}</span>}
-              <span className="tl-tier-n">{row.items.length}</span>
             </div>
             <ul className="tl-grid">
               {row.items.map(({ char, roles }) => {
