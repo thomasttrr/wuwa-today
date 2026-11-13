@@ -4,6 +4,7 @@ import ObsidianToolbar from "@/components/ObsidianToolbar";
 import Reveal from "@/components/Reveal";
 import UpdatedStamp from "@/components/UpdatedStamp";
 import DecryptTitle from "@/components/DecryptTitle";
+import SpoilerCover, { RevealAllSpoilers } from "@/components/SpoilerCover";
 import "./leaks.css";
 
 export const metadata: Metadata = {
@@ -125,6 +126,7 @@ export default function LeaksPage() {
         </p>
         <div className="og-meta-row">
           <UpdatedStamp />
+          <RevealAllSpoilers />
         </div>
       </header>
 
@@ -174,6 +176,7 @@ export default function LeaksPage() {
               <span>Model — datamined render</span>
               <span>Not official art · AI-enhanced</span>
             </div>
+            <SpoilerCover label="Anna — datamined model render">
             <div className="lk-view-media">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
@@ -190,6 +193,7 @@ export default function LeaksPage() {
               <span className="lk-corner bl" aria-hidden />
               <span className="lk-corner br" aria-hidden />
             </div>
+            </SpoilerCover>
             <div className="lk-specs">
               <div className="lk-spec">
                 <div className="lk-spec-k">Rumored slot</div>
@@ -217,6 +221,7 @@ export default function LeaksPage() {
               <span>3D model — full rotation</span>
               <span>Front · Side · Back · Side · AI-enhanced</span>
             </div>
+            <SpoilerCover label="Anna — full rotation render">
             <div className="lk-view-media">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
@@ -233,6 +238,7 @@ export default function LeaksPage() {
               <span className="lk-corner bl" aria-hidden />
               <span className="lk-corner br" aria-hidden />
             </div>
+            </SpoilerCover>
           </div>
         </Reveal>
         <div style={{ height: "0.9rem" }} />
@@ -242,6 +248,7 @@ export default function LeaksPage() {
               <span>3D model — upper-body detail</span>
               <span>Hat off · Costume close-up · AI-enhanced</span>
             </div>
+            <SpoilerCover label="Anna — upper-body detail render">
             <div className="lk-view-media">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
@@ -258,6 +265,7 @@ export default function LeaksPage() {
               <span className="lk-corner bl" aria-hidden />
               <span className="lk-corner br" aria-hidden />
             </div>
+            </SpoilerCover>
           </div>
           <p style={{ margin: "0.6rem 0 0", opacity: 0.8, fontSize: "0.92rem" }}>
             The full model set leaked on November 9–10: a four-angle rotation, this waist-up
@@ -319,6 +327,7 @@ export default function LeaksPage() {
               <span>Model — in-world placement</span>
               <span>Via leak trackers · AI-enhanced</span>
             </div>
+            <SpoilerCover label="Anna — in-world placement">
             <div className="lk-view-media lk-drift">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
@@ -331,6 +340,7 @@ export default function LeaksPage() {
                 loading="lazy"
               />
             </div>
+            </SpoilerCover>
           </div>
           <p style={{ margin: "0.6rem 0 0", opacity: 0.8, fontSize: "0.92rem" }}>
             The same model placed in the live game world — the usual way model leaks get shown
@@ -345,6 +355,7 @@ export default function LeaksPage() {
               <span>In-game — story stills</span>
               <span>Via Sleepy · Nov 11 · AI-enhanced</span>
             </div>
+            <SpoilerCover label="Anna — story stills">
             <div className="lk-stills">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
@@ -395,6 +406,7 @@ export default function LeaksPage() {
                 loading="lazy"
               />
             </div>
+            </SpoilerCover>
           </div>
           <p style={{ margin: "0.6rem 0 0", opacity: 0.8, fontSize: "0.92rem" }}>
             Six stills from an in-game story scene — the glowing red drink, the clawed glove,
@@ -416,6 +428,7 @@ export default function LeaksPage() {
               <span>3D model — bust portrait only</span>
               <span>Via StepLeaks · Oct 29 · AI-enhanced</span>
             </div>
+            <SpoilerCover label="Lucille — bust portrait">
             <div className="lk-view-media">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
@@ -432,6 +445,7 @@ export default function LeaksPage() {
               <span className="lk-corner bl" aria-hidden />
               <span className="lk-corner br" aria-hidden />
             </div>
+            </SpoilerCover>
             <div className="lk-specs" style={{ gridTemplateColumns: "repeat(2, minmax(0, 1fr))" }}>
               <div className="lk-spec">
                 <div className="lk-spec-k">Full-body model</div>
