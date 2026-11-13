@@ -579,6 +579,16 @@ export default function LeaksPage() {
               others. The post is flaired &ldquo;Questionable,&rdquo; names no version, and
               nothing backs it up yet; the 4.X link is commenters guessing.
             </Claim>
+            <Claim tag="Single leak">
+              <strong>Old Eden — the sunken city under Anna.</strong> Seele&rsquo;s latest
+              (November 13) describes a drowned entertainment city tied to Anna: abandoned
+              after the Old Federal Civil War, then rebuilt by three oligarchs on
+              &ldquo;Blood of the Age&rdquo; technology, and now run outside the law — illegal
+              tech, smuggling, underground auctions, human experimentation. The post names
+              eleven spots, from the Paradise Main Stage and the Faust Auction House to
+              &ldquo;Anna&rsquo;s Room&rdquo; — which would make her &ldquo;Underwater
+              Queen&rdquo; title literal. One source so far.
+            </Claim>
           </div>
         </Reveal>
       </div>
