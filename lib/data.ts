@@ -113,6 +113,7 @@ export interface VersionNote {
   tag: string;
   title: string;
   text: string;
+  href?: string;
 }
 
 /** Story & system changes for a version, from the official announcement.

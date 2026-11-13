@@ -350,6 +350,11 @@ export default function VersionPage() {
                     <p className="vo-change-tag">{n.tag}</p>
                     <h3 className="vo-event-name">{n.title}</h3>
                     <p className="vo-event-desc">{n.text}</p>
+                    {n.href && (
+                      <p style={{ margin: "0.7rem 0 0" }}>
+                        <Link href={n.href}>Read the full guide →</Link>
+                      </p>
+                    )}
                   </article>
                 </Reveal>
               </li>
