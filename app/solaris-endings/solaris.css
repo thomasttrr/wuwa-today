@@ -1,0 +1,103 @@
+/* /solaris-endings — page-scoped layer on top of the Resonance system.
+   Imported by app/solaris-endings/page.tsx only. Solid content surfaces,
+   no glass on content, no page-local motion beyond the shared Reveal. */
+
+.so-cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+@media (min-width: 760px) {
+  .so-cards { grid-template-columns: repeat(2, 1fr); }
+  .so-cards-3 { grid-template-columns: repeat(3, 1fr); }
+}
+.so-card {
+  background: var(--rs-surface, #12151d);
+  border: 1px solid var(--rs-line, #2a2f3a);
+  border-radius: 14px;
+  padding: 1.1rem 1.15rem;
+}
+.so-card h3 { margin: 0 0 0.45rem; font-size: 1.02rem; line-height: 1.3; }
+.so-card p { margin: 0; color: var(--rs-ink-2, #c8cdd8); line-height: 1.55; }
+.so-card .so-tag {
+  display: inline-block;
+  font-family: var(--rs-mono, ui-monospace, monospace);
+  font-size: var(--fs-2, 12px);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #e8c268;
+  margin-bottom: 0.5rem;
+}
+
+.so-steps {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 1rem;
+}
+.so-step {
+  display: flex;
+  gap: 0.9rem;
+  background: var(--rs-surface, #12151d);
+  border: 1px solid var(--rs-line, #2a2f3a);
+  border-radius: 14px;
+  padding: 1.1rem 1.15rem;
+}
+.so-step-n {
+  font-family: var(--rs-mono, ui-monospace, monospace);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #0b0b0d;
+  background: #e8c268;
+  border-radius: 999px;
+  min-width: 30px;
+  height: 30px;
+  padding: 0 0.4rem;
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.so-step h3 { margin: 0.15rem 0 0.4rem; font-size: 1.02rem; }
+.so-step p { margin: 0; color: var(--rs-ink-2, #c8cdd8); line-height: 1.55; }
+
+.so-table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--rs-line, #2a2f3a);
+  border-radius: 14px;
+  background: var(--rs-surface, #12151d);
+}
+.so-table { width: 100%; border-collapse: collapse; min-width: 480px; }
+.so-table th,
+.so-table td {
+  text-align: left;
+  padding: 0.8rem 1rem;
+  border-bottom: 1px solid var(--rs-line-soft, #20242e);
+  vertical-align: top;
+  line-height: 1.45;
+}
+.so-table tr:last-child td { border-bottom: none; }
+.so-table th {
+  font-family: var(--rs-mono, ui-monospace, monospace);
+  font-size: var(--fs-2, 12px);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--rs-ink-3, #8a90a0);
+}
+.so-table td:first-child { font-weight: 700; white-space: nowrap; }
+.so-note {
+  margin: 0.8rem 0 0;
+  font-size: 0.92rem;
+  color: var(--rs-ink-3, #8a90a0);
+  line-height: 1.55;
+}
+@media (max-width: 640px) {
+  .so-table { min-width: 0; }
+  .so-table th,
+  .so-table td { padding: 0.7rem 0.6rem; }
+  .so-table td:first-child { white-space: normal; }
+}

@@ -230,15 +230,17 @@
       "type": "spending"
     },
     {
-      "description": "Leisure event set at the Second Solaris school \u2014 story scenes and light activities with the students.",
+      "description": "School-life sim event at the Second Solaris school \u2014 a full school year of classes, jobs, and friendships, with 12 endings across two or more playthroughs. The mode is permanent; its rewards are limited-time.",
       "endsAt": "2026-12-21T11:59:00+08:00",
       "id": "second-coming-solaris-unwritten-dreams",
       "name": "Second Coming of Solaris: Unwritten Dreams",
-      "rewards": "Astrite (verify in-game)",
+      "rewards": "1,200 Astrite total, Graduation Season sigil, Between Classes avatar, Selfie Pose: Salute, Selfie Expression: Cool, School Headlines photo frame, tuners and more",
       "startsAt": "2026-11-12T10:00:00+08:00",
       "status": "upcoming",
       "timeNote": "Announced at the Nov 6, 2026 preview broadcast; runs during Version 3.8 (Nov 12 \u2013 Dec 21, 2026). Exact times come from the in-game event notice.",
-      "type": "leisure"
+      "type": "leisure",
+      "href": "/solaris-endings",
+      "hrefLabel": "All 12 endings & routes \u2192"
     },
     {
       "description": "Block puzzle event: drag and place geometric blocks of different shapes to fill and clear rows across different levels.",

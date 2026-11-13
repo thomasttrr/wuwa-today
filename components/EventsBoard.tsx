@@ -229,6 +229,11 @@ function EventItem({ e, st, now }: { e: GameEvent; st: Live; now: number }) {
           </span>
         )}
       </p>
+      {e.href && (
+        <p className="ev-guide-link">
+          <a href={e.href}>{e.hrefLabel ?? "Full guide →"}</a>
+        </p>
+      )}
       {st === "live" && e.endsAt && <RollingCountdown size="sm" target={e.endsAt} label="Ends in" />}
       {st === "soon" && <RollingCountdown size="sm" target={e.startsAt} label="Starts in" />}
       <details className="ev-more">

@@ -103,6 +103,9 @@ export interface GameEvent {
   rewards: string;
   /** Rewards come from early coverage, not the in-game notice yet. */
   rewardsUnconfirmed?: boolean;
+  /** Optional link to a dedicated guide page on this site. */
+  href?: string;
+  hrefLabel?: string;
 }
 
 export const banners = (bannersRaw as { banners: Banner[] }).banners;
