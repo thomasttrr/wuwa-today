@@ -572,6 +572,13 @@ export default function LeaksPage() {
               name or composer yet, and the description is second-hand, from the post&rsquo;s
               comments.
             </Claim>
+            <Claim tag="Single leak">
+              <strong>A &ldquo;Dark Tide&rdquo; encounter mode — version unknown.</strong> One
+              post (Gamedataleaks, November 11) claims a future version adds random overworld
+              encounter points that trigger boss events — Hyvatia, Sigillum, Hecate, and
+              others. The post is flaired &ldquo;Questionable,&rdquo; names no version, and
+              nothing backs it up yet; the 4.X link is commenters guessing.
+            </Claim>
           </div>
         </Reveal>
       </div>
