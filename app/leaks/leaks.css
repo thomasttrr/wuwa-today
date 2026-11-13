@@ -202,46 +202,6 @@
   to { transform: scale(1.05); }
 }
 
-/* Radar (Lucille: no visual acquired) */
-.lk-radar {
-  position: relative;
-  height: 220px;
-  display: grid;
-  place-items: center;
-  overflow: clip;
-  background:
-    radial-gradient(circle at 50% 50%, color-mix(in srgb, var(--el, #e8c268) 7%, transparent), transparent 62%),
-    repeating-linear-gradient(0deg, transparent 0 34px, color-mix(in srgb, var(--rs-line, #2a2f3a) 45%, transparent) 34px 35px),
-    repeating-linear-gradient(90deg, transparent 0 34px, color-mix(in srgb, var(--rs-line, #2a2f3a) 45%, transparent) 34px 35px);
-}
-.lk-radar-ring {
-  position: absolute;
-  width: 90px;
-  height: 90px;
-  border-radius: 50%;
-  border: 1px solid color-mix(in srgb, var(--el, #e8c268) 65%, transparent);
-  opacity: 0;
-}
-@media (prefers-reduced-motion: no-preference) {
-  .lk-radar-ring { animation: lk-radar 3.2s ease-out infinite; }
-  .lk-radar-ring.r2 { animation-delay: 1.6s; }
-}
-@keyframes lk-radar {
-  0% { transform: scale(0.35); opacity: 0.9; }
-  100% { transform: scale(2.6); opacity: 0; }
-}
-.lk-radar-text {
-  position: relative;
-  text-align: center;
-  font-family: var(--rs-mono, ui-monospace, monospace);
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  font-size: var(--fs-3, 13px);
-  color: var(--rs-ink-2, #c8cdd8);
-  line-height: 2;
-}
-.lk-radar-text strong { color: var(--rs-ink, #f2f4f8); font-size: var(--fs-5, 15px); }
-
 /* Spec readout (Anna) */
 .lk-specs {
   display: grid;

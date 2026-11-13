@@ -205,10 +205,66 @@ export default function LeaksPage() {
               </div>
               <div className="lk-spec">
                 <div className="lk-spec-k">Art status</div>
-                <div className="lk-spec-v">Datamined model</div>
+                <div className="lk-spec-v">Full 3D model leaked</div>
               </div>
             </div>
           </div>
+        </Reveal>
+        <div style={{ height: "0.9rem" }} />
+        <Reveal>
+          <div className="lk-view">
+            <div className="lk-view-bar">
+              <span>3D model — full rotation</span>
+              <span>Front · Side · Back · Side</span>
+            </div>
+            <div className="lk-view-media">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/images/leaks/anna-rotation-1280.webp"
+                srcSet="/images/leaks/anna-rotation-1280.webp 1280w, /images/leaks/anna-rotation-1920.webp 1920w"
+                sizes="(max-width: 760px) 100vw, 900px"
+                alt="Leaked 3D model of Anna shown from four angles: front, side, back, and side"
+                width={1280}
+                height={640}
+                loading="lazy"
+              />
+              <span className="lk-corner tl" aria-hidden />
+              <span className="lk-corner tr" aria-hidden />
+              <span className="lk-corner bl" aria-hidden />
+              <span className="lk-corner br" aria-hidden />
+            </div>
+          </div>
+        </Reveal>
+        <div style={{ height: "0.9rem" }} />
+        <Reveal>
+          <div className="lk-view">
+            <div className="lk-view-bar">
+              <span>3D model — upper-body detail</span>
+              <span>Hat off · Costume close-up</span>
+            </div>
+            <div className="lk-view-media">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/images/leaks/anna-bust-900.webp"
+                srcSet="/images/leaks/anna-bust-900.webp 900w, /images/leaks/anna-bust-1400.webp 1400w"
+                sizes="(max-width: 760px) 100vw, 900px"
+                alt="Close-up of the leaked Anna 3D model from the waist up, showing the corset, rose pendant, and armored sleeves"
+                width={900}
+                height={685}
+                loading="lazy"
+              />
+              <span className="lk-corner tl" aria-hidden />
+              <span className="lk-corner tr" aria-hidden />
+              <span className="lk-corner bl" aria-hidden />
+              <span className="lk-corner br" aria-hidden />
+            </div>
+          </div>
+          <p style={{ margin: "0.6rem 0 0", opacity: 0.8, fontSize: "0.92rem" }}>
+            The full model set leaked on November 9–10: a four-angle rotation, this waist-up
+            detail render, and the hat-on sheet above. No raw model file (PMX, FBX, or GLB) has
+            been posted anywhere we can find — what circulates is renders, and these are all of
+            them.
+          </p>
         </Reveal>
         <div style={{ height: "0.9rem" }} />
         <Reveal>
@@ -221,7 +277,8 @@ export default function LeaksPage() {
               <strong>The model above.</strong> Blonde hair fading to red at the tips, pointed
               ears, red eyes, and a gothic red-and-white gown trimmed with roses. This design is
               the one earlier trackers described, sight unseen, as the &ldquo;vampire femme
-              fatale&rdquo; — they are the same character, not two.
+              fatale&rdquo; — they are the same character, not two. The leak is a full 3D model:
+              rotation, close-ups, and in-world shots all match, detail for detail.
             </Claim>
             <Claim tag="In-game lore">
               <strong>A noble of the New Federation.</strong> Leaks make her the daughter of an
@@ -229,19 +286,29 @@ export default function LeaksPage() {
               (Mortefi was born into it), and Lily&rsquo;s official profile ties the Federated
               Cities to the Resonator War her story just covered.
             </Claim>
+            <Claim tag="Single leak">
+              <strong>The &ldquo;Underwater Queen,&rdquo; and Lily&rsquo;s old friend.</strong>{" "}
+              Story leaks make Anna a former doctor of the Clotho Doctors Alliance — the
+              alliance named in Lily&rsquo;s official profile — who was Lily&rsquo;s classmate
+              before the Resonator War split them up, and who now rules the Federation&rsquo;s
+              elite. Lily&rsquo;s 3.8 beta lines, shared from Tieba, are the source; her
+              Japanese voice is given as Aya Endo.
+            </Claim>
             <Claim tag="Repeated leak">
               <strong>Fusion attribute.</strong> Every current tracker has her as Fusion, though
               the earliest posts disagreed.
             </Claim>
             <Claim tag="Single leak">
-              <strong>Rectifier, built around a reworked Tune Break</strong> — a dual-mode kit
-              spanning the current Tune Break branch and a new one. One tracker&rsquo;s latest
-              word; another describes a Fusion Basic Attack main DPS instead, so her exact role
-              is not settled.
+              <strong>Broadblade, on the newest render</strong> — her weapon has moved with
+              every round of leaks: Pistols or Rectifier in the early posts, then a Rectifier
+              built around a reworked Tune Break, and the November 10 render tags her a Fusion
+              Broadblade hybrid DPS dealing Basic Attack damage. Latest word wins for now, but
+              it rests on one render&rsquo;s tags until the beta.
             </Claim>
-            <Claim tag="Speculation">
-              <strong>Five-star.</strong> Nothing states her rarity outright — but the opening
-              character of a new region has always been a limited five-star.
+            <Claim tag="Repeated leak">
+              <strong>Five-star.</strong> The November render summary states her rarity
+              outright, and no tracker disputes it — the opening character of a new region has
+              always been a limited five-star.
             </Claim>
           </div>
         </Reveal>
@@ -277,28 +344,54 @@ export default function LeaksPage() {
         <FileHead
           file="File 02 · Subject"
           title="Lucille — the rumored Phase 2 banner"
-          blurb="Thinner evidence than Anna, and her element has already changed three times."
+          blurb="Thinner evidence than Anna — one bust portrait, no full model, and her element has already changed three times."
         />
         <Reveal>
           <div className="lk-view">
             <div className="lk-view-bar">
-              <span>Visual — none acquired</span>
-              <span>Fan art excluded</span>
+              <span>3D model — bust portrait only</span>
+              <span>Via StepLeaks · Oct 29</span>
             </div>
-            <div className="lk-radar" role="img" aria-label="No leaked visual of Lucille has surfaced">
-              <span className="lk-radar-ring" aria-hidden />
-              <span className="lk-radar-ring r2" aria-hidden />
-              <div className="lk-radar-text">
-                <strong>No visual acquired</strong>
-                <br />
-                No model has surfaced — art under her name is fan-made
+            <div className="lk-view-media">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/images/leaks/lucille-model-962.webp"
+                alt="Leaked 3D model bust portrait of Lucille: blonde twin braids, green eyes, red outfit and black choker, with the StepLeaks watermark"
+                width={962}
+                height={689}
+                loading="lazy"
+              />
+              <span className="lk-corner tl" aria-hidden />
+              <span className="lk-corner tr" aria-hidden />
+              <span className="lk-corner bl" aria-hidden />
+              <span className="lk-corner br" aria-hidden />
+            </div>
+            <div className="lk-specs" style={{ gridTemplateColumns: "repeat(2, minmax(0, 1fr))" }}>
+              <div className="lk-spec">
+                <div className="lk-spec-k">Full-body model</div>
+                <div className="lk-spec-v">Not acquired</div>
+              </div>
+              <div className="lk-spec" style={{ borderLeft: "1px solid var(--rs-line-soft, #20242e)" }}>
+                <div className="lk-spec-k">In-game shots</div>
+                <div className="lk-spec-v">None</div>
               </div>
             </div>
           </div>
+          <p style={{ margin: "0.6rem 0 0", opacity: 0.8, fontSize: "0.92rem" }}>
+            The only model visual that has surfaced — a bust portrait carrying the leaker&rsquo;s
+            own watermark, mouse cursor and all. The fuller artwork circulating under her name
+            elsewhere is fan-made, so it stays off this page.
+          </p>
         </Reveal>
         <div style={{ height: "0.9rem" }} />
         <Reveal>
           <div className="lk-claims">
+            <Claim tag="Single leak">
+              <strong>The portrait above</strong> leaked on October 29 through StepLeaks and has
+              been reshared everywhere since: green eyes, twin braids, a red outfit, and a black
+              choker. It is a bust shot only — the cat ears and cowboy styling from the written
+              descriptions don&rsquo;t appear in it, so her full design is still unseen.
+            </Claim>
             <Claim tag="Repeated leak">
               <strong>The name isn&rsquo;t final.</strong> She appears as Lucille, Luciel, and
               Luxier across posts. Not to be confused with <strong>Lucilla</strong>, the Glacio
@@ -437,9 +530,13 @@ export default function LeaksPage() {
             <p>
               The 4.X character list originates with <strong>Seele Leaks</strong> (Telegram);
               banner tracking comes from <strong>Wuwaguy</strong> (X) and the dataminer{" "}
-              <strong>Nanoka</strong>. Roundups consulted: GamsGo&rsquo;s 4.0 banner guide
-              (updated November 11, 2026), LDShop&rsquo;s banner schedule (November 2),
-              TopUpLive&rsquo;s 4.0–4.2 leak summary, and BitTopup&rsquo;s 3.8/4.0 coverage.
+              <strong>Nanoka</strong>. The model visuals are sourced post-by-post: Anna&rsquo;s
+              render set came via <strong>WuWaLand</strong> (reshared by WuWa Universe on X,
+              November 9–10, and mirrored in the PTT C_Chat leak thread), and Lucille&rsquo;s
+              bust portrait via <strong>StepLeaks</strong> (October 29). Roundups consulted:
+              GamsGo&rsquo;s 4.0 banner guide and Anna profile (updated November 11, 2026),
+              LDShop&rsquo;s banner schedule (November 2), TopUpLive&rsquo;s 4.0–4.2 leak
+              summary, and BitTopup&rsquo;s 3.8/4.0 coverage.
               Where the trackers disagree — Lucille&rsquo;s element above all — this page says
               so instead of picking a winner. For what is actually live, see the{" "}
               <Link href="/banners">banners page</Link> and the{" "}
