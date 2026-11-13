@@ -189,6 +189,11 @@
 }
 .lk-view-media { position: relative; overflow: clip; }
 .lk-view-media img { display: block; width: 100%; height: auto; }
+.lk-stills { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 3px; background: #05060a; }
+.lk-stills img { display: block; width: 100%; height: auto; }
+@media (max-width: 640px) {
+  .lk-stills { grid-template-columns: minmax(0, 1fr); }
+}
 .lk-corner { position: absolute; width: 22px; height: 22px; border: 0 solid var(--el, #e8c268); opacity: 0.9; pointer-events: none; }
 .lk-corner.tl { top: 10px; left: 10px; border-top-width: 2px; border-left-width: 2px; }
 .lk-corner.tr { top: 10px; right: 10px; border-top-width: 2px; border-right-width: 2px; }

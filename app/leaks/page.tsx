@@ -338,6 +338,70 @@ export default function LeaksPage() {
             model sheet exactly.
           </p>
         </Reveal>
+        <div style={{ height: "0.9rem" }} />
+        <Reveal>
+          <div className="lk-view">
+            <div className="lk-view-bar">
+              <span>In-game — story stills</span>
+              <span>Via Sleepy · Nov 11 · AI-enhanced</span>
+            </div>
+            <div className="lk-stills">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/images/leaks/anna-story-1-enh-1200.webp"
+                alt="Story still: close profile of Anna — chin, lips, rose earring and high collar"
+                width={1200}
+                height={508}
+                loading="lazy"
+              />
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/images/leaks/anna-story-2-enh-1200.webp"
+                alt="Story still: Anna in side profile, red eyes and a pointed ear"
+                width={1200}
+                height={506}
+                loading="lazy"
+              />
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/images/leaks/anna-story-3-enh-1200.webp"
+                alt="Story still: Anna facing forward, raising a clawed black glove"
+                width={1200}
+                height={504}
+                loading="lazy"
+              />
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/images/leaks/anna-story-4-enh-1200.webp"
+                alt="Story still: Anna close-up beside a glowing red drink"
+                width={1200}
+                height={508}
+                loading="lazy"
+              />
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/images/leaks/anna-story-5-enh-1200.webp"
+                alt="Story still: Anna front view, the red drink on a stand beside her"
+                width={1200}
+                height={675}
+                loading="lazy"
+              />
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/images/leaks/anna-story-6-enh-1200.webp"
+                alt="Story still: Anna seated on a throne-like chair in a dark hall"
+                width={1200}
+                height={506}
+                loading="lazy"
+              />
+            </div>
+          </div>
+          <p style={{ margin: "0.6rem 0 0", opacity: 0.8, fontSize: "0.92rem" }}>
+            Six stills from an in-game story scene — the glowing red drink, the clawed glove,
+            the throne-like chair — posted by the leaker Sleepy on November 11. The costume
+            matches the leaked model detail for detail, roses and all.
+          </p>
+        </Reveal>
       </div>
 
       <div className="og-section" id="lucille" style={{ scrollMarginTop: "120px" }}>
@@ -462,6 +526,20 @@ export default function LeaksPage() {
               leak. New Echoes and Sonata Effects are likewise expected by pattern — every region
               has brought them — with no specifics yet.
             </Claim>
+            <Claim tag="Single leak">
+              <strong>The map&rsquo;s place names are out.</strong> Seele&rsquo;s post
+              (translated from Chinese) names them by zone. Former Federation Territory:
+              Abandoned Plains, Iron Whale&rsquo;s Fall, and 21GUNS. The Lawless Zone&rsquo;s
+              surface: Sacramento Underground Settlement, the Underground Central Commercial
+              District, the &ldquo;Drunken Hound&rdquo; tavern, the &ldquo;Ghost Hound&rdquo;
+              Mercenary Group headquarters, and the Underground Sewers. The Fallen Old Federation
+              City: Dream Road Entrance and Dreamcatcher Settlement.
+            </Claim>
+            <Claim tag="Single leak">
+              <strong>Roughly 3.0-sized.</strong> The same source puts the 4.0 map at about the
+              size of Version 3.0&rsquo;s map — a full region, not a small starter area. No map
+              graphic has leaked with the names; the posts are text only.
+            </Claim>
           </div>
         </Reveal>
       </div>
@@ -535,7 +613,11 @@ export default function LeaksPage() {
               <strong>Nanoka</strong>. The model visuals are sourced post-by-post: Anna&rsquo;s
               render set came via <strong>WuWaLand</strong> (reshared by WuWa Universe on X,
               November 9–10, and mirrored in the PTT C_Chat leak thread), and Lucille&rsquo;s
-              bust portrait via <strong>StepLeaks</strong> (October 29). Roundups consulted:
+              bust portrait via <strong>StepLeaks</strong> (October 29). Anna&rsquo;s in-game
+              story stills come via <strong>Sleepy</strong> (November 11, relayed by the WuWa
+              News channel and PTT), and the 4.0 map place names and map-size note come from{" "}
+              <strong>Seele Leaks</strong> posts of November 11–12 — text only; no map graphic
+              has leaked. Roundups consulted:
               GamsGo&rsquo;s 4.0 banner guide and Anna profile (updated November 11, 2026),
               LDShop&rsquo;s banner schedule (November 2), TopUpLive&rsquo;s 4.0–4.2 leak
               summary, and BitTopup&rsquo;s 3.8/4.0 coverage.
@@ -548,6 +630,7 @@ export default function LeaksPage() {
               <a href="/images/leaks/anna-rotation-1920.webp">rotation</a>,{" "}
               <a href="/images/leaks/anna-bust-1400.webp">upper-body detail</a>,{" "}
               <a href="/images/leaks/anna-ingame-1600.webp">in-world shot</a>,{" "}
+              <a href="/images/leaks/anna-story-1-800.webp">story stills</a>,{" "}
               <a href="/images/leaks/lucille-model-962.webp">Lucille portrait</a>. For what is
               actually live, see the{" "}
               <Link href="/banners">banners page</Link> and the{" "}
