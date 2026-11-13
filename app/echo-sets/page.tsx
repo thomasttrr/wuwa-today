@@ -162,6 +162,84 @@ const SETS: EchoSet[] = [
     stats:
       "3-4-3-1-1 layout. Main echo: Formrender (3-cost — it headlines this set, so the 4-cost sits second). 4-cost: Healing Bonus (HP% is the alternate). 3-costs: Energy Regen on both. 1-costs: HP% on both. Aim for roughly 260% Energy Regen in total. These match the build numbers on Lily's page, checked against her live kit at the Version 3.8 launch.",
   },
+  {
+    id: "feathered-trace",
+    name: "Song of Feathered Trace",
+    icon: "/images/echoes/song-of-feathered-trace.webp",
+    role: "Havoc Bane DPS · Glacio Chafe support",
+    pill: "Best-in-slot — Yangyang: Xuanling · Suisui",
+    pillBis: true,
+    twoPc: "Energy Regen +10%.",
+    fivePc:
+      "Upon inflicting Havoc Bane, gain Xuanling's Feather: +20% Crit Rate and +35% Heavy Attack DMG Bonus for 15s. Upon inflicting Glacio Chafe, gain Chongming's Feather: for every 1% of the wearer's Energy Regen, +0.1% ATK to all Resonators in the team (up to +25%), lasting 10s.",
+    who: "One set, two jobs — and both belong to the December 3 reruns. Yangyang: Xuanling runs the Havoc Bane half as her damage set. Suisui runs the Glacio Chafe half as a team buffer, and she needs 250%+ Energy Regen to cash the full +25% team ATK. Nobody else in the roster uses this set; if you are not pulling on December 3, skip it.",
+    members: [
+      {
+        cost: "4-cost",
+        echoes: [
+          {
+            name: "Thousand-Puppet Pavilion",
+            icon: "/images/echoes/thousand-puppet-pavilion.webp",
+          },
+        ],
+      },
+      {
+        cost: "3-cost",
+        echoes: [{ name: "Forbidden Bastion" }, { name: "Fog Lionarch" }],
+      },
+      {
+        cost: "1-cost",
+        echoes: [
+          { name: "Smiter" },
+          { name: "Smolder" },
+          { name: "Fog Lionarch: Head" },
+          { name: "Fog Lionarch: Body" },
+          { name: "Kernel Puppet: Joy" },
+        ],
+      },
+    ],
+    farm: "The Eastern Xuan Peaks and Western Fang Peaks Tacet Fields in Mengzhou (reached through the main quest \u201cThe Wind Before the Storm\u201d), plus Mengzhou's Tacet Discord Nests — the nest pool is shared with Mengzhou's other Sonata Effects.",
+    stats:
+      "Xuanling (damage): 4-3-3-1-1. 4-cost Crit Rate or Crit DMG, 3-costs Havoc DMG Bonus, 1-costs ATK%; substats Crit first, then Heavy Attack DMG and ATK%. Suisui (buffer): Energy Regen on every piece that can roll it — her team buff scales with it and only maxes out at 250%+ — with HP% comfort on the 1-costs.",
+  },
+  {
+    id: "quiet-snowfall",
+    name: "Wishes of Quiet Snowfall",
+    icon: "/images/echoes/wishes-of-quiet-snowfall.webp",
+    role: "Glacio DPS",
+    pill: "Best-in-slot — Hiyuki · Lucilla",
+    pillBis: true,
+    twoPc: "Glacio DMG +10%.",
+    fivePc:
+      "Inflicting Glacio Chafe increases Glacio DMG dealt by 10% for 15s and grants the Snowfall effect for 15s (can be triggered once every 25s). While Snowfall is active, dealing Resonance Liberation DMG removes it and increases Crit Rate by 25% for 6s — dealing Liberation DMG again extends that by 4s, up to 6 times. Casting an Outro Skill instead removes Snowfall and grants the incoming Resonator +25% Glacio DMG Bonus for 15s. When Snowfall is removed, only one of the two effects can trigger.",
+    who: "Hiyuki's set — she applies Glacio Chafe constantly, so both Snowfall payoffs are built around her rotation, and she headlines the December 3 reruns. Lucilla runs it as a Glacio sub-DPS. Nobody else applies Chafe reliably enough to keep the set fed.",
+    members: [
+      {
+        cost: "4-cost",
+        echoes: [{ name: "Reminiscence: Threnodian \u2013 Voidborne Construct" }],
+      },
+      {
+        cost: "3-cost",
+        echoes: [
+          { name: "Ironhoof" },
+          { name: "Frostbite Coleoid" },
+          { name: "Windlash Coleoid" },
+          { name: "Glommoth" },
+        ],
+      },
+      {
+        cost: "1-cost",
+        echoes: [
+          { name: "Tremor Warrior" },
+          { name: "Iceglint Dancer" },
+          { name: "Shadow Stepper" },
+        ],
+      },
+    ],
+    farm: "The Mount Gjallar Tacet Field in Lahai-Roi (eastern Dimmr Plains, reached through the main quest \u201cStarlights from Yesterdays\u201d — the field also drops Reel of Spliced Memories), all Lahai-Roi Tacet Discord Nests, and overworld spawns, densest around Startorch Academy, the Upphaf Forest Ruins, and Dimmr Deep / Sealed Fissure.",
+    stats:
+      "4-3-3-1-1 layout. 4-cost: Crit Rate or Crit DMG. 3-costs: Glacio DMG Bonus on both. 1-costs: ATK% on both. Substats: Crit Rate / Crit DMG first, then ATK% and Resonance Liberation DMG.",
+  },
 ];
 
 interface NewEcho {
@@ -318,8 +396,8 @@ export default function EchoSetsGuide() {
 
       <OgPageHero
         kicker="Echo sets · Version 3.8"
-        title="Three new sets, two worth farming"
-        lede="The three newest Sonata Effects — Flower of Tinged Yearning, Heart of Sworn Vigil, and Flash of Electric Reflection — with every bonus, member echo, and farm route, each fact checked against two or more independent sources. For any other set, each character's build page names the set they want and where it fits."
+        title="The five sets worth farming in 3.8"
+        lede="The three newest Sonata Effects — Flower of Tinged Yearning, Heart of Sworn Vigil, and Flash of Electric Reflection — plus the two sets the December 3 reruns run on: Song of Feathered Trace and Wishes of Quiet Snowfall. Every bonus, member echo, and farm route, each fact checked against two or more independent sources. For any other set, each character's build page names the set they want and where it fits."
         meta={<UpdatedStamp />}
       />
 
@@ -329,6 +407,8 @@ export default function EchoSetsGuide() {
           { href: "#set-sworn-vigil", label: "Sworn Vigil" },
           { href: "#set-electric-reflection", label: "Electric Reflection" },
           { href: "#set-tinged-yearning", label: "Tinged Yearning" },
+          { href: "#set-feathered-trace", label: "Feathered Trace" },
+          { href: "#set-quiet-snowfall", label: "Quiet Snowfall" },
           { href: "#new-echoes", label: "New echoes" },
           { href: "#farming", label: "Farming plan" },
         ]}
@@ -345,7 +425,10 @@ export default function EchoSetsGuide() {
               <strong>Flower of Tinged Yearning</strong> if you&rsquo;re pulling
               Lily in 3.8 — she&rsquo;s its confirmed Unison healer. All three sets live in the Simulacrum Nexus of
               Mengzhou, unlocked through Main Quest Chapter IV Act IV,
-              &ldquo;Simulacrum of the Heart.&rdquo;
+              &ldquo;Simulacrum of the Heart.&rdquo; Pulling on December 3 instead?{" "}
+              <strong>Song of Feathered Trace</strong> is the farm for Yangyang:
+              Xuanling and Suisui, and <strong>Wishes of Quiet Snowfall</strong>{" "}
+              is Hiyuki&rsquo;s — both are covered below.
             </p>
           </div>
         </Reveal>
@@ -354,7 +437,7 @@ export default function EchoSetsGuide() {
       <div className="og-section">
         <ObsidianSectionHead
           id="sets"
-          title="The three sets"
+          title="The five sets"
           blurb="Full bonus text, who each set is for, every echo that can roll it, and the stats to keep."
         />
         <div style={{ display: "grid", gap: "0.75rem" }}>
@@ -409,7 +492,7 @@ export default function EchoSetsGuide() {
       <div className="og-section" id="farming" style={{ scrollMarginTop: "120px" }}>
         <ObsidianSectionHead
           title="The farming plan"
-          blurb="One region feeds all three sets. Spend Waveplates in this order."
+          blurb="Two regions feed all five sets. Spend Waveplates in this order."
         />
         <Reveal>
           <div className="og-stat-panel">
@@ -436,6 +519,16 @@ export default function EchoSetsGuide() {
                 Lily; otherwise your Waveplates are worth more in Heart of Flames.
               </li>
               <li>
+                <strong>Eastern Xuan Peaks + Western Fang Peaks Tacet Fields</strong>{" "}
+                (Mengzhou) — Song of Feathered Trace. The December 3 pre-farm for
+                Xuanling and Suisui; Suisui wants Energy Regen rolls above all.
+              </li>
+              <li>
+                <strong>Mount Gjallar Tacet Field</strong> (Lahai-Roi) — Wishes of
+                Quiet Snowfall for Hiyuki and Lucilla. It shares the field with
+                Reel of Spliced Memories, so expect split drops.
+              </li>
+              <li>
                 <strong>Chord Cleansing, Dec 14–21</strong> — the recurring event
                 doubles Tacet Field echo drops for a week. If you can wait, it
                 is the cheapest window to finish both Electro sets and Flower.
@@ -454,7 +547,12 @@ export default function EchoSetsGuide() {
         Set bonuses, member lists, and farm routes verified against the official
         Version 3.7 patch notes, Game8&rsquo;s Sonata Effect pages, the Wuthering
         Waves Wiki, EnjoyGM&rsquo;s 3.7 echo sets guide, Mone&rsquo;s 3.7 echoes
-        guide, and Prydwen&rsquo;s echo database — see the{" "}
+        guide, and Prydwen&rsquo;s echo database. Song of Feathered Trace and
+        Wishes of Quiet Snowfall were verified against Game8&rsquo;s Sonata
+        pages and the Wuthering Waves Wiki on November 13, 2026 — one conflict
+        resolved on the way in: Feathered Trace&rsquo;s Heavy Attack bonus is
+        +35% (the Wiki and three guides); Game8&rsquo;s 25% figure is the
+        outlier — see the{" "}
         <Link href="/characters/hsin">Hsin</Link> and{" "}
         <Link href="/characters/suoming">Suoming</Link> build pages for the
         per-character versions of these recommendations. Flower of Tinged

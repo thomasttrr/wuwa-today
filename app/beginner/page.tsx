@@ -89,6 +89,23 @@ export default function BeginnerHub() {
         ))}
       </div>
 
+      <div className="og-section">
+        <Reveal>
+          <div className="og-notice" role="note">
+            <p>
+              <strong>Returning after a break? Version 3.8 made farming kinder.</strong>{" "}
+              A <strong>Material Locator</strong> button in the Guidebook and the
+              Ascension Planner now jumps you straight to the challenge that drops
+              what you need. <strong>Blitz Mode</strong> restarts a cleared challenge
+              the moment you claim its rewards — no running back (Kuro is rolling it
+              out gradually, as a limited test). And Rover keeps{" "}
+              <strong>one saved Echo set per element</strong> now: switch elements
+              and the matching set equips itself.
+            </p>
+          </div>
+        </Reveal>
+      </div>
+
       <p className="og-version-note">
         Beginner banners were last re-verified in game version 3.7. The newer New
         Voyage Companions flow is still being confirmed for fresh accounts — see

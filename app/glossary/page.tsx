@@ -55,6 +55,10 @@ export default function GlossaryPage() {
               "Support",
               "The helper. They heal the team, shield it, or make the rest of the team stronger.",
             ],
+            [
+              "Unison",
+              "A special swap state (a golden glow on the character's icon). Switching a Unison character out fires their farewell skill and the next character's entry skill at the same time, without spending the team's swap meter. Partners who answer the swap build Unison Boon: +3% team damage per stack. Hsin, Suoming, Jinhsi, and Lily play around it.",
+            ],
           ]}
         />
         <Group
@@ -120,6 +124,26 @@ export default function GlossaryPage() {
             [
               "Resonance Liberation DMG",
               "Extra damage for the character's biggest special attack.",
+            ],
+            [
+              "Negative Status",
+              "A weakening effect that certain attacks stick on an enemy. Each element has its own (below). They also chew through a boss's Vibration Strength fast, which is why the Calamity Effigy fight rewards bringing them.",
+            ],
+            [
+              "Electro Flare",
+              "Electro's Negative Status. Stacks up to 10 and weakens the enemy's attack power (up to −10%). Applied by Hsin, Electro Rover, and Buling.",
+            ],
+            [
+              "Havoc Bane",
+              "Havoc's Negative Status. Its stacks build up on their own; at full stacks it bursts for Havoc damage and spreads to nearby enemies. Yangyang: Xuanling's whole kit is built on it.",
+            ],
+            [
+              "Glacio Chafe",
+              "Glacio's Negative Status. Each stack deals Glacio damage and slows the enemy; at 10 stacks the target freezes solid. Applied by Suisui, Lucilla, and Hiyuki.",
+            ],
+            [
+              "Spectro Frazzle",
+              "Spectro's Negative Status. It deals Spectro damage over time and burns one of its own stacks away with each tick. Applied by Spectro Rover, Phoebe, and Zani.",
             ],
           ]}
         />
