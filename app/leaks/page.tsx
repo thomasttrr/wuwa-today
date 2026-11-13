@@ -318,6 +318,17 @@ export default function LeaksPage() {
               outright, and no tracker disputes it — the opening character of a new region has
               always been a limited five-star.
             </Claim>
+            <Claim tag="Single leak">
+              <strong>Her Tacet Mark sits on her upper thigh.</strong> A close-up render
+              gallery (FS, November 10) shows it there — faint and reddish in the shot, and
+              readers dispute how visible it really is, so treat the placement as likely, not
+              settled.
+            </Claim>
+            <Claim tag="Single leak">
+              <strong>Her English voice is out there too.</strong> An 11-second in-game clip
+              (pero, November 10) carries her English lines. No English voice actor is named
+              anywhere yet — the names in the comments are guesses.
+            </Claim>
           </div>
         </Reveal>
         <div style={{ height: "0.9rem" }} />
@@ -553,6 +564,13 @@ export default function LeaksPage() {
               <strong>Roughly 3.0-sized.</strong> The same source puts the 4.0 map at about the
               size of Version 3.0&rsquo;s map — a full region, not a small starter area. No map
               graphic has leaked with the names; the posts are text only.
+            </Claim>
+            <Claim tag="Single leak">
+              <strong>Even the login music has leaked.</strong> A clip of the 4.0 login
+              soundtrack is circulating (Brantleaks, November 10). Listeners describe an open,
+              windswept feel with sirens under it — a fit for the Federated Cities. No track
+              name or composer yet, and the description is second-hand, from the post&rsquo;s
+              comments.
             </Claim>
           </div>
         </Reveal>
