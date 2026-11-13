@@ -172,17 +172,17 @@ export default function LeaksPage() {
           <div className="lk-view">
             <div className="lk-view-bar">
               <span>Model — datamined render</span>
-              <span>Not official art</span>
+              <span>Not official art · AI-enhanced</span>
             </div>
             <div className="lk-view-media">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="/images/leaks/anna-model-1200.webp"
-                srcSet="/images/leaks/anna-model-1200.webp 1200w, /images/leaks/anna-model-1920.webp 1920w"
+                src="/images/leaks/anna-model-enh-1200.webp"
+                srcSet="/images/leaks/anna-model-enh-1200.webp 1200w, /images/leaks/anna-model-enh-1920.webp 1920w"
                 sizes="(max-width: 760px) 100vw, 900px"
                 alt="Leaked model renders of Anna: front view, side view, and a face close-up with a wide rose-trimmed hat"
-                width={1190}
-                height={450}
+                width={1200}
+                height={453}
                 loading="lazy"
               />
               <span className="lk-corner tl" aria-hidden />
@@ -215,13 +215,13 @@ export default function LeaksPage() {
           <div className="lk-view">
             <div className="lk-view-bar">
               <span>3D model — full rotation</span>
-              <span>Front · Side · Back · Side</span>
+              <span>Front · Side · Back · Side · AI-enhanced</span>
             </div>
             <div className="lk-view-media">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="/images/leaks/anna-rotation-1280.webp"
-                srcSet="/images/leaks/anna-rotation-1280.webp 1280w, /images/leaks/anna-rotation-1920.webp 1920w"
+                src="/images/leaks/anna-rotation-enh-1280.webp"
+                srcSet="/images/leaks/anna-rotation-enh-1280.webp 1280w, /images/leaks/anna-rotation-enh-1920.webp 1920w"
                 sizes="(max-width: 760px) 100vw, 900px"
                 alt="Leaked 3D model of Anna shown from four angles: front, side, back, and side"
                 width={1280}
@@ -240,17 +240,17 @@ export default function LeaksPage() {
           <div className="lk-view">
             <div className="lk-view-bar">
               <span>3D model — upper-body detail</span>
-              <span>Hat off · Costume close-up</span>
+              <span>Hat off · Costume close-up · AI-enhanced</span>
             </div>
             <div className="lk-view-media">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="/images/leaks/anna-bust-900.webp"
-                srcSet="/images/leaks/anna-bust-900.webp 900w, /images/leaks/anna-bust-1400.webp 1400w"
+                src="/images/leaks/anna-bust-enh-1000.webp"
+                srcSet="/images/leaks/anna-bust-enh-1000.webp 1000w, /images/leaks/anna-bust-enh-1600.webp 1600w"
                 sizes="(max-width: 760px) 100vw, 900px"
                 alt="Close-up of the leaked Anna 3D model from the waist up, showing the corset, rose pendant, and armored sleeves"
-                width={900}
-                height={685}
+                width={1000}
+                height={761}
                 loading="lazy"
               />
               <span className="lk-corner tl" aria-hidden />
@@ -317,13 +317,13 @@ export default function LeaksPage() {
           <div className="lk-view">
             <div className="lk-view-bar">
               <span>Model — in-world placement</span>
-              <span>Via leak trackers</span>
+              <span>Via leak trackers · AI-enhanced</span>
             </div>
             <div className="lk-view-media lk-drift">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="/images/leaks/anna-ingame-1024.webp"
-                srcSet="/images/leaks/anna-ingame-1024.webp 1024w, /images/leaks/anna-ingame-1600.webp 1600w"
+                src="/images/leaks/anna-ingame-enh-1024.webp"
+                srcSet="/images/leaks/anna-ingame-enh-1024.webp 1024w, /images/leaks/anna-ingame-enh-1600.webp 1600w"
                 sizes="(max-width: 760px) 100vw, 900px"
                 alt="The leaked Anna model standing in a live-game environment"
                 width={1024}
@@ -350,15 +350,17 @@ export default function LeaksPage() {
           <div className="lk-view">
             <div className="lk-view-bar">
               <span>3D model — bust portrait only</span>
-              <span>Via StepLeaks · Oct 29</span>
+              <span>Via StepLeaks · Oct 29 · AI-enhanced</span>
             </div>
             <div className="lk-view-media">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="/images/leaks/lucille-model-962.webp"
+                src="/images/leaks/lucille-model-enh-1200.webp"
+                srcSet="/images/leaks/lucille-model-enh-1200.webp 1200w, /images/leaks/lucille-model-enh-1924.webp 1924w"
+                sizes="(max-width: 760px) 100vw, 900px"
                 alt="Leaked 3D model bust portrait of Lucille: blonde twin braids, green eyes, red outfit and black choker, with the StepLeaks watermark"
-                width={962}
-                height={689}
+                width={1200}
+                height={859}
                 loading="lazy"
               />
               <span className="lk-corner tl" aria-hidden />
@@ -538,7 +540,16 @@ export default function LeaksPage() {
               LDShop&rsquo;s banner schedule (November 2), TopUpLive&rsquo;s 4.0–4.2 leak
               summary, and BitTopup&rsquo;s 3.8/4.0 coverage.
               Where the trackers disagree — Lucille&rsquo;s element above all — this page says
-              so instead of picking a winner. For what is actually live, see the{" "}
+              so instead of picking a winner. Every image on this page is AI-upscaled for
+              clarity (Real-ESRGAN, anime model) from the file that actually leaked —
+              enhancement sharpens, it does not add real detail. The unedited originals stay
+              on the site:{" "}
+              <a href="/images/leaks/anna-model-1920.webp">model sheet</a>,{" "}
+              <a href="/images/leaks/anna-rotation-1920.webp">rotation</a>,{" "}
+              <a href="/images/leaks/anna-bust-1400.webp">upper-body detail</a>,{" "}
+              <a href="/images/leaks/anna-ingame-1600.webp">in-world shot</a>,{" "}
+              <a href="/images/leaks/lucille-model-962.webp">Lucille portrait</a>. For what is
+              actually live, see the{" "}
               <Link href="/banners">banners page</Link> and the{" "}
               <Link href="/phase-2">December 3 Phase 2 preview</Link>.
             </p>
