@@ -329,6 +329,12 @@ export default function LeaksPage() {
               (pero, November 10) carries her English lines. No English voice actor is named
               anywhere yet — the names in the comments are guesses.
             </Claim>
+            <Claim tag="Single leak">
+              <strong>She may already be in the game.</strong> A Seele text graphic
+              (November 9) says Anna — and Amethyst — appear in the Version 3.8 storyline,
+              months before her own banner. No screenshots came with the claim, so for now it
+              is one text post; players finishing the 3.8 story will settle it either way.
+            </Claim>
           </div>
         </Reveal>
         <div style={{ height: "0.9rem" }} />
@@ -589,6 +595,12 @@ export default function LeaksPage() {
               &ldquo;Anna&rsquo;s Room&rdquo; — which would make her &ldquo;Underwater
               Queen&rdquo; title literal. One source so far.
             </Claim>
+            <Claim tag="Speculation">
+              <strong>A November 18 drip date is floating around.</strong> One X user with
+              no track record (@kyryllmitya, November 12) claims Kuro drops an official 4.X
+              character reveal on November 18. Nothing backs it — no characters named, nothing
+              shown. It is a dated claim, so it settles itself within the week.
+            </Claim>
           </div>
         </Reveal>
       </div>
@@ -606,7 +618,8 @@ export default function LeaksPage() {
                 <Chip tag="Repeated leak" />{" "}
                 <strong>Amethyst (also Aimoshesh / Aimoxishen)</strong> — an anti-Resonance
                 humanoid weapon, most often placed in Version 4.1 Phase 1. One leak graphic tags
-                her Glacio.
+                her Glacio. The same Seele graphic behind Anna&rsquo;s file also names her in
+                the 3.8 story (single leak — see File 01).
               </p>
               <span className="lk-ver">4.1 · P1?</span>
             </div>
