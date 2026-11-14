@@ -8,7 +8,7 @@ import UpdatedStamp from "@/components/UpdatedStamp";
 import "./solaris.css";
 
 export const metadata: Metadata = {
-  title: "Second Coming of Solaris: All 12 Endings & Routes (Unwritten Dreams Guide)",
+  title: "Second Coming of Solaris — all 12 endings & routes (Unwritten Dreams guide)",
   description:
     "Every ending in the Second Coming of Solaris: Unwritten Dreams event: the 12 ending requirements, the two-playthrough plan, the Joint Route, the hidden Great Rover ending (2,000,000 Badges), and the rewards.",
   alternates: { canonical: "/solaris-endings" },
@@ -32,8 +32,8 @@ export default function SolarisEndingsPage() {
 
       <OgPageHero
         kicker="Version 3.8 event · Second Coming of Solaris"
-        title="Unwritten Dreams: all 12 endings"
-        lede="A school-life sim inside Wuthering Waves: one school year as a transfer student, five stats, a badge economy, two rival organisations — and twelve endings. This page lists every ending's requirements and the two-playthrough plan that collects them all. It covers names and requirements only; it does not retell the story."
+        title="Unwritten Dreams — all 12 endings"
+        lede="A school-life sim inside Wuthering Waves: one school year as a transfer student, five stats, a badge economy, two rival organizations — and twelve endings. This page lists every ending's requirements and the two-playthrough plan that collects them all. It covers names and requirements only; it does not retell the story."
         meta={<UpdatedStamp />}
       />
 
@@ -75,12 +75,12 @@ export default function SolarisEndingsPage() {
               Store, and two endings are gated on holding large amounts of them.
             </p>
             <p>
-              <strong>The lock point.</strong> Early on you meet both organisations — the{" "}
+              <strong>The lock point.</strong> Early on you meet both organizations — the{" "}
               <strong>Student Council</strong> (Changli) and the <strong>Club Association</strong>{" "}
               (Cartethyia). At the <strong>summer break choice</strong>, joining one closes the
               other&rsquo;s route for that run. Professor Verina&rsquo;s early ambition question
-              points the same way: academics and logic favour Changli&rsquo;s stats, body and
-              aesthetics favour Cartethyia&rsquo;s, and reputation-and-wealth favours the badge
+              points the same way: academics and logic favor Changli&rsquo;s stats, body and
+              aesthetics favor Cartethyia&rsquo;s, and reputation-and-wealth favors the badge
               path.
             </p>
           </div>
@@ -132,7 +132,7 @@ export default function SolarisEndingsPage() {
         </Reveal>
         <Reveal>
           <ul className="so-cards" style={{ marginTop: "1rem" }}>
-            <li className="so-card">
+            <li className="gk-card">
               <span className="so-tag">Companion · Changli</span>
               <h3>The Warmth of Fireworks</h3>
               <p>
@@ -141,7 +141,7 @@ export default function SolarisEndingsPage() {
                 give up a stat ending to see one.
               </p>
             </li>
-            <li className="so-card">
+            <li className="gk-card">
               <span className="so-tag">Companion · Cartethyia</span>
               <h3>A Journey of Freedom</h3>
               <p>
@@ -149,7 +149,7 @@ export default function SolarisEndingsPage() {
                 ending. Same deal: an extra scene on top of your main ending.
               </p>
             </li>
-            <li className="so-card">
+            <li className="gk-card">
               <span className="so-tag">Special</span>
               <h3>Toward Tomorrow</h3>
               <p>
@@ -157,7 +157,7 @@ export default function SolarisEndingsPage() {
                 Corp&rsquo;s final evaluation. A run-2 goal — the Joint Route is built for it.
               </p>
             </li>
-            <li className="so-card">
+            <li className="gk-card">
               <span className="so-tag">Exclusive · 2nd run+</span>
               <h3>The Real World</h3>
               <p>
@@ -169,7 +169,7 @@ export default function SolarisEndingsPage() {
                 times; keep choosing it.
               </p>
             </li>
-            <li className="so-card">
+            <li className="gk-card">
               <span className="so-tag">Hidden</span>
               <h3>The Great Rover</h3>
               <p>
@@ -179,7 +179,7 @@ export default function SolarisEndingsPage() {
                 full amount is spent on the purchase. Full plan below.
               </p>
             </li>
-            <li className="so-card">
+            <li className="gk-card">
               <span className="so-tag">Hidden</span>
               <h3>School Idol</h3>
               <p>
@@ -286,7 +286,7 @@ export default function SolarisEndingsPage() {
             <li className="so-step">
               <span className="so-step-n">Jul 6</span>
               <div>
-                <h3>Join BOTH organisations</h3>
+                <h3>Join BOTH organizations</h3>
                 <p>
                   The Joint Route branch: balance both orgs and complete{" "}
                   <strong>all 9 Journey Nodes</strong>, aiming for all stats toward S and{" "}

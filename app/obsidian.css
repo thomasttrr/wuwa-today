@@ -20,46 +20,9 @@
      px; atmospheric hero backdrops at most source x 1.7. Enforced at
      each governed rule below — see the .og-hero and .og-char-art notes.
 
-   Tokens live on :root; components are .og-* namespaced so the old
-   Native Dark styles in globals.css are untouched until integration.
+   Tokens are the --rs-* set in resonance.css (the single token system);
+   components keep their .og-* class names.
    ========================================================================== */
-
-:root {
-  /* --- canvas & surfaces --- */
-  --og-canvas: #000000;                    /* page canvas */
-  --og-surface: #101014;                   /* SOLID content surface — never glass */
-  --og-surface-raised: #1a1a20;            /* raised / inset on dark surfaces */
-
-  /* --- ink --- */
-  --og-ink: #ffffff;                       /* primary text — 21:1 on canvas */
-  --og-muted: #b6b6be;                     /* secondary text — ~9.4:1 on #101014.
-                                             Measured ≥4.5:1 on all surfaces. */
-
-  /* --- gold: time, countdowns, live ONLY --- */
-  --og-gold: #e8b44f;                      /* ~11:1 on canvas, ~9.4:1 on #101014 */
-  --og-gold-soft: rgba(232, 180, 79, 0.14);
-
-  /* --- glass chrome (chrome only!) --- */
-  --og-glass: rgba(255, 255, 255, 0.08);   /* glass tint */
-  --og-glint: rgba(255, 255, 255, 0.35);   /* specular top-edge glint */
-  --og-hairline: rgba(255, 255, 255, 0.1); /* hairline borders */
-  --og-hairline-soft: rgba(255, 255, 255, 0.05);
-
-  /* --- shape --- */
-  --og-radius-pill: 999px;                 /* nav, buttons, pills */
-  --og-radius-card: 16px;                  /* cards: 14-18px range */
-
-  /* --- type --- */
-  --og-display: var(--font-space-grotesk), "Space Grotesk",
-    -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
-  --og-body: -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, sans-serif;
-  --og-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
-
-  /* --- motion --- */
-  --og-ease-out: cubic-bezier(0.22, 1, 0.36, 1);
-  --og-d1: 160ms;
-  --og-d2: 320ms;
-}
 
 /* ==========================================================================
    Obsidian body scope. The primary nav is a fixed bottom tab bar on all
@@ -79,21 +42,21 @@ body.og main {
   /* RESERVED: short display headlines only (page titles, hero). Every
      other uppercase use has been demoted per caps discipline — do not
      re-add text-transform to functional UI. */
-  font-family: var(--og-display);
+  font-family: var(--rs-display);
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: -0.015em;
   line-height: 1.05;
-  color: var(--og-ink);
+  color: var(--rs-ink);
 }
 /* Title-case display heading for section heads: Space Grotesk voice
    without the all-caps shout. */
 .og-h2 {
-  font-family: var(--og-display);
+  font-family: var(--rs-display);
   font-weight: 700;
   letter-spacing: -0.01em;
   line-height: 1.15;
-  color: var(--og-ink);
+  color: var(--rs-ink);
 }
 
 /* ==========================================================================
@@ -107,7 +70,7 @@ body.og main {
 .og-btn:focus-visible {
   outline: 2px solid #ffffff;
   outline-offset: 2px;
-  border-radius: var(--og-radius-pill);
+  border-radius: var(--rs-r-ctl);
 }
 @media (prefers-reduced-motion: reduce) {
   /* The pill jumps instantly — no glide. */
@@ -139,16 +102,16 @@ body.og main {
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  font-family: var(--og-display);
+  font-family: var(--rs-display);
   font-weight: 600;
   font-size: var(--fs-3);
   letter-spacing: 0.02em;
-  border-radius: var(--og-radius-pill);
+  border-radius: var(--rs-r-ctl);
   padding: 0.7rem 1.5rem;
   cursor: pointer;
   text-decoration: none;
-  transition: background-color var(--og-d1) ease, border-color var(--og-d1) ease,
-    color var(--og-d1) ease, transform var(--og-d1) var(--og-ease-out);
+  transition: background-color var(--rs-d1) ease, border-color var(--rs-d1) ease,
+    color var(--rs-d1) ease, transform var(--rs-d1) var(--rs-ease);
 }
 .og-btn:hover { text-decoration: none; }
 .og-btn:active { transform: scale(0.97); }
@@ -156,11 +119,11 @@ body.og main {
 .og-btn-glass {
   position: relative;
   overflow: hidden;
-  background: var(--og-glass);
+  background: var(--rs-glass);
   -webkit-backdrop-filter: saturate(180%) blur(16px);
   backdrop-filter: saturate(180%) blur(16px);
-  border: 1px solid var(--og-hairline);
-  color: var(--og-ink);
+  border: 1px solid var(--rs-line);
+  color: var(--rs-ink);
   box-shadow: 0 8px 28px -10px rgba(0, 0, 0, 0.65);
 }
 .og-btn-glass::before {
@@ -168,7 +131,7 @@ body.og main {
   position: absolute;
   inset: 0 0 auto 0;
   height: 1px;
-  background: linear-gradient(90deg, transparent, var(--og-glint), transparent);
+  background: linear-gradient(90deg, transparent, var(--rs-glint), transparent);
   pointer-events: none;
 }
 .og-btn-glass:hover { background: rgba(255, 255, 255, 0.13); }
@@ -218,7 +181,7 @@ body.og main {
    dimmed, as a hairline accent. */
 @media (prefers-reduced-transparency: reduce) {
   .og-btn-glass {
-    background: var(--og-surface);
+    background: var(--rs-surface);
     -webkit-backdrop-filter: none;
     backdrop-filter: none;
   }
@@ -245,9 +208,9 @@ body.og { overflow-x: clip; }
   margin: 0 0 1.75rem;
 }
 .og-updated {
-  font-family: var(--og-mono);
+  font-family: var(--rs-mono);
   font-size: var(--fs-2);
-  color: var(--og-muted);
+  color: var(--rs-ink-2);
   margin: 0;
 }
 
@@ -258,23 +221,23 @@ body.og { overflow-x: clip; }
   gap: 1rem; flex-wrap: wrap;
   margin: 0 0 1.1rem;
   padding-bottom: 0.75rem;
-  border-bottom: 1px solid var(--og-hairline-soft);
+  border-bottom: 1px solid var(--rs-line-soft);
 }
 /* Jump targets live on the head, not the section, so the head itself
    needs the same 1rem breathing room as .og-section. */
 .og-section-head[id] { scroll-margin-top: 1rem; }
-.og-section-blurb { color: var(--og-muted); margin: 0.4rem 0 0; font-size: var(--fs-5); }
+.og-section-blurb { color: var(--rs-ink-2); margin: 0.4rem 0 0; font-size: var(--fs-5); }
 .og-section-link {
   display: inline-flex; align-items: center; min-height: 44px;
-  font-weight: 600; font-size: var(--fs-5); color: var(--og-ink);
+  font-weight: 600; font-size: var(--fs-5); color: var(--rs-ink);
   white-space: nowrap;
 }
 .og-section-link:hover { text-decoration: underline; text-underline-offset: 3px; }
 .og-empty {
-  color: var(--og-muted);
-  background: var(--og-surface);
-  border: 1px solid var(--og-hairline-soft);
-  border-radius: var(--og-radius-card);
+  color: var(--rs-ink-2);
+  background: var(--rs-surface);
+  border: 1px solid var(--rs-line-soft);
+  border-radius: var(--rs-r-card);
   padding: 1.25rem 1.5rem;
   margin: 0;
 }
@@ -308,8 +271,8 @@ body.og { overflow-x: clip; }
   max-height: 84svh;
   overflow: hidden;
   background: #000;
-  border: 1px solid var(--og-hairline);
-  border-radius: 20px;
+  border: 1px solid var(--rs-line);
+  border-radius: var(--rs-r-tile);
 }
 .og-hero::after {
   /* Monochrome dark scrim: top shade for nav legibility, deep shade
@@ -358,7 +321,7 @@ body.og { overflow-x: clip; }
    .og-banner-card — solid #101014 content surface. Art strip on top
    (fixed 16/9 aspect, no layout shift), everything below on solid.
    ========================================================================== */
-.og-stars { color: var(--og-ink); letter-spacing: 0.05em; font-size: var(--fs-3); }
+.og-stars { color: var(--rs-ink); letter-spacing: 0.05em; font-size: var(--fs-3); }
 
 /* ==========================================================================
    .og-event-card — solid surface, mono time labels, gold countdown.
@@ -373,9 +336,9 @@ body.og { overflow-x: clip; }
 .og-verify-block {
   margin: 3rem 0 0;
   padding: 1.25rem 1.5rem;
-  background: var(--og-surface);
-  border: 1px solid var(--og-hairline);
-  border-radius: var(--og-radius-card);
+  background: var(--rs-surface);
+  border: 1px solid var(--rs-line);
+  border-radius: var(--rs-r-card);
   text-align: center;
 }
 .og-verify-block .og-updated { font-size: var(--fs-4); line-height: 1.6; }
@@ -389,9 +352,9 @@ body.og { overflow-x: clip; }
    ========================================================================== */
 
 .og-reset {
-  background: var(--og-surface);
-  border: 1px solid var(--og-hairline);
-  border-radius: var(--og-radius-card);
+  background: var(--rs-surface);
+  border: 1px solid var(--rs-line);
+  border-radius: var(--rs-r-card);
   padding: 1.4rem 1.5rem 1.5rem;
 }
 .og-reset-head {
@@ -400,17 +363,17 @@ body.og { overflow-x: clip; }
   margin-bottom: 1rem;
 }
 .og-reset-title {
-  font-family: var(--og-display);
+  font-family: var(--rs-display);
   font-weight: 700; letter-spacing: -0.01em;
-  font-size: 1.2rem; margin: 0; color: var(--og-ink);
+  font-size: var(--fs-7); margin: 0; color: var(--rs-ink);
 }
 .og-select {
   appearance: none;
-  background: var(--og-surface-raised);
-  border: 1px solid var(--og-hairline);
-  border-radius: var(--og-radius-pill);
-  color: var(--og-ink);
-  font-family: var(--og-body);
+  background: var(--rs-surface-2);
+  border: 1px solid var(--rs-line);
+  border-radius: var(--rs-r-ctl);
+  color: var(--rs-ink);
+  font-family: var(--rs-body);
   font-size: var(--fs-4); font-weight: 600;
   padding: 0.55rem 2.2rem 0.55rem 1.1rem;
   min-height: 44px;
@@ -420,7 +383,7 @@ body.og { overflow-x: clip; }
   background-position: right 1rem center;
 }
 .og-select:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
-.og-reset-label { display: inline-flex; align-items: center; gap: 0.6rem; color: var(--og-muted); font-size: var(--fs-4); }
+.og-reset-label { display: inline-flex; align-items: center; gap: 0.6rem; color: var(--rs-ink-2); font-size: var(--fs-4); }
 .og-reset-grid { display: grid; gap: 1.25rem; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
 
 /* ==========================================================================
@@ -433,20 +396,20 @@ body.og { overflow-x: clip; }
    ========================================================================== */
 
 .og-pick-card {
-  background: var(--og-surface);
-  border: 1px solid var(--og-hairline);
-  border-radius: var(--og-radius-card);
+  background: var(--rs-surface);
+  border: 1px solid var(--rs-line);
+  border-radius: var(--rs-r-card);
   padding: 1.4rem 1.5rem 1.5rem;
 }
 .og-pick-card h3 {
-  font-family: var(--og-display);
+  font-family: var(--rs-display);
   font-weight: 700; letter-spacing: -0.01em;
-  font-size: 1.3rem; line-height: 1.2;
-  margin: 0.55rem 0 0.6rem; color: var(--og-ink);
+  font-size: var(--fs-7); line-height: 1.2;
+  margin: 0.55rem 0 0.6rem; color: var(--rs-ink);
 }
-.og-pick-desc { color: var(--og-muted); margin: 0; font-size: var(--fs-5); line-height: 1.6; }
+.og-pick-desc { color: var(--rs-ink-2); margin: 0; font-size: var(--fs-5); line-height: 1.6; }
 .og-pick-desc a { font-weight: 600; }
-.og-pick-desc strong { color: var(--og-ink); }
+.og-pick-desc strong { color: var(--rs-ink); }
 /* --- scannable question bullets: <ul> + bolded keywords, same verified copy --- */
 .og-q-list {
   list-style: disc;
@@ -455,12 +418,12 @@ body.og { overflow-x: clip; }
   display: flex; flex-direction: column; gap: 0.55rem;
 }
 .og-q-list li {
-  color: var(--og-muted);
+  color: var(--rs-ink-2);
   font-size: var(--fs-5);
   line-height: 1.6;
 }
-.og-q-list li::marker { color: var(--og-muted); }
-.og-q-list strong { color: var(--og-ink); font-weight: 600; }
+.og-q-list li::marker { color: var(--rs-ink-2); }
+.og-q-list strong { color: var(--rs-ink); font-weight: 600; }
 .og-q-links { margin: 0.85rem 0 0; font-size: var(--fs-4); line-height: 1.6; }
 .og-q-links a { font-weight: 600; }
 .og-pick-row { display: flex; gap: 0.85rem; align-items: flex-start; }
@@ -468,18 +431,18 @@ body.og { overflow-x: clip; }
   width: 64px; height: 64px; flex: none;
   aspect-ratio: 1 / 1;
   object-fit: cover; object-position: top center;
-  border-radius: 14px;
-  background: var(--og-surface-raised);
+  border-radius: var(--rs-r-card);
+  background: var(--rs-surface-2);
 }
 .og-pick-body { min-width: 0; flex: 1; }
 .og-pick-name {
-  margin: 0; font-weight: 700; font-size: 1.05rem;
+  margin: 0; font-weight: 700; font-size: var(--fs-6);
   display: flex; align-items: center; gap: 0.55rem; flex-wrap: wrap;
 }
-.og-pick-name a { color: var(--og-ink); }
-.og-pick-why { margin: 0.35rem 0 0.6rem; color: var(--og-muted); line-height: 1.6; font-size: var(--fs-5); }
+.og-pick-name a { color: var(--rs-ink); }
+.og-pick-why { margin: 0.35rem 0 0.6rem; color: var(--rs-ink-2); line-height: 1.6; font-size: var(--fs-5); }
 .og-version-note {
-  color: var(--og-muted); font-size: var(--fs-4); line-height: 1.6;
+  color: var(--rs-ink-2); font-size: var(--fs-4); line-height: 1.6;
   margin: 0.5rem 0 0; max-width: 78ch;
 }
 

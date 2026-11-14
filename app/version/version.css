@@ -136,14 +136,14 @@
   gap: 4px;
   height: 10px;
   padding: 2px;
-  border-radius: 999px;
+  border-radius: var(--rs-r-ctl);
   background: rgb(255 255 255 / 0.05);
   box-shadow: inset 0 0 0 1px var(--rs-line-soft);
 }
 .vo-tl-seg {
   position: relative;
   flex: 0 0 calc(var(--w) - 2px);
-  border-radius: 999px;
+  border-radius: var(--rs-r-ctl);
   background: color-mix(in oklch, var(--c) 40%, transparent);
   transform-origin: left center;
   overflow: hidden;
@@ -216,7 +216,7 @@
   align-items: center;
   min-height: 40px;
   padding: 0 1rem;
-  border-radius: 999px;
+  border-radius: var(--rs-r-ctl);
   border: 1px solid var(--rs-line);
   color: var(--rs-ink-2);
   font-size: var(--fs-4);
@@ -261,12 +261,12 @@ body.rs .vo-jump a:focus-visible { outline-offset: -3px; }
   background: linear-gradient(90deg, transparent, var(--c), transparent);
 }
 .vo-phase-head { display: flex; flex-wrap: wrap; gap: 0.6rem 1rem; align-items: flex-start; justify-content: space-between; }
-.vo-phase-head h3 { margin: 0; font-size: 1.25rem; color: var(--rs-ink); }
+.vo-phase-head h3 { margin: 0; font-size: var(--fs-7); color: var(--rs-ink); }
 .vo-phase-dates { margin: 0.2rem 0 0; font-family: var(--rs-mono); font-size: var(--fs-2); color: var(--rs-ink-2); }
 .vo-est {
   margin-left: 0.4rem;
   padding: 0 0.35rem;
-  border-radius: 5px;
+  border-radius: var(--rs-r-sm);
   border: 1px dashed var(--rs-line);
   font-size: var(--fs-1);
 }
@@ -275,7 +275,7 @@ body.rs .vo-jump a:focus-visible { outline-offset: -3px; }
   align-items: center;
   gap: 0.4rem;
   padding: 0.25rem 0.65rem;
-  border-radius: 999px;
+  border-radius: var(--rs-r-ctl);
   font-family: var(--rs-mono);
   font-size: var(--fs-2);
   white-space: nowrap;
@@ -304,7 +304,7 @@ body.rs .vo-jump a:focus-visible { outline-offset: -3px; }
   top: 8px;
   left: 8px;
   padding: 0.1rem 0.45rem;
-  border-radius: 6px;
+  border-radius: var(--rs-r-sm);
   background: var(--c);
   color: var(--rs-on-el);
   font-family: var(--rs-mono);
@@ -327,7 +327,7 @@ body.rs .vo-jump a:focus-visible { outline-offset: -3px; }
   gap: 1.5rem;
   grid-template-columns: minmax(0, 1fr);
   padding: 1.6rem;
-  border-radius: 26px;
+  border-radius: var(--rs-r-ctl);
   border: 1px solid color-mix(in oklch, var(--c) 30%, transparent);
   background:
     radial-gradient(60% 90% at 0% 0%, color-mix(in oklch, var(--c) 18%, transparent), transparent 70%),
@@ -365,7 +365,7 @@ body.rs .vo-jump a:focus-visible { outline-offset: -3px; }
 .vo-verdict {
   justify-self: start;
   padding: 0.35rem 0.8rem;
-  border-radius: 999px;
+  border-radius: var(--rs-r-ctl);
   background: color-mix(in oklch, var(--c) 16%, transparent);
   color: var(--c);
   font-weight: 650;
@@ -380,7 +380,7 @@ body.rs .vo-jump a:focus-visible { outline-offset: -3px; }
 .vo-beta span {
   margin-right: 0.4rem;
   padding: 0.05rem 0.4rem;
-  border-radius: 6px;
+  border-radius: var(--rs-r-sm);
   border: 1px dashed var(--rs-line);
   font-family: var(--rs-mono);
   font-size: var(--fs-1);
@@ -404,7 +404,7 @@ body.rs .vo-jump a:focus-visible { outline-offset: -3px; }
   text-transform: uppercase;
   color: var(--rs-ink-2);
 }
-.vo-egroup-h span { padding: 0 0.45rem; border-radius: 999px; background: var(--rs-el-soft); color: var(--el); }
+.vo-egroup-h span { padding: 0 0.45rem; border-radius: var(--rs-r-ctl); background: var(--rs-el-soft); color: var(--el); }
 .vo-events { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); }
 .vo-events > li { display: grid; min-width: 0; }
 .vo-event-wrap { display: grid; }
@@ -414,7 +414,7 @@ body.rs .vo-jump a:focus-visible { outline-offset: -3px; }
   gap: 0.45rem;
   align-content: start;
   padding: 1rem 1.1rem;
-  border-radius: 18px;
+  border-radius: var(--rs-r-card);
   border: 1px solid var(--rs-line-soft);
   border-left: 3px solid var(--t);
   background: var(--rs-surface);
@@ -426,7 +426,7 @@ body.rs .vo-jump a:focus-visible { outline-offset: -3px; }
 .vo-event-leisure { --t: #5fd9aa; }
 .vo-event-spending { --t: #f2b35e; }
 .vo-event-permanent { --t: #b4b5c0; }
-.vo-event-name { margin: 0; font-family: var(--rs-display); font-size: 1.02rem; font-weight: 700; color: var(--rs-ink); }
+.vo-event-name { margin: 0; font-family: var(--rs-display); font-size: var(--fs-6); font-weight: 700; color: var(--rs-ink); }
 .vo-event-desc { margin: 0; font-size: var(--fs-3); line-height: 1.5; color: var(--rs-ink-2); }
 .vo-event-rewards { margin: 0; font-size: var(--fs-3); color: var(--rs-ink); }
 .vo-event-rewards span { margin-right: 0.35rem; font-family: var(--rs-mono); font-size: var(--fs-1); letter-spacing: 0.08em; text-transform: uppercase; color: var(--t); }
@@ -453,11 +453,11 @@ body.rs .vo-jump a:focus-visible { outline-offset: -3px; }
 }
 .vo-tile:hover { text-decoration: none; border-color: var(--rs-el-line); }
 .vo-tile:active { transform: scale(0.985); }
-.vo-tile-img { display: block; aspect-ratio: 16 / 10; margin-bottom: 0.5rem; border-radius: 16px; overflow: hidden; background: var(--rs-surface-2); }
+.vo-tile-img { display: block; aspect-ratio: 16 / 10; margin-bottom: 0.5rem; border-radius: var(--rs-r-card); overflow: hidden; background: var(--rs-surface-2); }
 .vo-tile-img img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 50% 20%; transition: transform var(--rs-d3) var(--rs-ease); }
 @media (pointer: fine) { .vo-tile:hover .vo-tile-img img { transform: scale(1.05); } }
 .vo-tile-kind { font-family: var(--rs-mono); font-size: var(--fs-1); letter-spacing: 0.08em; text-transform: uppercase; color: var(--el); }
-.vo-tile-name { font-family: var(--rs-display); font-size: 1.1rem; font-weight: 700; }
+.vo-tile-name { font-family: var(--rs-display); font-size: var(--fs-7); font-weight: 700; }
 .vo-tile-meta { font-size: var(--fs-3); line-height: 1.5; color: var(--rs-ink-2); }
 
 .vo-stamp { margin-top: 2rem; }

@@ -17,13 +17,13 @@ export default function ThemeSwitch() {
   // Plain labels: the old "Element / Neutral" only made sense if you already
   // knew the accent follows the live banner's element.
   const options: { key: ThemeMode; label: string; hint: string }[] = [
-    { key: "resonance", label: "Match live banner", hint: "Accent colour follows the featured character's element" },
-    { key: "dark", label: "Neutral grey", hint: "Quiet greys, no element colour" },
+    { key: "resonance", label: "Match live banner", hint: "Accent color follows the featured character's element" },
+    { key: "dark", label: "Neutral grey", hint: "Quiet greys, no element color" },
   ];
 
   return (
-    <div className="ts" role="radiogroup" aria-label="Accent colour">
-      <span className="ts-label">Accent colour</span>
+    <div className="ts" role="radiogroup" aria-label="Accent color">
+      <span className="ts-label">Accent color</span>
       <div className="ts-opts">
         {options.map((o) => (
           <button

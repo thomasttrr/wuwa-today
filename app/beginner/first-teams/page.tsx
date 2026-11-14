@@ -8,7 +8,7 @@ import UpdatedStamp from "@/components/UpdatedStamp";
 import type { Team } from "@/lib/guides";
 
 export const metadata: Metadata = {
-  title: "Your First Teams — F2P Starter Teams",
+  title: "Your first teams — F2P starter teams",
   description:
     "F2P-friendly Wuthering Waves starter teams from free characters and beginner-banner picks, with simple rotations for new players.",
   alternates: { canonical: "/beginner/first-teams" },

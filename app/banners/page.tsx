@@ -26,7 +26,7 @@ import { CharMedal, CharPoster } from "../../components/CharThumb";
 import "./banners.css";
 
 export const metadata: Metadata = {
-  title: "Wuthering Waves Banners — Current, Upcoming & History",
+  title: "Wuthering Waves banners — current, upcoming & history",
   description:
     "Current Wuthering Waves banners with live countdowns — who's featured, who's worth pulling, what's next (official vs. leak labeled), plus the full timeline.",
   alternates: { canonical: "/banners" },

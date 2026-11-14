@@ -21,7 +21,7 @@ import LaunchCountdown from "../../components/LaunchCountdown";
 import "./version.css";
 
 export const metadata: Metadata = {
-  title: `Wuthering Waves ${bannerMeta.version} Overview — ${bannerMeta.versionTitle}: Banners, Events & Codes`,
+  title: `Wuthering Waves ${bannerMeta.version} overview — ${bannerMeta.versionTitle}: banners, events & codes`,
   description: `Everything in Wuthering Waves Version ${bannerMeta.version}: both banner phases, the new Resonator, every event, the preview codes, and what's new — on one page.`,
   alternates: { canonical: "/version" },
 };

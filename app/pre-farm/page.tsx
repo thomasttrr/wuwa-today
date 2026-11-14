@@ -9,7 +9,7 @@ import { getCharacter } from "@/lib/characters";
 import { prefarmGuides } from "@/lib/prefarm";
 
 export const metadata: Metadata = {
-  title: "Pre-Farm Guides — What to Farm Before the Banner",
+  title: "Pre-farm guides — what to farm before the banner",
   description:
     "Pre-farm checklists for upcoming Wuthering Waves banners: every ascension and forte material with verified quantities and farming routes.",
   alternates: { canonical: "/pre-farm" },

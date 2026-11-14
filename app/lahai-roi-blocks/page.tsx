@@ -8,7 +8,7 @@ import UpdatedStamp from "@/components/UpdatedStamp";
 import "./blocks.css";
 
 export const metadata: Metadata = {
-  title: "Lahai-Roi Blocks: Turnabout Guide — Scores, Tips & Rewards (WuWa 3.8)",
+  title: "Lahai-Roi Blocks Turnabout guide — scores, tips & rewards (3.8)",
   description:
     "How Lahai-Roi Blocks: Turnabout works in Wuthering Waves 3.8: the 3,000 / 4,000 score targets, the new rotate feature, how boards jam, the tips that clear Hard mode, and the 400 Astrite rewards. Nov 19 – Dec 3, 2026.",
   alternates: { canonical: "/lahai-roi-blocks" },
@@ -30,7 +30,7 @@ export default function LahaiRoiBlocksPage() {
 
       <OgPageHero
         kicker="Version 3.8 event · Nov 19 – Dec 3, 2026"
-        title="Lahai-Roi Blocks: Turnabout"
+        title="Lahai-Roi Blocks — Turnabout"
         lede="The block-puzzle arcade game from Startorch Academy is back. You place geometric blocks on a small grid, complete rows and columns to break them, and race a score target before the board jams. This run adds the one feature players have asked for since the event first ran in 3.2: you can rotate the pieces."
         meta={<UpdatedStamp />}
       />

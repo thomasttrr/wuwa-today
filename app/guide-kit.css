@@ -1,0 +1,19 @@
+/* Shared guide card: the one surface for guide pages (calamity-effigy,
+   solaris-endings). Page-specific extras stay in the page CSS. */
+
+.gk-card {
+  background: var(--rs-surface);
+  border: 1px solid var(--rs-line);
+  border-radius: var(--rs-r-card);
+  padding: 1.1rem 1.15rem;
+}
+.gk-card h3 {
+  margin: 0 0 0.45rem;
+  font-size: var(--fs-6);
+  line-height: 1.3;
+}
+.gk-card p {
+  margin: 0;
+  color: var(--rs-ink-2);
+  line-height: 1.55;
+}

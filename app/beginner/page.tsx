@@ -6,7 +6,7 @@ import Reveal from "@/components/Reveal";
 import UpdatedStamp from "@/components/UpdatedStamp";
 
 export const metadata: Metadata = {
-  title: "Beginner Guides — Start Wuthering Waves Right",
+  title: "Beginner guides — start Wuthering Waves right",
   description:
     "New-player guides for Wuthering Waves: what to do first, how beginner banners work, F2P starter teams, and the mistakes that cost you Astrite.",
   alternates: { canonical: "/beginner" },

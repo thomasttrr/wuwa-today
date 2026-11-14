@@ -10,22 +10,22 @@ import type { Cosmetic, Shelf, ShelfKey } from "./types";
 import "./outfits.css";
 
 export const metadata: Metadata = {
-  title: "Wuthering Waves Outfits & Cosmetics — The Complete Catalog",
+  title: "Wuthering Waves outfits & cosmetics — the complete catalog",
   description:
     "Every outfit, accessory, weapon skin, bike skin and Phantom Echo skin in Wuthering Waves — official art, who it is for, and how to get it.",
   alternates: { canonical: "/outfits" },
 };
 
-/** Shelf order, copy and accent. Each shelf borrows an element colour so the
+/** Shelf order, copy and accent. Each shelf borrows an element color so the
  *  catalog reads as distinct "departments" at the site's fixed lightness. */
 const SHELVES: Shelf[] = [
   { key: "outfits", title: "Outfits", blurb: "Full costume changes for Resonators, deluxe and signature.", color: ELEMENT_COLORS.Havoc, shape: "wide" },
   { key: "accessories", title: "Accessories", blurb: "Hats, ribbons and trinkets worn on top of any outfit.", color: ELEMENT_COLORS.Spectro, shape: "square" },
-  { key: "weapons", title: "Weapon Skins", blurb: "New looks for a Resonator's weapon. Stats stay the same.", color: ELEMENT_COLORS.Fusion, shape: "square" },
-  { key: "bikes", title: "Bike Skins", blurb: "Liveries for the Expedition Motorbike.", color: ELEMENT_COLORS.Electro, shape: "wide", preview: 12 },
+  { key: "weapons", title: "Weapon skins", blurb: "New looks for a Resonator's weapon. Stats stay the same.", color: ELEMENT_COLORS.Fusion, shape: "square" },
+  { key: "bikes", title: "Bike skins", blurb: "Liveries for the Expedition Motorbike.", color: ELEMENT_COLORS.Electro, shape: "wide", preview: 12 },
   { key: "echoes", title: "Phantom Echo Skins", blurb: "Alternate appearances for Echoes you summon in combat.", color: ELEMENT_COLORS.Aero, shape: "square", preview: 12 },
   { key: "flight", title: "Gliders & Wings", blurb: "Traversal cosmetics for gliding and flight.", color: ELEMENT_COLORS.Glacio, shape: "square" },
-  { key: "themes", title: "Display Themes", blurb: "Backdrops for your in-game profile and terminal.", color: ELEMENT_COLORS.Havoc, shape: "square" },
+  { key: "themes", title: "Display themes", blurb: "Backdrops for your in-game profile and terminal.", color: ELEMENT_COLORS.Havoc, shape: "square" },
   { key: "collection", title: "Collection", blurb: "Keepsakes and one-offs.", color: ELEMENT_COLORS.Spectro, shape: "wide" },
   { key: "other", title: "Everything else", blurb: "Cosmetics that don't fit a shelf yet.", color: "#a7a9b4", shape: "square" },
 ];
@@ -98,7 +98,7 @@ const oldest = Math.min(...plainVersions).toFixed(1);
 export default function OutfitsPage() {
   return (
     <>
-      <PageHero kicker={<>The Wardrobe · {items.length} pieces</>} title="Outfits & Cosmetics">
+      <PageHero kicker={<>The Wardrobe · {items.length} pieces</>} title="Outfits and cosmetics">
         Every outfit, accessory, weapon skin, bike livery and Phantom Echo skin
         in Wuthering Waves, with the official art and how to get each one.
       </PageHero>

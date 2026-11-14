@@ -8,7 +8,7 @@ import UpdatedStamp from "@/components/UpdatedStamp";
 import "./effigy.css";
 
 export const metadata: Metadata = {
-  title: "Calamity Effigy Guide — Tactical Hologram: Sparring (Unlock, Mechanism, Rewards, Teams)",
+  title: "Calamity Effigy guide — Tactical Hologram: Sparring (unlock, mechanism, rewards, teams)",
   description:
     "The Calamity Effigy hologram fight in Wuthering Waves 3.8: how to unlock it, the Forged Might and Impeccable mechanism, all six difficulties, first-clear rewards (120 Astrite), and who to bring.",
   alternates: { canonical: "/calamity-effigy" },
@@ -101,21 +101,21 @@ export default function CalamityEffigyPage() {
         />
         <Reveal>
           <ul className="ef-cards">
-            <li className="ef-card">
+            <li className="gk-card">
               <span className="ef-big">High Aero RES</span>
               <p>
                 The Effigy has raised resistance to Aero damage. Aero supports are fine, but an
                 Aero main damage dealer will feel like hitting a wall.
               </p>
             </li>
-            <li className="ef-card">
+            <li className="gk-card">
               <span className="ef-big">+100% from Electro Flare</span>
               <p>
                 Its biggest weakness, straight from its in-game description: the Effigy takes
                 double damage from Electro Flare. Build around it if you can.
               </p>
             </li>
-            <li className="ef-card">
+            <li className="gk-card">
               <span className="ef-big">+20% under any status</span>
               <p>
                 While the Effigy carries any Negative Status, it takes 20% more damage for 6
@@ -177,7 +177,7 @@ export default function CalamityEffigyPage() {
 
       <div className="og-section" id="stages" style={{ scrollMarginTop: "120px" }}>
         <ObsidianSectionHead
-          title="Stages & rewards"
+          title="Stages and rewards"
           blurb="Six difficulties, cleared in order. Rewards are first-clear only — replays are for clear times."
         />
         <Reveal>
@@ -256,14 +256,14 @@ export default function CalamityEffigyPage() {
         />
         <Reveal>
           <ul className="ef-cards">
-            <li className="ef-card">
+            <li className="gk-card">
               <h3>An Electro Flare applier</h3>
               <p>
                 The single biggest lever in the fight: +100% damage taken from Electro Flare.{" "}
                 <strong>Rover (Electro)</strong> and <strong>Buling</strong> both apply it.
               </p>
             </li>
-            <li className="ef-card">
+            <li className="gk-card">
               <h3>A Negative Status applier</h3>
               <p>
                 Any status turns on the +20% damage window; Chafe, Frazzle, and Bane teams also
@@ -271,7 +271,7 @@ export default function CalamityEffigyPage() {
                 qualify.
               </p>
             </li>
-            <li className="ef-card">
+            <li className="gk-card">
               <h3>Not an Aero carry</h3>
               <p>
                 Build your damage around any other element. Aero units in support slots are

@@ -52,7 +52,7 @@
   }
   .wd-stats::-webkit-scrollbar { display: none; }
   .wd-stats > div { padding: 0.6rem 0.75rem; }
-  .wd-stats dd { font-size: 1.15rem; }
+  .wd-stats dd { font-size: var(--fs-7); }
 }
 
 /* --- shared bits ----------------------------------------------------------- */
@@ -70,7 +70,7 @@
   display: inline-flex;
   align-items: center;
   padding: 0.18rem 0.5rem;
-  border-radius: 999px;
+  border-radius: var(--rs-r-ctl);
   background: var(--c, var(--el));
   color: var(--rs-on-el);
   font-family: var(--rs-mono);
@@ -133,7 +133,7 @@
   align-items: center;
   gap: 2px;
   padding: 3px;
-  border-radius: 999px;
+  border-radius: var(--rs-r-ctl);
   background: rgb(8 9 12 / 0.62);
   backdrop-filter: blur(12px) saturate(1.4);
   -webkit-backdrop-filter: blur(12px) saturate(1.4);
@@ -145,7 +145,7 @@
   width: 44px;
   height: 44px;
   border: 0;
-  border-radius: 999px;
+  border-radius: var(--rs-r-ctl);
   background: transparent;
   color: var(--rs-ink);
   cursor: pointer;
@@ -243,7 +243,7 @@ body.rs .wd-ql-name {
 .wd-stage-avail {
   margin: 0.25rem 0 0;
   padding: 0.75rem 0.9rem;
-  border-radius: 14px;
+  border-radius: var(--rs-r-card);
   background: rgb(255 255 255 / 0.035);
   border: 1px solid var(--rs-line-soft);
   font-size: var(--fs-4);
@@ -287,12 +287,12 @@ body.rs .wd-ql-name {
   color: inherit;
   text-align: left;
   cursor: pointer;
-  border-radius: 14px;
+  border-radius: var(--rs-r-card);
 }
 .wd-rail-art {
   display: block;
   aspect-ratio: 16 / 9;
-  border-radius: 12px;
+  border-radius: var(--rs-r-sm);
   overflow: hidden;
   background: color-mix(in oklch, var(--c) 12%, #0b0c10);
   outline: 2px solid transparent;
@@ -359,7 +359,7 @@ body.rs .wd-rail button:focus-visible { outline-offset: -2px; }
   gap: 8px;
   min-height: 44px;
   padding: 0 14px;
-  border-radius: 999px;
+  border-radius: var(--rs-r-ctl);
   background: rgb(255 255 255 / 0.05);
   border: 1px solid var(--rs-line-soft);
   color: var(--rs-ink-3);
@@ -374,7 +374,7 @@ body.rs .wd-rail button:focus-visible { outline-offset: -2px; }
   background: transparent;
   color: var(--rs-ink);
   font: inherit;
-  font-size: 16px; /* no iOS zoom */
+  font-size: var(--fs-6); /* no iOS zoom */
 }
 .wd-search input::placeholder { color: var(--rs-ink-3); }
 .wd-search input::-webkit-search-cancel-button { filter: invert(0.8); }
@@ -387,7 +387,7 @@ body.rs .wd-rail button:focus-visible { outline-offset: -2px; }
   min-width: 44px;
   min-height: 44px;
   padding: 0 1rem;
-  border-radius: 999px;
+  border-radius: var(--rs-r-ctl);
   border: 1px solid transparent;
   background: var(--el);
   color: var(--rs-on-el);
@@ -448,7 +448,7 @@ body.rs .wd-rail button:focus-visible { outline-offset: -2px; }
   gap: 7px;
   min-height: 44px;
   padding: 0 14px;
-  border-radius: 999px;
+  border-radius: var(--rs-r-ctl);
   border: 1px solid var(--rs-line-soft);
   background: rgb(255 255 255 / 0.03);
   color: var(--rs-ink-2);
@@ -539,14 +539,14 @@ body.rs .wd-shelf-head h2 {
   font: inherit;
   text-align: left;
   cursor: pointer;
-  border-radius: 18px;
+  border-radius: var(--rs-r-card);
 }
 .wd-case {
   position: relative;
   display: grid;
   place-items: center;
   aspect-ratio: 1;
-  border-radius: 18px;
+  border-radius: var(--rs-r-card);
   overflow: hidden;
   /* Spotlight from below + a faint "floor" line: a lit display case. */
   background:
@@ -698,7 +698,7 @@ body.rs .wd-tile:focus-visible { outline-offset: 3px; }
   width: auto;
   height: auto;
   object-fit: contain;
-  border-radius: 12px;
+  border-radius: var(--rs-r-sm);
   filter: drop-shadow(0 16px 30px rgb(0 0 0 / 0.5));
 }
 .wd-ql-body {
@@ -715,7 +715,7 @@ body.rs .wd-tile:focus-visible { outline-offset: 3px; }
   align-items: center;
   min-height: 36px;
   padding: 0 12px;
-  border-radius: 999px;
+  border-radius: var(--rs-r-ctl);
   border: 1px solid var(--rs-line);
   font-family: var(--rs-mono);
   font-size: var(--fs-2);
@@ -740,7 +740,7 @@ body.rs .wd-tile:focus-visible { outline-offset: 3px; }
   place-items: center;
   min-width: 44px;
   min-height: 44px;
-  border-radius: 999px;
+  border-radius: var(--rs-r-ctl);
   border: 1px solid var(--rs-line-soft);
   background: rgb(255 255 255 / 0.04);
   color: var(--rs-ink);
@@ -767,7 +767,7 @@ body.rs .wd-tile:focus-visible { outline-offset: 3px; }
     width: min(980px, calc(100% - 48px));
     max-height: min(86vh, 720px);
     border: 1px solid color-mix(in oklch, var(--c) 30%, transparent);
-    border-radius: 24px;
+    border-radius: var(--rs-r-tile);
   }
   .wd-ql-box {
     display: grid;

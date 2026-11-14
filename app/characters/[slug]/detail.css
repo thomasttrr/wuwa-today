@@ -10,7 +10,7 @@
   align-items: center;
   margin: 0.5rem 0 1.5rem;
   padding: 1.75rem;
-  border-radius: 28px;
+  border-radius: var(--rs-r-ctl);
   overflow: hidden;
   isolation: isolate;
   background:
@@ -26,7 +26,7 @@
   position: relative;
   width: 300px;
   aspect-ratio: 1 / 0.92;
-  border-radius: 24px;
+  border-radius: var(--rs-r-tile);
   overflow: hidden;
   background: var(--rs-surface-2);
   box-shadow:
@@ -59,7 +59,7 @@
   overflow-wrap: normal;
   word-break: normal;
 }
-.cx-verdict { margin: 0.2rem 0 0; font-family: var(--rs-display); font-weight: 700; font-stretch: 112%; font-size: 1.2rem; color: var(--el); }
+.cx-verdict { margin: 0.2rem 0 0; font-family: var(--rs-display); font-weight: 700; font-stretch: 112%; font-size: var(--fs-7); color: var(--el); }
 .cx-note { margin: 0; max-width: 56ch; color: var(--rs-ink-2); line-height: 1.55; }
 
 .cx-stats {
@@ -73,7 +73,7 @@
   align-content: start;
   gap: 0.2rem;
   padding: 0.7rem 0.85rem;
-  border-radius: 14px;
+  border-radius: var(--rs-r-card);
   background: rgb(255 255 255 / 0.04);
   border: 1px solid rgb(255 255 255 / 0.07);
   min-width: 0;
@@ -82,7 +82,7 @@
 .cx-stats dd { margin: 0; font-family: var(--rs-mono); font-weight: 700; font-size: var(--fs-5); color: var(--rs-ink); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .cx-stats small { font-size: var(--fs-1); color: var(--rs-ink-2); }
 .cx-stat-tier { background: color-mix(in oklch, var(--el) 14%, transparent) !important; border-color: color-mix(in oklch, var(--el) 35%, transparent) !important; }
-.cx-stat-tier dd { font-family: var(--rs-display); font-weight: 800; font-stretch: 125%; font-size: 1.6rem; line-height: 1; color: var(--el); }
+.cx-stat-tier dd { font-family: var(--rs-display); font-weight: 800; font-stretch: 125%; font-size: var(--fs-8); line-height: 1; color: var(--el); }
 .cx-stars.cx-r5 { color: #f0c75e; letter-spacing: 0.1em; }
 .cx-stars.cx-r4 { color: #b28cf6; letter-spacing: 0.1em; }
 
@@ -91,7 +91,7 @@
 .cx-actions .og-btn {
   min-height: 44px;
   padding: 0 1.2rem;
-  border-radius: 999px;
+  border-radius: var(--rs-r-ctl);
   border: 0;
   background: var(--el);
   color: var(--rs-on-el);
@@ -110,7 +110,7 @@
 }
 
 @media (max-width: 860px) {
-  .cx-hero { grid-template-columns: minmax(0, 1fr); gap: 1.25rem; padding: 1.1rem; border-radius: 24px; overflow-x: clip; }
+  .cx-hero { grid-template-columns: minmax(0, 1fr); gap: 1.25rem; padding: 1.1rem; border-radius: var(--rs-r-tile); overflow-x: clip; }
   .cx-art { width: min(260px, 70%); justify-self: center; }
   .cx-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }

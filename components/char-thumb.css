@@ -20,7 +20,7 @@
 /* Square icon fallback (rovers): crop past its rounded margin and the
    element badge baked into the top-right corner. */
 .ct-art.is-portrait { --w: 150%; left: -8%; top: -6%; height: auto; }
-.ct-mono { position: absolute; inset: 0; display: grid; place-items: center; font-family: var(--rs-display); font-weight: 800; font-size: 1.6rem; color: var(--c, var(--rs-ink-3)); }
+.ct-mono { position: absolute; inset: 0; display: grid; place-items: center; font-family: var(--rs-display); font-weight: 800; font-size: var(--fs-8); color: var(--c, var(--rs-ink-3)); }
 .r5 { --rar: #f0c75e; }
 .r4 { --rar: #b28cf6; }
 
@@ -31,14 +31,14 @@
   width: 100%;
   container-type: inline-size;
   aspect-ratio: 3 / 4.15;
-  border-radius: 14px;
+  border-radius: var(--rs-r-card);
   overflow: hidden;
   isolation: isolate;
   color: var(--rs-ink);
   text-align: left;
   background:
-    radial-gradient(95% 70% at 50% 26%, color-mix(in oklch, var(--c, #6d6e79) 40%, transparent), transparent 72%),
-    linear-gradient(180deg, color-mix(in oklch, var(--c, #6d6e79) 9%, var(--rs-surface-2)), var(--rs-surface));
+    radial-gradient(95% 70% at 50% 26%, color-mix(in oklch, var(--c) 40%, transparent), transparent 72%),
+    linear-gradient(180deg, color-mix(in oklch, var(--c) 9%, var(--rs-surface-2)), var(--rs-surface));
   transition: transform var(--rs-d2) var(--rs-spring), box-shadow var(--rs-d2) var(--rs-ease);
 }
 .ct-ghost {
@@ -56,7 +56,7 @@
   text-transform: uppercase;
   white-space: nowrap;
   color: transparent;
-  -webkit-text-stroke: 1px color-mix(in oklch, var(--c, #6d6e79) 42%, transparent);
+  -webkit-text-stroke: 1px color-mix(in oklch, var(--c) 42%, transparent);
   pointer-events: none;
   user-select: none;
 }
@@ -71,7 +71,7 @@
   background: linear-gradient(0deg, color-mix(in oklch, var(--rs-surface) 96%, transparent) 6%, color-mix(in oklch, var(--rs-surface) 50%, transparent) 26%, transparent 48%);
   /* Edge drawn over the art (not a border) so the art reaches the very top. */
   border-radius: inherit;
-  box-shadow: inset 0 0 0 1px color-mix(in oklch, var(--c, #6d6e79) 28%, transparent);
+  box-shadow: inset 0 0 0 1px color-mix(in oklch, var(--c) 28%, transparent);
 }
 .ct-poster > :not(.ct-ghost, .ct-art, .ct-name, .ct-rar, .ct-mono) { z-index: 3; }
 .ct-name {
@@ -114,7 +114,7 @@
   border-radius: 50%;
   padding: max(2px, calc(var(--s, 48px) * 0.04));
   /* Element ring with a rarity arc. */
-  background: conic-gradient(from 200deg, var(--rar, var(--c)) 0 32%, color-mix(in oklch, var(--c, #6d6e79) 70%, transparent) 32% 100%);
+  background: conic-gradient(from 200deg, var(--rar, var(--c)) 0 32%, color-mix(in oklch, var(--c) 70%, transparent) 32% 100%);
   transition: box-shadow var(--rs-d2) var(--rs-ease), transform var(--rs-d2) var(--rs-spring);
 }
 .ct-medal-in {
@@ -124,8 +124,8 @@
   height: 100%;
   border-radius: 50%;
   overflow: hidden;
-  background: radial-gradient(70% 70% at 50% 35%, color-mix(in oklch, var(--c, #6d6e79) 45%, var(--rs-surface-2)), var(--rs-surface) 90%);
-  box-shadow: inset 0 0 0 1.5px var(--rs-canvas, #0a0a0d);
+  background: radial-gradient(70% 70% at 50% 35%, color-mix(in oklch, var(--c) 45%, var(--rs-surface-2)), var(--rs-surface) 90%);
+  box-shadow: inset 0 0 0 1.5px var(--rs-canvas);
 }
 .ct-medal .ct-art { --k: 1.55; }
 /* Renders carry a head height (--fy): centre the face vertically in the

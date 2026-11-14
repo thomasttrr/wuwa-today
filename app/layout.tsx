@@ -16,6 +16,7 @@ import "./obsidian.css";
 import "./og-pages.css";
 import "./resonance.css";
 import "./resonance-shared.css";
+import "./guide-kit.css";
 import "./theme-dark.css";
 
 /* Resonance type system. Both families are variable with a width axis, so

@@ -8,9 +8,9 @@ import SpoilerCover, { RevealAllSpoilers } from "@/components/SpoilerCover";
 import "./leaks.css";
 
 export const metadata: Metadata = {
-  title: "4.0+ Leaks & Rumors — Anna, Lucille, the New Federation, and the Wider 4.X Cast",
+  title: "4.0 and later leaks & rumors — Anna, Lucille, the New Federation, and the wider 4.x cast",
   description:
-    "Everything leaked or rumored about Wuthering Waves Version 4.0 and beyond: Anna and Lucille, the New Federation region, a flying vehicle in the game files, a reworked Tune Break, and the wider 4.X roster — every claim tagged by how solid its evidence is.",
+    "Everything leaked or rumored about Wuthering Waves Version 4.0 and beyond: Anna and Lucille, the New Federation region, a flying vehicle in the game files, a reworked Tune Break, and the wider 4.x roster — every claim tagged by how solid its evidence is.",
   alternates: { canonical: "/leaks" },
 };
 
@@ -112,7 +112,7 @@ export default function LeaksPage() {
           Signal live · Last sweep Nov 13, 2026 · Nothing here is official
         </span>
         <p className="og-page-kicker" style={{ marginTop: "1.1rem" }}>
-          Version 4.0+ · Unreleased · Leaks & rumors
+          Version 4.0 and later · Unreleased · Leaks and rumors
         </p>
         <h1 className="og-page-title og-display">
           <DecryptTitle text="4.0+ LEAKS" />
@@ -137,7 +137,7 @@ export default function LeaksPage() {
           { href: "#anna", label: "Anna" },
           { href: "#lucille", label: "Lucille" },
           { href: "#region", label: "Region & systems" },
-          { href: "#wider-cast", label: "The wider 4.X cast" },
+          { href: "#wider-cast", label: "The wider 4.x cast" },
           { href: "#sources", label: "Sources" },
         ]}
       />
@@ -168,7 +168,7 @@ export default function LeaksPage() {
         <FileHead
           file="File 01 · Subject"
           title="Anna — the rumored Phase 1 banner"
-          blurb="The steadiest name in the whole 4.X leak pile, and the only one with a leaked model."
+          blurb="The steadiest name in the whole 4.x leak pile, and the only one with a leaked model."
         />
         <Reveal>
           <div className="lk-view">
@@ -470,7 +470,7 @@ export default function LeaksPage() {
                 <div className="lk-spec-k">Full-body model</div>
                 <div className="lk-spec-v">Not acquired</div>
               </div>
-              <div className="lk-spec" style={{ borderLeft: "1px solid var(--rs-line-soft, #20242e)" }}>
+              <div className="lk-spec" style={{ borderLeft: "1px solid var(--rs-line-soft)" }}>
                 <div className="lk-spec-k">In-game shots</div>
                 <div className="lk-spec-v">None</div>
               </div>
@@ -499,7 +499,7 @@ export default function LeaksPage() {
             </Claim>
             <Claim tag="Repeated leak">
               <strong>An affectionate catgirl with cowboy styling</strong> — the description has
-              been consistent since Seele&rsquo;s original 4.X character list.
+              been consistent since Seele&rsquo;s original 4.x character list.
             </Claim>
             <Claim tag="Single leak">
               <strong>The Phase 2 slot</strong>, in the back half of 4.0.
@@ -520,7 +520,7 @@ export default function LeaksPage() {
       <div className="og-section" id="region" style={{ scrollMarginTop: "120px" }}>
         <FileHead
           file="File 03 · Theater"
-          title="The region & the systems"
+          title="The region and the systems"
           blurb="What 4.0 is expected to add beyond the banners."
         />
         <Reveal>
@@ -585,7 +585,7 @@ export default function LeaksPage() {
               post (Gamedataleaks, November 11) claims a future version adds random overworld
               encounter points that trigger boss events — Hyvatia, Sigillum, Hecate, and
               others. The post is flaired &ldquo;Questionable,&rdquo; names no version, and
-              nothing backs it up yet; the 4.X link is commenters guessing.
+              nothing backs it up yet; the 4.x link is commenters guessing.
             </Claim>
             <Claim tag="Single leak">
               <strong>Old Eden — the sunken city under Anna.</strong> Seele&rsquo;s latest
@@ -599,7 +599,7 @@ export default function LeaksPage() {
             </Claim>
             <Claim tag="Speculation">
               <strong>A November 18 drip date is floating around.</strong> One X user with
-              no track record (@kyryllmitya, November 12) claims Kuro drops an official 4.X
+              no track record (@kyryllmitya, November 12) claims Kuro drops an official 4.x
               character reveal on November 18. Nothing backs it — no characters named, nothing
               shown. It is a dated claim, so it settles itself within the week.
             </Claim>
@@ -618,7 +618,7 @@ export default function LeaksPage() {
       <div className="og-section" id="wider-cast" style={{ scrollMarginTop: "120px" }}>
         <FileHead
           file="File 04 · Roster board"
-          title="The wider 4.X cast"
+          title="The wider 4.x cast"
           blurb="Seele's leaked list describes eight New Federation characters. Beyond Anna and Lucille, treat all of it as early roadmap talk."
         />
         <Reveal>
@@ -657,7 +657,7 @@ export default function LeaksPage() {
                 the leak sources openly contradict each other on whether these are still in
                 development. An older rumor of a Sanhua SP has never landed anywhere.
               </p>
-              <span className="lk-ver">4.X?</span>
+              <span className="lk-ver">4.x?</span>
             </div>
             <div className="lk-cast-row">
               <p>
@@ -674,13 +674,13 @@ export default function LeaksPage() {
       <div className="og-section" id="sources" style={{ scrollMarginTop: "120px" }}>
         <FileHead
           file="File 05 · Chain of custody"
-          title="Sources & how this page is kept"
+          title="Sources and how this page is kept"
           blurb="Checked November 12, 2026. Re-checked whenever the beta, drip marketing, or the Special Broadcast lands."
         />
         <Reveal>
           <div className="og-notice" role="note">
             <p>
-              The 4.X character list originates with <strong>Seele Leaks</strong> (Telegram);
+              The 4.x character list originates with <strong>Seele Leaks</strong> (Telegram);
               banner tracking comes from <strong>Wuwaguy</strong> (X) and the dataminer{" "}
               <strong>Nanoka</strong>. The model visuals are sourced post-by-post: Anna&rsquo;s
               render set came via <strong>WuWaLand</strong> (reshared by WuWa Universe on X,

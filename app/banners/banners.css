@@ -10,7 +10,7 @@
   min-height: 560px;
   align-content: center;
   padding: 2rem 1.75rem;
-  border-radius: 28px;
+  border-radius: var(--rs-r-ctl);
   overflow: hidden;
   isolation: isolate;
   background:
@@ -50,7 +50,7 @@
   line-height: 0.85;
   letter-spacing: -0.04em;
 }
-.bn-stage-sub { margin: 0 0 0.6rem; color: var(--rs-ink-2); font-size: 1.05rem; }
+.bn-stage-sub { margin: 0 0 0.6rem; color: var(--rs-ink-2); font-size: var(--fs-6); }
 .bn-stage-dates { margin: 0; font-family: var(--rs-mono); font-size: var(--fs-2); color: var(--rs-ink-3); }
 .bn-stage-empty { min-height: 0; }
 /* Empty state has no art, so the legibility veil comes off (it painted
@@ -64,7 +64,7 @@
 }
 
 @media (max-width: 760px) {
-  .bn-stage { min-height: 0; padding: 1.25rem; padding-top: 72%; border-radius: 24px; }
+  .bn-stage { min-height: 0; padding: 1.25rem; padding-top: 72%; border-radius: var(--rs-r-tile); }
   /* Pinned by plain edges — no standalone `translate` property and no
      negative % offsets, both of which iOS WebKit can mishandle. */
   .bn-stage-art { top: -1rem; bottom: auto; right: auto; left: 2%; width: 96%; height: auto; }
@@ -109,20 +109,20 @@ a.bn-card:active { transform: scale(0.985); }
 .bn-card-kicker { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; margin: 0; font-family: var(--rs-mono); font-size: var(--fs-1); letter-spacing: 0.05em; text-transform: uppercase; color: var(--c); }
 .bn-status {
   padding: 0.12rem 0.5rem;
-  border-radius: 999px;
+  border-radius: var(--rs-r-ctl);
   font-weight: 600;
   background: color-mix(in oklch, var(--c) 18%, transparent);
   color: var(--rs-ink);
 }
 .bn-status-new { background: var(--c); color: var(--rs-on-el); }
-.bn-card-name { margin: 0; font-size: 1.9rem !important; font-weight: 800; font-stretch: 125% !important; text-transform: uppercase; line-height: 0.95; }
+.bn-card-name { margin: 0; font-size: var(--fs-9) !important; font-weight: 800; font-stretch: 125% !important; text-transform: uppercase; line-height: 0.95; }
 .bn-card-weapon { margin: 0; font-size: var(--fs-4); color: var(--rs-ink-2); }
 .bn-card-weapon strong { color: var(--rs-ink); }
 .bn-card-tiers { display: flex; gap: 0.5rem; margin: 0.2rem 0 0; }
 .bn-card-tiers > div {
   flex: 1;
   padding: 0.45rem 0.6rem;
-  border-radius: 12px;
+  border-radius: var(--rs-r-sm);
   background: rgb(255 255 255 / 0.04);
   border: 1px solid rgb(255 255 255 / 0.06);
 }
@@ -134,7 +134,7 @@ a.bn-card:active { transform: scale(0.985); }
 
 @media (max-width: 420px) {
   .bn-card { grid-template-columns: 80px minmax(0, 1fr); gap: 0.85rem; }
-  .bn-card-name { font-size: 1.5rem !important; }
+  .bn-card-name { font-size: var(--fs-8) !important; }
 }
 
 .bn-fours { margin-top: 1rem; }
@@ -145,7 +145,7 @@ a.bn-card:active { transform: scale(0.985); }
   align-items: center;
   gap: 0.6rem;
   padding: 5px 14px 5px 5px;
-  border-radius: 999px;
+  border-radius: var(--rs-r-ctl);
   background: var(--rs-surface);
   border: 1px solid rgb(255 255 255 / 0.07);
   color: var(--rs-ink);
@@ -178,7 +178,7 @@ a.bn-card:active { transform: scale(0.985); }
   gap: 0.3rem;
   align-content: start;
   padding: 1rem;
-  border-radius: 18px;
+  border-radius: var(--rs-r-card);
   background: var(--rs-surface);
   border: 1px solid var(--rs-line-soft);
   color: var(--rs-ink);
@@ -198,7 +198,7 @@ a.bn-card:active { transform: scale(0.985); }
 }
 .bn-node-face { margin-bottom: 0.4rem; }
 .bn-node-ver { font-family: var(--rs-mono); font-size: var(--fs-1); letter-spacing: 0.05em; text-transform: uppercase; color: var(--rs-ink-3); }
-.bn-node-name { font-family: var(--rs-display); font-weight: 750; font-stretch: 115%; font-size: 1.15rem; }
+.bn-node-name { font-family: var(--rs-display); font-weight: 750; font-stretch: 115%; font-size: var(--fs-7); }
 .bn-node-date { font-family: var(--rs-mono); font-size: var(--fs-1); color: var(--rs-ink-3); }
 .bn-node-past .bn-node-face { filter: saturate(0.6); opacity: 0.85; }
 .bn-node-now > a, .bn-node-now > div {
@@ -212,7 +212,7 @@ a.bn-card:active { transform: scale(0.985); }
   top: 1rem;
   right: 1rem;
   padding: 0.15rem 0.55rem;
-  border-radius: 999px;
+  border-radius: var(--rs-r-ctl);
   background: var(--el);
   color: var(--rs-on-el);
   font-family: var(--rs-mono);
@@ -252,7 +252,7 @@ a.bn-card:active { transform: scale(0.985); }
 .bn-trust-body li a {
   display: inline-block;
   padding: 0.3rem 0.65rem;
-  border-radius: 999px;
+  border-radius: var(--rs-r-ctl);
   border: 1px solid var(--rs-line);
   font-family: var(--rs-mono);
   font-size: var(--fs-2);
@@ -288,7 +288,7 @@ a.bn-card:active { transform: scale(0.985); }
 .bn-sel-picks strong { color: var(--rs-ink); }
 .bn-sel-rule { margin: 0; font-size: var(--fs-4); line-height: 1.55; color: var(--rs-ink-2); }
 .bn-sel-wtiles { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
-.bn-sel-wtile { min-width: 0; border-radius: 16px; background: var(--rs-surface-2); border: 1px solid var(--rs-line-soft); overflow: hidden; transition: transform var(--rs-d2) var(--rs-spring), box-shadow var(--rs-d2) var(--rs-ease), border-color var(--rs-d2) var(--rs-ease); }
+.bn-sel-wtile { min-width: 0; border-radius: var(--rs-r-card); background: var(--rs-surface-2); border: 1px solid var(--rs-line-soft); overflow: hidden; transition: transform var(--rs-d2) var(--rs-spring), box-shadow var(--rs-d2) var(--rs-ease), border-color var(--rs-d2) var(--rs-ease); }
 .bn-sel-wtile a, .bn-sel-wtile-in { display: grid; gap: 0; color: var(--rs-ink); }
 .bn-sel-wtile a:hover { text-decoration: none; }
 .bn-sel-wtile-art { display: block; height: 118px; overflow: hidden; }

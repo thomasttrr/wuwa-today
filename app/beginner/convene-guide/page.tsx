@@ -7,7 +7,7 @@ import Reveal from "@/components/Reveal";
 import UpdatedStamp from "@/components/UpdatedStamp";
 
 export const metadata: Metadata = {
-  title: "Beginner Convene Guide — Which Banners to Pull",
+  title: "Beginner Convene guide — which banners to pull",
   description:
     "Utterance of Marvels and Beginner's Choice explained: beginner banner flow, pity rules, weapon banners, and what your Lustrous Tides are for.",
   alternates: { canonical: "/beginner/convene-guide" },
@@ -192,7 +192,7 @@ export default function BeginnerConveneGuide() {
           <Reveal>
             <section className="og-pick-card" aria-label="Do this">
               <span className="rs-kicker">Do this</span>
-              <h3>Spend on beginners &amp; limited</h3>
+              <h3>Spend on beginners and limited</h3>
               <ul className="og-q-list">
                 <li>
                   Use the pulls the game hands you on{" "}

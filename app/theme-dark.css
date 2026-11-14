@@ -76,7 +76,7 @@ body.rs { transition: --el 900ms var(--rs-ease), background-color 600ms var(--rs
   display: inline-flex;
   padding: 3px;
   gap: 2px;
-  border-radius: 999px;
+  border-radius: var(--rs-r-ctl);
   background: rgb(255 255 255 / 0.03);
   border: 1px solid var(--rs-line-soft);
 }
@@ -87,7 +87,7 @@ body.rs { transition: --el 900ms var(--rs-ease), background-color 600ms var(--rs
   min-height: 34px;
   padding: 0 0.85rem;
   border: 0;
-  border-radius: 999px;
+  border-radius: var(--rs-r-ctl);
   background: none;
   color: var(--rs-ink-3);
   font: inherit;

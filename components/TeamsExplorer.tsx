@@ -376,7 +376,7 @@ export default function TeamsExplorer({ model }: { model: TeamsModel }) {
       </Section>
 
       {/* --- F2P / budget --- */}
-      <Section id="budget" title="F2P & budget" blurb="Teams built from free and standard-banner Resonators — strong enough to clear most content while you save.">
+      <Section id="budget" title="F2P and budget" blurb="Teams built from free and standard-banner Resonators — strong enough to clear most content while you save.">
         <TeamGrid teams={show(model.budget)} {...cardProps} filtering={filtering} />
       </Section>
 

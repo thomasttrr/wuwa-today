@@ -17,7 +17,7 @@ export interface Shelf {
   title: string;
   /** One line under the shelf title. */
   blurb: string;
-  /** Accent for the shelf's display cases (an element colour). */
+  /** Accent for the shelf's display cases (an element color). */
   color: string;
   /** "wide" = 4:3 cases for landscape art, "square" = 1:1 cases. */
   shape: "wide" | "square";
@@ -45,6 +45,6 @@ export interface Cosmetic {
   imageCredit: string;
   sources: { url: string; host: string }[];
   shelf: ShelfKey;
-  /** Character element colour, or the shelf colour. */
+  /** Character element color, or the shelf color. */
   color: string;
 }

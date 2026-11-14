@@ -34,12 +34,12 @@
   max-width: 880px;
 }
 .og-page-kicker {
-  font-family: var(--og-display);
+  font-family: var(--rs-display);
   font-weight: 600;
 
   letter-spacing: 0.05em;
   font-size: var(--fs-2);
-  color: var(--og-muted);
+  color: var(--rs-ink-2);
   margin: 0 0 0.6rem;
 }
 .og-page-title {
@@ -47,8 +47,8 @@
   font-size: clamp(2.5rem, 6vw, 4rem);
 }
 .og-page-lede {
-  color: var(--og-muted);
-  font-size: 1.05rem;
+  color: var(--rs-ink-2);
+  font-size: var(--fs-6);
   line-height: 1.6;
   max-width: 62ch;
   margin: 0.85rem 0 0;
@@ -68,18 +68,18 @@
   gap: 0.45rem;
   min-height: 44px; /* iPhone-safe touch target */
   padding: 0.5rem 1.05rem;
-  border-radius: var(--og-radius-pill);
-  border: 1px solid var(--og-hairline);
+  border-radius: var(--rs-r-ctl);
+  border: 1px solid var(--rs-line);
   background: transparent;
-  color: var(--og-muted);
+  color: var(--rs-ink-2);
   font-size: var(--fs-4);
   font-weight: 600;
   cursor: pointer;
-  transition: background-color var(--og-d1) ease, border-color var(--og-d1) ease,
-    color var(--og-d1) ease;
+  transition: background-color var(--rs-d1) ease, border-color var(--rs-d1) ease,
+    color var(--rs-d1) ease;
 }
 .og-chip:hover {
-  color: var(--og-ink);
+  color: var(--rs-ink);
   border-color: rgba(255, 255, 255, 0.32);
 }
 .og-chip[aria-pressed="true"] {
@@ -144,12 +144,12 @@
   display: inline-flex;
   align-items: center;
   min-height: 44px;
-  color: var(--og-muted);
+  color: var(--rs-ink-2);
   font-weight: 600;
   font-size: var(--fs-5);
   margin-bottom: 0.75rem;
 }
-.og-back:hover { color: var(--og-ink); text-decoration: none; }
+.og-back:hover { color: var(--rs-ink); text-decoration: none; }
 
 /* --- character detail: hero ---------------------------------------------- */
 
@@ -165,10 +165,10 @@
 }
 .og-char-art {
   position: relative;
-  border-radius: 20px;
+  border-radius: var(--rs-r-tile);
   overflow: hidden;
-  background: var(--og-surface);
-  border: 1px solid var(--og-hairline);
+  background: var(--rs-surface);
+  border: 1px solid var(--rs-line);
   /* Restrained element accent: a 1px element-tinted inner ring. */
   box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--el, transparent) 28%, transparent);
 }
@@ -181,12 +181,12 @@
   object-position: top center;
 }
 .og-char-kicker {
-  font-family: var(--og-display);
+  font-family: var(--rs-display);
   font-weight: 600;
 
   letter-spacing: 0.05em;
   font-size: var(--fs-2);
-  color: var(--og-muted);
+  color: var(--rs-ink-2);
   margin: 0;
 }
 .og-char-name {
@@ -201,7 +201,7 @@
   gap: 0.5rem;
 }
 .og-hero-note {
-  color: var(--og-muted);
+  color: var(--rs-ink-2);
   font-size: var(--fs-5);
   margin: 0.5rem 0 0;
   max-width: 60ch;
@@ -214,7 +214,7 @@
     gap: 1.25rem;
     padding-bottom: 1.75rem;
   }
-  .og-char-art { border-radius: 16px; }
+  .og-char-art { border-radius: var(--rs-r-card); }
 }
 
 /* --- character-page badges (content, not chrome): solid, restrained --------
@@ -226,13 +226,13 @@
   align-items: center;
   gap: 0.45rem;
   padding: 0.42rem 0.95rem;
-  border-radius: var(--og-radius-pill);
+  border-radius: var(--rs-r-ctl);
   font-size: var(--fs-2);
   font-weight: 700;
   letter-spacing: 0.03em;
-  border: 1px solid var(--og-hairline);
+  border: 1px solid var(--rs-line);
   background: rgba(255, 255, 255, 0.06);
-  color: var(--og-ink);
+  color: var(--rs-ink);
   white-space: nowrap;
 }
 .og-char-badge .element-dot {
@@ -244,8 +244,8 @@
 }
 .og-char-badge-dim {
   background: transparent;
-  border-color: var(--og-hairline-soft);
-  color: var(--og-muted);
+  border-color: var(--rs-line-soft);
+  color: var(--rs-ink-2);
   font-weight: 600;
 }
 
@@ -259,7 +259,7 @@
 .og-caveat {
   margin: 0.7rem 0 0;
   font-size: var(--fs-3);
-  color: var(--og-muted);
+  color: var(--rs-ink-2);
   display: flex;
   align-items: baseline;
   gap: 0.5rem;
@@ -278,28 +278,28 @@
 /* --- pre-release notice: solid surface ------------------------------------- */
 
 .og-notice {
-  background: var(--og-surface);
-  border: 1px solid var(--og-hairline);
-  border-radius: var(--og-radius-card);
+  background: var(--rs-surface);
+  border: 1px solid var(--rs-line);
+  border-radius: var(--rs-r-card);
   padding: 1rem 1.25rem;
   margin: 0 0 0.5rem;
 }
-.og-notice p { margin: 0; color: var(--og-muted); font-size: var(--fs-5); line-height: 1.55; }
-.og-notice strong { color: var(--og-ink); }
+.og-notice p { margin: 0; color: var(--rs-ink-2); font-size: var(--fs-5); line-height: 1.55; }
+.og-notice strong { color: var(--rs-ink); }
 
 /* --- sub-headings ------------------------------------------------------------ */
 
 .og-sub-h {
-  font-size: 1rem;
+  font-size: var(--fs-6);
   font-weight: 700;
   margin: 1.6rem 0 0.8rem;
-  color: var(--og-ink);
+  color: var(--rs-ink);
 }
 .og-mono-line {
-  font-family: var(--og-mono);
+  font-family: var(--rs-mono);
   font-variant-numeric: tabular-nums;
   font-size: var(--fs-4);
-  color: var(--og-muted);
+  color: var(--rs-ink-2);
   margin: 0 0 0.9rem;
 }
 
@@ -318,27 +318,27 @@
   grid-template-columns: auto 64px minmax(0, 1fr);
   gap: 1rem;
   align-items: start;
-  background: var(--og-surface);
-  border: 1px solid var(--og-hairline-soft);
-  border-radius: var(--og-radius-card);
+  background: var(--rs-surface);
+  border: 1px solid var(--rs-line-soft);
+  border-radius: var(--rs-r-card);
   padding: 1rem 1.15rem;
 }
-.og-weapon-bis { border-color: var(--og-hairline); }
+.og-weapon-bis { border-color: var(--rs-line); }
 .og-weapon-rank {
-  font-family: var(--og-mono);
+  font-family: var(--rs-mono);
   font-variant-numeric: tabular-nums;
   font-size: var(--fs-3);
   font-weight: 700;
-  color: var(--og-muted);
+  color: var(--rs-ink-2);
   padding-top: 0.15rem;
 }
 .og-weapon-icon {
   width: 64px;
   height: 64px;
-  border-radius: 12px;
+  border-radius: var(--rs-r-sm);
   object-fit: cover;
-  background: var(--og-surface-raised);
-  border: 1px solid var(--og-hairline-soft);
+  background: var(--rs-surface-2);
+  border: 1px solid var(--rs-line-soft);
   flex: none;
 }
 .og-weapon-main { min-width: 0; }
@@ -350,41 +350,41 @@
 }
 .og-weapon-name {
   font-weight: 700;
-  font-size: 1rem;
-  color: var(--og-ink);
+  font-size: var(--fs-6);
+  color: var(--rs-ink);
 }
 .og-sig {
-  font-family: var(--og-display);
+  font-family: var(--rs-display);
   font-size: var(--fs-1);
   font-weight: 600;
 
   letter-spacing: 0.04em;
-  border: 1px solid var(--og-hairline);
-  border-radius: var(--og-radius-pill);
+  border: 1px solid var(--rs-line);
+  border-radius: var(--rs-r-ctl);
   padding: 0.22rem 0.6rem;
-  color: var(--og-muted);
+  color: var(--rs-ink-2);
   white-space: nowrap;
 }
 .og-bis-pill {
-  font-family: var(--og-display);
+  font-family: var(--rs-display);
   font-size: var(--fs-1);
   font-weight: 700;
 
   letter-spacing: 0.04em;
   background: #ffffff;
   color: #0b0b0d;
-  border-radius: var(--og-radius-pill);
+  border-radius: var(--rs-r-ctl);
   padding: 0.22rem 0.6rem;
   white-space: nowrap;
 }
 .og-stars {
-  color: var(--og-muted);
+  color: var(--rs-ink-2);
   letter-spacing: 0.12em;
   font-size: var(--fs-2);
   white-space: nowrap;
 }
 .og-weapon-note {
-  color: var(--og-muted);
+  color: var(--rs-ink-2);
   font-size: var(--fs-4);
   line-height: 1.55;
   margin: 0.45rem 0 0;
@@ -394,7 +394,7 @@
   display: inline-flex;
   align-items: center;
   min-height: 44px;
-  color: var(--og-ink);
+  color: var(--rs-ink);
   font-weight: 600;
   font-size: var(--fs-5);
   cursor: pointer;
@@ -414,20 +414,20 @@
    pages and the /echo-sets index) and the first team card only
    (.og-team-card-first, character pages) — no other cards get it. */
 
-@property --og-beam-angle {
+@property --rs-beam-angle {
   syntax: "<angle>";
   inherits: false;
   initial-value: 0deg;
 }
 
 @keyframes og-beam-spin {
-  to { --og-beam-angle: 360deg; }
+  to { --rs-beam-angle: 360deg; }
 }
 
 .og-weapon-bis { position: relative; } /* anchors the beam layer */
 .og-seq-best { position: relative; } /* anchors the beam layer */
 .og-echo-plate-bis { position: relative; } /* anchors the beam layer */
-.og-team-card.og-team-card-first { position: relative; border-color: var(--og-hairline); } /* anchors the beam layer; doubled class so it wins over .og-team-card's later border shorthand */
+.og-team-card.og-team-card-first { position: relative; border-color: var(--rs-line); } /* anchors the beam layer; doubled class so it wins over .og-team-card's later border shorthand */
 
 /* The beam is a pseudo-element ring drawn exactly over the card's own 1px
    border, masked to the border area so content and box geometry are untouched. */
@@ -438,12 +438,12 @@
   content: "";
   position: absolute;
   inset: -1px;
-  border-radius: calc(var(--og-radius-card) + 1px);
+  border-radius: calc(var(--rs-r-card) + 1px);
   padding: 1px;
   pointer-events: none;
   background:
     conic-gradient(
-      from var(--og-beam-angle, 0deg),
+      from var(--rs-beam-angle, 0deg),
       transparent 0turn,
       transparent 0.70turn,
       rgba(240, 228, 200, 0.18) 0.78turn,
@@ -485,9 +485,9 @@
    (18px at ≤640px), so their beam ring sits 1px outside that radius
    instead of the shared card radius. Echo plates already use the shared
    card radius, so they need no override. */
-.og-team-card-first::before { border-radius: 21px; }
+.og-team-card-first::before { border-radius: var(--rs-r-tile); }
 @media (max-width: 640px) {
-  .og-team-card-first::before { border-radius: 19px; }
+  .og-team-card-first::before { border-radius: var(--rs-r-tile); }
 }
 
 /* Fallback for browsers without @property: the var() fallback (0deg) keeps
@@ -520,9 +520,9 @@
 }
 .og-seq-stop {
   scroll-snap-align: start;
-  background: var(--og-surface);
-  border: 1px solid var(--og-hairline-soft);
-  border-radius: var(--og-radius-card);
+  background: var(--rs-surface);
+  border: 1px solid var(--rs-line-soft);
+  border-radius: var(--rs-r-card);
   padding: 0.9rem 1rem;
   display: flex;
   flex-direction: column;
@@ -530,24 +530,24 @@
   min-width: 0;
 }
 .og-seq-stopnum {
-  font-family: var(--og-display);
+  font-family: var(--rs-display);
   font-weight: 700;
-  font-size: 1.3rem;
+  font-size: var(--fs-7);
   letter-spacing: 0.02em;
-  color: var(--og-ink);
+  color: var(--rs-ink);
 }
 .og-seq-tag {
-  font-family: var(--og-display);
+  font-family: var(--rs-display);
   font-size: var(--fs-1);
   font-weight: 700;
   letter-spacing: 0.04em;
-  color: var(--og-muted);
+  color: var(--rs-ink-2);
 }
 .og-seq-why {
   margin: 0;
   font-size: var(--fs-4);
   line-height: 1.5;
-  color: var(--og-muted);
+  color: var(--rs-ink-2);
 }
 /* Gold dot: the single rationed gold accent on this section, marking the
    best-value stop. */
@@ -558,7 +558,7 @@
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: var(--og-gold);
+  background: var(--el);
   pointer-events: none;
 }
 
@@ -575,17 +575,17 @@
   display: flex;
   align-items: flex-start;
   gap: 0.8rem;
-  background: var(--og-surface);
-  border: 1px solid var(--og-hairline-soft);
-  border-radius: var(--og-radius-card);
+  background: var(--rs-surface);
+  border: 1px solid var(--rs-line-soft);
+  border-radius: var(--rs-r-card);
   padding: 0.75rem 0.9rem;
 }
 .og-seq-n {
-  font-family: var(--og-mono);
+  font-family: var(--rs-mono);
   font-variant-numeric: tabular-nums;
   font-size: var(--fs-3);
   font-weight: 700;
-  color: var(--og-muted);
+  color: var(--rs-ink-2);
   flex: none;
   padding-top: 0.15rem;
 }
@@ -594,28 +594,28 @@
   margin: 0 0 0.2rem;
   font-weight: 700;
   font-size: var(--fs-5);
-  color: var(--og-ink);
+  color: var(--rs-ink);
 }
 .og-seq-effect {
   margin: 0;
   font-size: var(--fs-4);
   line-height: 1.5;
-  color: var(--og-muted);
+  color: var(--rs-ink-2);
 }
 .og-prio {
   flex: none;
-  font-family: var(--og-display);
+  font-family: var(--rs-display);
   font-size: var(--fs-1);
   font-weight: 700;
   letter-spacing: 0.04em;
   padding: 0.28rem 0.7rem;
-  border-radius: var(--og-radius-pill);
-  border: 1px solid var(--og-hairline);
-  color: var(--og-muted);
+  border-radius: var(--rs-r-ctl);
+  border: 1px solid var(--rs-line);
+  color: var(--rs-ink-2);
 }
 .og-prio-key { background: #ffffff; border-color: #ffffff; color: #0b0b0d; }
-.og-prio-value { border-color: rgba(255, 255, 255, 0.28); color: var(--og-ink); }
-.og-prio-comfort { color: var(--og-ink); }
+.og-prio-value { border-color: rgba(255, 255, 255, 0.28); color: var(--rs-ink); }
+.og-prio-comfort { color: var(--rs-ink); }
 .og-prio-whale { border-style: dashed; }
 .og-prio-skip { opacity: 0.55; }
 
@@ -623,14 +623,14 @@
   margin: 0.9rem 0 0;
   font-size: var(--fs-4);
   line-height: 1.55;
-  color: var(--og-muted);
+  color: var(--rs-ink-2);
 }
 
 .og-seq-provenance {
   margin: 0.6rem 0 0;
   font-size: var(--fs-2);
   line-height: 1.5;
-  color: var(--og-muted);
+  color: var(--rs-ink-2);
   opacity: 0.75;
 }
 
@@ -642,51 +642,51 @@
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
 }
 .og-echo-plate {
-  background: var(--og-surface);
-  border: 1px solid var(--og-hairline-soft);
-  border-radius: var(--og-radius-card);
+  background: var(--rs-surface);
+  border: 1px solid var(--rs-line-soft);
+  border-radius: var(--rs-r-card);
   padding: 1.1rem 1.25rem;
   min-width: 0;
 }
-.og-echo-plate-bis { border-color: var(--og-hairline); }
+.og-echo-plate-bis { border-color: var(--rs-line); }
 .og-echo-head {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
   gap: 1rem;
 }
-.og-echo-name { font-weight: 700; font-size: 1.02rem; color: var(--og-ink); min-width: 0; display: inline-flex; align-items: center; gap: 0.6rem; flex-wrap: wrap; }
+.og-echo-name { font-weight: 700; font-size: var(--fs-6); color: var(--rs-ink); min-width: 0; display: inline-flex; align-items: center; gap: 0.6rem; flex-wrap: wrap; }
 .og-echo-cost {
-  font-family: var(--og-mono);
+  font-family: var(--rs-mono);
   font-variant-numeric: tabular-nums;
   font-size: var(--fs-3);
-  color: var(--og-muted);
+  color: var(--rs-ink-2);
   white-space: nowrap;
   flex: none;
 }
 .og-echo-usage { margin: 0.6rem 0 0.7rem; }
 .og-usage-pill {
   display: inline-block;
-  font-family: var(--og-display);
+  font-family: var(--rs-display);
   font-size: var(--fs-1);
   font-weight: 700;
 
   letter-spacing: 0.04em;
   padding: 0.3rem 0.75rem;
-  border-radius: var(--og-radius-pill);
+  border-radius: var(--rs-r-ctl);
 }
 .og-usage-bis { background: #ffffff; color: #0b0b0d; }
-.og-usage-alt { border: 1px solid var(--og-hairline); color: var(--og-muted); }
-.og-echo-plate p { color: var(--og-muted); font-size: var(--fs-4); line-height: 1.55; margin: 0.45rem 0 0; }
-.og-echo-plate p strong { color: var(--og-ink); }
-.og-echo-note { color: var(--og-muted); font-size: var(--fs-4); line-height: 1.55; margin: 0.75rem 0 0; }
+.og-usage-alt { border: 1px solid var(--rs-line); color: var(--rs-ink-2); }
+.og-echo-plate p { color: var(--rs-ink-2); font-size: var(--fs-4); line-height: 1.55; margin: 0.45rem 0 0; }
+.og-echo-plate p strong { color: var(--rs-ink); }
+.og-echo-note { color: var(--rs-ink-2); font-size: var(--fs-4); line-height: 1.55; margin: 0.75rem 0 0; }
 
 /* --- stat priorities: solid panel, honest ordinal bars --------------------- */
 
 .og-stat-panel {
-  background: var(--og-surface);
-  border: 1px solid var(--og-hairline-soft);
-  border-radius: var(--og-radius-card);
+  background: var(--rs-surface);
+  border: 1px solid var(--rs-line-soft);
+  border-radius: var(--rs-r-card);
   padding: 1.25rem 1.35rem;
 }
 .og-stat-bars { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: minmax(0, 1fr); gap: 1rem; }
@@ -699,32 +699,32 @@
   font-size: var(--fs-5);
   min-width: 0;
 }
-.og-stat-label { color: var(--og-muted); min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.og-stat-label strong { color: var(--og-ink); font-weight: 700; }
+.og-stat-label { color: var(--rs-ink-2); min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.og-stat-label strong { color: var(--rs-ink); font-weight: 700; }
 .og-stat-rank {
-  font-family: var(--og-mono);
+  font-family: var(--rs-mono);
   font-size: var(--fs-2);
 
   letter-spacing: 0.04em;
-  color: var(--og-muted);
+  color: var(--rs-ink-2);
   white-space: nowrap;
   flex: none;
 }
 .og-stat-track {
   height: 6px;
-  border-radius: 999px;
-  background: var(--og-surface-raised);
+  border-radius: var(--rs-r-ctl);
+  background: var(--rs-surface-2);
   margin-top: 0.55rem;
   overflow: hidden;
 }
 .og-stat-fill {
   height: 100%;
-  border-radius: 999px;
+  border-radius: var(--rs-r-ctl);
   width: var(--w, 28%);
   background: rgba(255, 255, 255, 0.8);
 }
-.og-stat-note { color: var(--og-muted); font-size: var(--fs-4); margin: 0.45rem 0 0; line-height: 1.5; }
-.og-stat-note .og-stat-alt { color: var(--og-ink); }
+.og-stat-note { color: var(--rs-ink-2); font-size: var(--fs-4); margin: 0.45rem 0 0; line-height: 1.5; }
+.og-stat-note .og-stat-alt { color: var(--rs-ink); }
 
 /* --- substats: numbered solid rows ------------------------------------------ */
 
@@ -733,31 +733,31 @@
   display: flex;
   align-items: baseline;
   gap: 0.9rem;
-  background: var(--og-surface);
-  border: 1px solid var(--og-hairline-soft);
-  border-radius: 12px;
+  background: var(--rs-surface);
+  border: 1px solid var(--rs-line-soft);
+  border-radius: var(--rs-r-sm);
   padding: 0.7rem 1.05rem;
   font-size: var(--fs-5);
-  color: var(--og-ink);
+  color: var(--rs-ink);
 }
 .og-sub-rank {
-  font-family: var(--og-mono);
+  font-family: var(--rs-mono);
   font-variant-numeric: tabular-nums;
   font-size: var(--fs-3);
   font-weight: 700;
-  color: var(--og-muted);
+  color: var(--rs-ink-2);
   min-width: 1.4rem;
   flex: none;
 }
 .og-er {
   margin: 0.9rem 0 0;
-  color: var(--og-muted);
+  color: var(--rs-ink-2);
   font-size: var(--fs-5);
 }
 .og-er strong {
-  font-family: var(--og-mono);
+  font-family: var(--rs-mono);
   font-variant-numeric: tabular-nums;
-  color: var(--og-ink);
+  color: var(--rs-ink);
 }
 
 /* --- pre-farm materials: mobile-first stacked rows ------------------------------ */
@@ -768,17 +768,17 @@
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
 }
 .og-materials-group {
-  background: var(--og-surface);
-  border: 1px solid var(--og-hairline-soft);
-  border-radius: var(--og-radius-card);
+  background: var(--rs-surface);
+  border: 1px solid var(--rs-line-soft);
+  border-radius: var(--rs-r-card);
   padding: 1.1rem 1.25rem;
   min-width: 0;
 }
-.og-materials-group .og-sub-h { font-size: var(--fs-5); margin: 0 0 0.5rem; color: var(--og-ink); }
+.og-materials-group .og-sub-h { font-size: var(--fs-5); margin: 0 0 0.5rem; color: var(--rs-ink); }
 .og-materials-list { list-style: none; margin: 0; padding: 0; }
 .og-material {
   padding: 0.7rem 0;
-  border-top: 1px solid var(--og-hairline-soft);
+  border-top: 1px solid var(--rs-line-soft);
   font-size: var(--fs-4);
 }
 .og-material:first-child { border-top: none; }
@@ -787,21 +787,21 @@
   align-items: center;
   gap: 0.6rem;
 }
-.og-material-name { color: var(--og-ink); font-weight: 600; min-width: 0; flex: 1; }
+.og-material-name { color: var(--rs-ink); font-weight: 600; min-width: 0; flex: 1; }
 .og-material-icon {
   width: 30px;
   height: 30px;
-  border-radius: 8px;
+  border-radius: var(--rs-r-sm);
   flex: none;
   object-fit: cover;
   background: rgba(255, 255, 255, 0.04);
-  border: 1px solid var(--og-hairline-soft);
+  border: 1px solid var(--rs-line-soft);
 }
 .og-material-qty {
-  font-family: var(--og-mono);
+  font-family: var(--rs-mono);
   font-variant-numeric: tabular-nums;
   font-weight: 700;
-  color: var(--og-ink);
+  color: var(--rs-ink);
   flex: none;
   white-space: nowrap;
 }
@@ -812,18 +812,18 @@
   margin-top: 0.45rem;
 }
 .og-tier-chip {
-  font-family: var(--og-mono);
+  font-family: var(--rs-mono);
   font-variant-numeric: tabular-nums;
   font-size: var(--fs-2);
   line-height: 1.5;
   padding: 0.1rem 0.55rem;
-  border: 1px solid var(--og-hairline-soft);
-  border-radius: 999px;
-  color: var(--og-muted);
+  border: 1px solid var(--rs-line-soft);
+  border-radius: var(--rs-r-ctl);
+  color: var(--rs-ink-2);
   white-space: nowrap;
 }
 .og-material-farm {
-  color: var(--og-muted);
+  color: var(--rs-ink-2);
   font-size: var(--fs-3);
   line-height: 1.5;
   margin-top: 0.35rem;
@@ -834,23 +834,23 @@
 .og-ready-list { list-style: none; margin: 0.5rem 0 0; padding: 0; }
 .og-ready-list > li {
   padding: 0.45rem 0;
-  border-top: 1px solid var(--og-hairline-soft);
+  border-top: 1px solid var(--rs-line-soft);
 }
 .og-ready-list > li:first-child { border-top: none; }
 .og-ready-top {
   display: flex;
   align-items: center;
   gap: 0.6rem;
-  color: var(--og-ink);
+  color: var(--rs-ink);
 }
 .og-ready-top > span:nth-child(2) { flex: 1; min-width: 0; }
 
 /* --- pre-farm breakdown accordions (native details, no JS) ------------------- */
 
 .og-breakdown {
-  border: 1px solid var(--og-hairline-soft);
-  border-radius: var(--og-radius-card);
-  background: var(--og-surface);
+  border: 1px solid var(--rs-line-soft);
+  border-radius: var(--rs-r-card);
+  background: var(--rs-surface);
   margin: 0 0 0.75rem;
 }
 .og-breakdown summary {
@@ -859,7 +859,7 @@
   padding: 1rem 1.25rem;
   font-weight: 700;
   font-size: var(--fs-5);
-  color: var(--og-ink);
+  color: var(--rs-ink);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -869,8 +869,8 @@
 .og-breakdown summary::-webkit-details-marker { display: none; }
 .og-breakdown summary::after {
   content: "+";
-  color: var(--og-muted);
-  font-size: 1.25rem;
+  color: var(--rs-ink-2);
+  font-size: var(--fs-7);
   font-weight: 400;
   line-height: 1;
   flex: none;
@@ -893,11 +893,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--og-ink);
-  background: var(--og-glass);
+  color: var(--rs-ink);
+  background: var(--rs-glass);
   -webkit-backdrop-filter: blur(18px) saturate(1.4);
   backdrop-filter: blur(18px) saturate(1.4);
-  border: 1px solid var(--og-hairline);
+  border: 1px solid var(--rs-line);
   box-shadow: 0 8px 28px -10px rgba(0, 0, 0, 0.65);
   cursor: pointer;
 }
@@ -909,9 +909,9 @@
 /* --- team cards: solid surface, visual-first -------------------------------- */
 
 .og-team-card {
-  background: var(--og-surface);
-  border: 1px solid var(--og-hairline-soft);
-  border-radius: 20px;
+  background: var(--rs-surface);
+  border: 1px solid var(--rs-line-soft);
+  border-radius: var(--rs-r-tile);
   padding: 1.4rem;
   margin: 0 0 1rem;
 }
@@ -923,15 +923,15 @@
   margin-bottom: 1.15rem;
 }
 .og-team-tag {
-  font-family: var(--og-display);
+  font-family: var(--rs-display);
   font-size: var(--fs-1);
   font-weight: 700;
 
   letter-spacing: 0.05em;
   padding: 0.35rem 0.85rem;
-  border-radius: var(--og-radius-pill);
-  border: 1px solid var(--og-hairline);
-  color: var(--og-muted);
+  border-radius: var(--rs-r-ctl);
+  border: 1px solid var(--rs-line);
+  color: var(--rs-ink-2);
   white-space: nowrap;
 }
 .og-team-tag-premium {
@@ -941,7 +941,7 @@
 }
 .og-team-title {
   margin: 0;
-  font-size: 1.05rem;
+  font-size: var(--fs-6);
   min-width: 0;
 }
 .og-team-slots { display: flex; align-items: stretch; }
@@ -959,15 +959,15 @@
   aspect-ratio: 1 / 1;
   object-fit: cover;
   object-position: top center;
-  border-radius: 14px;
-  border: 1px solid var(--og-hairline-soft);
-  background: var(--og-surface-raised);
+  border-radius: var(--rs-r-card);
+  border: 1px solid var(--rs-line-soft);
+  background: var(--rs-surface-2);
   display: block;
   margin: 0 auto;
 }
 .og-team-flow {
-  color: var(--og-muted);
-  font-size: 1.35rem;
+  color: var(--rs-ink-2);
+  font-size: var(--fs-8);
   font-weight: 300;
   flex: none;
   line-height: 1;
@@ -975,7 +975,7 @@
 .og-team-name {
   font-weight: 700;
   font-size: var(--fs-3);
-  color: var(--og-ink);
+  color: var(--rs-ink);
   margin: 0.55rem 0 0;
   white-space: nowrap;
   overflow: hidden;
@@ -986,7 +986,7 @@
   align-items: center;
   justify-content: center;
   gap: 0.35rem;
-  color: var(--og-muted);
+  color: var(--rs-ink-2);
   font-size: var(--fs-2);
   margin: 0.25rem 0 0;
   white-space: nowrap;
@@ -1019,31 +1019,31 @@
   gap: 0.45rem 0.75rem;
   font-size: var(--fs-4);
   line-height: 1.55;
-  border-left: 2px solid var(--el, var(--og-hairline));
+  border-left: 2px solid var(--el, var(--rs-line));
   padding-left: 0.85rem;
   min-width: 0;
 }
-.og-team-note-name { font-weight: 700; color: var(--og-ink); white-space: nowrap; }
-.og-team-note-text { color: var(--og-muted); min-width: 0; }
+.og-team-note-name { font-weight: 700; color: var(--rs-ink); white-space: nowrap; }
+.og-team-note-text { color: var(--rs-ink-2); min-width: 0; }
 .og-team-rotation {
   margin-top: 1.15rem;
-  background: var(--og-surface-raised);
-  border-radius: 12px;
+  background: var(--rs-surface-2);
+  border-radius: var(--rs-r-sm);
   padding: 0.9rem 1.1rem;
 }
 .og-team-rotation-label {
-  font-family: var(--og-mono);
+  font-family: var(--rs-mono);
   font-size: var(--fs-1);
 
   letter-spacing: 0.05em;
-  color: var(--og-muted);
+  color: var(--rs-ink-2);
   margin: 0 0 0.35rem;
 }
-.og-team-rotation p:last-child { margin: 0; font-size: var(--fs-4); line-height: 1.6; color: var(--og-ink); }
+.og-team-rotation p:last-child { margin: 0; font-size: var(--fs-4); line-height: 1.6; color: var(--rs-ink); }
 
 @media (max-width: 640px) {
-  .og-team-card { padding: 1.1rem; border-radius: 18px; }
-  .og-team-portrait { border-radius: 12px; }
+  .og-team-card { padding: 1.1rem; border-radius: var(--rs-r-card); }
+  .og-team-portrait { border-radius: var(--rs-r-sm); }
   /* Name above the text: a fixed 10rem name column leaves the description
      a ~70px sliver on 320px phones. */
   .og-team-note { grid-template-columns: minmax(0, 1fr); gap: 0.1rem; }
@@ -1052,18 +1052,18 @@
 /* --- pull verdict: solid card ----------------------------------------------- */
 
 .og-verdict-card {
-  background: var(--og-surface);
-  border: 1px solid var(--og-hairline-soft);
-  border-radius: 20px;
+  background: var(--rs-surface);
+  border: 1px solid var(--rs-line-soft);
+  border-radius: var(--rs-r-tile);
   padding: 1.5rem;
 }
 .og-verdict-kicker {
-  font-family: var(--og-display);
+  font-family: var(--rs-display);
   font-weight: 600;
 
   letter-spacing: 0.05em;
   font-size: var(--fs-1);
-  color: var(--og-muted);
+  color: var(--rs-ink-2);
   margin: 0;
 }
 .og-verdict-label {
@@ -1075,25 +1075,25 @@
 
   letter-spacing: 0.02em;
   padding: 0.5rem 1.15rem;
-  border-radius: var(--og-radius-pill);
+  border-radius: var(--rs-r-ctl);
   margin: 0.6rem 0 1rem;
 }
 .og-verdict-text {
-  color: var(--og-ink);
-  font-size: 1rem;
+  color: var(--rs-ink);
+  font-size: var(--fs-6);
   line-height: 1.65;
   margin: 0;
   max-width: 70ch;
 }
 .og-verdict-meta {
-  font-family: var(--og-mono);
+  font-family: var(--rs-mono);
   font-variant-numeric: tabular-nums;
-  color: var(--og-muted);
+  color: var(--rs-ink-2);
   font-size: var(--fs-2);
   margin: 1.1rem 0 0;
 }
 .og-version-note {
-  color: var(--og-muted);
+  color: var(--rs-ink-2);
   font-size: var(--fs-3);
   margin: 1.5rem 0 0;
 }
@@ -1108,31 +1108,31 @@
   align-items: center;
   gap: 1rem;
   min-height: 88px;
-  background: var(--og-surface);
-  border: 1px solid var(--og-hairline-soft);
-  border-radius: var(--og-radius-card);
+  background: var(--rs-surface);
+  border: 1px solid var(--rs-line-soft);
+  border-radius: var(--rs-r-card);
   padding: 0.9rem 1.1rem;
-  color: var(--og-ink);
+  color: var(--rs-ink);
 }
-.og-prevnext a:hover { border-color: var(--og-hairline); text-decoration: none; }
+.og-prevnext a:hover { border-color: var(--rs-line); text-decoration: none; }
 .og-prevnext a.og-pn-next { justify-content: flex-end; text-align: right; }
 .og-prevnext img {
   width: 64px;
   height: 64px;
-  border-radius: 12px;
+  border-radius: var(--rs-r-sm);
   object-fit: cover;
   object-position: top center;
   flex: none;
-  background: var(--og-surface-raised);
+  background: var(--rs-surface-2);
 }
 .og-pn-text { min-width: 0; }
 .og-pn-label {
   display: block;
-  font-family: var(--og-mono);
+  font-family: var(--rs-mono);
   font-size: var(--fs-1);
 
   letter-spacing: 0.05em;
-  color: var(--og-muted);
+  color: var(--rs-ink-2);
   margin-bottom: 0.25rem;
 }
 .og-pn-name {
@@ -1142,7 +1142,7 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.og-pn-dir { color: var(--og-muted); font-size: 1.5rem; font-weight: 300; flex: none; }
+.og-pn-dir { color: var(--rs-ink-2); font-size: var(--fs-8); font-weight: 300; flex: none; }
 .og-pn-spacer { flex: 1 1 0; }
 
 @media (max-width: 560px) {
@@ -1182,14 +1182,14 @@
    that scrolls with the page like everything except the tab bar — no
    positioning rules here by design. */
 .og-plain-box {
-  background: var(--og-surface);
-  border: 1px solid var(--og-hairline);
-  border-radius: var(--og-radius-card);
+  background: var(--rs-surface);
+  border: 1px solid var(--rs-line);
+  border-radius: var(--rs-r-card);
   padding: 1.25rem 1.5rem;
 }
 .og-plain-box p {
   margin: 0 0 0.6rem;
-  color: var(--og-muted);
+  color: var(--rs-ink-2);
   font-size: var(--fs-5);
   line-height: 1.6;
 }
@@ -1197,16 +1197,16 @@
   margin-bottom: 0;
 }
 .og-plain-box a {
-  color: var(--og-ink);
+  color: var(--rs-ink);
   text-decoration: underline;
   text-underline-offset: 3px;
 }
 .og-gloss-term {
   margin: 0 0 0.75rem;
-  color: var(--og-muted);
+  color: var(--rs-ink-2);
   font-size: var(--fs-5);
   line-height: 1.6;
 }
 .og-gloss-term strong {
-  color: var(--og-ink);
+  color: var(--rs-ink);
 }

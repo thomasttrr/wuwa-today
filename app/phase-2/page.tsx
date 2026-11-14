@@ -10,7 +10,7 @@ import { MaterialRows } from "@/components/MaterialTable";
 import { getCharacter } from "@/lib/characters";
 
 export const metadata: Metadata = {
-  title: "Phase 2 Rerun Banners (Dec 3) — Xuanling, Suisui, Hiyuki Kits, Weapons & Pre-Farm",
+  title: "Phase 2 rerun banners (Dec 3) — Xuanling, Suisui, Hiyuki kits, weapons & pre-farm",
   description:
     "Version 3.8 Phase 2 starts Dec 3: Yangyang: Xuanling, Suisui, and Hiyuki return on rerun banners. Their kits, signature weapons, Prydwen ratings, best teams, and everything you can farm before the banners open.",
   alternates: { canonical: "/phase-2" },
@@ -100,10 +100,10 @@ function CharSection({ c }: { c: Phase2Char }) {
       <Reveal>
         <div
           style={{
-            border: "1px solid var(--line, #2a2f3a)",
+            border: "1px solid var(--line)",
             borderRadius: "16px",
             overflow: "hidden",
-            background: "var(--panel, #12151d)",
+            background: "var(--panel)",
           }}
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -139,7 +139,7 @@ function CharSection({ c }: { c: Phase2Char }) {
                 gap: "0.7rem",
                 alignItems: "flex-start",
                 padding: "0.7rem 0.8rem",
-                border: "1px solid var(--line, #2a2f3a)",
+                border: "1px solid var(--line)",
                 borderRadius: "12px",
                 marginBottom: "0.8rem",
               }}
@@ -206,7 +206,7 @@ export default function Phase2Page() {
 
       <OgPageHero
         kicker="Version 3.8 · Phase 2 · Dec 3"
-        title="Phase 2: the returning three"
+        title="Phase 2 — the returning three"
         lede="On December 3, the Phase 2 banners bring back Yangyang: Xuanling, Suisui, and Hiyuki — three of the strongest Resonators in the game, all released earlier in 2026 and fully documented. This page gathers their kits, signature weapons, ratings, best teams, and everything you can farm before the banners open."
         meta={<UpdatedStamp />}
       />
@@ -275,7 +275,7 @@ export default function Phase2Page() {
 
       <div className="og-section" id="rumors" style={{ scrollMarginTop: "120px" }}>
         <ObsidianSectionHead
-          title="Rumors & unknowns"
+          title="Rumors and unknowns"
           blurb="What is genuinely not settled — kept separate from the confirmed facts above."
         />
         <Reveal>
@@ -294,8 +294,8 @@ export default function Phase2Page() {
               rule for this section.
             </p>
             <p>
-              Looking further ahead? The <Link href="/leaks">4.0+ leaks page</Link> tracks
-              the rumored New Federation arc — Anna, Lucille, and the wider 4.X cast — with
+              Looking further ahead? The <Link href="/leaks">leaks page for 4.0 and later</Link> tracks
+              the rumored New Federation arc — Anna, Lucille, and the wider 4.x cast — with
               every claim tagged by how solid its evidence is.
             </p>
           </div>

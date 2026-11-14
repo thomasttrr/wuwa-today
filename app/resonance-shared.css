@@ -27,7 +27,7 @@ body.rs .og-page-title {
   line-height: 0.88;
   letter-spacing: -0.035em;
 }
-body.rs .og-page-lede { color: var(--rs-ink-2); font-size: 1.04rem; margin-top: 1rem; }
+body.rs .og-page-lede { color: var(--rs-ink-2); font-size: var(--fs-6); margin-top: 1rem; }
 @media (prefers-reduced-motion: no-preference) {
   body.rs .og-page-title { animation: rs-rise var(--rs-d3) var(--rs-spring) both; }
   body.rs .og-page-lede, body.rs .og-page-hero .og-meta-row { animation: rs-rise var(--rs-d3) var(--rs-ease) 120ms both; }
@@ -49,7 +49,7 @@ body.rs .og-back {
   min-height: 36px;
   padding: 0 0.85rem 0 0.7rem;
   margin-bottom: 0.9rem;
-  border-radius: 999px;
+  border-radius: var(--rs-r-ctl);
   border: 1px solid var(--rs-line-soft);
   background: rgb(255 255 255 / 0.03);
   color: var(--rs-ink-2);
@@ -77,7 +77,7 @@ body.rs .og-h2 {
 }
 body.rs .og-section-blurb { color: var(--rs-ink-3); font-size: var(--fs-4); line-height: 1.55; margin-top: 0.4rem; max-width: 64ch; }
 body.rs .og-section-link { color: var(--el); font-size: var(--fs-4); font-weight: 650; white-space: nowrap; }
-body.rs .og-sub-h { font-family: var(--rs-display); font-weight: 700; font-stretch: 108%; font-size: 1.08rem; }
+body.rs .og-sub-h { font-family: var(--rs-display); font-weight: 700; font-stretch: 108%; font-size: var(--fs-7); }
 
 /* --- kickers --- */
 body.rs .og-char-kicker {
@@ -99,10 +99,10 @@ body.rs .og-pick-card {
 }
 body.rs a.og-pick-card:hover { border-color: var(--rs-el-line); text-decoration: none; }
 body.rs a.og-pick-card:active { transform: scale(0.985); }
-body.rs .og-pick-card h3 { font-family: var(--rs-display); font-weight: 750; font-stretch: 110%; font-size: 1.25rem; }
+body.rs .og-pick-card h3 { font-family: var(--rs-display); font-weight: 750; font-stretch: 110%; font-size: var(--fs-7); }
 body.rs .og-pick-desc, body.rs .og-pick-why { color: var(--rs-ink-2); }
 body.rs .og-pick-desc a, body.rs .og-q-links a { color: var(--el); }
-body.rs .og-pick-portrait { border-radius: 16px; box-shadow: 0 0 0 1.5px var(--rs-el-line); }
+body.rs .og-pick-portrait { border-radius: var(--rs-r-card); box-shadow: 0 0 0 1.5px var(--rs-el-line); }
 
 /* --- lists: element-colored markers --- */
 body.rs .og-q-list { list-style: none; padding-left: 0; }
@@ -122,7 +122,7 @@ body.rs .og-q-list li strong { color: var(--rs-ink); }
 
 /* --- notices and caveats --- */
 body.rs .og-notice {
-  border-radius: 18px;
+  border-radius: var(--rs-r-card);
   background:
     linear-gradient(90deg, color-mix(in oklch, var(--el) 12%, transparent), transparent 60%),
     var(--rs-surface);
@@ -149,7 +149,7 @@ body.rs .og-chip {
   align-items: center;
   min-height: 40px;
   padding: 0 1rem;
-  border-radius: 999px;
+  border-radius: var(--rs-r-ctl);
   border: 1px solid var(--rs-el-line);
   background: var(--rs-el-soft);
   color: var(--rs-ink);
@@ -160,7 +160,7 @@ body.rs .og-chip {
 body.rs .og-chip:hover { text-decoration: none; background: color-mix(in oklch, var(--el) 26%, transparent); }
 body.rs .og-chip:active { transform: scale(0.96); }
 body.rs .og-char-badge {
-  border-radius: 999px;
+  border-radius: var(--rs-r-ctl);
   border: 1px solid var(--rs-line);
   background: rgb(255 255 255 / 0.03);
   color: var(--rs-ink-2);
@@ -175,7 +175,7 @@ body.rs .og-char-badge {
 /* --- echo plates, stat panels (echo sets + character pages) --- */
 body.rs .og-echo-plate,
 body.rs .og-stat-panel {
-  border-radius: 20px;
+  border-radius: var(--rs-r-tile);
   background: var(--rs-surface);
   border: 1px solid var(--rs-line-soft);
 }
@@ -189,7 +189,7 @@ body.rs .og-echo-name { font-family: var(--rs-display); font-weight: 700; font-s
 body.rs .og-echo-cost { font-family: var(--rs-mono); color: var(--el); }
 
 /* --- character page body pieces --- */
-body.rs .og-weapon { border-radius: 18px; background: var(--rs-surface); border-color: var(--rs-line-soft); }
+body.rs .og-weapon { border-radius: var(--rs-r-card); background: var(--rs-surface); border-color: var(--rs-line-soft); }
 body.rs .og-weapon-bis {
   border-color: color-mix(in oklch, var(--el) 40%, transparent);
   background:
@@ -204,7 +204,7 @@ body.rs .og-bis-pill { background: var(--el); color: var(--rs-on-el); border-col
 /* --- glossary --- */
 body.rs .og-gloss-term {
   padding: 0.9rem 1.1rem;
-  border-radius: 14px;
+  border-radius: var(--rs-r-card);
   background: var(--rs-surface);
   border: 1px solid var(--rs-line-soft);
   color: var(--rs-ink-2);
@@ -233,11 +233,11 @@ body.rs .site-footer strong { color: var(--rs-ink-2); }
 body.rs .og-prevnext img {
   width: 60px;
   height: 44px;
-  border-radius: 12px;
+  border-radius: var(--rs-r-sm);
   object-fit: cover;
   object-position: 50% 0;
 }
-body.rs .og-prevnext a { border-radius: 20px; background: var(--rs-surface); border-color: var(--rs-line-soft); }
+body.rs .og-prevnext a { border-radius: var(--rs-r-tile); background: var(--rs-surface); border-color: var(--rs-line-soft); }
 body.rs .og-prevnext a:hover { border-color: var(--rs-el-line); }
 
 /* Footer clears the floating bottom nav on narrow screens. */
@@ -311,7 +311,7 @@ html:has(dialog[open]) { overflow: hidden; scrollbar-gutter: stable; }
   display: inline-block;
   margin-left: 0.4rem;
   padding: 0.05rem 0.4rem;
-  border-radius: 6px;
+  border-radius: var(--rs-r-sm);
   border: 1px dashed var(--rs-line);
   font-family: var(--rs-mono);
   font-size: var(--fs-1);

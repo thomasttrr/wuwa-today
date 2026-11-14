@@ -203,7 +203,7 @@ function statusFromDates<T extends { startsAt: string; endsAt: string | null; st
 
 export const activeBanners = banners.filter((b) => statusFromDates(b) === "active");
 if (activeBanners.length === 0) {
-  // The home hero, banners page and accent colour are decided at build time.
+  // The home hero, banners page and accent color are decided at build time.
   // See UPDATE_PLAYBOOK.md ("Scheduled redeploys") — rebuild at each phase boundary.
   console.warn("[wuwa-today] No active banner at build time — the home hero will use fallback art.");
 }

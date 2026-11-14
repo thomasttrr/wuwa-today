@@ -34,7 +34,7 @@ import { prefarmGuides } from "../lib/prefarm";
 import { CharMedal } from "../components/CharThumb";
 
 export const metadata: Metadata = {
-  title: "WuWa Today — Wuthering Waves Banners, Codes & Events",
+  title: "WuWa Today — Wuthering Waves banners, codes & events",
   description:
     "Today in Wuthering Waves: live banners with countdowns, working redeem codes, active events, and daily/weekly reset timers. Updated daily.",
   alternates: { canonical: "/" },

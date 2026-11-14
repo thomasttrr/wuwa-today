@@ -51,7 +51,7 @@ export async function generateMetadata({
   if (!char) return { title: "Character not found" };
   const p = char.profile;
   return {
-    title: `${char.name} Build Guide — Best Weapons, Echoes & Teams`,
+    title: `${char.name} build guide — best weapons, echoes & teams`,
     description:
       `${char.name} build guide for Wuthering Waves ${char.game_version}: ` +
       `best weapons, echo sets, teams, and Resonance Chain sequence pull ` +
@@ -638,7 +638,7 @@ export default async function CharacterPage({
         <section className="og-section" aria-label="Resonance Chain">
           <ObsidianSectionHead
             id="resonance-chain"
-            title="Resonance Chain"
+            title="Resonance chain"
             blurb={char.sequences.verdict}
           />
           <Reveal>

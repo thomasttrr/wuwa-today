@@ -6,7 +6,7 @@ import Reveal from "@/components/Reveal";
 import UpdatedStamp from "@/components/UpdatedStamp";
 
 export const metadata: Metadata = {
-  title: "5 Mistakes Every Beginner Makes — and What to Do Instead",
+  title: "5 mistakes every beginner makes — and what to do instead",
   description:
     "The five traps every new Wuthering Waves account walks into: standard-banner Astrite, leveling everyone, rushing SOL3 Phase, and more.",
   alternates: { canonical: "/beginner/mistakes" },

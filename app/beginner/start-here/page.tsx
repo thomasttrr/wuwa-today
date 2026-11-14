@@ -9,7 +9,7 @@ import UpdatedStamp from "@/components/UpdatedStamp";
 import { getCharacter } from "@/lib/characters";
 
 export const metadata: Metadata = {
-  title: "Start Here — Your First Week in Wuthering Waves",
+  title: "Start here — your first week in Wuthering Waves",
   description:
     "Your free roster, the first things to unlock, and the Union Level milestones that matter — a beginner's first-week checklist for Wuthering Waves.",
   alternates: { canonical: "/beginner/start-here" },
@@ -154,7 +154,7 @@ export default function BeginnerStartHere() {
       <div className="og-section">
         <ObsidianSectionHead
           id="echoes"
-          title="Echoes & the Data Bank"
+          title="Echoes and the Data Bank"
           blurb="The one system beginners underestimate — and the one that gates your gear quality."
         />
         <div className="grid grid-2">

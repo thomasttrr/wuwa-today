@@ -36,7 +36,7 @@
   flex: none;
   min-height: 40px;
   padding: 0 0.9rem;
-  border-radius: 999px;
+  border-radius: var(--rs-r-ctl);
   border: 1px solid rgb(255 255 255 / 0.08);
   background: rgb(255 255 255 / 0.03);
   color: var(--rs-ink-2);
@@ -58,7 +58,7 @@
   font-size: var(--fs-2);
   font-weight: 500;
   padding: 0.15rem 0.5rem;
-  border-radius: 999px;
+  border-radius: var(--rs-r-ctl);
   background: var(--rs-el-soft);
   color: var(--el);
 }
@@ -104,7 +104,7 @@
   left: 50%;
   translate: -50% 100%;
   padding: 0.1rem 0.45rem;
-  border-radius: 999px;
+  border-radius: var(--rs-r-ctl);
   background: var(--el);
   color: var(--rs-on-el);
   font-family: var(--rs-mono);
@@ -120,7 +120,7 @@
   min-width: 6px;
   display: flex;
   align-items: center;
-  border-radius: 8px;
+  border-radius: var(--rs-r-sm);
   /* clip (not hidden) so the sticky name keeps working while scrolling. */
   overflow: clip;
   background: color-mix(in oklch, var(--el) 22%, transparent);
@@ -177,7 +177,7 @@
 .ev-type { font-family: var(--rs-mono); font-size: var(--fs-1); letter-spacing: 0.06em; text-transform: uppercase; color: var(--rs-ink-3); }
 .ev-pill {
   padding: 0.12rem 0.5rem;
-  border-radius: 999px;
+  border-radius: var(--rs-r-ctl);
   border: 1px solid var(--rs-line);
   font-family: var(--rs-mono);
   font-size: var(--fs-1);
@@ -185,7 +185,7 @@
 }
 .ev-pill-live { border-color: transparent; background: var(--el); color: var(--rs-on-el); font-weight: 700; }
 .ev-est { margin-left: auto; font-family: var(--rs-mono); font-size: var(--fs-1); color: var(--rs-ink-3); cursor: help; }
-.ev-name { margin: 0; font-size: 1.15rem !important; font-weight: 750; line-height: 1.2; }
+.ev-name { margin: 0; font-size: var(--fs-7) !important; font-weight: 750; line-height: 1.2; }
 .ev-rewards { margin: 0; font-size: var(--fs-4); line-height: 1.5; color: var(--rs-ink-2); }
 .ev-card .rs-cd { margin-top: 0.2rem; }
 .ev-more summary {

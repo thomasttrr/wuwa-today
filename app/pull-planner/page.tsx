@@ -16,7 +16,7 @@ import { CharMedal } from "../../components/CharThumb";
 import "./planner.css";
 
 export const metadata: Metadata = {
-  title: "Pull Planner — Who to Pull in Version 3.8",
+  title: "Pull planner — who to pull in version 3.8",
   description:
     "Version 3.8 pull planner: Lily's Phase 1 value, the Sigrika and Qiuyuan reruns, picks by account type, and whether to save for Phase 2.",
   alternates: { canonical: "/pull-planner" },
@@ -105,7 +105,7 @@ export default function PullPlannerPage() {
 
   return (
     <>
-      <PageHero kicker={<>Version {bannerMeta.version} · Pull strategy</>} title="Pull Planner">
+      <PageHero kicker={<>Version {bannerMeta.version} · Pull strategy</>} title="Pull planner">
         Who to pull, answered per account type. Every pick traces to a
           verified pull verdict on this site, and each one shows whether its
           banner is still running.
@@ -324,7 +324,7 @@ export default function PullPlannerPage() {
                 <li>
                   <strong>Own none of those?</strong> Honest answer: all four sit a
                   step below the current top, so this convene completes teams rather
-                  than adding power. Unless one of them is a favourite, save for the
+                  than adding power. Unless one of them is a favorite, save for the
                   featured banners.
                 </li>
                 <li>

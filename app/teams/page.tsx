@@ -6,7 +6,7 @@ import { buildTeamsModel } from "@/lib/teams";
 import "./teams.css";
 
 export const metadata: Metadata = {
-  title: "Best Teams — Team Comps & Synergies",
+  title: "Best teams — team comps & synergies",
   description:
     "Wuthering Waves team comps: the best teams overall, this reset's Tower and Whimpering Wastes picks, and F2P/budget teams — with how each trio works together.",
   alternates: { canonical: "/teams" },

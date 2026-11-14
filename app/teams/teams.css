@@ -19,7 +19,7 @@
   gap: 8px;
   padding: 8px;
   margin: 0 -8px 2rem;
-  border-radius: 22px;
+  border-radius: var(--rs-r-tile);
   background: color-mix(in oklch, var(--rs-canvas) 88%, transparent);
   backdrop-filter: blur(24px) saturate(1.5);
   -webkit-backdrop-filter: blur(24px) saturate(1.5);
@@ -40,7 +40,7 @@
   gap: 0.45rem;
   min-height: 38px;
   padding: 0 0.85rem;
-  border-radius: 12px;
+  border-radius: var(--rs-r-sm);
   color: var(--rs-ink-2);
   font-size: var(--fs-3);
   font-weight: 650;
@@ -73,7 +73,7 @@
   gap: 0.45rem;
   min-height: 34px;
   padding: 0 0.3rem 0 0.75rem;
-  border-radius: 999px;
+  border-radius: var(--rs-r-ctl);
   font-size: var(--fs-3);
   color: var(--rs-ink-2);
   background: color-mix(in oklch, var(--c) 14%, transparent);
@@ -103,7 +103,7 @@
   gap: 0.45rem;
   min-height: 36px;
   padding: 0 0.85rem;
-  border-radius: 999px;
+  border-radius: var(--rs-r-ctl);
   border: 1px solid rgb(255 255 255 / 0.08);
   background: rgb(255 255 255 / 0.03);
   color: var(--rs-ink-2);
@@ -142,7 +142,7 @@
 }
 .tm-blurb { margin: 0.45rem 0 0; color: var(--rs-ink-3); font-size: var(--fs-5); line-height: 1.55; max-width: 62ch; }
 .tm-section-aside { flex: none; }
-.tm-sub-h { margin: 2rem 0 0.9rem; font-weight: 700; font-stretch: 108%; font-size: 1.12rem; }
+.tm-sub-h { margin: 2rem 0 0.9rem; font-weight: 700; font-stretch: 108%; font-size: var(--fs-7); }
 .tm-label {
   margin: 0 0 0.35rem;
   font-family: var(--rs-mono);
@@ -155,7 +155,7 @@
 .tm-empty {
   margin: 0;
   padding: 1rem 1.1rem;
-  border-radius: 16px;
+  border-radius: var(--rs-r-card);
   border: 1px dashed var(--rs-line);
   color: var(--rs-ink-3);
   font-size: var(--fs-4);
@@ -197,7 +197,7 @@
 .tm-card-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 0.75rem; }
 .tm-card-name {
   margin: 0;
-  font-size: 1.08rem;
+  font-size: var(--fs-7);
   font-weight: 750;
   line-height: 1.2;
 }
@@ -206,7 +206,7 @@
   display: inline-block;
   margin-right: 0.5rem;
   padding: 0.12rem 0.45rem;
-  border-radius: 6px;
+  border-radius: var(--rs-r-sm);
   vertical-align: 0.12em;
   font-family: var(--rs-mono);
   font-size: var(--fs-1);
@@ -221,7 +221,7 @@
 .tm-tier {
   flex: none;
   padding: 0.2rem 0.55rem;
-  border-radius: 8px;
+  border-radius: var(--rs-r-sm);
   font-family: var(--rs-mono);
   font-size: var(--fs-2);
   font-weight: 700;
@@ -240,7 +240,7 @@
   align-items: center;
   gap: 0.4rem;
   padding: 0.2rem 0.6rem;
-  border-radius: 999px;
+  border-radius: var(--rs-r-ctl);
   font-size: var(--fs-2);
   font-weight: 600;
   line-height: 1.35;
@@ -276,7 +276,7 @@
 }
 /* Portraits are mini posters (components/CharThumb). */
 .tm-member > .ct-poster, .tm-member-link { width: 100%; max-width: 112px; }
-.tm-member-link { display: block; border-radius: 14px; }
+.tm-member-link { display: block; border-radius: var(--rs-r-card); }
 .tm-member[data-focus] .ct-poster { border-color: var(--c); box-shadow: 0 0 0 1.5px var(--c), 0 0 24px color-mix(in oklch, var(--c) 45%, transparent); }
 .tm-member-meta {
   margin: 0;
@@ -312,7 +312,7 @@
 .tm-how {
   margin-top: auto;
   padding: 0.7rem 0.8rem;
-  border-radius: 14px;
+  border-radius: var(--rs-r-card);
   background: rgb(255 255 255 / 0.03);
   border-left: 2px solid color-mix(in oklch, var(--c) 60%, transparent);
 }
@@ -373,7 +373,7 @@
   align-items: center;
   gap: 0.4rem;
   padding: 0.18rem 0.6rem 0.18rem 0.5rem;
-  border-radius: 999px;
+  border-radius: var(--rs-r-ctl);
   font-size: var(--fs-2);
   font-weight: 600;
   color: var(--rs-ink);
@@ -388,7 +388,7 @@
   gap: 0.5rem;
   align-content: start;
   padding: 0.85rem 0.95rem;
-  border-radius: 16px;
+  border-radius: var(--rs-r-card);
   background: var(--rs-surface);
   border: 1px solid var(--rs-line-soft);
   border-left: 3px solid var(--c);
@@ -412,7 +412,7 @@
   align-content: start;
   gap: 0.3rem;
   padding: 0.95rem 1rem;
-  border-radius: 18px;
+  border-radius: var(--rs-r-card);
   background:
     linear-gradient(160deg, rgb(232 199 106 / 0.1), transparent 55%),
     var(--rs-surface);
@@ -431,7 +431,7 @@
   gap: 0.5rem 0.75rem;
   margin: 1.25rem 0 0;
   padding: 0.85rem 1rem;
-  border-radius: 16px;
+  border-radius: var(--rs-r-card);
   background: rgb(240 140 90 / 0.07);
   border: 1px solid rgb(240 140 90 / 0.25);
 }
@@ -446,7 +446,7 @@
   align-items: center;
   gap: 0.6rem;
   margin: 0 0 0.8rem;
-  font-size: 1.12rem;
+  font-size: var(--fs-7);
   font-weight: 750;
 }
 
@@ -476,7 +476,7 @@
   gap: 0.3rem;
   padding: 6px 2px;
   border: 0;
-  border-radius: 16px;
+  border-radius: var(--rs-r-card);
   background: none;
   color: var(--rs-ink);
   font: inherit;

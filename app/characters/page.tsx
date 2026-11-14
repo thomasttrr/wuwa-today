@@ -18,7 +18,7 @@ import { buildTierModel, OUR_TIER_LABELS } from "@/lib/tiers";
 import "./hub.css";
 
 export const metadata: Metadata = {
-  title: "Characters — Builds, Weapons, Echoes & Teams",
+  title: "Characters — builds, weapons, echoes & teams",
   description:
     "Every Wuthering Waves character in one hub: builds, ranked weapons, echo sets, stat priorities, team comps and pull verdicts — current as of version 3.8.",
   alternates: { canonical: "/characters" },

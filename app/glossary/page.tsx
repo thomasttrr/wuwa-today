@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export function generateMetadata(): Metadata {
   return {
-    title: "Wuthering Waves Glossary — Build Words in Plain Words",
+    title: "Wuthering Waves glossary — build words in plain words",
     description:
       "Every Wuthering Waves build word explained in plain words: DPS, Crit, Echo sets, Forte, Resonance Chain, BiS and more — short everyday sentences, no jargon.",
     alternates: { canonical: "/glossary" },
