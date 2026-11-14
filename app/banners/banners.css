@@ -305,3 +305,18 @@ a.bn-card:active { transform: scale(0.985); }
 }
 @keyframes bn-wdrift { from { transform: scale(1.06) translateX(0); } to { transform: scale(1.13) translateX(-1.6%); } }
 .bn-sel-note { margin: 0; font-size: var(--fs-3); line-height: 1.55; color: var(--rs-ink-3); }
+
+/* Signature-weapon splash strip along the bottom of a lineup card — the
+   same official convene art the Tideforge selector tiles use, cropped to
+   the weapon. Only cards whose weapon has clean art on file render one. */
+.bn-card-splash {
+  grid-column: 1 / -1;
+  margin: 0.35rem -1.1rem -1.1rem;
+  height: 92px;
+  overflow: hidden;
+  border-top: 1px solid var(--rs-line-soft);
+}
+.bn-card-splash img { display: block; width: 100%; height: 100%; object-fit: cover; }
+@media (prefers-reduced-motion: no-preference) {
+  .bn-card-splash img { animation: bn-wdrift 8s ease-in-out infinite alternate; }
+}

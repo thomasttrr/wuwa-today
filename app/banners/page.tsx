@@ -54,10 +54,25 @@ function communityTier(slug: string | undefined): string | null {
 
 const STATUS_LABEL: Record<string, string> = { new: "New", rerun: "Rerun", "rate-up": "Rate-up" };
 
+/** Official convene splash art per signature weapon (files in
+ *  public/images/weapons/<slug>-splash.jpg), with the object-position that
+ *  frames the weapon itself in the card strip. Only weapons whose clean
+ *  convene art is on file are listed — the rest keep the text-only line. */
+const WEAPON_SPLASH: Record<string, string> = {
+  lullaby: "50% 50%",
+  "solsworn-ciphers": "72% 50%",
+  "emerald-sentence": "65% 50%",
+  "azure-oath": "70% 50%",
+  "firstlights-herald": "62% 50%",
+  frostburn: "72% 50%",
+};
+
 function LineupCard({ c, banner, lead }: { c: GameCharacter; banner: Banner; lead: boolean }) {
   const slug = slugByName.get(c.name);
   const rec = slug ? bySlug.get(slug) : undefined;
   const weapon = banner.weapons.find((w) => w.featuredFor === c.name);
+  const wslug = weapon ? weapon.name.toLowerCase().replace(/['’]/g, "").replace(/[^a-z0-9]+/g, "-") : null;
+  const splashPos = wslug ? WEAPON_SPLASH[wslug] : undefined;
   const ours = slug ? tiers.get(slug)?.ours : null;
   const community = communityTier(slug);
   const body = (
@@ -89,6 +104,20 @@ function LineupCard({ c, banner, lead }: { c: GameCharacter; banner: Banner; lea
         {ours?.note && <p className="bn-card-note">{ours.note}</p>}
         {rec && <span className="bn-card-cta">Build, teams and pull verdict →</span>}
       </div>
+      {weapon && splashPos && (
+        <div className="bn-card-splash" aria-hidden="true">
+          {/* eslint-disable-next-line @next/next/no-img-element -- static export is unoptimized. */}
+          <img
+            src={`/images/weapons/${wslug}-splash.jpg`}
+            alt=""
+            loading="lazy"
+            decoding="async"
+            width={960}
+            height={540}
+            style={{ objectPosition: splashPos }}
+          />
+        </div>
+      )}
     </>
   );
   const style = { "--c": elementColor(c.element) } as CSSProperties;
