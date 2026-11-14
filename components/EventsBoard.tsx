@@ -260,7 +260,7 @@ export default function EventsBoard({ events, builtAt }: { events: GameEvent[]; 
         </section>
       )}
 
-      <Section id="live" title="Ending soon" hint="Finish these first." items={live} now={now} flash={flash} />
+      <Section id="live" title="Active events" hint="Running now — finish them before they end." items={live} now={now} flash={flash} />
       <Section id="upcoming" title="Starting soon" items={soon} now={now} flash={flash} />
       <Section id="permanent" title="Permanent" items={always} now={now} flash={flash} />
 
