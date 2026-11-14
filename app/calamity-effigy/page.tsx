@@ -128,7 +128,13 @@ export default function CalamityEffigyPage() {
         <Reveal>
           <p className="ef-note">
             The fight itself is fast and aggressive — spear combos and lunges, with very little
-            idle time. Five minutes per attempt, like every hologram.
+            idle time. Five minutes per attempt, like every hologram. One more thing to plan
+            around: at <strong>65% health</strong> (with about 20% of its Vibration Strength
+            left) the Effigy stops, <strong>heals back to full</strong>, and Phase 2 begins
+            with new moves — including a special two-part attack at 80% health. You cannot
+            drain its Vibration Strength during the heal, so use that window to build energy
+            instead of burning cooldowns. If you stagger it before 65%, a Jade Construct
+            combo triggers instead — pushing it to 65% first skips that combo.
           </p>
         </Reveal>
       </div>
@@ -141,24 +147,30 @@ export default function CalamityEffigyPage() {
         <Reveal>
           <div className="og-notice" role="note">
             <p>
-              <strong>Forged Might → Impeccable.</strong> In Kuro&apos;s official description,
-              the fight builds stacks of <strong>Impeccable</strong> through{" "}
-              <strong>Forged Might</strong> — tied to dodging and attacking — and the stacks
-              raise damage as they grow. The longer stages are a race: stack the fight in your
-              favour before the timer does the opposite.
+              <strong>Forged Might → Impeccable.</strong> Your team gains{" "}
+              <strong>1 stack of Impeccable every second</strong>, and each stack is worth{" "}
+              <strong>+1% total damage, up to 100%</strong>. A{" "}
+              <strong>Dodge Counter or Counterattack adds 10 stacks</strong> at once; a Basic
+              Attack, Heavy Attack, Resonance Skill, or Echo Skill <strong>removes 2</strong>;
+              a Resonance Liberation <strong>removes 10</strong>. So the rhythm is: dodge and
+              counter to build stacks, then spend them on your biggest hits — and time
+              Liberations for when the stack count can afford the cost.
             </p>
             <p>
-              <strong>Way of the Forged Empyrean.</strong> A time-based escalation: the longer
-              the fight runs, the more damage both sides deal — and the weaker healing becomes.
-              Stalling is the one strategy this fight is designed to beat.
+              <strong>Way of the Forged Empyrean.</strong> The time-based escalation, with its
+              numbers: at <strong>3 minutes</strong>, damage dealt and taken starts climbing
+              every 10 seconds, up to <strong>+60%</strong>. At <strong>4 minutes</strong> it
+              jumps to <strong>+100% damage dealt and taken — and healing stops working</strong>{" "}
+              (100% less healing). With a 5-minute limit, the last minute is a pure damage
+              race. Stalling is the one strategy this fight is designed to beat.
             </p>
           </div>
         </Reveal>
         <Reveal>
           <p className="ef-note">
-            Honest limit: no guide has published the exact stack values, cap, or duration yet —
-            only Kuro&apos;s description above. This section gets the hard numbers as soon as
-            they are confirmed in-game.
+            The stack values above are the fight&apos;s own in-game mechanism text, confirmed
+            by Game8&apos;s full guide (November 13, 2026) — they replaced the launch-day
+            summary this page carried until then.
           </p>
         </Reveal>
       </div>
@@ -181,27 +193,27 @@ export default function CalamityEffigyPage() {
               <tbody>
                 <tr>
                   <td>Stage I</td>
-                  <td>60 †</td>
+                  <td>60</td>
                   <td>None — straight fight</td>
                 </tr>
                 <tr>
                   <td>Stage II</td>
-                  <td>65 †</td>
+                  <td>65</td>
                   <td>None — straight fight</td>
                 </tr>
                 <tr>
                   <td>Stage III</td>
-                  <td>70 †</td>
+                  <td>70</td>
                   <td>None — straight fight</td>
                 </tr>
                 <tr>
                   <td>Stage IV</td>
-                  <td>80 †</td>
+                  <td>80</td>
                   <td>None — straight fight</td>
                 </tr>
                 <tr>
                   <td>Stage V</td>
-                  <td>90 †</td>
+                  <td>90</td>
                   <td className="ef-hot">Forged Might / Impeccable + Way of the Forged Empyrean</td>
                 </tr>
                 <tr>
@@ -215,19 +227,23 @@ export default function CalamityEffigyPage() {
         </Reveal>
         <Reveal>
           <p className="ef-note">
-            † Stage VI at level 100 is confirmed from player clears. The I–V levels follow the
-            standard Sparring ladder shared by the other two bosses (Denia and Myriad Snare:
-            Rustfire Chassis) and are marked until the Effigy&apos;s own table is published.
+            Stage levels confirmed against Game8&apos;s stage table (November 13, 2026) —
+            Stage VI at level 100 also matches player clear screens.
           </p>
         </Reveal>
         <Reveal>
           <div className="og-notice" role="note" style={{ marginTop: "1rem" }}>
             <p>
-              <strong>Full clear pays 120 Astrite in total</strong> across the six stages, plus
-              Sparring Coins, Premium Tuners, Shell Credits, a{" "}
-              <strong>Calamity Effigy icon</strong>, and Reminiscence Echo items. Exact
-              per-stage amounts are not published by any guide yet, so this page lists the
-              confirmed totals rather than guessed splits.
+              <strong>Full clear pays 120 Astrite in total</strong> — 20 per stage — plus a{" "}
+              <strong>Calamity Effigy icon</strong> and Reminiscence Echo items. The rest,
+              stage by stage: <strong>Sparring Coins</strong> 300 / 300 / 400 / 400 / 400 /
+              450 (<strong>2,250 total</strong>); <strong>Premium Tuners</strong> 10 / 10 / 20
+              / 20 / 30 / 30; <strong>Shell Credits</strong> 30,000 rising to 60,000 (
+              <strong>250,000 total</strong>); and a Calamity Effigy Echo item — 4-star at
+              stages I–II, 5-star at stages III–VI. The coin and credit totals match player
+              full-clear screens exactly. Two trophies pay a little more:{" "}
+              <strong>Inhuman</strong> (clear any stage) for 5 Astrite, and{" "}
+              <strong>The Fall of the Immortal One</strong> (clear Stage VI) for 20.
             </p>
           </div>
         </Reveal>
@@ -311,15 +327,12 @@ export default function CalamityEffigyPage() {
         <Reveal>
           <div className="og-notice" role="note">
             <p>
-              <strong>The exact Impeccable numbers.</strong> Per-stack values, the cap, and the
-              duration are not published anywhere yet — only Kuro&apos;s summary wording. Same
-              for the exact per-stage reward splits.
-            </p>
-            <p>
-              <strong>A rumored self-heal.</strong> A few player clips appear to show the Effigy
-              healing mid-fight, and the story version does heal once — but no guide has
-              confirmed it for the hologram. It stays off the facts above until it is verified
-              in-game.
+              <strong>Nothing outstanding right now.</strong> The three gaps this page
+              launched with — the exact Impeccable numbers, the per-stage reward splits, and
+              whether the hologram heals mid-fight — were all settled on November 13, 2026 by
+              Game8&apos;s full guide, cross-checked against player clear screens (the
+              2,250-coin and 250,000-credit full-clear totals match exactly). The heal is
+              real: it is the Phase 2 trigger described above.
             </p>
             <p>
               Facts on this page come from Kuro&apos;s official 3.8 posts (November 10, 2026),
