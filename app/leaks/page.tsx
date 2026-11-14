@@ -445,7 +445,7 @@ export default function LeaksPage() {
         <FileHead
           file="File 02 · Subject"
           title="Lucille — the rumored Phase 2 banner"
-          blurb="Thinner evidence than Anna — one bust portrait, no full model, and her element has already changed three times."
+          blurb="Thinner evidence than Anna — one bust portrait, no full model, and her element only narrowed to two options this week."
         />
         <Reveal>
           <div className="lk-view">
@@ -511,9 +511,11 @@ export default function LeaksPage() {
               <strong>The Phase 2 slot</strong>, in the back half of 4.0.
             </Claim>
             <Claim tag="Single leak">
-              <strong>Her element is unsettled.</strong> Posts have tagged her Fusion, then
-              Havoc, then Electro Flare, and most recently Spectro with Pistols as a sub-DPS.
-              Treat every version as weak until the beta lands.
+              <strong>Her element has narrowed to Electro or Spectro.</strong> The newest
+              word (Seele and Fractured Shores, via WuWa Timeline, November 13, marked
+              subject to change) cuts it down to those two. Earlier posts tagged her Fusion,
+              then Havoc, then Electro Flare, and Spectro with Pistols as a sub-DPS — treat
+              the whole trail as weak until the beta lands.
             </Claim>
             <Claim tag="Speculation">
               <strong>A Hsin + Suoming team link</strong> — if she is an off-field sub-DPS, she
