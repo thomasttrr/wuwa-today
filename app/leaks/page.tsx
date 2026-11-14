@@ -109,7 +109,7 @@ export default function LeaksPage() {
       <header className="og-page-hero">
         <span className="lk-signal">
           <span className="lk-signal-dot" aria-hidden />
-          Signal live · Last sweep Nov 13, 2026 · Nothing here is official
+          Signal live · Last sweep Nov 14, 2026 · Nothing here is official
         </span>
         <p className="og-page-kicker" style={{ marginTop: "1.1rem" }}>
           Version 4.0 and later · Unreleased · Leaks and rumors
@@ -330,6 +330,12 @@ export default function LeaksPage() {
               <strong>Her English voice is out there too.</strong> An 11-second in-game clip
               (pero, November 10) carries her English lines. No English voice actor is named
               anywhere yet — the names in the comments are guesses.
+            </Claim>
+            <Claim tag="Single leak">
+              <strong>Her leaked model is already being animated.</strong> A roughly
+              37-second fan video (circulating on Facebook, November 14) orbits the leaked
+              model in a fan-made night scene — the model matches the datamined renders,
+              but the scene and animation are fan work, and no model file comes with it.
             </Claim>
             <Claim tag="Single leak">
               <strong>She may already be in the game.</strong> A Seele text graphic
@@ -687,7 +693,7 @@ export default function LeaksPage() {
               November 9–10, and mirrored in the PTT C_Chat leak thread), and Lucille&rsquo;s
               bust portrait via <strong>StepLeaks</strong> (October 29). Anna&rsquo;s in-game
               story stills come via <strong>Sleepy</strong> (November 11, relayed by the WuWa
-              News channel and PTT), and the 4.0 map place names and map-size note come from{" "}
+              News channel and PTT), A fan-made animation of Anna&rsquo;s leaked model surfaced on Facebook on November 14 — reshares only, origin unverified, and noted on this page as fan work rather than a leak drop — and the 4.0 map place names and map-size note come from{" "}
               <strong>Seele Leaks</strong> posts of November 11–12 — text only; no map graphic
               has leaked. Roundups consulted:
               GamsGo&rsquo;s 4.0 banner guide and Anna profile (updated November 11, 2026),

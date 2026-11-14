@@ -456,3 +456,6 @@ Lily client verification Nov 11, 2026: role, skill, sequence and weapon text che
 
 ## 2026-11-14 — Calamity Effigy guide art (Tom's pick: boss page first)
 - /calamity-effigy gained the boss's official in-game icon (Fandom wiki, File:Calamity_Effigy_Icon.png) as a portrait card at the top of "Know the boss". The guide hero stays text-only per the design system's contained-panel rule (OgPageHero), so the art sits inside the section. First of Tom's one-page-at-a-time art pass over the text-only guide pages.
+
+## 2026-11-14 — Anna fan-animation claim published (leak watch, Tom approved)
+- New File 01 claim (Single leak): a ~37-second fan video orbiting Anna's leaked model in a fan-made night scene, circulating via Facebook reshares Nov 14 (Roberth Quijayte / NS Quiz / Anna Kenzou reels). The model matches the datamined renders; the scene and animation are fan work; no downloadable model file exists. Text-only on the page — the site never embeds social posts. Custody paragraph in File 05 updated; signal pill sweep date moved to Nov 14.
