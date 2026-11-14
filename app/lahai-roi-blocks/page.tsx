@@ -39,6 +39,19 @@ export default function LahaiRoiBlocksPage() {
 
       <div className="og-section">
         <Reveal>
+          <figure className="bl-art">
+            <img
+              src="/images/events/lahai-roi-blocks-turnabout.webp"
+              alt="Lahai-Roi Blocks: Turnabout — official event art"
+              width={1024}
+              height={576}
+              loading="lazy"
+              decoding="async"
+            />
+            <figcaption>Lahai-Roi Blocks: Turnabout — official event art.</figcaption>
+          </figure>
+        </Reveal>
+        <Reveal>
           <div className="og-notice" role="note">
             <p>
               <strong>The short version:</strong> unlock is Union Level 14. Each stage

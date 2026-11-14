@@ -41,6 +41,19 @@ export default function SolarisEndingsPage() {
 
       <div className="og-section">
         <Reveal>
+          <figure className="so-art">
+            <img
+              src="/images/events/second-coming-solaris-unwritten-dreams.webp"
+              alt="Second Coming of Solaris: Unwritten Dreams — official event art"
+              width={1024}
+              height={576}
+              loading="lazy"
+              decoding="async"
+            />
+            <figcaption>Second Coming of Solaris: Unwritten Dreams — official event art.</figcaption>
+          </figure>
+        </Reveal>
+        <Reveal>
           <div className="og-notice" role="note">
             <p>
               <strong>The short version:</strong> you cannot get everything in one run — the

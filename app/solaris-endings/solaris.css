@@ -93,3 +93,20 @@
   .so-table td { padding: 0.7rem 0.6rem; }
   .so-table td:first-child { white-space: normal; }
 }
+
+/* Event key-art figure above the short version. The guide hero stays
+   text-only per the design rule; art lives inside the first section. */
+.so-art {
+  margin: 0 0 1rem;
+  border: 1px solid var(--rs-line);
+  border-radius: var(--rs-r-card);
+  overflow: hidden;
+  background: var(--rs-surface);
+}
+.so-art img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; }
+.so-art figcaption {
+  padding: 0.55rem 0.9rem;
+  font-family: var(--rs-mono);
+  font-size: var(--fs-1);
+  color: var(--rs-ink-3);
+}
