@@ -68,6 +68,13 @@ export default function EventsBoard({ events, builtAt }: { events: GameEvent[]; 
   first.setUTCHours(0, 0, 0, 0);
   for (let t = first.getTime() + DAY; t < t1; t += 7 * DAY) ticks.push(t);
   const timeline = [...live, ...soon, ...ended.slice(0, 3)].filter((x) => x.e.endsAt);
+  const tlGroups = [
+    { key: "live", label: "Live", items: live.filter((x) => x.e.endsAt) },
+    { key: "soon", label: "Starting soon", items: soon.filter((x) => x.e.endsAt) },
+    { key: "ended", label: "Recently ended", items: ended.slice(0, 3) },
+  ].filter((g) => g.items.length > 0);
+  const shortDate = (iso: string) =>
+    new Date(iso).toLocaleDateString("en-US", { month: "short", day: "numeric", timeZone: "Asia/Shanghai" });
 
   const urgent = live[0];
 
@@ -120,36 +127,47 @@ export default function EventsBoard({ events, builtAt }: { events: GameEvent[]; 
             </p>
           </header>
           <div ref={scrollRef} className="ev-tl-scroll">
-            <div className="ev-tl-chart" style={{ "--now": pct(now) } as CSSProperties}>
-              <div className="ev-tl-axis" aria-hidden="true">
-                {ticks.map((t) => (
-                  <span key={t} style={{ left: pct(t) }}>
-                    {new Date(t).toLocaleDateString("en-US", { month: "short", day: "numeric", timeZone: "Asia/Shanghai" })}
-                  </span>
-                ))}
+            <div className="ev-tl-chart">
+              <div className="ev-tl-lanes" aria-hidden="true">
+                <div className="ev-tl-axis">
+                  {ticks.map((t) => (
+                    <span key={t} style={{ left: pct(t) }}>
+                      {shortDate(new Date(t).toISOString())}
+                    </span>
+                  ))}
+                </div>
+                <span className="ev-tl-now" style={{ left: pct(now) }}>
+                  <b>Now</b>
+                </span>
               </div>
-              <div className="ev-tl-track">
-              <span className="ev-tl-now" aria-hidden="true">
-                <b>Now</b>
-              </span>
-              <ol className="ev-tl-rows">
-                {timeline.map(({ e, st }) => {
-                  const s = new Date(e.startsAt).getTime();
-                  const en = new Date(e.endsAt!).getTime();
-                  return (
-                    <li key={e.id} className={`ev-tl-row ev-st-${st}`}>
-                      <span
-                        className="ev-tl-bar"
-                        style={{ left: pct(s), width: `calc(${pct(en)} - ${pct(s)})` } as CSSProperties}
-                        title={`${e.name}: ${formatServerDate(e.startsAt)} – ${formatServerDate(e.endsAt)}`}
-                      >
-                        <span className="ev-tl-name">{e.name}</span>
-                      </span>
-                    </li>
-                  );
-                })}
-              </ol>
-              </div>
+              {tlGroups.map((g) => (
+                <div key={g.key} className="ev-tl-group">
+                  <p className="ev-tl-glabel">{g.label}</p>
+                  <ol className="ev-tl-rows">
+                    {g.items.map(({ e, st }) => {
+                      const s = new Date(e.startsAt).getTime();
+                      const en = new Date(e.endsAt!).getTime();
+                      return (
+                        <li key={e.id} className={`ev-tl-row ev-st-${st}`}>
+                          <span className="ev-tl-lab">
+                            <span className="ev-tl-name">{e.name}</span>
+                            <span className="ev-tl-dates">
+                              {shortDate(e.startsAt)} – {shortDate(e.endsAt!)}
+                            </span>
+                          </span>
+                          <span className="ev-tl-lane">
+                            <span
+                              className="ev-tl-bar"
+                              style={{ left: pct(s), width: `calc(${pct(en)} - ${pct(s)})` } as CSSProperties}
+                              title={`${e.name}: ${formatServerDate(e.startsAt)} – ${formatServerDate(e.endsAt)}`}
+                            />
+                          </span>
+                        </li>
+                      );
+                    })}
+                  </ol>
+                </div>
+              ))}
             </div>
           </div>
         </section>
@@ -214,6 +232,11 @@ function EventItem({ e, st, now }: { e: GameEvent; st: Live; now: number }) {
   const lastDay = st === "live" && end !== null && end - now < DAY;
   return (
     <li className={`ev-card rs-spot ev-st-${st}${lastDay ? " ev-last-day" : ""}`}>
+      {e.image && (
+        <div className="ev-art" aria-hidden="true">
+          <img src={e.image} alt="" loading="lazy" decoding="async" width={1024} height={576} />
+        </div>
+      )}
       <div className="ev-card-top">
         <span className="ev-type">{TYPE_LABELS[e.type] ?? e.type}</span>
         {st === "live" && <span className="ev-pill ev-pill-live">{lastDay ? "Last day" : "Live"}</span>}

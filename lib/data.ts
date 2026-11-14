@@ -106,6 +106,8 @@ export interface GameEvent {
   /** Optional link to a dedicated guide page on this site. */
   href?: string;
   hrefLabel?: string;
+  /** Official event key art, shown as the card's top strip. */
+  image?: string;
 }
 
 export const banners = (bannersRaw as { banners: Banner[] }).banners;
