@@ -109,7 +109,7 @@ export default function LeaksPage() {
       <header className="og-page-hero">
         <span className="lk-signal">
           <span className="lk-signal-dot" aria-hidden />
-          Signal live · Last sweep Nov 12, 2026 · Nothing here is official
+          Signal live · Last sweep Nov 13, 2026 · Nothing here is official
         </span>
         <p className="og-page-kicker" style={{ marginTop: "1.1rem" }}>
           Version 4.0+ · Unreleased · Leaks & rumors
@@ -310,8 +310,10 @@ export default function LeaksPage() {
               <strong>Broadblade, on the newest render</strong> — her weapon has moved with
               every round of leaks: Pistols or Rectifier in the early posts, then a Rectifier
               built around a reworked Tune Break, and the November 10 render tags her a Fusion
-              Broadblade hybrid DPS dealing Basic Attack damage. Latest word wins for now, but
-              it rests on one render&rsquo;s tags until the beta.
+              Broadblade hybrid DPS dealing Basic Attack damage. The newest addition (FS,
+              November 13, in a post flaired &ldquo;Reliable&rdquo;): the Broadblade takes
+              scythe form. Latest word wins for now, but the weapon story rests on leak posts
+              until the beta.
             </Claim>
             <Claim tag="Repeated leak">
               <strong>Five-star.</strong> The November render summary states her rarity
@@ -600,6 +602,14 @@ export default function LeaksPage() {
               no track record (@kyryllmitya, November 12) claims Kuro drops an official 4.X
               character reveal on November 18. Nothing backs it — no characters named, nothing
               shown. It is a dated claim, so it settles itself within the week.
+            </Claim>
+            <Claim tag="Single leak">
+              <strong>Two of the returning three are tipped for 4.1 skins.</strong>{" "}
+              Yangyang: Xuanling and Suisui — both back on banners December 3 — are claimed
+              to get skins in Version 4.1, themed Valentine / casual outfits. The
+              &ldquo;skins next&rdquo; claim itself came from Seele (October 19); the 4.1
+              timing and the theme rest on one newer post (DNIA, November 13), so the new
+              parts grade as a single leak.
             </Claim>
           </div>
         </Reveal>
