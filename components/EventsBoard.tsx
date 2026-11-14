@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState, type CSSProperties } from "react";
+import { useEffect, useMemo, useRef, useState, type CSSProperties, type MouseEvent } from "react";
 import RollingCountdown from "./RollingCountdown";
 import useNow from "./useNow";
 import { formatServerDate } from "../lib/dates";
@@ -29,6 +29,32 @@ function statusOf(e: GameEvent, now: number): Live {
   if (now < s) return "soon";
   if (end === null) return "always";
   return now < end ? "live" : "ended";
+}
+
+/** Small square crop of an event's key art, made by `npm run thumbs:events`
+ * (same file name under /images/events/thumbs/). Run it after adding an event. */
+const thumbOf = (image: string) => image.replace("/images/events/", "/images/events/thumbs/");
+
+/** Art tile in a timeline label. An event without art gets a visible empty
+ * tile rather than a silent gap, so a missing image is easy to spot. */
+function TlArt({ image }: { image?: string | null }) {
+  if (!image) return <span className="ev-tl-art ev-tl-art-none" aria-hidden="true" />;
+  return (
+    <span className="ev-tl-art" aria-hidden="true">
+      <img
+        src={thumbOf(image)}
+        alt=""
+        width={96}
+        height={96}
+        loading="lazy"
+        decoding="async"
+        // A new event whose thumb is not generated yet falls back to the full art.
+        onError={(ev) => {
+          if (!ev.currentTarget.src.endsWith(image)) ev.currentTarget.src = image;
+        }}
+      />
+    </span>
+  );
 }
 
 /**
@@ -88,6 +114,49 @@ export default function EventsBoard({ events, builtAt }: { events: GameEvent[]; 
     el.scrollLeft = Math.max(0, el.scrollWidth * nowFrac - el.clientWidth * 0.6);
   }, [nowFrac]);
 
+  // Lane width in px, so axis labels can be thinned to what actually fits.
+  const lanesRef = useRef<HTMLDivElement>(null);
+  const [laneW, setLaneW] = useState(0);
+  const hasTimeline = timeline.length > 0;
+  useEffect(() => {
+    const el = lanesRef.current;
+    if (!el) return;
+    const ro = new ResizeObserver(() => setLaneW(el.clientWidth));
+    ro.observe(el);
+    return () => ro.disconnect();
+  }, [hasTimeline]);
+  // Labels: weekly where they fit, every 2nd or 3rd week on narrow lanes, and
+  // never under the "Now" pill or past the chart's right edge. The dashed
+  // lines stay weekly. Hidden until the lane is measured, so a first paint
+  // never shows the overlapping set.
+  const pxPerDay = laneW > 0 && span > 0 ? (laneW / span) * DAY : 0;
+  const labelEvery = pxPerDay > 0 ? Math.max(1, Math.ceil(54 / (pxPerDay * 7))) : 1;
+  const nowX = span > 0 ? ((Math.min(Math.max(now, t0), t1) - t0) / span) * laneW : 0;
+  const showTickLabel = (t: number, i: number) => {
+    if (i % labelEvery !== 0) return false;
+    const x = ((t - t0) / span) * laneW;
+    return !(x > nowX - 70 && x < nowX + 16) && x < laneW - 28;
+  };
+
+  // Tapping a timeline row scrolls to that event's card and flashes it. The
+  // row is a real #hash link, so it still works if the card is not found.
+  const [flash, setFlash] = useState<string | null>(null);
+  const flashTimer = useRef(0);
+  function jumpToCard(ev: MouseEvent<HTMLAnchorElement>, id: string) {
+    const card = document.getElementById(`ev-card-${id}`);
+    if (!card) return;
+    ev.preventDefault();
+    const calm = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    card.scrollIntoView({ behavior: calm ? "auto" : "smooth", block: "center" });
+    card.focus({ preventScroll: true });
+    window.clearTimeout(flashTimer.current);
+    setFlash(null); // restart the ring if the same card is tapped twice
+    requestAnimationFrame(() => {
+      setFlash(id);
+      flashTimer.current = window.setTimeout(() => setFlash(null), 1800);
+    });
+  }
+
   return (
     <>
       <div className="ev-summary" aria-live="polite">
@@ -128,11 +197,11 @@ export default function EventsBoard({ events, builtAt }: { events: GameEvent[]; 
           </header>
           <div ref={scrollRef} className="ev-tl-scroll">
             <div className="ev-tl-chart">
-              <div className="ev-tl-lanes" aria-hidden="true">
-                <div className="ev-tl-axis">
-                  {ticks.map((t) => (
+              <div ref={lanesRef} className="ev-tl-lanes" aria-hidden="true">
+                <div className="ev-tl-axis" style={laneW ? undefined : { visibility: "hidden" }}>
+                  {ticks.map((t, i) => (
                     <span key={t} style={{ left: pct(t) }}>
-                      {shortDate(new Date(t).toISOString())}
+                      {showTickLabel(t, i) ? shortDate(new Date(t).toISOString()) : null}
                     </span>
                   ))}
                 </div>
@@ -147,12 +216,15 @@ export default function EventsBoard({ events, builtAt }: { events: GameEvent[]; 
                     {g.items.map(({ e, st }) => {
                       const s = new Date(e.startsAt).getTime();
                       const en = new Date(e.endsAt!).getTime();
-                      return (
-                        <li key={e.id} className={`ev-tl-row ev-st-${st}`}>
+                      const row = (
+                        <>
                           <span className="ev-tl-lab">
-                            <span className="ev-tl-name">{e.name}</span>
-                            <span className="ev-tl-dates">
-                              {shortDate(e.startsAt)} – {shortDate(e.endsAt!)}
+                            <TlArt image={e.image} />
+                            <span className="ev-tl-txt">
+                              <span className="ev-tl-name">{e.name}</span>
+                              <span className="ev-tl-dates">
+                                {shortDate(e.startsAt)} – {shortDate(e.endsAt!)}
+                              </span>
                             </span>
                           </span>
                           <span className="ev-tl-lane">
@@ -162,6 +234,18 @@ export default function EventsBoard({ events, builtAt }: { events: GameEvent[]; 
                               title={`${e.name}: ${formatServerDate(e.startsAt)} – ${formatServerDate(e.endsAt)}`}
                             />
                           </span>
+                        </>
+                      );
+                      return (
+                        <li key={e.id} className={`ev-tl-row ev-st-${st}`}>
+                          {st === "ended" ? (
+                            // Ended events have no card to jump to.
+                            <div className="ev-tl-link">{row}</div>
+                          ) : (
+                            <a className="ev-tl-link" href={`#ev-card-${e.id}`} onClick={(ev) => jumpToCard(ev, e.id)}>
+                              {row}
+                            </a>
+                          )}
                         </li>
                       );
                     })}
@@ -170,12 +254,15 @@ export default function EventsBoard({ events, builtAt }: { events: GameEvent[]; 
               ))}
             </div>
           </div>
+          {tlGroups.some((g) => g.key !== "ended") && (
+            <p className="ev-tl-hint">Select a live or upcoming event to jump to its card.</p>
+          )}
         </section>
       )}
 
-      <Section id="live" title="Ending soon" hint="Finish these first." items={live} now={now} />
-      <Section id="upcoming" title="Starting soon" items={soon} now={now} />
-      <Section id="permanent" title="Permanent" items={always} now={now} />
+      <Section id="live" title="Ending soon" hint="Finish these first." items={live} now={now} flash={flash} />
+      <Section id="upcoming" title="Starting soon" items={soon} now={now} flash={flash} />
+      <Section id="permanent" title="Permanent" items={always} now={now} flash={flash} />
 
       {ended.length > 0 && (
         <details className="ev-ended">
@@ -202,12 +289,14 @@ function Section({
   hint,
   items,
   now,
+  flash,
 }: {
   id: string;
   title: string;
   hint?: string;
   items: { e: GameEvent; st: Live }[];
   now: number;
+  flash: string | null;
 }) {
   if (items.length === 0) return null;
   return (
@@ -220,18 +309,22 @@ function Section({
       </header>
       <ul className="ev-grid">
         {items.map(({ e, st }) => (
-          <EventItem key={e.id} e={e} st={st} now={now} />
+          <EventItem key={e.id} e={e} st={st} now={now} flash={flash === e.id} />
         ))}
       </ul>
     </section>
   );
 }
 
-function EventItem({ e, st, now }: { e: GameEvent; st: Live; now: number }) {
+function EventItem({ e, st, now, flash }: { e: GameEvent; st: Live; now: number; flash: boolean }) {
   const end = e.endsAt ? new Date(e.endsAt).getTime() : null;
   const lastDay = st === "live" && end !== null && end - now < DAY;
   return (
-    <li className={`ev-card rs-spot ev-st-${st}${lastDay ? " ev-last-day" : ""}`}>
+    <li
+      id={`ev-card-${e.id}`}
+      tabIndex={-1}
+      className={`ev-card rs-spot ev-st-${st}${lastDay ? " ev-last-day" : ""}${flash ? " ev-flash" : ""}`}
+    >
       {e.image && (
         <div className="ev-art" aria-hidden="true">
           <img src={e.image} alt="" loading="lazy" decoding="async" width={1024} height={576} />

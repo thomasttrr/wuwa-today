@@ -75,9 +75,10 @@
 /* Label column on the left, bars in a lane on the right. --ev-lab is the
    label width; the axis / now-line overlay is offset by it so every
    percentage lines up with the lanes. */
-.ev-tl-chart { --ev-lab: 184px; position: relative; min-width: 720px; padding: 2rem 1rem 1.3rem; }
+.ev-tl-chart { --ev-lab: 260px; --ev-art: 36px; position: relative; min-width: 800px; padding: 2rem 1rem 1.3rem; }
 @media (max-width: 760px) {
-  .ev-tl-chart { --ev-lab: 136px; min-width: 600px; }
+  /* Label = 1rem edge + art + gap + text (the mono date range needs ~115px) + 8px. */
+  .ev-tl-chart { --ev-lab: 180px; --ev-art: 32px; min-width: 640px; }
 }
 .ev-tl-lanes {
   position: absolute;
@@ -122,8 +123,17 @@
   font-size: var(--fs-1);
   font-weight: 700;
 }
-.ev-tl-group { position: relative; z-index: 1; }
+/* No z-index on the group: it would trap the sticky labels (z 3) beneath the
+   axis / Now overlay (z 2), and the Now line would draw across the labels
+   once the chart is scrolled sideways. */
+.ev-tl-group { position: relative; }
 .ev-tl-glabel {
+  position: sticky;
+  left: 1rem; /* same x as at rest, so the group name stays put while the chart scrolls */
+  z-index: 3;
+  width: max-content;
+  padding-right: 0.5rem;
+  background: var(--rs-surface);
   margin: 0.85rem 0 0.3rem;
   font-family: var(--rs-mono);
   font-size: var(--fs-1);
@@ -132,39 +142,69 @@
   color: var(--rs-ink-3);
 }
 .ev-tl-group:first-of-type .ev-tl-glabel { margin-top: 0; }
-.ev-tl-rows { list-style: none; margin: 0; padding: 0; display: grid; gap: 4px; }
-.ev-tl-row {
+/* No gap between rows: each row is already a 44px tap target, and a gap would
+   let the Now line show through between the sticky labels. */
+.ev-tl-rows { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; }
+/* The whole row is one 44px tap target (a link for live/upcoming events, a
+   plain box for ended ones). It bleeds 1rem into the panel's right padding so
+   the hover tint reaches both edges, like the label does on the left. */
+.ev-tl-row { min-height: 44px; }
+.ev-tl-link {
+  --ev-rowbg: var(--rs-surface);
   display: grid;
   grid-template-columns: var(--ev-lab) minmax(0, 1fr);
   column-gap: 0.75rem;
   align-items: center;
-  min-height: 36px;
+  min-height: 44px;
+  margin-right: -1rem;
+  padding-right: 1rem;
+  background: var(--ev-rowbg);
+  color: inherit;
+  text-decoration: none;
 }
+a.ev-tl-link:hover, a.ev-tl-link:focus-visible { --ev-rowbg: var(--rs-surface-2); text-decoration: none; }
+a.ev-tl-link:focus-visible { outline: 2px solid var(--el); outline-offset: -2px; }
 /* The label sticks to the left edge while the chart scrolls sideways, so
-   the name and dates stay readable next to their bar. */
+   the art, name and dates stay readable next to their bar. */
 .ev-tl-lab {
   position: sticky;
   left: 0;
   z-index: 3;
   display: grid;
-  gap: 1px;
+  grid-template-columns: var(--ev-art) minmax(0, 1fr);
+  column-gap: 0.55rem;
+  align-items: center;
   margin-left: -1rem;
-  padding: 0.2rem 0.55rem 0.2rem 1rem;
-  background: var(--rs-surface);
+  padding: 0.2rem 0.5rem 0.2rem 1rem;
+  background: var(--ev-rowbg);
   box-shadow: 1px 0 0 var(--rs-line-soft);
 }
+.ev-tl-art {
+  display: block;
+  width: var(--ev-art);
+  height: var(--ev-art);
+  border-radius: calc(var(--ev-art) * 0.25);
+  overflow: hidden;
+  background: var(--rs-surface-2);
+  box-shadow: inset 0 0 0 1px var(--rs-line-soft);
+}
+.ev-tl-art img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.ev-tl-art-none { box-shadow: inset 0 0 0 1px var(--rs-line); background: transparent; }
+.ev-st-ended .ev-tl-art img { opacity: 0.55; }
+.ev-tl-txt { display: grid; gap: 1px; min-width: 0; }
 .ev-tl-name {
   font-size: var(--fs-3);
   font-weight: 650;
   line-height: 1.25;
   display: -webkit-box;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
 .ev-tl-dates { font-family: var(--rs-mono); font-size: var(--fs-1); color: var(--rs-ink-3); white-space: nowrap; }
 .ev-st-ended .ev-tl-name { color: var(--rs-ink-3); }
-.ev-tl-lane { position: relative; height: 100%; min-height: 36px; }
+.ev-tl-lane { position: relative; height: 100%; min-height: 44px; }
+.ev-tl-hint { margin: 0.6rem 0 0; font-family: var(--rs-mono); font-size: var(--fs-2); color: var(--rs-ink-3); }
 .ev-tl-bar {
   position: absolute;
   top: 50%;
@@ -202,7 +242,24 @@
   border-radius: var(--rs-r-tile);
   background: var(--rs-surface);
   border: 1px solid var(--rs-line-soft);
+  scroll-margin-top: 110px; /* clears the sticky nav when reached by the timeline link */
 }
+.ev-card:focus { outline: none; }
+/* Ring shown when a timeline row jumps here. Opacity only; reduced motion gets
+   the same ring without the fade. */
+.ev-card.ev-flash::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  border-radius: inherit;
+  pointer-events: none;
+  box-shadow: inset 0 0 0 2px var(--el), 0 0 0 4px var(--rs-el-soft);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .ev-card.ev-flash::after { animation: ev-flash 1700ms var(--rs-ease) both; }
+}
+@keyframes ev-flash { 0%, 40% { opacity: 1; } 100% { opacity: 0; } }
 .ev-card.ev-st-live { border-color: color-mix(in oklch, var(--el) 20%, transparent); }
 .ev-last-day {
   border-color: color-mix(in oklch, var(--el) 55%, transparent) !important;

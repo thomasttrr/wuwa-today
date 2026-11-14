@@ -22,6 +22,7 @@
     "lint": "eslint .",
     "start": "next start",
     "thumbs": "node scripts/make-thumbs.mjs",
+    "thumbs:events": "node scripts/make-event-thumbs.mjs",
     "thumbs:outfits": "node scripts/make-outfit-thumbs.mjs"
   },
   "version": "0.1.0",
