@@ -68,9 +68,9 @@ const SETS: EchoSet[] = [
         echoes: [
           { name: "Jade Nether Serpent", icon: "/images/echoes/jade-nether-serpent.webp" },
           { name: "Bloomburst Puppet", icon: "/images/echoes/bloomburst-puppet.webp" },
-          { name: "Kernel Puppet: Joy" },
-          { name: "Fog Lionarch: Body" },
-          { name: "Fog Lionarch: Head" },
+          { name: "Kernel Puppet: Joy", icon: "/images/echoes/kernel-puppet-joy.webp" },
+          { name: "Fog Lionarch: Body", icon: "/images/echoes/fog-lionarch.webp" },
+          { name: "Fog Lionarch: Head", icon: "/images/echoes/fog-lionarch.webp" },
         ],
       },
     ],
@@ -109,10 +109,10 @@ const SETS: EchoSet[] = [
       {
         cost: "1-cost",
         echoes: [
-          { name: "Porcelain Picket" },
-          { name: "Stone Picket" },
-          { name: "Aureate Picket" },
-          { name: "Kernel Puppet: Worry" },
+          { name: "Porcelain Picket", icon: "/images/echoes/porcelain-picket.webp" },
+          { name: "Stone Picket", icon: "/images/echoes/stone-picket.webp" },
+          { name: "Aureate Picket", icon: "/images/echoes/aureate-picket.webp" },
+          { name: "Kernel Puppet: Worry", icon: "/images/echoes/kernel-puppet-worry.webp" },
         ],
       },
     ],
@@ -151,10 +151,10 @@ const SETS: EchoSet[] = [
       {
         cost: "1-cost",
         echoes: [
-          { name: "Kernel Puppet: Fright" },
-          { name: "Kernel Puppet: Grief" },
-          { name: "Kernel Puppet: Reflection" },
-          { name: "Kernel Puppet: Anger" },
+          { name: "Kernel Puppet: Fright", icon: "/images/echoes/kernel-puppet-fright.webp" },
+          { name: "Kernel Puppet: Grief", icon: "/images/echoes/kernel-puppet-grief.webp" },
+          { name: "Kernel Puppet: Reflection", icon: "/images/echoes/kernel-puppet-reflection.webp" },
+          { name: "Kernel Puppet: Anger", icon: "/images/echoes/kernel-puppet-anger.webp" },
         ],
       },
     ],
@@ -185,16 +185,16 @@ const SETS: EchoSet[] = [
       },
       {
         cost: "3-cost",
-        echoes: [{ name: "Forbidden Bastion" }, { name: "Fog Lionarch" }],
+        echoes: [{ name: "Forbidden Bastion", icon: "/images/echoes/forbidden-bastion.webp" }, { name: "Fog Lionarch", icon: "/images/echoes/fog-lionarch.webp" }],
       },
       {
         cost: "1-cost",
         echoes: [
-          { name: "Smiter" },
-          { name: "Smolder" },
-          { name: "Fog Lionarch: Head" },
-          { name: "Fog Lionarch: Body" },
-          { name: "Kernel Puppet: Joy" },
+          { name: "Smiter", icon: "/images/echoes/smiter.webp" },
+          { name: "Smolder", icon: "/images/echoes/smolder.webp" },
+          { name: "Fog Lionarch: Head", icon: "/images/echoes/fog-lionarch.webp" },
+          { name: "Fog Lionarch: Body", icon: "/images/echoes/fog-lionarch.webp" },
+          { name: "Kernel Puppet: Joy", icon: "/images/echoes/kernel-puppet-joy.webp" },
         ],
       },
     ],
@@ -216,23 +216,23 @@ const SETS: EchoSet[] = [
     members: [
       {
         cost: "4-cost",
-        echoes: [{ name: "Reminiscence: Threnodian \u2013 Voidborne Construct" }],
+        echoes: [{ name: "Reminiscence: Threnodian \u2013 Voidborne Construct", icon: "/images/echoes/reminiscence-threnodian-voidborne-construct.webp" }],
       },
       {
         cost: "3-cost",
         echoes: [
-          { name: "Ironhoof" },
-          { name: "Frostbite Coleoid" },
-          { name: "Windlash Coleoid" },
-          { name: "Glommoth" },
+          { name: "Ironhoof", icon: "/images/echoes/ironhoof.webp" },
+          { name: "Frostbite Coleoid", icon: "/images/echoes/frostbite-coleoid.webp" },
+          { name: "Windlash Coleoid", icon: "/images/echoes/windlash-coleoid.webp" },
+          { name: "Glommoth", icon: "/images/echoes/glommoth.webp" },
         ],
       },
       {
         cost: "1-cost",
         echoes: [
-          { name: "Tremor Warrior" },
-          { name: "Iceglint Dancer" },
-          { name: "Shadow Stepper" },
+          { name: "Tremor Warrior", icon: "/images/echoes/tremor-warrior.webp" },
+          { name: "Iceglint Dancer", icon: "/images/echoes/iceglint-dancer.webp" },
+          { name: "Shadow Stepper", icon: "/images/echoes/shadow-stepper.webp" },
         ],
       },
     ],

@@ -459,3 +459,6 @@ Lily client verification Nov 11, 2026: role, skill, sequence and weapon text che
 
 ## 2026-11-14 — Anna fan-animation claim published (leak watch, Tom approved)
 - New File 01 claim (Single leak): a ~37-second fan video orbiting Anna's leaked model in a fan-made night scene, circulating via Facebook reshares Nov 14 (Roberth Quijayte / NS Quiz / Anna Kenzou reels). The model matches the datamined renders; the scene and animation are fan work; no downloadable model file exists. Text-only on the page — the site never embeds social posts. Custody paragraph in File 05 updated; signal pill sweep date moved to Nov 14.
+
+## 2026-11-14 — Echo Sets member icons completed (art pass, finished)
+- Follow-up the same day: a full sweep found more iconless member chips beyond the two new sets — the Flower of Tinged Yearning and Flash sets' 1-cost rows (Porcelain/Stone/Aureate Pickets, Kernel Puppets Worry/Fright/Grief/Reflection/Anger) plus the Feathered Trace Fog Lionarch Head/Body and Kernel Puppet: Joy entries. All were pulled from the Fandom wiki the same way and wired in. Zero member entries on /echo-sets now lack an icon.
