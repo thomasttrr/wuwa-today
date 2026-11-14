@@ -1,7 +1,7 @@
 {
   "_meta": {
     "comment": "Active and upcoming in-game events. Times in server time (UTC+8) unless noted; end dates from community coverage are estimates \u2014 mark timeNote accordingly. Current version: 3.8.",
-    "updatedAt": "2026-11-11T22:55:00-05:00"
+    "updatedAt": "2026-11-14T04:25:00-05:00"
   },
   "events": [
     {
@@ -208,6 +208,18 @@
       "startsAt": "2026-09-30T10:00:00+08:00",
       "status": "active",
       "timeNote": "Sep 30 - Nov 11 per Game8's event guide and event schedule; unlocked by default, no Union Level requirement.",
+      "type": "trial"
+    },
+    {
+      "description": "Recurring character-trial event: test the current 3.8 featured Resonators in dedicated trial stages. Each completed trial grants Astrite plus upgrade materials. Phase 1 trials (Lily, Sigrika, Qiuyuan, Youhu, Aalto, Yangyang) refresh for the Phase 2 lineup (Yangyang: Xuanling, Suisui, Hiyuki, Danjin, Baizhi, Yuanwu) at the banner flip.",
+      "endsAt": "2026-12-21T03:59:00+08:00",
+      "id": "ascendant-aces-3-8",
+      "image": "/images/events/ascendant-aces-3-8.webp",
+      "name": "Ascendant Aces",
+      "rewards": "Astrite x20 per trial, Advanced/Medium Resonance Potions, Energy Cores, Shell Credits (claimable once per trial Resonator)",
+      "startsAt": "2026-11-12T10:00:00+08:00",
+      "status": "active",
+      "timeNote": "Nov 12 - Dec 21 per Game8's Ascendant Aces guide and event schedule; unlocked by default, no Union Level requirement. The trial lineup refreshes at the Dec 3 banner flip.",
       "type": "trial"
     },
     {
