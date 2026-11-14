@@ -1161,7 +1161,7 @@ a.rs-tile:active { transform: scale(0.985); }
 
 body.rs .og-char-hero { gap: 2.75rem; padding-top: 1.25rem; }
 body.rs .og-char-art {
-  border-radius: var(--rs-r-ctl);
+  border-radius: var(--rs-r-tile);
   background:
     radial-gradient(80% 80% at 50% 0%, color-mix(in oklch, var(--el) 30%, transparent), transparent 75%),
     var(--rs-surface);

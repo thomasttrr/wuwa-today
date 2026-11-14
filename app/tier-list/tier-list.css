@@ -302,7 +302,7 @@ body.rs .tl-search input:focus-visible { outline: none; }
     left: auto; top: 12px; right: 12px; bottom: 12px;
     width: 420px;
     max-height: none;
-    border-radius: var(--rs-r-ctl);
+    border-radius: var(--rs-r-tile);
     animation-name: tl-sheet-in;
   }
 }

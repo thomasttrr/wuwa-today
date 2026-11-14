@@ -327,7 +327,7 @@ body.rs .vo-jump a:focus-visible { outline-offset: -3px; }
   gap: 1.5rem;
   grid-template-columns: minmax(0, 1fr);
   padding: 1.6rem;
-  border-radius: var(--rs-r-ctl);
+  border-radius: var(--rs-r-tile);
   border: 1px solid color-mix(in oklch, var(--c) 30%, transparent);
   background:
     radial-gradient(60% 90% at 0% 0%, color-mix(in oklch, var(--c) 18%, transparent), transparent 70%),

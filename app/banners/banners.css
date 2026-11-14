@@ -10,7 +10,7 @@
   min-height: 560px;
   align-content: center;
   padding: 2rem 1.75rem;
-  border-radius: var(--rs-r-ctl);
+  border-radius: var(--rs-r-tile);
   overflow: hidden;
   isolation: isolate;
   background:
