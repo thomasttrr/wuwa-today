@@ -89,6 +89,7 @@
   position: relative;
   display: grid;
   grid-template-columns: 104px minmax(0, 1fr);
+  grid-template-rows: minmax(0, 1fr) auto;
   gap: 1rem;
   padding: 1.1rem;
   border-radius: var(--rs-r-tile);
@@ -309,6 +310,7 @@ a.bn-card:active { transform: scale(0.985); }
 /* Signature-weapon splash strip along the bottom of a lineup card — the
    same official convene art the Tideforge selector tiles use, cropped to
    the weapon. Only cards whose weapon has clean art on file render one. */
+.bn-card-face, .bn-card-main { align-self: start; }
 .bn-card-splash {
   grid-column: 1 / -1;
   margin: 0.35rem -1.1rem -1.1rem;

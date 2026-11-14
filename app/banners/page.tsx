@@ -60,7 +60,7 @@ const STATUS_LABEL: Record<string, string> = { new: "New", rerun: "Rerun", "rate
  *  convene art is on file are listed — the rest keep the text-only line. */
 const WEAPON_SPLASH: Record<string, string> = {
   lullaby: "50% 50%",
-  "solsworn-ciphers": "72% 50%",
+  "solsworn-ciphers": "78% 42%",
   "emerald-sentence": "65% 50%",
   "azure-oath": "70% 50%",
   "firstlights-herald": "62% 50%",
