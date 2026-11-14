@@ -105,3 +105,32 @@
   .ef-table td { padding: 0.7rem 0.6rem; }
   .ef-table td:first-child { white-space: normal; }
 }
+
+/* Boss portrait card at the top of "Know the boss" — the guide hero stays
+   text-only per the design rule; art lives inside the section instead. */
+.ef-boss {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  margin: 0 0 1rem;
+  padding: 1rem 1.1rem;
+  background: var(--rs-surface);
+  border: 1px solid var(--rs-line);
+  border-radius: var(--rs-r-card);
+}
+.ef-boss-art {
+  flex: none;
+  width: 96px;
+  height: 96px;
+  border-radius: var(--rs-r-sm);
+  overflow: hidden;
+  background: var(--rs-surface-2);
+  box-shadow: inset 0 0 0 1px var(--rs-line-soft);
+}
+.ef-boss-art img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.ef-boss-cap { display: grid; gap: 0.25rem; min-width: 0; }
+.ef-boss-name { font-size: var(--fs-6); font-weight: 700; color: var(--rs-ink); }
+.ef-boss-sub { color: var(--rs-ink-2); line-height: 1.55; }
+@media (min-width: 760px) {
+  .ef-boss-art { width: 112px; height: 112px; }
+}

@@ -453,3 +453,6 @@ Lily client verification Nov 11, 2026: role, skill, sequence and weapon text che
 ## 2026-11-14 — last three event images + stand-in rule (Tom)
 - Every event now carries an image (31/31). Moonlit Path: the event's own official art from the Fandom wiki (Moonlit_Path.jpg). Version 3.7 Login Events and Battle Rush have NO official event art anywhere (wiki pages carry none; checked Nov 14) — per Tom's rule the same day ("if it doesn't have an official image then use something that's somewhat relative"), they use related official art instead: the login entry shows the Gifts of Bygone Dreams login art (same login-gift series, 3.8 run), and Battle Rush shows the Tactical Hologram: Sparring combat art. Both are stand-ins, recorded here; swap in real art if Kuro ever publishes it.
 - Same change: the live-events card section was titled "Ending soon" — wrong, it lists all active events. Renamed "Active events" (Tom, Nov 14).
+
+## 2026-11-14 — Calamity Effigy guide art (Tom's pick: boss page first)
+- /calamity-effigy gained the boss's official in-game icon (Fandom wiki, File:Calamity_Effigy_Icon.png) as a portrait card at the top of "Know the boss". The guide hero stays text-only per the design system's contained-panel rule (OgPageHero), so the art sits inside the section. First of Tom's one-page-at-a-time art pass over the text-only guide pages.

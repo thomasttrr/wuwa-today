@@ -100,6 +100,28 @@ export default function CalamityEffigyPage() {
           blurb="An Overlord-class Autopuppet that deals Aero damage — and is built to punish Aero teams."
         />
         <Reveal>
+          <figure className="ef-boss">
+            <span className="ef-boss-art">
+              <img
+                src="/images/effigy/calamity-effigy-icon.webp"
+                alt="Calamity Effigy — the masked boss with teal hair"
+                width={256}
+                height={256}
+                loading="lazy"
+                decoding="async"
+              />
+            </span>
+            <figcaption className="ef-boss-cap">
+              <span className="ef-boss-name">Calamity Effigy</span>
+              <span className="ef-boss-sub">
+                Overlord class · Aero · The face on the first-clear icon reward is this same
+                mask — Muyu&apos;s transformed form, fought as a hologram in the Mengzhou
+                simulator.
+              </span>
+            </figcaption>
+          </figure>
+        </Reveal>
+        <Reveal>
           <ul className="ef-cards">
             <li className="gk-card">
               <span className="ef-big">High Aero RES</span>
