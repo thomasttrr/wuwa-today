@@ -645,7 +645,9 @@ export default function LeaksPage() {
                 <strong>Amethyst (also Aimoshesh / Aimoxishen)</strong> — an anti-Resonance
                 humanoid weapon, most often placed in Version 4.1 Phase 1. One leak graphic tags
                 her Glacio. The same Seele graphic behind Anna&rsquo;s file also names her in
-                the 3.8 story (single leak — see File 01).
+                the 3.8 story (single leak — see File 01). A November 15 post guesses she
+                will be blue-themed (speculation — it reuses 3.8 flashback stills and shows
+                nothing new).
               </p>
               <span className="lk-ver">4.1 · P1?</span>
             </div>

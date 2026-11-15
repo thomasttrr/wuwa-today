@@ -478,3 +478,12 @@ Lily client verification Nov 11, 2026: role, skill, sequence and weapon text che
   only the drip timing is new. It sits next to the existing November 18 drip
   speculation (@kyryllmitya) as a second, separate guess. Published with
   Tom's approval in the wuwa-updates chat, 2026-11-15.
+
+## 2026-11-15 — Amethyst blue-theme speculation (leaks page, File 04)
+
+- Line added to Amethyst's cast row (Speculation): Riju (@Riju1T_T) posted on
+  X on 2026-11-15 (05:09 ET, post 2121908413189988576) guessing Amethyst will
+  "likely" be blue-themed, based on her portrayal so far. The post reuses
+  stills from the 3.8 storyline flashback and shows nothing new; the claim is
+  explicitly the poster's own guess. Published with Tom's approval in the
+  wuwa-updates chat, 2026-11-15.
