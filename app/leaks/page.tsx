@@ -109,7 +109,7 @@ export default function LeaksPage() {
       <header className="og-page-hero">
         <span className="lk-signal">
           <span className="lk-signal-dot" aria-hidden />
-          Signal live · Last sweep Nov 14, 2026 · Nothing here is official
+          Signal live · Last sweep Nov 15, 2026 · Nothing here is official
         </span>
         <p className="og-page-kicker" style={{ marginTop: "1.1rem" }}>
           Version 4.0 and later · Unreleased · Leaks and rumors
@@ -610,6 +610,14 @@ export default function LeaksPage() {
               no track record (@kyryllmitya, November 12) claims Kuro drops an official 4.x
               character reveal on November 18. Nothing backs it — no characters named, nothing
               shown. It is a dated claim, so it settles itself within the week.
+            </Claim>
+            <Claim tag="Single leak">
+              <strong>Anna&rsquo;s drip is tipped for this week.</strong> WuWa Timeline
+              (@wuwaguy, November 15) says Anna&rsquo;s official drip marketing lands
+              this week — a different guess from the November 18 date above, from a
+              tracker with a record rather than a no-name account. The same post
+              repeats her known Fusion / Broadblade / scythe claims; only the timing
+              is new. It settles itself within days either way.
             </Claim>
             <Claim tag="Single leak">
               <strong>Two of the returning three are tipped for 4.1 skins.</strong>{" "}

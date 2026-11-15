@@ -468,3 +468,13 @@ Lily client verification Nov 11, 2026: role, skill, sequence and weapon text che
 
 ## 2026-11-14 — Leaks: Lucille element narrowed (Tom approved)
 - /leaks File 02 element claim updated: the newest leak (Seele Leaks + Fractured Shores, via WuWa Timeline @wuwaguy, X post 2121456573147230537, Nov 13 2026 23:13 ET, marked STC; reshared on Instagram Nov 14) narrows Lucille's element to Electro or Spectro. The earlier trail (Fusion, Havoc, Electro Flare, Spectro + Pistols sub-DPS) is kept in the claim as superseded history. Grade stays Single leak — one relayed post citing two leaker names, not two independent posts. Published on Tom's approval in the wuwa-updates chat, 2026-11-14.
+
+## 2026-11-15 — Anna drip-this-week claim (leaks page, File 03)
+
+- Claim added (Single leak): WuWa Timeline (@wuwaguy) posted on X on
+  2026-11-15 (06:23 ET, post 2121927188094374038) that Anna's official drip
+  marketing should be released this week. The post's other content (Anna
+  Fusion, Broadblade taking scythe form) repeats claims already on the page;
+  only the drip timing is new. It sits next to the existing November 18 drip
+  speculation (@kyryllmitya) as a second, separate guess. Published with
+  Tom's approval in the wuwa-updates chat, 2026-11-15.
