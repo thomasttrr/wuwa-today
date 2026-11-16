@@ -497,3 +497,23 @@ Lily client verification Nov 11, 2026: role, skill, sequence and weapon text che
   November 20/21 instead. It sits in File 03 as a third drip-date guess
   alongside the November 18 speculation and the "this week" single leak.
   Published with Tom's approval in the wuwa-updates chat, 2026-11-15.
+
+## 2026-11-16 — Three leak-watch finds published (Tom approved all)
+
+- File 01 claim added (Single leak): WuWa Timeline (@wuwaguy) posted a short
+  video on X on 2026-11-16 (04:20 ET, post 2122258533181960358) titled
+  "(V4.0) Anna's Height Comparison Demo". Verification limit, stated on the
+  page: only the title and a still frame could be checked, and Anna is not
+  clearly identifiable in the still — the video's contents are unverified
+  beyond its title. Not a downloadable model file.
+- File 03 claim added (Speculation): an X reply by Assa byL (@sdsadsafsa34117,
+  2026-11-16 00:55 ET, post 2122206956974907855) claims Version 4.0 reveals
+  five characters plus a New Federation trailer on November 18/19. Unsourced,
+  no names or images; the date overlaps the existing November 18 drip claim.
+- File 04 Amethyst row extended (Speculation): Riju (@Riju1T_T) posted on X on
+  2026-11-16 (09:01 ET, post 2122329088383992142) that Amethyst (Aemeath) and
+  Shorekeeper get 5-star VFX skins in the latter half of 4.x. The poster
+  undercut it in their own replies the same morning ("let me cope"), and the
+  attached outfits image is an artist illustration (credit "Ima Dei Tup"),
+  not a leak visual — the image is not used on the page.
+- Signal pill sweep date moved to Nov 16, 2026.
