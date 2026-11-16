@@ -669,6 +669,15 @@ export default function LeaksPage() {
               images, nothing behind it — the date overlaps the November 18 guess
               above; the five-character count and the trailer are the new parts.
             </Claim>
+            <Claim tag="Speculation">
+              <strong>The beta is tipped for November 23.</strong> Legion
+              (@LegionGachaYT, November 16) lays out a pattern-based prediction: the
+              4.x drip lands November 17–19, the closed beta opens November 23, and
+              the reveal could cover five to six New Federation characters plus a
+              region trailer. It is calendar math from Kuro&rsquo;s past cycles, not
+              a source inside — the drip window matches the guesses above; the dated
+              beta start is the new part.
+            </Claim>
             <Claim tag="Single leak">
               <strong>Two of the returning three are tipped for 4.1 skins.</strong>{" "}
               Yangyang: Xuanling and Suisui — both back on banners December 3 — are claimed

@@ -543,3 +543,12 @@ Lily client verification Nov 11, 2026: role, skill, sequence and weapon text che
 - Board, Power Circuits and teams on the guide page are Phase III's verified set (Game8 stage guide + one verified full-clear video, 137,809 points), labelled as last phase's — Phase IV's board, circuits and teams do not exist in published form until the phase opens Nov 19. The leaked Phase IV board (Feilian Beringal, Denia, Crownless, Sigillum; Lucilla as Emergency Resonator) is shown on the page clearly marked as an unconfirmed leak.
 - Unlock: 24 Crests in Tower of Adversity + 3,500 points in Whimpering Wastes Infinite Torrents, each in a single phase (Game8, BitTopup agrees).
 - Event image: public/images/events/endstate-matrix.webp — the cycle's official key art (Kuro), taken from the official Wuthering Waves post of the cycle announcement (July 2026; the same announcement as official news article 5150, "New Challenge Cycle for 'Endstate Matrix' Coming Soon!"). 1200×675, in-image branding reads "Endstate Matrix / Adversity Vanguard" with the Kuro copyright line.
+
+## 2026-11-16 — Legion drip/beta prediction (leaks page, File 03)
+
+- Claim (Speculation): "The beta is tipped for November 23" — Legion
+  (@LegionGachaYT), X, Nov 16, 2026, found by the leak watch 13:17 ET run and
+  approved by Tom the same day. Pattern-based prediction: 4.x drip Nov 17–19,
+  closed beta opens Nov 23, reveal possibly covering 5–6 New Federation
+  characters plus a region trailer. No insider source claimed; graded
+  Speculation. The exact post URL was not captured by the watch.
