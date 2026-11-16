@@ -10,7 +10,7 @@ import "./leaks.css";
 export const metadata: Metadata = {
   title: "4.0 and later leaks & rumors — Anna, Lucille, the New Federation, and the wider 4.x cast",
   description:
-    "Everything leaked or rumored about Wuthering Waves Version 4.0 and beyond: Anna and Lucille, the New Federation region, a flying vehicle in the game files, a reworked Tune Break, and the wider 4.x roster — every claim tagged by how solid its evidence is.",
+    "Everything leaked or rumored about Wuthering Waves 4.0 and beyond: Anna, Lucille, the New Federation, and the wider 4.x roster — every claim evidence-tagged.",
   alternates: { canonical: "/leaks" },
 };
 

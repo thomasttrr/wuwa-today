@@ -10,7 +10,7 @@ import "./solaris.css";
 export const metadata: Metadata = {
   title: "Second Coming of Solaris — all 12 endings & routes (Unwritten Dreams guide)",
   description:
-    "Every ending in the Second Coming of Solaris: Unwritten Dreams event: the 12 ending requirements, the two-playthrough plan, the Joint Route, the hidden Great Rover ending (2,000,000 Badges), and the rewards.",
+    "Every ending in Second Coming of Solaris: Unwritten Dreams: all 12 requirements, the two-playthrough plan, the Joint Route, and the Great Rover ending.",
   alternates: { canonical: "/solaris-endings" },
 };
 

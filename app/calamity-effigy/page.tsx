@@ -10,7 +10,7 @@ import "./effigy.css";
 export const metadata: Metadata = {
   title: "Calamity Effigy guide — Tactical Hologram: Sparring (unlock, mechanism, rewards, teams)",
   description:
-    "The Calamity Effigy hologram fight in Wuthering Waves 3.8: how to unlock it, the Forged Might and Impeccable mechanism, all six difficulties, first-clear rewards (120 Astrite), and who to bring.",
+    "The Calamity Effigy hologram fight in Wuthering Waves 3.8: unlock, the Forged Might and Impeccable mechanism, all six difficulties, rewards, and teams.",
   alternates: { canonical: "/calamity-effigy" },
 };
 

@@ -12,7 +12,7 @@ import { getCharacter } from "@/lib/characters";
 export const metadata: Metadata = {
   title: "Phase 2 rerun banners (Dec 3) — Xuanling, Suisui, Hiyuki kits, weapons & pre-farm",
   description:
-    "Version 3.8 Phase 2 starts Dec 3: Yangyang: Xuanling, Suisui, and Hiyuki return on rerun banners. Their kits, signature weapons, Prydwen ratings, best teams, and everything you can farm before the banners open.",
+    "Version 3.8 Phase 2 starts Dec 3: Yangyang: Xuanling, Suisui, and Hiyuki rerun banners — kits, signature weapons, best teams, and what to farm now.",
   alternates: { canonical: "/phase-2" },
 };
 
