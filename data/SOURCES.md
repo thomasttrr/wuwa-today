@@ -535,3 +535,11 @@ Lily client verification Nov 11, 2026: role, skill, sequence and weapon text che
   (1200px wide). It is fan art by Ima Dei Tup, watermarked by the artist
   across the image, and is captioned and credited as fan art — not official
   art, not a leak. Chain-of-custody paragraph in File 05 credits both items.
+
+## Endstate Matrix (added 2026-11-16)
+- New guide page /endstate-matrix plus an events.json entry for the Adversity Vanguard cycle's final phase. Phase IV runs Nov 19 – Dec 22, 2026: phases open seven days after a version update at 04:00 server time (Game8's stated rule; all three earlier phases match — Phase I Jul 17, Phase II Aug 27, Phase III Oct 7, 2026). The cycle end (Dec 22, 2026, 03:59 UTC+8) is verbatim from Kuro's official Version 3.8 patch notes.
+- Rewards: 400 Astrite per phase, confirmed three ways — Game8's milestone tables (150 Stability Accords + 250 Singularity Expansion), Kuro's own phase reward pictures (via SenseOS), and BitTopup's S2 guide. Full step tables on the guide page from Game8.
+- NOT weekly: the reward table resets per phase, not weekly (Game8 + SenseOS, from Kuro's text). Seller blogs claiming a weekly reset were not followed.
+- Board, Power Circuits and teams on the guide page are Phase III's verified set (Game8 stage guide + one verified full-clear video, 137,809 points), labelled as last phase's — Phase IV's board, circuits and teams do not exist in published form until the phase opens Nov 19. The leaked Phase IV board (Feilian Beringal, Denia, Crownless, Sigillum; Lucilla as Emergency Resonator) is shown on the page clearly marked as an unconfirmed leak.
+- Unlock: 24 Crests in Tower of Adversity + 3,500 points in Whimpering Wastes Infinite Torrents, each in a single phase (Game8, BitTopup agrees).
+- Event image: public/images/events/endstate-matrix.webp — the cycle's official key art (Kuro), taken from the official Wuthering Waves post of the cycle announcement (July 2026; the same announcement as official news article 5150, "New Challenge Cycle for 'Endstate Matrix' Coming Soon!"). 1200×675, in-image branding reads "Endstate Matrix / Adversity Vanguard" with the Kuro copyright line.

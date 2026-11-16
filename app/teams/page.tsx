@@ -38,6 +38,11 @@ export default function TeamsPage() {
           Resonator&apos;s page from their portrait, or see the{" "}
           <Link href="/tier-list">tier list</Link> for who&apos;s worth building.
         </p>
+        <p>
+          For the boss-rush endgame — phases, the 400-Astrite reward table, Power Circuit
+          buffs and proven teams — see the{" "}
+          <Link href="/endstate-matrix">Endstate Matrix guide</Link>.
+        </p>
       </footer>
     </>
   );

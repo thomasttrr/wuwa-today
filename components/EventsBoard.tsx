@@ -16,6 +16,7 @@ const TYPE_LABELS: Record<string, string> = {
   exploration: "Exploration",
   community: "Community",
   trial: "Trial",
+  recurring: "Recurring",
 };
 
 type Live = "live" | "soon" | "ended" | "always";

@@ -88,7 +88,8 @@ export type EventType =
   | "leisure"
   | "exploration"
   | "community"
-  | "trial";
+  | "trial"
+  | "recurring";
 export type EventStatus = "active" | "upcoming" | "ended";
 
 export interface GameEvent {

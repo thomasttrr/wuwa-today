@@ -1,0 +1,114 @@
+/* /endstate-matrix — page-scoped layer on top of the Resonance system.
+   Imported by app/endstate-matrix/page.tsx only. Content surfaces are solid
+   --rs-surface; no glass on content. No motion beyond the shared Reveal. */
+
+.mx-art {
+  margin: 0 0 1rem;
+  border: 1px solid var(--rs-line);
+  border-radius: var(--rs-r-card);
+  overflow: hidden;
+  background: var(--rs-surface);
+}
+.mx-art img { display: block; width: 100%; height: auto; }
+.mx-art figcaption {
+  padding: 0.7rem 1rem;
+  font-size: var(--fs-3);
+  color: var(--rs-ink-3);
+  line-height: 1.5;
+}
+
+.mx-cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+@media (min-width: 760px) {
+  .mx-cards { grid-template-columns: repeat(3, 1fr); }
+  .mx-cards-2 { grid-template-columns: repeat(2, 1fr); }
+}
+.mx-big {
+  display: block;
+  font-size: var(--fs-8);
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--rs-ink);
+  margin-bottom: 0.3rem;
+}
+
+.mx-table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--rs-line);
+  border-radius: var(--rs-r-card);
+  background: var(--rs-surface);
+  margin-bottom: 1rem;
+}
+.mx-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 520px;
+}
+.mx-table th,
+.mx-table td {
+  text-align: left;
+  padding: 0.8rem 1rem;
+  border-bottom: 1px solid var(--rs-line-soft);
+  vertical-align: top;
+  line-height: 1.45;
+}
+.mx-table tr:last-child td { border-bottom: none; }
+.mx-table th {
+  font-family: var(--rs-mono, ui-monospace, monospace);
+  font-size: var(--fs-2, 12px);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--rs-ink-3);
+}
+.mx-table td:first-child {
+  font-weight: 700;
+  white-space: nowrap;
+}
+.mx-table .mx-total td {
+  font-weight: 700;
+  color: var(--rs-ink);
+  border-top: 1px solid var(--rs-line);
+}
+.mx-note {
+  margin: 0.8rem 0 0;
+  font-size: var(--fs-5);
+  color: var(--rs-ink-3);
+  line-height: 1.55;
+}
+.mx-h3 {
+  font-size: var(--fs-6);
+  margin: 1.4rem 0 0.6rem;
+  color: var(--rs-ink);
+}
+.mx-h3:first-child { margin-top: 0; }
+
+.mx-teams {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.55rem;
+}
+.mx-teams li {
+  background: var(--rs-surface);
+  border: 1px solid var(--rs-line);
+  border-radius: var(--rs-r-card);
+  padding: 0.75rem 1rem;
+  line-height: 1.55;
+  color: var(--rs-ink-2);
+}
+.mx-teams li strong { color: var(--rs-ink); }
+
+/* Phones: tables fit the screen instead of scrolling sideways. */
+@media (max-width: 640px) {
+  .mx-table { min-width: 0; }
+  .mx-table th,
+  .mx-table td { padding: 0.7rem 0.6rem; }
+  .mx-table td:first-child { white-space: normal; }
+}

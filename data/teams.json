@@ -914,11 +914,11 @@
   },
   "matrix": {
     "cycleName": "Adversity Vanguard",
-    "phaseLabel": "Phase 3 \u00b7 Version 3.7",
-    "resetStart": "2026-10-07",
-    "resetEnd": "2026-11-12",
-    "nextReset": "2026-11-12T04:00:00-05:00",
-    "resetLine": "The current Matrix phase ends Thursday, November 12, 2026 \u2014 the last Adversity Vanguard phase opens with Version 3.8.",
+    "phaseLabel": "Phase 4 \u00b7 Version 3.8",
+    "resetStart": "2026-11-19",
+    "resetEnd": "2026-12-22",
+    "nextReset": "2026-12-21T14:59:00-05:00",
+    "resetLine": "The final Adversity Vanguard phase runs November 19 \u2013 December 22, 2026. When it ends, the cycle ends and unspent Encrypted Data is wiped.",
     "notes": [
       "A boss rush with a deep roster: bosses in succession across two zones, boss HP carries between teams, and your weapons and Echo sets lock to each Resonator for the run.",
       "Vigor is per character: everyone carries 1 and spends it by fighting; healers and shielders carry 2, so they can fight twice. One Emergency Resonator each phase gets +1.",

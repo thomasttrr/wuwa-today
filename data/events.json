@@ -1,7 +1,7 @@
 {
   "_meta": {
     "comment": "Active and upcoming in-game events. Times in server time (UTC+8) unless noted; end dates from community coverage are estimates \u2014 mark timeNote accordingly. Current version: 3.8.",
-    "updatedAt": "2026-11-14T04:52:00-05:00"
+    "updatedAt": "2026-11-16T11:05:00-05:00"
   },
   "events": [
     {
@@ -85,25 +85,25 @@
       "description": "Login events across Version 3.7: Gifts of Waking Moon 7-day login (Sep 30 \u2013 Nov 11) plus Gifts of Singing Drizzle (Oct 22 \u2013 Nov 11) \u2014 see those entries for verified reward details. Community coverage also reports extra Lustrous Tides in the early weeks.",
       "endsAt": "2026-11-11T04:00:00+08:00",
       "id": "3.7-login-tides",
+      "image": "/images/events/version-3-7-login-events.webp",
       "name": "Version 3.7 Login Events",
       "rewards": "Radiant Tides, Lustrous Tides (per community coverage)",
       "startsAt": "2026-09-30T10:00:00+08:00",
       "status": "active",
       "timeNote": "Reward counts from community coverage (gurugamer.com); verified entries below carry official details.",
-      "type": "login",
-      "image": "/images/events/version-3-7-login-events.webp"
+      "type": "login"
     },
     {
       "description": "Spending milestone track. At the 980-ring tier, pick one of Carlotta, Shorekeeper, or Phoebe. Not a substitute for a featured Convene, but valuable for accounts missing a universal support or Glacio DPS.",
       "endsAt": "2026-11-11T04:00:00+08:00",
       "id": "moonlit-path",
+      "image": "/images/events/moonlit-path.webp",
       "name": "Moonlit Path (returns)",
       "rewards": "5\u2605 selector: Carlotta / Shorekeeper / Phoebe (980-ring tier)",
       "startsAt": "2026-09-30T10:00:00+08:00",
       "status": "active",
       "timeNote": "Details from leak/community coverage; verify the milestone track in-game before spending.",
-      "type": "spending",
-      "image": "/images/events/moonlit-path.webp"
+      "type": "spending"
     },
     {
       "description": "Permanent event added in Version 3.7. No expiry \u2014 work through it at your own pace.",
@@ -193,13 +193,13 @@
       "description": "Official community contest: create a Wuthering Waves combat video and post it publicly on X, YouTube Shorts, or TikTok with #WutheringWaves and #WuwaBattle. Headline prize is Astrite x2,000; 10 extra winners receive $50 Amazon Gift Cards.",
       "endsAt": "2026-10-28T23:59:00-07:00",
       "id": "battle-rush",
+      "image": "/images/events/battle-rush.webp",
       "name": "Battle Rush (community contest)",
       "rewards": "Astrite x2,000 (main winners), $50 Amazon Gift Card (10 extra winners)",
       "startsAt": "2026-09-30T00:00:00-07:00",
       "status": "ended",
       "timeNote": "Covered by earlygg.com; confirm the rules on the official announcement before entering.",
-      "type": "community",
-      "image": "/images/events/battle-rush.webp"
+      "type": "community"
     },
     {
       "description": "Recurring character-trial event: test the current 3.7 featured Resonators in dedicated trial stages. Each completed trial grants Astrite plus upgrade materials. Phase 1 trials (Hsin, Chisa, Iuno, Buling, Youhu, Taoqi) refresh for the Phase 2 lineup (Suoming, Lynae, Lucilla, Lumi, Chixia, Danjin) at the banner flip.",
@@ -264,6 +264,8 @@
     {
       "description": "School-life sim event at the Second Solaris school \u2014 a full school year of classes, jobs, and friendships, with 12 endings across two or more playthroughs. The mode is permanent; its rewards are limited-time.",
       "endsAt": "2026-12-21T11:59:00+08:00",
+      "href": "/solaris-endings",
+      "hrefLabel": "All 12 endings & routes \u2192",
       "id": "second-coming-solaris-unwritten-dreams",
       "image": "/images/events/second-coming-solaris-unwritten-dreams.webp",
       "name": "Second Coming of Solaris: Unwritten Dreams",
@@ -271,13 +273,13 @@
       "startsAt": "2026-11-12T10:00:00+08:00",
       "status": "upcoming",
       "timeNote": "Announced at the Nov 6, 2026 preview broadcast; runs during Version 3.8 (Nov 12 \u2013 Dec 21, 2026). Exact times come from the in-game event notice.",
-      "type": "leisure",
-      "href": "/solaris-endings",
-      "hrefLabel": "All 12 endings & routes \u2192"
+      "type": "leisure"
     },
     {
       "description": "Block puzzle event: drag and place geometric blocks of different shapes to fill and clear rows across different levels.",
       "endsAt": "2026-12-03T03:59:00+08:00",
+      "href": "/lahai-roi-blocks",
+      "hrefLabel": "How Blocks works & tips \u2192",
       "id": "lahai-roi-blocks-turnabout",
       "image": "/images/events/lahai-roi-blocks-turnabout.webp",
       "name": "Lahai-Roi Blocks: Turnabout",
@@ -285,9 +287,7 @@
       "startsAt": "2026-11-19T04:00:00+08:00",
       "status": "upcoming",
       "timeNote": "Runs Nov 19 \u2013 Dec 3, 2026 (server time), per Kuro's Version 3.8 update notice and Game8's event guide.",
-      "type": "leisure",
-      "href": "/lahai-roi-blocks",
-      "hrefLabel": "How Blocks works & tips \u2192"
+      "type": "leisure"
     },
     {
       "description": "Combat event: clear stages with designated Resonators and unlock augments as you progress through the challenges.",
@@ -384,6 +384,20 @@
       "status": "upcoming",
       "timeNote": "On Kuro's official Version 3.8 Event Calendar; exact dates from Game8's event schedule.",
       "type": "limited"
+    },
+    {
+      "description": "The final phase of the Adversity Vanguard cycle: a boss rush across Stability Accords and Singularity Expansion, where boss health carries between teams and every Resonator has limited Vigor. The cycle ends Dec 22 \u2014 unspent Encrypted Data is wiped with it.",
+      "endsAt": "2026-12-22T03:59:00+08:00",
+      "href": "/endstate-matrix",
+      "hrefLabel": "Endstate Matrix guide",
+      "id": "endstate-matrix-adversity-vanguard",
+      "image": "/images/events/endstate-matrix.webp",
+      "name": "Endstate Matrix: Adversity Vanguard",
+      "rewards": "400 Astrite per phase, plus materials, medals and Encrypted Data toward the cycle rewards",
+      "startsAt": "2026-11-19T04:00:00+08:00",
+      "status": "upcoming",
+      "timeNote": "Phase IV opens Nov 19, 2026 at 04:00 server time \u2014 Matrix phases open seven days after a version update, the pattern every earlier phase of the cycle followed. The cycle end (Dec 22, 03:59 UTC+8) is from Kuro's official Version 3.8 patch notes.",
+      "type": "recurring"
     }
   ]
 }
