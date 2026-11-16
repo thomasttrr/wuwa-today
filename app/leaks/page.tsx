@@ -619,6 +619,14 @@ export default function LeaksPage() {
               repeats her known Fusion / Broadblade / scythe claims; only the timing
               is new. It settles itself within days either way.
             </Claim>
+            <Claim tag="Speculation">
+              <strong>A November 16 drip date is the newest guess.</strong> One X
+              account (@LordArbiterWW, November 15) says 4.x drip marketing lands
+              tomorrow, November 16 — no source, no image, and the leak
+              megathread&rsquo;s own estimate points later, at November 20/21. It is
+              the third different drip date in circulation. It settles itself
+              tomorrow either way.
+            </Claim>
             <Claim tag="Single leak">
               <strong>Two of the returning three are tipped for 4.1 skins.</strong>{" "}
               Yangyang: Xuanling and Suisui — both back on banners December 3 — are claimed

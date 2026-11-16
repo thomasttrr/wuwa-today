@@ -487,3 +487,13 @@ Lily client verification Nov 11, 2026: role, skill, sequence and weapon text che
   stills from the 3.8 storyline flashback and shows nothing new; the claim is
   explicitly the poster's own guess. Published with Tom's approval in the
   wuwa-updates chat, 2026-11-15.
+
+## 2026-11-15 — November 16 drip-date guess (leaks page, File 03)
+
+- Claim added (Speculation): @LordArbiterWW posted on X on 2026-11-15
+  (15:15 ET) claiming 4.x drip marketing lands tomorrow, November 16. The
+  post is unsourced, carries no image, and had single-digit views when
+  caught; the r/WutheringWavesLeaks megathread's own estimate points to
+  November 20/21 instead. It sits in File 03 as a third drip-date guess
+  alongside the November 18 speculation and the "this week" single leak.
+  Published with Tom's approval in the wuwa-updates chat, 2026-11-15.
