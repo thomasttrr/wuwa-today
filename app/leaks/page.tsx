@@ -10,7 +10,7 @@ import "./leaks.css";
 export const metadata: Metadata = {
   title: "4.0 and later leaks & rumors — Anna, Lucille, the New Federation, and the wider 4.x cast",
   description:
-    "Everything leaked or rumored about Wuthering Waves Version 4.0 and beyond: Anna and Lucille, the New Federation region, a flying vehicle in the game files, a reworked Tune Break, and the wider 4.x roster — every claim tagged by how solid its evidence is.",
+    "Everything leaked or rumored about Wuthering Waves 4.0 and beyond: Anna, Lucille, the New Federation, and the wider 4.x roster — every claim evidence-tagged.",
   alternates: { canonical: "/leaks" },
 };
 
@@ -109,7 +109,7 @@ export default function LeaksPage() {
       <header className="og-page-hero">
         <span className="lk-signal">
           <span className="lk-signal-dot" aria-hidden />
-          Signal live · Last sweep Nov 16, 2026 · Nothing here is official
+          Signal live · Last sweep Nov 15, 2026 · Nothing here is official
         </span>
         <p className="og-page-kicker" style={{ marginTop: "1.1rem" }}>
           Version 4.0 and later · Unreleased · Leaks and rumors
@@ -336,14 +336,6 @@ export default function LeaksPage() {
               37-second fan video (circulating on Facebook, November 14) orbits the leaked
               model in a fan-made night scene — the model matches the datamined renders,
               but the scene and animation are fan work, and no model file comes with it.
-            </Claim>
-            <Claim tag="Single leak">
-              <strong>A height-comparison video is circulating too.</strong> WuWa
-              Timeline (@wuwaguy, November 16) posted a short clip titled as
-              Anna&rsquo;s height comparison demo. Only the title and a still frame
-              could be checked — Anna herself is not clearly identifiable in the
-              still — so the contents are unverified beyond the post&rsquo;s own
-              title. Video only; still no model file.
             </Claim>
             <Claim tag="Single leak">
               <strong>She may already be in the game.</strong> A Seele text graphic
@@ -635,13 +627,6 @@ export default function LeaksPage() {
               the third different drip date in circulation. It settles itself
               tomorrow either way.
             </Claim>
-            <Claim tag="Speculation">
-              <strong>A bigger reveal is claimed for November 18/19.</strong> One X
-              reply (Assa byL, November 16) says Version 4.0 reveals five characters
-              plus a New Federation trailer on November 18 or 19. No names, no
-              images, nothing behind it — the date overlaps the November 18 guess
-              above; the five-character count and the trailer are the new parts.
-            </Claim>
             <Claim tag="Single leak">
               <strong>Two of the returning three are tipped for 4.1 skins.</strong>{" "}
               Yangyang: Xuanling and Suisui — both back on banners December 3 — are claimed
@@ -670,10 +655,7 @@ export default function LeaksPage() {
                 her Glacio. The same Seele graphic behind Anna&rsquo;s file also names her in
                 the 3.8 story (single leak — see File 01). A November 15 post guesses she
                 will be blue-themed (speculation — it reuses 3.8 flashback stills and shows
-                nothing new). A November 16 post also guesses she and Shorekeeper get
-                VFX skins in the later half of 4.x (speculation — the poster calls it
-                cope themselves, and the outfits shown are an artist&rsquo;s
-                illustration, not a leak).
+                nothing new).
               </p>
               <span className="lk-ver">4.1 · P1?</span>
             </div>

@@ -10,7 +10,7 @@ import "./blocks.css";
 export const metadata: Metadata = {
   title: "Lahai-Roi Blocks Turnabout guide — scores, tips & rewards (3.8)",
   description:
-    "How Lahai-Roi Blocks: Turnabout works in Wuthering Waves 3.8: the 3,000 / 4,000 score targets, the new rotate feature, how boards jam, the tips that clear Hard mode, and the 400 Astrite rewards. Nov 19 – Dec 3, 2026.",
+    "How Lahai-Roi Blocks: Turnabout works in Wuthering Waves 3.8: score targets, the rotate feature, clearing Hard mode, and the 400 Astrite rewards.",
   alternates: { canonical: "/lahai-roi-blocks" },
 };
 
