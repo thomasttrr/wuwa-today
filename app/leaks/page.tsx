@@ -340,10 +340,10 @@ export default function LeaksPage() {
             <Claim tag="Single leak">
               <strong>A height-comparison video is circulating too.</strong> WuWa
               Timeline (@wuwaguy, November 16) posted a short clip titled as
-              Anna&rsquo;s height comparison demo. Only the title and a still frame
-              could be checked — Anna herself is not clearly identifiable in the
-              still — so the contents are unverified beyond the post&rsquo;s own
-              title. Video only; still no model file.
+              Anna&rsquo;s height comparison demo; a hosted copy is shown below. The
+              13 seconds show characters in a golden field beside a large red
+              machine — Anna herself is not clearly identifiable in it, so what it
+              proves about her height stays unverified. Still no model file.
             </Claim>
             <Claim tag="Single leak">
               <strong>She may already be in the game.</strong> A Seele text graphic
@@ -445,6 +445,33 @@ export default function LeaksPage() {
             Six stills from an in-game story scene — the glowing red drink, the clawed glove,
             the throne-like chair — posted by the leaker Sleepy on November 11. The costume
             matches the leaked model detail for detail, roses and all.
+          </p>
+        </Reveal>
+        <div style={{ height: "0.9rem" }} />
+        <Reveal>
+          <div className="lk-view">
+            <div className="lk-view-bar">
+              <span>Circulating clip — height comparison demo</span>
+              <span>Via WuWa Timeline · Nov 16 · Hosted copy</span>
+            </div>
+            <SpoilerCover label="Anna — height comparison clip">
+              <video
+                src="/images/leaks/anna-height-demo.mp4"
+                poster="/images/leaks/anna-height-demo-poster.webp"
+                controls
+                playsInline
+                preload="none"
+                width={1280}
+                height={720}
+              />
+            </SpoilerCover>
+          </div>
+          <p style={{ margin: "0.6rem 0 0", opacity: 0.8, fontSize: "0.92rem" }}>
+            The 13-second clip WuWa Timeline posted on November 16 under the title
+            &ldquo;Anna&rsquo;s Height Comparison Demo&rdquo; — hosted here, never embedded.
+            It shows characters in a golden field beside a large red machine; Anna herself
+            is not clearly identifiable in it, so treat the title as the claim, not the
+            footage.
           </p>
         </Reveal>
       </div>
@@ -672,8 +699,8 @@ export default function LeaksPage() {
                 will be blue-themed (speculation — it reuses 3.8 flashback stills and shows
                 nothing new). A November 16 post also guesses she and Shorekeeper get
                 VFX skins in the later half of 4.x (speculation — the poster calls it
-                cope themselves, and the outfits shown are an artist&rsquo;s
-                illustration, not a leak).
+                cope themselves; the fan illustration travelling with the post is
+                shown below, credited to its artist).
               </p>
               <span className="lk-ver">4.1 · P1?</span>
             </div>
@@ -713,6 +740,31 @@ export default function LeaksPage() {
             </div>
           </div>
         </Reveal>
+        <div style={{ height: "0.9rem" }} />
+        <Reveal>
+          <div className="lk-view">
+            <div className="lk-view-bar">
+              <span>VFX skins — the illustration going around</span>
+              <span>Fan art by Ima Dei Tup · Via Riju · Nov 16</span>
+            </div>
+            <SpoilerCover label="Fan illustration — VFX skins">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/images/leaks/vfx-skins-fanart.webp"
+                alt="Fan illustration by Ima Dei Tup: Shorekeeper and Aemeath in white and blue gala outfits, watermarked by the artist"
+                width={1200}
+                height={947}
+                loading="lazy"
+              />
+            </SpoilerCover>
+          </div>
+          <p style={{ margin: "0.6rem 0 0", opacity: 0.8, fontSize: "0.92rem" }}>
+            Fan illustration by Ima Dei Tup — the artist&rsquo;s watermark runs across it —
+            shared with Riju&rsquo;s November 16 VFX-skins speculation. It is not official
+            art and not a leak; it is shown, credited and covered, because it travels with
+            the claim.
+          </p>
+        </Reveal>
       </div>
 
       <div className="og-section" id="sources" style={{ scrollMarginTop: "120px" }}>
@@ -731,7 +783,7 @@ export default function LeaksPage() {
               November 9–10, and mirrored in the PTT C_Chat leak thread), and Lucille&rsquo;s
               bust portrait via <strong>StepLeaks</strong> (October 29). Anna&rsquo;s in-game
               story stills come via <strong>Sleepy</strong> (November 11, relayed by the WuWa
-              News channel and PTT), A fan-made animation of Anna&rsquo;s leaked model surfaced on Facebook on November 14 — reshares only, origin unverified, and noted on this page as fan work rather than a leak drop — and the 4.0 map place names and map-size note come from{" "}
+              News channel and PTT), A fan-made animation of Anna&rsquo;s leaked model surfaced on Facebook on November 14 — reshares only, origin unverified, and noted on this page as fan work rather than a leak drop — the height-comparison clip in File 01 is a hosted copy of WuWa Timeline&rsquo;s November 16 post (never an embed), and the VFX-skins illustration in File 04 is fan art by Ima Dei Tup, shared via Riju&rsquo;s November 16 post and credited to the artist — and the 4.0 map place names and map-size note come from{" "}
               <strong>Seele Leaks</strong> posts of November 11–12 — text only; no map graphic
               has leaked. Roundups consulted:
               GamsGo&rsquo;s 4.0 banner guide and Anna profile (updated November 11, 2026),

@@ -517,3 +517,21 @@ Lily client verification Nov 11, 2026: role, skill, sequence and weapon text che
   attached outfits image is an artist illustration (credit "Ima Dei Tup"),
   not a leak visual — the image is not used on the page.
 - Signal pill sweep date moved to Nov 16, 2026.
+
+## 2026-11-16 — Media added under Tom's media rule (leaks page)
+
+- Tom's rule (2026-11-16, wuwa-updates chat, logged in DECISIONS.md): media
+  posted alongside an approved leak may be added to /leaks if credited and
+  spoiler-covered; hosted on the site, never embedded; captions state
+  honestly what the media is.
+- Anna height clip (File 01): hosted copy of the 13-second video from WuWa
+  Timeline's Nov 16 post (post 2122258533181960358), saved as
+  public/images/leaks/anna-height-demo.mp4 (1280x720, original file) with
+  anna-height-demo-poster.webp from the post's own thumbnail. The clip shows
+  characters in a golden field beside a large red machine; Anna is not
+  clearly identifiable in it — the claim text and caption say so.
+- VFX skins illustration (File 04): the image from Riju's Nov 16 post
+  (post 2122329088383992142), saved as public/images/leaks/vfx-skins-fanart.webp
+  (1200px wide). It is fan art by Ima Dei Tup, watermarked by the artist
+  across the image, and is captioned and credited as fan art — not official
+  art, not a leak. Chain-of-custody paragraph in File 05 credits both items.

@@ -189,6 +189,8 @@
 }
 .lk-view-media { position: relative; overflow: clip; }
 .lk-view-media img { display: block; width: 100%; height: auto; }
+.lk-view video { display: block; width: 100%; height: auto; background: #05060a; }
+.lk-view .lk-spoiler > img { display: block; width: 100%; height: auto; }
 .lk-stills { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 3px; background: #05060a; }
 .lk-stills img { display: block; width: 100%; height: auto; }
 @media (max-width: 640px) {
