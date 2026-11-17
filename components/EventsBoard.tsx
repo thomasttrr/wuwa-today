@@ -36,33 +36,12 @@ function statusOf(e: GameEvent, now: number): Live {
  * (same file name under /images/events/thumbs/). Run it after adding an event. */
 const thumbOf = (image: string) => image.replace("/images/events/", "/images/events/thumbs/");
 
-/** Art tile in a timeline label. An event without art gets a visible empty
- * tile rather than a silent gap, so a missing image is easy to spot. */
-function TlArt({ image }: { image?: string | null }) {
-  if (!image) return <span className="ev-tl-art ev-tl-art-none" aria-hidden="true" />;
-  return (
-    <span className="ev-tl-art" aria-hidden="true">
-      <img
-        src={thumbOf(image)}
-        alt=""
-        width={96}
-        height={96}
-        loading="lazy"
-        decoding="async"
-        // A new event whose thumb is not generated yet falls back to the full art.
-        onError={(ev) => {
-          if (!ev.currentTarget.src.endsWith(image)) ev.currentTarget.src = image;
-        }}
-      />
-    </span>
-  );
-}
-
 /**
- * Events board: live summary, a version timeline (one bar per event with a
- * "now" line), then ending-soon / starting-soon / permanent sections and a
- * collapsed recently-ended list. Server render uses the build time; the
- * shared clock takes over after hydration.
+ * Events board: live summary, a version calendar (events as art bars on a
+ * date axis, grouped into lanes by kind, with a "now" line), then
+ * active / starting-soon / permanent card sections and a collapsed
+ * recently-ended list. Server render uses the build time; the shared
+ * clock takes over after hydration.
  */
 export default function EventsBoard({ events, builtAt }: { events: GameEvent[]; builtAt: number }) {
   const clock = useNow(30_000);
@@ -84,24 +63,73 @@ export default function EventsBoard({ events, builtAt }: { events: GameEvent[]; 
   const always = withStatus.filter((x) => x.st === "always");
   const ended = withStatus.filter((x) => x.st === "ended").sort((a, b) => byEnd(b, a));
 
-  // Timeline window: earliest start to latest end among dated events.
-  const dated = events.filter((e) => e.endsAt);
-  const t0 = dated.length ? Math.min(...dated.map((e) => new Date(e.startsAt).getTime())) : builtAt;
-  const t1 = dated.length ? Math.max(...dated.map((e) => new Date(e.endsAt!).getTime())) : builtAt;
+  // Version calendar window: the current version runs from the earliest
+  // start among live/upcoming events to the latest end after it. Older
+  // events that ended before the window opens stay in the lists below.
+  const upcoming = withStatus.filter((x) => x.st === "live" || x.st === "soon");
+  const t0 = upcoming.length ? Math.min(...upcoming.map((x) => new Date(x.e.startsAt).getTime())) : builtAt;
+  const inWindow = withStatus.filter(
+    (x) => x.st === "always" || (x.e.endsAt && new Date(x.e.endsAt).getTime() > t0),
+  );
+  const datedInWindow = inWindow.filter((x) => x.e.endsAt);
+  const t1 = datedInWindow.length
+    ? Math.max(...datedInWindow.map((x) => new Date(x.e.endsAt!).getTime()))
+    : t0 + 30 * DAY;
   const span = t1 - t0;
   const pct = (t: number) => (span > 0 ? `${((Math.min(Math.max(t, t0), t1) - t0) / span) * 100}%` : "0%");
-  const ticks: number[] = [];
-  const first = new Date(t0);
-  first.setUTCHours(0, 0, 0, 0);
-  for (let t = first.getTime() + DAY; t < t1; t += 7 * DAY) ticks.push(t);
-  const timeline = [...live, ...soon, ...ended.slice(0, 3)].filter((x) => x.e.endsAt);
-  const tlGroups = [
-    { key: "live", label: "Live", items: live.filter((x) => x.e.endsAt) },
-    { key: "soon", label: "Starting soon", items: soon.filter((x) => x.e.endsAt) },
-    { key: "ended", label: "Recently ended", items: ended.slice(0, 3) },
-  ].filter((g) => g.items.length > 0);
   const shortDate = (iso: string) =>
     new Date(iso).toLocaleDateString("en-US", { month: "short", day: "numeric", timeZone: "Asia/Shanghai" });
+  // Axis markers: the window edges plus any day two or more events start
+  // (in practice the phase flips). Weekly gridlines stay unlabelled.
+  const startCounts = new Map<string, number>();
+  for (const x of datedInWindow) {
+    const day = x.e.startsAt.slice(0, 10);
+    startCounts.set(day, (startCounts.get(day) ?? 0) + 1);
+  }
+  const markers: { t: number; label: string }[] = [{ t: t0, label: shortDate(new Date(t0).toISOString()) }];
+  for (const x of datedInWindow) {
+    const s = new Date(x.e.startsAt).getTime();
+    if ((startCounts.get(x.e.startsAt.slice(0, 10)) ?? 0) >= 2 && s > t0 && s < t1) {
+      if (!markers.some((m) => Math.abs(m.t - s) < DAY)) {
+        markers.push({ t: s, label: shortDate(x.e.startsAt) });
+      }
+    }
+  }
+  markers.push({ t: t1, label: shortDate(new Date(t1).toISOString()) });
+  markers.sort((a, b) => a.t - b.t);
+  const weekLines: number[] = [];
+  for (let t = t0 + 7 * DAY; t < t1; t += 7 * DAY) weekLines.push(t);
+
+  // Calendar lanes by event kind, packed so overlapping bars stack.
+  const LANES: { key: string; label: string; types: string[] }[] = [
+    { key: "featured", label: "Featured events", types: ["limited"] },
+    { key: "login", label: "Login gifts", types: ["login"] },
+    { key: "leisure", label: "Leisure", types: ["leisure", "exploration"] },
+    { key: "more", label: "Trials and more", types: ["trial", "spending", "web", "community"] },
+    { key: "recurring", label: "Recurring challenges", types: ["recurring"] },
+    { key: "always", label: "Always on", types: ["permanent"] },
+  ];
+  const BAR_H = 44;
+  const calLanes = LANES.map((lane) => {
+    const items = inWindow
+      .filter((x) => lane.types.includes(x.e.type))
+      .sort((a, b) => ts(a.e.startsAt) - ts(b.e.startsAt));
+    const rowEnds: number[] = [];
+    const packed = items.map((x) => {
+      const s = new Date(x.e.startsAt).getTime();
+      const en = x.e.endsAt ? new Date(x.e.endsAt).getTime() : Infinity;
+      let row = rowEnds.findIndex((last) => s >= last);
+      if (row === -1) {
+        rowEnds.push(en);
+        row = rowEnds.length - 1;
+      } else {
+        rowEnds[row] = en;
+      }
+      return { ...x, row };
+    });
+    return { ...lane, packed, rows: Math.max(1, rowEnds.length) };
+  }).filter((lane) => lane.packed.length > 0);
+  const hasCalendar = calLanes.length > 0;
 
   const urgent = live[0];
 
@@ -114,30 +142,6 @@ export default function EventsBoard({ events, builtAt }: { events: GameEvent[]; 
     if (!el || el.scrollWidth <= el.clientWidth || el.scrollLeft > 0) return;
     el.scrollLeft = Math.max(0, el.scrollWidth * nowFrac - el.clientWidth * 0.6);
   }, [nowFrac]);
-
-  // Lane width in px, so axis labels can be thinned to what actually fits.
-  const lanesRef = useRef<HTMLDivElement>(null);
-  const [laneW, setLaneW] = useState(0);
-  const hasTimeline = timeline.length > 0;
-  useEffect(() => {
-    const el = lanesRef.current;
-    if (!el) return;
-    const ro = new ResizeObserver(() => setLaneW(el.clientWidth));
-    ro.observe(el);
-    return () => ro.disconnect();
-  }, [hasTimeline]);
-  // Labels: weekly where they fit, every 2nd or 3rd week on narrow lanes, and
-  // never under the "Now" pill or past the chart's right edge. The dashed
-  // lines stay weekly. Hidden until the lane is measured, so a first paint
-  // never shows the overlapping set.
-  const pxPerDay = laneW > 0 && span > 0 ? (laneW / span) * DAY : 0;
-  const labelEvery = pxPerDay > 0 ? Math.max(1, Math.ceil(54 / (pxPerDay * 7))) : 1;
-  const nowX = span > 0 ? ((Math.min(Math.max(now, t0), t1) - t0) / span) * laneW : 0;
-  const showTickLabel = (t: number, i: number) => {
-    if (i % labelEvery !== 0) return false;
-    const x = ((t - t0) / span) * laneW;
-    return !(x > nowX - 70 && x < nowX + 16) && x < laneW - 28;
-  };
 
   // Tapping a timeline row scrolls to that event's card and flashes it. The
   // row is a real #hash link, so it still works if the card is not found.
@@ -188,76 +192,108 @@ export default function EventsBoard({ events, builtAt }: { events: GameEvent[]; 
         ))}
       </div>
 
-      {timeline.length > 0 && (
-        <section className="ev-tl" aria-labelledby="ev-tl-h">
+      {hasCalendar && (
+        <section className="ev-cal" aria-labelledby="ev-cal-h">
           <header className="ev-head">
-            <h2 id="ev-tl-h">Version timeline</h2>
+            <h2 id="ev-cal-h">Version calendar</h2>
             <p>
-              {formatServerDate(new Date(t0).toISOString())} → {formatServerDate(new Date(t1).toISOString())}
+              {formatServerDate(new Date(t0).toISOString())} → {formatServerDate(new Date(t1).toISOString())} · server time
             </p>
           </header>
-          <div ref={scrollRef} className="ev-tl-scroll">
-            <div className="ev-tl-chart">
-              <div ref={lanesRef} className="ev-tl-lanes" aria-hidden="true">
-                <div className="ev-tl-axis" style={laneW ? undefined : { visibility: "hidden" }}>
-                  {ticks.map((t, i) => (
-                    <span key={t} style={{ left: pct(t) }}>
-                      {showTickLabel(t, i) ? shortDate(new Date(t).toISOString()) : null}
-                    </span>
-                  ))}
-                </div>
-                <span className="ev-tl-now" style={{ left: pct(now) }}>
+          <div ref={scrollRef} className="ev-cal-scroll">
+            <div className="ev-cal-chart">
+              <div className="ev-cal-overlay" aria-hidden="true">
+                {weekLines.map((t) => (
+                  <span key={t} className="ev-cal-week" style={{ left: pct(t) }} />
+                ))}
+                <span className="ev-cal-now" style={{ left: pct(now) }}>
                   <b>Now</b>
                 </span>
               </div>
-              {tlGroups.map((g) => (
-                <div key={g.key} className="ev-tl-group">
-                  <p className="ev-tl-glabel">{g.label}</p>
-                  <ol className="ev-tl-rows">
-                    {g.items.map(({ e, st }) => {
+              <div className="ev-cal-axisrow">
+                <div className="ev-cal-rail ev-cal-rail-axis" aria-hidden="true" />
+                <div className="ev-cal-axis">
+                  {markers.map((m) => (
+                    <span key={m.t} style={{ left: pct(m.t) }}>
+                      {m.label}
+                    </span>
+                  ))}
+                </div>
+              </div>
+              {calLanes.map((lane) => (
+                <div key={lane.key} className="ev-cal-lane">
+                  <div className="ev-cal-rail">
+                    <span className="ev-cal-lane-name">{lane.label}</span>
+                    <span className="ev-cal-lane-n">{lane.packed.length}</span>
+                  </div>
+                  <div className="ev-cal-track" style={{ height: lane.rows * BAR_H - 8 }}>
+                    {lane.packed.map(({ e, st, row }) => {
                       const s = new Date(e.startsAt).getTime();
-                      const en = new Date(e.endsAt!).getTime();
-                      const row = (
+                      const en = e.endsAt ? new Date(e.endsAt).getTime() : t1;
+                      const bar = (
                         <>
-                          <span className="ev-tl-lab">
-                            <TlArt image={e.image} />
-                            <span className="ev-tl-txt">
-                              <span className="ev-tl-name">{e.name}</span>
-                              <span className="ev-tl-dates">
-                                {shortDate(e.startsAt)} – {shortDate(e.endsAt!)}
-                              </span>
+                          <span className="ev-cal-art" aria-hidden="true">
+                            {e.image ? (
+                              <img
+                                src={thumbOf(e.image)}
+                                alt=""
+                                width={96}
+                                height={96}
+                                loading="lazy"
+                                decoding="async"
+                                onError={(ev) => {
+                                  if (e.image && !ev.currentTarget.src.endsWith(e.image)) {
+                                    ev.currentTarget.src = e.image;
+                                  }
+                                }}
+                              />
+                            ) : null}
+                          </span>
+                          <span className="ev-cal-txt">
+                            <span className="ev-cal-name">{e.name}</span>
+                            <span className="ev-cal-dates">
+                              {e.endsAt
+                                ? `${shortDate(e.startsAt)} – ${shortDate(e.endsAt)}`
+                                : `From ${shortDate(e.startsAt)} · no end date`}
                             </span>
                           </span>
-                          <span className="ev-tl-lane">
-                            <span
-                              className="ev-tl-bar"
-                              style={{ left: pct(s), width: `calc(${pct(en)} - ${pct(s)})` } as CSSProperties}
-                              title={`${e.name}: ${formatServerDate(e.startsAt)} – ${formatServerDate(e.endsAt)}`}
-                            />
-                          </span>
+                          {st === "live" && <span className="ev-cal-live" aria-hidden="true" />}
                         </>
                       );
-                      return (
-                        <li key={e.id} className={`ev-tl-row ev-st-${st}`}>
-                          {st === "ended" ? (
-                            // Ended events have no card to jump to.
-                            <div className="ev-tl-link">{row}</div>
-                          ) : (
-                            <a className="ev-tl-link" href={`#ev-card-${e.id}`} onClick={(ev) => jumpToCard(ev, e.id)}>
-                              {row}
-                            </a>
-                          )}
-                        </li>
+                      const style = {
+                        left: pct(s),
+                        width: `calc(${pct(en)} - ${pct(s)})`,
+                        top: row * BAR_H,
+                      } as CSSProperties;
+                      const short = (en - s) / span < 0.24;
+                      const cls = `ev-cal-bar ev-st-${st}${short ? " ev-cal-short" : ""}${type && e.type !== type ? " ev-cal-dim" : ""}`;
+                      const title = e.endsAt
+                        ? `${e.name}: ${formatServerDate(e.startsAt)} – ${formatServerDate(e.endsAt)}`
+                        : `${e.name}: from ${formatServerDate(e.startsAt)}, no end date`;
+                      return st === "ended" ? (
+                        // Ended events have no card to jump to.
+                        <div key={e.id} className={cls} style={style} title={title}>
+                          {bar}
+                        </div>
+                      ) : (
+                        <a
+                          key={e.id}
+                          className={cls}
+                          style={style}
+                          title={title}
+                          href={`#ev-card-${e.id}`}
+                          onClick={(ev) => jumpToCard(ev, e.id)}
+                        >
+                          {bar}
+                        </a>
                       );
                     })}
-                  </ol>
+                  </div>
                 </div>
               ))}
             </div>
           </div>
-          {tlGroups.some((g) => g.key !== "ended") && (
-            <p className="ev-tl-hint">Select a live or upcoming event to jump to its card.</p>
-          )}
+          <p className="ev-cal-hint">Select a live or upcoming event to jump to its card.</p>
         </section>
       )}
 

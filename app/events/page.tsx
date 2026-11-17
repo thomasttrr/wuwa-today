@@ -8,7 +8,7 @@ import "./events.css";
 export const metadata: Metadata = {
   title: "Wuthering Waves events — active & upcoming",
   description:
-    "Every active Wuthering Waves event with end-date countdowns, a version timeline, and what's coming next. Never miss limited rewards again.",
+    "Every active Wuthering Waves event with end-date countdowns, a version calendar, and what's coming next. Never miss limited rewards again.",
   alternates: { canonical: "/events" },
 };
 
