@@ -687,6 +687,14 @@ export default function LeaksPage() {
               is real, a beta start in the November 23 window above follows.
             </Claim>
             <Claim tag="Single leak">
+              <strong>A Mosasaurus boss is claimed for 4.X.</strong> A Seele item
+              reshared on November 17 (@WutheringNews, @Wutheringnewss,
+              @Gameverse_Leaks) names a coming boss as a Mosasaurus, also called
+              Canglong. The images travelling with it are Jurassic World film
+              stills, not game art — there is no model, no screenshot, no kit
+              detail and no date, just the name and the creature type.
+            </Claim>
+            <Claim tag="Single leak">
               <strong>Two of the returning three are tipped for 4.1 skins.</strong>{" "}
               Yangyang: Xuanling and Suisui — both back on banners December 3 — are claimed
               to get skins in Version 4.1, themed Valentine / casual outfits. The

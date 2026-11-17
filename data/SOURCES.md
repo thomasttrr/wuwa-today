@@ -576,3 +576,13 @@ Lily client verification Nov 11, 2026: role, skill, sequence and weapon text che
   source cited, attached image is fan art (watermarked @v1vvx) and was
   not used. Both finds were queued overnight by the leak watch and
   approved by Tom on 2026-11-17.
+
+## 2026-11-17 — Mosasaurus boss claim (leaks page, File 03)
+
+- Claim (Single leak): a 4.X boss named as a Mosasaurus (Canglong) —
+  a Seele item reshared on X, Nov 17, 2026 by @WutheringNews (12:34 ET),
+  @Wutheringnewss (12:38 ET) and @Gameverse_Leaks (12:53 ET). All three
+  posts trace to the one Seele item, hence Single leak. The images
+  travelling with the posts are Jurassic World film stills, not game
+  art; no model, screenshot, kit detail or date exists. The page text
+  states the film-still caveat. Approved by Tom on 2026-11-17.
