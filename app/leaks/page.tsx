@@ -747,6 +747,17 @@ export default function LeaksPage() {
               </p>
               <span className="lk-ver">Unknown</span>
             </div>
+            <div className="lk-cast-row">
+              <p>
+                <Chip tag="Single leak" /> <strong>Only two males in the whole cycle?</strong>{" "}
+                A Tieba claim relayed on X (@Wutheringnewss, November 16) says 4.x gets just
+                two male characters — one original and one collaboration, possibly Kirito —
+                which would tie the male count to the crossover whisper above. The sourcing
+                is the weakest kind: an unnamed forum post through a reshare account, with
+                nothing behind it.
+              </p>
+              <span className="lk-ver">4.x?</span>
+            </div>
           </div>
         </Reveal>
         <div style={{ height: "0.9rem" }} />

@@ -552,3 +552,13 @@ Lily client verification Nov 11, 2026: role, skill, sequence and weapon text che
   closed beta opens Nov 23, reveal possibly covering 5–6 New Federation
   characters plus a region trailer. No insider source claimed; graded
   Speculation. The exact post URL was not captured by the watch.
+
+## 2026-11-16 — "Only two males in 4.X" claim (leaks page, File 04)
+
+- Claim (Single leak): the whole 4.X cycle has only two male characters —
+  one original and one collaboration character, possibly Kirito. Source: an
+  unnamed Tieba post relayed by @Wutheringnewss on X, Nov 16, 2026 (~19:30
+  ET), found by the leak watch 19:47 ET run and approved by Tom the same
+  day. Unverified — no original post captured, no second source; the page
+  text says so. Placed as a roster-board row next to the existing SAO
+  crossover row it connects to.
