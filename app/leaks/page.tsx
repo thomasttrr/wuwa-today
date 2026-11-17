@@ -343,7 +343,17 @@ export default function LeaksPage() {
               Anna&rsquo;s height comparison demo; a hosted copy is shown below. The
               13 seconds show characters in a golden field beside a large red
               machine — Anna herself is not clearly identifiable in it, so what it
-              proves about her height stays unverified. Still no model file.
+              proves about her height stays unverified.
+            </Claim>
+            <Claim tag="Single leak">
+              <strong>Her model is now a downloadable Garry&rsquo;s Mod port.</strong>{" "}
+              A playermodel of Anna went up on Steam Workshop on November 10
+              (SheepyLord, 81 MB), with faceposing, fingerposing and bodygroups. The
+              listing credits the model itself to Kuro and the porting and rigging to
+              its author — and its previews match the datamined renders above detail
+              for detail, down to the mark on her leg. It is a game-mod file, not the
+              raw model: no PMX, FBX or GLB version has surfaced, and model files are
+              not hosted here.
             </Claim>
             <Claim tag="Single leak">
               <strong>She may already be in the game.</strong> A Seele text graphic

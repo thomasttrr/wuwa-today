@@ -596,3 +596,20 @@ Lily client verification Nov 11, 2026: role, skill, sequence and weapon text che
   mixed up with Fusion Rover; the page text carries that flag. The
   post also named the Museum Curator among seven illustrations —
   already on the page, no change. Approved by Tom on 2026-11-17.
+
+## 2026-11-17 — Anna Garry's Mod port (leaks page, File 01)
+
+- Claim (Single leak): a downloadable Garry's Mod playermodel of Anna
+  exists — Steam Workshop item 3837733289, "Wuthering Waves - Anna
+  (PM & NPCs)" by SheepyLord, posted Nov 10, 2026 22:56 ET, 81.326 MB.
+  Listing credits the model to Zhuhai Kuro Technology Co. Ltd. and the
+  porting/rigging/compiling to SheepyLord; features listed include
+  faceposing, fingerposing, jigglebones and bodygroups. Verified
+  directly on the listing by Ani on 2026-11-17: the four preview
+  images match the datamined renders on the page (hair gradient, hip
+  roses, leg Tacet mark). It is a compiled game-mod file, not the raw
+  model; no PMX/FBX/GLB version has surfaced. The site does not host
+  model files (Kuro licence — Tom's standing rule from echo-check).
+  The older "still no model file" wording in the height-comparison
+  claim was removed in the same edit. Approved by Tom on 2026-11-17
+  ("Publish just the leak note").
