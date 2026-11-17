@@ -586,3 +586,13 @@ Lily client verification Nov 11, 2026: role, skill, sequence and weapon text che
   travelling with the posts are Jurassic World film stills, not game
   art; no model, screenshot, kit detail or date exists. The page text
   states the film-still caveat. Approved by Tom on 2026-11-17.
+
+## 2026-11-17 — Amethyst three-forms line (leaks page, File 04)
+
+- Speculation added to the Amethyst cast row: three forms and a clone
+  mechanic, from a Tieba item reshared by @Wutheringnewss on X,
+  Nov 17, 2026 16:03 ET (post 2122797888636072105). The poster's own
+  follow-up (16:05 ET) flags it as SUS / possibly wrong and possibly
+  mixed up with Fusion Rover; the page text carries that flag. The
+  post also named the Museum Curator among seven illustrations —
+  already on the page, no change. Approved by Tom on 2026-11-17.

@@ -725,7 +725,10 @@ export default function LeaksPage() {
                 nothing new). A November 16 post also guesses she and Shorekeeper get
                 VFX skins in the later half of 4.x (speculation — the poster calls it
                 cope themselves; the fan illustration travelling with the post is
-                shown below, credited to its artist).
+                shown below, credited to its artist). A November 17 post resharing a
+                Tieba item claims she has three forms and a clone mechanic
+                (speculation — the poster flags it as suspect themselves and says it
+                may be mixed up with Fusion Rover).
               </p>
               <span className="lk-ver">4.1 · P1?</span>
             </div>
