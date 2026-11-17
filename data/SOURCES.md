@@ -562,3 +562,17 @@ Lily client verification Nov 11, 2026: role, skill, sequence and weapon text che
   day. Unverified — no original post captured, no second source; the page
   text says so. Placed as a roster-board row next to the existing SAO
   crossover row it connects to.
+
+## 2026-11-17 — Two leak-watch claims (leaks page, Files 03 + 04)
+
+- Claim (Single leak, File 03): 4.0 beta recruitment claimed open — a
+  screenshot posted by Riju (@Riju1T_T) on X, Nov 17, 2026 07:27 ET
+  (post 2122667836338483641): invitations by in-game mail, recruitment
+  Nov 17–20 closing 18:00 UTC+8. Uncorroborated — no second account
+  repeated it; encore.moe still shows only 3.8. The page text says so.
+- Claim (Single leak, File 04): Amethyst and Eris claimed as the two
+  halves of the 4.x "main push" — @Wutheringnewss on X, Nov 17, 2026
+  06:07 ET (post 2122647819161133280). Tiny account (31 followers), no
+  source cited, attached image is fan art (watermarked @v1vvx) and was
+  not used. Both finds were queued overnight by the leak watch and
+  approved by Tom on 2026-11-17.

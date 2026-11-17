@@ -109,7 +109,7 @@ export default function LeaksPage() {
       <header className="og-page-hero">
         <span className="lk-signal">
           <span className="lk-signal-dot" aria-hidden />
-          Signal live · Last sweep Nov 16, 2026 · Nothing here is official
+          Signal live · Last sweep Nov 17, 2026 · Nothing here is official
         </span>
         <p className="og-page-kicker" style={{ marginTop: "1.1rem" }}>
           Version 4.0 and later · Unreleased · Leaks and rumors
@@ -679,6 +679,14 @@ export default function LeaksPage() {
               beta start is the new part.
             </Claim>
             <Claim tag="Single leak">
+              <strong>Beta recruitment is claimed to be open.</strong> A screenshot
+              posted by Riju (@Riju1T_T, November 17) shows a notice saying 4.0 beta
+              invitations go out by in-game mail, with recruitment running November
+              17–20, closing 18:00 (UTC+8). Nobody else has repeated it and the beta
+              databases still show only 3.8, so this is uncorroborated — but if it
+              is real, a beta start in the November 23 window above follows.
+            </Claim>
+            <Claim tag="Single leak">
               <strong>Two of the returning three are tipped for 4.1 skins.</strong>{" "}
               Yangyang: Xuanling and Suisui — both back on banners December 3 — are claimed
               to get skins in Version 4.1, themed Valentine / casual outfits. The
@@ -712,6 +720,17 @@ export default function LeaksPage() {
                 shown below, credited to its artist).
               </p>
               <span className="lk-ver">4.1 · P1?</span>
+            </div>
+            <div className="lk-cast-row">
+              <p>
+                <Chip tag="Single leak" /> <strong>Amethyst and Eris as the cycle&rsquo;s
+                two leads?</strong> A November 17 post (@Wutheringnewss) claims 4.x is
+                built as a &ldquo;main push&rdquo; in two halves — Amethyst headlining the
+                first half, and Eris — named in earlier coverage as Fractsidus&rsquo; Vice
+                Architect — the second. The account is tiny and cites no source, so this
+                is the weakest sourcing on the page; the pairing itself is the new part.
+              </p>
+              <span className="lk-ver">4.x?</span>
             </div>
             <div className="lk-cast-row">
               <p>
