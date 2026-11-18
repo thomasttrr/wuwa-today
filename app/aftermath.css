@@ -1,0 +1,183 @@
+/* ==========================================================================
+   Aftermath — the site-wide layer for the 4.0-era redesign.
+
+   Loads last. It re-points the Resonance tokens (DESIGN.md) to the new
+   look, so every page picks it up without a rewrite:
+   - Type: Cormorant (display serif) for page and section titles, Jost for
+     everything you read and use, including numbers. Geist Mono is kept for
+     record-style details only (the home archive).
+   - Palette: slate canvas (#15171d), ivory ink, champagne gold line work.
+     Gold is the house accent (--el); character pages still re-tune --el to
+     their element through <ElementTheme>.
+   - Shape: square-ish corners (2px), double gold rules, no pointer glow.
+   The home page's own components live in app/home.css.
+   ========================================================================== */
+
+:root, body.rs {
+  --rs-canvas: #15171d;
+  --rs-surface: #1a1d24;
+  --rs-surface-2: #20242c;
+  --rs-line: rgb(185 155 104 / 0.26);
+  --rs-line-soft: rgb(232 224 209 / 0.08);
+
+  --rs-ink: #ece6da;
+  --rs-ink-2: #c8c1b4;   /* 10:1 on surface */
+  --rs-ink-3: #a29c91;   /* 6.1:1 on surface */
+
+  --rs-el-soft: color-mix(in oklch, var(--el) 14%, transparent);
+  --rs-el-line: color-mix(in oklch, var(--el) 48%, transparent);
+  --rs-on-el: #15171d;
+
+  --rs-display: var(--font-cormorant), "Cormorant", Garamond, Georgia, serif;
+  --rs-body: var(--font-jost), "Jost", "Futura", system-ui, sans-serif;
+  --rs-mono: var(--font-jost), "Jost", "Futura", system-ui, sans-serif;
+
+  --rs-r-sm: 2px;
+  --rs-r-card: 2px;
+  --rs-r-tile: 2px;
+  --rs-r-ctl: 2px;
+
+  --am-gold: #b99b68;
+  --am-gold-hi: #d9c49b;
+}
+
+body.rs {
+  background: var(--rs-canvas);
+  font-family: var(--rs-body);
+  font-size: 16px;
+  line-height: 1.55;
+}
+/* Atlantic blue-hour washes with one low burgundy glow, in place of the
+   element tint. */
+body.rs::before {
+  background:
+    radial-gradient(80% 42% at 88% 0%, rgb(35 55 69 / 0.55), transparent 70%),
+    radial-gradient(60% 34% at 0% 52%, rgb(35 55 69 / 0.3), transparent 70%),
+    radial-gradient(55% 28% at 100% 96%, rgb(118 45 59 / 0.14), transparent 70%);
+}
+body.rs ::selection { background: rgb(185 155 104 / 0.45); color: #fff; }
+/* Full-bleed sections (home hero, 4.0 band) are 100vw wide. */
+body.rs main { overflow-x: clip; }
+
+/* Headings: the serif carries page and section titles; small headings and
+   everything functional stay in Jost. */
+/* Family only: sizes and weights stay with each component. */
+body.rs h1, body.rs h2 {
+  font-family: var(--rs-display);
+  font-stretch: normal;
+  letter-spacing: -0.005em;
+}
+body.rs h3, body.rs h4 {
+  font-family: var(--rs-body);
+  font-stretch: normal;
+  letter-spacing: 0;
+}
+/* The serif runs small for its point size; lift the bare page and section
+   titles that rely on the globals.css defaults. */
+h1 { font-size: clamp(2.1rem, 1.6rem + 2vw, 3.1rem); font-weight: 600; }
+h2 { font-size: clamp(1.55rem, 1.3rem + 1vw, 2rem); font-weight: 600; }
+/* Numbers line up in every readout, countdown reel and table. */
+body.rs { font-variant-numeric: lining-nums; }
+body.rs :is(.rs-cd, .rs-count, time, td, .og-reset, .rs-cd-col) { font-variant-numeric: lining-nums tabular-nums; }
+
+/* Labels: sentence case, not tracked caps. */
+.rs-kicker {
+  font-size: var(--fs-4);
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  text-transform: none;
+  color: var(--am-gold-hi);
+}
+body.rs .rs-tile-link { color: var(--am-gold-hi); }
+
+/* Buttons */
+.rs-btn {
+  border-radius: 2px;
+  border-color: rgb(185 155 104 / 0.55);
+  background: transparent;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+.rs-btn:hover { border-color: var(--am-gold-hi); background: rgb(185 155 104 / 0.08); }
+.rs-btn-solid, .rs-btn-solid:hover {
+  border-color: transparent;
+  color: #15171d;
+  background: linear-gradient(180deg, #efe8da, #cdb48a);
+}
+.rs-btn-solid:hover { box-shadow: 0 0 22px rgb(232 224 209 / 0.22); }
+
+/* Tiles: solid slate with a gold hairline and an inner keyline. */
+.rs-tile {
+  border-color: rgb(185 155 104 / 0.22);
+  box-shadow: inset 0 0 0 3px var(--rs-surface), inset 0 0 0 4px rgb(185 155 104 / 0.1);
+}
+
+/* ---------- Nav ---------- */
+.rs-nav {
+  border-radius: 2px;
+  border: 1px solid rgb(185 155 104 / 0.32);
+  background: rgb(21 23 29 / 0.82);
+  box-shadow: 0 12px 40px rgb(0 0 0 / 0.45);
+}
+.rs-brand {
+  font-family: var(--rs-display);
+  font-weight: 600;
+  font-stretch: normal;
+  font-size: 1.3rem;
+  letter-spacing: 0.01em;
+  color: var(--am-gold-hi);
+}
+.rs-brand svg { color: var(--am-gold); }
+.rs-tabs > a, .rs-tab-more { font-weight: 500; border-radius: 1px; }
+.rs-tab-pill {
+  border-radius: 1px;
+  background: linear-gradient(180deg, #efe8da, #cdb48a);
+  box-shadow: none;
+}
+.rs-search-btn {
+  border-radius: 2px;
+  border-color: rgb(185 155 104 / 0.35);
+  background: transparent;
+}
+.rs-search-btn:hover { background: rgb(185 155 104 / 0.08); border-color: rgb(185 155 104 / 0.7); }
+.rs-search-btn kbd, .rs-palette kbd { border-radius: 1px; border-color: rgb(185 155 104 / 0.4); color: var(--am-gold-hi); }
+
+/* Desktop: a full-width top bar with a gold hairline, 64px tall. The home
+   hero tucks under it (app/home.css), other pages start below it. */
+@media (min-width: 900px) {
+  .rs-nav {
+    top: 0;
+    left: 0;
+    right: 0;
+    width: auto;
+    height: 64px;
+    transform: none;
+    padding: 10px max(1.25rem, calc((100vw - 1200px) / 2));
+    border: 0;
+    border-bottom: 1px solid rgb(185 155 104 / 0.22);
+    border-radius: 0;
+    background: rgb(21 23 29 / 0.78);
+    box-shadow: none;
+  }
+  body.rs main { padding-top: calc(64px + 1.75rem); }
+}
+
+/* ---------- Sheets and palette ---------- */
+body.rs :is(.rs-palette-box, .rs-more) { border-radius: 2px; }
+
+/* ---------- Footer ---------- */
+.site-footer {
+  border-top: 3px double rgb(185 155 104 / 0.3);
+  color: var(--rs-ink-2);
+}
+body.rs .site-footer-group h2 {
+  font-family: var(--rs-display);
+  font-weight: 600;
+  font-size: 1.15rem;
+  letter-spacing: 0.01em;
+  text-transform: none;
+  color: var(--am-gold-hi);
+}
+.site-footer-nav a { color: var(--rs-ink-2); }
+.site-footer-nav a:hover { color: var(--rs-ink); }
+.site-footer strong { font-family: var(--rs-display); font-size: 1.1em; color: var(--am-gold-hi); }

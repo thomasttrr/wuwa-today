@@ -1,16 +1,13 @@
 import type { CSSProperties } from "react";
 import type { Metadata, Viewport } from "next";
 import Link from "next/link";
-import { Martian_Mono, Mona_Sans } from "next/font/google";
+import { Cormorant, Geist_Mono, Jost } from "next/font/google";
 import ResonanceNav from "@/components/ResonanceNav";
 import ScrollTop from "@/components/ScrollTop";
-import Spotlight from "@/components/Spotlight";
-import SiteTheme, { type ThemeSlot } from "@/components/SiteTheme";
+import SiteTheme from "@/components/SiteTheme";
 import ThemeSwitch from "@/components/ThemeSwitch";
 import { themeBootScript } from "@/lib/theme-mode";
-import { activeBanners, banners } from "@/lib/data";
 import { NAV_GROUPS, NAV_ITEMS } from "@/lib/nav";
-import { ELEMENT_FALLBACK, elementColor } from "@/lib/elements";
 import "./globals.css";
 import "./obsidian.css";
 import "./og-pages.css";
@@ -18,35 +15,33 @@ import "./resonance.css";
 import "./resonance-shared.css";
 import "./guide-kit.css";
 import "./theme-dark.css";
+import "./aftermath.css";
 
-/* Resonance type system. Both families are variable with a width axis, so
-   headlines and numeric readouts can stretch together. Body stays system
-   sans for speed; Martian Mono carries every number on the site. */
-const monaSans = Mona_Sans({
-  weight: "variable",
-  axes: ["wdth"],
+/* Aftermath type system (app/aftermath.css): Cormorant for display, Jost
+   for reading and every number, Geist Mono for record-style details. */
+const cormorant = Cormorant({
+  weight: ["500", "600", "700"],
+  style: ["normal", "italic"],
   subsets: ["latin"],
-  variable: "--font-mona",
+  variable: "--font-cormorant",
   display: "swap",
 });
-const martianMono = Martian_Mono({
-  weight: "variable",
-  axes: ["wdth"],
+const jost = Jost({
   subsets: ["latin"],
-  variable: "--font-martian",
+  variable: "--font-jost",
+  display: "swap",
+});
+const geistMono = Geist_Mono({
+  weight: ["400", "500"],
+  subsets: ["latin"],
+  variable: "--font-geist-mono",
   display: "swap",
 });
 
-/* The site is tuned to the live banner's lead Resonator: its element is
-   the site-wide --el accent. The server render uses the banner live at
-   build time; <SiteTheme> then re-picks it in the browser from the full
-   schedule and switches at each phase boundary, so no rebuild is needed.
-   Character pages override it while open. */
-const featuredElement = activeBanners[0]?.characters[0]?.element ?? "";
-const siteEl = featuredElement ? elementColor(featuredElement) : ELEMENT_FALLBACK;
-const THEME_SLOTS: ThemeSlot[] = banners
-  .filter((b) => b.characters[0])
-  .map((b) => ({ start: b.startsAt, end: b.endsAt, color: elementColor(b.characters[0].element) }));
+/* Champagne gold is the house accent (--el). Character pages still re-tune
+   it to their element while open (<ElementTheme>), and the Dark appearance
+   still locks it to platinum. */
+const SITE_ACCENT = "#d9c49b";
 
 
 export const viewport: Viewport = {
@@ -56,7 +51,7 @@ export const viewport: Viewport = {
      insets so env(safe-area-inset-bottom) on the floating nav is real. */
   viewportFit: "cover",
   /* Tint mobile browser chrome / overscroll to the dark canvas. */
-  themeColor: "#06070a",
+  themeColor: "#15171d",
   colorScheme: "dark",
 };
 
@@ -74,20 +69,20 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${monaSans.variable} ${martianMono.variable}`} suppressHydrationWarning>
+    <html lang="en" className={`${cormorant.variable} ${jost.variable} ${geistMono.variable}`} suppressHydrationWarning>
       <head>
         {/* Applies the saved Dark appearance before first paint (no flash). */}
         <script dangerouslySetInnerHTML={{ __html: themeBootScript }} />
       </head>
       <body
         className="og rs"
-        data-site-el={siteEl}
-        style={{ "--el": siteEl } as CSSProperties}
+        data-site-el={SITE_ACCENT}
+        style={{ "--el": SITE_ACCENT } as CSSProperties}
       >
         <a className="skip-link" href="#main">
           Skip to content
         </a>
-        <SiteTheme slots={THEME_SLOTS} fallback={ELEMENT_FALLBACK} />
+        <SiteTheme slots={[]} fallback={SITE_ACCENT} />
         <ResonanceNav />
         <main id="main">
           <div className="container">{children}</div>
@@ -126,7 +121,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           </div>
         </footer>
         <ScrollTop />
-        <Spotlight />
       </body>
     </html>
   );
