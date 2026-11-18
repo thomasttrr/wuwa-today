@@ -800,6 +800,18 @@ export default function LeaksPage() {
               </p>
               <span className="lk-ver">4.x?</span>
             </div>
+            <div className="lk-cast-row">
+              <p>
+                <Chip tag="Speculation" /> <strong>No Square Enix crossover, says one
+                account.</strong> A November 17 post (@Wutheringnewss) claims Square Enix
+                will not collaborate with Kuro — its stated reason is that Square Enix
+                supposedly barred Kuro from writing story for their NieR collaboration in
+                Punishing: Gray Raven, which the post says spoiled that patch. Nothing
+                backs any of it, and the fan whose post it quoted replied disputing it
+                outright.
+              </p>
+              <span className="lk-ver">4.x?</span>
+            </div>
           </div>
         </Reveal>
         <div style={{ height: "0.9rem" }} />

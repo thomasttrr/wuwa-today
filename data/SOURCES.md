@@ -623,3 +623,16 @@ Lily client verification Nov 11, 2026: role, skill, sequence and weapon text che
   page sentence labels it fan work plainly so readers do not mistake
   it for the Kuro-credited port above it. Not downloaded. Approved by
   Tom on 2026-11-17.
+
+## 2026-11-17 — Square Enix collab denial row (leaks page, File 04)
+
+- Row (Speculation): "No Square Enix crossover, says one account" —
+  @Wutheringnewss on X, Nov 17, 2026 19:45 ET (post
+  2122853668361851013): claims no Square Enix collab will happen
+  because Square Enix supposedly barred Kuro from writing story in
+  their NieR collaboration (Punishing: Gray Raven), which the post
+  says made that patch poor. No source, no evidence, no version or
+  date; the fan whose FFVII-Remake-collab post it quoted replied
+  disputing it ("you are not from Square Enix plus not someone from
+  Kuro"). The page text carries the dispute. Approved by Tom on
+  2026-11-17.
