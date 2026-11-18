@@ -24,6 +24,7 @@ import {
   type RankedWeapon,
 } from "@/lib/characters";
 import { elementColor } from "@/lib/elements";
+import { banners, statusFromDates } from "@/lib/data";
 import { getPrefarmGuide } from "@/lib/prefarm";
 import { tierFor } from "@/lib/tiers";
 import rendersData from "@/data/renders.json";
@@ -61,10 +62,18 @@ export async function generateMetadata({
 }
 
 /** Small honest caveat for uncertain / pre-release sections. */
-/** "3.7-phase-2" → "Version 3.7 Phase 2 · "; internal ids like "no-active-banner" are hidden. */
+/**
+ * "3.7-phase-2" → "Version 3.7 Phase 2 (ended) · "; internal ids like
+ * "no-active-banner" are hidden. The state is read from the banner's dates at
+ * build time, so a verdict for a past banner never reads as if it is live.
+ */
 function bannerLabel(id: string | null | undefined): string {
   const m = id?.match(/^(\d+\.\d+)-phase-(\d+)$/);
-  return m ? `Version ${m[1]} Phase ${m[2]} · ` : "";
+  if (!m) return "";
+  const b = banners.find((x) => x.id === id);
+  const state = b ? statusFromDates(b) : null;
+  const tag = state === "ended" ? " (ended)" : state === "active" ? " (live now)" : state === "upcoming" ? " (upcoming)" : "";
+  return `Version ${m[1]} Phase ${m[2]}${tag} · `;
 }
 
 function Caveat({ children }: { children: ReactNode }) {

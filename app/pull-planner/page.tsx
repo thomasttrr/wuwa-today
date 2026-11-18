@@ -23,6 +23,12 @@ export const metadata: Metadata = {
 };
 
 const BUILT_AT = Date.now();
+// The account plans and FIVE_STARS below are editorial copy written for one
+// version. Kept separate from bannerMeta.version on purpose: when the data
+// moves to the next version, the page says these plans are from the old one
+// instead of relabelling them as current.
+const PLAN_VERSION = "3.8";
+const PLANS_OUT_OF_DATE = bannerMeta.version !== PLAN_VERSION;
 const FIVE_STARS = ["lily", "sigrika", "qiuyuan", "yangyang-xuanling", "suisui", "hiyuki"] as const;
 type FiveStarSlug = (typeof FIVE_STARS)[number];
 
@@ -62,8 +68,8 @@ function plan(key: string, title: string, profile: string, pick: FiveStarSlug, n
 }
 
 export default function PullPlannerPage() {
-  const p1 = bannerById.get("3.8-phase-1");
-  const p2 = bannerById.get("3.8-phase-2");
+  const p1 = bannerById.get(`${PLAN_VERSION}-phase-1`);
+  const p2 = bannerById.get(`${PLAN_VERSION}-phase-2`);
 
   const phases: PhaseNode[] = banners
     .filter((b) => b.version === bannerMeta.version)
@@ -119,10 +125,19 @@ export default function PullPlannerPage() {
       <section className="pp-section" aria-labelledby="pp-acc-h">
         <h2 id="pp-acc-h" className="pp-h">Pick by your account</h2>
         <p className="pp-sub">
-          Plans were written at the start of {bannerMeta.version}. When a
+          Plans were written at the start of {PLAN_VERSION}. When a
           pick&apos;s banner has ended it&apos;s flagged, and the advice applies to
           that Resonator&apos;s next rerun.
         </p>
+        {PLANS_OUT_OF_DATE && (
+          <p className="pp-sub" role="note">
+            <strong>
+              These plans are for version {PLAN_VERSION}; version {bannerMeta.version} plans
+              have not been written yet.
+            </strong>{" "}
+            The verdicts below still hold for each Resonator&apos;s next rerun.
+          </p>
+        )}
         <PlannerAccounts plans={plans} builtAt={BUILT_AT} />
       </section>
 

@@ -263,7 +263,7 @@ export default function VersionPage() {
           })}
         </div>
         <p className="vo-more">
-          <Link href="/pull-planner">Who to pull — Pull Planner →</Link>
+          <Link href="/pull-planner">Who to pull — Pull planner →</Link>
           <Link href="/banners">Full banner schedule →</Link>
         </p>
       </section>
