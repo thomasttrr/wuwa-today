@@ -8,13 +8,13 @@ import SpoilerCover, { RevealAllSpoilers } from "@/components/SpoilerCover";
 import "./leaks.css";
 
 export const metadata: Metadata = {
-  title: "4.0 and later leaks & rumors — Anna, Lucille, the New Federation, and the wider 4.x cast",
+  title: "4.0 and later leaks & rumors — Anna, Lucielle, the New Federation, and the wider 4.x cast",
   description:
-    "Everything leaked or rumored about Wuthering Waves 4.0 and beyond: Anna, Lucille, the New Federation, and the wider 4.x roster — every claim evidence-tagged.",
+    "Everything leaked or rumored about Wuthering Waves 4.0 and beyond: Anna, Lucielle, the New Federation, and the wider 4.x roster — every claim evidence-tagged.",
   alternates: { canonical: "/leaks" },
 };
 
-type Tag = "Datamined" | "Repeated leak" | "Single leak" | "Speculation" | "In-game lore";
+type Tag = "Datamined" | "Repeated leak" | "Single leak" | "Speculation" | "In-game lore" | "Official";
 
 const TAG_COLORS: Record<Tag, string> = {
   Datamined: "#7ee2a8",
@@ -22,11 +22,13 @@ const TAG_COLORS: Record<Tag, string> = {
   "Single leak": "#ffd97e",
   Speculation: "#c9a7ff",
   "In-game lore": "#ffb3c2",
+  Official: "#e8c268",
 };
 
 const TAG_STRENGTH: Record<Tag, number> = {
   Datamined: 5,
   "In-game lore": 5,
+  Official: 5,
   "Repeated leak": 4,
   "Single leak": 2,
   Speculation: 1,
@@ -91,11 +93,11 @@ function FileHead({ file, title, blurb }: { file: string; title: string; blurb: 
 }
 
 const TIMELINE: { when: string; what: string; hot?: boolean }[] = [
-  { when: "Dec 21, 2026", what: "Version 3.8 ends — the last patch of the 3.X arc" },
+  { when: "Nov 17, 2026", what: "Kuro reveals 4.0 — the trailer and all seven character drips land in one evening" },
   { when: "Late Nov – early Dec", what: "4.0 closed beta runs; kit details usually leak here" },
-  { when: "Mid-December", what: "Version 4.0 Special Broadcast — final banner order, codes, events" },
-  { when: "≈ Dec 23, 2026", what: "Version 4.0 launches: New Federation, Anna's banner", hot: true },
-  { when: "Mid-January 2027", what: "Phase 2 — Lucille's projected banner window" },
+  { when: "Dec 21, 2026", what: "Version 3.8 ends — the last patch of the 3.X arc" },
+  { when: "Dec 22, 2026", what: "Version 4.0 launches (UTC+8): New Federation, Anna's banner", hot: true },
+  { when: "Mid-January 2027", what: "Phase 2 — Lucielle's projected banner window" },
   { when: "Early Feb 2027", what: "Version 4.1 on the 42-day cycle — Amethyst's rumored slot" },
 ];
 
@@ -109,7 +111,7 @@ export default function LeaksPage() {
       <header className="og-page-hero">
         <span className="lk-signal">
           <span className="lk-signal-dot" aria-hidden />
-          Signal live · Last sweep Nov 17, 2026 · Nothing here is official
+          Signal live · Last sweep Nov 17, 2026 · Official reveals marked
         </span>
         <p className="og-page-kicker" style={{ marginTop: "1.1rem" }}>
           Version 4.0 and later · Unreleased · Leaks and rumors
@@ -118,11 +120,11 @@ export default function LeaksPage() {
           <DecryptTitle text="4.0+ LEAKS" />
         </h1>
         <p className="og-page-lede">
-          Version 4.0 is expected to skip 3.9 entirely and open a whole new region — the New
-          Federation — around December 23, 2026. Kuro Games has announced none of it. This page
-          collects every leak and rumor worth knowing, tags each claim by how solid the evidence
-          is, and names its sources — so you can tell the datamined facts from the wishful
-          thinking.
+          Version 4.0 skips 3.9 entirely and opens a whole new region — the New Federation —
+          on December 22, 2026. Kuro revealed the version and its seven-character cast on
+          November 17; everything past that reveal is still leak and rumor. This page collects
+          all of it, tags each claim by how solid the evidence is, and names its sources — so
+          you can tell the confirmed facts from the wishful thinking.
         </p>
         <div className="og-meta-row">
           <UpdatedStamp />
@@ -135,7 +137,7 @@ export default function LeaksPage() {
         items={[
           { href: "#timeline", label: "Timeline" },
           { href: "#anna", label: "Anna" },
-          { href: "#lucille", label: "Lucille" },
+          { href: "#lucille", label: "Lucielle" },
           { href: "#region", label: "Region & systems" },
           { href: "#wider-cast", label: "The wider 4.x cast" },
           { href: "#sources", label: "Sources" },
@@ -149,9 +151,10 @@ export default function LeaksPage() {
             strength. <strong>Datamined</strong> means seen in game data or model files.{" "}
             <strong>Repeated leak</strong> means several trackers agree. <strong>Single leak</strong>{" "}
             is one source so far. <strong>Speculation</strong> is community inference.{" "}
-            <strong>In-game lore</strong> is the one solid ground — checkable in the live game
-            today. All dates below are estimates worked out from the game&rsquo;s 42-day version
-            cycle.
+            <strong>In-game lore</strong> is checkable in the live game today, and{" "}
+            <strong>Official</strong> means Kuro has published it — a trailer, a drip post, a
+            notice. Dates from the official reveal are confirmed; the rest are estimates
+            worked out from the game&rsquo;s 42-day version cycle.
           </p>
           <div className="lk-tl">
             {TIMELINE.map((n) => (
@@ -167,8 +170,8 @@ export default function LeaksPage() {
       <div className="og-section" id="anna" style={{ scrollMarginTop: "120px" }}>
         <FileHead
           file="File 01 · Subject"
-          title="Anna — the rumored Phase 1 banner"
-          blurb="The steadiest name in the whole 4.x leak pile, and the only one with a leaked model."
+          title="Anna — officially revealed, Phase 1 per the leaks"
+          blurb="Revealed by Kuro on November 17 — and still the only one of the seven with a leaked model."
         />
         <Reveal>
           <div className="lk-view">
@@ -276,7 +279,39 @@ export default function LeaksPage() {
         </Reveal>
         <div style={{ height: "0.9rem" }} />
         <Reveal>
+          <div className="lk-view">
+            <div className="lk-view-bar">
+              <span>Official — character card</span>
+              <span>Kuro · Nov 17 · &ldquo;Roses &amp; Desires&rdquo;</span>
+            </div>
+            <div style={{ maxWidth: "330px", margin: "0 auto" }}>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/images/leaks/official-card-anna.webp"
+                alt="Official character card art of Anna: long blonde hair, red wide-brim hat, red black and white outfit with roses, holding a slender sword"
+                width={720}
+                height={1280}
+                loading="lazy"
+                style={{ display: "block", width: "100%", height: "auto" }}
+              />
+            </div>
+          </div>
+          <p style={{ margin: "0.6rem 0 0", opacity: 0.8, fontSize: "0.92rem" }}>
+            Her official card, posted by Kuro on November 17 — the design matches the leaked
+            model detail for detail, roses and leg markings included. It is shown uncovered:
+            this one is not a leak.
+          </p>
+        </Reveal>
+        <div style={{ height: "0.9rem" }} />
+        <Reveal>
           <div className="lk-claims">
+            <Claim tag="Official">
+              <strong>She is official now.</strong> Kuro&rsquo;s drip post for Anna
+              (&ldquo;Roses &amp; Desires&rdquo;) landed on November 17 with the full
+              character card above — and the trailer the same evening dates Version 4.0
+              to December 22 (UTC+8). Her Phase 1 slot still rests on the leaks; her
+              design no longer does.
+            </Claim>
             <Claim tag="Repeated leak">
               <strong>She opens Version 4.0</strong> as the Phase 1 banner and the player&rsquo;s
               guide into the New Federation — every roadmap summary puts her first.
@@ -320,11 +355,11 @@ export default function LeaksPage() {
               outright, and no tracker disputes it — the opening character of a new region has
               always been a limited five-star.
             </Claim>
-            <Claim tag="Single leak">
-              <strong>Her Tacet Mark sits on her upper thigh.</strong> A close-up render
-              gallery (FS, November 10) shows it there — faint and reddish in the shot, and
-              readers dispute how visible it really is, so treat the placement as likely, not
-              settled.
+            <Claim tag="Official">
+              <strong>Her Tacet Mark sits on her outer right thigh.</strong> The leaked
+              render gallery (FS, November 10) put it on her upper thigh — faint and
+              reddish, with readers disputing how visible it was. Her official character
+              card settles it: the mark is plainly there, on the outer right thigh.
             </Claim>
             <Claim tag="Single leak">
               <strong>Her English voice is out there too.</strong> An 11-second in-game clip
@@ -491,8 +526,8 @@ export default function LeaksPage() {
       <div className="og-section" id="lucille" style={{ scrollMarginTop: "120px" }}>
         <FileHead
           file="File 02 · Subject"
-          title="Lucille — the rumored Phase 2 banner"
-          blurb="Thinner evidence than Anna — one bust portrait, no full model, and her element only narrowed to two options this week."
+          title="Lucielle — the rumored Phase 2 banner"
+          blurb="Officially revealed on November 17 — animal ears and all. Her element is still only narrowed to two options, and the Phase 2 slot itself is still leak-grade."
         />
         <Reveal>
           <div className="lk-view">
@@ -500,14 +535,14 @@ export default function LeaksPage() {
               <span>3D model — bust portrait only</span>
               <span>Via StepLeaks · Oct 29 · AI-enhanced</span>
             </div>
-            <SpoilerCover label="Lucille — bust portrait">
+            <SpoilerCover label="Lucielle — bust portrait">
             <div className="lk-view-media">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src="/images/leaks/lucille-model-enh-1200.webp"
                 srcSet="/images/leaks/lucille-model-enh-1200.webp 1200w, /images/leaks/lucille-model-enh-1924.webp 1924w"
                 sizes="(max-width: 760px) 100vw, 900px"
-                alt="Leaked 3D model bust portrait of Lucille: blonde twin braids, green eyes, red outfit and black choker, with the StepLeaks watermark"
+                alt="Leaked 3D model bust portrait of Lucielle: blonde twin braids, green eyes, red outfit and black choker, with the StepLeaks watermark"
                 width={1200}
                 height={859}
                 loading="lazy"
@@ -521,7 +556,7 @@ export default function LeaksPage() {
             <div className="lk-specs" style={{ gridTemplateColumns: "repeat(2, minmax(0, 1fr))" }}>
               <div className="lk-spec">
                 <div className="lk-spec-k">Full-body model</div>
-                <div className="lk-spec-v">Not acquired</div>
+                <div className="lk-spec-v">Not acquired — official art only</div>
               </div>
               <div className="lk-spec" style={{ borderLeft: "1px solid var(--rs-line-soft)" }}>
                 <div className="lk-spec-k">In-game shots</div>
@@ -530,9 +565,34 @@ export default function LeaksPage() {
             </div>
           </div>
           <p style={{ margin: "0.6rem 0 0", opacity: 0.8, fontSize: "0.92rem" }}>
-            The only model visual that has surfaced — a bust portrait carrying the leaker&rsquo;s
-            own watermark, mouse cursor and all. The fuller artwork circulating under her name
-            elsewhere is fan-made, so it stays off this page.
+            The only leaked model visual — a bust portrait carrying the leaker&rsquo;s own
+            watermark, mouse cursor and all. Her official card (below) is the first full look
+            at her design.
+          </p>
+        </Reveal>
+        <div style={{ height: "0.9rem" }} />
+        <Reveal>
+          <div className="lk-view">
+            <div className="lk-view-bar">
+              <span>Official — character card</span>
+              <span>Kuro · Nov 17 · &ldquo;Future &amp; Falsehoods&rdquo;</span>
+            </div>
+            <div style={{ maxWidth: "330px", margin: "0 auto" }}>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/images/leaks/official-card-lucielle.webp"
+                alt="Official character card art of Lucielle: long blonde hair, animal ears, green eyes, red and black outfit with white fur trim"
+                width={720}
+                height={1280}
+                loading="lazy"
+                style={{ display: "block", width: "100%", height: "auto" }}
+              />
+            </div>
+          </div>
+          <p style={{ margin: "0.6rem 0 0", opacity: 0.8, fontSize: "0.92rem" }}>
+            Her official card — the animal ears the leaked portrait never showed are right
+            there, and the red and black outfit matches the portrait. Shown uncovered:
+            official art, not a leak.
           </p>
         </Reveal>
         <div style={{ height: "0.9rem" }} />
@@ -542,13 +602,14 @@ export default function LeaksPage() {
               <strong>The portrait above</strong> leaked on October 29 through StepLeaks and has
               been reshared everywhere since: green eyes, twin braids, a red outfit, and a black
               choker. It is a bust shot only — the cat ears and cowboy styling from the written
-              descriptions don&rsquo;t appear in it, so her full design is still unseen.
+              descriptions don&rsquo;t appear in it. Her official card has since shown the full
+              design, ears included — the cowboy styling is at most a hint in the fur trim.
             </Claim>
-            <Claim tag="Repeated leak">
-              <strong>The name isn&rsquo;t final.</strong> She appears as Lucille, Luciel, and
-              Luxier across posts. Not to be confused with <strong>Lucilla</strong>, the Glacio
-              Rectifier already in the game — a different character, and the most common mix-up
-              in 4.0 threads.
+            <Claim tag="Official">
+              <strong>The name is settled: Lucielle.</strong> Kuro&rsquo;s November 17 drip
+              post fixes the spelling — the leaks wrote her as Lucille, Luciel, and Luxier.
+              Not to be confused with <strong>Lucilla</strong>, the Glacio Rectifier already
+              in the game — a different character, and the most common mix-up in 4.0 threads.
             </Claim>
             <Claim tag="Repeated leak">
               <strong>An affectionate catgirl with cowboy styling</strong> — the description has
@@ -580,6 +641,14 @@ export default function LeaksPage() {
         />
         <Reveal>
           <div className="lk-grid2">
+            <Claim tag="Official">
+              <strong>4.0 has a name and a date.</strong> Kuro&rsquo;s reveal trailer
+              (&ldquo;Beneath Promeus&rsquo;s Embrace&rdquo;, November 17) titles the version{" "}
+              <strong>Embers of the Everbright — Chapter of the Year</strong> and dates it to{" "}
+              <strong>December 22 (UTC+8)</strong>. One spoken line names a
+              &ldquo;Glenn&rdquo; — no face or role attached yet. The drip-date guesses below
+              all settled the same evening.
+            </Claim>
             <Claim tag="In-game lore">
               <strong>The New Federation is established lore.</strong> A cyberpunk,
               technology-worshipping nation — home of Calcharo, Mortefi, Lynae, Verina, Aalto,
@@ -601,7 +670,7 @@ export default function LeaksPage() {
             <Claim tag="Single leak">
               <strong>A reworked Tune Break.</strong> Leaks describe a revision of the Version
               3.0 system — likely a third branch beside Tune Rupture and Tune Strain — with Anna
-              introducing it and Lucille extending it. Whether existing Resonators get access
+              introducing it and Lucielle extending it. Whether existing Resonators get access
               matters more than the details, and nobody knows yet.
             </Claim>
             <Claim tag="Single leak">
@@ -655,8 +724,8 @@ export default function LeaksPage() {
             <Claim tag="Speculation">
               <strong>A November 18 drip date is floating around.</strong> One X user with
               no track record (@kyryllmitya, November 12) claims Kuro drops an official 4.x
-              character reveal on November 18. Nothing backs it — no characters named, nothing
-              shown. It is a dated claim, so it settles itself within the week.
+              character reveal on November 18. Nothing backed it — no characters named, nothing
+              shown. Settled a day early: the full reveal landed on November 17.
             </Claim>
             <Claim tag="Single leak">
               <strong>Anna&rsquo;s drip is tipped for this week.</strong> WuWa Timeline
@@ -664,22 +733,24 @@ export default function LeaksPage() {
               this week — a different guess from the November 18 date above, from a
               tracker with a record rather than a no-name account. The same post
               repeats her known Fusion / Broadblade / scythe claims; only the timing
-              is new. It settles itself within days either way.
+              was new. Settled: her drip posted on November 17, inside his window.
             </Claim>
             <Claim tag="Speculation">
               <strong>A November 16 drip date is the newest guess.</strong> One X
               account (@LordArbiterWW, November 15) says 4.x drip marketing lands
               tomorrow, November 16 — no source, no image, and the leak
               megathread&rsquo;s own estimate points later, at November 20/21. It is
-              the third different drip date in circulation. It settles itself
-              tomorrow either way.
+              the third different drip date in circulation. Settled: nothing landed on
+              November 16 — the reveal came on November 17.
             </Claim>
             <Claim tag="Speculation">
               <strong>A bigger reveal is claimed for November 18/19.</strong> One X
               reply (Assa byL, November 16) says Version 4.0 reveals five characters
               plus a New Federation trailer on November 18 or 19. No names, no
               images, nothing behind it — the date overlaps the November 18 guess
-              above; the five-character count and the trailer are the new parts.
+              above; the five-character count and the trailer were the new parts. Settled, and
+              bigger than claimed: the reveal landed on November 17 with a trailer and
+              seven characters, not five.
             </Claim>
             <Claim tag="Speculation">
               <strong>The beta is tipped for November 23.</strong> Legion
@@ -688,7 +759,9 @@ export default function LeaksPage() {
               the reveal could cover five to six New Federation characters plus a
               region trailer. It is calendar math from Kuro&rsquo;s past cycles, not
               a source inside — the drip window matches the guesses above; the dated
-              beta start is the new part.
+              beta start was the new part — and his drip window (November 17–19) hit on
+              its first day, trailer included. The November 23 beta date itself is still
+              open.
             </Claim>
             <Claim tag="Single leak">
               <strong>Beta recruitment is claimed to be open.</strong> A screenshot
@@ -722,10 +795,84 @@ export default function LeaksPage() {
         <FileHead
           file="File 04 · Roster board"
           title="The wider 4.x cast"
-          blurb="Seele's leaked list describes eight New Federation characters. Beyond Anna and Lucille, treat all of it as early roadmap talk."
+          blurb="Kuro revealed seven New Federation characters on November 17 — the cards are below. Amethyst was not among them, so her row and the rest stay leak-grade."
         />
         <Reveal>
+          <div className="lk-view">
+            <div className="lk-view-bar">
+              <span>Official — the 4.0 reveal set</span>
+              <span>Kuro · Nov 17</span>
+            </div>
+            <div className="lk-cards">
+              <figure>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src="/images/leaks/official-card-anna.webp" alt="Official character card art of Anna" width={720} height={1280} loading="lazy" />
+                <figcaption>Anna — &ldquo;Roses &amp; Desires&rdquo;</figcaption>
+              </figure>
+              <figure>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src="/images/leaks/official-card-april.webp" alt="Official character card art of April: pale pink hair, white and teal maid-style dress, holding a camera-like device" width={720} height={1280} loading="lazy" />
+                <figcaption>April — &ldquo;Truth &amp; Illusion&rdquo;</figcaption>
+              </figure>
+              <figure>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src="/images/leaks/official-card-gordia.webp" alt="Official character card art of Gordia: black hair, military cap, black and red uniform with a red cape, holding a whip" width={720} height={1280} loading="lazy" />
+                <figcaption>Gordia — &ldquo;Silent &amp; Honed&rdquo;</figcaption>
+              </figure>
+              <figure>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src="/images/leaks/official-card-lucielle.webp" alt="Official character card art of Lucielle" width={720} height={1280} loading="lazy" />
+                <figcaption>Lucielle — &ldquo;Future &amp; Falsehoods&rdquo;</figcaption>
+              </figure>
+              <figure>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src="/images/leaks/official-card-cairn.webp" alt="Official character card art of Cairn: white-haired man, black mask over the lower face, dark outfit, one glowing blue arm" width={720} height={1280} loading="lazy" />
+                <figcaption>Cairn — &ldquo;Blood Debts &amp; Purifying Rain&rdquo;</figcaption>
+              </figure>
+              <figure>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src="/images/leaks/official-card-iya.webp" alt="Official character card art of Iya: long light-blue hair, white and blue outfit, ring and sparkle motifs" width={720} height={1280} loading="lazy" />
+                <figcaption>Iya — &ldquo;UFOs &amp; Sparkles&rdquo;</figcaption>
+              </figure>
+              <figure>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src="/images/leaks/official-card-simulsys.webp" alt="Official character card art of Simulsys: long blonde hair, elegant black and white gown" width={720} height={1280} loading="lazy" />
+                <figcaption>Simulsys — &ldquo;Bones &amp; Bygones&rdquo;</figcaption>
+              </figure>
+            </div>
+          </div>
+          <p style={{ margin: "0.6rem 0 0", opacity: 0.8, fontSize: "0.92rem" }}>
+            Kuro&rsquo;s character cards for the whole reveal set, posted five minutes apart
+            on the evening of November 17. No element, weapon, or kit was given for any of
+            them — everything in the rows below is still leak-grade until the beta.
+          </p>
+        </Reveal>
+        <div style={{ height: "0.9rem" }} />
+        <Reveal>
           <div className="lk-cast">
+            <div className="lk-cast-row">
+              <p>
+                <Chip tag="Official" /> <strong>The reveal set: Anna, April, Gordia,
+                Lucielle, Cairn, Iya and Simulsys.</strong> Kuro&rsquo;s seven drip posts
+                (November 17) name the faces from the trailer. Cairn&rsquo;s masked look
+                matches the masked-male description below, and Iya&rsquo;s space styling
+                matches the &ldquo;satellite girl&rdquo; — where the leaked names or
+                versions differ from these, the leaks were wrong. A trailer line also
+                names a Glenn, with no face shown.
+              </p>
+              <span className="lk-ver">4.0</span>
+            </div>
+            <div className="lk-cast-row">
+              <p>
+                <Chip tag="Single leak" /> <strong>Their Tacet Marks, read from the
+                official art.</strong> One reader&rsquo;s pass over the drip cards
+                (Tyson, November 17) puts them at: April&rsquo;s right eye, Gordia&rsquo;s
+                inner right thigh, Cairn&rsquo;s right shoulder, and Simulsys&rsquo;s
+                upper left thigh — Anna&rsquo;s is confirmed in her file above.
+                Lucielle&rsquo;s and Iya&rsquo;s marks are not visible in their cards.
+              </p>
+              <span className="lk-ver">4.0</span>
+            </div>
             <div className="lk-cast-row">
               <p>
                 <Chip tag="Repeated leak" />{" "}
@@ -740,7 +887,9 @@ export default function LeaksPage() {
                 shown below, credited to its artist). A November 17 post resharing a
                 Tieba item claims she has three forms and a clone mechanic
                 (speculation — the poster flags it as suspect themselves and says it
-                may be mixed up with Fusion Rover).
+                may be mixed up with Fusion Rover). She was not among the seven
+                characters Kuro revealed on November 17, so her 4.1 placement stays a
+                leak claim.
               </p>
               <span className="lk-ver">4.1 · P1?</span>
             </div>
@@ -845,7 +994,7 @@ export default function LeaksPage() {
         <FileHead
           file="File 05 · Chain of custody"
           title="Sources and how this page is kept"
-          blurb="Checked November 12, 2026. Re-checked whenever the beta, drip marketing, or the Special Broadcast lands."
+          blurb="Checked November 17, 2026 — the drip marketing has landed and the reveal set is on the page. Re-checked again when the beta opens."
         />
         <Reveal>
           <div className="og-notice" role="note">
@@ -854,7 +1003,7 @@ export default function LeaksPage() {
               banner tracking comes from <strong>Wuwaguy</strong> (X) and the dataminer{" "}
               <strong>Nanoka</strong>. The model visuals are sourced post-by-post: Anna&rsquo;s
               render set came via <strong>WuWaLand</strong> (reshared by WuWa Universe on X,
-              November 9–10, and mirrored in the PTT C_Chat leak thread), and Lucille&rsquo;s
+              November 9–10, and mirrored in the PTT C_Chat leak thread), and Lucielle&rsquo;s
               bust portrait via <strong>StepLeaks</strong> (October 29). Anna&rsquo;s in-game
               story stills come via <strong>Sleepy</strong> (November 11, relayed by the WuWa
               News channel and PTT), A fan-made animation of Anna&rsquo;s leaked model surfaced on Facebook on November 14 — reshares only, origin unverified, and noted on this page as fan work rather than a leak drop — the height-comparison clip in File 01 is a hosted copy of WuWa Timeline&rsquo;s November 16 post (never an embed), and the VFX-skins illustration in File 04 is fan art by Ima Dei Tup, shared via Riju&rsquo;s November 16 post and credited to the artist — and the 4.0 map place names and map-size note come from{" "}
@@ -863,17 +1012,20 @@ export default function LeaksPage() {
               GamsGo&rsquo;s 4.0 banner guide and Anna profile (updated November 11, 2026),
               LDShop&rsquo;s banner schedule (November 2), TopUpLive&rsquo;s 4.0–4.2 leak
               summary, and BitTopup&rsquo;s 3.8/4.0 coverage.
-              Where the trackers disagree — Lucille&rsquo;s element above all — this page says
-              so instead of picking a winner. Every image on this page is AI-upscaled for
-              clarity (Real-ESRGAN, anime model) from the file that actually leaked —
-              enhancement sharpens, it does not add real detail. The unedited originals stay
+              Where the trackers disagree — Lucielle&rsquo;s element above all — this page says
+              so instead of picking a winner. The leaked images on this page are AI-upscaled for
+              clarity (Real-ESRGAN, anime model) from the files that actually leaked —
+              enhancement sharpens, it does not add real detail. The seven character
+              cards are Kuro&rsquo;s official art from the November 17 drip posts
+              (mirrored via the wiki&rsquo;s uploads of the same art), shown unedited
+              and uncovered. The unedited originals stay
               on the site:{" "}
               <a href="/images/leaks/anna-model-1920.webp">model sheet</a>,{" "}
               <a href="/images/leaks/anna-rotation-1920.webp">rotation</a>,{" "}
               <a href="/images/leaks/anna-bust-1400.webp">upper-body detail</a>,{" "}
               <a href="/images/leaks/anna-ingame-1600.webp">in-world shot</a>,{" "}
               <a href="/images/leaks/anna-story-1-800.webp">story stills</a>,{" "}
-              <a href="/images/leaks/lucille-model-962.webp">Lucille portrait</a>. For what is
+              <a href="/images/leaks/lucille-model-962.webp">Lucielle portrait</a>. For what is
               actually live, see the{" "}
               <Link href="/banners">banners page</Link> and the{" "}
               <Link href="/phase-2">December 3 Phase 2 preview</Link>.

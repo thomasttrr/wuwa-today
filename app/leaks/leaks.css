@@ -375,3 +375,12 @@
   .lk-grid2 .lk-claim { grid-template-columns: minmax(0, 1fr); }
   .lk-grid2 .lk-claim-meta { flex-direction: row; align-items: center; }
 }
+
+/* Official character cards — reveal-set gallery */
+.lk-cards { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 3px; background: #05060a; }
+.lk-cards figure { margin: 0; background: var(--rs-surface); }
+.lk-cards img { display: block; width: 100%; height: auto; }
+.lk-cards figcaption { padding: 0.45rem 0.5rem 0.55rem; font-size: 0.82rem; line-height: 1.35; color: var(--rs-ink); }
+@media (max-width: 640px) {
+  .lk-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}

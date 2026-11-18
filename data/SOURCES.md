@@ -636,3 +636,39 @@ Lily client verification Nov 11, 2026: role, skill, sequence and weapon text che
   disputing it ("you are not from Square Enix plus not someone from
   Kuro"). The page text carries the dispute. Approved by Tom on
   2026-11-17.
+
+## 2026-11-17 — The official 4.0 reveal batch (leaks page, all files)
+
+- Published under Tom's 12-hour auto-approve (2026-11-17 23:04 ET,
+  DECISIONS.md). Kuro revealed Version 4.0 on the evening of Nov 17:
+  trailer "Beneath Promeus's Embrace" (first surfaced via IGN ~21:50
+  ET; official @Wuthering_Waves post 21:57 ET) titles the version
+  "Embers of the Everbright — Chapter of the Year" and dates it
+  December 22 (UTC+8); a spoken line names a "Glenn". Seven official
+  drip posts followed five minutes apart, 22:05–22:35 ET: Anna
+  ("Roses & Desires"), April ("Truth & Illusion"), Gordia ("Silent &
+  Honed"), Lucielle ("Future & Falsehoods" — official spelling,
+  replacing the leaks' Lucille/Luciel/Luxier everywhere on the page),
+  Cairn ("Blood Debts & Purifying Rain"), Iya ("UFOs & Sparkles"),
+  Simulsys ("Bones & Bygones"). No element, weapon, or kit in any
+  post. Amethyst was NOT among the seven.
+- Page changes: an "Official" evidence tag added (gold, strength 5);
+  hero, timeline (Dec 22 launch node), and File 03 updated — the
+  five drip-date/beta claims now carry their settlements; File 01
+  gained Anna's official card + an Official claim, and her Tacet
+  Mark claim is upgraded to Official (outer right thigh, per the
+  official card); File 02 renamed to Lucielle throughout, name claim
+  upgraded to Official, her official card added; File 04 gained the
+  seven-card gallery, a reveal-set row, and a Tacet Mark row (April
+  right eye, Gordia inner right thigh, Cairn right shoulder,
+  Simulsys upper left thigh; Lucielle's and Iya's not visible —
+  read from the official art by Tyson, @tysonmeoww, Nov 17 22:55 ET;
+  his post's attached media did not load for the watch, so the four
+  new locations rest on his reading of public official art).
+- Images: the seven official character cards (2160x3840 originals)
+  mirrored from the Fandom wiki's uploads of Kuro's drip art
+  (File:<Name> Card.jpg; Iya's card is filed as I.YA), downscaled to
+  720 wide, hosted as public/images/leaks/official-card-<name>.webp,
+  shown unedited and without spoiler covers — official art, not
+  leaks. Each card was viewed before shipping; names are printed on
+  the art itself.
