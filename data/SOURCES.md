@@ -702,3 +702,22 @@ Lily client verification Nov 11, 2026: role, skill, sequence and weapon text che
   the old man glimpsed in the 4.0 trailer is claimed to be Lucielle's
   grandfather and a boss. Trailer still only; no render, no second
   source. Published under Tom's 12-hour auto-approve (DECISIONS.md).
+
+## 2026-11-18 — Unison team update: Hsin + Suoming + Lily (Tom: "do the whole entire team")
+
+- Tom's pick (Nov 18) resolved the standing Hsin/Suoming stale-teams
+  item: both character pages now lead with Hsin + Suoming + Lily as
+  the premium team; the Shorekeeper version is kept as the
+  Alternative; game_version stamps moved to 3.8; pull verdicts
+  revised (Suoming's stale Lynae-rerun line removed).
+- Sources (checked Nov 18, 2026): Game8 Hsin guide (archives/605309)
+  — "Hsin's best team is the premier Unison composition with Suoming
+  and Lily"; Unison Boon +3% total DMG per stack; Suoming Outro 20%
+  Electro Amp + 25% Resonance Skill Amp (8s); Hsin Outro team-wide
+  20% All DMG Amp for Unison users; Shorekeeper/Verina/Mornye listed
+  as Lily replacements. Game8 Suoming guide (archives/605306) —
+  Premium Unison Team is Hsin + Suoming + Lily (Flower of Tinged
+  Yearning on Lily); F2P team Sanhua + Verina. Lily Outro 25% All DMG
+  Amp / 30s: GuruGamer 3.8 pull-value guide + WU.DA.MAGE changelog
+  (via the Nov 18 weekly-guide draft research). Prydwen team tier
+  list (via wuwabuild Tower guide) ranks the Lily version first.
