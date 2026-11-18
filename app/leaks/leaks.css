@@ -1,37 +1,7 @@
-/* /leaks — "intercepted dossier" layer on top of the Resonance system.
+/* /leaks — evidence-tagged dossier, in the Aftermath look (no glow, no
+   scan lines, no corner brackets; sentence-case labels).
    Page-scoped (imported by app/leaks/page.tsx only). Motion is transform /
    opacity only and fully gated behind prefers-reduced-motion. */
-
-.lk-signal {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.55rem;
-  font-family: var(--rs-mono, ui-monospace, monospace);
-  font-size: var(--fs-2, 12px);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--rs-ink-2);
-  border: 1px solid var(--rs-line);
-  border-radius: var(--rs-r-ctl);
-  padding: 0.4rem 0.85rem;
-  background: var(--rs-surface);
-}
-.lk-signal-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: #ff5d73;
-  flex-shrink: 0;
-}
-@media (prefers-reduced-motion: no-preference) {
-  .lk-signal-dot {
-    animation: lk-pulse 1.6s ease-in-out infinite;
-  }
-}
-@keyframes lk-pulse {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(255, 93, 115, 0.55); }
-  50% { box-shadow: 0 0 0 6px rgba(255, 93, 115, 0); }
-}
 
 /* Legend + evidence meters */
 .lk-legend {
@@ -64,14 +34,10 @@
   border-left: 3px solid var(--tag);
   border-radius: var(--rs-r-sm);
   background: var(--rs-surface);
-  transition: transform var(--rs-d1, 180ms) var(--rs-ease, ease), border-color var(--rs-d1, 180ms) var(--rs-ease, ease), box-shadow var(--rs-d1, 180ms) var(--rs-ease, ease);
+  transition: border-color var(--rs-d1, 180ms) var(--rs-ease, ease);
 }
-@media (hover: hover) and (prefers-reduced-motion: no-preference) {
-  .lk-claim:hover {
-    transform: translateY(-2px);
-    border-color: color-mix(in srgb, var(--tag) 55%, transparent);
-    box-shadow: 0 10px 28px -14px color-mix(in srgb, var(--tag) 45%, transparent);
-  }
+@media (hover: hover) {
+  .lk-claim:hover { border-color: color-mix(in srgb, var(--tag) 55%, transparent); }
 }
 .lk-claim-meta {
   display: flex;
@@ -95,13 +61,13 @@
 
 /* Dossier section head */
 .lk-file {
-  font-family: var(--rs-mono, ui-monospace, monospace);
-  font-size: var(--fs-2, 12px);
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--el);
+  font-size: var(--fs-3, 13px);
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  color: var(--am-gold-hi, var(--el));
   margin: 0 0 0.4rem;
 }
+.lk-meta { justify-content: flex-start; gap: 0.6rem 1.25rem; margin: -0.5rem 0 1.25rem; }
 
 /* Timeline rail */
 .lk-tl {
@@ -118,7 +84,7 @@
   right: 0;
   top: 5px;
   height: 2px;
-  background: linear-gradient(90deg, var(--rs-line), color-mix(in srgb, var(--el) 55%, var(--rs-line)), var(--rs-line));
+  background: rgb(185 155 104 / 0.35);
 }
 .lk-tl-node { position: relative; padding-top: 1.1rem; min-width: 0; }
 .lk-tl-node::before {
@@ -136,36 +102,17 @@
   background: var(--el);
   border-color: var(--el);
 }
-@media (prefers-reduced-motion: no-preference) {
-  .lk-tl-node.hot::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    border: 2px solid var(--el);
-    animation: lk-nodeping 2s ease-out infinite;
-  }
-}
-@keyframes lk-nodeping {
-  0% { transform: scale(1); opacity: 0.8; }
-  100% { transform: scale(2.4); opacity: 0; }
-}
 .lk-tl-when {
-  font-family: var(--rs-mono, ui-monospace, monospace);
-  font-size: var(--fs-2, 12px);
-  color: var(--el);
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
+  font-size: var(--fs-3, 13px);
+  font-weight: 500;
+  color: var(--am-gold-hi, var(--el));
 }
 .lk-tl-what { font-size: var(--fs-4, 14px); line-height: 1.45; margin-top: 0.2rem; }
 @media (max-width: 760px) {
   .lk-tl { grid-template-columns: minmax(0, 1fr); gap: 0.9rem; }
-  .lk-tl::before { left: 5px; right: auto; top: 0; bottom: 0; width: 2px; height: auto; background: linear-gradient(180deg, var(--rs-line), color-mix(in srgb, var(--el) 55%, var(--rs-line)), var(--rs-line)); }
+  .lk-tl::before { left: 5px; right: auto; top: 0; bottom: 0; width: 2px; height: auto; background: rgb(185 155 104 / 0.35); }
   .lk-tl-node { padding-top: 0; padding-left: 1.6rem; }
-  .lk-tl-node::before, .lk-tl-node.hot::after { top: 4px; }
+  .lk-tl-node::before { top: 4px; }
 }
 
 /* Model viewport (Anna) + no-signal viewport (Lucille) */
@@ -181,10 +128,8 @@
   gap: 1rem;
   padding: 0.55rem 0.95rem;
   border-bottom: 1px solid var(--rs-line-soft);
-  font-family: var(--rs-mono, ui-monospace, monospace);
   font-size: var(--fs-2, 12px);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  letter-spacing: 0.01em;
   color: var(--rs-ink-2);
 }
 .lk-view-media { position: relative; overflow: clip; }
@@ -244,18 +189,16 @@
   width: 46px;
   height: 46px;
   border-radius: var(--rs-r-ctl);
-  border: 1px solid var(--el);
-  color: var(--el);
+  border: 1px solid rgb(185 155 104 / 0.6);
+  color: var(--am-gold-hi, var(--el));
   background: rgba(6, 7, 12, 0.45);
 }
 .lk-spoiler-k {
-  font-family: var(--rs-mono, ui-monospace, monospace);
-  font-size: var(--fs-1);
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
+  font-size: var(--fs-2);
+  letter-spacing: 0.01em;
   opacity: 0.85;
 }
-.lk-spoiler-t { font-size: var(--fs-8); font-weight: 700; line-height: 1; letter-spacing: 0.02em; }
+.lk-spoiler-t { font-family: var(--rs-display); font-size: var(--fs-8); font-weight: 600; line-height: 1; }
 .lk-spoiler-pill {
   margin-top: 0.3rem;
   padding: 0.36rem 0.9rem;
@@ -263,9 +206,8 @@
   border: 1px solid rgba(238, 241, 246, 0.42);
   background: rgba(6, 7, 12, 0.42);
   font-size: var(--fs-2);
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
+  font-weight: 500;
+  letter-spacing: 0.01em;
   transition: border-color 180ms ease, color 180ms ease;
 }
 .lk-spoiler-cover:hover .lk-spoiler-pill,
@@ -274,23 +216,6 @@
   color: var(--el);
 }
 .lk-spoiler-cover:focus-visible { outline: 2px solid var(--el); outline-offset: -2px; }
-.lk-spoiler-scan { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
-.lk-spoiler-scan::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: -18%;
-  height: 18%;
-  background: linear-gradient(to bottom, transparent, rgba(232, 194, 104, 0.16), transparent);
-}
-@media (prefers-reduced-motion: no-preference) {
-  .lk-spoiler-scan::after { animation: lk-scan 3.4s linear infinite; }
-}
-@keyframes lk-scan {
-  from { transform: translateY(0); }
-  to { transform: translateY(680%); }
-}
 @media (prefers-reduced-motion: reduce) {
   .lk-view-media .lk-spoiler img,
   .lk-spoiler-cover { transition: none; }
@@ -311,19 +236,6 @@
   transition: border-color 180ms ease, color 180ms ease;
 }
 .lk-reveal-all:hover { border-color: var(--el); color: var(--el); }
-.lk-corner { position: absolute; width: 22px; height: 22px; border: 0 solid var(--el); opacity: 0.9; pointer-events: none; }
-.lk-corner.tl { top: 10px; left: 10px; border-top-width: 2px; border-left-width: 2px; }
-.lk-corner.tr { top: 10px; right: 10px; border-top-width: 2px; border-right-width: 2px; }
-.lk-corner.bl { bottom: 10px; left: 10px; border-bottom-width: 2px; border-left-width: 2px; }
-.lk-corner.br { bottom: 10px; right: 10px; border-bottom-width: 2px; border-right-width: 2px; }
-@media (prefers-reduced-motion: no-preference) {
-  .lk-drift img { animation: lk-drift 16s ease-in-out infinite alternate; }
-}
-@keyframes lk-drift {
-  from { transform: scale(1); }
-  to { transform: scale(1.05); }
-}
-
 /* Spec readout (Anna) */
 .lk-specs {
   display: grid;
@@ -333,10 +245,8 @@
 .lk-spec { padding: 0.8rem 0.95rem; min-width: 0; }
 .lk-spec + .lk-spec { border-left: 1px solid var(--rs-line-soft); }
 .lk-spec-k {
-  font-family: var(--rs-mono, ui-monospace, monospace);
-  font-size: var(--fs-1, 11px);
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
+  font-size: var(--fs-2, 12px);
+  letter-spacing: 0.01em;
   color: var(--rs-ink-3);
 }
 .lk-spec-v { font-weight: 700; margin-top: 0.25rem; line-height: 1.35; }

@@ -91,12 +91,11 @@ export default function SpoilerCover({
           aria-expanded={on}
           aria-label={`Reveal spoiler image: ${label}`}
         >
-          <span className="lk-spoiler-scan" aria-hidden />
           <span className="lk-spoiler-inner">
             <span className="lk-spoiler-eye" aria-hidden>
               <EyeOffIcon />
             </span>
-            <span className="lk-spoiler-k">Classified · Leaked visual</span>
+            <span className="lk-spoiler-k">Leaked image</span>
             <span className="lk-spoiler-t">Spoiler</span>
             <span className="lk-spoiler-pill">Tap to reveal</span>
           </span>

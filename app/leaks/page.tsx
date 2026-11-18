@@ -3,7 +3,7 @@ import Link from "next/link";
 import ObsidianToolbar from "@/components/ObsidianToolbar";
 import Reveal from "@/components/Reveal";
 import UpdatedStamp from "@/components/UpdatedStamp";
-import DecryptTitle from "@/components/DecryptTitle";
+import PageHero from "@/components/PageHero";
 import SpoilerCover, { RevealAllSpoilers } from "@/components/SpoilerCover";
 import "./leaks.css";
 
@@ -16,13 +16,16 @@ export const metadata: Metadata = {
 
 type Tag = "Datamined" | "Repeated leak" | "Single leak" | "Speculation" | "In-game lore" | "Official";
 
+// Aftermath: tones step down with the evidence instead of a rainbow. Solid
+// sources read gold, repeated leaks ivory, single leaks grey, and
+// speculation the one muted red (red stays rare on the site).
 const TAG_COLORS: Record<Tag, string> = {
-  Datamined: "#7ee2a8",
-  "Repeated leak": "#8ecbff",
-  "Single leak": "#ffd97e",
-  Speculation: "#c9a7ff",
-  "In-game lore": "#ffb3c2",
-  Official: "#e8c268",
+  Official: "#d9c49b",
+  Datamined: "#d9c49b",
+  "In-game lore": "#d9c49b",
+  "Repeated leak": "#ece6da",
+  "Single leak": "#a29c91",
+  Speculation: "#c07a82",
 };
 
 const TAG_STRENGTH: Record<Tag, number> = {
@@ -40,13 +43,12 @@ function Chip({ tag }: { tag: Tag }) {
       style={{
         display: "inline-block",
         padding: "0.1rem 0.5rem",
-        borderRadius: "999px",
-        border: `1px solid ${TAG_COLORS[tag]}`,
+        borderRadius: "2px",
+        border: `1px solid color-mix(in srgb, ${TAG_COLORS[tag]} 60%, transparent)`,
         color: TAG_COLORS[tag],
-        fontSize: "0.72rem",
-        fontWeight: 700,
-        letterSpacing: "0.04em",
-        textTransform: "uppercase",
+        fontSize: "0.78rem",
+        fontWeight: 500,
+        letterSpacing: "0.01em",
         whiteSpace: "nowrap",
       }}
     >
@@ -108,29 +110,17 @@ export default function LeaksPage() {
         ← Home
       </Link>
 
-      <header className="og-page-hero">
-        <span className="lk-signal">
-          <span className="lk-signal-dot" aria-hidden />
-          Signal live · Last sweep Nov 17, 2026 · Official reveals marked
-        </span>
-        <p className="og-page-kicker" style={{ marginTop: "1.1rem" }}>
-          Version 4.0 and later · Unreleased · Leaks and rumors
-        </p>
-        <h1 className="og-page-title og-display">
-          <DecryptTitle text="4.0+ LEAKS" />
-        </h1>
-        <p className="og-page-lede">
-          Version 4.0 skips 3.9 entirely and opens a whole new region — the New Federation —
-          on December 22, 2026. Kuro revealed the version and its seven-character cast on
-          November 17; everything past that reveal is still leak and rumor. This page collects
-          the rumor side of it, tags each claim by how solid the evidence is, and names its
-          sources — the official announcements themselves live on the Version 4.0 page.
-        </p>
-        <div className="og-meta-row">
-          <UpdatedStamp />
-          <RevealAllSpoilers />
-        </div>
-      </header>
+      <PageHero kicker="Version 4.0 and later · Leaks and rumors · Last sweep Nov 17, 2026" title="4.0+ leaks">
+        Version 4.0 skips 3.9 entirely and opens a whole new region — the New Federation —
+        on December 22, 2026. Kuro revealed the version and its seven-character cast on
+        November 17; everything past that reveal is still leak and rumor. This page collects
+        the rumor side of it, tags each claim by how solid the evidence is, and names its
+        sources — the official announcements themselves live on the Version 4.0 page.
+      </PageHero>
+      <div className="og-meta-row lk-meta">
+        <UpdatedStamp />
+        <RevealAllSpoilers />
+      </div>
 
       <div className="og-notice" role="note" style={{ marginBottom: "1.2rem" }}>
         <p style={{ margin: 0, lineHeight: 1.6 }}>
@@ -200,10 +190,6 @@ export default function LeaksPage() {
                 height={453}
                 loading="lazy"
               />
-              <span className="lk-corner tl" aria-hidden />
-              <span className="lk-corner tr" aria-hidden />
-              <span className="lk-corner bl" aria-hidden />
-              <span className="lk-corner br" aria-hidden />
             </div>
             </SpoilerCover>
             <div className="lk-specs">
@@ -245,10 +231,6 @@ export default function LeaksPage() {
                 height={640}
                 loading="lazy"
               />
-              <span className="lk-corner tl" aria-hidden />
-              <span className="lk-corner tr" aria-hidden />
-              <span className="lk-corner bl" aria-hidden />
-              <span className="lk-corner br" aria-hidden />
             </div>
             </SpoilerCover>
           </div>
@@ -272,10 +254,6 @@ export default function LeaksPage() {
                 height={761}
                 loading="lazy"
               />
-              <span className="lk-corner tl" aria-hidden />
-              <span className="lk-corner tr" aria-hidden />
-              <span className="lk-corner bl" aria-hidden />
-              <span className="lk-corner br" aria-hidden />
             </div>
             </SpoilerCover>
           </div>
@@ -388,7 +366,7 @@ export default function LeaksPage() {
               <span>Via leak trackers · AI-enhanced</span>
             </div>
             <SpoilerCover label="Anna — in-world placement">
-            <div className="lk-view-media lk-drift">
+            <div className="lk-view-media">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src="/images/leaks/anna-ingame-enh-1024.webp"
@@ -527,10 +505,6 @@ export default function LeaksPage() {
                 height={859}
                 loading="lazy"
               />
-              <span className="lk-corner tl" aria-hidden />
-              <span className="lk-corner tr" aria-hidden />
-              <span className="lk-corner bl" aria-hidden />
-              <span className="lk-corner br" aria-hidden />
             </div>
             </SpoilerCover>
             <div className="lk-specs" style={{ gridTemplateColumns: "repeat(2, minmax(0, 1fr))" }}>
