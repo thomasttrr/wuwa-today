@@ -443,7 +443,8 @@
   .am-g:nth-child(n + 3) { border-top: 1px solid var(--hair); }
 }
 @media (max-width: 560px) {
-  .am-code { font-size: 16px; letter-spacing: 0.02em; }
+  /* The code is what people copy: wrap it rather than cut it off. */
+  .am-code { font-size: clamp(13px, 3.8vw, 16px); letter-spacing: 0; white-space: normal; overflow-wrap: anywhere; text-overflow: clip; text-align: left; }
 }
 
 /* ==========================================================================
@@ -1046,7 +1047,7 @@
 .am-plan-sub { font-size: 14px; line-height: 1.45; color: var(--soft); }
 .am-plan-glyph { flex: none; display: grid; place-items: center; width: 56px; height: 56px; box-shadow: inset 0 0 0 1px rgb(185 155 104 / 0.45), inset 0 0 0 4px #15181e, inset 0 0 0 5px rgb(185 155 104 / 0.18); color: var(--gold-hi); }
 .am-plan-glyph svg { width: 24px; height: 24px; }
-.am-verify { margin-top: 48px; }
+.am-verify { margin-top: 14px; }
 
 @media (prefers-reduced-motion: reduce) {
   .am-name, .am-count-cells b, .am-now-dot::after, .am-stamp { animation: none !important; }

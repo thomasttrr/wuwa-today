@@ -385,6 +385,12 @@ export default function HomePage() {
 
       <AmGlance unlocks={unlocks} code={codeCell} />
 
+      {/* Freshness right under the at-a-glance strip, so "is this current?"
+          is answered before the visitor reads the banner. */}
+      <div className="am-wrap am-verify">
+        <UpdatedStamp />
+      </div>
+
       {banner && (
         <section className="am-blk am-wrap" id="banner" aria-labelledby="am-h-banner">
           <SectionHead id="am-h-banner" title="Banner" meta={`${banner.phase}, ends ${formatServerDay(banner.endsAt)}`} more={{ href: "/banners", label: "All banners" }} />
@@ -560,9 +566,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      <div className="am-wrap am-verify">
-        <UpdatedStamp />
-      </div>
     </div>
   );
 }
