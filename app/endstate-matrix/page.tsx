@@ -5,12 +5,24 @@ import ObsidianSectionHead from "@/components/ObsidianSectionHead";
 import ObsidianToolbar from "@/components/ObsidianToolbar";
 import Reveal from "@/components/Reveal";
 import UpdatedStamp from "@/components/UpdatedStamp";
+import { eventById, formatServerDate, statusFromDates } from "@/lib/data";
+import { formatServerDay } from "@/lib/dates";
 import "./matrix.css";
+
+// Phase IV's dates live in data/events.json; the wording below follows them at
+// build time, so the page doesn't keep saying "opens Nov 19" after it opens.
+const PHASE = eventById("endstate-matrix-adversity-vanguard");
+const STATE = statusFromDates(PHASE); // "upcoming" | "active" | "ended"
+const OPEN = STATE !== "upcoming";
+const START_DAY = formatServerDay(PHASE.startsAt); // "Nov 19"
+const START_FULL = formatServerDate(PHASE.startsAt); // "Nov 19, 2026"
+const END_DAY = formatServerDay(PHASE.endsAt!); // "Dec 22"
+const END_FULL = formatServerDate(PHASE.endsAt!); // "Dec 22, 2026"
 
 export const metadata: Metadata = {
   title: "Endstate Matrix guide — Adversity Vanguard phases, rewards, buffs and teams",
   description:
-    "The Endstate Matrix boss rush in Wuthering Waves: the final Adversity Vanguard phase (Nov 19 – Dec 22, 2026), the full 400-Astrite reward table, Power Circuit buffs, the boss board, and proven teams.",
+    `The Endstate Matrix boss rush in Wuthering Waves: the final Adversity Vanguard phase (${START_DAY} – ${END_FULL}), the full 400-Astrite reward table, Power Circuit buffs, the boss board, and proven teams.`,
   alternates: { canonical: "/endstate-matrix" },
 };
 
@@ -109,7 +121,13 @@ export default function EndstateMatrixPage() {
       <OgPageHero
         kicker="Endstate Matrix · Adversity Vanguard · Endgame"
         title="Endstate Matrix"
-        lede="The boss-rush endgame: five bosses in a row, fought with several teams while the damage carries over. This page covers the current cycle — its final phase opens November 19, 2026 — with the full reward table, the stage buffs, and the teams that cleared last phase."
+        lede={`The boss-rush endgame: five bosses in a row, fought with several teams while the damage carries over. This page covers the current cycle — ${
+          STATE === "upcoming"
+            ? `its final phase opens ${START_FULL}`
+            : STATE === "active"
+              ? `its final phase is live until ${END_FULL}`
+              : `it ended ${END_FULL}`
+        } — with the full reward table, the stage buffs, and the teams that cleared last phase.`}
         meta={<UpdatedStamp />}
       />
 
@@ -124,8 +142,11 @@ export default function EndstateMatrixPage() {
               Boss health <strong>carries between your teams</strong>, and every Resonator has
               limited <strong>Vigor</strong>, so the mode rewards a deep roster. A full phase
               pays <strong>400 Astrite</strong>. The last phase of the Adversity Vanguard cycle
-              runs <strong>November 19 – December 22, 2026</strong> — when it ends, the cycle
-              ends and unspent Encrypted Data is wiped.
+              runs{" "}
+              <strong>
+                {START_DAY} – {END_FULL}
+              </strong>{" "}
+              — when it ends, the cycle ends and unspent Encrypted Data is wiped.
             </p>
           </div>
         </Reveal>
@@ -155,15 +176,19 @@ export default function EndstateMatrixPage() {
         <Reveal>
           <ul className="mx-cards">
             <li className="gk-card">
-              <span className="mx-big">Phase IV opens Nov 19</span>
+              <span className="mx-big">
+                Phase IV {OPEN ? "opened" : "opens"} {START_DAY}
+              </span>
               <p>
                 Matrix phases open seven days after a version update, at 04:00 server time —
                 the pattern all three earlier phases followed. Version 3.8 landed on Nov 12,
-                so Phase IV opens Thursday, November 19, 2026.
+                so Phase IV {OPEN ? "opened" : "opens"} {START_FULL}.
               </p>
             </li>
             <li className="gk-card">
-              <span className="mx-big">The cycle ends Dec 22</span>
+              <span className="mx-big">
+                The cycle {STATE === "ended" ? "ended" : "ends"} {END_DAY}
+              </span>
               <p>
                 Kuro&apos;s 3.8 patch notes give the end exactly: December 22, 2026, 03:59
                 (UTC+8). Unspent Encrypted Data is wiped, and the cycle rewards — the sigil
@@ -172,11 +197,31 @@ export default function EndstateMatrixPage() {
               </p>
             </li>
             <li className="gk-card">
-              <span className="mx-big">Nothing is live right now</span>
-              <p>
-                Phase III ended when Version 3.8 launched on Nov 12. Between phases the board
-                is closed — your next run is Phase IV on Nov 19.
-              </p>
+              {STATE === "upcoming" ? (
+                <>
+                  <span className="mx-big">Nothing is live right now</span>
+                  <p>
+                    Phase III ended when Version 3.8 launched on Nov 12. Between phases the
+                    board is closed — your next run is Phase IV on {START_DAY}.
+                  </p>
+                </>
+              ) : STATE === "active" ? (
+                <>
+                  <span className="mx-big">Phase IV is live</span>
+                  <p>
+                    It runs until {END_FULL}. This is the last phase of the cycle, so it is
+                    your last run at its rewards.
+                  </p>
+                </>
+              ) : (
+                <>
+                  <span className="mx-big">The cycle is over</span>
+                  <p>
+                    Phase IV closed on {END_FULL}, and the Adversity Vanguard cycle with it.
+                    No third cycle has been announced.
+                  </p>
+                </>
+              )}
             </li>
           </ul>
         </Reveal>
@@ -319,10 +364,22 @@ export default function EndstateMatrixPage() {
         />
         <Reveal>
           <p className="mx-note" style={{ margin: "0 0 1rem" }}>
-            Phase IV&apos;s circuits are published in-game when the phase opens on Nov 19 —
-            they are not out yet. The four below are <strong>last phase&apos;s verified
-            set</strong> (Game8), and early leaks list the same four names for Phase IV.
-            Treat the values as last phase&apos;s until the phase opens.
+            {OPEN ? (
+              <>
+                Phase IV&apos;s circuits went live in-game on {START_DAY} and have not been
+                re-checked here yet. The four below are <strong>last phase&apos;s verified
+                set</strong> (Game8); early leaks list the same four names for Phase IV.
+                Check the in-game list before you build teams around them.
+              </>
+            ) : (
+              <>
+                Phase IV&apos;s circuits are published in-game when the phase opens on{" "}
+                {START_DAY} — they are not out yet. The four below are{" "}
+                <strong>last phase&apos;s verified set</strong> (Game8), and early leaks list
+                the same four names for Phase IV. Treat the values as last phase&apos;s until
+                the phase opens.
+              </>
+            )}
           </p>
         </Reveal>
         <Reveal>
@@ -365,7 +422,11 @@ export default function EndstateMatrixPage() {
       <div className="og-section" id="board" style={{ scrollMarginTop: "120px" }}>
         <ObsidianSectionHead
           title="The board"
-          blurb="Both zones run the same boss sequence. Phase IV's list arrives with the phase — this is last phase's verified board."
+          blurb={
+            OPEN
+              ? "Both zones run the same boss sequence. This is last phase's verified board; Phase IV's has not been re-checked here yet."
+              : "Both zones run the same boss sequence. Phase IV's list arrives with the phase — this is last phase's verified board."
+          }
         />
         <Reveal>
           <div className="mx-table-wrap">
@@ -400,7 +461,10 @@ export default function EndstateMatrixPage() {
               this phase&apos;s Emergency Resonator (+1 Vigor), with phase tasks that include
               scoring 15,000 Singularity points with a team including Lily and defeating Denia
               three times. One datamine could sit behind both posts, so treat all of it as a
-              rumour until the phase opens on Nov 19.
+              rumour{" "}
+              {OPEN
+                ? "until it is checked against the live phase."
+                : `until the phase opens on ${START_DAY}.`}
             </p>
           </div>
         </Reveal>
@@ -409,7 +473,11 @@ export default function EndstateMatrixPage() {
       <div className="og-section" id="teams" style={{ scrollMarginTop: "120px" }}>
         <ObsidianSectionHead
           title="Teams that cleared last phase"
-          blurb="No Phase IV teams exist yet — the phase has not opened. These are Phase III's proven teams, and the best starting point for Phase IV planning."
+          blurb={
+            OPEN
+              ? "No proven Phase IV teams are listed here yet. These are Phase III's proven teams, and the best starting point for Phase IV."
+              : "No Phase IV teams exist yet — the phase has not opened. These are Phase III's proven teams, and the best starting point for Phase IV planning."
+          }
         />
         <Reveal>
           <p className="mx-note" style={{ margin: "0 0 1rem" }}>
@@ -467,8 +535,8 @@ export default function EndstateMatrixPage() {
               <p>
                 The +1 Vigor seat rotates by phase: <strong>Chisa</strong> in Phase I,{" "}
                 <strong>Denia</strong> in Phase II, <strong>Lynae</strong> in Phase III.
-                Phase IV&apos;s is leaked as <strong>Lucilla</strong> — unconfirmed until the
-                phase opens.
+                Phase IV&apos;s is leaked as <strong>Lucilla</strong> —{" "}
+                {OPEN ? "not yet confirmed here." : "unconfirmed until the phase opens."}
               </p>
             </li>
           </ul>
@@ -477,8 +545,10 @@ export default function EndstateMatrixPage() {
           <p className="mx-note">
             Sources: Game8&apos;s Endstate Matrix guides (mode, rewards and stage pages),
             SenseOS&apos;s cycle guide, and Kuro&apos;s official Version 3.8 patch notes for
-            the cycle end date. Checked November 16, 2026. Phase IV&apos;s stages, circuits
-            and proven teams will be farmed and added once the phase opens on November 19.
+            the cycle end date. Checked November 16, 2026.{" "}
+            {OPEN
+              ? `Phase IV's stages, circuits and proven teams have not been re-checked since the phase opened on ${START_FULL}.`
+              : `Phase IV's stages, circuits and proven teams will be farmed and added once the phase opens on ${START_FULL}.`}
           </p>
         </Reveal>
       </div>
