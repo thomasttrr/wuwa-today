@@ -146,6 +146,11 @@ export default function Version40Page() {
               There is no Version 3.9 — the game jumps straight from 3.8 to 4.0. Version 3.8
               ends on December 21, and 4.0 opens the next day.
             </p>
+            <p>
+              Pre-registration opened on November 18. Pre-register on Kuro&rsquo;s official
+              page — linked from their character posts — and claim Astrite ×100 in-game after
+              4.0 goes live. Each of the seven sends a welcome message as you register.
+            </p>
           </div>
         </div>
       </Reveal>
@@ -301,9 +306,10 @@ export default function Version40Page() {
         </Reveal>
         <Reveal>
           <p className="v4-foot">
-            Sources: Kuro&rsquo;s official @Wuthering_Waves posts of November 17, 2026 — the
-            reveal trailer and the seven character cards, mirrored here via the wiki&rsquo;s
-            uploads of the same official art and shown unedited.
+            Sources: Kuro&rsquo;s official @Wuthering_Waves posts of November 17–18, 2026 — the
+            reveal trailer, the seven character cards and the pre-registration announcement,
+            mirrored here via the wiki&rsquo;s uploads of the same official art and shown
+            unedited.
           </p>
         </Reveal>
       </div>
