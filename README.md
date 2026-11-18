@@ -42,7 +42,7 @@ components/   # cards, countdowns, navigation, search palette, explorers
 lib/          # data loading, types, helpers
 data/         # all game data as JSON — schemas in data/README.md
 public/       # images and static assets
-scripts/      # image tooling (thumbnail generation)
+scripts/      # image tooling (thumbnails) and check-data.mjs (runs before every build)
 ```
 
 ## Disclaimer

@@ -18,6 +18,8 @@
   "private": true,
   "scripts": {
     "build": "next build",
+    "check": "node scripts/check-data.mjs",
+    "prebuild": "node scripts/check-data.mjs",
     "dev": "next dev",
     "lint": "eslint .",
     "start": "next start",

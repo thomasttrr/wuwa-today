@@ -48,6 +48,10 @@ How WuWa Today stays fresh. This is the runbook for Kit's scheduled refresh jobs
 - `active` codes older than 30 days with no re-verification → re-check or move to `expired`.
 - Broken source links in `SOURCES.md` → replace.
 
+## Data check (runs on every build)
+
+`npm run build` runs `scripts/check-data.mjs` first (also `npm run check` on its own). It stops the build if a data edit would break a page: bad dates, duplicate ids, a pull verdict pointing at an unknown banner, a missing portrait or event image, an event link to a page that doesn't exist, an active code that is on the excluded list, or the redirects in `next.config.js` and `vercel.json` disagreeing. The error names the file and the field. It never judges game facts.
+
 ## Emergency: wrong data published
 
 1. Fix the JSON immediately, rebuild.
