@@ -353,7 +353,9 @@ export default function LeaksPage() {
               its author — and its previews match the datamined renders above detail
               for detail, down to the mark on her leg. It is a game-mod file, not the
               raw model: no PMX, FBX or GLB version has surfaced, and model files are
-              not hosted here.
+              not hosted here. A fan-made Blender recreation also circulates
+              (qiqi3d, DeviantArt, November 10, shared through Patreon) — that one
+              is fan work, not the game model.
             </Claim>
             <Claim tag="Single leak">
               <strong>She may already be in the game.</strong> A Seele text graphic

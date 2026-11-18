@@ -613,3 +613,13 @@ Lily client verification Nov 11, 2026: role, skill, sequence and weapon text che
   The older "still no model file" wording in the height-comparison
   claim was removed in the same edit. Approved by Tom on 2026-11-17
   ("Publish just the leak note").
+
+## 2026-11-17 — Fan-made Anna Blender model line (leaks page, File 01)
+
+- One sentence appended to the Garry's Mod port claim: a fan-made
+  Blender recreation of Anna also circulates — qiqi3d on DeviantArt,
+  Nov 10, 2026, a rigged .blend shared through Patreon. Graded Likely
+  fan art by the leak watch (fan recreation, not the game model); the
+  page sentence labels it fan work plainly so readers do not mistake
+  it for the Kuro-credited port above it. Not downloaded. Approved by
+  Tom on 2026-11-17.
