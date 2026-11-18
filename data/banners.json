@@ -5,6 +5,17 @@
     "version": "3.8",
     "versionTitle": "Lilies in a Dying Dream"
   },
+  "nextVersion": {
+    "_comment": "Drives the 'Next phase' slot on /banners, the pull-planner timeline, and the homepage broadcast strip. States only what is confirmed: version, expected headliner, reveal time, and (once revealed) the launch date. No phase dates or reruns. At the 4.0 launch, replace this with real banner entries and delete this block (the homepage strip also auto-hides after hideAfter).",
+    "version": "4.0",
+    "expectedCharacter": "Anna",
+    "characterSlug": null,
+    "prefarmSlug": "",
+    "revealAt": "2026-11-17T22:05:00-05:00",
+    "revealLabel": "Nov 17",
+    "launchLabel": "Dec 22, 2026",
+    "hideAfter": "2026-12-22T10:00:00+08:00"
+  },
   "banners": [
     {
       "characters": [

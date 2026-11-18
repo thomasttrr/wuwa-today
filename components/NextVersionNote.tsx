@@ -30,9 +30,12 @@ export default function NextVersionNote({
   const hidden = now > Date.parse(next.hideAfter);
 
   const name = `${next.expectedCharacter} expected`;
-  const detail = revealed
-    ? "Broadcast aired — details being verified"
-    : `Reveal ${next.revealLabel} · dates and reruns not announced`;
+  const detail =
+    revealed && next.launchLabel
+      ? `Launches ${next.launchLabel} · banner order not announced`
+      : revealed
+        ? "Broadcast aired — details being verified"
+        : `Reveal ${next.revealLabel} · dates and reruns not announced`;
 
   if (variant === "node") {
     return (
@@ -60,14 +63,22 @@ export default function NextVersionNote({
     <p className="rs-broadcast">
       <span className="rs-broadcast-tag">{next.version} preview</span>
       <span className="rs-broadcast-text">
-        {revealed
-          ? `The ${next.version} broadcast has aired — details are being verified.`
-          : `Broadcast ${next.revealLabel}.`}{" "}
+        {revealed && next.launchLabel
+          ? `Version ${next.version} is revealed — it launches ${next.launchLabel}.`
+          : revealed
+            ? `The ${next.version} broadcast has aired — details are being verified.`
+            : `Broadcast ${next.revealLabel}.`}{" "}
         {next.expectedCharacter} is expected:
       </span>
       <span className="rs-broadcast-links">
-        <Link href={`/characters/${next.characterSlug}`}>{next.expectedCharacter}&apos;s page</Link>
-        <Link href={`/pre-farm/${next.prefarmSlug}`}>Pre-farm guide (partial)</Link>
+        {next.characterSlug ? (
+          <Link href={`/characters/${next.characterSlug}`}>{next.expectedCharacter}&apos;s page</Link>
+        ) : (
+          <Link href="/version-4-0">Version {next.version} page</Link>
+        )}
+        {next.prefarmSlug ? (
+          <Link href={`/pre-farm/${next.prefarmSlug}`}>Pre-farm guide (partial)</Link>
+        ) : null}
       </span>
     </p>
   );

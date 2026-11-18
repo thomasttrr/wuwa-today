@@ -66,6 +66,8 @@ export interface NextVersion {
   revealAt: string;
   /** Human label for revealAt, e.g. "Fri Nov 6, 6:00 AM ET". */
   revealLabel: string;
+  /** Human label for the confirmed launch date, e.g. "Dec 22, 2026" — set once the reveal confirms it. */
+  launchLabel?: string;
   /** ISO time after which the homepage strip auto-hides. */
   hideAfter: string;
 }
