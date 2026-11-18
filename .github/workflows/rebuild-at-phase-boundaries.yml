@@ -3,7 +3,7 @@ name: Rebuild at banner phase boundaries
 # The home hero, /banners, the accent colour and the live/ended filters are
 # decided at build time (see UPDATE_PLAYBOOK.md). This workflow fires the
 # Vercel Deploy Hook shortly after every phase start/end recorded in
-# data/banners.json, plus one unconditional rebuild a day as a fallback.
+# data/banners.json and every event start/end in data/events.json, plus one unconditional rebuild a day as a fallback.
 # Requires the repo secret VERCEL_DEPLOY_HOOK_URL (Vercel project ->
 # Settings -> Git -> Deploy Hooks). Until the secret exists the jobs
 # succeed quietly and do nothing.
@@ -37,7 +37,10 @@ jobs:
           lo = now - datetime.timedelta(minutes=70)
           hi = now + datetime.timedelta(minutes=5)
           due = []
-          for b in json.load(open("data/banners.json"))["banners"]:
+          # Banner phases and events both flip state at build time, so a
+          # boundary in either file needs a rebuild.
+          records = json.load(open("data/banners.json"))["banners"] + json.load(open("data/events.json"))["events"]
+          for b in records:
               for key in ("startsAt", "endsAt"):
                   raw = b.get(key)
                   if not raw:

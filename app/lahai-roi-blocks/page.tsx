@@ -5,6 +5,16 @@ import ObsidianSectionHead from "@/components/ObsidianSectionHead";
 import ObsidianToolbar from "@/components/ObsidianToolbar";
 import Reveal from "@/components/Reveal";
 import UpdatedStamp from "@/components/UpdatedStamp";
+import { eventById, formatServerDate, statusFromDates } from "@/lib/data";
+import { formatServerDay } from "@/lib/dates";
+
+// Dates come from data/events.json so the copy below follows the event's
+// state at build time instead of saying "opens Nov 19" forever.
+const EVENT = eventById("lahai-roi-blocks-turnabout");
+const STATE = statusFromDates(EVENT);
+const START_DAY = formatServerDay(EVENT.startsAt);
+const START_FULL = formatServerDate(EVENT.startsAt);
+const END_FULL = formatServerDate(EVENT.endsAt!);
 import "./blocks.css";
 
 export const metadata: Metadata = {
@@ -29,7 +39,7 @@ export default function LahaiRoiBlocksPage() {
       </Link>
 
       <OgPageHero
-        kicker="Version 3.8 event · Nov 19 – Dec 3, 2026"
+        kicker={`Version 3.8 event · ${START_DAY} – ${END_FULL}`}
         title="Lahai-Roi Blocks — Turnabout"
         lede="The block-puzzle arcade game from Startorch Academy is back. You place geometric blocks on a small grid, complete rows and columns to break them, and race a score target before the board jams. This run adds the one feature players have asked for since the event first ran in 3.2: you can rotate the pieces."
         meta={<UpdatedStamp />}
@@ -59,8 +69,9 @@ export default function LahaiRoiBlocksPage() {
               Hard</strong> — and the only way to fail is jamming the board so a new
               piece fits nowhere. There are no star ratings and no attempt limits in
               the event guides: if a run clogs, go again. The headline reward is{" "}
-              <strong>400 Astrite</strong>, and the event closes{" "}
-              <strong>December 3, 2026, 03:59 server time</strong>.
+              <strong>400 Astrite</strong>, and the event{" "}
+              {STATE === "ended" ? "closed" : "closes"}{" "}
+              <strong>{END_FULL}, 03:59 server time</strong>.
             </p>
           </div>
         </Reveal>
@@ -249,8 +260,10 @@ export default function LahaiRoiBlocksPage() {
               Game8&rsquo;s event guide only. <strong>The rotate feature</strong> is
               confirmed in Kuro&rsquo;s official 3.8 notice; Game8&rsquo;s guide had
               not been updated to mention it when this page was written (November 13,
-              2026) — the event itself opens November 19, and this page will be
-              rechecked against the live event.
+              2026) —{" "}
+              {STATE === "upcoming"
+                ? `the event itself opens ${START_FULL}, and this page will be rechecked against the live event.`
+                : `the event opened ${START_FULL}, and this page has not yet been rechecked against the live event.`}
             </p>
             <p>
               Facts on this page come from Game8&rsquo;s Lahai-Roi Blocks guide and

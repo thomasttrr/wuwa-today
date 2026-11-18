@@ -197,7 +197,7 @@ export const outfitsMeta = (outfitsRaw as { _meta: { updatedAt: string } })._met
 // ends between data updates would otherwise stay "live" on the site. The
 // stored value is the fallback only when a record has no usable dates.
 const BUILD_NOW = Date.now();
-function statusFromDates<T extends { startsAt: string; endsAt: string | null; status: string }>(x: T): string {
+export function statusFromDates<T extends { startsAt: string; endsAt: string | null; status: string }>(x: T): string {
   const s = Date.parse(x.startsAt);
   const e = x.endsAt ? Date.parse(x.endsAt) : null;
   if (Number.isNaN(s)) return x.status;
@@ -221,6 +221,17 @@ export const activeEvents = events
     return Date.parse(a.endsAt) - Date.parse(b.endsAt);
   });
 export const upcomingEvents = events.filter((e) => statusFromDates(e) === "upcoming");
+
+/**
+ * One event by id, for pages that write about a specific event. Throws at
+ * build time if the id is missing, so a renamed event can't silently leave a
+ * guide page with no dates.
+ */
+export function eventById(id: string): GameEvent {
+  const e = events.find((x) => x.id === id);
+  if (!e) throw new Error(`[wuwa-today] events.json has no event with id "${id}"`);
+  return e;
+}
 
 function newest(stamps: string[]): string {
   return stamps.reduce((a, b) => (Date.parse(b) > Date.parse(a) ? b : a));
