@@ -17,7 +17,7 @@ export default function ThemeSwitch() {
   // Plain labels: the old "Element / Neutral" only made sense if you already
   // knew the accent follows the live banner's element.
   const options: { key: ThemeMode; label: string; hint: string }[] = [
-    { key: "resonance", label: "Match live banner", hint: "Accent color follows the featured character's element" },
+    { key: "resonance", label: "Champagne gold", hint: "Gold accents; character pages take their element's color" },
     { key: "dark", label: "Neutral grey", hint: "Quiet greys, no element color" },
   ];
 

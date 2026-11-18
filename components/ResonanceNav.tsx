@@ -103,7 +103,8 @@ export default function ResonanceNav() {
       <nav className="rs-nav" aria-label="Primary">
         <Link href="/" className="rs-brand" aria-label="WuWa Today home">
           <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M2 12c2.5-6 5-6 7.5 0s5 6 7.5 0 3.5-4 5-2" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+            <path d="M12 1 13.4 6H15v4h2v4h2v9H5v-9h2v-4h2V6h1.6z" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinejoin="miter" />
+            <path d="M12 9v14M9 14v9M15 14v9" stroke="currentColor" strokeWidth="1" />
           </svg>
           <span>WuWa Today</span>
         </Link>

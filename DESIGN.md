@@ -1,17 +1,22 @@
-# WuWa Today — Design System ("Resonance")
+# WuWa Today — Design System ("Resonance", Aftermath look)
 
-The site has one design system: **Resonance**. Older layers ("Native Dark" in
-`app/globals.css`, "Obsidian Glass" in `app/obsidian.css` + `app/og-pages.css`)
-are being folded into it; **don't add new rules to those files**. New work uses
-the tokens and components below.
+The site has one design system: **Resonance**, currently dressed in the
+**Aftermath** look for the 4.0 era (Art Deco: champagne gold line work on
+slate, a display serif, red kept rare). `app/aftermath.css` loads last and
+re-points the Resonance tokens below; the home page's own components are in
+`app/home.css` (`am-*` classes, `components/home/`). Older layers ("Native
+Dark" in `app/globals.css`, "Obsidian Glass" in `app/obsidian.css` +
+`app/og-pages.css`) are being folded in; **don't add new rules to those
+files**. New work uses the tokens and components below.
 
 ## Principles
 
-1. **Tuned to an element.** `--el` (a registered `<color>`) is set on `<body>`
-   from the live banner's lead Resonator (`SiteTheme`) and re-tuned on
-   character pages (`ElementTheme`). Canvas, accents, borders and readouts
-   derive from it. The **Neutral** appearance (`html[data-theme="dark"]`)
-   locks `--el` to platinum; that `!important` is intentional.
+1. **Gold house accent, element on character pages.** `--el` (a registered
+   `<color>`) is champagne gold (`#d9c49b`) site-wide, set in the root layout.
+   Character pages re-tune it to their element (`ElementTheme`), and element
+   colours still mark characters on cards and rings (`--c`, `--ec`). The
+   **Neutral** appearance (`html[data-theme="dark"]`) locks `--el` to
+   platinum; that `!important` is intentional.
 2. **Utility before atmosphere.** The first screen answers the visitor's
    question (what's live, how long, which build). Art supports the data; it
    never replaces it.
@@ -34,10 +39,11 @@ the tokens and components below.
 | Accent | `--el`, `--rs-el-soft`, `--rs-el-line`, `--rs-on-el` (text on an `--el` fill) |
 | Status | `--rs-warn` (amber, deadlines inside 72h, e.g. expiring codes) |
 | Character colour | `--c` on a component = that character's element |
-| Type families | `--rs-display` (Mona Sans, width axis), `--rs-mono` (Martian Mono: every number), `--rs-body` (system) |
+| Type families | `--rs-display` (Cormorant: page and section titles), `--rs-body` and `--rs-mono` (Jost: everything you read and use, numbers with lining figures). Geist Mono (`--font-geist-mono`) only for record-style details, e.g. the home archive. h3 and smaller stay in Jost. |
 | Type scale | `--fs-1` 11px · `--fs-2` 12px · `--fs-3` 13px · `--fs-4` 14px · `--fs-5` 15px · `--fs-6` 16px · `--fs-7` 18px |
 | Spacing (4px grid) | `--sp-1` 4 · `--sp-2` 8 · `--sp-3` 12 · `--sp-4` 16 · `--sp-5` 24 · `--sp-6` 32 · `--sp-7` 48 · `--sp-8` 64 |
-| Radius | `--rs-r-tile` 22px (cards), `--rs-r-ctl` 999px (controls) |
+| Radius | 2px everywhere (`--rs-r-tile`, `--rs-r-card`, `--rs-r-ctl`); frames are gold hairlines with an inner keyline, rules are 3px double gold |
+| Aftermath palette | slate `#15171d`, ivory `#e8e0d1`, gold `#b99b68` / `#d9c49b`, Atlantic `#233745`, burgundy `#762d3b`, crimson `#a32935` (rare: section diamonds, the archive, deadlines), cyan `#73c9d3` (live) |
 | Motion | `--rs-spring`, `--rs-ease`, `--rs-d1` 180ms, `--rs-d2` 420ms, `--rs-d3` 700ms |
 
 **Type rules.** Readable text never goes below `--fs-2` (12px). `--fs-1` is
@@ -46,7 +52,10 @@ names) use `clamp()` and must fit a 320px screen (`overflow-wrap: anywhere` as
 a safety net). Inputs are ≥ 16px so iOS doesn't zoom.
 
 **Breakpoints.** 760px (phone/tablet layout switch) and 900px (nav: bottom
-capsule ↔ top bar). Prefer these two.
+capsule ↔ full-width 64px top bar). Prefer these two. The home page stacks
+its hero and grids below 700px instead, so wide-but-short screens (an
+unfolded iPhone Duo, 890×626) keep the side-by-side layout; it was checked at
+466×678, 669×951 and 890×626.
 
 ## Layout rules
 

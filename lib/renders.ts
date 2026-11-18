@@ -57,3 +57,31 @@ export function thumbFor(slug: string | null | undefined, portrait?: string | nu
   const src = portrait ?? (slug ? `/images/chars/${slug}.webp` : null);
   return src ? { src, fx: 0.5, z: 100, render: false } : null;
 }
+
+export interface FullRender {
+  /** Smallest file: the src fallback. */
+  src: string;
+  /** Every size, width-described; pair with a `sizes`. */
+  srcSet: string;
+  /** Natural size of the largest file. */
+  w: number;
+  h: number;
+  /** Head x position, 0..1. */
+  fx: number;
+}
+
+/** Full-body render for feature art (home hero, roster cards): every stored
+ *  size in the srcset, so the browser picks the sharpest file it needs. */
+export function fullRender(slug: string | null | undefined): FullRender | null {
+  const r = slug ? renders[slug] : undefined;
+  if (!r) return null;
+  const sorted = [...r.sizes].sort((a, b) => a.w - b.w);
+  const big = sorted[sorted.length - 1];
+  return {
+    src: sorted[0].file,
+    srcSet: sorted.map((s) => `${s.file} ${s.w}w`).join(", "),
+    w: big.w,
+    h: big.h,
+    fx: r.focusX ?? 0.5,
+  };
+}
