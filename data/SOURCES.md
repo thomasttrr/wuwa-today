@@ -683,3 +683,14 @@ Lily client verification Nov 11, 2026: role, skill, sequence and weapon text che
   change. A WuWa Universe Instagram reshare is the same source, not a
   second tracker — grade stays Single leak. Published under Tom's
   12-hour auto-approve (2026-11-17 23:04 ET, DECISIONS.md).
+
+## 2026-11-17 — Official reveal moved to the new Version 4.0 page
+
+- Tom's order (Nov 17, 23:37 ET): everything official from the reveal
+  leaves /leaks — including Anna's and Lucielle's character cards —
+  and lives on a new dedicated page, /version-4-0, which is now the
+  standing home for official 4.x announcements. /leaks keeps the rumor
+  record (claims stay, settled ones marked, with a pointer notice to
+  the new page); the File 04 reveal gallery, both file-lead card
+  blocks, the trailer claim, and the reveal-set row were removed.
+  The card image files themselves did not move (same URLs).

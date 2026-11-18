@@ -123,14 +123,23 @@ export default function LeaksPage() {
           Version 4.0 skips 3.9 entirely and opens a whole new region — the New Federation —
           on December 22, 2026. Kuro revealed the version and its seven-character cast on
           November 17; everything past that reveal is still leak and rumor. This page collects
-          all of it, tags each claim by how solid the evidence is, and names its sources — so
-          you can tell the confirmed facts from the wishful thinking.
+          the rumor side of it, tags each claim by how solid the evidence is, and names its
+          sources — the official announcements themselves live on the Version 4.0 page.
         </p>
         <div className="og-meta-row">
           <UpdatedStamp />
           <RevealAllSpoilers />
         </div>
       </header>
+
+      <div className="og-notice" role="note" style={{ marginBottom: "1.2rem" }}>
+        <p style={{ margin: 0, lineHeight: 1.6 }}>
+          <strong>The November 17 reveal is official.</strong> The trailer, the December 22
+          date, and all seven character cards now live on the{" "}
+          <Link href="/version-4-0">Version 4.0 page</Link>. This page keeps the rumor
+          record — every claim below stays evidence-tagged, settled ones included.
+        </p>
+      </div>
 
       <ObsidianToolbar
         label="Jump to"
@@ -279,42 +288,12 @@ export default function LeaksPage() {
         </Reveal>
         <div style={{ height: "0.9rem" }} />
         <Reveal>
-          <div className="lk-view">
-            <div className="lk-view-bar">
-              <span>Official — character card</span>
-              <span>Kuro · Nov 17 · &ldquo;Roses &amp; Desires&rdquo;</span>
-            </div>
-            <div style={{ maxWidth: "330px", margin: "0 auto" }}>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/images/leaks/official-card-anna.webp"
-                alt="Official character card art of Anna: long blonde hair, red wide-brim hat, red black and white outfit with roses, holding a slender sword"
-                width={720}
-                height={1280}
-                loading="lazy"
-                style={{ display: "block", width: "100%", height: "auto" }}
-              />
-            </div>
-          </div>
-          <p style={{ margin: "0.6rem 0 0", opacity: 0.8, fontSize: "0.92rem" }}>
-            Her official card, posted by Kuro on November 17 — the design matches the leaked
-            model detail for detail, roses and leg markings included. It is shown uncovered:
-            this one is not a leak.
-          </p>
-        </Reveal>
-        <div style={{ height: "0.9rem" }} />
-        <Reveal>
           <div className="lk-claims">
-            <Claim tag="Official">
-              <strong>She is official now.</strong> Kuro&rsquo;s drip post for Anna
-              (&ldquo;Roses &amp; Desires&rdquo;) landed on November 17 with the full
-              character card above — and the trailer the same evening dates Version 4.0
-              to December 22 (UTC+8). Her Phase 1 slot still rests on the leaks; her
-              design no longer does.
-            </Claim>
             <Claim tag="Repeated leak">
               <strong>She opens Version 4.0</strong> as the Phase 1 banner and the player&rsquo;s
-              guide into the New Federation — every roadmap summary puts her first.
+              guide into the New Federation — every roadmap summary puts her first. Kuro&rsquo;s
+              November 17 reveal made her the face of the version; her official card leads the
+              Version 4.0 page. The Phase 1 slot itself still rests on the leaks.
             </Claim>
             <Claim tag="Datamined">
               <strong>The model above.</strong> Blonde hair fading to red at the tips, pointed
@@ -359,7 +338,8 @@ export default function LeaksPage() {
               <strong>Her Tacet Mark sits on her outer right thigh.</strong> The leaked
               render gallery (FS, November 10) put it on her upper thigh — faint and
               reddish, with readers disputing how visible it was. Her official character
-              card settles it: the mark is plainly there, on the outer right thigh.
+              card (on the Version 4.0 page) settles it: the mark is plainly there, on
+              the outer right thigh.
             </Claim>
             <Claim tag="Single leak">
               <strong>Her English voice is out there too.</strong> An 11-second in-game clip
@@ -566,33 +546,8 @@ export default function LeaksPage() {
           </div>
           <p style={{ margin: "0.6rem 0 0", opacity: 0.8, fontSize: "0.92rem" }}>
             The only leaked model visual — a bust portrait carrying the leaker&rsquo;s own
-            watermark, mouse cursor and all. Her official card (below) is the first full look
-            at her design.
-          </p>
-        </Reveal>
-        <div style={{ height: "0.9rem" }} />
-        <Reveal>
-          <div className="lk-view">
-            <div className="lk-view-bar">
-              <span>Official — character card</span>
-              <span>Kuro · Nov 17 · &ldquo;Future &amp; Falsehoods&rdquo;</span>
-            </div>
-            <div style={{ maxWidth: "330px", margin: "0 auto" }}>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/images/leaks/official-card-lucielle.webp"
-                alt="Official character card art of Lucielle: long blonde hair, animal ears, green eyes, red and black outfit with white fur trim"
-                width={720}
-                height={1280}
-                loading="lazy"
-                style={{ display: "block", width: "100%", height: "auto" }}
-              />
-            </div>
-          </div>
-          <p style={{ margin: "0.6rem 0 0", opacity: 0.8, fontSize: "0.92rem" }}>
-            Her official card — the animal ears the leaked portrait never showed are right
-            there, and the red and black outfit matches the portrait. Shown uncovered:
-            official art, not a leak.
+            watermark, mouse cursor and all. Her official card, on the Version 4.0 page, is
+            the first full look at her design.
           </p>
         </Reveal>
         <div style={{ height: "0.9rem" }} />
@@ -641,14 +596,6 @@ export default function LeaksPage() {
         />
         <Reveal>
           <div className="lk-grid2">
-            <Claim tag="Official">
-              <strong>4.0 has a name and a date.</strong> Kuro&rsquo;s reveal trailer
-              (&ldquo;Beneath Promeus&rsquo;s Embrace&rdquo;, November 17) titles the version{" "}
-              <strong>Embers of the Everbright — Chapter of the Year</strong> and dates it to{" "}
-              <strong>December 22 (UTC+8)</strong>. One spoken line names a
-              &ldquo;Glenn&rdquo; — no face or role attached yet. The drip-date guesses below
-              all settled the same evening.
-            </Claim>
             <Claim tag="In-game lore">
               <strong>The New Federation is established lore.</strong> A cyberpunk,
               technology-worshipping nation — home of Calcharo, Mortefi, Lynae, Verina, Aalto,
@@ -795,73 +742,10 @@ export default function LeaksPage() {
         <FileHead
           file="File 04 · Roster board"
           title="The wider 4.x cast"
-          blurb="Kuro revealed seven New Federation characters on November 17 — the cards are below. Amethyst was not among them, so her row and the rest stay leak-grade."
+          blurb="Seven of these characters were officially revealed on November 17 — their cards live on the Version 4.0 page. The rows here are the rumor record: Amethyst, who was not among the seven, and everything still unconfirmed."
         />
         <Reveal>
-          <div className="lk-view">
-            <div className="lk-view-bar">
-              <span>Official — the 4.0 reveal set</span>
-              <span>Kuro · Nov 17</span>
-            </div>
-            <div className="lk-cards">
-              <figure>
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="/images/leaks/official-card-anna.webp" alt="Official character card art of Anna" width={720} height={1280} loading="lazy" />
-                <figcaption>Anna — &ldquo;Roses &amp; Desires&rdquo;</figcaption>
-              </figure>
-              <figure>
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="/images/leaks/official-card-april.webp" alt="Official character card art of April: pale pink hair, white and teal maid-style dress, holding a camera-like device" width={720} height={1280} loading="lazy" />
-                <figcaption>April — &ldquo;Truth &amp; Illusion&rdquo;</figcaption>
-              </figure>
-              <figure>
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="/images/leaks/official-card-gordia.webp" alt="Official character card art of Gordia: black hair, military cap, black and red uniform with a red cape, holding a whip" width={720} height={1280} loading="lazy" />
-                <figcaption>Gordia — &ldquo;Silent &amp; Honed&rdquo;</figcaption>
-              </figure>
-              <figure>
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="/images/leaks/official-card-lucielle.webp" alt="Official character card art of Lucielle" width={720} height={1280} loading="lazy" />
-                <figcaption>Lucielle — &ldquo;Future &amp; Falsehoods&rdquo;</figcaption>
-              </figure>
-              <figure>
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="/images/leaks/official-card-cairn.webp" alt="Official character card art of Cairn: white-haired man, black mask over the lower face, dark outfit, one glowing blue arm" width={720} height={1280} loading="lazy" />
-                <figcaption>Cairn — &ldquo;Blood Debts &amp; Purifying Rain&rdquo;</figcaption>
-              </figure>
-              <figure>
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="/images/leaks/official-card-iya.webp" alt="Official character card art of Iya: long light-blue hair, white and blue outfit, ring and sparkle motifs" width={720} height={1280} loading="lazy" />
-                <figcaption>Iya — &ldquo;UFOs &amp; Sparkles&rdquo;</figcaption>
-              </figure>
-              <figure>
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="/images/leaks/official-card-simulsys.webp" alt="Official character card art of Simulsys: long blonde hair, elegant black and white gown" width={720} height={1280} loading="lazy" />
-                <figcaption>Simulsys — &ldquo;Bones &amp; Bygones&rdquo;</figcaption>
-              </figure>
-            </div>
-          </div>
-          <p style={{ margin: "0.6rem 0 0", opacity: 0.8, fontSize: "0.92rem" }}>
-            Kuro&rsquo;s character cards for the whole reveal set, posted five minutes apart
-            on the evening of November 17. No element, weapon, or kit was given for any of
-            them — everything in the rows below is still leak-grade until the beta.
-          </p>
-        </Reveal>
-        <div style={{ height: "0.9rem" }} />
-        <Reveal>
           <div className="lk-cast">
-            <div className="lk-cast-row">
-              <p>
-                <Chip tag="Official" /> <strong>The reveal set: Anna, April, Gordia,
-                Lucielle, Cairn, Iya and Simulsys.</strong> Kuro&rsquo;s seven drip posts
-                (November 17) name the faces from the trailer. Cairn&rsquo;s masked look
-                matches the masked-male description below, and Iya&rsquo;s space styling
-                matches the &ldquo;satellite girl&rdquo; — where the leaked names or
-                versions differ from these, the leaks were wrong. A trailer line also
-                names a Glenn, with no face shown.
-              </p>
-              <span className="lk-ver">4.0</span>
-            </div>
             <div className="lk-cast-row">
               <p>
                 <Chip tag="Single leak" /> <strong>Their Tacet Marks, read from the
@@ -1029,9 +913,9 @@ export default function LeaksPage() {
               so instead of picking a winner. The leaked images on this page are AI-upscaled for
               clarity (Real-ESRGAN, anime model) from the files that actually leaked —
               enhancement sharpens, it does not add real detail. The seven character
-              cards are Kuro&rsquo;s official art from the November 17 drip posts
-              (mirrored via the wiki&rsquo;s uploads of the same art), shown unedited
-              and uncovered. The unedited originals stay
+              cards are Kuro&rsquo;s official art from the November 17 drip posts —
+              they live on the Version 4.0 page now, mirrored there via the
+              wiki&rsquo;s uploads of the same art, unedited and uncovered. The unedited originals stay
               on the site:{" "}
               <a href="/images/leaks/anna-model-1920.webp">model sheet</a>,{" "}
               <a href="/images/leaks/anna-rotation-1920.webp">rotation</a>,{" "}
