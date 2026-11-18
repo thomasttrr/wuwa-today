@@ -49,7 +49,6 @@
   writing-mode: vertical-rl;
   font-family: var(--rs-display);
   font-weight: 800;
-  font-stretch: 125%;
   font-size: 24cqw;
   line-height: 0.85;
   letter-spacing: -0.04em;
@@ -82,7 +81,6 @@
   bottom: 9px;
   font-family: var(--rs-display);
   font-weight: 800;
-  font-stretch: 115%;
   font-size: clamp(0.62rem, 11cqw, 0.86rem);
   line-height: 1.05;
   letter-spacing: -0.01em;
@@ -92,7 +90,7 @@
   -webkit-line-clamp: 2;
   overflow: hidden;
 }
-.ct-name-long { font-size: clamp(0.5rem, 8.4cqw, 0.8rem); font-stretch: 100%; letter-spacing: -0.02em; }
+.ct-name-long { font-size: clamp(0.5rem, 8.4cqw, 0.8rem); letter-spacing: -0.02em; }
 .ct-rar { position: absolute; z-index: 4; left: 0; right: 0; bottom: 0; height: 3px; background: var(--rar, var(--rs-ink-3)); }
 @media (pointer: fine) {
   :is(a, button):hover > .ct-poster,

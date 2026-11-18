@@ -14,7 +14,7 @@
   background: var(--rs-surface);
   border: 1px solid var(--rs-line-soft);
 }
-.ev-sum-n { font-family: var(--rs-mono); font-weight: 600; font-size: 2.4rem; line-height: 1; font-stretch: 112%; }
+.ev-sum-n { font-family: var(--rs-mono); font-weight: 600; font-size: 2.4rem; line-height: 1; }
 .ev-sum-main .ev-sum-n { color: var(--el); }
 .ev-sum-l { font-size: var(--fs-2); color: var(--rs-ink-2); }
 .ev-sum-urgent {

@@ -7,11 +7,10 @@
   margin: 0.5rem 0 1.75rem;
   padding: 5px;
   border-radius: var(--rs-r-card);
-  background: color-mix(in oklch, var(--rs-canvas) 86%, transparent);
-  backdrop-filter: blur(22px) saturate(1.5);
-  -webkit-backdrop-filter: blur(22px) saturate(1.5);
-  border: 1px solid rgb(255 255 255 / 0.08);
-  box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.1), 0 10px 30px rgb(0 0 0 / 0.35);
+  /* Solid, not glass (Aftermath): near-opaque slate with a gold hairline. */
+  background: color-mix(in oklch, var(--rs-canvas) 97%, transparent);
+  border: 1px solid rgb(185 155 104 / 0.22);
+  box-shadow: 0 10px 30px rgb(0 0 0 / 0.35);
   overflow: hidden;
 }
 @media (min-width: 900px) {
@@ -104,7 +103,4 @@ body.rs main [id] { scroll-margin-top: 80px; }
 @media (prefers-reduced-motion: reduce) {
   .sr-pill { transition: none; }
   .sr-progress { animation: none; display: none; }
-}
-@media (prefers-reduced-transparency: reduce) {
-  .sr { backdrop-filter: none; -webkit-backdrop-filter: none; background: var(--rs-surface); }
 }

@@ -10,6 +10,7 @@
      Gold is the house accent (--el); character pages still re-tune --el to
      their element through <ElementTheme>.
    - Shape: square-ish corners (2px), double gold rules, no pointer glow.
+   - Surfaces: solid. No glass (backdrop blur) anywhere, chrome included.
    The home page's own components live in app/home.css.
    ========================================================================== */
 
@@ -104,7 +105,7 @@ body.rs .rs-tile-link { color: var(--am-gold-hi); }
   color: #15171d;
   background: linear-gradient(180deg, #efe8da, #cdb48a);
 }
-.rs-btn-solid:hover { box-shadow: 0 0 22px rgb(232 224 209 / 0.22); }
+.rs-btn-solid:hover { background: linear-gradient(180deg, #f5efe3, #d6bf97); }
 
 /* Tiles: solid slate with a gold hairline and an inner keyline. */
 .rs-tile {
@@ -116,7 +117,7 @@ body.rs .rs-tile-link { color: var(--am-gold-hi); }
 .rs-nav {
   border-radius: 2px;
   border: 1px solid rgb(185 155 104 / 0.32);
-  background: rgb(21 23 29 / 0.82);
+  background: rgb(21 23 29 / 0.97);
   box-shadow: 0 12px 40px rgb(0 0 0 / 0.45);
 }
 .rs-brand {
@@ -156,7 +157,7 @@ body.rs .rs-tile-link { color: var(--am-gold-hi); }
     border: 0;
     border-bottom: 1px solid rgb(185 155 104 / 0.22);
     border-radius: 0;
-    background: rgb(21 23 29 / 0.78);
+    background: rgb(21 23 29 / 0.97);
     box-shadow: none;
   }
   body.rs main { padding-top: calc(64px + 1.75rem); }

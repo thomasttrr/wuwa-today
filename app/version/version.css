@@ -28,7 +28,6 @@
   top: -0.12em;
   font-family: var(--rs-display);
   font-weight: 800;
-  font-stretch: 125%;
   font-size: clamp(8rem, 30vw, 22rem);
   line-height: 1;
   letter-spacing: -0.05em;
@@ -44,7 +43,6 @@
   margin: 0;
   font-family: var(--rs-display);
   font-weight: 800;
-  font-stretch: 125% !important;
   text-transform: uppercase;
   font-size: clamp(2.3rem, 7.2vw, 5rem);
   line-height: 0.88;
@@ -356,7 +354,6 @@ body.rs .vo-jump a:focus-visible { outline-offset: -3px; }
   margin: 0;
   font-family: var(--rs-display);
   font-weight: 800;
-  font-stretch: 125%;
   text-transform: uppercase;
   font-size: clamp(2.4rem, 7vw, 4rem);
   line-height: 0.9;

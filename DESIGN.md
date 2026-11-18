@@ -21,8 +21,11 @@ files**. New work uses the tokens and components below.
 2. **Utility before atmosphere.** The first screen answers the visitor's
    question (what's live, how long, which build). Art supports the data; it
    never replaces it.
-3. **Glass on chrome only** (nav, palette, sheets, sticky bars). Content
-   surfaces are solid `--rs-surface`.
+3. **No glass.** Every surface is solid, chrome included: the nav, search
+   palette and sticky section rail use near-opaque slate
+   (`--rs-canvas` at 97%) with a gold hairline, not `backdrop-filter` blur.
+   Page bars still carrying blur (characters hub, teams, tier list, outfits,
+   leaks) are being moved over page by page.
 4. **Contrast ≥ 4.5:1** for all text. Every element colour sits at the same
    lightness, so the accent never changes legibility.
 5. **Motion is gated** behind `prefers-reduced-motion`; blur degrades to solid

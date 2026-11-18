@@ -44,7 +44,6 @@
 .bn-stage-title {
   margin: 0.2rem 0 0;
   font-weight: 800;
-  font-stretch: 125% !important;
   text-transform: uppercase;
   font-size: clamp(3.2rem, 10vw, 7.5rem);
   line-height: 0.85;
@@ -116,7 +115,7 @@ a.bn-card:active { transform: scale(0.985); }
   color: var(--rs-ink);
 }
 .bn-status-new { background: var(--c); color: var(--rs-on-el); }
-.bn-card-name { margin: 0; font-size: var(--fs-9) !important; font-weight: 800; font-stretch: 125% !important; text-transform: uppercase; line-height: 0.95; }
+.bn-card-name { margin: 0; font-size: var(--fs-9) !important; font-weight: 800; text-transform: uppercase; line-height: 0.95; }
 .bn-card-weapon { margin: 0; font-size: var(--fs-4); color: var(--rs-ink-2); }
 .bn-card-weapon strong { color: var(--rs-ink); }
 .bn-card-tiers { display: flex; gap: 0.5rem; margin: 0.2rem 0 0; }
@@ -199,7 +198,7 @@ a.bn-card:active { transform: scale(0.985); }
 }
 .bn-node-face { margin-bottom: 0.4rem; }
 .bn-node-ver { font-family: var(--rs-mono); font-size: var(--fs-1); letter-spacing: 0.05em; text-transform: uppercase; color: var(--rs-ink-3); }
-.bn-node-name { font-family: var(--rs-display); font-weight: 750; font-stretch: 115%; font-size: var(--fs-7); }
+.bn-node-name { font-family: var(--rs-display); font-weight: 750; font-size: var(--fs-7); }
 .bn-node-date { font-family: var(--rs-mono); font-size: var(--fs-1); color: var(--rs-ink-3); }
 .bn-node-past .bn-node-face { filter: saturate(0.6); opacity: 0.85; }
 .bn-node-now > a, .bn-node-now > div {

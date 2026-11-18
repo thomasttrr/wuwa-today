@@ -49,7 +49,6 @@
 .cx-name {
   margin: 0;
   font-weight: 800;
-  font-stretch: 125% !important;
   text-transform: uppercase;
   /* Fit the longest word to the column (a wide uppercase letter is about
      0.82em), never past the design maximum. Breaks only at spaces. */
@@ -59,7 +58,7 @@
   overflow-wrap: normal;
   word-break: normal;
 }
-.cx-verdict { margin: 0.2rem 0 0; font-family: var(--rs-display); font-weight: 700; font-stretch: 112%; font-size: var(--fs-7); color: var(--el); }
+.cx-verdict { margin: 0.2rem 0 0; font-family: var(--rs-display); font-weight: 700; font-size: var(--fs-7); color: var(--el); }
 .cx-note { margin: 0; max-width: 56ch; color: var(--rs-ink-2); line-height: 1.55; }
 
 .cx-stats {
@@ -82,7 +81,7 @@
 .cx-stats dd { margin: 0; font-family: var(--rs-mono); font-weight: 700; font-size: var(--fs-5); color: var(--rs-ink); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .cx-stats small { font-size: var(--fs-1); color: var(--rs-ink-2); }
 .cx-stat-tier { background: color-mix(in oklch, var(--el) 14%, transparent) !important; border-color: color-mix(in oklch, var(--el) 35%, transparent) !important; }
-.cx-stat-tier dd { font-family: var(--rs-display); font-weight: 800; font-stretch: 125%; font-size: var(--fs-8); line-height: 1; color: var(--el); }
+.cx-stat-tier dd { font-family: var(--rs-display); font-weight: 800; font-size: var(--fs-8); line-height: 1; color: var(--el); }
 .cx-stars.cx-r5 { color: #f0c75e; letter-spacing: 0.1em; }
 .cx-stars.cx-r4 { color: #b28cf6; letter-spacing: 0.1em; }
 
@@ -147,7 +146,6 @@
   max-width: none;
   font-family: var(--rs-display);
   font-weight: 800;
-  font-stretch: 125%;
   text-transform: uppercase;
   font-size: clamp(2.2rem, calc(76cqw / var(--len, 8)), 15rem);
   line-height: 0.8;

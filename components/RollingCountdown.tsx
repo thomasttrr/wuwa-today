@@ -40,7 +40,7 @@ function parts(target: Date, now: Date) {
 }
 
 /**
- * RollingCountdown — Martian Mono readout where every digit is a column of
+ * RollingCountdown — a readout where every digit is a column of
  * 0-9 that springs to its value, so digits roll instead of swapping.
  * Server render shows dashes; the shared useNow clock drives ticks, so every
  * countdown on a page turns over on the same second.

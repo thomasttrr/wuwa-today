@@ -49,8 +49,9 @@
   --rs-warn: #f2b35e;
 
   /* --- type --- */
-  --rs-display: var(--font-mona), "Mona Sans", system-ui, sans-serif;
-  --rs-mono: var(--font-martian), "Martian Mono", ui-monospace, monospace;
+  /* Fonts: Aftermath re-points these to Cormorant / Jost (app/aftermath.css). */
+  --rs-display: var(--font-cormorant), "Cormorant", Garamond, Georgia, serif;
+  --rs-mono: var(--font-jost), "Jost", system-ui, sans-serif;
   --rs-body: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", system-ui, sans-serif;
 
   /* --- motion: one spring, one ease, everywhere --- */
@@ -84,7 +85,6 @@
   --rs-r-ctl: 999px;
 
   /* --- glass chrome (chrome only) --- */
-  --rs-glass: rgb(255 255 255 / 0.08);
   --rs-glint: rgb(255 255 255 / 0.35);
 
   /* --- status --- */
@@ -133,7 +133,6 @@ body.rs .container { max-width: 1200px; }
 
 body.rs h1, body.rs h2, body.rs h3 {
   font-family: var(--rs-display);
-  font-stretch: 112%;
   letter-spacing: -0.015em;
 }
 
@@ -201,9 +200,7 @@ body.rs .bn-timeline :focus-visible { outline-offset: -3px; }
   gap: 6px;
   padding: 6px;
   border-radius: var(--rs-r-tile);
-  background: color-mix(in oklch, var(--rs-canvas) 62%, transparent);
-  backdrop-filter: blur(18px) saturate(1.6);
-  -webkit-backdrop-filter: blur(18px) saturate(1.6);
+  background: color-mix(in oklch, var(--rs-canvas) 97%, transparent);
   border: 1px solid rgb(255 255 255 / 0.1);
   box-shadow:
     inset 0 1px 0 rgb(255 255 255 / 0.14),
@@ -216,7 +213,6 @@ body.rs .bn-timeline :focus-visible { outline-offset: -3px; }
   padding: 0 0.6rem;
   font-family: var(--rs-display);
   font-weight: 750;
-  font-stretch: 118%;
   letter-spacing: -0.01em;
   color: var(--rs-ink);
   white-space: nowrap;
@@ -440,15 +436,11 @@ body.rs .bn-timeline :focus-visible { outline-offset: -3px; }
   overflow: visible;
 }
 .rs-palette::backdrop {
-  background: rgb(4 4 8 / 0.6);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
+  background: rgb(10 11 14 / 0.72);
 }
 .rs-palette-box {
   border-radius: var(--rs-r-tile);
-  background: color-mix(in oklch, var(--rs-surface) 86%, transparent);
-  backdrop-filter: blur(24px) saturate(1.5);
-  -webkit-backdrop-filter: blur(24px) saturate(1.5);
+  background: var(--rs-surface);
   border: 1px solid rgb(255 255 255 / 0.12);
   box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.14), 0 30px 80px rgb(0 0 0 / 0.6);
   overflow: hidden;
@@ -511,19 +503,6 @@ body.rs .rs-palette-field input:focus-visible { outline: none; }
 /* ==========================================================================
    Masthead — compact, data leads
    ========================================================================== */
-
-.rs-hero {
-  position: relative;
-  display: grid;
-  overflow-x: clip; /* the grain layer bleeds sideways */
-  gap: 0.6rem;
-  padding: 0.5rem 0 1.25rem;
-}
-.rs-hero-kicker {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.55rem;
-}
 .rs-live-dot {
   width: 8px; height: 8px;
   flex: none;
@@ -531,41 +510,8 @@ body.rs .rs-palette-field input:focus-visible { outline: none; }
   background: var(--el);
   box-shadow: 0 0 0 4px var(--rs-el-soft);
 }
-.rs-hero-title {
-  margin: 0;
-  font-family: var(--rs-display);
-  font-weight: 800;
-  font-stretch: 125%;
-  text-transform: uppercase;
-  font-size: clamp(1.9rem, 6.4vw, 3.6rem);
-  line-height: 0.92;
-  letter-spacing: -0.03em;
-  color: var(--rs-ink);
-  overflow-wrap: anywhere;
-}
-.rs-hero-title span {
-  color: transparent;
-  -webkit-text-stroke: 1.5px color-mix(in oklch, var(--el) 80%, white);
-}
-.rs-hero-kicker { flex-wrap: wrap; row-gap: 0.25rem; }
 /* "Next: 3.8 …" — the announced version, labelled as next, not as now. */
-.rs-hero-next {
-  display: inline-flex;
-  align-items: center;
-  min-height: 24px;
-  padding: 0 0.6rem;
-  border-radius: var(--rs-r-ctl);
-  border: 1px solid var(--rs-line);
-  color: var(--rs-ink-2);
-  text-decoration: none;
-}
-.rs-hero-next:hover { color: var(--rs-ink); border-color: var(--rs-el-line); text-decoration: none; }
-.rs-hero-next { white-space: nowrap; }
 /* Phones: the pill stays one line; the version title is in the Up next tile. */
-@media (max-width: 560px) {
-  .rs-hero-next-title { display: none; }
-}
-.rs-hero-sub { margin: 0; max-width: 36rem; color: var(--rs-ink-2); font-size: var(--fs-6); line-height: 1.5; }
 .rs-verified {
   margin: -0.35rem 0 0.75rem;
   font-family: var(--rs-mono);
@@ -574,42 +520,12 @@ body.rs .rs-palette-field input:focus-visible { outline: none; }
   line-height: 1.5;
   color: var(--rs-ink-2);
 }
-.rs-tile-sublink {
-  display: inline-block;
-  font-size: var(--fs-4);
-  color: var(--rs-ink-2);
-}
 @media (max-width: 760px) {
-  /* One-line version kicker on phones: the title already says what this is. */
-  .rs-hero { padding-top: 0; gap: 0.45rem; }
-  .rs-hero-sub { display: none; } /* the codes tile carries the verified line */
-}
-@media (prefers-reduced-motion: no-preference) {
-  .rs-hero > * { animation: rs-rise var(--rs-d2) var(--rs-ease) both; }
+  /* One-line version kicker on phones: the title already says what this is. */ /* the codes tile carries the verified line */
 }
 @keyframes rs-rise { from { opacity: 0; transform: translateY(0.4em); } }
 
 /* Film grain, hero only: a static SVG noise tile, ~3% visible. */
-.rs-hero::after {
-  content: "";
-  position: absolute;
-  inset: -2rem -50vw;
-  z-index: 0;
-  pointer-events: none;
-  opacity: 0.05;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  /* Fade to nothing at the hero's left and right edges (the ::after is 50vw
-     wider than the hero on each side, so the hero edges sit at 50vw), so the
-     clip line never shows as a hard cut. */
-  -webkit-mask-image:
-    linear-gradient(#000 60%, transparent),
-    linear-gradient(90deg, transparent 50vw, #000 calc(50vw + 2.5rem), #000 calc(100% - 50vw - 2.5rem), transparent calc(100% - 50vw));
-  -webkit-mask-composite: source-in;
-  mask-image:
-    linear-gradient(#000 60%, transparent),
-    linear-gradient(90deg, transparent 50vw, #000 calc(50vw + 2.5rem), #000 calc(100% - 50vw - 2.5rem), transparent calc(100% - 50vw));
-  mask-composite: intersect;
-}
 
 /* ==========================================================================
    Broadcast strip — thin "what's next" line between hero and today grid
@@ -660,31 +576,8 @@ body.rs .rs-palette-field input:focus-visible { outline: none; }
    to the codes + resets stack and left a ~380px hole under the banner, so
    each column now flows on its own. On phones the columns dissolve
    (display: contents) and `order` interleaves the tiles into one list. */
-.rs-today {
-  display: grid;
-  gap: 14px;
-  grid-template-columns: minmax(0, 1fr);
-  margin-top: 1.5rem;
-  scroll-margin-top: 96px;
-}
-.rs-col { display: contents; }
 /* In-page jumps (#codes from "Ending soon", #up-next from the masthead)
    land below the fixed desktop bar. */
-.rs-col .rs-tile { scroll-margin-top: 96px; }
-.rs-col > * { min-width: 0; }
-.rs-col > .reveal { display: grid; }
-.rs-tile-banner-wrap { order: 1; }
-.rs-tile-codes-wrap { order: 2; }
-.rs-tile-events-wrap { order: 3; }
-.rs-tile-resets-wrap { order: 4; }
-.rs-tile-next-wrap { order: 5; }
-.rs-tile-upnext-wrap { order: 6; }
-.rs-tile-prefarm-wrap { order: 7; }
-.rs-tile-new-wrap { order: 8; }
-@media (min-width: 900px) {
-  .rs-today { grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); align-items: start; }
-  .rs-col { display: grid; gap: 14px; align-content: start; min-width: 0; }
-}
 
 .rs-tile {
   position: relative;
@@ -704,7 +597,6 @@ a.rs-tile:hover { text-decoration: none; }
 a.rs-tile:active { transform: scale(0.985); }
 .rs-tile h2 { margin: 0; font-size: var(--fs-7); }
 .rs-tile-head { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
-.rs-tile-link { font-size: var(--fs-4); font-weight: 600; color: var(--el); }
 .rs-count {
   font-family: var(--rs-mono);
   font-size: var(--fs-2);
@@ -725,123 +617,14 @@ a.rs-tile:active { transform: scale(0.985); }
 }
 
 /* --- featured banner tile: the art is the tile --- */
-.rs-tile-banner {
-  min-height: 560px;
-  padding: 1.6rem;
-  justify-content: space-between;
-  background:
-    radial-gradient(80% 90% at 85% 20%, color-mix(in oklch, var(--el) 22%, transparent), transparent 70%),
-    var(--rs-surface);
-  border-color: color-mix(in oklch, var(--el) 22%, transparent);
-}
-.rs-banner-art {
-  position: absolute;
-  z-index: 0;
-  top: -6%;
-  right: -12%;
-  width: 78%;
-  height: auto;
-  pointer-events: none;
-  transition: translate var(--rs-d3) var(--rs-ease);
-}
-@media (pointer: fine) {
-  .rs-tile-banner:hover .rs-banner-art { translate: 0 -10px; }
-}
-.rs-tile-banner::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  pointer-events: none;
-  background:
-    linear-gradient(90deg, var(--rs-surface) 18%, color-mix(in oklch, var(--rs-surface) 70%, transparent) 46%, transparent 72%),
-    linear-gradient(0deg, var(--rs-surface) 4%, transparent 40%);
-}
-.rs-banner-body {
-  position: relative;
-  z-index: 2;
-  display: grid;
-  gap: 0.6rem;
-  max-width: 30rem;
-}
-.rs-banner-name {
-  font-size: clamp(2.6rem, 6vw, 4.4rem) !important;
-  font-weight: 800;
-  font-stretch: 125% !important;
-  text-transform: uppercase;
-  line-height: 0.9;
-  letter-spacing: -0.03em;
-  margin: 0.2rem 0 0 !important;
-}
-.rs-banner-weapon { margin: 0 0 0.6rem; color: var(--rs-ink-2); }
-.rs-banner-weapon strong { color: var(--rs-ink); }
-.rs-banner-date { display: grid; margin: 0; max-width: 26rem; font-family: var(--rs-mono); font-size: var(--fs-2); line-height: 1.6; color: var(--rs-ink-2); }
-.rs-banner-local { color: var(--rs-ink-3); }
-.rs-banner-local:empty { display: none; }
-.rs-banner-actions { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 0.6rem; }
-
-.rs-rateups { position: relative; z-index: 2; margin-top: 1.5rem; }
-.rs-rateups-h { margin: 0 0 0.6rem; font-size: var(--fs-2); color: var(--rs-ink-3); }
-.rs-rateups ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-  gap: 8px;
-}
-.rs-rateups li > a, .rs-rateups li > span {
-  display: grid;
-  grid-template-columns: 40px minmax(0, 1fr);
-  grid-template-rows: auto auto;
-  column-gap: 0.65rem;
-  align-items: center;
-  padding: 6px 10px 6px 6px;
-  border-radius: var(--rs-r-card);
-  background: color-mix(in oklch, var(--rs-canvas) 55%, transparent);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgb(255 255 255 / 0.08);
-  color: var(--rs-ink);
-  transition: border-color var(--rs-d1) ease, transform var(--rs-d2) var(--rs-spring);
-}
-.rs-rateups li > a:hover { text-decoration: none; border-color: color-mix(in oklch, var(--opt) 60%, transparent); }
-.rs-rateups li > a:active { transform: scale(0.96); }
 /* Wider than a phone: every rate-up shares one row (equal columns), so the
    last chip can never wrap onto a line of its own. */
 @media (min-width: 761px) {
-  .rs-rateups ul { grid-template-columns: repeat(var(--n, 5), minmax(0, 1fr)); }
-  .rs-rateups li > a, .rs-rateups li > span { grid-template-columns: 36px minmax(0, 1fr); column-gap: 0.5rem; }
-  .rs-rateups .ct-medal { --s: 36px !important; }
-  /* Body face here: Martian Mono is too wide to fit "5★ · Glacio" in a fifth of the tile. */
-  .rs-rateups .rs-rateup-meta { font-family: var(--rs-body); font-size: var(--fs-2); font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  /* Body face here so "5★ · Glacio" fits in a fifth of the tile. */
 }
-.rs-rateup-face { grid-row: span 2; --c: var(--opt); }
-.rs-rateup-name { font-weight: 650; font-size: var(--fs-4); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.rs-rateup-meta { font-family: var(--rs-mono); font-size: var(--fs-1); color: var(--opt); }
 
 @media (max-width: 760px) {
-  .rs-tile-banner { min-height: 0; padding: 1.25rem; padding-top: 40%; gap: 0.75rem; }
-  .rs-banner-art { top: -4%; right: auto; left: 50%; width: 78%; translate: -50% 0; }
-  /* Rate-ups: one swipeable row instead of a stacked grid. */
-  .rs-rateups { margin-top: 0.5rem; }
-  .rs-rateups ul {
-    display: flex;
-    overflow-x: auto;
-    scroll-snap-type: x proximity;
-    scrollbar-width: none;
-    margin-inline: -1.25rem;
-    padding-inline: 1.25rem;
-  }
-  .rs-rateups ul::-webkit-scrollbar { display: none; }
-  .rs-rateups li { flex: none; scroll-snap-align: start; }
-  .rs-tile-banner .rs-wave { display: none; } /* countdown already says it */
-  .rs-banner-actions { gap: 0.4rem; margin-top: 0.2rem; }
-  .rs-banner-actions .rs-btn { flex: 1 1 auto; padding-inline: 0.7rem; font-size: var(--fs-3); white-space: nowrap; }
-  .rs-tile-banner:hover .rs-banner-art { translate: -50% 0; }
-  .rs-tile-banner::after {
-    background: linear-gradient(0deg, var(--rs-surface) 42%, color-mix(in oklch, var(--rs-surface) 60%, transparent) 62%, transparent 85%);
-  }
+  /* Rate-ups: one swipeable row instead of a stacked grid. */ /* countdown already says it */
 }
 
 /* --- codes --- */
@@ -908,40 +691,18 @@ a.rs-tile:active { transform: scale(0.985); }
 }
 
 /* --- pre-farm tile --- */
-.rs-tile-prefarm {
-  gap: 0.8rem;
-  background:
-    radial-gradient(90% 80% at 100% 0%, color-mix(in oklch, var(--opt, var(--el)) 16%, transparent), transparent 70%),
-    var(--rs-surface);
-}
-.rs-tile-prefarm .rs-kicker { color: var(--opt, var(--el)); }
-.rs-prefarm-top { display: flex; align-items: center; gap: 0.9rem; }
-.rs-prefarm-top > div { display: grid; gap: 0.2rem; min-width: 0; }
-.rs-prefarm-face { flex: none; --c: var(--opt, var(--el)); }
-.rs-prefarm-when { margin: 0; font-family: var(--rs-mono); font-size: var(--fs-2); color: var(--rs-ink-2); }
-.rs-tile-prefarm .rs-muted { font-size: var(--fs-4); line-height: 1.5; }
-.rs-tile-prefarm .rs-tile-link { color: var(--opt, var(--el)); }
 
 /* --- beginner tile --- */
-.rs-tile-new {
-  justify-content: flex-end;
-  min-height: 220px;
-  background:
-    radial-gradient(90% 80% at 100% 0%, color-mix(in oklch, var(--el) 14%, transparent), transparent 70%),
-    var(--rs-surface);
-}
-.rs-tile-new-links { display: flex; flex-wrap: wrap; align-items: center; gap: 0.25rem 1.25rem; }
-.rs-tile-new-links a { display: inline-flex; align-items: center; min-height: 44px; }
 
 /* ==========================================================================
-   Rolling countdown (Martian Mono)
+   Rolling countdown
    ========================================================================== */
 
 .rs-cd { display: grid; gap: 0.45rem; }
 .rs-cd-label { font-size: var(--fs-2); color: var(--rs-ink-2); }
 .rs-cd-row { display: flex; align-items: flex-start; gap: 0.2em; font-family: var(--rs-mono); }
 .rs-cd-unit { position: relative; display: grid; justify-items: start; padding-right: 0.55em; }
-.rs-cd-digits { display: flex; font-weight: 500; font-stretch: 112%; line-height: 1; color: var(--rs-ink); }
+.rs-cd-digits { display: flex; font-weight: 500; line-height: 1; color: var(--rs-ink); }
 .rs-cd-win { display: inline-block; height: 1em; overflow: hidden; }
 .rs-cd-col { display: flex; flex-direction: column; transition: transform var(--rs-d3) var(--rs-spring); }
 .rs-cd-col > span, .rs-cd-dash { display: block; height: 1em; line-height: 1; text-align: center; }
@@ -1014,14 +775,6 @@ body.rs .og-char-art {
     0 30px 80px color-mix(in oklch, var(--el) 18%, transparent);
 }
 body.rs .og-char-kicker { font-family: var(--rs-mono); color: var(--el); letter-spacing: 0.08em; }
-body.rs .og-char-name {
-  font-weight: 800;
-  font-stretch: 125%;
-  font-size: clamp(2.6rem, 7vw, 5rem);
-  line-height: 0.9;
-  letter-spacing: -0.03em;
-  text-transform: uppercase;
-}
 
 /* ==========================================================================
    View transitions: shared-element morph (tile -> hero) + page crossfade
@@ -1062,13 +815,11 @@ body.rs .og-char-name {
 
 @media (prefers-reduced-motion: reduce) {
   body.rs { transition: none; }
-  .rs-cd-col, .rs-tab-pill, .rs-btn, .rs-tile, .rs-banner-art { transition: none !important; }
+  .rs-cd-col, .rs-tab-pill, .rs-btn, .rs-tile { transition: none !important; }
   ::view-transition-group(*), ::view-transition-old(*), ::view-transition-new(*) { animation: none !important; }
 }
 @media (prefers-reduced-transparency: reduce) {
-  .rs-nav, .rs-palette-box, .rs-rateups li > a, .rs-rateups li > span {
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
+  .rs-nav, .rs-palette-box {
     background: var(--rs-surface);
   }
 }

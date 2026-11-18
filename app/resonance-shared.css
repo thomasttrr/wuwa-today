@@ -21,7 +21,6 @@ body.rs .og-page-kicker {
 }
 body.rs .og-page-title {
   font-weight: 800;
-  font-stretch: 125%;
   text-transform: uppercase;
   font-size: clamp(2.6rem, 8vw, 5.6rem);
   line-height: 0.88;
@@ -36,7 +35,6 @@ body.rs .og-page-lede { color: var(--rs-ink-2); font-size: var(--fs-6); margin-t
 /* Title-only pages (pre-farm, beginner hubs) use og-display h1s directly. */
 body.rs h1.og-display {
   font-weight: 800;
-  font-stretch: 125%;
   letter-spacing: -0.035em;
   line-height: 0.9;
 }
@@ -71,13 +69,12 @@ body.rs .og-section-head {
 body.rs .og-h2 {
   font-family: var(--rs-display);
   font-weight: 750;
-  font-stretch: 112%;
   font-size: clamp(1.4rem, 3vw, 2rem);
   letter-spacing: -0.02em;
 }
 body.rs .og-section-blurb { color: var(--rs-ink-3); font-size: var(--fs-4); line-height: 1.55; margin-top: 0.4rem; max-width: 64ch; }
 body.rs .og-section-link { color: var(--el); font-size: var(--fs-4); font-weight: 650; white-space: nowrap; }
-body.rs .og-sub-h { font-family: var(--rs-display); font-weight: 700; font-stretch: 108%; font-size: var(--fs-7); }
+body.rs .og-sub-h { font-family: var(--rs-display); font-weight: 700; font-size: var(--fs-7); }
 
 /* --- kickers --- */
 body.rs .og-char-kicker {
@@ -99,7 +96,7 @@ body.rs .og-pick-card {
 }
 body.rs a.og-pick-card:hover { border-color: var(--rs-el-line); text-decoration: none; }
 body.rs a.og-pick-card:active { transform: scale(0.985); }
-body.rs .og-pick-card h3 { font-family: var(--rs-display); font-weight: 750; font-stretch: 110%; font-size: var(--fs-7); }
+body.rs .og-pick-card h3 { font-family: var(--rs-display); font-weight: 750; font-size: var(--fs-7); }
 body.rs .og-pick-desc, body.rs .og-pick-why { color: var(--rs-ink-2); }
 body.rs .og-pick-desc a, body.rs .og-q-links a { color: var(--el); }
 body.rs .og-pick-portrait { border-radius: var(--rs-r-card); box-shadow: 0 0 0 1.5px var(--rs-el-line); }
@@ -185,7 +182,7 @@ body.rs .og-echo-plate-bis {
     radial-gradient(80% 90% at 0% 0%, color-mix(in oklch, var(--el) 12%, transparent), transparent 70%),
     var(--rs-surface);
 }
-body.rs .og-echo-name { font-family: var(--rs-display); font-weight: 700; font-stretch: 108%; }
+body.rs .og-echo-name { font-family: var(--rs-display); font-weight: 700; }
 body.rs .og-echo-cost { font-family: var(--rs-mono); color: var(--el); }
 
 /* --- character page body pieces --- */
@@ -198,7 +195,7 @@ body.rs .og-weapon-bis {
 }
 body.rs .og-weapon-rank { font-family: var(--rs-mono); color: var(--rs-ink-3); }
 body.rs .og-weapon-bis .og-weapon-rank { color: var(--el); }
-body.rs .og-weapon-name { font-family: var(--rs-display); font-weight: 700; font-stretch: 108%; }
+body.rs .og-weapon-name { font-family: var(--rs-display); font-weight: 700; }
 body.rs .og-bis-pill { background: var(--el); color: var(--rs-on-el); border-color: transparent; }
 
 /* --- glossary --- */
@@ -213,12 +210,7 @@ body.rs .og-gloss-term strong { font-family: var(--rs-display); font-weight: 700
 
 /* --- footnotes --- */
 body.rs .og-version-note { color: var(--rs-ink-3); font-size: var(--fs-3); }
-body.rs .og-verify-block {
-  border-radius: var(--rs-r-tile);
-  background: var(--rs-surface);
-  border: 1px solid var(--rs-line-soft);
-}
-body.rs .og-verify-block, body.rs .og-updated { font-family: var(--rs-mono); font-size: var(--fs-2); color: var(--rs-ink-3); }
+body.rs .og-updated { font-family: var(--rs-mono); font-size: var(--fs-2); color: var(--rs-ink-3); }
 
 /* --- footer: match the new chrome --- */
 body.rs .site-footer { border-top-color: var(--rs-line-soft); background: color-mix(in oklch, var(--rs-canvas) 80%, black); }
@@ -326,8 +318,7 @@ html:has(dialog[open]) { overflow: hidden; scrollbar-gutter: stable; }
 .rs-page-title {
   margin: 0;
   font-family: var(--rs-display);
-  font-weight: 800;
-  font-stretch: 125% !important; /* beats the legacy h1 rule */
+  font-weight: 800; /* beats the legacy h1 rule */
   text-transform: uppercase;
   font-size: clamp(2.1rem, 10vw, 7rem);
   line-height: 0.86;

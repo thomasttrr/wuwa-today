@@ -189,24 +189,6 @@
   color: var(--rs-ink-2);
   margin: 0;
 }
-.og-char-name {
-  margin: 0.45rem 0 0.9rem;
-  font-size: clamp(2.1rem, 5vw, 3.4rem);
-  overflow-wrap: break-word;
-}
-.og-char-badges {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 0.5rem;
-}
-.og-hero-note {
-  color: var(--rs-ink-2);
-  font-size: var(--fs-5);
-  margin: 0.5rem 0 0;
-  max-width: 60ch;
-  line-height: 1.55;
-}
 
 @media (max-width: 720px) {
   .og-char-hero {
@@ -831,52 +813,7 @@
 
 /* --- pre-farm "farm now / wait" lists ---------------------------------------- */
 
-.og-ready-list { list-style: none; margin: 0.5rem 0 0; padding: 0; }
-.og-ready-list > li {
-  padding: 0.45rem 0;
-  border-top: 1px solid var(--rs-line-soft);
-}
-.og-ready-list > li:first-child { border-top: none; }
-.og-ready-top {
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-  color: var(--rs-ink);
-}
-.og-ready-top > span:nth-child(2) { flex: 1; min-width: 0; }
-
 /* --- pre-farm breakdown accordions (native details, no JS) ------------------- */
-
-.og-breakdown {
-  border: 1px solid var(--rs-line-soft);
-  border-radius: var(--rs-r-card);
-  background: var(--rs-surface);
-  margin: 0 0 0.75rem;
-}
-.og-breakdown summary {
-  list-style: none;
-  cursor: pointer;
-  padding: 1rem 1.25rem;
-  font-weight: 700;
-  font-size: var(--fs-5);
-  color: var(--rs-ink);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0.75rem;
-  min-height: 44px;
-}
-.og-breakdown summary::-webkit-details-marker { display: none; }
-.og-breakdown summary::after {
-  content: "+";
-  color: var(--rs-ink-2);
-  font-size: var(--fs-7);
-  font-weight: 400;
-  line-height: 1;
-  flex: none;
-}
-.og-breakdown[open] summary::after { content: "–"; }
-.og-breakdown .og-materials { padding: 0 1.25rem 1.1rem; }
 
 /* --- scroll-to-top: floating glass button ------------------------------------ */
 
@@ -894,9 +831,7 @@
   align-items: center;
   justify-content: center;
   color: var(--rs-ink);
-  background: var(--rs-glass);
-  -webkit-backdrop-filter: blur(18px) saturate(1.4);
-  backdrop-filter: blur(18px) saturate(1.4);
+  background: var(--rs-surface-2);
   border: 1px solid var(--rs-line);
   box-shadow: 0 8px 28px -10px rgba(0, 0, 0, 0.65);
   cursor: pointer;
@@ -1173,9 +1108,6 @@
   syntax: "<angle>";
   initial-value: 0deg;
   inherits: false;
-}
-@keyframes og-top-beam {
-  to { --beam-angle: 360deg; }
 }
 
 /* Plain-words box (character pages) + glossary terms. Flat glass card

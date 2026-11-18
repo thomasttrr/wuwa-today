@@ -142,7 +142,7 @@
 }
 .tm-blurb { margin: 0.45rem 0 0; color: var(--rs-ink-3); font-size: var(--fs-5); line-height: 1.55; max-width: 62ch; }
 .tm-section-aside { flex: none; }
-.tm-sub-h { margin: 2rem 0 0.9rem; font-weight: 700; font-stretch: 108%; font-size: var(--fs-7); }
+.tm-sub-h { margin: 2rem 0 0.9rem; font-weight: 700; font-size: var(--fs-7); }
 .tm-label {
   margin: 0 0 0.35rem;
   font-family: var(--rs-mono);
@@ -195,7 +195,7 @@
   font-weight: 750;
   line-height: 1.2;
 }
-.tm-variant { color: var(--rs-ink-3); font-weight: 600; font-stretch: 100%; }
+.tm-variant { color: var(--rs-ink-3); font-weight: 600; }
 .tm-tag {
   display: inline-block;
   margin-right: 0.5rem;
@@ -207,7 +207,6 @@
   font-weight: 600;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  font-stretch: 100%;
   color: var(--rs-ink-2);
   background: rgb(255 255 255 / 0.06);
   border: 1px solid var(--rs-line-soft);
@@ -414,7 +413,7 @@
 }
 .tm-token p { margin: 0; font-size: var(--fs-4); line-height: 1.5; color: var(--rs-ink-2); }
 .tm-token .tm-token-k { font-family: var(--rs-mono); font-size: var(--fs-1); letter-spacing: 0.08em; text-transform: uppercase; color: #e8c76a; }
-.tm-token .tm-token-name { font-family: var(--rs-display); font-stretch: 108%; font-weight: 700; font-size: var(--fs-5); color: var(--rs-ink); line-height: 1.25; }
+.tm-token .tm-token-name { font-family: var(--rs-display); font-weight: 700; font-size: var(--fs-5); color: var(--rs-ink); line-height: 1.25; }
 .tm-token-stage { background: var(--rs-surface); border-color: var(--rs-el-line); }
 .tm-token-stage .tm-token-k { color: var(--el); }
 
