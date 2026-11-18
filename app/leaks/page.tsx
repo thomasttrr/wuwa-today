@@ -584,6 +584,13 @@ export default function LeaksPage() {
               <strong>A Hsin + Suoming team link</strong> — if she is an off-field sub-DPS, she
               would tighten that rotation rather than replace anyone in it.
             </Claim>
+            <Claim tag="Single leak">
+              <strong>Her grandfather may be in the trailer — as a boss.</strong> A
+              November 18 post (Seele, via @WutheringNews) claims the old man glimpsed in
+              the 4.0 trailer is Lucielle&rsquo;s grandfather, and that he appears as a
+              boss. Nothing backs either part yet beyond the trailer still itself — no
+              render, no second source.
+            </Claim>
           </div>
         </Reveal>
       </div>

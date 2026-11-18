@@ -694,3 +694,11 @@ Lily client verification Nov 11, 2026: role, skill, sequence and weapon text che
   the new page); the File 04 reveal gallery, both file-lead card
   blocks, the trailer claim, and the reveal-set row were removed.
   The card image files themselves did not move (same URLs).
+
+## 2026-11-18 — Lucielle's grandfather claim (leaks page, File 02)
+
+- Claim (Single leak): "Her grandfather may be in the trailer — as a
+  boss" — Seele via @WutheringNews on X, Nov 18, 2026 01:14 ET:
+  the old man glimpsed in the 4.0 trailer is claimed to be Lucielle's
+  grandfather and a boss. Trailer still only; no render, no second
+  source. Published under Tom's 12-hour auto-approve (DECISIONS.md).
