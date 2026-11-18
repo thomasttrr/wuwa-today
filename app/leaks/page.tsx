@@ -875,6 +875,19 @@ export default function LeaksPage() {
             </div>
             <div className="lk-cast-row">
               <p>
+                <Chip tag="Single leak" /> <strong>The banner order, per Seele&rsquo;s
+                chart.</strong> A chart posted on November 17 (Seele, via the leaks
+                subreddit, flaired &ldquo;Questionable&rdquo;) pairs them up: 4.0 Anna
+                and Lucielle, 4.1 Amethyst and Cairn, 4.2 Iya and Gordia, 4.3 Simulsys
+                and April. The 4.0 pair and Amethyst&rsquo;s 4.1 slot match what this
+                page already had; the new parts are Cairn beside Amethyst and the 4.2
+                and 4.3 pairings. The chart itself flags the info as early and subject
+                to change.
+              </p>
+              <span className="lk-ver">4.0 – 4.3?</span>
+            </div>
+            <div className="lk-cast-row">
+              <p>
                 <Chip tag="Repeated leak" />{" "}
                 <strong>Amethyst (also Aimoshesh / Aimoxishen)</strong> — an anti-Resonance
                 humanoid weapon, most often placed in Version 4.1 Phase 1. One leak graphic tags

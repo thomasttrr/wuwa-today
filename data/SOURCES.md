@@ -672,3 +672,14 @@ Lily client verification Nov 11, 2026: role, skill, sequence and weapon text che
   shown unedited and without spoiler covers — official art, not
   leaks. Each card was viewed before shipping; names are printed on
   the art itself.
+
+## 2026-11-17 — Seele banner-order chart row (leaks page, File 04)
+
+- Row (Single leak): "The banner order, per Seele's chart" — a chart
+  posted Nov 17, 2026 23:12 ET via r/WutheringWavesLeaks (post
+  1xz5po7), flaired "Questionable", pairs the revealed seven plus
+  Amethyst as: 4.0 Anna/Lucielle, 4.1 Amethyst/Cairn, 4.2 I.YA/Gordia,
+  4.3 Simulsys/April; the chart itself says early info, subject to
+  change. A WuWa Universe Instagram reshare is the same source, not a
+  second tracker — grade stays Single leak. Published under Tom's
+  12-hour auto-approve (2026-11-17 23:04 ET, DECISIONS.md).
