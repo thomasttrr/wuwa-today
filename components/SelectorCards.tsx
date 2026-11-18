@@ -17,7 +17,7 @@ import Reveal from "./Reveal";
 
 function ResonatorCard({ s }: { s: SelectorConvene }) {
   return (
-    <article className="bn-sel-card rs-spot">
+    <article className="bn-sel-card">
       <header className="bn-sel-head">
         <p className="bn-card-kicker">
           <span className="bn-status bn-status-selector">Selector</span>
@@ -71,7 +71,7 @@ const SPLASH_POS: Record<string, string> = {
 
 function WeaponCard({ s }: { s: SelectorConvene }) {
   return (
-    <article className="bn-sel-card rs-spot">
+    <article className="bn-sel-card">
       <header className="bn-sel-head">
         <p className="bn-card-kicker">
           <span className="bn-status bn-status-selector">Selector</span>

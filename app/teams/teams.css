@@ -188,12 +188,6 @@
   border: 1px solid color-mix(in oklch, var(--c) 18%, var(--rs-line-soft));
   transition: border-color var(--rs-d2) var(--rs-ease), transform var(--rs-d2) var(--rs-spring);
 }
-/* .rs-spot paints its highlight from --el; the card uses its lead's element. */
-.tm-card.rs-spot::before {
-  background: radial-gradient(260px circle at var(--mx, -400px) var(--my, -400px),
-    color-mix(in oklch, var(--c) 85%, transparent), transparent 70%);
-}
-
 .tm-card-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 0.75rem; }
 .tm-card-name {
   margin: 0;

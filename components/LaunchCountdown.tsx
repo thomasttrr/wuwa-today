@@ -11,8 +11,7 @@ import launch from "../data/launch.json";
  * one-liners carrying only what differs per zone — the local opening time
  * and the UTC offset, both computed from the zone at runtime.
  *
- * Data: counts to data/launch.json's goLiveAt (the same instant
- * HomeLaunchStrip hides at). The hairline under the hero fills from
+ * Data: counts to data/launch.json's goLiveAt. The hairline under the hero fills from
  * predownloadOpensAt to goLiveAt. At the instant it flips to "Playable
  * now"; the homepage mount passes hideAtLive and disappears with the
  * launch strip instead.

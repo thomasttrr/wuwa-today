@@ -360,7 +360,7 @@ function EventItem({ e, st, now, flash }: { e: GameEvent; st: Live; now: number;
     <li
       id={`ev-card-${e.id}`}
       tabIndex={-1}
-      className={`ev-card rs-spot ev-st-${st}${lastDay ? " ev-last-day" : ""}${flash ? " ev-flash" : ""}`}
+      className={`ev-card ev-st-${st}${lastDay ? " ev-last-day" : ""}${flash ? " ev-flash" : ""}`}
     >
       {e.image && (
         <div className="ev-art" aria-hidden="true">

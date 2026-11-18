@@ -217,17 +217,6 @@ table.data td.mono { color: var(--rs-ink); }
   100% { transform: translateX(100%); }
 }
 
-/* ---------- reset cycle progress ---------- */
-
-.cycle-bar {
-  height: 3px; background: rgba(255, 255, 255, 0.1);
-  border-radius: 2px; margin-top: 0.55rem; overflow: hidden;
-}
-.cycle-fill { height: 100%; background: var(--el); border-radius: 2px; transition: width 1s linear; }
-@media (prefers-reduced-motion: reduce) {
-  .cycle-fill { transition: none; }
-}
-
 /* ---------- card polish ---------- */
 
 @media (max-width: 640px) {

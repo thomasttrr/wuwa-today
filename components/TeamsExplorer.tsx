@@ -522,7 +522,7 @@ function TeamCard({ team, focus, owned, showOwned }: { team: Team } & CardProps)
   const have = team.members.filter((m) => owned.has(m.slug)).length;
   const tierTop = team.tier === "T0" || team.tier?.startsWith("T0 ");
   return (
-    <article className="tm-card rs-spot" style={elStyle(lead.element)} aria-labelledby={`${team.id}-n`}>
+    <article className="tm-card" style={elStyle(lead.element)} aria-labelledby={`${team.id}-n`}>
       <header className="tm-card-head">
         <h3 id={`${team.id}-n`} className="tm-card-name">
           {team.tag && <span className="tm-tag">{team.tag}</span>}

@@ -724,28 +724,6 @@ a.rs-tile:active { transform: scale(0.985); }
   color: var(--rs-ink-2);
 }
 
-/* Spotlight: an element-colored highlight that follows the cursor along
-   the card border (fine pointers only; --mx/--my fed by <Spotlight>). */
-.rs-spot::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 4;
-  border-radius: inherit;
-  padding: 1px;
-  pointer-events: none;
-  background: radial-gradient(260px circle at var(--mx, -400px) var(--my, -400px),
-    color-mix(in oklch, var(--el) 85%, transparent), transparent 70%);
-  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-  -webkit-mask-composite: xor;
-  mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
-  opacity: 0;
-  transition: opacity var(--rs-d2) ease;
-}
-@media (pointer: fine) {
-  .rs-spot:hover::before { opacity: 1; }
-}
-
 /* --- featured banner tile: the art is the tile --- */
 .rs-tile-banner {
   min-height: 560px;
@@ -929,128 +907,6 @@ a.rs-tile:active { transform: scale(0.985); }
   white-space: nowrap;
 }
 
-/* --- events --- */
-.rs-events { list-style: none; margin: 0; padding: 0; display: grid; }
-.rs-events li {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  padding: 0.85rem 0;
-  border-top: 1px solid var(--rs-line-soft);
-}
-.rs-events li:first-child { border-top: 0; padding-top: 0.2rem; }
-.rs-event-main { display: grid; gap: 0.15rem; min-width: 0; }
-.rs-event-name { font-weight: 650; }
-.rs-event-name a { color: inherit; text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--rs-el-line); }
-.rs-event-rewards { font-size: var(--fs-3); color: var(--rs-ink-2); }
-/* Code deadlines inside "Ending soon": same warm cue as the codes tile. */
-.rs-events li.is-codes .rs-event-name a { text-decoration-color: color-mix(in oklch, var(--rs-warn) 60%, transparent); }
-.rs-events li.is-codes .rs-event-name::before {
-  content: "Codes";
-  margin-right: 0.5rem;
-  padding: 0.05rem 0.4rem;
-  border-radius: var(--rs-r-sm);
-  background: color-mix(in oklch, var(--rs-warn) 16%, transparent);
-  color: var(--rs-warn);
-  font-family: var(--rs-mono);
-  font-size: var(--fs-1);
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  vertical-align: 0.12em;
-}
-.rs-events-foot {
-  display: grid;
-  gap: 0.4rem;
-  padding-top: 0.75rem;
-  border-top: 1px solid var(--rs-line-soft);
-  font-size: var(--fs-3);
-  line-height: 1.5;
-  color: var(--rs-ink-2);
-}
-.rs-events-foot p { margin: 0; }
-.rs-events-foot .rs-unconfirmed { margin-left: 0; }
-@media (max-width: 560px) {
-  .rs-events li { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
-}
-
-/* --- up next --- */
-.rs-upnext-head { align-items: flex-end; flex-wrap: wrap; gap: 0.5rem 1rem; }
-.rs-upnext-head > div { display: grid; gap: 0.3rem; min-width: 0; flex: 1 1 16rem; }
-.rs-upnext-head .rs-tile-link { white-space: nowrap; }
-.rs-upnext-start {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0.5rem 1rem;
-  padding: 0.7rem 0.9rem;
-  border-radius: var(--rs-r-card);
-  background: var(--rs-surface-2);
-}
-.rs-upnext-start-l { font-size: var(--fs-4); font-weight: 600; }
-.rs-phases {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: grid;
-  gap: 14px;
-  grid-template-columns: minmax(0, 1fr);
-}
-@media (min-width: 640px) {
-  .rs-phases { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-}
-.rs-phase { display: grid; gap: 0.6rem; align-content: start; min-width: 0; }
-.rs-phase-head {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 0.25rem 0.75rem;
-  margin: 0;
-  padding-bottom: 0.45rem;
-  border-bottom: 1px solid var(--rs-line-soft);
-}
-.rs-phase-name { font-family: var(--rs-display); font-weight: 700; font-stretch: 112%; }
-.rs-phase-dates { font-family: var(--rs-mono); font-size: var(--fs-2); color: var(--rs-ink-2); white-space: nowrap; }
-.rs-est {
-  margin-left: 0.4rem;
-  padding: 0 0.35rem;
-  border-radius: var(--rs-r-sm);
-  border: 1px dashed var(--rs-line);
-  font-size: var(--fs-1);
-  color: var(--rs-ink-2);
-}
-.rs-phase-chars { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
-.rs-phase-chars li > a, .rs-phase-chars li > span {
-  display: grid;
-  grid-template-columns: 44px minmax(0, 1fr);
-  column-gap: 0.7rem;
-  align-items: center;
-  min-height: 52px;
-  padding: 4px 10px 4px 4px;
-  border-radius: var(--rs-r-card);
-  border: 1px solid transparent;
-  color: var(--rs-ink);
-  transition: border-color var(--rs-d1) ease, background-color var(--rs-d1) ease;
-}
-.rs-phase-chars li > a:hover {
-  text-decoration: none;
-  border-color: color-mix(in oklch, var(--opt) 45%, transparent);
-  background: color-mix(in oklch, var(--opt) 7%, transparent);
-}
-.rs-phase-chars li.is-new > a, .rs-phase-chars li.is-new > span {
-  border-color: color-mix(in oklch, var(--opt) 35%, transparent);
-  background: color-mix(in oklch, var(--opt) 8%, var(--rs-surface-2));
-}
-.rs-phase-face { grid-row: span 3; --c: var(--opt); }
-.rs-phase-char-name { font-weight: 650; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.rs-phase-char-meta { font-family: var(--rs-mono); font-size: var(--fs-2); color: var(--opt); }
-.rs-phase-char-meta strong { font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; }
-.rs-phase-char-weapon { font-size: var(--fs-3); color: var(--rs-ink-2); }
-.rs-upnext-note { margin: 0; font-family: var(--rs-mono); font-size: var(--fs-2); color: var(--rs-ink-3); }
-
 /* --- pre-farm tile --- */
 .rs-tile-prefarm {
   gap: 0.8rem;
@@ -1077,25 +933,12 @@ a.rs-tile:active { transform: scale(0.985); }
 .rs-tile-new-links { display: flex; flex-wrap: wrap; align-items: center; gap: 0.25rem 1.25rem; }
 .rs-tile-new-links a { display: inline-flex; align-items: center; min-height: 44px; }
 
-/* --- reset tile: restyle the existing ResetTimers inside a tile --- */
-.rs-tile .og-reset { background: none; border: 0; padding: 0; box-shadow: none; display: grid; gap: 1rem; }
-.rs-tile .og-reset-title { font-family: var(--rs-display); font-size: var(--fs-7); margin: 0; }
-.rs-tile .og-reset-grid { grid-template-columns: minmax(0, 1fr); gap: 1.1rem; }
-.rs-tile .og-select {
-  font-family: var(--rs-mono);
-  font-size: var(--fs-2);
-  border-radius: var(--rs-r-ctl);
-  background-color: var(--rs-surface-2);
-  border-color: var(--rs-line);
-}
-
 /* ==========================================================================
    Rolling countdown (Martian Mono)
    ========================================================================== */
 
 .rs-cd { display: grid; gap: 0.45rem; }
 .rs-cd-label { font-size: var(--fs-2); color: var(--rs-ink-2); }
-.rs-cd-local { color: var(--rs-ink-3); }
 .rs-cd-row { display: flex; align-items: flex-start; gap: 0.2em; font-family: var(--rs-mono); }
 .rs-cd-unit { position: relative; display: grid; justify-items: start; padding-right: 0.55em; }
 .rs-cd-digits { display: flex; font-weight: 500; font-stretch: 112%; line-height: 1; color: var(--rs-ink); }

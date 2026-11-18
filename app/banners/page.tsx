@@ -121,7 +121,7 @@ function LineupCard({ c, banner, lead }: { c: GameCharacter; banner: Banner; lea
     </>
   );
   const style = { "--c": elementColor(c.element) } as CSSProperties;
-  const cls = `bn-card rs-spot${lead ? " bn-card-lead" : ""}`;
+  const cls = `bn-card${lead ? " bn-card-lead" : ""}`;
   return rec ? (
     <Link href={`/characters/${slug}`} className={cls} style={style}>
       {body}

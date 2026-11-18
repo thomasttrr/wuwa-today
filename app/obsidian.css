@@ -348,45 +348,6 @@ body.og { overflow-x: clip; }
    ========================================================================== */
 
 /* ==========================================================================
-   .og-reset — reset timers card. Server select is HUD chrome.
-   ========================================================================== */
-
-.og-reset {
-  background: var(--rs-surface);
-  border: 1px solid var(--rs-line);
-  border-radius: var(--rs-r-card);
-  padding: 1.4rem 1.5rem 1.5rem;
-}
-.og-reset-head {
-  display: flex; align-items: center; justify-content: space-between;
-  gap: 1rem; flex-wrap: wrap;
-  margin-bottom: 1rem;
-}
-.og-reset-title {
-  font-family: var(--rs-display);
-  font-weight: 700; letter-spacing: -0.01em;
-  font-size: var(--fs-7); margin: 0; color: var(--rs-ink);
-}
-.og-select {
-  appearance: none;
-  background: var(--rs-surface-2);
-  border: 1px solid var(--rs-line);
-  border-radius: var(--rs-r-ctl);
-  color: var(--rs-ink);
-  font-family: var(--rs-body);
-  font-size: var(--fs-4); font-weight: 600;
-  padding: 0.55rem 2.2rem 0.55rem 1.1rem;
-  min-height: 44px;
-  cursor: pointer;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%23a8a8b0' stroke-width='1.6' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: right 1rem center;
-}
-.og-select:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
-.og-reset-label { display: inline-flex; align-items: center; gap: 0.6rem; color: var(--rs-ink-2); font-size: var(--fs-4); }
-.og-reset-grid { display: grid; gap: 1.25rem; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
-
-/* ==========================================================================
    .og-table — solid-surface data table for banner history.
    ========================================================================== */
 

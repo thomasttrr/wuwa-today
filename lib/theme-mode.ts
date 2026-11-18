@@ -1,6 +1,7 @@
 /**
- * Appearance mode: "resonance" (default, tuned to the live element) or
- * "dark" (neutral graphite, platinum accent). Stored per device; applied to
+ * Appearance mode: "resonance" (default: character pages take their element
+ * colour) or "dark" (shown as "Gold only": element tinting off). The stored
+ * value stays "dark" so choices saved before the Aftermath redesign still work. Stored per device; applied to
  * <html data-theme> by an inline head script before first paint, so there
  * is no flash of the wrong theme.
  */

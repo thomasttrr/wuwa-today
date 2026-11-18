@@ -223,7 +223,7 @@ export default function CharactersHub({
                   <ViewTransition name={`char-${c.slug}`} share="vt-card">
                   <Link
                     href={`/characters/${c.slug}`}
-                    className="cp rs-spot"
+                    className="cp"
                     data-slug={c.slug}
                     onClick={() => {
                       // Tells the hero it is arriving by card morph, so it skips its own entrance.

@@ -1,7 +1,7 @@
 /**
  * lib/dates.ts — pure date/format helpers with ZERO JSON imports.
  *
- * Client components (ResetTimers, EventCard, …) import from here instead of
+ * Client components (EventCard, countdowns, …) import from here instead of
  * lib/data.ts, so the ~20KB of banners/codes/events JSON that lib/data.ts
  * pulls in never ships in their client JS. lib/data.ts re-exports every
  * helper below, so all server-component imports keep working untouched.

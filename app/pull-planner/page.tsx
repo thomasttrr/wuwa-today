@@ -366,7 +366,7 @@ export default function PullPlannerPage() {
         <p className="pp-sub">The source of truth behind every pick above.</p>
         <ul className="pp-verdicts">
           {verdicts.map((v) => (
-            <li key={v.slug} className="pp-v rs-spot" style={{ "--c": v.color } as CSSProperties}>
+            <li key={v.slug} className="pp-v" style={{ "--c": v.color } as CSSProperties}>
               <div className="pp-v-head">
                 <CharMedal thumb={v.thumb} name={v.name} size={56} rarity={5} />
                 <div>
