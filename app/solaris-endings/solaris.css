@@ -12,7 +12,6 @@
 }
 @media (min-width: 760px) {
   .so-cards { grid-template-columns: repeat(2, 1fr); }
-  .so-cards-3 { grid-template-columns: repeat(3, 1fr); }
 }
 .so-tag {
   display: inline-block;
@@ -79,12 +78,6 @@
   color: var(--rs-ink-3);
 }
 .so-table td:first-child { font-weight: 700; white-space: nowrap; }
-.so-note {
-  margin: 0.8rem 0 0;
-  font-size: var(--fs-5);
-  color: var(--rs-ink-3);
-  line-height: 1.55;
-}
 @media (max-width: 640px) {
   .so-table { min-width: 0; }
   .so-table th,

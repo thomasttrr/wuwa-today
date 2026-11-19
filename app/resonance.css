@@ -757,8 +757,6 @@ a.rs-tile:active { transform: scale(0.985); }
 /* ==========================================================================
    Character pages: tuned to the character's element
    ========================================================================== */
-
-body.rs .og-char-hero { gap: 2.75rem; padding-top: 1.25rem; }
 body.rs .og-char-art {
   border-radius: var(--rs-r-tile);
   background:

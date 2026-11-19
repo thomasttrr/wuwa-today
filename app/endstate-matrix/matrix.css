@@ -69,11 +69,6 @@
   font-weight: 700;
   white-space: nowrap;
 }
-.mx-table .mx-total td {
-  font-weight: 700;
-  color: var(--rs-ink);
-  border-top: 1px solid var(--rs-line);
-}
 .mx-note {
   margin: 0.8rem 0 0;
   font-size: var(--fs-5);

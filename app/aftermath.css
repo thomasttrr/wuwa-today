@@ -89,7 +89,6 @@ body.rs :is(.rs-cd, .rs-count, time, td, .rs-cd-col) { font-variant-numeric: lin
   text-transform: none;
   color: var(--am-gold-hi);
 }
-body.rs .rs-tile-link { color: var(--am-gold-hi); }
 
 /* Buttons */
 .rs-btn {

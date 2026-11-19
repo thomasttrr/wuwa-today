@@ -12,7 +12,6 @@
 }
 @media (min-width: 760px) {
   .ef-cards { grid-template-columns: repeat(3, 1fr); }
-  .ef-cards-2 { grid-template-columns: repeat(2, 1fr); }
 }
 .ef-big {
   display: block;

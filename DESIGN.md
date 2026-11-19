@@ -4,10 +4,10 @@ The site has one design system: **Resonance**, currently dressed in the
 **Aftermath** look for the 4.0 era (Art Deco: champagne gold line work on
 slate, a display serif, red kept rare). `app/aftermath.css` loads last and
 re-points the Resonance tokens below; the home page's own components are in
-`app/home.css` (`am-*` classes, `components/home/`). Older layers ("Native
-Dark" in `app/globals.css`, "Obsidian Glass" in `app/obsidian.css` +
-`app/og-pages.css`) are being folded in; **don't add new rules to those
-files**. New work uses the tokens and components below.
+`app/home.css` (`am-*` classes, `components/home/`). Shared long-form content blocks (`.og-*` sections, cards, notices,
+tables, echo plates) live in `app/content.css`; the oldest layer, "Native
+Dark" in `app/globals.css`, is still being folded in, so **don't add new
+rules to globals.css**. New work uses the tokens and components below.
 
 ## Principles
 

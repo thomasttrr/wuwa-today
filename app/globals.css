@@ -36,7 +36,7 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
 }
 
 /* The solid bottom tab bar (.og-tabbar) replaced the old sticky header
-   and the floating capsule nav. Its styles live in obsidian.css. */
+   and the floating capsule nav. Its styles live in content.css. */
 
 main { padding: 2rem 0 4rem; min-height: 60vh; }
 

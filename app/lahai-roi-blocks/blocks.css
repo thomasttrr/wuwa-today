@@ -12,7 +12,6 @@
 }
 @media (min-width: 760px) {
   .bl-cards { grid-template-columns: repeat(2, 1fr); }
-  .bl-cards-3 { grid-template-columns: repeat(3, 1fr); }
 }
 .bl-card {
   background: var(--rs-surface);
