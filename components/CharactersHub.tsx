@@ -25,7 +25,9 @@ export interface HubChar {
 }
 
 type SortKey = "tier" | "name" | "rarity";
-const TIER_ORDER = ["SS", "S", "A", "B", "C", "D"];
+const TIER_ORDER = ["SS", "S+", "S", "A", "B", "C", "D"];
+/** "S+" is not a valid class-name fragment. */
+const tierKey = (t: string) => t.replace("+", "p");
 const SORTS: { key: SortKey; label: string }[] = [
   { key: "tier", label: "Tier" },
   { key: "name", label: "A–Z" },
@@ -104,7 +106,7 @@ export default function CharactersHub({
     if (unranked.length) out.push({ key: "new", title: "New, not ranked yet", badge: null, items: unranked });
     for (const tier of TIER_ORDER) {
       const items = list.filter((c) => c.tier === tier);
-      if (items.length) out.push({ key: tier, title: tierLabels[tier] ?? "", badge: tier, items });
+      if (items.length) out.push({ key: tierKey(tier), title: tierLabels[tier] ?? "", badge: tier, items });
     }
     return out;
   }, [list, sort, tierLabels]);
@@ -242,7 +244,7 @@ export default function CharactersHub({
                       loading="lazy"
                       decoding="async"
                     />
-                    {c.tier && sort !== "tier" && <span className={`cp-tier cp-tier-${c.tier}`}>{c.tier}</span>}
+                    {c.tier && sort !== "tier" && <span className={`cp-tier cp-tier-${tierKey(c.tier)}`}>{c.tier}</span>}
                     <span className="cp-el" aria-hidden="true" />
                     <span className="cp-info">
                       {c.onBanner && <span className="cp-flag">On banner</span>}

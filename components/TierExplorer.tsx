@@ -103,7 +103,7 @@ export default function TierExplorer({ model }: { model: TierModel }) {
   const rows = useMemo(() => {
     if (source === "ours") {
       const tiers = [...new Set(model.chars.filter((c) => c.ours).map((c) => c.ours!.tier))];
-      const order = ["SS", "S", "A", "B", "C", "D"];
+      const order = ["SS", "S+", "S", "A", "B", "C", "D"];
       tiers.sort((a, b) => order.indexOf(a) - order.indexOf(b));
       return tiers.map((tier) => ({
         tier,
