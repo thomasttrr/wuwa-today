@@ -360,7 +360,7 @@ export default function HomePage() {
         <AmHero
           version={liveVersion}
           versionTitle={versionTitle}
-          lead={{ name: lead.name, href: leadSlug ? `/characters/${leadSlug}` : null }}
+          lead={{ name: lead.name, slug: leadSlug ?? null, href: leadSlug ? `/characters/${leadSlug}` : null }}
           blurb={heroBlurb}
           render={heroArt}
           renderAlt={`${lead.name}, official full-body render`}

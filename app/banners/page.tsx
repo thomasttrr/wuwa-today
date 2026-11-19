@@ -1,4 +1,5 @@
 import type { CSSProperties } from "react";
+import { CardMorph } from "../../components/CharMorph";
 import type { Metadata } from "next";
 import Link from "next/link";
 import Reveal from "../../components/Reveal";
@@ -126,10 +127,13 @@ function LineupCard({ c, banner, lead }: { c: GameCharacter; banner: Banner; lea
   );
   const style = { "--c": elementColor(c.element) } as CSSProperties;
   const cls = `bn-card${lead ? " bn-card-lead" : ""}`;
+  // Pairs with the character hero: the card grows into the hero panel.
   return rec ? (
-    <Link href={`/characters/${slug}`} className={cls} style={style}>
-      {body}
-    </Link>
+    <CardMorph slug={rec.slug}>
+      <Link href={`/characters/${slug}`} className={cls} style={style}>
+        {body}
+      </Link>
+    </CardMorph>
   ) : (
     <article className={cls} style={style}>
       {body}

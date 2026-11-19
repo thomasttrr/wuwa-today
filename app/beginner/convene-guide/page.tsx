@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 export default function BeginnerConveneGuide() {
   return (
     <>
-      <Link href="/beginner" className="og-back">
+      <Link href="/beginner" className="og-back" transitionTypes={["nav-back"]}>
         ← Beginner guides
       </Link>
 

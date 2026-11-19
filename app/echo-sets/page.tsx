@@ -390,7 +390,7 @@ function SetCard({ set }: { set: EchoSet }) {
 export default function EchoSetsGuide() {
   return (
     <>
-      <Link href="/" className="og-back">
+      <Link href="/" className="og-back" transitionTypes={["nav-back"]}>
         ← Home
       </Link>
 

@@ -45,7 +45,7 @@ const UNLOCKS = [
 export default function BeginnerStartHere() {
   return (
     <>
-      <Link href="/beginner" className="og-back">
+      <Link href="/beginner" className="og-back" transitionTypes={["nav-back"]}>
         ← Beginner guides
       </Link>
 

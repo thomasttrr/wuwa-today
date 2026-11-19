@@ -46,7 +46,7 @@ const GUIDES = [
 export default function BeginnerHub() {
   return (
     <>
-      <Link href="/" className="og-back">
+      <Link href="/" className="og-back" transitionTypes={["nav-back"]}>
         ← Home
       </Link>
 

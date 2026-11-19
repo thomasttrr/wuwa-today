@@ -241,18 +241,19 @@
   .cx-credit { top: auto; bottom: 0.4rem; right: 1.1rem; }
 }
 
-/* Arriving from a hub tile: the panel itself is morphing in (see the
-   view-transition rules in resonance.css), so the hero's own entrance
-   animations stand down. One motion, not two. The scroll drift on the
-   render is kept. */
+/* Arriving by morph (see the view-transition rules in resonance.css and
+   components/CharMorph.tsx): from a hub tile or banner card the whole panel
+   is morphing in ("hero"); from the home hero only the render is ("fig").
+   Whatever is morphing skips its own entrance. One motion, not two. The
+   scroll drift on the render is kept. */
 html[data-vt="hero"] .cx-name,
 html[data-vt="hero"] .cx-verdict,
 html[data-vt="hero"] .cx-note,
 html[data-vt="hero"] .cx-stats,
 html[data-vt="hero"] .cx-actions { animation: none; }
-html[data-vt="hero"] .cx-render { animation: none; }
+html[data-vt] .cx-render { animation: none; }
 @supports (animation-timeline: view()) {
-  html[data-vt="hero"] .cx-render {
+  html[data-vt] .cx-render {
     animation: cx-drift linear both;
     animation-timeline: view();
     animation-range: exit 0% exit 100%;

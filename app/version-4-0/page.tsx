@@ -113,7 +113,7 @@ function CastCard({ c, delay }: { c: Resonator; delay: number }) {
 export default function Version40Page() {
   return (
     <>
-      <Link href="/" className="og-back">
+      <Link href="/" className="og-back" transitionTypes={["nav-back"]}>
         ← Home
       </Link>
 

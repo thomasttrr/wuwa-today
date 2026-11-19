@@ -200,7 +200,7 @@ function CharSection({ c }: { c: Phase2Char }) {
 export default function Phase2Page() {
   return (
     <>
-      <Link href="/" className="og-back">
+      <Link href="/" className="og-back" transitionTypes={["nav-back"]}>
         ← Home
       </Link>
 

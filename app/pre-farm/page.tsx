@@ -21,7 +21,7 @@ export default function PrefarmIndex() {
   const upcoming = prefarmGuides.filter((g) => g.prerelease);
   return (
     <>
-      <Link href="/" className="og-back">
+      <Link href="/" className="og-back" transitionTypes={["nav-back"]}>
         ← Home
       </Link>
 

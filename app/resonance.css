@@ -776,6 +776,9 @@ body.rs .og-char-kicker { color: var(--am-gold-hi, var(--el)); letter-spacing: 0
    View transitions: shared-element morph (tile -> hero) + page crossfade
    ========================================================================== */
 
+/* The overlay must never swallow taps meant for the new page. */
+::view-transition { pointer-events: none; }
+
 ::view-transition-group(*) {
   animation-duration: 560ms;
   animation-timing-function: var(--rs-spring);
@@ -792,6 +795,9 @@ body.rs .og-char-kicker { color: var(--am-gold-hi, var(--el)); letter-spacing: 0
   border-radius: var(--rs-r-tile);
 }
 ::view-transition-image-pair(*.vt-card) { border-radius: var(--rs-r-tile); overflow: clip; }
+/* A card whose partner is off screen has nothing to morph into: it leaves
+   with the page instead of lingering for the full morph. */
+::view-transition-old(*.vt-card):only-child { animation-duration: 220ms; }
 ::view-transition-old(*.vt-card),
 ::view-transition-new(*.vt-card) {
   width: 100%;
@@ -800,10 +806,45 @@ body.rs .og-char-kicker { color: var(--am-gold-hi, var(--el)); letter-spacing: 0
   object-position: 50% 0;
 }
 
+/* Figure morph (home hero art -> character hero render): same art on both
+   ends, so it simply glides and scales; ease-out, no overshoot. */
+::view-transition-group(*.vt-fig) {
+  animation-duration: 600ms;
+  animation-timing-function: var(--rs-ease);
+  /* Above the arriving hero panel, which fades in as its own layer and on
+     phones is solid where the art sits. */
+  z-index: 1;
+}
+
+/* The nav bar holds still while the page under it changes; only its
+   active pill cross-fades to the new tab. */
+.rs-nav { view-transition-name: rs-nav; }
+::view-transition-group(rs-nav) {
+  animation-duration: 260ms;
+  animation-timing-function: var(--rs-ease);
+}
+
+/* Page change. Default: a short rise. Link transitionTypes set the
+   direction: "nav-back" (the ← back links) settles downward, "nav-left" /
+   "nav-right" (tab to tab, previous / next Resonator) slide sideways the
+   way the tabs run. Browsers without view transition types keep the rise. */
 ::view-transition-old(root) { animation: rs-vt-out 220ms var(--rs-ease) both; }
 ::view-transition-new(root) { animation: rs-vt-in 380ms var(--rs-ease) 80ms both; }
 @keyframes rs-vt-out { to { opacity: 0; transform: translateY(-6px); } }
 @keyframes rs-vt-in { from { opacity: 0; transform: translateY(10px); } }
+
+html:active-view-transition-type(nav-back)::view-transition-old(root) { animation-name: rs-vt-out-down; }
+html:active-view-transition-type(nav-back)::view-transition-new(root) { animation-name: rs-vt-in-down; }
+html:active-view-transition-type(nav-right)::view-transition-old(root) { animation-name: rs-vt-out-left; }
+html:active-view-transition-type(nav-right)::view-transition-new(root) { animation-name: rs-vt-in-right; }
+html:active-view-transition-type(nav-left)::view-transition-old(root) { animation-name: rs-vt-out-right; }
+html:active-view-transition-type(nav-left)::view-transition-new(root) { animation-name: rs-vt-in-left; }
+@keyframes rs-vt-out-down { to { opacity: 0; transform: translateY(6px); } }
+@keyframes rs-vt-in-down { from { opacity: 0; transform: translateY(-10px); } }
+@keyframes rs-vt-out-left { to { opacity: 0; transform: translateX(-12px); } }
+@keyframes rs-vt-out-right { to { opacity: 0; transform: translateX(12px); } }
+@keyframes rs-vt-in-right { from { opacity: 0; transform: translateX(16px); } }
+@keyframes rs-vt-in-left { from { opacity: 0; transform: translateX(-16px); } }
 
 /* ==========================================================================
    Accessibility fallbacks

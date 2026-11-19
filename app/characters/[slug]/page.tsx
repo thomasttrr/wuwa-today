@@ -304,7 +304,7 @@ export default async function CharacterPage({
   if (!char) {
     return (
       <>
-        <Link href="/characters" className="og-back">
+        <Link href="/characters" className="og-back" transitionTypes={["nav-back"]}>
           ← Characters
         </Link>
         <h1 className="og-display">Character not found</h1>
@@ -326,7 +326,7 @@ export default async function CharacterPage({
 
   return (
     <>
-      <Link href="/characters" className="og-back">
+      <Link href="/characters" className="og-back" transitionTypes={["nav-back"]}>
         ← Characters
       </Link>
 
@@ -342,6 +342,8 @@ export default async function CharacterPage({
         {render ? (
           <>
             <span className="cx-rings" aria-hidden="true" />
+            {/* Pairs with the home hero art: the render glides into place. */}
+            <ViewTransition name={`fig-${slug}`} share="vt-fig" default="none">
             <div
               className={render.width > render.height ? "cx-render cx-render-wide" : "cx-render"}
               style={
@@ -366,6 +368,7 @@ export default async function CharacterPage({
                 />
               </>
             </div>
+            </ViewTransition>
             <span className="cx-credit">Art: Kuro Games</span>
           </>
         ) : (
@@ -713,7 +716,7 @@ export default async function CharacterPage({
       {/* Prev / next */}
       <nav className="og-prevnext" aria-label="More characters">
         {prev ? (
-          <Link href={`/characters/${prev.slug}`}>
+          <Link href={`/characters/${prev.slug}`} transitionTypes={["nav-left"]}>
             <span className="og-pn-dir" aria-hidden="true">‹</span>
             <Image
               src={prev.profile.portrait_url}
@@ -732,7 +735,7 @@ export default async function CharacterPage({
           <span className="og-pn-spacer" aria-hidden="true" />
         )}
         {next ? (
-          <Link href={`/characters/${next.slug}`} className="og-pn-next">
+          <Link href={`/characters/${next.slug}`} className="og-pn-next" transitionTypes={["nav-right"]}>
             <span className="og-pn-text">
               <span className="og-pn-label">Next</span>
               <span className="og-pn-name">{next.name}</span>

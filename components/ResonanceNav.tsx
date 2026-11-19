@@ -97,11 +97,20 @@ export default function ResonanceNav() {
   }, []);
 
   const activeHref = NAV_ITEMS.find((i) => isActiveHref(pathname, i.href))?.href;
+  /* Tab-to-tab navigation slides the page the way the tabs run: a tab to the
+     right slides in from the right. Unknown or same position: the default
+     vertical fade (resonance.css). */
+  const activeIdx = TABS.findIndex((i) => i.href === activeHref);
+  const slideTo = (href: string) => {
+    const j = TABS.findIndex((i) => i.href === href);
+    if (activeIdx < 0 || j < 0 || j === activeIdx) return undefined;
+    return [j > activeIdx ? "nav-right" : "nav-left"];
+  };
 
   return (
     <>
       <nav className="rs-nav" aria-label="Primary">
-        <Link href="/" className="rs-brand" aria-label="WuWa Today home">
+        <Link href="/" className="rs-brand" aria-label="WuWa Today home" transitionTypes={slideTo("/")}>
           <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true">
             <path d="M12 1 13.4 6H15v4h2v4h2v9H5v-9h2v-4h2V6h1.6z" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinejoin="miter" />
             <path d="M12 9v14M9 14v9M15 14v9" stroke="currentColor" strokeWidth="1" />
@@ -122,6 +131,7 @@ export default function ResonanceNav() {
               href={item.href}
               className={`${MOBILE_PRIMARY.includes(item.href) ? "" : "rs-tab-d"} ${DESKTOP_PRIMARY.includes(item.href) ? "" : "rs-tab-m"}`.trim() || undefined}
               aria-current={item.href === activeHref ? "page" : undefined}
+              transitionTypes={slideTo(item.href)}
             >
               {item.label}
             </Link>

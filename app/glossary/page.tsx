@@ -27,7 +27,7 @@ function Group({ title, terms }: { title: string; terms: [string, string][] }) {
 export default function GlossaryPage() {
   return (
     <>
-      <Link href="/characters" className="og-back">
+      <Link href="/characters" className="og-back" transitionTypes={["nav-back"]}>
         ← Characters
       </Link>
 

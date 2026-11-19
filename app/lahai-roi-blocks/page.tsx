@@ -34,7 +34,7 @@ const SECTIONS = [
 export default function LahaiRoiBlocksPage() {
   return (
     <>
-      <Link href="/events" className="og-back">
+      <Link href="/events" className="og-back" transitionTypes={["nav-back"]}>
         ← Events
       </Link>
 

@@ -26,7 +26,7 @@ const SECTIONS = [
 export default function SolarisEndingsPage() {
   return (
     <>
-      <Link href="/" className="og-back">
+      <Link href="/" className="og-back" transitionTypes={["nav-back"]}>
         ← Home
       </Link>
 

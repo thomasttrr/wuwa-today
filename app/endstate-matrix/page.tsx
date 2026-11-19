@@ -114,7 +114,7 @@ const CIRCUIT_TEAMS: { circuit: string; teams: string[] }[] = [
 export default function EndstateMatrixPage() {
   return (
     <>
-      <Link href="/" className="og-back">
+      <Link href="/" className="og-back" transitionTypes={["nav-back"]}>
         ← Home
       </Link>
 

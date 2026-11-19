@@ -1,18 +1,19 @@
 "use client";
 
 import Link from "next/link";
-import { useRef, useState, type KeyboardEvent } from "react";
+import { ViewTransition, useRef, useState, type KeyboardEvent } from "react";
 import useNow from "../useNow";
 import AmSky from "./AmSky";
 import { AmCountdown, AmProgress } from "./AmTime";
 import { YourTime } from "../LocalTime";
 import type { FullRender } from "@/lib/renders";
+import { markMorphArrival } from "../CharMorph";
 
 export interface AmHeroProps {
   version: string;
   versionTitle: string;
   /** Null when no banner is live: the hero then shows only the next-version slide. */
-  lead: { name: string; href: string | null } | null;
+  lead: { name: string; slug: string | null; href: string | null } | null;
   blurb: string;
   render: FullRender | null;
   renderAlt: string;
@@ -63,7 +64,11 @@ export default function AmHero(p: AmHeroProps) {
     <section className="am-hero" data-s={fed ? "fed" : "now"} aria-labelledby="am-h1">
       <AmSky fed={fed} />
       {live && p.render && (
-        /* eslint-disable-next-line @next/next/no-img-element -- LCP art layer with its own srcset. */
+        /* Pairs with the character page's hero render (FigMorph): following
+           a link to the lead's page glides the art into place. Only the pair
+           animates, and only while the "Live now" slide is showing. */
+        <ViewTransition name={`fig-${live.lead.slug ?? "none"}`} share={fed || !live.lead.slug ? "none" : "vt-fig"} default="none" onShare={() => markMorphArrival("fig")}>
+        {/* eslint-disable-next-line @next/next/no-img-element -- LCP art layer with its own srcset. */}
         <img
           className="am-fig"
           src={p.render.src}
@@ -75,6 +80,7 @@ export default function AmHero(p: AmHeroProps) {
           loading="eager"
           fetchPriority="high"
         />
+        </ViewTransition>
       )}
 
       <div className="am-hero-top">
