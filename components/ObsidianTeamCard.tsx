@@ -1,7 +1,8 @@
-import Image from "next/image";
 import type { CSSProperties } from "react";
 import type { Team } from "@/lib/guides";
 import { elementColor } from "@/lib/elements";
+import { thumbFor } from "@/lib/renders";
+import { CharPoster } from "@/components/CharThumb";
 
 /**
  * Obsidian team card — visual-first per Tom's approved standard: portraits,
@@ -21,38 +22,34 @@ export default function ObsidianTeamCard({ team, first = false }: { team: Team; 
         <h3 className="og-team-title">{team.name}</h3>
       </div>
 
-      {/* Visual team row: portraits first, with flow chevrons. */}
-      <div className="og-team-slots">
+      {/* Visual team row: the site's own head-cropped portraits (same as the
+          hub, tier list and /teams), each on its element's colour, with a
+          gold chevron between slots to read left to right as the rotation. */}
+      <ol className="og-team-slots">
         {team.members.map((m, i) => {
           const el = elementColor(m.element);
           return (
-            <div key={m.slug} className="og-team-slot-flow">
-              <div className="og-team-slot">
-                <Image
-                  src={`/images/chars/${m.slug}.webp`}
-                  alt={`${m.name} portrait`}
-                  className="og-team-portrait"
-                  width={104}
-                  height={104}
-                  loading="lazy"
-                  decoding="async"
-                />
-                <p className="og-team-name">{m.name}</p>
-                <p className="og-team-role">
-                  <span>{m.role}</span>
+            <li key={m.slug} className="og-team-slot" style={{ "--c": el } as CSSProperties}>
+              <span className="og-team-art">
+                <CharPoster thumb={thumbFor(m.slug)} name={m.name} hideName />
+                {i < team.members.length - 1 && (
+                  <span className="og-team-flow" aria-hidden="true">
+                    ›
+                  </span>
+                )}
+              </span>
+              <p className="og-team-name">{m.name}</p>
+              <p className="og-team-role">
+                <span>{m.role}</span>
+                <span className="og-team-elem">
                   <span className="element-dot" style={{ background: el }} aria-hidden="true" />
-                  <span>{m.element}</span>
-                </p>
-              </div>
-              {i < team.members.length - 1 && (
-                <span className="og-team-flow" aria-hidden="true">
-                  ›
+                  {m.element}
                 </span>
-              )}
-            </div>
+              </p>
+            </li>
           );
         })}
-      </div>
+      </ol>
 
       {/* Compact role notes, element-accented left rule. */}
       <ul className="og-team-notes">

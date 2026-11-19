@@ -287,7 +287,7 @@
   line-height: 0.9;
   color: var(--gold-hi);
 }
-.am-fan { position: absolute; right: 1%; top: calc(var(--nav-h) + 92px); bottom: 44%; width: min(42%, 560px); pointer-events: none; }
+.am-fan { position: absolute; right: 8%; top: calc(var(--nav-h) + 92px); bottom: 44%; width: min(46%, 620px); pointer-events: none; }
 .am-fan img {
   position: absolute;
   left: 50%;
@@ -304,7 +304,7 @@
   transition: transform 0.9s var(--out);
 }
 .am-hero[data-s="fed"] .am-fan img {
-  transform: translateX(calc(-50% + var(--i) * 62%)) rotate(calc(var(--i) * 6deg)) translateY(calc(max(var(--i), -1 * var(--i)) * 6px));
+  transform: translateX(calc(-50% + var(--i) * 68%)) rotate(calc(var(--i) * 4deg)) translateY(calc(max(var(--i), -1 * var(--i)) * 6px));
 }
 .am-fan img:nth-child(4) { z-index: 2; }
 .am-fan img:nth-child(3), .am-fan img:nth-child(5) { z-index: 1; }
@@ -350,8 +350,6 @@
   .am-hero { padding-top: 88px; padding-bottom: calc(104px + env(safe-area-inset-bottom)); }
   .am-slide-fed { padding-bottom: calc(104px + env(safe-area-inset-bottom)); }
   body.rs .am .am-name { font-size: min(21vw, 24svh); }
-  .am-fan { top: 76px; bottom: auto; height: 190px; width: min(50%, 460px); }
-  .am-fan img { width: 86px; }
 }
 @media (max-width: 699px) {
   .am-hero { min-height: 0; padding-top: 112px; }
@@ -371,11 +369,6 @@
   .am-under { grid-template-columns: minmax(0, 1fr); }
   .am-cta { justify-items: start; text-align: left; }
   .am-btns { justify-content: flex-start; }
-  .am-fan { position: relative; inset: auto; width: 100%; height: 178px; flex: none; margin-bottom: 16px; }
-  .am-fan img { width: 76px; }
-  .am-hero[data-s="fed"] .am-fan img {
-    transform: translateX(calc(-50% + var(--i) * 58%)) rotate(calc(var(--i) * 6deg)) translateY(calc(max(var(--i), -1 * var(--i)) * 5px));
-  }
   .am-slide-fed { padding-top: 112px; }
   /* Alone (between versions) nothing else gives the hero height on phones,
      so the takeover joins the flow under the hero's own top padding. */
@@ -387,6 +380,53 @@
   .am-count-cells { gap: 14px; }
   .am-count-cells > div + div { padding-left: 14px; }
   .am-count-cells b { font-size: 44px; }
+}
+
+/* Small screens: seven overlapped cards can't all show their baked-in names
+   (a 7-card fan on 390px leaves ~40% of each card), so below 900px the cast
+   is a swipeable strip of full-size cards, each name readable, the next card
+   peeking in. Above 900px the fan has the room. */
+@media (max-width: 899px) {
+  .am-fan {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x proximity;
+    scrollbar-width: none;
+    pointer-events: auto;
+    padding: 6px 0 14px;
+    -webkit-mask-image: linear-gradient(90deg, #000 calc(100% - 28px), transparent);
+    mask-image: linear-gradient(90deg, #000 calc(100% - 28px), transparent);
+  }
+  .am-fan::-webkit-scrollbar { display: none; }
+  .am-fan img,
+  .am-hero[data-s="fed"] .am-fan img {
+    position: static;
+    flex: none;
+    width: var(--fan-w);
+    scroll-snap-align: start;
+    transform: none;
+    transition: none;
+  }
+}
+@media (min-width: 700px) and (max-width: 899px) {
+  .am-fan { --fan-w: 107px; top: 70px; bottom: auto; width: min(52%, 470px); padding-inline: 4px; scroll-padding-inline: 4px; }
+}
+@media (max-width: 699px) {
+  /* Cards take their width from the screen: about 2.3 across, so the third
+     card peeks in as the swipe cue. Bleeds to the screen edges. */
+  .am-fan {
+    --fan-w: clamp(124px, 38vw, 176px);
+    position: relative;
+    inset: auto;
+    width: auto;
+    height: auto;
+    flex: none;
+    margin: 0 0 12px;
+    padding-inline: max(1.25rem, env(safe-area-inset-left)) max(1.25rem, env(safe-area-inset-right));
+    scroll-padding-inline: max(1.25rem, env(safe-area-inset-left));
+  }
 }
 
 /* ==========================================================================

@@ -183,7 +183,7 @@ export default function AmHero(p: AmHeroProps) {
           aria-hidden={!fed || undefined}
           inert={!fed || undefined}
         >
-          <div className="am-fan" aria-hidden="true">
+          <div className="am-fan" aria-hidden="true" tabIndex={-1}>
             {p.next.cast.map((c, i) => (
               /* eslint-disable-next-line @next/next/no-img-element -- decorative fan. */
               <img key={c.name} src={c.art} alt="" loading="lazy" decoding="async" style={{ "--i": i - 3 } as React.CSSProperties} />
