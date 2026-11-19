@@ -58,7 +58,6 @@ export function CharPoster({
 }) {
   return (
     <span className={`ct-poster${hideName ? " ct-poster-bare" : ""}${className ? ` ${className}` : ""}`} style={thumb ? vars(thumb) : undefined}>
-      <span className="ct-ghost" aria-hidden="true">{name.split(/[\s:]/)[0]}</span>
       {thumb ? <Art t={thumb} eager={eager} sizes={sizesFor(thumb, POSTER_FRAME, 1.05)} /> : <span className="ct-mono" aria-hidden="true">{name.charAt(0)}</span>}
       {children}
       {!hideName && (

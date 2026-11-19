@@ -12,18 +12,13 @@ import {
 } from "react";
 import type { Placement, SourceKey, TierChar, TierModel, TierRole } from "@/lib/tiers";
 import { CharMedal, CharPoster } from "./CharThumb";
+import { ELEMENT_COLORS } from "@/lib/elements";
 
 const PRYDWEN_TIERS = ["T0", "T0.5", "T1", "T1.5", "T2", "T3", "T4"];
 const ROLES: ("All" | TierRole)[] = ["All", "DPS", "Hybrid", "Support"];
 const ROLE_LABEL: Record<string, string> = { All: "All roles", DPS: "DPS", Hybrid: "Hybrid", Support: "Support" };
-const ELEMENTS: [string, string][] = [
-  ["Aero", "#5fd9aa"],
-  ["Electro", "#b28cf6"],
-  ["Fusion", "#f5824f"],
-  ["Glacio", "#6fc3f2"],
-  ["Havoc", "#ec6aa6"],
-  ["Spectro", "#f0d46a"],
-];
+// One palette for the whole site (lib/elements), listed A–Z.
+const ELEMENTS = Object.entries(ELEMENT_COLORS).sort(([a], [b]) => a.localeCompare(b));
 const SOURCES: { key: SourceKey; label: string }[] = [
   { key: "prydwen", label: "Community" },
   { key: "value", label: "Value" },

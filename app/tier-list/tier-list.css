@@ -13,11 +13,9 @@
   padding: 10px;
   margin: 0 -10px 1.25rem;
   border-radius: var(--rs-r-tile);
-  background: color-mix(in oklch, var(--rs-canvas) 88%, transparent);
-  backdrop-filter: blur(24px) saturate(1.5);
-  -webkit-backdrop-filter: blur(24px) saturate(1.5);
-  border: 1px solid rgb(255 255 255 / 0.08);
-  box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.1);
+  /* Solid, not glass (Aftermath). */
+  background: color-mix(in oklch, var(--rs-canvas) 97%, transparent);
+  border: 1px solid rgb(185 155 104 / 0.22);
 }
 @media (min-width: 900px) { .tl-bar { top: 84px; } }
 .tl-bar { grid-template-columns: minmax(0, 1fr); }
@@ -44,7 +42,6 @@
   transform: translateX(calc(100% * var(--i)));
   border-radius: var(--rs-r-sm);
   background: var(--el);
-  box-shadow: 0 4px 18px color-mix(in oklch, var(--el) 30%, transparent);
   transition: transform var(--rs-d3) var(--rs-spring);
 }
 .tl-seg button {
@@ -189,7 +186,7 @@ body.rs .tl-search input:focus-visible { outline: none; }
 }
 .tl-char:focus-visible { outline: 2px solid var(--c); outline-offset: 3px; }
 .tl-char[data-dim] { opacity: 0.2; filter: grayscale(1); }
-.tl-char[data-owned] .ct-poster { border-color: var(--c); box-shadow: 0 0 0 1px var(--c), 0 0 22px color-mix(in oklch, var(--c) 40%, transparent); }
+.tl-char[data-owned] .ct-poster { border-color: var(--c); box-shadow: 0 0 0 1px var(--c); }
 .tl-owned {
   position: absolute;
   right: 5px; top: 5px;
@@ -249,11 +246,9 @@ body.rs .tl-search input:focus-visible { outline: none; }
     width: min(260px, calc(100% - 48px));
     padding: 4px;
     border-radius: var(--rs-r-card);
-    background: color-mix(in oklch, var(--rs-canvas) 90%, transparent);
-    backdrop-filter: blur(24px) saturate(1.6);
-    -webkit-backdrop-filter: blur(18px) saturate(1.6);
-    border: 1px solid rgb(255 255 255 / 0.1);
-    box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.12), 0 10px 30px rgb(0 0 0 / 0.45);
+    background: color-mix(in oklch, var(--rs-canvas) 97%, transparent);
+    border: 1px solid rgb(185 155 104 / 0.22);
+    box-shadow: 0 10px 30px rgb(0 0 0 / 0.45);
     transform: translate(-50%, 16px) scale(0.96);
     opacity: 0;
     pointer-events: none;
@@ -276,7 +271,7 @@ body.rs .tl-search input:focus-visible { outline: none; }
   margin: 0;
   overflow: hidden;
 }
-.tl-sheet::backdrop { background: rgb(4 4 8 / 0.55); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); }
+.tl-sheet::backdrop { background: rgb(10 11 14 / 0.72); }
 .tl-sheet-box {
   position: absolute;
   left: 0; right: 0; bottom: 0;
@@ -288,9 +283,9 @@ body.rs .tl-search input:focus-visible { outline: none; }
   padding: 1.4rem 1.25rem calc(1.4rem + env(safe-area-inset-bottom));
   border-radius: 26px 26px 0 0;
   background:
-    radial-gradient(90% 60% at 20% 0%, color-mix(in oklch, var(--c) 20%, transparent), transparent 70%),
+    radial-gradient(90% 60% at 20% 0%, color-mix(in oklch, var(--c) 12%, transparent), transparent 70%),
     var(--rs-surface);
-  border: 1px solid color-mix(in oklch, var(--c) 26%, transparent);
+  border: 1px solid rgb(185 155 104 / 0.3);
   box-shadow: 0 -20px 60px rgb(0 0 0 / 0.5);
   /* Plain ease-out, no spring: an overshoot on a panel this size reads as a wobble. */
   animation: tl-sheet-up var(--rs-d2) var(--rs-ease) both;
@@ -318,7 +313,7 @@ body.rs .tl-search input:focus-visible { outline: none; }
   cursor: pointer;
 }
 .tl-sheet-head { display: flex; align-items: center; gap: 1rem; padding-right: 3rem; }
-.tl-sheet-kicker { margin: 0; font-family: var(--rs-mono); font-size: var(--fs-1); letter-spacing: 0.06em; text-transform: uppercase; color: var(--c); }
+.tl-sheet-kicker { margin: 0; font-size: var(--fs-3); font-weight: 500; letter-spacing: 0.01em; color: var(--am-gold-hi, var(--c)); }
 .tl-sheet-head h2 { margin: 0.25rem 0 0; font-size: var(--fs-9); font-weight: 800; text-transform: uppercase; line-height: 0.95; }
 .tl-sheet-role { margin: 0.3rem 0 0; font-size: var(--fs-4); color: var(--rs-ink-2); }
 .tl-sheet-ours {
@@ -335,7 +330,7 @@ body.rs .tl-search input:focus-visible { outline: none; }
 .tl-sheet-badge small { font-size: var(--fs-1); color: var(--rs-ink-3); white-space: nowrap; }
 .tl-sheet-label { margin: 0; font-weight: 700; }
 .tl-sheet-note { margin: 0.3rem 0 0; font-size: var(--fs-4); line-height: 1.5; color: var(--rs-ink-2); }
-.tl-sheet-group h3 { margin: 0 0 0.5rem; font-family: var(--rs-mono) !important; font-size: var(--fs-1); font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: var(--rs-ink-3); }
+.tl-sheet-group h3 { margin: 0 0 0.5rem; font-family: inherit !important; font-size: var(--fs-3); font-weight: 500; letter-spacing: 0.01em; color: var(--am-gold-hi, var(--rs-ink-3)); }
 .tl-sheet-group dl { margin: 0; display: grid; border-radius: var(--rs-r-card); overflow: hidden; border: 1px solid rgb(255 255 255 / 0.06); }
 .tl-sheet-group dl > div { display: flex; justify-content: space-between; gap: 1rem; padding: 0.65rem 0.85rem; background: rgb(255 255 255 / 0.02); }
 .tl-sheet-group dl > div + div { border-top: 1px solid rgb(255 255 255 / 0.05); }
@@ -365,8 +360,5 @@ body.rs .tl-search input:focus-visible { outline: none; }
   .tl-seg-thumb, .tl-char { transition: none; }
   .tl-sheet-box, .tl-owned { animation: none; }
   .tl-float { transition: none; }
-}
-@media (prefers-reduced-transparency: reduce) {
-  .tl-bar { backdrop-filter: none; -webkit-backdrop-filter: none; background: var(--rs-surface); }
 }
 
