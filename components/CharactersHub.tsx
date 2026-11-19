@@ -21,7 +21,6 @@ export interface HubChar {
   artSrcSet: string | null;
   fx: number;
   zoom: number;
-  ghost: string;
 }
 
 type SortKey = "tier" | "name" | "rarity";
@@ -230,7 +229,6 @@ export default function CharactersHub({
                       document.documentElement.dataset.vt = "hero";
                     }}
                     style={{ "--c": c.color, "--fx": c.fx, "--z": c.zoom } as CSSProperties}>
-                    <span className="cp-ghost" aria-hidden="true">{c.ghost}</span>
                     {/* eslint-disable-next-line @next/next/no-img-element -- trimmed render cropped in CSS; export is unoptimized. */}
                     <img
                       className={`cp-art${c.art ? "" : " is-portrait"}`}

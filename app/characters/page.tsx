@@ -46,7 +46,6 @@ export default function CharactersPage() {
     // Head x position (0..1), clamped so the crop never exposes empty edges.
     fx: Math.min(0.75, Math.max(0.25, renders[c.slug]?.focusX ?? 0.5)),
     zoom: renders[c.slug]?.zoom ?? 138,
-    ghost: c.name.split(" ")[0],
   }));
   const live = chars.filter((c) => c.onBanner);
 

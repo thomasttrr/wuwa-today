@@ -1,6 +1,5 @@
 import { ViewTransition, type CSSProperties, type ReactNode } from "react";
 import ElementTheme from "@/components/ElementTheme";
-import FallingLilies from "@/components/FallingLilies";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -340,16 +339,8 @@ export default async function CharacterPage({
         style={{ "--el": el } as CSSProperties}
       >
         <ElementTheme color={el} />
-        {slug === "lily" && <FallingLilies count={10} />}
         {render ? (
           <>
-            <span
-              className="cx-ghost"
-              aria-hidden="true"
-              style={{ "--len": Math.max(4, char.name.length) } as CSSProperties}
-            >
-              {char.name}
-            </span>
             <span className="cx-rings" aria-hidden="true" />
             <div
               className={render.width > render.height ? "cx-render cx-render-wide" : "cx-render"}

@@ -115,13 +115,13 @@
 }
 
 /* ==========================================================================
-   Render stage: the full-body render stands right, the name ghosts behind
-   it, readouts stay sharp on the left. Layers (back to front):
-   panel glow -> resonance rings -> ghost name -> render -> scrim -> content.
+   Render stage: the full-body render stands right, readouts stay sharp on
+   the left. Layers (back to front):
+   panel wash -> resonance rings -> render -> scrim -> content.
    ========================================================================== */
 
 .cx-hero-render {
-  container-type: inline-size; /* cqw units size the ghost name */
+  container-type: inline-size; /* cqw units size the name (.cx-name) */
   grid-template-columns: minmax(0, 1fr);
   min-height: clamp(560px, 72vh, 700px);
   padding: 2.25rem 2rem;
@@ -133,30 +133,6 @@
 }
 
 /* Giant outlined name, behind the figure. */
-.cx-ghost {
-  position: absolute;
-  z-index: 0;
-  /* One line, centred on the art box and sized from the name length (--len,
-     set in page.tsx) against the hero width, so every name sits fully inside
-     the hero instead of wrapping or running off the edge. */
-  right: clamp(0px, 4vw, 64px);
-  width: 58%;
-  top: 50%;
-  translate: 0 -50%;
-  max-width: none;
-  font-family: var(--rs-display);
-  font-weight: 800;
-  text-transform: uppercase;
-  font-size: clamp(2.2rem, calc(76cqw / var(--len, 8)), 15rem);
-  line-height: 0.8;
-  letter-spacing: -0.05em;
-  text-align: center;
-  white-space: nowrap;
-  color: transparent;
-  -webkit-text-stroke: 1.5px color-mix(in oklch, var(--el) 38%, transparent);
-  pointer-events: none;
-  user-select: none;
-}
 
 /* Faint concentric "resonance" rings centred on the figure. */
 .cx-rings {
@@ -225,7 +201,6 @@
 
 @media (prefers-reduced-motion: no-preference) {
   .cx-render { animation: cx-render-in 1100ms var(--rs-ease) 60ms both; }
-  .cx-ghost { animation: cx-ghost-in 1400ms var(--rs-ease) both; }
   @supports (animation-timeline: view()) {
     .cx-render {
       animation: cx-render-in 1100ms var(--rs-ease) 60ms both, cx-drift linear both;
@@ -235,7 +210,6 @@
   }
 }
 @keyframes cx-render-in { from { opacity: 0; translate: 0 28px; filter: blur(10px); } }
-@keyframes cx-ghost-in { from { opacity: 0; letter-spacing: 0.02em; } }
 @keyframes cx-drift { to { transform: translateY(-14%); } }
 
 /* Phones / narrow: render on top, content card overlaps its faded legs. */
@@ -261,7 +235,6 @@
   /* A landscape render is short, so the content card overlaps only its
      lower quarter instead of the fixed 170px that suits tall sprites. */
   .cx-render-wide { margin-bottom: calc(-28% / var(--arn, 1.15)); }
-  .cx-ghost { top: 150px; right: 0; left: 0; width: auto; translate: 0 0; font-size: clamp(2.2rem, calc(130cqw / var(--len, 8)), 8rem); }
   .cx-rings { top: 210px; right: 50%; translate: 50% -50%; width: 120%; }
   .cx-hero-render .cx-main { max-width: none; }
   /* Bottom corner, clear of the figure (it used to sit over the art's top). */
@@ -276,8 +249,7 @@ html[data-vt="hero"] .cx-name,
 html[data-vt="hero"] .cx-verdict,
 html[data-vt="hero"] .cx-note,
 html[data-vt="hero"] .cx-stats,
-html[data-vt="hero"] .cx-actions,
-html[data-vt="hero"] .cx-ghost { animation: none; }
+html[data-vt="hero"] .cx-actions { animation: none; }
 html[data-vt="hero"] .cx-render { animation: none; }
 @supports (animation-timeline: view()) {
   html[data-vt="hero"] .cx-render {
@@ -308,11 +280,6 @@ html[data-vt="hero"] .cx-render { animation: none; }
   }
   .cx-render-wide img { height: auto; }
   /* Name centred on the (narrower) wide-art box. */
-  .cx-hero-render:has(.cx-render-wide) .cx-ghost {
-    right: clamp(0px, 2vw, 24px);
-    width: 44%;
-    font-size: clamp(2.2rem, calc(57cqw / var(--len, 8)), 15rem);
-  }
 }
 
 /* ==========================================================================
@@ -327,12 +294,10 @@ html[data-vt="hero"] .cx-render { animation: none; }
 }
 .cx-glance-h {
   margin: 0 0 0.6rem !important;
-  font-family: var(--rs-mono);
-  font-size: var(--fs-1) !important;
+  font-size: var(--fs-3) !important;
   font-weight: 500;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--rs-ink-3);
+  letter-spacing: 0.01em;
+  color: var(--am-gold-hi, var(--rs-ink-3));
 }
 .cx-glance dl { margin: 0; display: grid; gap: 0.6rem 1.5rem; grid-template-columns: minmax(0, 1fr); }
 .cx-glance dl > div { min-width: 0; }
