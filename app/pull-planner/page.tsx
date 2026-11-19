@@ -6,7 +6,7 @@ import Availability from "../../components/Availability";
 import PhaseTrack, { type PhaseNode } from "../../components/PhaseTrack";
 import PlannerAccounts, { type AccountPlan } from "../../components/PlannerAccounts";
 import UpdatedStamp from "../../components/UpdatedStamp";
-import { banners, bannerMeta, nextVersion } from "../../lib/data";
+import { banners, bannerMeta, nextVersion, BUILD_NOW } from "../../lib/data";
 import { characters, getCharacter } from "../../lib/characters";
 import { elementColor } from "../../lib/elements";
 import { getPrefarmGuide } from "../../lib/prefarm";
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/pull-planner" },
 };
 
-const BUILT_AT = Date.now();
+const BUILT_AT = BUILD_NOW;
 // The account plans and FIVE_STARS below are editorial copy written for one
 // version. Kept separate from bannerMeta.version on purpose: when the data
 // moves to the next version, the page says these plans are from the old one

@@ -7,7 +7,7 @@ import HomeCodes from "../../components/HomeCodes";
 import Reveal from "../../components/Reveal";
 import UpdatedStamp from "../../components/UpdatedStamp";
 import { CharMedal, CharPoster } from "../../components/CharThumb";
-import { activeCodes, bannerMeta, banners, codesUpdatedAt, events, outfits, versionNotesFor, type GameEvent } from "../../lib/data";
+import { activeCodes, bannerMeta, banners, codesUpdatedAt, events, outfits, versionNotesFor, type GameEvent, BUILD_NOW } from "../../lib/data";
 import { formatServerDay } from "../../lib/dates";
 import { getCharacterByName } from "../../lib/characters";
 import { elementColor } from "../../lib/elements";
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/version" },
 };
 
-const BUILT_AT = Date.now();
+const BUILT_AT = BUILD_NOW;
 
 /* ---------------------------------------------------------------------------
    Data, assembled once at build time from the same files as every other page.
@@ -117,7 +117,7 @@ const PETALS = [
 ] as const;
 
 const SECTIONS = [
-  ...(launchSectionActive(Date.now()) ? [{ id: "vo-launch", label: "Launch checklist" }] : []),
+  ...(launchSectionActive(BUILT_AT) ? [{ id: "vo-launch", label: "Launch checklist" }] : []),
   { id: "vo-banners", label: "Banners" },
   ...(newcomer ? [{ id: "vo-new", label: newcomer.name }] : []),
   ...(versionEvents.length ? [{ id: "vo-events", label: "Events" }] : []),

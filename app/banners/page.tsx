@@ -16,8 +16,7 @@ import {
   formatServerDate,
   nextBannerLine,
   type Banner,
-  type GameCharacter,
-} from "../../lib/data";
+  type GameCharacter, BUILD_NOW } from "../../lib/data";
 import { characters, getCharacterByName } from "../../lib/characters";
 import { elementColor } from "../../lib/elements";
 import { buildTierModel, PRYDWEN_TIERS } from "../../lib/tiers";
@@ -33,7 +32,7 @@ export const metadata: Metadata = {
 };
 
 // Build time seeds the client clock for the next-version note (hydration-safe).
-const BUILT_AT = Date.now();
+const BUILT_AT = BUILD_NOW;
 
 import { srcSetFor } from "@/lib/images";
 const bySlug = new Map(characters.map((c) => [c.slug, c]));

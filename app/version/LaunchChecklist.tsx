@@ -23,7 +23,8 @@ const T = {
 /* The static export renders this page once, at build time, so "now" is a
  * build-time snapshot — the same pattern as the banners page's BUILT_AT.
  * Rebuilds at phase boundaries keep it honest. */
-const BUILT_AT = Date.now();
+import { BUILD_NOW } from "@/lib/data";
+const BUILT_AT = BUILD_NOW;
 
 export function launchSectionActive(now: number): boolean {
   return now < T.hideAfter;

@@ -196,7 +196,10 @@ export const outfitsMeta = (outfitsRaw as { _meta: { updatedAt: string } })._met
 // the stored field only changes when someone edits the JSON, so a phase that
 // ends between data updates would otherwise stay "live" on the site. The
 // stored value is the fallback only when a record has no usable dates.
-const BUILD_NOW = Date.now();
+/* Set WUWA_BUILD_NOW (any ISO date) to preview how the site reads on another
+   day, e.g. WUWA_BUILD_NOW=2026-12-22T12:00:00Z npm run build. Unset in
+   production, where the real build time is used. */
+export const BUILD_NOW = process.env.WUWA_BUILD_NOW ? Date.parse(process.env.WUWA_BUILD_NOW) : Date.now();
 export function statusFromDates<T extends { startsAt: string; endsAt: string | null; status: string }>(x: T): string {
   const s = Date.parse(x.startsAt);
   const e = x.endsAt ? Date.parse(x.endsAt) : null;

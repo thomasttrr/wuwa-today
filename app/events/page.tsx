@@ -2,7 +2,7 @@ import PageHero from "@/components/PageHero";
 import type { Metadata } from "next";
 import EventsBoard from "../../components/EventsBoard";
 import UpdatedStamp from "../../components/UpdatedStamp";
-import { events, bannerMeta } from "../../lib/data";
+import { events, bannerMeta, BUILD_NOW } from "../../lib/data";
 import "./events.css";
 
 export const metadata: Metadata = {
@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/events" },
 };
 
-const BUILT_AT = Date.now();
+const BUILT_AT = BUILD_NOW;
 
 export default function EventsPage() {
   return (

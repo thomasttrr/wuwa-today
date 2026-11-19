@@ -13,7 +13,7 @@ import { AmBar, AmRel } from "../components/home/AmTime";
 import HomeCodes from "../components/HomeCodes";
 import UpdatedStamp from "../components/UpdatedStamp";
 import { CharMedal } from "../components/CharThumb";
-import { activeBanners, activeCodes, banners, bannerMeta, codesUpdatedAt, events, nextVersion, upcomingBanners, type Banner, type GameCharacter } from "../lib/data";
+import { activeBanners, activeCodes, banners, bannerMeta, codesUpdatedAt, events, nextVersion, upcomingBanners, type Banner, type GameCharacter, BUILD_NOW } from "../lib/data";
 import { formatServerDateTime, formatServerDay } from "../lib/dates";
 import { getCharacterByName } from "../lib/characters";
 import { elementColor } from "../lib/elements";
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
 };
 
 // Build time seeds the client clock for the live lists (hydration-safe).
-const BUILT_AT = Date.now();
+const BUILT_AT = BUILD_NOW;
 const D = 86_400_000;
 
 /* ---------- small data helpers ---------- */

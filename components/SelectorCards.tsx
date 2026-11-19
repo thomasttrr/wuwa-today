@@ -1,6 +1,6 @@
 import type { CSSProperties } from "react";
 import Link from "next/link";
-import { bannerMeta, selectors, formatServerDate, type SelectorConvene } from "../lib/data";
+import { bannerMeta, selectors, formatServerDate, type SelectorConvene, BUILD_NOW } from "../lib/data";
 import { getCharacterByName } from "../lib/characters";
 import { elementColor } from "../lib/elements";
 import { thumbFor } from "../lib/renders";
@@ -136,7 +136,7 @@ function WeaponCard({ s }: { s: SelectorConvene }) {
 /* Build-time snapshot for the static export (same pattern as the banners
  * page's BUILT_AT): which selectors are still running is decided when the
  * site is built, and phase-boundary rebuilds refresh it. */
-const BUILT_AT = Date.now();
+const BUILT_AT = BUILD_NOW;
 
 export default function SelectorCards() {
   const now = BUILT_AT;
