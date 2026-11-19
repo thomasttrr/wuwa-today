@@ -2,10 +2,13 @@
 
 import { memo, type ReactNode } from "react";
 import useNow from "./useNow";
+import CdBoot from "./CdBoot";
 
 const DIGITS = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 
 /** One rolling digit. Memoized: only the digits whose value changed re-render each tick. */
+/** "?" is the first-paint placeholder: an unpositioned reel that
+ *  lib/countdown-boot.ts sets before the clock starts. */
 const Digit = memo(function Digit({ ch }: { ch: string }) {
   if (ch === "-") {
     return (
@@ -20,7 +23,11 @@ const Digit = memo(function Digit({ ch }: { ch: string }) {
           lands on digit N in every engine. A % shift resolves against the
           column's own measured height, which WebKit can mis-measure on this
           flex column — the live digits then stick on 0 (seen on iOS). */}
-      <span className="rs-cd-col" style={{ transform: `translateY(${-Number(ch)}em)` }}>
+      <span
+        className="rs-cd-col"
+        style={ch === "?" ? undefined : { transform: `translateY(${-Number(ch)}em)` }}
+        suppressHydrationWarning
+      >
         {DIGITS.map((d) => (
           <span key={d}>{d}</span>
         ))}
@@ -42,8 +49,9 @@ function parts(target: Date, now: Date) {
 /**
  * RollingCountdown — a readout where every digit is a column of
  * 0-9 that springs to its value, so digits roll instead of swapping.
- * Server render shows dashes; the shared useNow clock drives ticks, so every
- * countdown on a page turns over on the same second.
+ * The static HTML carries unpositioned reels that an inline script sets
+ * before first paint (lib/countdown-boot.ts); then the shared useNow clock
+ * drives ticks, so every countdown on a page turns over on the same second.
  *
  * `hideDays` drops the days reel for timers that never exceed 24h (daily
  * reset). `labelExtra` is appended to the visible label only (e.g. the
@@ -72,7 +80,11 @@ export default function RollingCountdown({
   const spoken = !p ? "Loading" : ended ? "Ended" : p.map((x) => `${x.v} ${x.u}`).join(", ");
 
   return (
-    <div className={`rs-cd rs-cd-${size}`}>
+    <div
+      className={p ? `rs-cd rs-cd-${size}` : `rs-cd rs-cd-${size} cd-pending`}
+      data-cd={p ? undefined : target}
+      suppressHydrationWarning
+    >
       <div className="rs-cd-label">
         {label}
         {labelExtra}
@@ -82,10 +94,10 @@ export default function RollingCountdown({
       ) : (
         <div className="rs-cd-row" aria-hidden="true">
           {units.map((x, i) => {
-            const str = "v" in x ? String(x.v).padStart(2, "0") : "--";
+            const str = "v" in x ? String(x.v).padStart(2, "0") : "??";
             return (
               <div className="rs-cd-unit" key={x.u}>
-                <div className="rs-cd-digits">
+                <div className="rs-cd-digits" data-cd-u={p ? undefined : x.u[0]}>
                   {str.split("").map((ch, j) => (
                     <Digit ch={ch} key={j} />
                   ))}
@@ -100,6 +112,7 @@ export default function RollingCountdown({
       {/* role="timer" is implicitly aria-live="off": readers can find the
           value but are not interrupted by it every second. */}
       <span className="og-visually-hidden" role="timer" aria-atomic="true">{`${label}: ${spoken}`}</span>
+      {!p && <CdBoot />}
     </div>
   );
 }

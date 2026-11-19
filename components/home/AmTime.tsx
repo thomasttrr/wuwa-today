@@ -1,6 +1,7 @@
 "use client";
 
 import useNow from "../useNow";
+import CdBoot from "../CdBoot";
 
 const D = 86_400_000;
 const H = 3_600_000;
@@ -18,16 +19,17 @@ export function relSpan(ms: number): string {
 
 /**
  * AmCountdown — the hero's four-cell countdown in display serif numerals.
- * Server render shows dashes (hydration-safe); a visually hidden sentence
- * carries the value for screen readers, the cells are aria-hidden.
+ * The static HTML is filled before first paint by lib/countdown-boot.ts
+ * (hydration-safe); a visually hidden sentence carries the value for screen
+ * readers, the cells are aria-hidden.
  */
 export function AmCountdown({ target, label }: { target: string; label: string }) {
   const now = useNow();
   const left = now ? Math.max(0, Date.parse(target) - now.getTime()) : null;
-  const cells =
-    left === null
-      ? ["–", "–", "–", "–"]
-      : [pad(Math.floor(left / D)), pad(Math.floor((left % D) / H)), pad(Math.floor((left % H) / M)), pad(Math.floor((left % M) / 1000))];
+  const pending = left === null;
+  const cells = pending
+    ? ["d", "h", "m", "s"]
+    : [pad(Math.floor(left / D)), pad(Math.floor((left % D) / H)), pad(Math.floor((left % H) / M)), pad(Math.floor((left % M) / 1000))];
   const units = ["Days", "Hours", "Minutes", "Seconds"];
   const spoken =
     left === null
@@ -36,18 +38,19 @@ export function AmCountdown({ target, label }: { target: string; label: string }
         ? "Ended"
         : `${Math.floor(left / D)} days, ${Math.floor((left % D) / H)} hours, ${Math.floor((left % H) / M)} minutes`;
   return (
-    <div className="am-count">
+    <div className="am-count" data-cd={pending ? target : undefined}>
       <span className="am-sr">
         {label}: {spoken}
       </span>
       <div className="am-count-cells" aria-hidden="true">
         {cells.map((v, i) => (
           <div key={units[i]} className={i === 3 ? "is-sec" : undefined}>
-            <b key={v}>{v}</b>
+            {pending ? <b key="cd" data-cd-u={v} data-cd-v="–" suppressHydrationWarning /> : <b key={v}>{v}</b>}
             <span>{units[i]}</span>
           </div>
         ))}
       </div>
+      {pending && <CdBoot />}
     </div>
   );
 }
@@ -55,7 +58,12 @@ export function AmCountdown({ target, label }: { target: string; label: string }
 /** A plain relative span ("14d 6h") that ticks once a minute. */
 export function AmRel({ target, fallback = "–" }: { target: string; fallback?: string }) {
   const now = useNow(60_000);
-  return <>{now ? relSpan(Date.parse(target) - now.getTime()) : fallback}</>;
+  if (now) return <>{relSpan(Date.parse(target) - now.getTime())}</>;
+  return (
+    <span data-cd={target} data-cd-u="rel" data-cd-v={fallback} suppressHydrationWarning>
+      <CdBoot />
+    </span>
+  );
 }
 
 /**

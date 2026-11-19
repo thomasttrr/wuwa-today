@@ -7,6 +7,7 @@ import ScrollTop from "@/components/ScrollTop";
 import SiteTheme from "@/components/SiteTheme";
 import ThemeSwitch from "@/components/ThemeSwitch";
 import { themeBootScript } from "@/lib/theme-mode";
+import { countdownBootScript } from "@/lib/countdown-boot";
 import { NAV_GROUPS, NAV_ITEMS } from "@/lib/nav";
 import "./globals.css";
 import "./content.css";
@@ -74,6 +75,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head>
         {/* Applies the saved Dark appearance before first paint (no flash). */}
         <script dangerouslySetInnerHTML={{ __html: themeBootScript }} />
+        <script dangerouslySetInnerHTML={{ __html: countdownBootScript }} />
       </head>
       <body
         className="og rs"

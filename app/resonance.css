@@ -702,6 +702,12 @@ a.rs-tile:active { transform: scale(0.985); }
 .rs-cd-win { display: inline-block; height: 1em; overflow: hidden; }
 .rs-cd-col { display: flex; flex-direction: column; transition: transform var(--rs-d3) var(--rs-spring); }
 .rs-cd-col > span, .rs-cd-dash { display: block; height: 1em; line-height: 1; text-align: center; }
+/* First-paint countdowns (lib/countdown-boot.ts): a placeholder shows its
+   data-cd-v value until the clock starts; unfilled reels read as dashes. */
+[data-cd-v]::before { content: attr(data-cd-v); }
+.cd-pending .rs-cd-win { position: relative; }
+.cd-pending .rs-cd-col { visibility: hidden; }
+.cd-pending .rs-cd-win::after { content: "–"; position: absolute; inset: 0; line-height: 1; text-align: center; }
 .rs-cd-u { margin-top: 0.45rem; font-size: var(--fs-1); letter-spacing: 0.1em; text-transform: uppercase; color: var(--rs-ink-2); }
 .rs-cd-sep {
   position: absolute;

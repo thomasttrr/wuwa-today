@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import useNow from "../useNow";
+import CdBoot from "../CdBoot";
 import { relSpan } from "./AmTime";
 import { SERVER_OPTIONS, nextDailyReset, nextWeeklyReset } from "@/lib/dates";
 
@@ -78,7 +79,13 @@ export default function AmGlance({
     <section className="am-glance am-wrap" id="today" aria-label="Today at a glance">
       <div className="am-g">
         <span className="am-g-k">Daily reset</span>
-        <b className="am-num">{daily === null ? "–" : hm(daily)}</b>
+        {daily === null ? (
+          <b className="am-num" data-cd-reset="daily" data-cd-off={server.offsetHours} data-cd-v="–" suppressHydrationWarning>
+            <CdBoot />
+          </b>
+        ) : (
+          <b className="am-num">{hm(daily)}</b>
+        )}
         <div className="am-bar" aria-hidden="true">
           <i style={{ width: daily === null ? 0 : `${100 - (daily / D) * 100}%` }} />
         </div>
@@ -86,7 +93,13 @@ export default function AmGlance({
       </div>
       <div className="am-g">
         <span className="am-g-k">Weekly reset</span>
-        <b className="am-num">{weekly === null ? "–" : relSpan(weekly)}</b>
+        {weekly === null ? (
+          <b className="am-num" data-cd-reset="weekly" data-cd-off={server.offsetHours} data-cd-v="–" suppressHydrationWarning>
+            <CdBoot />
+          </b>
+        ) : (
+          <b className="am-num">{relSpan(weekly)}</b>
+        )}
         <div className="am-bar" aria-hidden="true">
           <i style={{ width: weekly === null ? 0 : `${100 - (weekly / (7 * D)) * 100}%` }} />
         </div>
@@ -106,7 +119,13 @@ export default function AmGlance({
       </div>
       <div className="am-g">
         <span className="am-g-k">Next unlock</span>
-        <b className="am-num">{unlock && t !== null ? relSpan(Date.parse(unlock.startsAt) - t) : unlock ? "–" : "None"}</b>
+        {unlock && t === null ? (
+          <b className="am-num" data-cd={unlock.startsAt} data-cd-u="rel" data-cd-v="–" suppressHydrationWarning>
+            <CdBoot />
+          </b>
+        ) : (
+          <b className="am-num">{unlock && t !== null ? relSpan(Date.parse(unlock.startsAt) - t) : "None"}</b>
+        )}
         <div className="am-bar" aria-hidden="true">
           <i style={{ width: 0 }} />
         </div>
