@@ -721,3 +721,12 @@ Lily client verification Nov 11, 2026: role, skill, sequence and weapon text che
   Amp / 30s: GuruGamer 3.8 pull-value guide + WU.DA.MAGE changelog
   (via the Nov 18 weekly-guide draft research). Prydwen team tier
   list (via wuwabuild Tower guide) ranks the Lily version first.
+
+- 2026-11-19: Unspoken Rue's weapon note on Suoming's page now explains
+  the Version 3.8 rule change. Sources (checked Nov 19, 2026):
+  WU.DA.MAGE changelog (Nov 11, 2026) — Yearning Mind now triggers
+  only on a sub-100 Concerto spend (Seal Master spends 20; a normal
+  Outro spends the full 100), so a normal Outro no longer removes
+  Binding Mind, the weapon's +24% team Electro DMG buff. Kaption's
+  live Suoming guide prints the same current weapon text (the swap
+  happens when the wielder consumes fewer than 100 Concerto Energy).
