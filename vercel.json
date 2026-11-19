@@ -129,6 +129,11 @@
       "source": "/pre-farm/lily",
       "destination": "/characters/lily",
       "permanent": true
+    },
+    {
+      "source": "/guides/echo-sets-3-7-guide",
+      "destination": "/echo-sets",
+      "permanent": true
     }
   ],
   "headers": [

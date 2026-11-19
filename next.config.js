@@ -55,6 +55,8 @@ const nextConfig = {
       { source: "/pre-farm/lily", destination: "/characters/lily", permanent: true },
       // Selector guide (not character-specific) -> character hub.
       { source: "/guides/moonlit-path-selector", destination: "/characters", permanent: true },
+      // Echo sets guide -> the echo sets page.
+      { source: "/guides/echo-sets-3-7-guide", destination: "/echo-sets", permanent: true },
     ];
   },
 };
