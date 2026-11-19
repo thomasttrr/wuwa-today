@@ -198,10 +198,15 @@ body.rs .tl-search input:focus-visible { outline: none; }
 .tl-legend { margin: 1rem 4px 0; font-size: var(--fs-2); color: var(--rs-ink-3); }
 .tl-legend b { font-family: var(--rs-mono); color: var(--rs-ink-2); }
 
+/* Phones and the Duo unfolded (669px: the bar wraps to ~320px tall): the bar
+   scrolls away and the floating mode switch takes over. */
+@media (max-width: 899px) {
+  .tl-bar { position: relative; top: auto; }
+}
 @media (max-width: 640px) {
   /* Mobile: the bar scrolls away; only a compact mode row would earn
      sticky space, and the nav already sits at the bottom. */
-  .tl-bar { position: relative; top: auto; margin-left: -6px; margin-right: -6px; }
+  .tl-bar { margin-left: -6px; margin-right: -6px; }
   .tl-bar-row > .tl-seg { flex-basis: 100%; min-width: 0; }
   .tl-els { flex: 1 1 100%; }
   .tl-search { flex-basis: 100%; }
@@ -224,7 +229,7 @@ body.rs .tl-search input:focus-visible { outline: none; }
 
 /* --- floating mode switch (mobile, after the bar scrolls away) --- */
 .tl-float { display: none; }
-@media (max-width: 640px) {
+@media (max-width: 899px) {
   .tl-float {
     display: block;
     position: fixed;
@@ -244,6 +249,9 @@ body.rs .tl-search input:focus-visible { outline: none; }
   }
   .tl-float[data-show] { transform: translate(-50%, 0); opacity: 1; pointer-events: auto; }
   .tl-float .tl-seg { min-width: 0; border: 0; background: none; }
+  /* 250px only fits the short names (ToA / WhiWa), also above 640px. */
+  .tl-float .tl-long { display: none; }
+  .tl-float .tl-short { display: inline; }
 }
 
 /* --- quick-look: bottom sheet on mobile, side panel on desktop --- */
