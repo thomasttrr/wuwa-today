@@ -142,9 +142,6 @@ export default function VersionPage() {
             />
           ))}
         </div>
-        <span className="vo-hero-num" aria-hidden="true">
-          {bannerMeta.version}
-        </span>
 
         <div className="vo-hero-text">
           <p className="rs-kicker">Version {bannerMeta.version} · overview</p>

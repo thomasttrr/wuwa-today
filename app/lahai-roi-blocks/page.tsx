@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import OgPageHero from "@/components/OgPageHero";
+import PageHero from "@/components/PageHero";
 import ObsidianSectionHead from "@/components/ObsidianSectionHead";
 import ObsidianToolbar from "@/components/ObsidianToolbar";
 import Reveal from "@/components/Reveal";
@@ -38,12 +38,13 @@ export default function LahaiRoiBlocksPage() {
         ← Events
       </Link>
 
-      <OgPageHero
+      <PageHero
         kicker={`Version 3.8 event · ${START_DAY} – ${END_FULL}`}
         title="Lahai-Roi Blocks — Turnabout"
-        lede="The block-puzzle arcade game from Startorch Academy is back. You place geometric blocks on a small grid, complete rows and columns to break them, and race a score target before the board jams. This run adds the one feature players have asked for since the event first ran in 3.2: you can rotate the pieces."
         meta={<UpdatedStamp />}
-      />
+      >
+        {"The block-puzzle arcade game from Startorch Academy is back. You place geometric blocks on a small grid, complete rows and columns to break them, and race a score target before the board jams. This run adds the one feature players have asked for since the event first ran in 3.2: you can rotate the pieces."}
+      </PageHero>
 
       <ObsidianToolbar label="Jump to" items={SECTIONS} />
 

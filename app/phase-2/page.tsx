@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import OgPageHero from "@/components/OgPageHero";
+import PageHero from "@/components/PageHero";
 import ObsidianSectionHead from "@/components/ObsidianSectionHead";
 import ObsidianToolbar from "@/components/ObsidianToolbar";
 import Reveal from "@/components/Reveal";
@@ -204,12 +204,13 @@ export default function Phase2Page() {
         ← Home
       </Link>
 
-      <OgPageHero
+      <PageHero
         kicker="Version 3.8 · Phase 2 · Dec 3"
         title="Phase 2 — the returning three"
-        lede="On December 3, the Phase 2 banners bring back Yangyang: Xuanling, Suisui, and Hiyuki — three of the strongest Resonators in the game, all released earlier in 2026 and fully documented. This page gathers their kits, signature weapons, ratings, best teams, and everything you can farm before the banners open."
         meta={<UpdatedStamp />}
-      />
+      >
+        {"On December 3, the Phase 2 banners bring back Yangyang: Xuanling, Suisui, and Hiyuki — three of the strongest Resonators in the game, all released earlier in 2026 and fully documented. This page gathers their kits, signature weapons, ratings, best teams, and everything you can farm before the banners open."}
+      </PageHero>
 
       <ObsidianToolbar
         label="Jump to"

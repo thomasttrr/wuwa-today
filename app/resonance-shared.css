@@ -9,28 +9,6 @@
    ========================================================================== */
 
 /* --- page hero --- */
-body.rs .og-page-hero { padding: 1.25rem 0 1.75rem; max-width: 920px; }
-body.rs .og-page-kicker {
-  font-family: var(--rs-mono);
-  font-weight: 500;
-  font-size: var(--fs-2);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--el);
-  margin: 0 0 0.75rem;
-}
-body.rs .og-page-title {
-  font-weight: 800;
-  text-transform: uppercase;
-  font-size: clamp(2.6rem, 8vw, 5.6rem);
-  line-height: 0.88;
-  letter-spacing: -0.035em;
-}
-body.rs .og-page-lede { color: var(--rs-ink-2); font-size: var(--fs-6); margin-top: 1rem; }
-@media (prefers-reduced-motion: no-preference) {
-  body.rs .og-page-title { animation: rs-rise var(--rs-d3) var(--rs-spring) both; }
-  body.rs .og-page-lede, body.rs .og-page-hero .og-meta-row { animation: rs-rise var(--rs-d3) var(--rs-ease) 120ms both; }
-}
 
 /* Title-only pages (pre-farm, beginner hubs) use og-display h1s directly. */
 body.rs h1.og-display {
@@ -81,8 +59,7 @@ body.rs .og-char-kicker {
   font-family: var(--rs-mono);
   font-weight: 500;
   font-size: var(--fs-1);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  letter-spacing: 0.01em;
 }
 
 /* --- pick cards (beginner guides, planner remnants) --- */
@@ -325,7 +302,9 @@ html:has(dialog[open]) { overflow: hidden; scrollbar-gutter: stable; }
   letter-spacing: -0.035em;
   overflow-wrap: anywhere;
 }
+.rs-page-title-long { font-size: clamp(2rem, 6.4vw, 4.6rem); line-height: 0.92; }
 .rs-page-lede { margin: 0; max-width: 40rem; color: var(--rs-ink-2); font-size: var(--fs-6); line-height: 1.55; }
+.rs-page-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 0.6rem 1.25rem; margin-top: 0.4rem; }
 @media (prefers-reduced-motion: no-preference) {
   .rs-page-title { animation: rs-rise var(--rs-d3) var(--rs-spring) both; }
   .rs-page-lede { animation: rs-rise var(--rs-d3) var(--rs-ease) 120ms both; }

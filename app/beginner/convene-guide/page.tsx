@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import OgPageHero from "@/components/OgPageHero";
+import PageHero from "@/components/PageHero";
 import ObsidianSectionHead from "@/components/ObsidianSectionHead";
 import ObsidianToolbar from "@/components/ObsidianToolbar";
 import Reveal from "@/components/Reveal";
@@ -20,16 +20,17 @@ export default function BeginnerConveneGuide() {
         ← Beginner guides
       </Link>
 
-      <OgPageHero
+      <PageHero
         kicker="Beginner guides · Convene guide"
         title="Beginner banners, decoded"
-        lede="Your first banners hand you a guaranteed 5-star at a discount — then let you pick one outright. Pull the beginner banners your account shows, touch nothing else until you understand pity, and your account starts miles ahead."
         meta={
           <>
             <UpdatedStamp />
           </>
         }
-      />
+      >
+        {"Your first banners hand you a guaranteed 5-star at a discount — then let you pick one outright. Pull the beginner banners your account shows, touch nothing else until you understand pity, and your account starts miles ahead."}
+      </PageHero>
 
       <ObsidianToolbar
         label="On this page"

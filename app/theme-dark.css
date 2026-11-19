@@ -25,7 +25,7 @@ body.rs { transition: --el 900ms var(--rs-ease), background-color 600ms var(--rs
    ========================================================================== */
 
 .ts { display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem; margin: 0 0 1.25rem; }
-.ts-label { font-family: var(--rs-mono); font-size: var(--fs-1); letter-spacing: 0.08em; text-transform: uppercase; color: var(--rs-ink-3); }
+.ts-label { font-family: var(--rs-mono); font-size: var(--fs-1); letter-spacing: 0.01em; color: var(--rs-ink-3); }
 .ts-opts {
   display: inline-flex;
   padding: 3px;

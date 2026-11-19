@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import OgPageHero from "@/components/OgPageHero";
+import PageHero from "@/components/PageHero";
 import ObsidianSectionHead from "@/components/ObsidianSectionHead";
 import ObsidianToolbar from "@/components/ObsidianToolbar";
 import Reveal from "@/components/Reveal";
@@ -118,18 +118,19 @@ export default function EndstateMatrixPage() {
         ← Home
       </Link>
 
-      <OgPageHero
+      <PageHero
         kicker="Endstate Matrix · Adversity Vanguard · Endgame"
         title="Endstate Matrix"
-        lede={`The boss-rush endgame: five bosses in a row, fought with several teams while the damage carries over. This page covers the current cycle — ${
+        meta={<UpdatedStamp />}
+      >
+        {`The boss-rush endgame: five bosses in a row, fought with several teams while the damage carries over. This page covers the current cycle — ${
           STATE === "upcoming"
             ? `its final phase opens ${START_FULL}`
             : STATE === "active"
               ? `its final phase is live until ${END_FULL}`
               : `it ended ${END_FULL}`
         } — with the full reward table, the stage buffs, and the teams that cleared last phase.`}
-        meta={<UpdatedStamp />}
-      />
+      </PageHero>
 
       <ObsidianToolbar label="Jump to" items={SECTIONS} />
 

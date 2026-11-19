@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import PageHero from "@/components/PageHero";
 
 export function generateMetadata(): Metadata {
   return {
@@ -30,14 +31,10 @@ export default function GlossaryPage() {
         ← Characters
       </Link>
 
-      <header className="og-page-hero">
-        <p className="og-page-kicker">Glossary</p>
-        <h1 className="og-page-title">Plain words</h1>
-        <p className="og-page-lede">
-          Every build word on this site, explained the way you would explain it
-          to someone who has never played.
-        </p>
-      </header>
+      <PageHero kicker="Glossary" title="Plain words">
+        Every build word on this site, explained the way you would explain it
+        to someone who has never played.
+      </PageHero>
 
       <section className="og-section" id="glossary" aria-label="Plain-words glossary">
         <Group

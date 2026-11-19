@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import OgPageHero from "@/components/OgPageHero";
+import PageHero from "@/components/PageHero";
 import ObsidianSectionHead from "@/components/ObsidianSectionHead";
 import Reveal from "@/components/Reveal";
 import UpdatedStamp from "@/components/UpdatedStamp";
@@ -117,10 +117,12 @@ export default function Version40Page() {
         ← Home
       </Link>
 
-      <OgPageHero
+      <PageHero
         kicker="Version 4.0 · Officially revealed November 17, 2026"
         title="Embers of the Everbright"
-        lede={
+        meta={<UpdatedStamp />}
+      >
+        {
           <>
             Chapter of the Year. Kuro revealed Version 4.0 on the evening of November 17 — a
             trailer, a launch date, and seven new Resonators inside forty minutes. This page
@@ -129,8 +131,7 @@ export default function Version40Page() {
             <Link href="/leaks">leaks page</Link>.
           </>
         }
-        meta={<UpdatedStamp />}
-      />
+      </PageHero>
 
       <Reveal>
         <div className="v4-launch">

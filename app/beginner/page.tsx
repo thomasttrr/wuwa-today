@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import OgPageHero from "@/components/OgPageHero";
+import PageHero from "@/components/PageHero";
 import Reveal from "@/components/Reveal";
 import UpdatedStamp from "@/components/UpdatedStamp";
 
@@ -50,16 +50,17 @@ export default function BeginnerHub() {
         ← Home
       </Link>
 
-      <OgPageHero
+      <PageHero
         kicker="Beginner guides"
         title="New to Solaris-3?"
-        lede="Four short guides that cover the whole onboarding arc: what to do first, how beginner banners work, who to team up, and the mistakes that cost you Astrite. Every fact below is verified against two or more sources."
         meta={
           <>
             <UpdatedStamp />
           </>
         }
-      />
+      >
+        {"Four short guides that cover the whole onboarding arc: what to do first, how beginner banners work, who to team up, and the mistakes that cost you Astrite. Every fact below is verified against two or more sources."}
+      </PageHero>
 
       <div className="og-grid">
         {GUIDES.map((g, i) => (

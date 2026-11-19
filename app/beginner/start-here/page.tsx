@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import OgPageHero from "@/components/OgPageHero";
+import PageHero from "@/components/PageHero";
 import ObsidianSectionHead from "@/components/ObsidianSectionHead";
 import ObsidianToolbar from "@/components/ObsidianToolbar";
 import Reveal from "@/components/Reveal";
@@ -49,16 +49,17 @@ export default function BeginnerStartHere() {
         ← Beginner guides
       </Link>
 
-      <OgPageHero
+      <PageHero
         kicker="Beginner guides · Start here"
         title="Your first week"
-        lede="Six free characters, the unlocks that matter, and the milestones that actually gate your power. Do the main story, claim everything free, and don't rush — the game rewards patience more than speed."
         meta={
           <>
             <UpdatedStamp />
           </>
         }
-      />
+      >
+        {"Six free characters, the unlocks that matter, and the milestones that actually gate your power. Do the main story, claim everything free, and don't rush — the game rewards patience more than speed."}
+      </PageHero>
 
       <ObsidianToolbar
         label="On this page"

@@ -29,35 +29,8 @@
 
 /* Contained-panel rule for guide heroes: text-only, inside .container's
    1080px measure (880px text measure), no 100vw breakout, no art. */
-.og-page-hero {
-  padding: 2.75rem 0 2rem;
-  max-width: 880px;
-}
-.og-page-kicker {
-  font-family: var(--rs-display);
-  font-weight: 600;
-
-  letter-spacing: 0.05em;
-  font-size: var(--fs-2);
-  color: var(--rs-ink-2);
-  margin: 0 0 0.6rem;
-}
-.og-page-title {
-  margin: 0;
-  font-size: clamp(2.5rem, 6vw, 4rem);
-}
-.og-page-lede {
-  color: var(--rs-ink-2);
-  font-size: var(--fs-6);
-  line-height: 1.6;
-  max-width: 62ch;
-  margin: 0.85rem 0 0;
-}
 /* Optional freshness row inside the hero: sits after the lede with no
    trailing margin — the hero's own bottom padding sets the rhythm. */
-.og-page-hero .og-meta-row {
-  margin: 1.25rem 0 0;
-}
 
 /* --- character hub: filter toolbar (chrome -> glass is allowed) --------- */
 .og-chip {
@@ -649,15 +622,14 @@
 .og-echo-usage { margin: 0.6rem 0 0.7rem; }
 .og-usage-pill {
   display: inline-block;
-  font-family: var(--rs-display);
-  font-size: var(--fs-1);
-  font-weight: 700;
+  font-size: var(--fs-2);
+  font-weight: 600;
 
   letter-spacing: 0.04em;
   padding: 0.3rem 0.75rem;
   border-radius: var(--rs-r-ctl);
 }
-.og-usage-bis { background: #ffffff; color: #0b0b0d; }
+.og-usage-bis { background: var(--am-gold-hi, #d9c49b); color: #15171d; }
 .og-usage-alt { border: 1px solid var(--rs-line); color: var(--rs-ink-2); }
 .og-echo-plate p { color: var(--rs-ink-2); font-size: var(--fs-4); line-height: 1.55; margin: 0.45rem 0 0; }
 .og-echo-plate p strong { color: var(--rs-ink); }

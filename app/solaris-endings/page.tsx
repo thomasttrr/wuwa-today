@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import OgPageHero from "@/components/OgPageHero";
+import PageHero from "@/components/PageHero";
 import ObsidianSectionHead from "@/components/ObsidianSectionHead";
 import ObsidianToolbar from "@/components/ObsidianToolbar";
 import Reveal from "@/components/Reveal";
@@ -30,12 +30,13 @@ export default function SolarisEndingsPage() {
         ← Home
       </Link>
 
-      <OgPageHero
+      <PageHero
         kicker="Version 3.8 event · Second Coming of Solaris"
         title="Unwritten Dreams — all 12 endings"
-        lede="A school-life sim inside Wuthering Waves: one school year as a transfer student, five stats, a badge economy, two rival organizations — and twelve endings. This page lists every ending's requirements and the two-playthrough plan that collects them all. It covers names and requirements only; it does not retell the story."
         meta={<UpdatedStamp />}
-      />
+      >
+        {"A school-life sim inside Wuthering Waves: one school year as a transfer student, five stats, a badge economy, two rival organizations — and twelve endings. This page lists every ending's requirements and the two-playthrough plan that collects them all. It covers names and requirements only; it does not retell the story."}
+      </PageHero>
 
       <ObsidianToolbar label="Jump to" items={SECTIONS} />
 

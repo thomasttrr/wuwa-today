@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import ObsidianToolbar from "@/components/ObsidianToolbar";
-import OgPageHero from "@/components/OgPageHero";
+import PageHero from "@/components/PageHero";
 import Reveal from "@/components/Reveal";
 import UpdatedStamp from "@/components/UpdatedStamp";
 import { getCharacter } from "@/lib/characters";
@@ -25,14 +25,15 @@ export default function PrefarmIndex() {
         ← Home
       </Link>
 
-      <OgPageHero
+      <PageHero
         kicker="Pre-farm guides"
         title="Farm before the banner"
-        lede="Every material for the featured characters — quantities verified against two or more independent sources, with the routes to farm them."
         meta={
           <UpdatedStamp />
         }
-      />
+      >
+        {"Every material for the featured characters — quantities verified against two or more independent sources, with the routes to farm them."}
+      </PageHero>
 
       {upcoming.filter((g) => getCharacter(g.character_slug)).length > 0 && (
         <ObsidianToolbar

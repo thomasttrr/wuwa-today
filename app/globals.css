@@ -60,8 +60,7 @@ main { padding: 2rem 0 4rem; min-height: 60vh; }
   font-family: var(--rs-mono);
   font-size: var(--fs-1);
   font-weight: 500;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  letter-spacing: 0.01em;
   color: var(--rs-ink-3);
 }
 .site-footer-group ul { list-style: none; margin: 0; padding: 0; }

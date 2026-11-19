@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import OgPageHero from "@/components/OgPageHero";
+import PageHero from "@/components/PageHero";
 import ObsidianToolbar from "@/components/ObsidianToolbar";
 import Reveal from "@/components/Reveal";
 import UpdatedStamp from "@/components/UpdatedStamp";
@@ -62,16 +62,17 @@ export default function BeginnerMistakes() {
         ← Beginner guides
       </Link>
 
-      <OgPageHero
+      <PageHero
         kicker="Beginner guides · 5 mistakes"
         title="The traps, and the fixes"
-        lede="Every one of these costs you resources you can't get back. The good news: each fix is a single decision made once — you don't have to grind your way out."
         meta={
           <>
             <UpdatedStamp />
           </>
         }
-      />
+      >
+        {"Every one of these costs you resources you can't get back. The good news: each fix is a single decision made once — you don't have to grind your way out."}
+      </PageHero>
 
       <ObsidianToolbar
         label="The five mistakes"

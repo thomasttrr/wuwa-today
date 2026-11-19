@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import OgPageHero from "@/components/OgPageHero";
+import PageHero from "@/components/PageHero";
 import ObsidianSectionHead from "@/components/ObsidianSectionHead";
 import ObsidianToolbar from "@/components/ObsidianToolbar";
 import Reveal from "@/components/Reveal";
@@ -30,12 +30,13 @@ export default function CalamityEffigyPage() {
         ← Home
       </Link>
 
-      <OgPageHero
+      <PageHero
         kicker="Tactical Hologram: Sparring · Mengzhou · Permanent"
         title="Calamity Effigy"
-        lede="The third boss of Tactical Hologram: Sparring — a hologram rematch with Muyu's transformed form, the story boss of Chapter IV. It resists Aero, punishes slow fights, and pays 120 Astrite across six difficulties. This page covers the unlock, the Forged Might mechanism, the rewards, and who to bring."
         meta={<UpdatedStamp />}
-      />
+      >
+        {"The third boss of Tactical Hologram: Sparring — a hologram rematch with Muyu's transformed form, the story boss of Chapter IV. It resists Aero, punishes slow fights, and pays 120 Astrite across six difficulties. This page covers the unlock, the Forged Might mechanism, the rewards, and who to bring."}
+      </PageHero>
 
       <ObsidianToolbar label="Jump to" items={SECTIONS} />
 

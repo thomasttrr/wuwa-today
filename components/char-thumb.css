@@ -116,7 +116,7 @@
 }
 .ct-medal .ct-mono { font-size: calc(var(--s, 48px) * 0.4); }
 @media (pointer: fine) {
-  a:hover .ct-medal { box-shadow: 0 0 18px color-mix(in oklch, var(--c) 45%, transparent); }
+  
   a:hover .ct-medal .ct-art:not(.is-portrait) { transform: scale(1.06); transform-origin: 50% 20%; }
 }
 

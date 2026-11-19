@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import OgPageHero from "@/components/OgPageHero";
+import PageHero from "@/components/PageHero";
 import ObsidianSectionHead from "@/components/ObsidianSectionHead";
 import ObsidianToolbar from "@/components/ObsidianToolbar";
 import Reveal from "@/components/Reveal";
@@ -394,12 +394,13 @@ export default function EchoSetsGuide() {
         ← Home
       </Link>
 
-      <OgPageHero
+      <PageHero
         kicker="Echo sets · Version 3.8"
         title="The five sets worth farming in 3.8"
-        lede="The three newest Sonata Effects — Flower of Tinged Yearning, Heart of Sworn Vigil, and Flash of Electric Reflection — plus the two sets the December 3 reruns run on: Song of Feathered Trace and Wishes of Quiet Snowfall. Every bonus, member echo, and farm route, each fact checked against two or more independent sources. For any other set, each character's build page names the set they want and where it fits."
         meta={<UpdatedStamp />}
-      />
+      >
+        {"The three newest Sonata Effects — Flower of Tinged Yearning, Heart of Sworn Vigil, and Flash of Electric Reflection — plus the two sets the December 3 reruns run on: Song of Feathered Trace and Wishes of Quiet Snowfall. Every bonus, member echo, and farm route, each fact checked against two or more independent sources. For any other set, each character's build page names the set they want and where it fits."}
+      </PageHero>
 
       <ObsidianToolbar
         label="Jump to a set"

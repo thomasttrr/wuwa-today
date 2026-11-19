@@ -110,17 +110,15 @@ export default function LeaksPage() {
         ← Home
       </Link>
 
-      <PageHero kicker="Version 4.0 and later · Leaks and rumors · Last sweep Nov 17, 2026" title="4.0+ leaks">
+      <PageHero kicker="Version 4.0 and later · Leaks and rumors · Last sweep Nov 17, 2026" title="4.0+ leaks"
+        meta={<><UpdatedStamp /><RevealAllSpoilers /></>}
+      >
         Version 4.0 skips 3.9 entirely and opens a whole new region — the New Federation —
         on December 22, 2026. Kuro revealed the version and its seven-character cast on
         November 17; everything past that reveal is still leak and rumor. This page collects
         the rumor side of it, tags each claim by how solid the evidence is, and names its
         sources — the official announcements themselves live on the Version 4.0 page.
       </PageHero>
-      <div className="og-meta-row lk-meta">
-        <UpdatedStamp />
-        <RevealAllSpoilers />
-      </div>
 
       <div className="og-notice" role="note" style={{ marginBottom: "1.2rem" }}>
         <p style={{ margin: 0, lineHeight: 1.6 }}>

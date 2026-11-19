@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import OgPageHero from "@/components/OgPageHero";
+import PageHero from "@/components/PageHero";
 import ObsidianSectionHead from "@/components/ObsidianSectionHead";
 import ObsidianTeamCard from "@/components/ObsidianTeamCard";
 import Reveal from "@/components/Reveal";
@@ -111,16 +111,17 @@ export default function BeginnerFirstTeams() {
         ← Beginner guides
       </Link>
 
-      <OgPageHero
+      <PageHero
         kicker="Beginner guides · First teams"
         title="Your first teams"
-        lede="Three teams you can build without spending a cent — two are fully free, the third just needs your Beginner's Choice pick. Pick one, invest only in it, and don't spread resources across the bench."
         meta={
           <>
             <UpdatedStamp />
           </>
         }
-      />
+      >
+        {"Three teams you can build without spending a cent — two are fully free, the third just needs your Beginner's Choice pick. Pick one, invest only in it, and don't spread resources across the bench."}
+      </PageHero>
 
       <div className="og-section">
         <ObsidianSectionHead

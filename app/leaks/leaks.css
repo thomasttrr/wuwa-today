@@ -67,7 +67,6 @@
   color: var(--am-gold-hi, var(--el));
   margin: 0 0 0.4rem;
 }
-.lk-meta { justify-content: flex-start; gap: 0.6rem 1.25rem; margin: -0.5rem 0 1.25rem; }
 
 /* Timeline rail */
 .lk-tl {
