@@ -708,6 +708,17 @@ export default function LeaksPage() {
               is real, the recruitment claim above has a client behind it — the
               beta databases still show only 3.8, so this stays a single leak.
             </Claim>
+            <Claim tag="Speculation">
+              <strong>One post names their elements — against the stronger claims.</strong>{" "}
+              Jimmy Patel (@jpatel02, November 19) says Anna is Glacio with a
+              Broadblade in Phase 1 and Lucielle is Fusion with Pistols in
+              Phase 2, both five-star. The post names no leaker (marked only
+              &ldquo;Via STC&rdquo;), and both elements fight this page&rsquo;s stronger
+              lines: every tracker puts Anna on Fusion, and Lucielle&rsquo;s element
+              has narrowed to Electro or Spectro. The Broadblade and the phase
+              order match what is already claimed — the elements are the new
+              part, and they grade as speculation.
+            </Claim>
             <Claim tag="Single leak">
               <strong>A Mosasaurus boss is claimed for 4.X.</strong> A Seele item
               reshared on November 17 (@WutheringNews, @Wutheringnewss,
