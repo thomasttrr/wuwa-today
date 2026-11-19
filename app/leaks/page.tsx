@@ -698,6 +698,17 @@ export default function LeaksPage() {
               is real, a beta start in the November 23 window above follows.
             </Claim>
             <Claim tag="Single leak">
+              <strong>The 4.0 beta client is already in testers&rsquo; hands.</strong> A
+              Seele installer screenshot (November 19) shows the game updating
+              3.8.1 to 4.0.0: the full pack downloads at 56.51 GiB and needs
+              67.81 GB of space — the aggregator post travelling with it says
+              68.81 GiB, and the screenshot&rsquo;s own figure is the one printed
+              here. The sizes exclude video files, hotfix patches and voice
+              packs. For scale, the 3.0 pack was about 93 GB. If the screenshot
+              is real, the recruitment claim above has a client behind it — the
+              beta databases still show only 3.8, so this stays a single leak.
+            </Claim>
+            <Claim tag="Single leak">
               <strong>A Mosasaurus boss is claimed for 4.X.</strong> A Seele item
               reshared on November 17 (@WutheringNews, @Wutheringnewss,
               @Gameverse_Leaks) names a coming boss as a Mosasaurus, also called
