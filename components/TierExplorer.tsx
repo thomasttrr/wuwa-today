@@ -177,7 +177,7 @@ export default function TierExplorer({ model }: { model: TierModel }) {
               <button
                 key={name}
                 type="button"
-                className="tl-el"
+                className="rs-filter tl-el"
                 aria-pressed={elements.has(name)}
                 style={{ "--c": color } as CSSProperties}
                 onClick={() => {
@@ -195,7 +195,7 @@ export default function TierExplorer({ model }: { model: TierModel }) {
           <div className="tl-roster-ctl">
             <button
               type="button"
-              className="tl-pill"
+              className="rs-filter tl-pill"
               aria-pressed={editRoster}
               onClick={() => setEditRoster((v) => !v)}
             >
@@ -203,7 +203,7 @@ export default function TierExplorer({ model }: { model: TierModel }) {
             </button>
             <button
               type="button"
-              className="tl-pill"
+              className="rs-filter tl-pill"
               aria-pressed={rosterOnly}
               disabled={owned.size === 0 && !rosterOnly}
               onClick={() => setRosterOnly((v) => !v)}

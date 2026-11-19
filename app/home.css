@@ -1070,7 +1070,7 @@
 
 /* ==========================================================================
    Specificity guard: the site sets `body.rs h1..h4` (resonance.css,
-   aftermath.css) and bare h1/h2 margins (globals.css). The home headings
+   aftermath.css) and bare h1/h2 margins (content.css). The home headings
    restate their own type here at a higher specificity.
    ========================================================================== */
 body.rs .am .am-name {

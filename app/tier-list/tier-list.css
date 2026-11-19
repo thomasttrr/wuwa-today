@@ -98,25 +98,13 @@ body.rs .tl-search input:focus-visible { outline: none; }
   gap: 0.4rem;
   min-height: 40px;
   padding: 0 0.75rem;
-  border-radius: var(--rs-r-ctl);
-  border: 1px solid rgb(255 255 255 / 0.08);
-  background: rgb(255 255 255 / 0.03);
-  color: var(--rs-ink-2);
-  font: inherit;
-  font-size: var(--fs-3);
-  font-weight: 600;
-  cursor: pointer;
-  transition: transform var(--rs-d2) var(--rs-spring), background-color var(--rs-d1) ease, border-color var(--rs-d1) ease, color var(--rs-d1) ease;
 }
-.tl-el:active, .tl-pill:active { transform: scale(0.94); }
 .tl-el-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--c); }
 .tl-el[aria-pressed="true"] {
   color: var(--rs-ink);
   border-color: color-mix(in oklch, var(--c) 60%, transparent);
   background: color-mix(in oklch, var(--c) 16%, transparent);
 }
-.tl-pill[aria-pressed="true"] { color: var(--rs-on-el); background: var(--el); border-color: transparent; }
-.tl-pill:disabled { opacity: 0.45; cursor: default; }
 .tl-pill-n { font-family: var(--rs-mono); font-size: var(--fs-2); }
 .tl-roster-ctl { display: flex; gap: 6px; margin-left: auto; }
 .tl-status { display: flex; align-items: center; gap: 0.75rem; margin: 0 4px; font-size: var(--fs-2); color: var(--rs-ink-3); font-family: var(--rs-mono); }

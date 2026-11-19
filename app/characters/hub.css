@@ -87,17 +87,7 @@ body.rs .ch-search input:focus-visible { outline: none; }
   gap: 0.4rem;
   min-height: 40px;
   padding: 0 0.8rem;
-  border-radius: var(--rs-r-ctl);
-  border: 1px solid rgb(255 255 255 / 0.08);
-  background: rgb(255 255 255 / 0.03);
-  color: var(--rs-ink-2);
-  font: inherit;
-  font-size: var(--fs-3);
-  font-weight: 600;
-  cursor: pointer;
-  transition: transform var(--rs-d2) var(--rs-spring), background-color var(--rs-d1) ease, border-color var(--rs-d1) ease, color var(--rs-d1) ease;
 }
-.ch-chip:active { transform: scale(0.94); }
 .ch-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--c); }
 .ch-chip[aria-pressed="true"] {
   color: var(--rs-ink);

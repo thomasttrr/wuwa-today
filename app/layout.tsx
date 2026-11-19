@@ -9,7 +9,6 @@ import ThemeSwitch from "@/components/ThemeSwitch";
 import { themeBootScript } from "@/lib/theme-mode";
 import { countdownBootScript } from "@/lib/countdown-boot";
 import { NAV_GROUPS, NAV_ITEMS } from "@/lib/nav";
-import "./globals.css";
 import "./content.css";
 import "./resonance.css";
 import "./resonance-shared.css";

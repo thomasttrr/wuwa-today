@@ -182,11 +182,11 @@ export default function EventsBoard({ events, builtAt }: { events: GameEvent[]; 
       </div>
 
       <div className="ev-filters" role="group" aria-label="Filter by event type">
-        <button type="button" className="ev-chip" aria-pressed={type === null} onClick={() => setType(null)}>
+        <button type="button" className="rs-filter ev-chip" aria-pressed={type === null} onClick={() => setType(null)}>
           All
         </button>
         {types.map((t) => (
-          <button key={t} type="button" className="ev-chip" aria-pressed={type === t} onClick={() => setType(type === t ? null : t)}>
+          <button key={t} type="button" className="rs-filter ev-chip" aria-pressed={type === t} onClick={() => setType(type === t ? null : t)}>
             {TYPE_LABELS[t] ?? t}
           </button>
         ))}

@@ -135,7 +135,7 @@ export default function CharactersHub({
               <button
                 key={e}
                 type="button"
-                className="ch-chip"
+                className="rs-filter ch-chip"
                 aria-pressed={els.has(e)}
                 style={{ "--c": elementColors[e] } as CSSProperties}
                 onClick={() =>
@@ -172,11 +172,11 @@ export default function CharactersHub({
           <Select label="Role" value={role} options={roles} onChange={(v) => t(() => setRole(v))} />
           <div className="ch-chips" role="group" aria-label="Rarity">
             {[5, 4].map((r) => (
-              <button key={r} type="button" className="ch-chip" aria-pressed={rarity === r} onClick={() => t(() => setRarity(rarity === r ? null : r))}>
+              <button key={r} type="button" className="rs-filter ch-chip" aria-pressed={rarity === r} onClick={() => t(() => setRarity(rarity === r ? null : r))}>
                 {r}★
               </button>
             ))}
-            <button type="button" className="ch-chip" aria-pressed={upcoming} onClick={() => t(() => setUpcoming(!upcoming))}>
+            <button type="button" className="rs-filter ch-chip" aria-pressed={upcoming} onClick={() => t(() => setUpcoming(!upcoming))}>
               Upcoming
             </button>
           </div>

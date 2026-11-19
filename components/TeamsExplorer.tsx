@@ -212,7 +212,7 @@ export default function TeamsExplorer({ data }: { data: PackedTeamsModel }) {
             /* No roster yet: a count of 0 would read as "you can field
                nothing", so offer the first step instead. */
             <span className="tm-roster-cta">
-              <button type="button" className="tm-pill" onClick={startRoster}>
+              <button type="button" className="rs-filter tm-pill" onClick={startRoster}>
                 Teams I can field
               </button>
               <span className="tm-hint">
@@ -225,7 +225,7 @@ export default function TeamsExplorer({ data }: { data: PackedTeamsModel }) {
           ) : (
             <button
               type="button"
-              className="tm-pill"
+              className="rs-filter tm-pill"
               aria-pressed={fieldable}
               onClick={() => setFieldable((v) => !v)}
               aria-label={`Teams I can field: ${fieldableCount} from the ${ownedHere} Resonators in your roster`}
@@ -393,7 +393,7 @@ export default function TeamsExplorer({ data }: { data: PackedTeamsModel }) {
             : "Tap a Resonator to show only the teams they're in. The number is how many teams on this page use them."
         }
         aside={
-          <button type="button" className="tm-pill" aria-pressed={editRoster} onClick={() => setEditRoster((v) => !v)}>
+          <button type="button" className="rs-filter tm-pill" aria-pressed={editRoster} onClick={() => setEditRoster((v) => !v)}>
             {editRoster ? "Done marking" : "Mark my roster"}
           </button>
         }
