@@ -58,6 +58,7 @@ export default function TierExplorer({ model }: { model: TierModel }) {
   const [selected, setSelected] = useState<string | null>(null);
   const barRef = useRef<HTMLDivElement>(null);
   const [barGone, setBarGone] = useState(false);
+  const [scrollingUp, setScrollingUp] = useState(false);
 
   // Mobile: once the control bar scrolls away, a compact mode switch floats
   // above the tab bar so ToA / WhiWa stays one tap away.
@@ -67,6 +68,21 @@ export default function TierExplorer({ model }: { model: TierModel }) {
     const io = new IntersectionObserver(([e]) => setBarGone(!e.isIntersecting && e.boundingClientRect.top < 0));
     io.observe(el);
     return () => io.disconnect();
+  }, []);
+
+  // The switch only appears while scrolling up (the moment someone wants to
+  // change something) and tucks away on the way down, so it and the tab bar
+  // never cover the cards together while reading.
+  useEffect(() => {
+    let last = window.scrollY;
+    const onScroll = () => {
+      const y = window.scrollY;
+      if (Math.abs(y - last) < 8) return;
+      setScrollingUp(y < last);
+      last = y;
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   useEffect(() => {
@@ -302,13 +318,13 @@ export default function TierExplorer({ model }: { model: TierModel }) {
       </ol>
 
       {modes.length > 1 && (
-        <div className="tl-float" data-show={barGone || undefined} aria-hidden={!barGone}>
+        <div className="tl-float" data-show={(barGone && scrollingUp) || undefined} aria-hidden={!(barGone && scrollingUp)}>
           <Segmented
             label="Game mode"
             options={modes.map((m) => ({ key: m, label: m, short: MODE_SHORT[m] }))}
             value={activeMode}
             onChange={(v) => retier(() => setMode(v))}
-            tabIndex={barGone ? 0 : -1}
+            tabIndex={barGone && scrollingUp ? 0 : -1}
           />
         </div>
       )}
