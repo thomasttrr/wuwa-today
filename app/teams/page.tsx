@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import TeamsExplorer from "@/components/TeamsExplorer";
 import { buildTeamsModel } from "@/lib/teams";
+import { packTeams } from "@/lib/teams-wire";
 import "./teams.css";
 
 export const metadata: Metadata = {
@@ -29,7 +30,7 @@ export default function TeamsPage() {
           for free. Tap a Resonator in the index to see every team they fit.
       </PageHero>
 
-      <TeamsExplorer model={model} />
+      <TeamsExplorer data={packTeams(model)} />
 
       <footer className="tm-foot">
         <p>

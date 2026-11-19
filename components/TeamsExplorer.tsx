@@ -7,6 +7,7 @@ import useNow from "./useNow";
 import { CharPoster } from "./CharThumb";
 import { elementColor } from "@/lib/elements";
 import type { Team, TeamMember, TeamsModel } from "@/lib/teams";
+import { unpackTeams, type PackedTeamsModel } from "@/lib/teams-wire";
 
 /* Shared with the Tier List: marking a Resonator as owned on either page
    carries over to the other. */
@@ -72,7 +73,9 @@ function openHashedTeam() {
   }
 }
 
-export default function TeamsExplorer({ model }: { model: TeamsModel }) {
+export default function TeamsExplorer({ data }: { data: PackedTeamsModel }) {
+  /* The page sends each Resonator once (lib/teams-wire.ts); rebuild the full model here. */
+  const model: TeamsModel = useMemo(() => unpackTeams(data), [data]);
   /* Live-aware section kickers: once a rotation's reset instant passes, its
      section must stop calling itself the current reset (the data farm that
      replaces the picks lands after the reset, not at it). */

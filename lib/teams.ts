@@ -10,8 +10,10 @@ import raw from "@/data/teams.json";
 import { thumbFor, type Thumb } from "./renders";
 import { getCharacter } from "./characters";
 
-export const TEAM_ROLES = ["Main DPS", "Sub-DPS", "Support"] as const;
-export type TeamRole = (typeof TEAM_ROLES)[number];
+import { TEAM_ROLES } from "./teams-wire";
+
+export { TEAM_ROLES };
+export type TeamRole = "Main DPS" | "Sub-DPS" | "Support";
 
 export interface TeamCharacter {
   name: string;
