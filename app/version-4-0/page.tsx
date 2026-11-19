@@ -187,7 +187,7 @@ export default function Version40Page() {
       <div className="og-section">
         <ObsidianSectionHead
           title="The seven"
-          blurb="Kuro's character cards, posted five minutes apart on November 17, in reveal order. No element, weapon, or kit was given for any of them."
+          blurb="Kuro's character cards, posted five minutes apart on November 17, in reveal order. No element, weapon, or kit was given for any of them; Anna&rsquo;s five-star rarity followed a day later."
         />
         <Reveal>
           <figure className="v4-feature">
@@ -222,6 +222,34 @@ export default function Version40Page() {
             </figcaption>
           </figure>
         </Reveal>
+        <Reveal>
+          <figure className="v4-feature">
+            <div className="v4-feature-art">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/images/leaks/official-drip-anna.webp"
+                alt="Official playable drip art of Anna: seated on a balcony railing among thorny vines, red roses and red drapery, red wide-brim hat and white and red gothic dress"
+                width={720}
+                height={844}
+                loading="lazy"
+              />
+            </div>
+            <figcaption className="v4-feature-body">
+              <div className="v4-card-top">
+                <span className="v4-num">01</span>
+                <span className="v4-time">November 18 · Playable drip</span>
+              </div>
+              <h3 className="v4-name v4-name-lg">Anna — five-star</h3>
+              <p className="v4-drip">&ldquo;The night is long, and your desires are like wine.&rdquo;</p>
+              <p className="v4-note">
+                A day after the teaser card, Kuro gave Anna the full playable drip: new
+                art, her five stars on show, and an animated version minutes later.
+                She is the first of the seven with a confirmed rarity. Her element and
+                weapon are still not shown — those remain unannounced for all seven.
+              </p>
+            </figcaption>
+          </figure>
+        </Reveal>
         <div className="v4-grid">
           {CAST.map((c, i) => (
             <CastCard key={c.name} c={c} delay={(i % 3) * 90} />
@@ -250,6 +278,7 @@ export default function Version40Page() {
                 <li>Launch date: December 22, 2026 (UTC+8)</li>
                 <li>No Version 3.9 — 3.8 is the last 3.x patch</li>
                 <li>Seven Resonators: Anna, April, Gordia, Lucielle, Cairn, Iya, Simulsys</li>
+                <li>Anna&rsquo;s rarity: five-star (playable drip, November 18)</li>
                 <li>Every design above, exactly as shown on the cards</li>
               </ul>
             </div>
@@ -308,7 +337,7 @@ export default function Version40Page() {
         <Reveal>
           <p className="v4-foot">
             Sources: Kuro&rsquo;s official @Wuthering_Waves posts of November 17–18, 2026 — the
-            reveal trailer, the seven character cards and the pre-registration announcement,
+            reveal trailer, the seven character cards, Anna&rsquo;s playable drip and the pre-registration announcement,
             mirrored here via the wiki&rsquo;s uploads of the same official art and shown
             unedited.
           </p>
