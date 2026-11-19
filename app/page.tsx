@@ -13,7 +13,7 @@ import { AmBar, AmRel } from "../components/home/AmTime";
 import HomeCodes from "../components/HomeCodes";
 import UpdatedStamp from "../components/UpdatedStamp";
 import { CharMedal } from "../components/CharThumb";
-import { activeBanners, activeCodes, banners, bannerMeta, codesUpdatedAt, events, nextVersion, upcomingBanners, type Banner, type GameCharacter, BUILD_NOW } from "../lib/data";
+import { activeBanners, activeCodes, banners, bannerMeta, codesUpdatedAt, events, nextVersion, nextVersionPending, noBannerLine, upcomingBanners, type Banner, type GameCharacter, BUILD_NOW } from "../lib/data";
 import { formatServerDateTime, formatServerDay } from "../lib/dates";
 import { getCharacterByName } from "../lib/characters";
 import { elementColor } from "../lib/elements";
@@ -187,10 +187,25 @@ export default function HomePage() {
   /* banners.json `_meta` moves to the next version as soon as it is
      announced, so its title only names the live version while they match. */
   const versionTitle = liveVersion === bannerMeta.version ? bannerMeta.versionTitle : `Version ${liveVersion}`;
-  /* The 4.0 takeover shows once the next version is revealed with a launch
-     date, until its homepage slot expires. */
-  const showNext = !!nextVersion?.launchLabel && Date.parse(nextVersion.hideAfter) > BUILT_AT;
+  /* The next-version takeover shows once it is revealed with a launch date,
+     until its real banners are entered in banners.json. */
+  const showNext = !!nextVersion?.launchLabel && nextVersionPending;
   const launchShort = nextVersion?.launchLabel?.replace(/,\s*\d{4}$/, "") ?? "";
+
+  const heroNext =
+    showNext && nextVersion
+      ? {
+          version: nextVersion.version,
+          title: V4_TITLE,
+          launchDay: V4_LAUNCH_DAY,
+          launchLabel: launchShort,
+          revealedAt: nextVersion.revealAt,
+          revealedLabel: nextVersion.revealLabel,
+          trailer: V4_TRAILER,
+          blurb: `Version ${nextVersion.version} opens the New Federation on ${launchShort}. Seven new Resonators were revealed on ${nextVersion.revealLabel}; their kits are not announced yet.`,
+          cast: V4_CAST.map((c) => ({ name: c.name, art: c.art })),
+        }
+      : null;
 
   // LCP: start the hero render download from <head>.
   if (heroArt) preload(heroArt.src, { as: "image", imageSrcSet: heroArt.srcSet, imageSizes: "(max-width: 900px) 92vw, 62vw", fetchPriority: "high" });
@@ -356,29 +371,18 @@ export default function HomePage() {
             endLabel: formatServerDateTime(banner.endsAt).replace(",", " at"),
             estimated: !!banner.uncertainFields?.includes("endsAt"),
           }}
-          next={
-            showNext && nextVersion
-              ? {
-                  version: nextVersion.version,
-                  title: V4_TITLE,
-                  launchDay: V4_LAUNCH_DAY,
-                  launchLabel: launchShort,
-                  revealedAt: nextVersion.revealAt,
-                  revealedLabel: nextVersion.revealLabel,
-                  trailer: V4_TRAILER,
-                  blurb: `Version ${nextVersion.version} opens the New Federation on ${launchShort}. Seven new Resonators were revealed on ${nextVersion.revealLabel}; their kits are not announced yet.`,
-                  cast: V4_CAST.map((c) => ({ name: c.name, art: c.art })),
-                }
-              : null
-          }
+          next={heroNext}
+          builtAt={BUILT_AT}
         />
+      ) : heroNext ? (
+        <AmHero version={heroNext.version} versionTitle={heroNext.title} lead={null} blurb="" render={null} renderAlt="" banner={null} next={heroNext} builtAt={BUILT_AT} />
       ) : (
         <section className="am-hero am-hero-empty" aria-labelledby="am-h1">
           <div className="am-wrap am-slide">
             <h1 id="am-h1" className="am-name am-name-sm">
               Wuthering Waves today
             </h1>
-            <p className="am-lead">No live banner right now. Check back after the next version livestream.</p>
+            <p className="am-lead">{noBannerLine(BUILT_AT)}</p>
           </div>
         </section>
       )}

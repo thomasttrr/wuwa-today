@@ -276,6 +276,17 @@
   transition: opacity 0.6s, visibility 0s 0.6s;
 }
 .am-hero[data-s="fed"] .am-slide-fed { opacity: 1; visibility: visible; transition: opacity 0.6s; }
+/* Between versions the takeover is the whole hero; once launch day passes
+   "Out now" replaces the countdown, set like its numerals. */
+.am-slide-solo { transition: none; }
+.am-fed-out {
+  margin: 0;
+  font-family: var(--deco);
+  font-weight: 500;
+  font-size: clamp(42px, 5.6vw, 84px);
+  line-height: 0.9;
+  color: var(--gold-hi);
+}
 .am-fan { position: absolute; right: 1%; top: calc(var(--nav-h) + 92px); bottom: 44%; width: min(42%, 560px); pointer-events: none; }
 .am-fan img {
   position: absolute;
@@ -366,6 +377,9 @@
     transform: translateX(calc(-50% + var(--i) * 58%)) rotate(calc(var(--i) * 6deg)) translateY(calc(max(var(--i), -1 * var(--i)) * 5px));
   }
   .am-slide-fed { padding-top: 112px; }
+  /* Alone (between versions) nothing else gives the hero height on phones,
+     so the takeover joins the flow under the hero's own top padding. */
+  .am-slide-solo { position: relative; inset: auto; padding-top: 0; padding-bottom: 0; }
 }
 @media (max-width: 560px) {
   .am-fig { height: 380px; }

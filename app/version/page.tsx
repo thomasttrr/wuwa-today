@@ -7,7 +7,7 @@ import HomeCodes from "../../components/HomeCodes";
 import Reveal from "../../components/Reveal";
 import UpdatedStamp from "../../components/UpdatedStamp";
 import { CharMedal, CharPoster } from "../../components/CharThumb";
-import { activeCodes, bannerMeta, banners, codesUpdatedAt, events, outfits, versionNotesFor, type GameEvent, BUILD_NOW } from "../../lib/data";
+import { activeCodes, bannerMeta, banners, codesUpdatedAt, events, outfits, versionNotesFor, type GameEvent, BUILD_NOW, nextVersion, nextVersionPending } from "../../lib/data";
 import { formatServerDay } from "../../lib/dates";
 import { getCharacterByName } from "../../lib/characters";
 import { elementColor } from "../../lib/elements";
@@ -151,7 +151,11 @@ export default function VersionPage() {
             {newcomer ? <>, a new Resonator in {newcomer.name}</> : null}
             {versionEvents.length ? <>, {versionEvents.length} events</> : null}, and what else is new.
           </p>
-          <VersionClock phases={clockPhases} builtAt={BUILT_AT} />
+          <VersionClock
+            phases={clockPhases}
+            builtAt={BUILT_AT}
+            after={nextVersion && nextVersionPending && nextVersion.launchLabel ? { version: nextVersion.version, launchAt: nextVersion.launchAt ?? null, label: nextVersion.launchLabel } : null}
+          />
         </div>
 
         {heroSrc && newcomer && (
@@ -178,7 +182,7 @@ export default function VersionPage() {
         ))}
       </nav>
 
-      <LaunchCountdown builtAt={BUILT_AT} />
+      {launchSectionActive(BUILT_AT) && <LaunchCountdown builtAt={BUILT_AT} />}
 
       <LaunchChecklist />
 

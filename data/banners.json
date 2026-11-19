@@ -6,15 +6,13 @@
     "versionTitle": "Lilies in a Dying Dream"
   },
   "nextVersion": {
-    "_comment": "Drives the 'Next phase' slot on /banners, the pull-planner timeline, and the homepage broadcast strip. States only what is confirmed: version, expected headliner, reveal time, and (once revealed) the launch date. No phase dates or reruns. At the 4.0 launch, replace this with real banner entries and delete this block (the homepage strip also auto-hides after hideAfter).",
+    "_comment": "Drives the 'next version' slot on /banners and the pull-planner timeline, the home page's next-version hero slide and section, and the fallback copy used after the live version ends. Holds only what Kuro has officially announced: version, title, reveal time, launch day. No phase dates, headliner or reruns. When the real banners for this version go into `banners` below, every surface switches to them on its own; then delete this block.",
     "version": "4.0",
-    "expectedCharacter": "Anna",
-    "characterSlug": null,
-    "prefarmSlug": "",
+    "title": "Embers of the Everbright",
     "revealAt": "2026-11-17T22:05:00-05:00",
     "revealLabel": "Nov 17",
     "launchLabel": "Dec 22, 2026",
-    "hideAfter": "2026-12-22T10:00:00+08:00"
+    "launchAt": "2026-12-22T00:00:00+08:00"
   },
   "banners": [
     {

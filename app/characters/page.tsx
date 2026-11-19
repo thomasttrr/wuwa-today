@@ -9,7 +9,7 @@ import {
   CHARACTER_ROLES,
   CHARACTER_WEAPONS,
 } from "@/lib/characters";
-import { activeBanners, bannerMeta } from "@/lib/data";
+import { activeBanners, versionNow } from "@/lib/data";
 import { ELEMENT_COLORS, elementColor } from "@/lib/elements";
 import rendersData from "@/data/renders.json";
 import { thumbFor } from "@/lib/renders";
@@ -52,7 +52,7 @@ export default function CharactersPage() {
   return (
     <>
       <header className="ch-hero">
-        <p className="rs-kicker">Version {bannerMeta.version} · {chars.length} Resonators</p>
+        <p className="rs-kicker">Version {versionNow().version} · {chars.length} Resonators</p>
         <h1 className="ch-hero-title">Characters</h1>
         <div className="ch-hero-row">
           <p className="ch-hero-lede">

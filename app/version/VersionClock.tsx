@@ -3,6 +3,7 @@
 import type { CSSProperties } from "react";
 import RollingCountdown from "../../components/RollingCountdown";
 import useNow from "../../components/useNow";
+import Link from "next/link";
 import { formatServerDay, formatSpan } from "../../lib/dates";
 
 export interface ClockPhase {
@@ -41,7 +42,16 @@ function stateAt(phases: ClockPhase[], now: number): State {
  * phases with a "today" marker. Reads the shared clock, so a static build
  * keeps telling the truth between rebuilds; `builtAt` seeds the HTML.
  */
-export default function VersionClock({ phases, builtAt }: { phases: ClockPhase[]; builtAt: number }) {
+export default function VersionClock({
+  phases,
+  builtAt,
+  after = null,
+}: {
+  phases: ClockPhase[];
+  builtAt: number;
+  /** The announced next version, shown once this one ends (until its banners are entered). */
+  after?: { version: string; launchAt: string | null; label: string } | null;
+}) {
   const clock = useNow(60_000);
   const now = clock ? clock.getTime() : builtAt;
   if (phases.length === 0) return null;
@@ -65,7 +75,16 @@ export default function VersionClock({ phases, builtAt }: { phases: ClockPhase[]
   return (
     <div className="vo-clock">
       {state.kind === "ended" ? (
-        <p className="vo-clock-ended">This version has ended.</p>
+        <p className="vo-clock-ended">
+          This version has ended.
+          {after && (
+            <>
+              {" "}
+              Version {after.version} {after.launchAt && now >= Date.parse(after.launchAt) ? "arrived" : "arrives"} {after.label}:{" "}
+              <Link href={`/version-${after.version.replace(".", "-")}`}>what we know</Link>.
+            </>
+          )}
+        </p>
       ) : (
         <RollingCountdown target={state.target} label={label} />
       )}

@@ -11,12 +11,17 @@ import {
   activeBanners,
   upcomingBanners,
   bannerHistory,
-  bannerMeta,
   nextVersion,
   formatServerDate,
   nextBannerLine,
   type Banner,
-  type GameCharacter, BUILD_NOW } from "../../lib/data";
+  type GameCharacter,
+  banners,
+  statusFromDates,
+  noBannerLine,
+  versionNow,
+  BUILD_NOW,
+} from "../../lib/data";
 import { characters, getCharacterByName } from "../../lib/characters";
 import { elementColor } from "../../lib/elements";
 import { buildTierModel, PRYDWEN_TIERS } from "../../lib/tiers";
@@ -150,7 +155,20 @@ export default function BannersPage() {
   const fourStars = live?.characters.filter((c) => c.rarity === 4) ?? [];
   const art = live?.image;
 
+  /* Ended phases still in `banners` (not yet moved to `history`) stay on
+     the timeline as past nodes, so a version doesn't vanish the day it ends. */
+  const inHistory = new Set(bannerHistory.map((h) => h.id));
+  const endedNotArchived = banners.filter((b) => statusFromDates(b) === "ended" && !inHistory.has(b.id));
   const timeline: TimelineNode[] = [
+    ...endedNotArchived.map((b) => ({
+      id: b.id,
+      version: b.version,
+      phase: b.phase,
+      startsAt: b.startsAt,
+      endsAt: b.endsAt,
+      headliner: b.characters[0]?.name ?? null,
+      state: "past" as const,
+    })),
     ...[...bannerHistory]
       .sort((a, b) => a.startsAt.localeCompare(b.startsAt))
       .map((h) => ({
@@ -180,7 +198,7 @@ export default function BannersPage() {
       headliner: b.characters[0]?.name ?? null,
       state: "next" as const,
     })),
-  ];
+  ].sort((a, b) => a.startsAt.localeCompare(b.startsAt));
 
   return (
     <>
@@ -234,7 +252,7 @@ export default function BannersPage() {
             <p className="bn-stage-sub">
               {next
                 ? nextBannerLine(next, BUILT_AT)
-                : "No live banner right now. Check back after the next version livestream."}
+                : noBannerLine(BUILT_AT)}
             </p>
           </div>
         </header>
@@ -366,7 +384,7 @@ export default function BannersPage() {
         </details>
       )}
       <p className="bn-version-note">
-        Version {bannerMeta.version}: {bannerMeta.versionTitle}
+        Version {versionNow(BUILT_AT).version}: {versionNow(BUILT_AT).title}
       </p>
     </>
   );

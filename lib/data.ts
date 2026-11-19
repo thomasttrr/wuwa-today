@@ -56,20 +56,19 @@ export interface BannerHistoryEntry {
   note: string;
 }
 
-/** Confirmed facts about the next version before its banners are announced. */
+/** Officially announced facts about the next version, before its banners are. */
 export interface NextVersion {
   version: string;
-  expectedCharacter: string;
-  characterSlug: string | null;
-  prefarmSlug: string;
+  /** Official version title, e.g. "Embers of the Everbright". */
+  title?: string;
   /** ISO time of the preview broadcast. */
   revealAt: string;
   /** Human label for revealAt, e.g. "Fri Nov 6, 6:00 AM ET". */
   revealLabel: string;
   /** Human label for the confirmed launch date, e.g. "Dec 22, 2026" — set once the reveal confirms it. */
   launchLabel?: string;
-  /** ISO time after which the homepage strip auto-hides. */
-  hideAfter: string;
+  /** Start of launch day, server time (Kuro gives the date, not the hour). */
+  launchAt?: string;
 }
 
 export interface RedeemCode {
@@ -216,6 +215,40 @@ if (activeBanners.length === 0) {
   console.warn("[wuwa-today] No active banner at build time — the home hero will use fallback art.");
 }
 export const upcomingBanners = banners.filter((b) => statusFromDates(b) === "upcoming");
+
+/** True while the next version is announced but its real banners aren't in
+ *  banners.json yet. Every "next version" surface keys off this, so entering
+ *  the banners switches the whole site over without any other edit. */
+export const nextVersionPending =
+  !!nextVersion && !banners.some((b) => b.version === nextVersion.version);
+
+/** True once the pending next version's launch day has started. */
+export function nextVersionLaunched(now: number = BUILD_NOW): boolean {
+  return nextVersionPending && !!nextVersion?.launchAt && now >= Date.parse(nextVersion.launchAt);
+}
+
+/**
+ * The version the game is on at `now`. Normally banners.json `_meta`; but if
+ * the next version's launch day has passed before its banners were entered,
+ * the next version (provisional: no banner data yet), so page kickers don't
+ * keep naming a version that has ended.
+ */
+export function versionNow(now: number = BUILD_NOW): { version: string; title: string; provisional: boolean } {
+  if (nextVersion && nextVersionLaunched(now)) {
+    return { version: nextVersion.version, title: nextVersion.title ?? `Version ${nextVersion.version}`, provisional: true };
+  }
+  return { version: bannerMeta.version, title: bannerMeta.versionTitle, provisional: false };
+}
+
+/** Empty-state line when no banner is live and none is scheduled. */
+export function noBannerLine(now: number = BUILD_NOW): string {
+  if (nextVersion?.launchLabel && nextVersionPending) {
+    return nextVersionLaunched(now)
+      ? `Version ${nextVersion.version} arrived ${nextVersion.launchLabel}. Its banners go up here once Kuro's official notice is checked.`
+      : `Version ${nextVersion.version} launches ${nextVersion.launchLabel}. Kuro hasn't announced its banner order yet.`;
+  }
+  return "No live banner right now. Check back after the next version livestream.";
+}
 export const activeEvents = events
   .filter((e) => statusFromDates(e) === "active")
   .sort((a, b) => {

@@ -61,3 +61,24 @@ How WuWa Today stays fresh. This is the runbook for Kit's scheduled refresh jobs
 
 - **Automatic:** code checks, banner/event data refreshes, rebuilds.
 - **Needs Tom:** newsletter sends, monetization changes (affiliate links, sponsors), design changes, anything involving money or accounts.
+
+## Between versions (nextVersion)
+
+`banners.json → nextVersion` holds only what Kuro has officially announced
+about the next version: version, title, reveal time, launch day (`launchAt`).
+While its real banners are missing from `banners`, the site covers the gap on
+its own:
+
+- Home: the hero shows the next-version slide (countdown to launch day, then
+  "Out now"); the New Federation section stays up.
+- /banners and the pull planner: the timeline slot shows the title and launch
+  day, never a headliner; the empty-state line says when it launches or that
+  it has arrived.
+- /version: once the version ends, the clock links to the next version's page.
+- Page kickers (events, characters, social card) switch to the next version
+  on launch day (`versionNow()` in `lib/data.ts`).
+
+The rebuild workflow also fires at `launchAt`. Once the official banner
+notice is out: add the phases to `banners`, move `_meta` to the new version,
+then delete the `nextVersion` block. Preview any day first with
+`WUWA_BUILD_NOW=2026-12-22T12:00:00+08:00 npm run build`.

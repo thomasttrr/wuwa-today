@@ -1,19 +1,14 @@
 "use client";
 
-import Link from "next/link";
 import useNow from "./useNow";
 import type { NextVersion } from "../lib/data";
 
 /**
- * The "what's next" copy for a version whose banners aren't announced yet,
- * rendered from one data block (banners.json → nextVersion) on three
- * surfaces: the banners timeline node, the pull-planner phase track, and a
- * thin homepage strip.
- *
- * It states only what is confirmed (version, expected headliner, reveal
- * time) and never a phase date or rerun. Once the reveal time passes it flips
- * to "details being verified"; the strip auto-hides after `hideAfter`.
- * `builtAt` seeds the server render so hydration matches.
+ * The "what's next" slot for a version whose banners aren't announced yet,
+ * rendered from banners.json → nextVersion on the banners timeline node and
+ * the pull-planner phase track. It states only what Kuro has announced
+ * (version, title, reveal and launch day): never a headliner, phase date or
+ * rerun. `builtAt` seeds the server render so hydration matches.
  */
 export default function NextVersionNote({
   next,
@@ -22,16 +17,17 @@ export default function NextVersionNote({
 }: {
   next: NextVersion;
   builtAt: number;
-  variant: "node" | "phase" | "strip";
+  variant: "node" | "phase";
 }) {
   const clock = useNow(60_000);
   const now = clock ? clock.getTime() : builtAt;
   const revealed = now >= Date.parse(next.revealAt);
-  const hidden = now > Date.parse(next.hideAfter);
+  const launched = !!next.launchAt && now >= Date.parse(next.launchAt);
 
-  const name = `${next.expectedCharacter} expected`;
-  const detail =
-    revealed && next.launchLabel
+  const name = revealed && next.title ? next.title : "Not announced";
+  const detail = launched
+    ? `Arrived ${next.launchLabel} · banners not entered yet`
+    : revealed && next.launchLabel
       ? `Launches ${next.launchLabel} · banner order not announced`
       : revealed
         ? "Broadcast aired — details being verified"
@@ -47,39 +43,11 @@ export default function NextVersionNote({
     );
   }
 
-  if (variant === "phase") {
-    return (
-      <>
-        <p className="pp-phase-kicker">Version {next.version}</p>
-        <p className="pp-phase-tba-t">{name}</p>
-        <p className="pp-phase-dates">{detail}</p>
-      </>
-    );
-  }
-
-  if (hidden) return null;
-
   return (
-    <p className="rs-broadcast">
-      <span className="rs-broadcast-tag">{next.version} preview</span>
-      <span className="rs-broadcast-text">
-        {revealed && next.launchLabel
-          ? `Version ${next.version} is revealed — it launches ${next.launchLabel}.`
-          : revealed
-            ? `The ${next.version} broadcast has aired — details are being verified.`
-            : `Broadcast ${next.revealLabel}.`}{" "}
-        {next.expectedCharacter} is expected:
-      </span>
-      <span className="rs-broadcast-links">
-        {next.characterSlug ? (
-          <Link href={`/characters/${next.characterSlug}`}>{next.expectedCharacter}&apos;s page</Link>
-        ) : (
-          <Link href="/version-4-0">Version {next.version} page</Link>
-        )}
-        {next.prefarmSlug ? (
-          <Link href={`/pre-farm/${next.prefarmSlug}`}>Pre-farm guide (partial)</Link>
-        ) : null}
-      </span>
-    </p>
+    <>
+      <p className="pp-phase-kicker">Version {next.version}</p>
+      <p className="pp-phase-tba-t">{name}</p>
+      <p className="pp-phase-dates">{detail}</p>
+    </>
   );
 }

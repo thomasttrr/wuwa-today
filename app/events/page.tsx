@@ -2,7 +2,7 @@ import PageHero from "@/components/PageHero";
 import type { Metadata } from "next";
 import EventsBoard from "../../components/EventsBoard";
 import UpdatedStamp from "../../components/UpdatedStamp";
-import { events, bannerMeta, BUILD_NOW } from "../../lib/data";
+import { events, BUILD_NOW, versionNow } from "../../lib/data";
 import "./events.css";
 
 export const metadata: Metadata = {
@@ -17,7 +17,7 @@ const BUILT_AT = BUILD_NOW;
 export default function EventsPage() {
   return (
     <>
-      <PageHero kicker={<>Version {bannerMeta.version} · {bannerMeta.versionTitle}</>} title="Events">
+      <PageHero kicker={<>Version {versionNow().version} · {versionNow().title}</>} title="Events">
         What&apos;s running, what ends first, and what starts next. Statuses
           update live from each event&apos;s dates, in server time (UTC+8).
       </PageHero>

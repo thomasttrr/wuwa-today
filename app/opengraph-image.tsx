@@ -1,5 +1,5 @@
 import { ogImage, OG_SIZE, OG_TYPE } from "@/lib/og";
-import { activeBanners, banners, bannerMeta } from "@/lib/data";
+import { activeBanners, banners, versionNow } from "@/lib/data";
 
 /** Live banner splash, else the newest banner that has one. */
 const splash = activeBanners.find((b) => b.image)?.image ?? [...banners].reverse().find((b) => b.image)?.image;
@@ -11,7 +11,7 @@ export const alt = "WuWa Today: Wuthering Waves banners, codes and events";
 
 export default function Image() {
   return ogImage({
-    kicker: `Wuthering Waves · Version ${bannerMeta.version}`,
+    kicker: `Wuthering Waves · Version ${versionNow().version}`,
     title: "WuWa Today",
     sub: "Live banners, working codes, events and builds, checked every day.",
     art: splash ? { src: splash, kind: "scene" } : undefined,
