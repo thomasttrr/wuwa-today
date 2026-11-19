@@ -1,5 +1,6 @@
 import { ViewTransition, type CSSProperties, type ReactNode } from "react";
 import ElementTheme from "@/components/ElementTheme";
+import { MorphLanding } from "@/components/CharMorph";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -339,6 +340,7 @@ export default async function CharacterPage({
         style={{ "--el": el } as CSSProperties}
       >
         <ElementTheme color={el} />
+        <MorphLanding />
         {render ? (
           <>
             <span className="cx-rings" aria-hidden="true" />

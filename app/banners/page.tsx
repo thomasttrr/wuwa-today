@@ -129,10 +129,8 @@ function LineupCard({ c, banner, lead }: { c: GameCharacter; banner: Banner; lea
   const cls = `bn-card${lead ? " bn-card-lead" : ""}`;
   // Pairs with the character hero: the card grows into the hero panel.
   return rec ? (
-    <CardMorph slug={rec.slug}>
-      <Link href={`/characters/${slug}`} className={cls} style={style}>
-        {body}
-      </Link>
+    <CardMorph slug={rec.slug} href={`/characters/${rec.slug}`} className={cls} style={style}>
+      {body}
     </CardMorph>
   ) : (
     <article className={cls} style={style}>

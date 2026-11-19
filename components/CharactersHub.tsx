@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { popElement, pushElement } from "@/lib/site-element";
+import { startMorph } from "./CharMorph";
 import { ViewTransition, startTransition, useEffect, useMemo, useState, type CSSProperties } from "react";
 
 export interface HubChar {
@@ -224,9 +225,10 @@ export default function CharactersHub({
                     href={`/characters/${c.slug}`}
                     className="cp"
                     data-slug={c.slug}
-                    onClick={() => {
+                    onClick={(e) => {
                       // Tells the hero it is arriving by card morph, so it skips its own entrance.
                       document.documentElement.dataset.vt = "hero";
+                      startMorph(e);
                     }}
                     style={{ "--c": c.color, "--fx": c.fx, "--z": c.zoom } as CSSProperties}>
                     {/* eslint-disable-next-line @next/next/no-img-element -- trimmed render cropped in CSS; export is unoptimized. */}

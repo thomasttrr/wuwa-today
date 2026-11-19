@@ -7,7 +7,7 @@ import AmSky from "./AmSky";
 import { AmCountdown, AmProgress } from "./AmTime";
 import { YourTime } from "../LocalTime";
 import type { FullRender } from "@/lib/renders";
-import { markMorphArrival } from "../CharMorph";
+import { markMorphArrival, startMorph } from "../CharMorph";
 
 export interface AmHeroProps {
   version: string;
@@ -150,7 +150,7 @@ export default function AmHero(p: AmHeroProps) {
             <p>{p.blurb}</p>
             <div className="am-btns">
               {live.lead.href && (
-                <Link href={live.lead.href} className="am-btn">
+                <Link href={live.lead.href} className="am-btn" onClick={startMorph}>
                   {live.lead.name} build
                 </Link>
               )}
