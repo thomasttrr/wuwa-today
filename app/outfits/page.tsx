@@ -4,7 +4,6 @@ import type { Metadata } from "next";
 import PageHero from "@/components/PageHero";
 import { outfits, outfitsMeta, formatServerDate } from "../../lib/data";
 import { getCharacter } from "../../lib/characters";
-import { ELEMENT_COLORS, elementColor } from "../../lib/elements";
 import Wardrobe from "./Wardrobe";
 import type { Cosmetic, Shelf, ShelfKey } from "./types";
 import "./outfits.css";
@@ -16,18 +15,20 @@ export const metadata: Metadata = {
   alternates: { canonical: "/outfits" },
 };
 
-/** Shelf order, copy and accent. Each shelf borrows an element color so the
- *  catalog reads as distinct "departments" at the site's fixed lightness. */
+/** Shelf order and copy. One accent for the whole catalog: house gold
+ *  (Aftermath). Shelves are told apart by their numbered headers, not by a
+ *  rainbow of element colours. */
+const GOLD = "#d9c49b";
 const SHELVES: Shelf[] = [
-  { key: "outfits", title: "Outfits", blurb: "Full costume changes for Resonators, deluxe and signature.", color: ELEMENT_COLORS.Havoc, shape: "wide" },
-  { key: "accessories", title: "Accessories", blurb: "Hats, ribbons and trinkets worn on top of any outfit.", color: ELEMENT_COLORS.Spectro, shape: "square" },
-  { key: "weapons", title: "Weapon skins", blurb: "New looks for a Resonator's weapon. Stats stay the same.", color: ELEMENT_COLORS.Fusion, shape: "square" },
-  { key: "bikes", title: "Bike skins", blurb: "Liveries for the Expedition Motorbike.", color: ELEMENT_COLORS.Electro, shape: "wide", preview: 12 },
-  { key: "echoes", title: "Phantom Echo Skins", blurb: "Alternate appearances for Echoes you summon in combat.", color: ELEMENT_COLORS.Aero, shape: "square", preview: 12 },
-  { key: "flight", title: "Gliders & Wings", blurb: "Traversal cosmetics for gliding and flight.", color: ELEMENT_COLORS.Glacio, shape: "square" },
-  { key: "themes", title: "Display themes", blurb: "Backdrops for your in-game profile and terminal.", color: ELEMENT_COLORS.Havoc, shape: "square" },
-  { key: "collection", title: "Collection", blurb: "Keepsakes and one-offs.", color: ELEMENT_COLORS.Spectro, shape: "wide" },
-  { key: "other", title: "Everything else", blurb: "Cosmetics that don't fit a shelf yet.", color: "#a7a9b4", shape: "square" },
+  { key: "outfits", title: "Outfits", blurb: "Full costume changes for Resonators, deluxe and signature.", color: GOLD, shape: "wide" },
+  { key: "accessories", title: "Accessories", blurb: "Hats, ribbons and trinkets worn on top of any outfit.", color: GOLD, shape: "square" },
+  { key: "weapons", title: "Weapon skins", blurb: "New looks for a Resonator's weapon. Stats stay the same.", color: GOLD, shape: "square" },
+  { key: "bikes", title: "Bike skins", blurb: "Liveries for the Expedition Motorbike.", color: GOLD, shape: "wide", preview: 12 },
+  { key: "echoes", title: "Phantom Echo skins", blurb: "Alternate appearances for Echoes you summon in combat.", color: GOLD, shape: "square", preview: 12 },
+  { key: "flight", title: "Gliders & wings", blurb: "Traversal cosmetics for gliding and flight.", color: GOLD, shape: "square" },
+  { key: "themes", title: "Display themes", blurb: "Backdrops for your in-game profile and terminal.", color: GOLD, shape: "square" },
+  { key: "collection", title: "Collection", blurb: "Keepsakes and one-offs.", color: GOLD, shape: "wide" },
+  { key: "other", title: "Everything else", blurb: "Cosmetics that don't fit a shelf yet.", color: GOLD, shape: "square" },
 ];
 
 function shelfFor(kind: string): ShelfKey {
@@ -64,8 +65,6 @@ function thumbOf(image: string | null): string | null {
   return thumb !== image && existsSync(path.join(process.cwd(), "public", thumb)) ? thumb : null;
 }
 
-const shelfColor = new Map(SHELVES.map((s) => [s.key, s.color]));
-
 const items: Cosmetic[] = outfits.map((o) => {
   const shelf = shelfFor(o.kind);
   const char = o.characterSlug ? getCharacter(o.characterSlug) : undefined;
@@ -86,7 +85,7 @@ const items: Cosmetic[] = outfits.map((o) => {
     imageCredit: o.imageCredit,
     sources: (o.sources ?? []).map((url) => ({ url, host: host(url) })),
     shelf,
-    color: char ? elementColor(char.profile.element) : shelfColor.get(shelf) ?? "#a7a9b4",
+    color: GOLD,
   };
 });
 

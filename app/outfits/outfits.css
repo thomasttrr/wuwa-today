@@ -1,8 +1,9 @@
 /* ==========================================================================
-   Outfits & Cosmetics — "The Wardrobe" (Resonance)
+   Outfits & Cosmetics — "The Wardrobe" (Aftermath)
    Runway (outfits on a stage + rail) → sticky toolbar → themed shelves of
    display-case tiles → quick-look sheet. Phone-first; split stage at 900px.
-   `--c` on a component = that piece's colour (character element or shelf).
+   `--c` is house gold everywhere (set in page.tsx): one accent, no rainbow.
+   Editorial catalogue: serif numerals, gold hairlines, solid surfaces.
    ========================================================================== */
 
 /* --- at-a-glance numbers --------------------------------------------------- */
@@ -14,8 +15,8 @@
   margin: 0 0 2rem;
   border-radius: var(--rs-r-tile);
   overflow: hidden;
-  background: var(--rs-line-soft);
-  border: 1px solid var(--rs-line-soft);
+  background: rgb(185 155 104 / 0.22);
+  border: 1px solid rgb(185 155 104 / 0.22);
 }
 .wd-stats > div {
   display: grid;
@@ -25,21 +26,21 @@
   min-width: 0;
 }
 .wd-stats dt {
-  font-family: var(--rs-mono);
-  font-size: var(--fs-1);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  font-size: var(--fs-2);
+  letter-spacing: 0.01em;
   color: var(--rs-ink-3);
 }
 .wd-stats dd {
   margin: 0;
-  font-family: var(--rs-mono);
+  font-family: var(--rs-display);
   font-weight: 600;
-  font-size: clamp(1.25rem, 3.4vw, 1.75rem);
+  font-size: clamp(1.6rem, 3.8vw, 2.2rem);
+  line-height: 1;
+  font-variant-numeric: lining-nums tabular-nums;
   color: var(--rs-ink);
   white-space: nowrap;
 }
-.wd-stats > div:first-child dd { color: var(--el); }
+.wd-stats > div:first-child dd { color: var(--am-gold-hi, #d9c49b); }
 @media (max-width: 759px) {
   /* Phones: one compact swipeable row instead of a 3-row block. */
   .wd-stats {
@@ -52,32 +53,30 @@
   }
   .wd-stats::-webkit-scrollbar { display: none; }
   .wd-stats > div { padding: 0.6rem 0.75rem; }
-  .wd-stats dd { font-size: var(--fs-7); }
+  .wd-stats dd { font-size: var(--fs-8); }
 }
 
 /* --- shared bits ----------------------------------------------------------- */
 
 .wd-label {
   display: block;
-  margin-bottom: 0.2rem;
-  font-family: var(--rs-mono);
-  font-size: var(--fs-1);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--rs-ink-3);
+  margin-bottom: 0.25rem;
+  font-size: var(--fs-2);
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  color: var(--am-gold-hi, #d9c49b);
 }
 .wd-new {
   display: inline-flex;
   align-items: center;
-  padding: 0.18rem 0.5rem;
-  border-radius: var(--rs-r-ctl);
-  background: var(--c, var(--el));
-  color: var(--rs-on-el);
-  font-family: var(--rs-mono);
-  font-size: var(--fs-1);
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
+  padding: 0.12rem 0.5rem;
+  border-radius: 2px;
+  background: rgb(15 16 21 / 0.88);
+  border: 1px solid rgb(217 196 155 / 0.6);
+  color: var(--am-gold-hi, #d9c49b);
+  font-size: var(--fs-2);
+  font-weight: 500;
+  letter-spacing: 0.01em;
 }
 .wd-noart {
   display: grid;
@@ -101,9 +100,9 @@
   border-radius: var(--rs-r-tile);
   overflow: hidden;
   background:
-    radial-gradient(80% 70% at 30% 0%, color-mix(in oklch, var(--c) 16%, transparent), transparent 70%),
+    radial-gradient(70% 60% at 100% 0%, rgb(185 155 104 / 0.08), transparent 70%),
     var(--rs-surface);
-  border: 1px solid color-mix(in oklch, var(--c) 26%, transparent);
+  border: 1px solid rgb(185 155 104 / 0.3);
   transition: border-color var(--rs-d2) ease;
 }
 
@@ -134,10 +133,8 @@
   gap: 2px;
   padding: 3px;
   border-radius: var(--rs-r-ctl);
-  background: rgb(8 9 12 / 0.62);
-  backdrop-filter: blur(12px) saturate(1.4);
-  -webkit-backdrop-filter: blur(12px) saturate(1.4);
-  border: 1px solid rgb(255 255 255 / 0.12);
+  background: rgb(15 16 21 / 0.9);
+  border: 1px solid rgb(185 155 104 / 0.3);
 }
 .wd-stage-nav button {
   display: grid;
@@ -150,17 +147,14 @@
   color: var(--rs-ink);
   cursor: pointer;
 }
-.wd-stage-nav button:hover { background: rgb(255 255 255 / 0.1); }
+.wd-stage-nav button:hover { color: var(--am-gold-hi, #d9c49b); }
 .wd-stage-nav button:active { scale: 0.92; }
 .wd-stage-count {
   min-width: 4.5rem;
   text-align: center;
-  font-family: var(--rs-mono);
   font-size: var(--fs-2);
+  font-variant-numeric: tabular-nums;
   color: var(--rs-ink);
-}
-@media (prefers-reduced-transparency: reduce) {
-  .wd-stage-nav { background: #0b0c10; backdrop-filter: none; -webkit-backdrop-filter: none; }
 }
 @media (max-width: 899px) {
   /* Phones/tablets: the art stays clear; controls sit in a strip below it. */
@@ -174,9 +168,7 @@
     border-radius: 0;
     border: 0;
     border-bottom: 1px solid var(--rs-line-soft);
-    background: color-mix(in oklch, var(--c) 6%, var(--rs-surface));
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
+    background: var(--rs-surface);
   }
   .wd-stage-info { padding-top: calc(48px + 1.1rem); }
 }
@@ -194,11 +186,10 @@
   align-items: center;
   gap: 0.35rem 0.6rem;
   margin: 0;
-  font-family: var(--rs-mono);
-  font-size: var(--fs-1);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--c);
+  font-size: var(--fs-3);
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  color: var(--am-gold-hi, #d9c49b);
 }
 .wd-stage-kicker > span:not(.wd-new) + span:not(.wd-new)::before {
   content: "·";
@@ -209,11 +200,10 @@ body.rs .wd-stage-name,
 body.rs .wd-ql-name {
   margin: 0;
   font-family: var(--rs-display);
-  font-weight: 800;
-  font-size: clamp(1.7rem, 6.5vw, 2.6rem);
-  line-height: 0.98;
-  letter-spacing: -0.02em;
-  text-transform: uppercase;
+  font-weight: 600;
+  font-size: clamp(2rem, 7.5vw, 3rem);
+  line-height: 1;
+  letter-spacing: -0.01em;
   color: var(--rs-ink);
   overflow-wrap: anywhere;
 }
@@ -243,8 +233,10 @@ body.rs .wd-ql-name {
   margin: 0.25rem 0 0;
   padding: 0.75rem 0.9rem;
   border-radius: var(--rs-r-card);
-  background: rgb(255 255 255 / 0.035);
-  border: 1px solid var(--rs-line-soft);
+  background: transparent;
+  border: 0;
+  border-left: 2px solid rgb(185 155 104 / 0.55);
+  border-radius: 0;
   font-size: var(--fs-4);
   line-height: 1.5;
   color: var(--rs-ink);
@@ -256,7 +248,7 @@ body.rs .wd-ql-name {
   .wd-stage-art { aspect-ratio: auto; min-height: 100%; }
   .wd-stage-art img { position: absolute; inset: 0; }
   .wd-stage-info { padding: 1.6rem 1.6rem 1.6rem 1.4rem; align-content: center; }
-  body.rs .wd-stage-name { font-size: clamp(2rem, 3.2vw, 2.75rem); }
+  body.rs .wd-stage-name { font-size: clamp(2.4rem, 3.6vw, 3.25rem); }
   .wd-stage-desc { font-size: var(--fs-4); }
 }
 
@@ -293,15 +285,15 @@ body.rs .wd-ql-name {
   aspect-ratio: 16 / 9;
   border-radius: var(--rs-r-sm);
   overflow: hidden;
-  background: color-mix(in oklch, var(--c) 12%, #0b0c10);
-  outline: 2px solid transparent;
+  background: var(--rs-surface-2);
+  outline: 1px solid transparent;
   outline-offset: 2px;
   transition: outline-color var(--rs-d1) ease, opacity var(--rs-d1) ease;
   opacity: 0.62;
 }
 .wd-rail-art img { display: block; width: 100%; height: 100%; object-fit: cover; }
 .wd-rail button:hover .wd-rail-art { opacity: 0.9; }
-.wd-rail button[aria-pressed="true"] .wd-rail-art { opacity: 1; outline-color: var(--c); }
+.wd-rail button[aria-pressed="true"] .wd-rail-art { opacity: 1; outline-color: rgb(217 196 155 / 0.85); }
 .wd-rail-name {
   font-size: var(--fs-3);
   font-weight: 650;
@@ -333,10 +325,9 @@ body.rs .wd-rail button:focus-visible { outline-offset: -2px; }
   margin: 0 0 0.5rem;
   padding: 10px;
   border-radius: var(--rs-r-tile);
-  background: color-mix(in oklch, var(--rs-canvas) 78%, transparent);
-  backdrop-filter: blur(16px) saturate(1.4);
-  -webkit-backdrop-filter: blur(16px) saturate(1.4);
-  border: 1px solid var(--rs-line-soft);
+  /* Solid, not glass (Aftermath). */
+  background: color-mix(in oklch, var(--rs-canvas) 97%, transparent);
+  border: 1px solid rgb(185 155 104 / 0.22);
 }
 /* Sticky only where there's room for it (not on short phone screens). */
 @media (min-width: 760px) and (min-height: 640px) {
@@ -344,9 +335,6 @@ body.rs .wd-rail button:focus-visible { outline-offset: -2px; }
 }
 @media (min-width: 900px) and (min-height: 640px) {
   .wd-bar { top: 84px; }
-}
-@media (prefers-reduced-transparency: reduce) {
-  .wd-bar { background: var(--rs-canvas); backdrop-filter: none; -webkit-backdrop-filter: none; }
 }
 
 .wd-bar-row { display: flex; gap: 8px; min-width: 0; }
@@ -397,7 +385,7 @@ body.rs .wd-rail button:focus-visible { outline-offset: -2px; }
   transition: transform var(--rs-d2) var(--rs-spring);
 }
 .wd-surprise:hover { background: color-mix(in oklch, var(--el) 88%, white); }
-.wd-surprise:active { transform: scale(0.95) rotate(-2deg); }
+.wd-surprise:active { transform: scale(0.97); }
 @media (max-width: 420px) {
   /* Icon-only on the smallest screens; the label stays for screen readers. */
   .wd-surprise { padding: 0; width: 44px; }
@@ -460,36 +448,33 @@ body.rs .wd-rail button:focus-visible { outline-offset: -2px; }
 }
 .wd-chip:hover { color: var(--rs-ink); border-color: var(--rs-line); }
 .wd-chip[aria-pressed="true"] {
-  color: var(--rs-on-el);
-  background: var(--c, var(--el));
+  color: #15171d;
+  background: var(--am-gold-hi, #d9c49b);
   border-color: transparent;
 }
-.wd-chip-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--c);
-}
-.wd-chip[aria-pressed="true"] .wd-chip-dot { background: var(--rs-on-el); }
-.wd-chip-n { font-family: var(--rs-mono); font-size: var(--fs-2); opacity: 0.75; }
+.wd-chip-n { font-size: var(--fs-2); font-variant-numeric: tabular-nums; opacity: 0.7; }
 
 /* --- Shelves --------------------------------------------------------------- */
 
 .wd-shelf { margin-top: 2.75rem; }
+/* Catalogue header: serif numeral, title, then a gold hairline the full
+   width, like a section rule in a printed lookbook. */
 .wd-shelf-head {
   display: grid;
   grid-template-columns: auto minmax(0, 1fr);
   align-items: end;
-  gap: 0.9rem;
-  margin-bottom: 1rem;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.9rem;
+  border-bottom: 1px solid rgb(185 155 104 / 0.28);
 }
 .wd-shelf-n {
   font-family: var(--rs-display);
-  font-weight: 800;
-  font-size: clamp(2.6rem, 9vw, 3.6rem);
-  line-height: 0.8;
-  color: transparent;
-  -webkit-text-stroke: 1.5px color-mix(in oklch, var(--c) 70%, transparent);
+  font-weight: 500;
+  font-size: clamp(2.6rem, 8vw, 3.5rem);
+  line-height: 0.78;
+  font-variant-numeric: lining-nums;
+  color: var(--am-gold, #b99b68);
 }
 body.rs .wd-shelf-head h2 {
   margin: 0;
@@ -498,11 +483,12 @@ body.rs .wd-shelf-head h2 {
   color: var(--rs-ink);
 }
 .wd-shelf-count {
-  font-family: var(--rs-mono);
-  font-size: 0.6em;
+  margin-left: 0.15em;
+  font-family: var(--rs-body, inherit);
+  font-size: 0.5em;
   font-weight: 500;
-  color: var(--c);
-  vertical-align: 0.15em;
+  color: var(--rs-ink-3);
+  vertical-align: 0.2em;
 }
 .wd-shelf-head p {
   margin: 0.25rem 0 0;
@@ -546,13 +532,13 @@ body.rs .wd-shelf-head h2 {
   aspect-ratio: 1;
   border-radius: var(--rs-r-card);
   overflow: hidden;
-  /* Spotlight from below + a faint "floor" line: a lit display case. */
+  /* A lit display case: warm light pooled on the floor, a gold floor line. */
   background:
-    radial-gradient(70% 55% at 50% 100%, color-mix(in oklch, var(--c) 26%, transparent), transparent 72%),
-    linear-gradient(to top, color-mix(in oklch, var(--c) 18%, transparent) 0 1px, transparent 1px),
+    radial-gradient(70% 50% at 50% 100%, rgb(185 155 104 / 0.13), transparent 72%),
+    linear-gradient(to top, rgb(185 155 104 / 0.35) 0 1px, transparent 1px),
     var(--rs-surface-2);
   border: 1px solid var(--rs-line-soft);
-  transition: border-color var(--rs-d1) ease, box-shadow var(--rs-d2) ease;
+  transition: border-color var(--rs-d1) ease;
 }
 .wd-shelf-wide .wd-case { aspect-ratio: 4 / 3; }
 .wd-case img {
@@ -575,11 +561,9 @@ body.rs .wd-shelf-head h2 {
 }
 .wd-case-empty > span {
   font-family: var(--rs-display);
-  font-weight: 800;
+  font-weight: 500;
   font-size: clamp(2.2rem, 10vw, 3.4rem);
-  color: transparent;
-  -webkit-text-stroke: 1.5px color-mix(in oklch, var(--c) 65%, transparent);
-  text-transform: uppercase;
+  color: rgb(185 155 104 / 0.55);
 }
 .wd-new-tile { position: absolute; top: 8px; left: 8px; }
 
@@ -604,13 +588,10 @@ body.rs .wd-shelf-head h2 {
 }
 
 @media (hover: hover) and (pointer: fine) {
-  .wd-tile:hover .wd-case {
-    border-color: color-mix(in oklch, var(--c) 50%, transparent);
-    box-shadow: 0 14px 34px -14px color-mix(in oklch, var(--c) 55%, transparent);
-  }
-  .wd-tile:hover .wd-case img { transform: translateY(-4px) scale(1.05); }
-  .wd-shelf-wide .wd-tile:hover .wd-case img { transform: scale(1.04); }
-  .wd-tile:hover .wd-tile-name { color: var(--c); }
+  .wd-tile:hover .wd-case { border-color: rgb(217 196 155 / 0.55); }
+  .wd-tile:hover .wd-case img { transform: translateY(-3px); }
+  .wd-shelf-wide .wd-tile:hover .wd-case img { transform: none; }
+  .wd-tile:hover .wd-tile-name { color: var(--am-gold-hi, #d9c49b); }
 }
 .wd-tile:active .wd-case { transform: scale(0.98); }
 body.rs .wd-tile:focus-visible { outline-offset: 3px; }
@@ -623,15 +604,15 @@ body.rs .wd-tile:focus-visible { outline-offset: 3px; }
   min-height: 48px;
   margin-top: 1rem;
   border-radius: var(--rs-r-tile);
-  border: 1px dashed color-mix(in oklch, var(--c) 40%, transparent);
-  background: color-mix(in oklch, var(--c) 6%, transparent);
+  border: 1px solid rgb(185 155 104 / 0.35);
+  background: transparent;
   color: var(--rs-ink);
   font: inherit;
   font-weight: 650;
   font-size: var(--fs-4);
   cursor: pointer;
 }
-.wd-more:hover { background: color-mix(in oklch, var(--c) 12%, transparent); }
+.wd-more:hover { border-color: rgb(217 196 155 / 0.7); color: var(--am-gold-hi, #d9c49b); }
 
 .wd-empty {
   display: grid;
@@ -659,18 +640,16 @@ body.rs .wd-tile:focus-visible { outline-offset: 3px; }
   max-height: 92dvh;
   margin: 0;
   padding: 0;
-  border: 1px solid color-mix(in oklch, var(--c) 30%, transparent);
+  border: 1px solid rgb(185 155 104 / 0.35);
   border-bottom: 0;
-  border-radius: 24px 24px 0 0;
+  border-radius: 14px 14px 0 0;
   background: var(--rs-surface);
   color: var(--rs-ink);
   overflow: hidden;
 }
 .wd-ql[open] { display: flex; flex-direction: column; }
 .wd-ql::backdrop {
-  background: rgb(4 4 8 / 0.6);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
+  background: rgb(10 11 14 / 0.78);
 }
 .wd-ql-box {
   flex: 1;
@@ -685,7 +664,7 @@ body.rs .wd-tile:focus-visible { outline-offset: 3px; }
   max-height: 46dvh;
   padding: 1.25rem;
   background:
-    radial-gradient(70% 70% at 50% 100%, color-mix(in oklch, var(--c) 24%, transparent), transparent 72%),
+    radial-gradient(70% 60% at 50% 100%, rgb(185 155 104 / 0.12), transparent 72%),
     var(--rs-surface-2);
 }
 .wd-ql-art img {
@@ -714,11 +693,10 @@ body.rs .wd-tile:focus-visible { outline-offset: 3px; }
   padding: 0 12px;
   border-radius: var(--rs-r-ctl);
   border: 1px solid var(--rs-line);
-  font-family: var(--rs-mono);
   font-size: var(--fs-2);
   color: var(--rs-ink-2);
 }
-.wd-ql-sources a:hover { color: var(--c); border-color: color-mix(in oklch, var(--c) 50%, transparent); text-decoration: none; }
+.wd-ql-sources a:hover { color: var(--am-gold-hi, #d9c49b); border-color: rgb(217 196 155 / 0.5); text-decoration: none; }
 @media (pointer: coarse) { .wd-ql-sources a { min-height: 44px; } }
 .wd-ql-credit { margin: 0; font-size: var(--fs-2); color: var(--rs-ink-3); }
 
@@ -748,7 +726,7 @@ body.rs .wd-tile:focus-visible { outline-offset: 3px; }
 .wd-ql-step:hover,
 .wd-ql-close:hover { background: rgb(255 255 255 / 0.09); }
 .wd-ql-close { margin-left: auto; padding: 0 1.2rem; }
-.wd-ql-pos { font-family: var(--rs-mono); font-size: var(--fs-2); color: var(--rs-ink-3); padding: 0 4px; }
+.wd-ql-pos { font-size: var(--fs-2); font-variant-numeric: tabular-nums; color: var(--rs-ink-3); padding: 0 4px; }
 
 @media (prefers-reduced-motion: no-preference) {
   .wd-ql[open] { animation: wd-sheet-up var(--rs-d2) var(--rs-ease) both; }
@@ -763,7 +741,7 @@ body.rs .wd-tile:focus-visible { outline-offset: 3px; }
     margin: auto;
     width: min(980px, calc(100% - 48px));
     max-height: min(86vh, 720px);
-    border: 1px solid color-mix(in oklch, var(--c) 30%, transparent);
+    border: 1px solid rgb(185 155 104 / 0.35);
     border-radius: var(--rs-r-tile);
   }
   .wd-ql-box {
@@ -787,6 +765,3 @@ body.rs .wd-tile:focus-visible { outline-offset: 3px; }
   .wd-ql[open] { animation: wd-pop var(--rs-d2) var(--rs-ease) both; }
 }
 @keyframes wd-pop { from { scale: 0.96; opacity: 0; } }
-@media (prefers-reduced-transparency: reduce) {
-  .wd-ql::backdrop { backdrop-filter: none; -webkit-backdrop-filter: none; background: rgb(4 4 8 / 0.85); }
-}

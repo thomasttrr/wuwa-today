@@ -174,7 +174,6 @@ export default function Wardrobe({
                 aria-pressed={filter === s.key}
                 onClick={() => pickFilter(s.key)}
               >
-                <span className="wd-chip-dot" aria-hidden="true" />
                 {s.title} <span className="wd-chip-n">{counts.get(s.key)}</span>
               </button>
             ))}
