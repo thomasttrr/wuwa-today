@@ -1,3 +1,4 @@
+import type { CSSProperties, ReactNode } from "react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import PageHero from "@/components/PageHero";
@@ -107,6 +108,109 @@ function CastCard({ c, delay }: { c: Resonator; delay: number }) {
         </figcaption>
       </figure>
     </Reveal>
+  );
+}
+
+/* Playable drips. The two pieces of art are different shapes — Anna's is a
+   tall portrait, Lucielle's a wide key visual — so each plate is built around
+   its art's own ratio and nothing is cropped. */
+interface Drip {
+  name: string;
+  date: string;
+  quote: string;
+  art: string;
+  alt: string;
+  w: number;
+  h: number;
+  tint: string;
+  shape: "tall" | "wide";
+  note: ReactNode;
+}
+
+const DRIPS: Drip[] = [
+  {
+    name: "Anna",
+    date: "November 18",
+    quote: "The night is long, and your desires are like wine.",
+    art: "/images/leaks/official-drip-anna.webp",
+    alt: "Official playable drip art of Anna: seated on a balcony railing among thorny vines, red roses and red drapery, red wide-brim hat and white and red gothic dress",
+    w: 720,
+    h: 844,
+    tint: "#b4405a",
+    shape: "tall",
+    note: (
+      <>
+        A day after the teaser card, Kuro gave Anna the full playable drip: new art, her
+        five stars on show, and an animated version minutes later. She is the first of the
+        seven with a confirmed rarity. Her element and weapon are still not shown — those
+        remain unannounced for all seven.
+      </>
+    ),
+  },
+  {
+    name: "Lucielle",
+    date: "November 19",
+    quote: "Relax! From here on out, leave it all to me!",
+    art: "/images/leaks/official-drip-lucielle.webp",
+    alt: "Official playable drip art of Lucielle: long blonde hair and cat ears, seated at a desert outpost beside a large dragon-like mount, holding a long rifle, cactus and hanging gold coins under a sunset sky",
+    w: 1280,
+    h: 720,
+    tint: "#d08a46",
+    shape: "wide",
+    note: (
+      <>
+        A day after Anna&rsquo;s, Kuro gave Lucielle the same full playable drip: new art
+        and her five stars on show. The post names her a cat-eared Goldrunner from Buffalo
+        Rock, working to become a leader everyone can depend on. An animated version
+        followed five minutes later, carrying her lore: a deep affinity with Tacetites —
+        she has communed with Remnant Creatures since she was young, gives them shape with
+        Tacetite dust, and fights beside them as comrades. The big creature resting beside
+        her in the art is one of those companions. She holds a long rifle-style weapon in
+        the art, but her element and weapon class are still not announced — the art alone
+        is not a confirmation.
+      </>
+    ),
+  },
+];
+
+function Stars() {
+  return (
+    <span className="v4-stars" role="img" aria-label="Five-star">
+      {[0, 1, 2, 3, 4].map((i) => (
+        <svg key={i} viewBox="0 0 20 20" aria-hidden="true">
+          <path d="M10 1.2l2.5 5.6 6.1.6-4.6 4.1 1.3 6-5.3-3.1-5.3 3.1 1.3-6L1.4 7.4l6.1-.6z" />
+        </svg>
+      ))}
+    </span>
+  );
+}
+
+function DripPlate({ d }: { d: Drip }) {
+  return (
+    <figure
+      className={`v4-plate v4-plate-${d.shape}`}
+      style={{ "--tint": d.tint } as CSSProperties}
+    >
+      <a
+        className="v4-plate-art"
+        href={d.art}
+        target="_blank"
+        rel="noopener"
+        aria-label={`Open ${d.name}’s drip art full size`}
+      >
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src={d.art} alt={d.alt} width={d.w} height={d.h} loading="lazy" />
+      </a>
+      <figcaption className="v4-plate-body">
+        <div className="v4-plate-head">
+          <h3 className="v4-plate-name">{d.name}</h3>
+          <Stars />
+          <span className="v4-plate-date">{d.date}</span>
+        </div>
+        <p className="v4-plate-quote">&ldquo;{d.quote}&rdquo;</p>
+        <p className="v4-plate-note">{d.note}</p>
+      </figcaption>
+    </figure>
   );
 }
 
@@ -222,68 +326,6 @@ export default function Version40Page() {
             </figcaption>
           </figure>
         </Reveal>
-        <Reveal>
-          <figure className="v4-feature">
-            <div className="v4-feature-art">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/images/leaks/official-drip-anna.webp"
-                alt="Official playable drip art of Anna: seated on a balcony railing among thorny vines, red roses and red drapery, red wide-brim hat and white and red gothic dress"
-                width={720}
-                height={844}
-                loading="lazy"
-              />
-            </div>
-            <figcaption className="v4-feature-body">
-              <div className="v4-card-top">
-                <span className="v4-num">01</span>
-                <span className="v4-time">November 18 · Playable drip</span>
-              </div>
-              <h3 className="v4-name v4-name-lg">Anna — five-star</h3>
-              <p className="v4-drip">&ldquo;The night is long, and your desires are like wine.&rdquo;</p>
-              <p className="v4-note">
-                A day after the teaser card, Kuro gave Anna the full playable drip: new
-                art, her five stars on show, and an animated version minutes later.
-                She is the first of the seven with a confirmed rarity. Her element and
-                weapon are still not shown — those remain unannounced for all seven.
-              </p>
-            </figcaption>
-          </figure>
-        </Reveal>
-        <Reveal>
-          <figure className="v4-feature">
-            <div className="v4-feature-art">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/images/leaks/official-drip-lucielle.webp"
-                alt="Official playable drip art of Lucielle: long blonde hair and cat ears, seated at a desert outpost beside a large dragon-like mount, holding a long rifle, cactus and hanging gold coins under a sunset sky"
-                width={1280}
-                height={720}
-                loading="lazy"
-              />
-            </div>
-            <figcaption className="v4-feature-body">
-              <div className="v4-card-top">
-                <span className="v4-num">02</span>
-                <span className="v4-time">November 19 · Playable drip</span>
-              </div>
-              <h3 className="v4-name v4-name-lg">Lucielle — five-star</h3>
-              <p className="v4-drip">&ldquo;Relax! From here on out, leave it all to me!&rdquo;</p>
-              <p className="v4-note">
-                A day after Anna&rsquo;s, Kuro gave Lucielle the same full playable drip:
-                new art and her five stars on show. The post names her a cat-eared
-                Goldrunner from Buffalo Rock, working to become a leader everyone can
-                depend on. An animated version followed five minutes later, carrying
-                her lore: a deep affinity with Tacetites — she has communed with
-                Remnant Creatures since she was young, gives them shape with Tacetite
-                dust, and fights beside them as comrades. The big creature resting
-                beside her in the art is one of those companions. She holds a long
-                rifle-style weapon in the art, but her element and weapon class are
-                still not announced — the art alone is not a confirmation.
-              </p>
-            </figcaption>
-          </figure>
-        </Reveal>
         <div className="v4-grid">
           {CAST.map((c, i) => (
             <CastCard key={c.name} c={c} delay={(i % 3) * 90} />
@@ -296,6 +338,18 @@ export default function Version40Page() {
             she has no official card yet.
           </p>
         </Reveal>
+      </div>
+
+      <div className="og-section">
+        <ObsidianSectionHead
+          title="Playable drip"
+          blurb="Full art for each five-star, posted a day apart. Elements and weapons are still unannounced for all seven."
+        />
+        {DRIPS.map((d) => (
+          <Reveal key={d.name}>
+            <DripPlate d={d} />
+          </Reveal>
+        ))}
       </div>
 
       <div className="og-section">
