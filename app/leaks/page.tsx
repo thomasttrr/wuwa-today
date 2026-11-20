@@ -98,7 +98,7 @@ const TIMELINE: { when: string; what: string; hot?: boolean }[] = [
   { when: "Nov 17, 2026", what: "Kuro reveals 4.0 — the trailer and all seven character drips land in one evening" },
   { when: "Late Nov – early Dec", what: "4.0 closed beta runs; kit details usually leak here" },
   { when: "Dec 21, 2026", what: "Version 3.8 ends — the last patch of the 3.X arc" },
-  { when: "Dec 22, 2026", what: "Version 4.0 launches (UTC+8): New Federation, Anna's banner", hot: true },
+  { when: "Dec 22, 2026", what: "Version 4.0 launches (UTC+8): New Federation", hot: true },
   { when: "Mid-January 2027", what: "Phase 2 — Lucielle's projected banner window" },
   { when: "Early Feb 2027", what: "Version 4.1 on the 42-day cycle — Amethyst's rumored slot" },
 ];
@@ -289,13 +289,15 @@ export default function LeaksPage() {
               the earliest posts disagreed.
             </Claim>
             <Claim tag="Single leak">
-              <strong>Broadblade, on the newest render</strong> — her weapon has moved with
-              every round of leaks: Pistols or Rectifier in the early posts, then a Rectifier
-              built around a reworked Tune Break, and the November 10 render tags her a Fusion
-              Broadblade hybrid DPS dealing Basic Attack damage. The newest addition (FS,
-              November 13, in a post flaired &ldquo;Reliable&rdquo;): the Broadblade takes
-              scythe form. Latest word wins for now, but the weapon story rests on leak posts
-              until the beta.
+              <strong>Fusion Rectifier Sub-DPS, Tune Break — the latest word.</strong> WuWa
+              Timeline (@wuwaguy, November 19) tags her Fusion, Rectifier, Sub-DPS, on Tune
+              Break. The same post also tags DMG Amplifier and Hybrid. Her weapon has moved
+              with every round of leaks: Pistols or Rectifier in the early posts, then a
+              Rectifier built around a reworked Tune Break, and the November 10 render tags
+              her a Fusion Broadblade hybrid DPS dealing Basic Attack damage. A later
+              addition (FS, November 13, in a post flaired &ldquo;Reliable&rdquo;): the
+              Broadblade takes scythe form. Latest word wins for now, but the weapon story
+              rests on leak posts until the beta.
             </Claim>
             <Claim tag="Single leak">
               <strong>Her English voice is out there too.</strong> An 11-second in-game clip
@@ -477,19 +479,28 @@ export default function LeaksPage() {
               Not to be confused with <strong>Lucilla</strong>, the Glacio Rectifier already
               in the game — a different character, and the most common mix-up in 4.0 threads.
             </Claim>
+            <Claim tag="Official">
+              <strong>A cat-eared Goldrunner from Buffalo Rock.</strong> Kuro&rsquo;s
+              November 19 archive post says so in those words — the cat ears are official.
+            </Claim>
             <Claim tag="Repeated leak">
-              <strong>An affectionate catgirl with cowboy styling</strong> — the description has
-              been consistent since Seele&rsquo;s original 4.x character list.
+              <strong>Cowboy styling, and an affectionate read</strong> — that part of the
+              description has been consistent since Seele&rsquo;s original 4.x character
+              list. The ears are official now; the cowboy styling is still the leak.
             </Claim>
             <Claim tag="Single leak">
               <strong>The Phase 2 slot</strong>, in the back half of 4.0.
             </Claim>
             <Claim tag="Single leak">
-              <strong>Her element has narrowed to Electro or Spectro.</strong> The newest
-              word (Seele and Fractured Shores, via WuWa Timeline, November 13, marked
-              subject to change) cuts it down to those two. Earlier posts tagged her Fusion,
-              then Havoc, then Electro Flare, and Spectro with Pistols as a sub-DPS — treat
-              the whole trail as weak until the beta lands.
+              <strong>Spectro Pistols Sub-DPS — healer, DMG amplifier, Tune Strain — the latest word.</strong>{" "}
+              WuWa Timeline (@wuwaguy, November 19; the post still spells her Lucille, and
+              writes the weapon as Pistol) tags her Spectro, Pistols, Sub-DPS, a healer
+              and DMG amplifier on Tune Strain.
+              Earlier, Seele and Fractured Shores (via WuWa Timeline, November 13, marked
+              subject to change) had narrowed her to Electro or Spectro. Before that the
+              posts tagged her Fusion, then Havoc, then Electro Flare, and Spectro with
+              Pistols as a sub-DPS. Latest word wins for now; the trail stays a leak until
+              the beta lands.
             </Claim>
             <Claim tag="Speculation">
               <strong>A Hsin + Suoming team link</strong> — if she is an off-field sub-DPS, she
@@ -576,15 +587,22 @@ export default function LeaksPage() {
               others. The post is flaired &ldquo;Questionable,&rdquo; names no version, and
               nothing backs it up yet; the 4.x link is commenters guessing.
             </Claim>
+            <Claim tag="Official">
+              <strong>Old Eden, and the title Mistress of Old Eden.</strong> Kuro&rsquo;s
+              November 18 archive post names her that — &ldquo;Mistress of Old Eden. A figure
+              of grey who walks between black and white.&rdquo; The name is on the official
+              record. The post does not describe the place.
+            </Claim>
             <Claim tag="Single leak">
-              <strong>Old Eden — the sunken city under Anna.</strong> Seele&rsquo;s latest
-              (November 13) describes a drowned entertainment city tied to Anna: abandoned
+              <strong>The sunken city under her — still one leak.</strong> Seele&rsquo;s
+              November 13 post describes a drowned entertainment city tied to Anna: abandoned
               after the Old Federal Civil War, then rebuilt by three oligarchs on
               &ldquo;Blood of the Age&rdquo; technology, and now run outside the law — illegal
               tech, smuggling, underground auctions, human experimentation. The post names
               eleven spots, from the Paradise Main Stage and the Faust Auction House to
               &ldquo;Anna&rsquo;s Room&rdquo; — which would make her &ldquo;Underwater
-              Queen&rdquo; title literal. One source so far.
+              Queen&rdquo; title literal. The name and the title are official now; the city
+              layout, the oligarchs, and &ldquo;Blood of the Age&rdquo; are this one source.
             </Claim>
             <Claim tag="Speculation">
               <strong>A November 18 drip date is floating around.</strong> One X user with
@@ -845,7 +863,7 @@ export default function LeaksPage() {
         <FileHead
           file="File 05 · Chain of custody"
           title="Sources and how this page is kept"
-          blurb="Checked November 17, 2026 — the drip marketing has landed and the reveal set is on the page. Re-checked again when the beta opens."
+          blurb="Checked November 19, 2026 — the drip marketing has landed and the reveal set is on the page. Re-checked again when the beta opens."
         />
         <Reveal>
           <div className="og-notice" role="note">
