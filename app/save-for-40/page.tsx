@@ -23,8 +23,10 @@ export default function SaveFor40Page() {
         What is still on the table in the rest of 3.8, what a guaranteed
         limited Resonator actually costs, and the one choice Phase 2 asks of
         you. This is a plain guide page — no calculator, no planner, nothing
-        to type in. The pull advice is labelled as ours; everything about 4.0
-        itself is labelled as leak material, not fact.
+        to type in. The pull advice is labelled as ours. Version 4.0 itself
+        is official now — Kuro revealed it on November 17 and it launches
+        December 22; what is still leak material is the banner order and the
+        kit details.
       </PageHero>
 
       <ObsidianToolbar
@@ -168,16 +170,19 @@ export default function SaveFor40Page() {
         <ObsidianSectionHead
           id="phase-2-choice"
           title="The Phase 2 choice: pull Dec 3, or save?"
-          blurb="Phase 2 is official: Yangyang: Xuanling, Suisui and Hiyuki rerun from Dec 3 — kits, weapons and pre-farm are on the Phase 2 page. The 4.0 side of the choice is not official."
+          blurb="Phase 2 is official: Yangyang: Xuanling, Suisui and Hiyuki rerun from Dec 3 — kits, weapons and pre-farm are on the Phase 2 page. The 4.0 side is official too — revealed November 17, launching December 22 — but its banner order is still unannounced."
         />
         <Reveal>
           <div className="og-notice" role="note">
             <p>
-              <strong>About the 4.0 side:</strong> the name attached to 4.0 is{" "}
-              <strong>Anna</strong> — that comes from leak and drip material,
-              not from a Kuro announcement. Treat every 4.0 date and character
-              detail as <strong>leaks-page material, not fact</strong>, until
-              Kuro confirms it. The evidence, graded, is on our{" "}
+              <strong>About the 4.0 side:</strong> <strong>Anna</strong> is
+              official — Kuro revealed Version 4.0 on November 17,
+              drip-marketed Anna on November 18 and Lucielle on November 19,
+              and the version launches December 22. What Kuro has{" "}
+              <strong>not</strong> announced is the banner order: Anna in
+              Phase 1 and Lucielle in Phase 2 is still{" "}
+              <strong>leaks-page material, not fact</strong>, and so are their
+              elements, weapons, and kits. The evidence, graded, is on our{" "}
               <Link href="/leaks">leaks page</Link> and the{" "}
               <Link href="/version-4-0">Version 4.0 page</Link>.
             </p>
