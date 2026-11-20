@@ -530,6 +530,10 @@ Lily client verification Nov 11, 2026: role, skill, sequence and weapon text che
   anna-height-demo-poster.webp from the post's own thumbnail. The clip shows
   characters in a golden field beside a large red machine; Anna is not
   clearly identifiable in it — the claim text and caption say so.
+  REMOVED 2026-11-19: the clip, its claim and both files were taken off
+  /leaks in the Anna cleanup after her official drip marketing (Tom's
+  order) — it proved nothing about her height and Anna is not
+  identifiable in it.
 - VFX skins illustration (File 04): the image from Riju's Nov 16 post
   (post 2122329088383992142), saved as public/images/leaks/vfx-skins-fanart.webp
   (1200px wide). It is fan art by Ima Dei Tup, watermarked by the artist

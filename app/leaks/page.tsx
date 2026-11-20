@@ -168,7 +168,7 @@ export default function LeaksPage() {
         <FileHead
           file="File 01 · Subject"
           title="Anna — officially revealed, Phase 1 per the leaks"
-          blurb="Revealed by Kuro on November 17 — and still the only one of the seven with a leaked model."
+          blurb="Drip-marketed by Kuro on November 17–18 — and still the only one of the seven with a leaked model. What the drips settled has moved to the Version 4.0 page; what is left here is what Kuro still has not said."
         />
         <Reveal>
           <div className="lk-view">
@@ -205,7 +205,7 @@ export default function LeaksPage() {
               </div>
               <div className="lk-spec">
                 <div className="lk-spec-k">Art status</div>
-                <div className="lk-spec-v">Full 3D model leaked</div>
+                <div className="lk-spec-v">Drip out · model leaked</div>
               </div>
             </div>
           </div>
@@ -267,16 +267,8 @@ export default function LeaksPage() {
           <div className="lk-claims">
             <Claim tag="Repeated leak">
               <strong>She opens Version 4.0</strong> as the Phase 1 banner and the player&rsquo;s
-              guide into the New Federation — every roadmap summary puts her first. Kuro&rsquo;s
-              November 17 reveal made her the face of the version; her official card leads the
-              Version 4.0 page. The Phase 1 slot itself still rests on the leaks.
-            </Claim>
-            <Claim tag="Datamined">
-              <strong>The model above.</strong> Blonde hair fading to red at the tips, pointed
-              ears, red eyes, and a gothic red-and-white gown trimmed with roses. This design is
-              the one earlier trackers described, sight unseen, as the &ldquo;vampire femme
-              fatale&rdquo; — they are the same character, not two. The leak is a full 3D model:
-              rotation, close-ups, and in-world shots all match, detail for detail.
+              guide into the New Federation — every roadmap summary puts her first. The Phase 1
+              slot itself still rests on the leaks; Kuro has not announced the banner order.
             </Claim>
             <Claim tag="In-game lore">
               <strong>A noble of the New Federation.</strong> Leaks make her the daughter of an
@@ -305,36 +297,10 @@ export default function LeaksPage() {
               scythe form. Latest word wins for now, but the weapon story rests on leak posts
               until the beta.
             </Claim>
-            <Claim tag="Repeated leak">
-              <strong>Five-star.</strong> The November render summary states her rarity
-              outright, and no tracker disputes it — the opening character of a new region has
-              always been a limited five-star.
-            </Claim>
-            <Claim tag="Official">
-              <strong>Her Tacet Mark sits on her outer right thigh.</strong> The leaked
-              render gallery (FS, November 10) put it on her upper thigh — faint and
-              reddish, with readers disputing how visible it was. Her official character
-              card (on the Version 4.0 page) settles it: the mark is plainly there, on
-              the outer right thigh.
-            </Claim>
             <Claim tag="Single leak">
               <strong>Her English voice is out there too.</strong> An 11-second in-game clip
               (pero, November 10) carries her English lines. No English voice actor is named
               anywhere yet — the names in the comments are guesses.
-            </Claim>
-            <Claim tag="Single leak">
-              <strong>Her leaked model is already being animated.</strong> A roughly
-              37-second fan video (circulating on Facebook, November 14) orbits the leaked
-              model in a fan-made night scene — the model matches the datamined renders,
-              but the scene and animation are fan work, and no model file comes with it.
-            </Claim>
-            <Claim tag="Single leak">
-              <strong>A height-comparison video is circulating too.</strong> WuWa
-              Timeline (@wuwaguy, November 16) posted a short clip titled as
-              Anna&rsquo;s height comparison demo; a hosted copy is shown below. The
-              13 seconds show characters in a golden field beside a large red
-              machine — Anna herself is not clearly identifiable in it, so what it
-              proves about her height stays unverified.
             </Claim>
             <Claim tag="Single leak">
               <strong>Her model is now a downloadable Garry&rsquo;s Mod port.</strong>{" "}
@@ -448,33 +414,6 @@ export default function LeaksPage() {
             Six stills from an in-game story scene — the glowing red drink, the clawed glove,
             the throne-like chair — posted by the leaker Sleepy on November 11. The costume
             matches the leaked model detail for detail, roses and all.
-          </p>
-        </Reveal>
-        <div style={{ height: "0.9rem" }} />
-        <Reveal>
-          <div className="lk-view">
-            <div className="lk-view-bar">
-              <span>Circulating clip — height comparison demo</span>
-              <span>Via WuWa Timeline · Nov 16 · Hosted copy</span>
-            </div>
-            <SpoilerCover label="Anna — height comparison clip">
-              <video
-                src="/images/leaks/anna-height-demo.mp4"
-                poster="/images/leaks/anna-height-demo-poster.webp"
-                controls
-                playsInline
-                preload="none"
-                width={1280}
-                height={720}
-              />
-            </SpoilerCover>
-          </div>
-          <p style={{ margin: "0.6rem 0 0", opacity: 0.8, fontSize: "0.92rem" }}>
-            The 13-second clip WuWa Timeline posted on November 16 under the title
-            &ldquo;Anna&rsquo;s Height Comparison Demo&rdquo; — hosted here, never embedded.
-            It shows characters in a golden field beside a large red machine; Anna herself
-            is not clearly identifiable in it, so treat the title as the claim, not the
-            footage.
           </p>
         </Reveal>
       </div>
