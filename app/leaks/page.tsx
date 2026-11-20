@@ -719,6 +719,20 @@ export default function LeaksPage() {
               order match what is already claimed — the elements are the new
               part, and they grade as speculation.
             </Claim>
+            <Claim tag="Speculation">
+              <strong>One post names their kits — unsourced, and partly against the stronger claims.</strong>{" "}
+              Norick DeNilou (@Norick_DeNilou, November 19) claims both kits
+              outright: Anna as a five-star Fusion Rectifier, a sub-DPS /
+              support whose mechanic is named Tune Break Rupture and Tune
+              Break Tension; Lucielle as a five-star Spectro Pistols support
+              who heals and raises team damage through Rupture. It also names
+              two test teams: Aemeath, Anna and Mornye, and Aemeath, Anna and
+              Lucielle. The post cites no source and the account is a
+              commentary account, not a tracker — treat it as unsourced. Anna
+              as a Rectifier fights the Broadblade-and-scythe claim in File
+              01, which has the stronger trail; Lucielle as Spectro fits
+              inside her narrowed Electro-or-Spectro line in File 02.
+            </Claim>
             <Claim tag="Single leak">
               <strong>A Mosasaurus boss is claimed for 4.X.</strong> A Seele item
               reshared on November 17 (@WutheringNews, @Wutheringnewss,
