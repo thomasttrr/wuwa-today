@@ -273,9 +273,13 @@ export default function Version40Page() {
                 A day after Anna&rsquo;s, Kuro gave Lucielle the same full playable drip:
                 new art and her five stars on show. The post names her a cat-eared
                 Goldrunner from Buffalo Rock, working to become a leader everyone can
-                depend on. She holds a long rifle-style weapon in the art, but her
-                element and weapon class are still not announced — the art alone is
-                not a confirmation.
+                depend on. An animated version followed five minutes later, carrying
+                her lore: a deep affinity with Tacetites — she has communed with
+                Remnant Creatures since she was young, gives them shape with Tacetite
+                dust, and fights beside them as comrades. The big creature resting
+                beside her in the art is one of those companions. She holds a long
+                rifle-style weapon in the art, but her element and weapon class are
+                still not announced — the art alone is not a confirmation.
               </p>
             </figcaption>
           </figure>
