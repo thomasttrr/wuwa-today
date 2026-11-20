@@ -250,6 +250,36 @@ export default function Version40Page() {
             </figcaption>
           </figure>
         </Reveal>
+        <Reveal>
+          <figure className="v4-feature">
+            <div className="v4-feature-art">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/images/leaks/official-drip-lucielle.webp"
+                alt="Official playable drip art of Lucielle: long blonde hair and cat ears, seated at a desert outpost beside a large dragon-like mount, holding a long rifle, cactus and hanging gold coins under a sunset sky"
+                width={1280}
+                height={720}
+                loading="lazy"
+              />
+            </div>
+            <figcaption className="v4-feature-body">
+              <div className="v4-card-top">
+                <span className="v4-num">02</span>
+                <span className="v4-time">November 19 · Playable drip</span>
+              </div>
+              <h3 className="v4-name v4-name-lg">Lucielle — five-star</h3>
+              <p className="v4-drip">&ldquo;Relax! From here on out, leave it all to me!&rdquo;</p>
+              <p className="v4-note">
+                A day after Anna&rsquo;s, Kuro gave Lucielle the same full playable drip:
+                new art and her five stars on show. The post names her a cat-eared
+                Goldrunner from Buffalo Rock, working to become a leader everyone can
+                depend on. She holds a long rifle-style weapon in the art, but her
+                element and weapon class are still not announced — the art alone is
+                not a confirmation.
+              </p>
+            </figcaption>
+          </figure>
+        </Reveal>
         <div className="v4-grid">
           {CAST.map((c, i) => (
             <CastCard key={c.name} c={c} delay={(i % 3) * 90} />
