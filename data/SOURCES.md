@@ -734,3 +734,13 @@ Lily client verification Nov 11, 2026: role, skill, sequence and weapon text che
   Binding Mind, the weapon's +24% team Electro DMG buff. Kaption's
   live Suoming guide prints the same current weapon text (the swap
   happens when the wielder consumes fewer than 100 Concerto Energy).
+
+- 2026-11-20: Anna backstory claim added to /leaks File 01 (Tom
+  approved in chat). Source: a Seele story post shared on
+  r/WutheringWavesLeaks by u/Malia_West, Nov 20, 2026 05:14 ET —
+  https://www.reddit.com/r/WutheringWavesLeaks/comments/1y0zvh2/40_about_anna_major_spoilers_open_at_your_own/
+  Claims: Resonance left Anna unfit to practice medicine; she built a
+  gray-zone underwater "Free Port" city; she supplies hallucinogenic
+  canned Resonance energy while harvesting despair and controlling
+  scarce resources. Single source, major story spoilers, subject to
+  change before release; graded Single leak on the page.

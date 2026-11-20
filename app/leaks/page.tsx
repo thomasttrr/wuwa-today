@@ -110,7 +110,7 @@ export default function LeaksPage() {
         ← Home
       </Link>
 
-      <PageHero kicker="Version 4.0 and later · Leaks and rumors · Last sweep Nov 17, 2026" title="4.0+ leaks"
+      <PageHero kicker="Version 4.0 and later · Leaks and rumors · Last sweep Nov 20, 2026" title="4.0+ leaks"
         meta={<><UpdatedStamp /><RevealAllSpoilers /></>}
       >
         Version 4.0 skips 3.9 entirely and opens a whole new region — the New Federation —
@@ -283,6 +283,14 @@ export default function LeaksPage() {
               before the Resonator War split them up, and who now rules the Federation&rsquo;s
               elite. Lily&rsquo;s 3.8 beta lines, shared from Tieba, are the source; her
               Japanese voice is given as Aya Endo.
+            </Claim>
+            <Claim tag="Single leak">
+              <strong>Her past, in one spoiler-heavy dump.</strong> A Seele post shared on
+              November 20 says Resonance left Anna unfit to practice medicine, that she built a
+              gray-zone underwater &ldquo;Free Port&rdquo; city, and that she supplies a
+              hallucinogenic canned Resonance energy while harvesting despair and controlling
+              scarce resources. It is one post, it spoils her whole early story, and story leaks
+              this early can change before release — treat it as a sketch, not a script.
             </Claim>
             <Claim tag="Repeated leak">
               <strong>Fusion attribute.</strong> Every current tracker has her as Fusion, though
