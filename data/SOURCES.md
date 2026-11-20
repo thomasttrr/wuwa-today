@@ -744,3 +744,13 @@ Lily client verification Nov 11, 2026: role, skill, sequence and weapon text che
   canned Resonance energy while harvesting despair and controlling
   scarce resources. Single source, major story spoilers, subject to
   change before release; graded Single leak on the page.
+
+- 2026-11-20: "Constant Tune" true-damage claim added to /leaks
+  File 03 (Tom approved in chat). Source: WuWa Timeline (@wuwaguy) on
+  X, Nov 20, 2026 10:53 ET —
+  https://x.com/wuwaguy/status/2123806912970129690
+  Claim: a Constant Tune response (a character's execution, or
+  Lucielle's Outro) deals percentage-based true damage unaffected by
+  resistance, DMG bonus, or DMG reduction for a duration. The poster
+  self-flags the post SUS; no corroboration found. Graded Speculation
+  on the page, with the SUS flag stated in the claim text.

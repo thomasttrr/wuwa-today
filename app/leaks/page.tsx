@@ -546,6 +546,14 @@ export default function LeaksPage() {
               introducing it and Lucielle extending it. Whether existing Resonators get access
               matters more than the details, and nobody knows yet.
             </Claim>
+            <Claim tag="Speculation">
+              <strong>&ldquo;Constant Tune&rdquo; and true damage.</strong> WuWa Timeline
+              (November 20) claims a Constant Tune response can trigger percentage-based true
+              damage — from a character&rsquo;s execution, or from Lucielle&rsquo;s Outro — that
+              ignores resistance, DMG bonus, and DMG reduction for a duration. The poster flags
+              the post SUS himself and tells readers to take it with a grain of salt; no second
+              source carries it.
+            </Claim>
             <Claim tag="Single leak">
               <strong>One rerun name: Qingxiao</strong>, the Aero Sword main DPS from Version 3.6,
               tipped for a Phase 1 rerun — which would be her first.
