@@ -754,3 +754,16 @@ Lily client verification Nov 11, 2026: role, skill, sequence and weapon text che
   resistance, DMG bonus, or DMG reduction for a duration. The poster
   self-flags the post SUS; no corroboration found. Graded Speculation
   on the page, with the SUS flag stated in the claim text.
+
+- 2026-11-20: Vehicle details + refined 4.X male lineup added
+  (Tom approved in chat). Source: WutheringNEWS (@Wutheringnewss) on
+  X, Nov 20, 2026 14:35 ET, relaying an unnamed CN source screenshot —
+  https://x.com/Wutheringnewss/status/2123862842646704417
+  Published as: a new Single leak claim in File 03 (vehicles get
+  introductory videos, incl. an Iron Man-like type and an enhanced AI
+  mecha type; Lucielle's dragon works like Augusta's griffon, her own
+  vehicle only in skill and idle animations) and an update to the
+  File 04 "only two males" row (the two named: Cairn in 4.1, the only
+  New Federation male, and Kirito via the SAO collaboration; no male
+  characters in 4.5–4.8). Single source, unnamed origin; graded
+  Single leak.

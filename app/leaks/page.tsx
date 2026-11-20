@@ -541,6 +541,14 @@ export default function LeaksPage() {
               getting around.
             </Claim>
             <Claim tag="Single leak">
+              <strong>Vehicles get their own introductions.</strong> A November 20 post
+              (@Wutheringnewss, relaying an unnamed CN source) says 4.0&rsquo;s vehicles arrive
+              with introductory videos — an Iron Man-like type and an enhanced AI mecha type
+              among them — and that Lucielle&rsquo;s dragon works like Augusta&rsquo;s griffon,
+              with her own vehicle appearing only in her skill and idle animations. One relayed
+              screenshot; nothing behind it yet.
+            </Claim>
+            <Claim tag="Single leak">
               <strong>A reworked Tune Break.</strong> Leaks describe a revision of the Version
               3.0 system — likely a third branch beside Tune Rupture and Tune Strain — with Anna
               introducing it and Lucielle extending it. Whether existing Resonators get access
@@ -812,7 +820,10 @@ export default function LeaksPage() {
                 two male characters — one original and one collaboration, possibly Kirito —
                 which would tie the male count to the crossover whisper above. The sourcing
                 is the weakest kind: an unnamed forum post through a reshare account, with
-                nothing behind it.
+                nothing behind it. A November 20 follow-up from the same account names them:
+                Cairn in 4.1, the only New Federation male, and Kirito via the SAO
+                collaboration — and adds that 4.5 through 4.8 bring no male characters at
+                all. Same weak sourcing as the original claim.
               </p>
               <span className="lk-ver">4.x?</span>
             </div>
