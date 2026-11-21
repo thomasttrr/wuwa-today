@@ -384,12 +384,22 @@ export default function Version40Page() {
           </div>
         </Reveal>
         <Reveal>
-          <p className="v4-foot">
-            Watch it on Kuro&rsquo;s official channel:{" "}
-            <a href="https://www.youtube.com/watch?v=k8X8Gt5KhKI">
-              Wuthering Waves: Embers of the Everbright — Official Gameplay Reveal
-            </a>
-          </p>
+          <figure className="v4-video">
+            <div className="v4-video-frame">
+              <iframe
+                src="https://www.youtube-nocookie.com/embed/k8X8Gt5KhKI"
+                title="Wuthering Waves: Embers of the Everbright — Official Gameplay Reveal"
+                loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+                referrerPolicy="strict-origin-when-cross-origin"
+              />
+            </div>
+            <figcaption className="v4-foot">
+              Kuro&rsquo;s official gameplay reveal, posted November 20, 2026. Footage
+              captured from a test build.
+            </figcaption>
+          </figure>
         </Reveal>
       </div>
 
