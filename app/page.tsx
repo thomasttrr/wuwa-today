@@ -202,7 +202,7 @@ export default function HomePage() {
           revealedAt: nextVersion.revealAt,
           revealedLabel: nextVersion.revealLabel,
           trailer: V4_TRAILER,
-          blurb: `Version ${nextVersion.version} opens the New Federation on ${launchShort}. Seven new Resonators were revealed on ${nextVersion.revealLabel}; their kits are not announced yet.`,
+          blurb: `Version ${nextVersion.version} opens the New Federation on ${launchShort}. Seven new Resonators were revealed on ${nextVersion.revealLabel}; Anna and Lucielle are confirmed playable, with elements and weapons announced November 20. Full kits and banner order are still to come.`,
           cast: V4_CAST.map((c) => ({ name: c.name, art: c.art })),
         }
       : null;
@@ -518,7 +518,7 @@ export default function HomePage() {
               </Link>
             ))}
           </div>
-          <p className="am-fed-note">Names and taglines are official. Elements, weapons and banner order are not announced yet.</p>
+          <p className="am-fed-note">Names and taglines are official. Anna is Fusion with a Rectifier; Lucielle is Spectro with Pistols — both announced November 20. Banner order is not announced yet.</p>
         </section>
       )}
 
