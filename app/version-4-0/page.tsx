@@ -142,8 +142,9 @@ const DRIPS: Drip[] = [
       <>
         A day after the teaser card, Kuro gave Anna the full playable drip: new art, her
         five stars on show, and an animated version minutes later. She is the first of the
-        seven with a confirmed rarity. Her element and weapon are still not shown — those
-        remain unannounced for all seven.
+        seven with a confirmed rarity. Her element and weapon followed on November 20, in
+        her Resonator Preview: Fusion, with a Rectifier — though her gameplay swings it
+        like a scythe.
       </>
     ),
   },
@@ -166,8 +167,8 @@ const DRIPS: Drip[] = [
         she has communed with Remnant Creatures since she was young, gives them shape with
         Tacetite dust, and fights beside them as comrades. The big creature resting beside
         her in the art is one of those companions. She holds a long rifle-style weapon in
-        the art, but her element and weapon class are still not announced — the art alone
-        is not a confirmation.
+        the art; her element and weapon class were announced on November 20: Spectro,
+        with Pistols.
       </>
     ),
   },
@@ -343,13 +344,53 @@ export default function Version40Page() {
       <div className="og-section">
         <ObsidianSectionHead
           title="Playable drip"
-          blurb="Full art for each five-star, posted a day apart. Elements and weapons are still unannounced for all seven."
+          blurb="Full art for each five-star, posted a day apart. Their elements and weapons followed on November 20: Fusion and a Rectifier for Anna, Spectro and Pistols for Lucielle."
         />
         {DRIPS.map((d) => (
           <Reveal key={d.name}>
             <DripPlate d={d} />
           </Reveal>
         ))}
+      </div>
+
+      <div className="og-section">
+        <ObsidianSectionHead
+          title="The gameplay reveal"
+          blurb="Kuro's official gameplay reveal, November 20 — the first footage of Anna and Lucielle in combat, and of the machine they will ride in."
+        />
+        <Reveal>
+          <div className="v4-cols">
+            <div className="gk-card">
+              <h3>Anna and Lucielle, fighting</h3>
+              <p>
+                The video names them as Version 4.0&rsquo;s two new Resonators and shows
+                both in combat for the first time. Anna sweeps a scythe-like weapon through
+                fights — her Resonator Preview, posted the same evening, classes it as a
+                Rectifier, and her attribute as Fusion. Lucielle fights with Pistols
+                alongside a conjured Tacetite creature, a Glaucoros; her attribute is
+                Spectro. Their banner order is still not stated anywhere official.
+              </p>
+            </div>
+            <div className="gk-card">
+              <h3>The Strider Mechsuit</h3>
+              <p>
+                The reveal&rsquo;s other star is a wearable mech, the Strider Mechsuit,
+                with full 360-degree mobility, used for both exploration and combat — the
+                footage ranges from city streets to underwater. Kuro&rsquo;s own note on
+                the video: it was captured from a test build and does not reflect the final
+                quality.
+              </p>
+            </div>
+          </div>
+        </Reveal>
+        <Reveal>
+          <p className="v4-foot">
+            Watch it on Kuro&rsquo;s official channel:{" "}
+            <a href="https://www.youtube.com/watch?v=k8X8Gt5KhKI">
+              Wuthering Waves: Embers of the Everbright — Official Gameplay Reveal
+            </a>
+          </p>
+        </Reveal>
       </div>
 
       <div className="og-section">
@@ -367,13 +408,19 @@ export default function Version40Page() {
                 <li>No Version 3.9 — 3.8 is the last 3.x patch</li>
                 <li>Seven Resonators: Anna, April, Gordia, Lucielle, Cairn, Iya, Simulsys</li>
                 <li>Anna&rsquo;s rarity: five-star (playable drip, November 18)</li>
+                <li>Lucielle&rsquo;s rarity: five-star (playable drip, November 19)</li>
+                <li>Anna and Lucielle are Version 4.0&rsquo;s two new Resonators (gameplay reveal, November 20)</li>
+                <li>Anna: Fusion attribute, Rectifier weapon (Resonator Preview, November 20)</li>
+                <li>Lucielle: Spectro attribute, Pistols (announced November 20)</li>
+                <li>The Strider Mechsuit: a wearable mech for exploration and combat (gameplay reveal, November 20)</li>
                 <li>Every design above, exactly as shown on the cards</li>
               </ul>
             </div>
             <div className="gk-card">
               <h3>Not yet announced</h3>
               <ul className="v4-list">
-                <li>Elements, weapons, and kits for all seven</li>
+                <li>Elements, weapons, and kits for the other five</li>
+                <li>Full kits for Anna and Lucielle</li>
                 <li>Banner order and phases inside 4.0</li>
                 <li>Events, codes, and login rewards</li>
                 <li>Who Glenn is</li>
@@ -424,10 +471,12 @@ export default function Version40Page() {
         </Reveal>
         <Reveal>
           <p className="v4-foot">
-            Sources: Kuro&rsquo;s official @Wuthering_Waves posts of November 17–18, 2026 — the
-            reveal trailer, the seven character cards, Anna&rsquo;s playable drip and the pre-registration announcement,
-            mirrored here via the wiki&rsquo;s uploads of the same official art and shown
-            unedited.
+            Sources: Kuro&rsquo;s official @Wuthering_Waves posts of November 17–20, 2026 — the
+            reveal trailer, the seven character cards, both playable drips, the pre-registration announcement,
+            the official gameplay reveal and the Resonator Previews — with the attribute and
+            weapon announcements cross-checked against Game8&rsquo;s character pages of
+            November 21. Art mirrored here via the wiki&rsquo;s uploads of the same official
+            art and shown unedited.
           </p>
         </Reveal>
       </div>

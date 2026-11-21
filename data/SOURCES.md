@@ -778,3 +778,27 @@ Lily client verification Nov 11, 2026: role, skill, sequence and weapon text che
   casting skill; switching to another unit ends the effect early
   (read as anti-quickswap). Distinct from the Constant Tune
   true-damage claim above. One source chain; graded Single leak.
+
+- 2026-11-20/21: Official gameplay reveal + Resonator Previews added
+  to /version-4-0 (Tom asked for the video on the page; no embed per
+  the no-social rule — the section describes it and links Kuro's
+  official YouTube post). Official gameplay reveal, Nov 20, 2026:
+  "Wuthering Waves: Embers of the Everbright - Official Gameplay
+  Reveal" — https://www.youtube.com/watch?v=k8X8Gt5KhKI — its
+  description names Anna and Lucielle as Version 4.0's two playable
+  Resonators and the wearable Strider Mechsuit (full 360-degree
+  mobility) for exploration and combat; footage from a test build.
+  Resonator Preview posts the same evening (relayed by the WuWa News
+  aggregator, t.me/s/waves_wuthering posts 13678–13679) plus Game8's
+  Anna and Lucielle character pages (updated Nov 21, 2026) and
+  Sportskeeda's Nov 21 roundup agree: Anna is a five-star Fusion
+  Resonator using a Rectifier (her gameplay swings it like a scythe);
+  Lucielle is a five-star Spectro Resonator using Pistols and fights
+  alongside a conjured Tacetite creature, a Glaucoros. Published as
+  OFFICIAL on /version-4-0: new "The gameplay reveal" section,
+  confirmed-list entries, drip-note updates; /save-for-40's notice
+  updated to match (banner order and kit details remain unannounced).
+  Note: this settles the element/weapon half of the Team Gemberry78
+  kit claim on /leaks (Fusion Rectifier / Spectro Pistols) and
+  contradicts the Patel claim (Glacio Broadblade / Fusion Pistols) —
+  the /leaks entries stand as the historical leak record.

@@ -182,7 +182,9 @@ export default function SaveFor40Page() {
               <strong>not</strong> announced is the banner order: Anna in
               Phase 1 and Lucielle in Phase 2 is still{" "}
               <strong>leaks-page material, not fact</strong>, and so are their
-              elements, weapons, and kits. The evidence, graded, is on our{" "}
+              kit details. Their elements and weapons are official since
+              November 20 — Anna is Fusion with a Rectifier, Lucielle is
+              Spectro with Pistols. The evidence, graded, is on our{" "}
               <Link href="/leaks">leaks page</Link> and the{" "}
               <Link href="/version-4-0">Version 4.0 page</Link>.
             </p>
