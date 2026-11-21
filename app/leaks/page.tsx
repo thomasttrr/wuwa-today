@@ -563,6 +563,15 @@ export default function LeaksPage() {
               source carries it.
             </Claim>
             <Claim tag="Single leak">
+              <strong>A second Tune effect: &ldquo;Constant Harmony.&rdquo;</strong> A Team
+              Gemberry post relayed on Reddit (November 20, from a thread titled
+              &ldquo;Bloodhorn: Path to Power&rdquo;) describes applying a Constant Harmony
+              buff to an enemy: the next character to enter the field after a casting skill
+              gains attack power — and switching to another unit ends the effect early, which
+              readers are calling an anti-quickswap mechanic. One source chain, beta text
+              only; treat the wording as unsettled until the beta opens.
+            </Claim>
+            <Claim tag="Single leak">
               <strong>One rerun name: Qingxiao</strong>, the Aero Sword main DPS from Version 3.6,
               tipped for a Phase 1 rerun — which would be her first.
             </Claim>

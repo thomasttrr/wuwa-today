@@ -767,3 +767,14 @@ Lily client verification Nov 11, 2026: role, skill, sequence and weapon text che
   New Federation male, and Kirito via the SAO collaboration; no male
   characters in 4.5–4.8). Single source, unnamed origin; graded
   Single leak.
+
+- 2026-11-20: "Constant Harmony" Tune effect claim added to File 03
+  (Tom approved in chat). Source: Team Gemberry via Reddit
+  r/WutheringWavesLeaks, post by u/Delumenum, Nov 20, 2026 22:32 ET,
+  flair "Reliable", titled "WW 4.0 Beta - Bloodhorn: Path to Power" —
+  https://www.reddit.com/r/WutheringWavesLeaks/comments/1y1mzq7/40_new_tune_effect_by_gemberry/
+  Claim: applying the Constant Harmony buff to an enemy raises the
+  attack power of the next character to enter the field after using a
+  casting skill; switching to another unit ends the effect early
+  (read as anti-quickswap). Distinct from the Constant Tune
+  true-damage claim above. One source chain; graded Single leak.
