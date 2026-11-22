@@ -110,7 +110,7 @@ export default function LeaksPage() {
         ← Home
       </Link>
 
-      <PageHero kicker="Version 4.0 and later · Leaks and rumors · Last sweep Nov 20, 2026" title="4.0+ leaks"
+      <PageHero kicker="Version 4.0 and later · Leaks and rumors · Last sweep Nov 22, 2026" title="4.0+ leaks"
         meta={<><UpdatedStamp /><RevealAllSpoilers /></>}
       >
         Version 4.0 skips 3.9 entirely and opens a whole new region — the New Federation —
@@ -317,10 +317,19 @@ export default function LeaksPage() {
               listing credits the model itself to Kuro and the porting and rigging to
               its author — and its previews match the datamined renders above detail
               for detail, down to the mark on her leg. It is a game-mod file, not the
-              raw model: no PMX, FBX or GLB version has surfaced, and model files are
+              raw model, and model files are
               not hosted here. A fan-made Blender recreation also circulates
               (qiqi3d, DeviantArt, November 10, shared through Patreon) — that one
               is fan work, not the game model.
+            </Claim>
+            <Claim tag="Single leak">
+              <strong>A PMX model set is circulating — unverified, likely fan-made.</strong>{" "}
+              A GitHub repo (user Phoshco, posted November 10) hosts downloadable
+              Anna model files: Anna.mmd.pmx (about 10 MB), plus FBX and PMX
+              versions. Nothing ties them to the game or to any known leaker — no
+              provenance, no announcement post — so until their origin is shown,
+              they read as a fan-made recreation of the leaked design, not a rip.
+              They are recorded here, not hosted: model files are not hosted here.
             </Claim>
             <Claim tag="Single leak">
               <strong>She may already be in the game.</strong> A Seele text graphic
@@ -570,6 +579,16 @@ export default function LeaksPage() {
               gains attack power — and switching to another unit ends the effect early, which
               readers are calling an anti-quickswap mechanic. One source chain, beta text
               only; treat the wording as unsettled until the beta opens.
+            </Claim>
+            <Claim tag="Single leak">
+              <strong>A paired effect: healing that costs the healer HP.</strong> The
+              same Gemberry &ldquo;New Effects&rdquo; post (relayed by WuWa Universe,
+              November 21) describes a second effect alongside Constant Harmony: a
+              character who provides healing and consumes their own HP over a period
+              raises all-attribute DMG for the entire team. The post names no
+              character — the healing points readers at Lucielle, but that is
+              inference, not the post&rsquo;s claim. Unofficial translation, one
+              source chain.
             </Claim>
             <Claim tag="Single leak">
               <strong>One rerun name: Qingxiao</strong>, the Aero Sword main DPS from Version 3.6,

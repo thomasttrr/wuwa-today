@@ -219,6 +219,7 @@ export default function Phase2Page() {
           { href: "#suisui", label: "Suisui" },
           { href: "#hiyuki", label: "Hiyuki" },
           { href: "#prep", label: "Prep warnings" },
+          { href: "#farm-week", label: "Farm week" },
           { href: "#rumors", label: "Rumors & unknowns" },
         ]}
       />
@@ -269,6 +270,34 @@ export default function Phase2Page() {
               <strong>Budget the Shell Credits.</strong> A full build costs 170,000 credits for
               ascension plus 2,030,000 for Forte — 2.2 million per character, before Echo tuning.
               If you plan to pull two of the three, farm credits alongside the materials.
+            </p>
+          </div>
+        </Reveal>
+      </div>
+
+      <div className="og-section" id="farm-week" style={{ scrollMarginTop: "120px" }}>
+        <ObsidianSectionHead
+          title="The double-drop week"
+          blurb="Bountiful Crescendo, Nov 26 – Dec 3: double leveling materials, ending the morning Phase 2 opens."
+        />
+        <Reveal>
+          <div className="og-notice" role="note">
+            <p>
+              <strong>Spend the week on the returning three.</strong> Bountiful Crescendo
+              (on Kuro&rsquo;s official 3.8 event calendar) doubles leveling material
+              drops from November 26 to December 3, 03:59 server time — and Phase 2
+              opens that same morning at 10:00. Every material on Xuanling&rsquo;s,
+              Suisui&rsquo;s, and Hiyuki&rsquo;s lists is farmable right now with no
+              gate, so this is the cheapest week to stock up: farm their leveling
+              materials while the drops are doubled, and use the same sessions to
+              finish the rest of their lists.
+            </p>
+            <p>
+              <strong>Still building Lily?</strong> Her leveling materials are doubled
+              that week too, and she is live now — a finished Lily pays off in the
+              current Tower and Matrix cycles while you farm. The weekly-boss gate
+              above is separate and unchanged: double drops do not add boss claims,
+              so keep the three claims a week going.
             </p>
           </div>
         </Reveal>

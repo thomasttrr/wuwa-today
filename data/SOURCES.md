@@ -802,3 +802,19 @@ Lily client verification Nov 11, 2026: role, skill, sequence and weapon text che
   kit claim on /leaks (Fusion Rectifier / Spectro Pistols) and
   contradicts the Patel claim (Glacio Broadblade / Fusion Pistols) —
   the /leaks entries stand as the historical leak record.
+
+- 2026-11-22: Two /leaks claims added at Tom's approval.
+  (1) File 01 — an unverified Anna PMX/FBX model set on GitHub
+  (user Phoshco, repo "ww", single commit Nov 10, 2026):
+  https://github.com/Phoshco/ww/blob/main/chars/Anna/Anna.mmd.pmx
+  No leaker announcement and no datamine provenance; the claim
+  text marks it unverified and likely fan-made. Recorded here
+  only — not downloaded, not hosted (standing rule).
+  (2) File 03 — a second "New Effects" item from the Team
+  Gemberry post relayed by WuWa Universe (@WuWa_Verse1,
+  Nov 21, 2026, 22:38 ET):
+  https://x.com/WuWa_Verse1/status/2124346659161128978
+  — a character who heals and consumes their own HP raises
+  all-attribute DMG team-wide; no character named in the post.
+  One source chain, unofficial translation; graded Single leak.
+  Companion to the Nov 20 Constant Harmony entry above.
