@@ -818,3 +818,26 @@ Lily client verification Nov 11, 2026: role, skill, sequence and weapon text che
   all-attribute DMG team-wide; no character named in the post.
   One source chain, unofficial translation; graded Single leak.
   Companion to the Nov 20 Constant Harmony entry above.
+
+- 2026-11-22: The two Gemberry effects on /leaks gained their Echo
+  set names at Tom's approval. A Team Gemberry follow-up relayed
+  by the WuWa News aggregator (Telegram post 13682, Nov 22, 2026)
+  and r/WutheringWavesLeaks (u/Shirasaki-, thread "4.0 possible
+  new Sonata sets bonus via Team", flair Speculation):
+  https://t.me/waves_wuthering/13682 and
+  https://www.reddit.com/r/WutheringWavesLeaks/comments/1y2j2ex/40_possible_new_sonata_sets_bonus_via_team/
+  — the Constant Harmony effect is the bonus of a set named
+  "Path of Bloodthorn's Ambition"; the healing/self-HP effect is
+  the bonus of "Oath of Tomorrow". Both posts trace to the one
+  Gemberry origin, so the grade stays Single leak. "Bloodthorn"
+  may be a retranslation of the Nov 20 thread's "Bloodhorn" —
+  flagged as unsettled in the claim text.
+
+- 2026-11-22: Amethyst's File 04 cast row updated at Tom's
+  approval with a WuWa Timeline (@wuwaguy) post of Nov 22, 2026
+  (02:21 ET): https://x.com/wuwaguy/status/2124402754240266528
+  — Amethyst as a Glacio main DPS (subject to change) with her
+  own mech/puppet; the poster flags the post as grain-of-salt.
+  Single source; the three-forms and Glacio tags were already on
+  the page from earlier posts, so the new specifics recorded are
+  the firmed-up main-DPS role and the mech/puppet.

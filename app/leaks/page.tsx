@@ -578,7 +578,12 @@ export default function LeaksPage() {
               buff to an enemy: the next character to enter the field after a casting skill
               gains attack power — and switching to another unit ends the effect early, which
               readers are calling an anti-quickswap mechanic. One source chain, beta text
-              only; treat the wording as unsettled until the beta opens.
+              only; treat the wording as unsettled until the beta opens. A follow-up
+              Gemberry post (November 22) frames the effect as the bonus of a 4.0 Echo
+              set named &ldquo;Path of Bloodthorn&rsquo;s Ambition&rdquo; — and
+              &ldquo;Bloodthorn&rdquo; may be a fresh translation of the
+              &ldquo;Bloodhorn&rdquo; in the thread title above, so the set&rsquo;s
+              name is as unsettled as its wording.
             </Claim>
             <Claim tag="Single leak">
               <strong>A paired effect: healing that costs the healer HP.</strong> The
@@ -588,7 +593,8 @@ export default function LeaksPage() {
               raises all-attribute DMG for the entire team. The post names no
               character — the healing points readers at Lucielle, but that is
               inference, not the post&rsquo;s claim. Unofficial translation, one
-              source chain.
+              source chain. The November 22 follow-up names its Echo set:
+              &ldquo;Oath of Tomorrow.&rdquo;
             </Claim>
             <Claim tag="Single leak">
               <strong>One rerun name: Qingxiao</strong>, the Aero Sword main DPS from Version 3.6,
@@ -598,7 +604,8 @@ export default function LeaksPage() {
               <strong>A second Starpath Reverbs selector.</strong> The 3.5 selector let players
               pick an older five-star outright; a 2.X pool for 4.0 is community reasoning, not a
               leak. New Echoes and Sonata Effects are likewise expected by pattern — every region
-              has brought them — with no specifics yet.
+              has brought them — and the first claimed specifics are the two named
+              sets in the claims above, still leak-grade.
             </Claim>
             <Claim tag="Single leak">
               <strong>The map&rsquo;s place names are out.</strong> Seele&rsquo;s post
@@ -790,7 +797,10 @@ export default function LeaksPage() {
                 shown below, credited to its artist). A November 17 post resharing a
                 Tieba item claims she has three forms and a clone mechanic
                 (speculation — the poster flags it as suspect themselves and says it
-                may be mixed up with Fusion Rover). She was not among the seven
+                may be mixed up with Fusion Rover). A November 22 post (WuWa Timeline)
+                firms the role up — Glacio main DPS, subject to change — and adds a
+                specific the earlier posts did not have: her own mech or puppet; the
+                poster flags the whole post as grain-of-salt. She was not among the seven
                 characters Kuro revealed on November 17, so her 4.1 placement stays a
                 leak claim.
               </p>
