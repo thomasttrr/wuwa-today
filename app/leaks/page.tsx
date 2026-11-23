@@ -394,6 +394,14 @@ export default function LeaksPage() {
               change, and the wording is an unofficial translation.
             </Claim>
             <Claim tag="Single leak">
+              <strong>A co-op event, claimed with no details.</strong> An X post
+              (November 23, @Apexeaglehsr, citing a source called J4F) claims
+              Version 4.0 adds a co-op event, attached to a short video showing
+              the Strider Mechsuit. No event name, rules, or rewards came with
+              it, and the video&rsquo;s contents could not be verified — one
+              post, nothing behind it yet.
+            </Claim>
+            <Claim tag="Single leak">
               <strong>One rerun name: Qingxiao</strong>, the Aero Sword main DPS from Version 3.6,
               tipped for a Phase 1 rerun — which would be her first.
             </Claim>

@@ -879,3 +879,12 @@ Lily client verification Nov 11, 2026: role, skill, sequence and weapon text che
   links the deleted originals. Lucielle's File 02 blurb was also
   corrected in the same pass: her element is no longer "narrowed
   to two options" — Spectro Pistols was announced Nov 20.
+
+- 2026-11-23: 4.0 co-op event claim added to File 03 at Tom's
+  approval. Source: X post by @Apexeaglehsr (Nov 23, 2026,
+  05:30 ET), citing a source called J4F:
+  https://x.com/Apexeaglehsr/status/2124812897759224088
+  — claims Version 4.0 adds a co-op event; the post carries a
+  19-second video with a Strider Mechsuit thumbnail, but no
+  event name, rules, or rewards, and the video's contents were
+  not verified. Single post, no corroboration: Single leak.
