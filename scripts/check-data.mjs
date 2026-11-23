@@ -36,10 +36,14 @@ const warnings = [];
 const err = (where, msg) => errors.push(`${where}: ${msg}`);
 const warn = (where, msg) => warnings.push(`${where}: ${msg}`);
 
-// ISO 8601 only (e.g. "2026-12-03T03:59:00+08:00" or "2026-12-03"): Date.parse
-// alone accepts sloppy strings like "2026-12-3" that other parsers reject.
-const ISO = /^\d{4}-\d{2}-\d{2}(T\d{2}:\d{2}(:\d{2}(\.\d+)?)?(Z|[+-]\d{2}:\d{2})?)?$/;
+// ISO 8601 timestamps WITH a UTC offset only (e.g. "2026-12-03T03:59:00+08:00"
+// or "...Z"). Date.parse alone accepts sloppy strings like "2026-12-3". A
+// missing offset is an error: JS reads it in the build machine's time zone
+// (an 8 h shift on Vercel) and the rebuild workflow's Python can't compare it,
+// which used to stop every hourly boundary check.
+const ISO = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}(:\d{2}(\.\d+)?)?(Z|[+-]\d{2}:\d{2})$/;
 const isDate = (s) => typeof s === "string" && ISO.test(s) && !Number.isNaN(Date.parse(s));
+const notDate = (s) => (typeof s === "string" && /^\d{4}-\d{2}-\d{2}/.test(s) && !ISO.test(s) ? `${s} (needs a UTC offset, e.g. +08:00)` : s);
 
 // ---------- banners ----------
 const bannersFile = readJson("data/banners.json");
@@ -49,8 +53,8 @@ for (const b of bannersFile.banners ?? []) {
   if (!b.id) err(w, "missing id");
   else if (bannerIds.has(b.id)) err(w, "duplicate id");
   bannerIds.add(b.id);
-  if (!isDate(b.startsAt)) err(w, `startsAt is not a date: ${b.startsAt}`);
-  if (!isDate(b.endsAt)) err(w, `endsAt is not a date: ${b.endsAt}`);
+  if (!isDate(b.startsAt)) err(w, `startsAt is not a date: ${notDate(b.startsAt)}`);
+  if (!isDate(b.endsAt)) err(w, `endsAt is not a date: ${notDate(b.endsAt)}`);
   if (isDate(b.startsAt) && isDate(b.endsAt) && Date.parse(b.endsAt) <= Date.parse(b.startsAt)) err(w, "endsAt is not after startsAt");
   if (!Array.isArray(b.characters) || b.characters.length === 0) err(w, "no characters");
   if (b.image && !publicFile(b.image)) err(w, `image not found in public/: ${b.image}`);
@@ -62,6 +66,15 @@ for (const s of bannersFile.selectors ?? []) {
   if (!isDate(s.startsAt) || !isDate(s.endsAt)) err(w, "startsAt/endsAt must be dates");
 }
 if (!bannersFile._meta?.version) err("banners.json _meta", "missing version");
+// nextVersion drives the home takeover, page kickers and a workflow boundary.
+{
+  const nv = bannersFile.nextVersion;
+  if (nv) {
+    for (const k of ["launchAt", "revealAt"]) {
+      if (nv[k] !== undefined && !isDate(nv[k])) err("banners.json nextVersion", `${k} is not a date: ${notDate(nv[k])}`);
+    }
+  }
+}
 
 // ---------- events ----------
 const appRoutes = new Set();
@@ -82,8 +95,8 @@ for (const e of readJson("data/events.json").events ?? []) {
   if (!e.id) err(w, "missing id");
   else if (eventIds.has(e.id)) err(w, "duplicate id");
   eventIds.add(e.id);
-  if (!isDate(e.startsAt)) err(w, `startsAt is not a date: ${e.startsAt}`);
-  if (e.endsAt !== null && e.endsAt !== undefined && !isDate(e.endsAt)) err(w, `endsAt is not a date: ${e.endsAt}`);
+  if (!isDate(e.startsAt)) err(w, `startsAt is not a date: ${notDate(e.startsAt)}`);
+  if (e.endsAt !== null && e.endsAt !== undefined && !isDate(e.endsAt)) err(w, `endsAt is not a date: ${notDate(e.endsAt)}`);
   if (isDate(e.startsAt) && isDate(e.endsAt) && Date.parse(e.endsAt) <= Date.parse(e.startsAt)) err(w, "endsAt is not after startsAt");
   if (e.href && e.href.startsWith("/") && !appRoutes.has(e.href.split(/[?#]/)[0])) err(w, `href points at a page that doesn't exist: ${e.href}`);
   if (e.image && !publicFile(e.image)) err(w, `image not found in public/: ${e.image}`);
@@ -185,7 +198,7 @@ const deadSet = new Set([...(dead.excluded ?? []), ...(dead.expired ?? [])].map(
 for (const c of codes.active ?? []) {
   const w = `codes.json ${c.code}`;
   if (deadSet.has(String(c.code).toUpperCase())) err(w, "is active but also listed in codes-excluded.json");
-  if (c.expiresAt !== null && c.expiresAt !== undefined && !isDate(c.expiresAt)) err(w, `expiresAt is not a date: ${c.expiresAt}`);
+  if (c.expiresAt !== null && c.expiresAt !== undefined && !isDate(c.expiresAt)) err(w, `expiresAt is not a date: ${notDate(c.expiresAt)}`);
   if (!Array.isArray(c.verifiedBy) || c.verifiedBy.length === 0) warn(w, "no verifiedBy sources");
 }
 

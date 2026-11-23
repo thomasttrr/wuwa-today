@@ -8,6 +8,7 @@ import { CharPoster } from "./CharThumb";
 import { elementColor } from "@/lib/elements";
 import type { Team, TeamMember, TeamsModel } from "@/lib/teams";
 import { unpackTeams, type PackedTeamsModel } from "@/lib/teams-wire";
+import { hashId } from "@/lib/hash";
 
 /* Shared with the Tier List: marking a Resonator as owned on either page
    carries over to the other. */
@@ -64,7 +65,7 @@ function visible(team: Team, f: Filter): boolean {
 }
 
 function openHashedTeam() {
-  const id = decodeURIComponent(location.hash.slice(1));
+  const id = hashId();
   if (!id) return;
   const el = document.getElementById(id);
   if (el instanceof HTMLDetailsElement) {

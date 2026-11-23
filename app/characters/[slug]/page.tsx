@@ -424,10 +424,10 @@ export default async function CharacterPage({
               buttonLabel="Copy build"
               label={`Copy ${char.name} build summary`}
             />
-            {getPrefarmGuide(slug) && (
-              <Link href={`/pre-farm/${slug}`} className="rs-btn">
+            {getPrefarmGuide(slug) && char.materials && (
+              <a href="#farming" className="rs-btn">
                 Pre-farm guide
-              </Link>
+              </a>
             )}
             <Link href="/tier-list" className="rs-btn">
               Tier list
@@ -662,13 +662,6 @@ export default async function CharacterPage({
           />
           <Reveal>
             <MaterialsSection materials={char.materials} />
-            {getPrefarmGuide(slug) && (
-              <p style={{ marginTop: "1rem" }}>
-                <Link href={`/pre-farm/${slug}`} className="og-chip">
-                  Full pre-farm guide with farming priorities →
-                </Link>
-              </p>
-            )}
           </Reveal>
         </section>
       )}

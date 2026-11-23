@@ -1,4 +1,5 @@
 import prefarmRaw from "../data/prefarm.json";
+import { getCharacter } from "./characters";
 
 export interface PrefarmTip {
   heading: string;
@@ -56,6 +57,15 @@ export function getPrefarmGuide(slug: string): PrefarmGuide | undefined {
   return prefarmGuides.find((g) => g.slug === slug);
 }
 
-export function prefarmSlugs(): string[] {
-  return prefarmGuides.map((g) => g.slug);
+/**
+ * Where a pre-farm guide lives. The standalone /pre-farm/<slug> pages were
+ * retired (their old URLs redirect to the character pages, see vercel.json);
+ * the material lists render in the character page's Farming section, so
+ * every pre-farm link points there. Falls back to the page top when the
+ * character has no `materials` block yet (partial guides).
+ */
+export function prefarmHref(slug: string): string {
+  const g = getPrefarmGuide(slug);
+  const charSlug = g?.character_slug ?? slug;
+  return getCharacter(charSlug)?.materials ? `/characters/${charSlug}#farming` : `/characters/${charSlug}`;
 }

@@ -18,7 +18,7 @@ import { formatServerDateTime, formatServerDay } from "../lib/dates";
 import { getCharacterByName } from "../lib/characters";
 import { elementColor } from "../lib/elements";
 import { fullRender, thumbFor } from "../lib/renders";
-import { prefarmGuides } from "../lib/prefarm";
+import { prefarmGuides, prefarmHref } from "../lib/prefarm";
 import { V4_CAST, V4_LAUNCH_DAY, V4_TITLE, V4_TRAILER } from "../lib/v4-cast";
 import { ARCHIVE_FILE, ARCHIVE_OPEN_QUESTION, ARCHIVE_RECORDS, ARCHIVE_TITLE } from "../lib/archive";
 import "./home.css";
@@ -223,9 +223,13 @@ export default function HomePage() {
     if (!b.expiresAt) return -1;
     return Date.parse(a.expiresAt) - Date.parse(b.expiresAt);
   });
-  const codeCell = codes[0]
-    ? { code: codes[0].code, rewards: codes[0].rewards.split(",").slice(0, 2).join(" and").trim(), count: codes.length }
-    : null;
+  /* Every code goes to the glance strip with its expiry: it re-filters on the
+     live clock, so a code that expires between rebuilds drops off at once. */
+  const glanceCodes = codes.map((c) => ({
+    code: c.code,
+    expiresAt: c.expiresAt,
+    rewards: c.rewards.split(",").slice(0, 2).join(" and").trim(),
+  }));
 
   /* events */
   type DatedEvent = (typeof events)[number] & { endsAt: string };
@@ -387,7 +391,7 @@ export default function HomePage() {
         </section>
       )}
 
-      <AmGlance unlocks={unlocks} code={codeCell} />
+      <AmGlance unlocks={unlocks} codes={glanceCodes} builtAt={BUILT_AT} />
 
       {/* Freshness right under the at-a-glance strip, so "is this current?"
           is answered before the visitor reads the banner. */}
@@ -531,7 +535,7 @@ export default function HomePage() {
         <SectionHead id="am-h-plan" title="Plan ahead" meta="Guides for what comes next" />
         <div className="am-plan">
           {prefarmNow.map((p) => (
-            <Link key={p.slug} href={`/pre-farm/${p.slug}`} className="am-plan-card" style={p.color ? ({ "--ec": p.color } as CSSProperties) : undefined}>
+            <Link key={p.slug} href={prefarmHref(p.slug)} className="am-plan-card" style={p.color ? ({ "--ec": p.color } as CSSProperties) : undefined}>
               <CharMedal thumb={p.thumb} name={p.name} size={56} className="am-plan-face" />
               <span>
                 <span className="am-k">Pre-farm now</span>

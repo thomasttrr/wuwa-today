@@ -1,6 +1,5 @@
 import type { MetadataRoute } from "next";
 import { characters } from "../lib/characters";
-import { prefarmSlugs } from "../lib/prefarm";
 
 const BASE = "https://wuwa-today.vercel.app";
 
@@ -25,12 +24,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })
   );
 
-  const prefarmPages = prefarmSlugs().map((slug) => ({
-    url: `${BASE}/pre-farm/${slug}`,
-    lastModified: new Date(),
-    changeFrequency: "weekly" as const,
-    priority: 0.7,
-  }));
+  // Pre-farm guides have no pages of their own (they live in each character
+  // page's Farming section), so they add no sitemap entries.
 
   const characterPages = characters.map((c) => ({
     url: `${BASE}/characters/${c.slug}`,
@@ -39,5 +34,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  return [...staticPages, ...beginnerPages, ...prefarmPages, ...characterPages];
+  return [...staticPages, ...beginnerPages, ...characterPages];
 }

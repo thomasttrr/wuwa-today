@@ -6,7 +6,7 @@ import PageHero from "@/components/PageHero";
 import Reveal from "@/components/Reveal";
 import UpdatedStamp from "@/components/UpdatedStamp";
 import { getCharacter } from "@/lib/characters";
-import { prefarmGuides } from "@/lib/prefarm";
+import { prefarmGuides, prefarmHref } from "@/lib/prefarm";
 
 export const metadata: Metadata = {
   title: "Pre-farm guides — what to farm before the banner",
@@ -56,7 +56,7 @@ export default function PrefarmIndex() {
             <Reveal key={g.slug} delay={Math.min(i * 60, 240)}>
               <Link
                 id={`prefarm-${g.slug}`}
-                href={`/pre-farm/${g.slug}`}
+                href={prefarmHref(g.slug)}
                 className="og-radius-card"
                 style={{ display: "block", textDecoration: "none" }}
               >

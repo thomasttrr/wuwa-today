@@ -11,7 +11,7 @@ import { activeCodes, bannerMeta, banners, codesUpdatedAt, events, outfits, vers
 import { formatServerDay } from "../../lib/dates";
 import { getCharacterByName } from "../../lib/characters";
 import { elementColor } from "../../lib/elements";
-import { getPrefarmGuide } from "../../lib/prefarm";
+import { getPrefarmGuide, prefarmHref } from "../../lib/prefarm";
 import { thumbFor } from "../../lib/renders";
 import rendersData from "@/data/renders.json";
 import VersionClock, { type ClockPhase } from "./VersionClock";
@@ -318,7 +318,7 @@ export default function VersionPage() {
                     {newcomer.name}&apos;s build
                   </Link>
                   {newcomerGuide && (
-                    <Link href={`/pre-farm/${newcomerGuide.slug}`} className="rs-btn">
+                    <Link href={prefarmHref(newcomerGuide.slug)} className="rs-btn">
                       Pre-farm checklist
                     </Link>
                   )}

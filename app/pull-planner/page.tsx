@@ -9,7 +9,7 @@ import UpdatedStamp from "../../components/UpdatedStamp";
 import { banners, bannerMeta, nextVersion, BUILD_NOW } from "../../lib/data";
 import { characters, getCharacter } from "../../lib/characters";
 import { elementColor } from "../../lib/elements";
-import { getPrefarmGuide } from "../../lib/prefarm";
+import { getPrefarmGuide, prefarmHref } from "../../lib/prefarm";
 import { tierFor } from "../../lib/tiers";
 import { thumbFor } from "../../lib/renders";
 import { CharMedal } from "../../components/CharThumb";
@@ -387,7 +387,7 @@ export default function PullPlannerPage() {
               </div>
               <p className="pp-v-links">
                 <Link href={`/characters/${v.slug}`}>Full verdict →</Link>
-                {getPrefarmGuide(v.slug) && <Link href={`/pre-farm/${v.slug}`}>Pre-farm →</Link>}
+                {getPrefarmGuide(v.slug) && <Link href={prefarmHref(v.slug)}>Pre-farm →</Link>}
               </p>
             </li>
           ))}

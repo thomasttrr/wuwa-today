@@ -3,8 +3,9 @@ name: Rebuild at banner phase boundaries
 # The home hero, /banners, the accent colour and the live/ended filters are
 # decided at build time (see UPDATE_PLAYBOOK.md). This workflow fires the
 # Vercel Deploy Hook shortly after every phase start/end recorded in
-# data/banners.json, every event start/end in data/events.json and the
-# announced next version's launch day, plus one unconditional rebuild a day as a fallback.
+# data/banners.json, every event start/end in data/events.json, every redeem
+# code expiry in data/codes.json and the announced next version's launch day,
+# plus one unconditional rebuild a day as a fallback.
 # Requires the repo secret VERCEL_DEPLOY_HOOK_URL (Vercel project ->
 # Settings -> Git -> Deploy Hooks). Until the secret exists the jobs
 # succeed quietly and do nothing.
@@ -33,7 +34,8 @@ jobs:
             exit 0
           fi
           DUE=$(python3 - <<'PY'
-          import json, datetime
+          import json, datetime, sys
+          SERVER_TZ = datetime.timezone(datetime.timedelta(hours=8))
           now = datetime.datetime.now(datetime.timezone.utc)
           lo = now - datetime.timedelta(minutes=70)
           hi = now + datetime.timedelta(minutes=5)
@@ -47,12 +49,25 @@ jobs:
           nv = bj.get("nextVersion") or {}
           if nv.get("launchAt"):
               records.append({"id": "nextVersion " + nv.get("version", "?"), "startsAt": nv["launchAt"]})
+          # A redeem code's expiry also changes the built home page (the
+          # glance strip and the codes list), so it counts as a boundary too.
+          for c in json.load(open("data/codes.json")).get("active", []):
+              if c.get("expiresAt"):
+                  records.append({"id": "code " + c["code"], "endsAt": c["expiresAt"]})
           for b in records:
               for key in ("startsAt", "endsAt"):
                   raw = b.get(key)
                   if not raw:
                       continue
-                  t = datetime.datetime.fromisoformat(raw)
+                  # One bad record must never stop every hourly check.
+                  try:
+                      t = datetime.datetime.fromisoformat(raw)
+                  except ValueError:
+                      print(f"::warning::{b.get('id')} {key} is not a date: {raw}", file=sys.stderr)
+                      continue
+                  if t.tzinfo is None:
+                      print(f"::warning::{b.get('id')} {key} has no UTC offset, assuming +08:00: {raw}", file=sys.stderr)
+                      t = t.replace(tzinfo=SERVER_TZ)
                   if lo <= t <= hi:
                       due.append(f"{b['id']} {key} {raw}")
           print("\n".join(due))

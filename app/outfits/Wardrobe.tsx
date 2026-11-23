@@ -13,6 +13,7 @@ import {
   type Ref,
 } from "react";
 import type { Cosmetic, Shelf, ShelfKey } from "./types";
+import { hashId } from "@/lib/hash";
 
 type Filter = "all" | ShelfKey;
 
@@ -88,7 +89,7 @@ export default function Wardrobe({
   // changes later, e.g. a shared link opened in a tab already on this page.
   useEffect(() => {
     const apply = () => {
-      const id = decodeURIComponent(location.hash.slice(1));
+      const id = hashId();
       if (!id) return;
       const idx = outfits.findIndex((o) => o.id === id);
       if (idx >= 0) {

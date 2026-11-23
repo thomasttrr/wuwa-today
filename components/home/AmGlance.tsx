@@ -20,17 +20,33 @@ export interface GlanceUnlock {
  * the visitor's server region (shared with the reset tile's saved choice),
  * the next event to unlock, and the active redeem code with copy.
  */
+export interface GlanceCode {
+  code: string;
+  rewards: string;
+  expiresAt: string | null;
+}
+
 export default function AmGlance({
   unlocks,
-  code,
+  codes,
+  builtAt,
 }: {
   unlocks: GlanceUnlock[];
-  code: { code: string; rewards: string; count: number } | null;
+  /** Soonest expiry first. Re-filtered on the live clock (never show a dead code). */
+  codes: GlanceCode[];
+  /** Build time: the clock before hydration, so the static HTML matches. */
+  builtAt: number;
 }) {
   const [serverId, setServerId] = useState<string>(SERVER_OPTIONS[2].id);
   const [copied, setCopied] = useState(false);
   const timer = useRef<number | null>(null);
   const server = SERVER_OPTIONS.find((s) => s.id === serverId) ?? SERVER_OPTIONS[2];
+
+  const now = useNow();
+  const t = now?.getTime() ?? null;
+  const at = t ?? builtAt;
+  const liveCodes = codes.filter((c) => !c.expiresAt || Date.parse(c.expiresAt) > at);
+  const code = liveCodes[0] ? { ...liveCodes[0], count: liveCodes.length } : null;
 
   useEffect(() => {
     try {
@@ -68,12 +84,10 @@ export default function AmGlance({
     timer.current = window.setTimeout(() => setCopied(false), 2600);
   };
 
-  const now = useNow();
-  const t = now?.getTime() ?? null;
+  const hm = (ms: number) => `${Math.floor(ms / 3_600_000)}:${String(Math.floor((ms % 3_600_000) / 60_000)).padStart(2, "0")}`;
   const daily = t === null ? null : nextDailyReset(server.offsetHours, now!).getTime() - t;
   const weekly = t === null ? null : nextWeeklyReset(server.offsetHours, now!).getTime() - t;
   const unlock = t === null ? unlocks[0] : unlocks.find((u) => Date.parse(u.startsAt) > t);
-  const hm = (ms: number) => `${Math.floor(ms / 3_600_000)}:${String(Math.floor((ms % 3_600_000) / 60_000)).padStart(2, "0")}`;
 
   return (
     <section className="am-glance am-wrap" id="today" aria-label="Today at a glance">
