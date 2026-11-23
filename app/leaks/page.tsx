@@ -394,6 +394,17 @@ export default function LeaksPage() {
               change, and the wording is an unofficial translation.
             </Claim>
             <Claim tag="Single leak">
+              <strong>A second named 4-cost Echo: &ldquo;Polemos.&rdquo;</strong> A
+              second Team Gemberry screenshot relayed on Reddit (November 23,
+              thread flaired Reliable) names a 4-cost Fusion Echo for the 4.0
+              beta. Its skill summons Polemos to deal Fusion damage, and it
+              raises the ATK of the next Resonator to enter the field through
+              an Intro Skill. The post&rsquo;s art shows a large silver-blue
+              mechanical Echo with twin cannons; the poster guesses it belongs
+              to Anna, but that is inference, not the claim. No numbers or set
+              name — marked subject to change, unofficial translation.
+            </Claim>
+            <Claim tag="Single leak">
               <strong>A co-op event, claimed with no details.</strong> An X post
               (November 23, @Apexeaglehsr, citing a source called J4F) claims
               Version 4.0 adds a co-op event, attached to a short video showing

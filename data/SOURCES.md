@@ -888,3 +888,17 @@ Lily client verification Nov 11, 2026: role, skill, sequence and weapon text che
   19-second video with a Strider Mechsuit thumbnail, but no
   event name, rules, or rewards, and the video's contents were
   not verified. Single post, no corroboration: Single leak.
+
+- 2026-11-23: "Polemos" 4-cost Echo claim added to File 03 at
+  Tom's approval. Source: Team Gemberry78 screenshot relayed on
+  r/WutheringWavesLeaks (Nov 23, 2026, 02:32 ET, flair Reliable):
+  https://www.reddit.com/r/WutheringWavesLeaks/comments/1y3c7bt/40_another_4_cost_echo_via_gemberry78/
+  (also WuWa News aggregator Telegram post 13684)
+  — a 4-cost Fusion Echo whose skill summons Polemos to deal
+  Fusion DMG and raises the ATK of the next Resonator to enter
+  via Intro Skill. Marked STC; no numbers or set name. The
+  poster's suggestion that it is Anna's Echo is inference and
+  is flagged as such in the claim. Single originator
+  (Gemberry78): Single leak. The overnight leak-watch runs
+  initially lumped this post in with the Lost Beast Echo from
+  the same team; they are distinct Echoes.
