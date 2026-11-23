@@ -22,7 +22,7 @@ const END_FULL = formatServerDate(PHASE.endsAt!); // "Dec 22, 2026"
 export const metadata: Metadata = {
   title: "Endstate Matrix guide — Adversity Vanguard phases, rewards, buffs and teams",
   description:
-    `The Endstate Matrix boss rush in Wuthering Waves: the final Adversity Vanguard phase (${START_DAY} – ${END_FULL}), the full 400-Astrite reward table, Power Circuit buffs, the boss board, and proven teams.`,
+    `Endstate Matrix boss rush in Wuthering Waves: Adversity Vanguard phase (${START_DAY} – ${END_FULL}), 400-Astrite rewards, Power Circuit buffs and proven teams.`,
   alternates: { canonical: "/endstate-matrix" },
 };
 

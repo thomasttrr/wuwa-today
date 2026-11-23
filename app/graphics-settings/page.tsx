@@ -8,7 +8,7 @@ import Reveal from "@/components/Reveal";
 export const metadata: Metadata = {
   title: "Graphics settings — 120 FPS, ray tracing, DLSS, FSR & XeSS hardware rules",
   description:
-    "What each big Wuthering Waves graphics option needs: 120 FPS hardware rules, ray tracing cards, DLSS frame generation up to DLSS 4.5 6x, FSR, XeSS, mobile frame generation, the 3.8 console Performance / Quality modes with PSSR, and the PC Render Distance slider.",
+    "Wuthering Waves graphics options and hardware rules: 120 FPS, ray tracing, DLSS frame generation, FSR, XeSS, mobile frame generation and console modes.",
   alternates: { canonical: "/graphics-settings" },
 };
 

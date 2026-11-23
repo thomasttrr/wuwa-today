@@ -8,7 +8,7 @@ import Reveal from "@/components/Reveal";
 export const metadata: Metadata = {
   title: "Save for 4.0 — what's left to earn in 3.8, and what a guarantee costs",
   description:
-    "A plain saving guide for the rest of Version 3.8: the official-notice Astrite still on the table, what a guaranteed limited Resonator costs in pulls and Astrite, and the Phase 2 choice — pull the Dec 3 reruns or save for 4.0.",
+    "A plain saving guide for the rest of Version 3.8: Astrite still on the table, what a guaranteed limited Resonator costs, and the Phase 2 choice for 4.0.",
   alternates: { canonical: "/save-for-40" },
 };
 

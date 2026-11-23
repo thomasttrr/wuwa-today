@@ -10,7 +10,7 @@ import "./version-4-0.css";
 export const metadata: Metadata = {
   title: "Version 4.0 — Embers of the Everbright: release date, trailer and the seven revealed Resonators",
   description:
-    "Wuthering Waves Version 4.0, Embers of the Everbright — Chapter of the Year, launches December 22, 2026. The official trailer, and all seven revealed Resonators: Anna, April, Gordia, Lucielle, Cairn, Iya and Simulsys.",
+    "Wuthering Waves Version 4.0, Embers of the Everbright, launches December 22, 2026: the official trailer and all seven revealed Resonators.",
   alternates: { canonical: "/version-4-0" },
 };
 
