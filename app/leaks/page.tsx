@@ -879,7 +879,10 @@ export default function LeaksPage() {
                 nothing behind it. A November 20 follow-up from the same account names them:
                 Cairn in 4.1, the only New Federation male, and Kirito via the SAO
                 collaboration — and adds that 4.5 through 4.8 bring no male characters at
-                all. Same weak sourcing as the original claim.
+                all. Same weak sourcing as the original claim. Separately, a
+                November 22 post (WuWa Timeline) claims Cairn is an Echo DPS, with a
+                suggested team graphic — spelled &ldquo;Carin&rdquo; in the post, and
+                flagged SUS by the poster himself (speculation).
               </p>
               <span className="lk-ver">4.x?</span>
             </div>

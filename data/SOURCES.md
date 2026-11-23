@@ -841,3 +841,12 @@ Lily client verification Nov 11, 2026: role, skill, sequence and weapon text che
   Single source; the three-forms and Glacio tags were already on
   the page from earlier posts, so the new specifics recorded are
   the firmed-up main-DPS role and the mech/puppet.
+
+- 2026-11-22: Cairn Echo DPS line added to the File 04 "only two
+  males" row at Tom's approval. Source: WuWa Timeline (@wuwaguy)
+  post of Nov 22, 2026 (20:35 ET):
+  https://x.com/wuwaguy/status/2124678241508360429
+  — Cairn (spelled "Carin" in the post) claimed as a 4.1 Echo DPS
+  with a suggested team graphic; the post flags itself SUS / STC
+  and names no source. Graded Speculation, labelled as such in
+  the row text.
