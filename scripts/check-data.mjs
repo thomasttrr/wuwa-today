@@ -12,6 +12,8 @@
  *   - banners/events: duplicate ids, unparseable dates, end before start,
  *     an event link to a page that doesn't exist, a missing image
  *   - eventById("…") calls in the app that name an event that isn't there
+ *   - tier list: every character file placed exactly once, no member
+ *     without a character file, tier_badge letters matching placements
  *   - an active redeem code that is also on the excluded/expired list
  *   - next.config.js and vercel.json redirects disagreeing
  * Warnings are printed but don't fail the build.
@@ -144,6 +146,36 @@ for (const f of charFiles) {
       if (m.slug && !slugs.has(m.slug)) warn(w, `team "${t.name}" member slug "${m.slug}" has no character file`);
     }
   }
+}
+
+// ---------- tier list ----------
+// Placement and badges are edited in different files at different times and
+// have silently disagreed before (a character missing from the list entirely;
+// badge letters a full sync behind). One placement per character, and the
+// badge in the character file must equal it.
+const tierList = readJson("data/tier-list.json");
+const placement = new Map();
+for (const t of tierList.tiers ?? []) {
+  for (const m of t.members ?? []) {
+    const w = `tier-list.json ${m.slug ?? m.name ?? "(no slug)"}`;
+    if (!m.slug) { err(w, "member has no slug — add the character file's slug"); continue; }
+    if (!slugs.has(m.slug)) err(w, `no character file at data/characters/${m.slug}.json — fix the slug or add the character file`);
+    if (placement.has(m.slug)) err(w, `placed twice (${placement.get(m.slug)} and ${t.tier}) — keep exactly one placement in data/tier-list.json`);
+    else placement.set(m.slug, t.tier);
+  }
+}
+for (const slug of slugs) {
+  if (!placement.has(slug)) err(`data/characters/${slug}.json`, "has a character file but no tier placement — add them to a tier in data/tier-list.json");
+}
+for (const f of charFiles) {
+  const slug = f.replace(/\.json$/, "");
+  const placed = placement.get(slug);
+  if (!placed) continue; // already reported above
+  let c;
+  try { c = readJson(`data/characters/${f}`); } catch { continue; } // invalid JSON already reported above
+  const badge = c.tier_badge?.tier;
+  if (!badge) err(`data/characters/${f}`, `tier_badge.tier missing — set it to "${placed}" to match data/tier-list.json`);
+  else if (badge !== placed) err(`data/characters/${f}`, `tier_badge.tier is "${badge}" but data/tier-list.json places them in "${placed}" — set tier_badge.tier to "${placed}", or move them in the tier list`);
 }
 
 // ---------- codes ----------
