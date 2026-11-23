@@ -850,3 +850,14 @@ Lily client verification Nov 11, 2026: role, skill, sequence and weapon text che
   with a suggested team graphic; the post flags itself SUS / STC
   and names no source. Graded Speculation, labelled as such in
   the row text.
+
+- 2026-11-23: "Lost Beast" 4-cost Echo claim added to File 03 at
+  Tom's approval. Source: Team Gemberry78 screenshot relayed on
+  r/WutheringWavesLeaks by u/Shirasaki- (Nov 22, 2026, 22:56 ET,
+  flair Reliable):
+  https://www.reddit.com/r/WutheringWavesLeaks/comments/1y38git/40_new_4_cost_echo_via_teamgemberry78/
+  — a 4-cost Havoc Echo whose skill summons a Lost Beast dealing
+  Havoc damage; in the main Echo slot it raises the wearer's
+  Havoc DMG and Echo Skill DMG. Marked STC; no numbers, set
+  name, or character named. Single originator (Gemberry78), so
+  Single leak; wording is an unofficial translation.

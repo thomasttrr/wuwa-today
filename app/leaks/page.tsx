@@ -608,6 +608,15 @@ export default function LeaksPage() {
               &ldquo;Oath of Tomorrow.&rdquo;
             </Claim>
             <Claim tag="Single leak">
+              <strong>A named 4-cost Echo: &ldquo;Lost Beast.&rdquo;</strong> A Team
+              Gemberry screenshot relayed on Reddit (November 22, thread flaired
+              Reliable) names a new 4-cost Havoc Echo for the 4.0 beta. Its skill
+              summons a Lost Beast that deals Havoc damage, and worn in the main
+              Echo slot it raises the wearer&rsquo;s Havoc DMG and Echo Skill DMG.
+              No numbers, no set name, no character named — marked subject to
+              change, and the wording is an unofficial translation.
+            </Claim>
+            <Claim tag="Single leak">
               <strong>One rerun name: Qingxiao</strong>, the Aero Sword main DPS from Version 3.6,
               tipped for a Phase 1 rerun — which would be her first.
             </Claim>
