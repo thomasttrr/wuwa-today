@@ -110,7 +110,7 @@ export default function LeaksPage() {
         ← Home
       </Link>
 
-      <PageHero kicker="Version 4.0 and later · Leaks and rumors · Last sweep Nov 22, 2026" title="4.0+ leaks"
+      <PageHero kicker="Version 4.0 and later · Leaks and rumors · Last sweep Nov 23, 2026" title="4.0+ leaks"
         meta={<><UpdatedStamp /><RevealAllSpoilers /></>}
       >
         Version 4.0 skips 3.9 entirely and opens a whole new region — the New Federation —
@@ -168,101 +168,8 @@ export default function LeaksPage() {
         <FileHead
           file="File 01 · Subject"
           title="Anna — officially revealed, Phase 1 per the leaks"
-          blurb="Drip-marketed by Kuro on November 17–18 — and still the only one of the seven with a leaked model. What the drips settled has moved to the Version 4.0 page; what is left here is what Kuro still has not said."
+          blurb="Drip-marketed by Kuro on November 17–18. Her leaked model renders sat in this file until her design became official; what is left here is what Kuro still has not said."
         />
-        <Reveal>
-          <div className="lk-view">
-            <div className="lk-view-bar">
-              <span>Model — datamined render</span>
-              <span>Not official art · AI-enhanced</span>
-            </div>
-            <SpoilerCover label="Anna — datamined model render">
-            <div className="lk-view-media">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/images/leaks/anna-model-enh-1200.webp"
-                srcSet="/images/leaks/anna-model-enh-1200.webp 1200w, /images/leaks/anna-model-enh-1920.webp 1920w"
-                sizes="(max-width: 760px) 100vw, 900px"
-                alt="Leaked model renders of Anna: front view, side view, and a face close-up with a wide rose-trimmed hat"
-                width={1200}
-                height={453}
-                loading="lazy"
-              />
-            </div>
-            </SpoilerCover>
-            <div className="lk-specs">
-              <div className="lk-spec">
-                <div className="lk-spec-k">Rumored slot</div>
-                <div className="lk-spec-v">4.0 · Phase 1</div>
-              </div>
-              <div className="lk-spec">
-                <div className="lk-spec-k">Attribute</div>
-                <div className="lk-spec-v">Fusion</div>
-              </div>
-              <div className="lk-spec">
-                <div className="lk-spec-k">Design read</div>
-                <div className="lk-spec-v">Noble vampire</div>
-              </div>
-              <div className="lk-spec">
-                <div className="lk-spec-k">Art status</div>
-                <div className="lk-spec-v">Drip out · model leaked</div>
-              </div>
-            </div>
-          </div>
-        </Reveal>
-        <div style={{ height: "0.9rem" }} />
-        <Reveal>
-          <div className="lk-view">
-            <div className="lk-view-bar">
-              <span>3D model — full rotation</span>
-              <span>Front · Side · Back · Side · AI-enhanced</span>
-            </div>
-            <SpoilerCover label="Anna — full rotation render">
-            <div className="lk-view-media">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/images/leaks/anna-rotation-enh-1280.webp"
-                srcSet="/images/leaks/anna-rotation-enh-1280.webp 1280w, /images/leaks/anna-rotation-enh-1920.webp 1920w"
-                sizes="(max-width: 760px) 100vw, 900px"
-                alt="Leaked 3D model of Anna shown from four angles: front, side, back, and side"
-                width={1280}
-                height={640}
-                loading="lazy"
-              />
-            </div>
-            </SpoilerCover>
-          </div>
-        </Reveal>
-        <div style={{ height: "0.9rem" }} />
-        <Reveal>
-          <div className="lk-view">
-            <div className="lk-view-bar">
-              <span>3D model — upper-body detail</span>
-              <span>Hat off · Costume close-up · AI-enhanced</span>
-            </div>
-            <SpoilerCover label="Anna — upper-body detail render">
-            <div className="lk-view-media">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/images/leaks/anna-bust-enh-1000.webp"
-                srcSet="/images/leaks/anna-bust-enh-1000.webp 1000w, /images/leaks/anna-bust-enh-1600.webp 1600w"
-                sizes="(max-width: 760px) 100vw, 900px"
-                alt="Close-up of the leaked Anna 3D model from the waist up, showing the corset, rose pendant, and armored sleeves"
-                width={1000}
-                height={761}
-                loading="lazy"
-              />
-            </div>
-            </SpoilerCover>
-          </div>
-          <p style={{ margin: "0.6rem 0 0", opacity: 0.8, fontSize: "0.92rem" }}>
-            The full model set leaked on November 9–10: a four-angle rotation, this waist-up
-            detail render, and the hat-on sheet above. No raw model file (PMX, FBX, or GLB) has
-            been posted anywhere we can find — what circulates is renders, and these are all of
-            them.
-          </p>
-        </Reveal>
-        <div style={{ height: "0.9rem" }} />
         <Reveal>
           <div className="lk-claims">
             <Claim tag="Repeated leak">
@@ -317,7 +224,7 @@ export default function LeaksPage() {
               A playermodel of Anna went up on Steam Workshop on November 10
               (SheepyLord, 81 MB), with faceposing, fingerposing and bodygroups. The
               listing credits the model itself to Kuro and the porting and rigging to
-              its author — and its previews match the datamined renders above detail
+              its author — and its previews match the datamined renders detail
               for detail, down to the mark on her leg. It is a game-mod file, not the
               raw model, and model files are
               not hosted here. A fan-made Blender recreation also circulates
@@ -342,153 +249,23 @@ export default function LeaksPage() {
           </div>
         </Reveal>
         <div style={{ height: "0.9rem" }} />
-        <Reveal>
-          <div className="lk-view">
-            <div className="lk-view-bar">
-              <span>Model — in-world placement</span>
-              <span>Via leak trackers · AI-enhanced</span>
-            </div>
-            <SpoilerCover label="Anna — in-world placement">
-            <div className="lk-view-media">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/images/leaks/anna-ingame-enh-1024.webp"
-                srcSet="/images/leaks/anna-ingame-enh-1024.webp 1024w, /images/leaks/anna-ingame-enh-1600.webp 1600w"
-                sizes="(max-width: 760px) 100vw, 900px"
-                alt="The leaked Anna model standing in a live-game environment"
-                width={1024}
-                height={576}
-                loading="lazy"
-              />
-            </div>
-            </SpoilerCover>
-          </div>
-          <p style={{ margin: "0.6rem 0 0", opacity: 0.8, fontSize: "0.92rem" }}>
-            The same model placed in the live game world — the usual way model leaks get shown
-            off. The design details (rose at the hip, detached sleeves, leg markings) match the
-            model sheet exactly.
-          </p>
-        </Reveal>
-        <div style={{ height: "0.9rem" }} />
-        <Reveal>
-          <div className="lk-view">
-            <div className="lk-view-bar">
-              <span>In-game — story stills</span>
-              <span>Via Sleepy · Nov 11 · AI-enhanced</span>
-            </div>
-            <SpoilerCover label="Anna — story stills">
-            <div className="lk-stills">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/images/leaks/anna-story-1-enh-1200.webp"
-                alt="Story still: close profile of Anna — chin, lips, rose earring and high collar"
-                width={1200}
-                height={508}
-                loading="lazy"
-              />
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/images/leaks/anna-story-2-enh-1200.webp"
-                alt="Story still: Anna in side profile, red eyes and a pointed ear"
-                width={1200}
-                height={506}
-                loading="lazy"
-              />
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/images/leaks/anna-story-3-enh-1200.webp"
-                alt="Story still: Anna facing forward, raising a clawed black glove"
-                width={1200}
-                height={504}
-                loading="lazy"
-              />
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/images/leaks/anna-story-4-enh-1200.webp"
-                alt="Story still: Anna close-up beside a glowing red drink"
-                width={1200}
-                height={508}
-                loading="lazy"
-              />
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/images/leaks/anna-story-5-enh-1200.webp"
-                alt="Story still: Anna front view, the red drink on a stand beside her"
-                width={1200}
-                height={675}
-                loading="lazy"
-              />
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/images/leaks/anna-story-6-enh-1200.webp"
-                alt="Story still: Anna seated on a throne-like chair in a dark hall"
-                width={1200}
-                height={506}
-                loading="lazy"
-              />
-            </div>
-            </SpoilerCover>
-          </div>
-          <p style={{ margin: "0.6rem 0 0", opacity: 0.8, fontSize: "0.92rem" }}>
-            Six stills from an in-game story scene — the glowing red drink, the clawed glove,
-            the throne-like chair — posted by the leaker Sleepy on November 11. The costume
-            matches the leaked model detail for detail, roses and all.
-          </p>
-        </Reveal>
       </div>
 
       <div className="og-section" id="lucille" style={{ scrollMarginTop: "120px" }}>
         <FileHead
           file="File 02 · Subject"
           title="Lucielle — the rumored Phase 2 banner"
-          blurb="Officially revealed on November 17 — animal ears and all. Her element is still only narrowed to two options, and the Phase 2 slot itself is still leak-grade."
+          blurb="Officially revealed on November 17 — animal ears and all, with her Spectro Pistols kit announced on November 20. The Phase 2 slot itself is still leak-grade."
         />
-        <Reveal>
-          <div className="lk-view">
-            <div className="lk-view-bar">
-              <span>3D model — bust portrait only</span>
-              <span>Via StepLeaks · Oct 29 · AI-enhanced</span>
-            </div>
-            <SpoilerCover label="Lucielle — bust portrait">
-            <div className="lk-view-media">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/images/leaks/lucille-model-enh-1200.webp"
-                srcSet="/images/leaks/lucille-model-enh-1200.webp 1200w, /images/leaks/lucille-model-enh-1924.webp 1924w"
-                sizes="(max-width: 760px) 100vw, 900px"
-                alt="Leaked 3D model bust portrait of Lucielle: blonde twin braids, green eyes, red outfit and black choker, with the StepLeaks watermark"
-                width={1200}
-                height={859}
-                loading="lazy"
-              />
-            </div>
-            </SpoilerCover>
-            <div className="lk-specs" style={{ gridTemplateColumns: "repeat(2, minmax(0, 1fr))" }}>
-              <div className="lk-spec">
-                <div className="lk-spec-k">Full-body model</div>
-                <div className="lk-spec-v">Not acquired — official art only</div>
-              </div>
-              <div className="lk-spec" style={{ borderLeft: "1px solid var(--rs-line-soft)" }}>
-                <div className="lk-spec-k">In-game shots</div>
-                <div className="lk-spec-v">None</div>
-              </div>
-            </div>
-          </div>
-          <p style={{ margin: "0.6rem 0 0", opacity: 0.8, fontSize: "0.92rem" }}>
-            The only leaked model visual — a bust portrait carrying the leaker&rsquo;s own
-            watermark, mouse cursor and all. Her official card, on the Version 4.0 page, is
-            the first full look at her design.
-          </p>
-        </Reveal>
-        <div style={{ height: "0.9rem" }} />
         <Reveal>
           <div className="lk-claims">
             <Claim tag="Single leak">
-              <strong>The portrait above</strong> leaked on October 29 through StepLeaks and has
-              been reshared everywhere since: green eyes, twin braids, a red outfit, and a black
-              choker. It is a bust shot only — the cat ears and cowboy styling from the written
+              <strong>A leaked bust portrait</strong> made the rounds from October 29
+              (via StepLeaks): green eyes, twin braids, a red outfit, and a black
+              choker. It was a bust shot only — the cat ears and cowboy styling from the written
               descriptions don&rsquo;t appear in it. Her official card has since shown the full
               design, ears included — the cowboy styling is at most a hint in the fur trim.
+              The portrait itself was retired from this page once her design became official.
             </Claim>
             <Claim tag="Official">
               <strong>The name is settled: Lucielle.</strong> Kuro&rsquo;s November 17 drip
@@ -940,38 +717,32 @@ export default function LeaksPage() {
         <FileHead
           file="File 05 · Chain of custody"
           title="Sources and how this page is kept"
-          blurb="Checked November 19, 2026 — the drip marketing has landed and the reveal set is on the page. Re-checked again when the beta opens."
+          blurb="Checked November 23, 2026 — the leaked Anna and Lucielle images were retired once both designs were official. Re-checked again when the beta opens."
         />
         <Reveal>
           <div className="og-notice" role="note">
             <p>
               The 4.x character list originates with <strong>Seele Leaks</strong> (Telegram);
               banner tracking comes from <strong>Wuwaguy</strong> (X) and the dataminer{" "}
-              <strong>Nanoka</strong>. The model visuals are sourced post-by-post: Anna&rsquo;s
+              <strong>Nanoka</strong>. The model visuals were sourced post-by-post: Anna&rsquo;s
               render set came via <strong>WuWaLand</strong> (reshared by WuWa Universe on X,
-              November 9–10, and mirrored in the PTT C_Chat leak thread), and Lucielle&rsquo;s
-              bust portrait via <strong>StepLeaks</strong> (October 29). Anna&rsquo;s in-game
-              story stills come via <strong>Sleepy</strong> (November 11, relayed by the WuWa
-              News channel and PTT), A fan-made animation of Anna&rsquo;s leaked model surfaced on Facebook on November 14 — reshares only, origin unverified, and noted on this page as fan work rather than a leak drop — the height-comparison clip in File 01 is a hosted copy of WuWa Timeline&rsquo;s November 16 post (never an embed), and the VFX-skins illustration in File 04 is fan art by Ima Dei Tup, shared via Riju&rsquo;s November 16 post and credited to the artist — and the 4.0 map place names and map-size note come from{" "}
+              November 9–10, and mirrored in the PTT C_Chat leak thread), Lucielle&rsquo;s
+              bust portrait via <strong>StepLeaks</strong> (October 29), and Anna&rsquo;s in-game
+              story stills via <strong>Sleepy</strong> (November 11, relayed by the WuWa
+              News channel and PTT). Those images were retired from this page on
+              November 23, 2026, once Kuro&rsquo;s official reveals had shown both
+              designs — the claims that cite them stay above as the written record.
+              The VFX-skins illustration in File 04 is fan art by Ima Dei Tup, shared via Riju&rsquo;s November 16 post and credited to the artist — and the 4.0 map place names and map-size note come from{" "}
               <strong>Seele Leaks</strong> posts of November 11–12 — text only; no map graphic
               has leaked. Roundups consulted:
               GamsGo&rsquo;s 4.0 banner guide and Anna profile (updated November 11, 2026),
               LDShop&rsquo;s banner schedule (November 2), TopUpLive&rsquo;s 4.0–4.2 leak
               summary, and BitTopup&rsquo;s 3.8/4.0 coverage.
               Where the trackers disagree — Lucielle&rsquo;s element above all — this page says
-              so instead of picking a winner. The leaked images on this page are AI-upscaled for
-              clarity (Real-ESRGAN, anime model) from the files that actually leaked —
-              enhancement sharpens, it does not add real detail. The seven character
+              so instead of picking a winner. The seven character
               cards are Kuro&rsquo;s official art from the November 17 drip posts —
               they live on the Version 4.0 page now, mirrored there via the
-              wiki&rsquo;s uploads of the same art, unedited and uncovered. The unedited originals stay
-              on the site:{" "}
-              <a href="/images/leaks/anna-model-1920.webp">model sheet</a>,{" "}
-              <a href="/images/leaks/anna-rotation-1920.webp">rotation</a>,{" "}
-              <a href="/images/leaks/anna-bust-1400.webp">upper-body detail</a>,{" "}
-              <a href="/images/leaks/anna-ingame-1600.webp">in-world shot</a>,{" "}
-              <a href="/images/leaks/anna-story-1-800.webp">story stills</a>,{" "}
-              <a href="/images/leaks/lucille-model-962.webp">Lucielle portrait</a>. For what is
+              wiki&rsquo;s uploads of the same art, unedited and uncovered. For what is
               actually live, see the{" "}
               <Link href="/banners">banners page</Link> and the{" "}
               <Link href="/phase-2">December 3 Phase 2 preview</Link>.

@@ -861,3 +861,21 @@ Lily client verification Nov 11, 2026: role, skill, sequence and weapon text che
   Havoc DMG and Echo Skill DMG. Marked STC; no numbers, set
   name, or character named. Single originator (Gemberry78), so
   Single leak; wording is an unofficial translation.
+
+- 2026-11-23: Leaked Anna and Lucielle images RETIRED from /leaks
+  at Tom's order, now that both designs are officially public
+  (Anna's drips Nov 17–18, Lucielle's Nov 17–19, the Nov 20
+  gameplay reveal). Removed from File 01: the datamined model
+  sheet, the four-angle rotation, the waist-up detail render,
+  the in-world placement shot, and the six story stills (Sleepy,
+  Nov 11). Removed from File 02: Lucielle's leaked bust portrait
+  (StepLeaks, Oct 29). All 31 image files (enhanced versions and
+  originals) were deleted from public/images/leaks/; the nine
+  official card/drip files stay (the Version 4.0 page uses them)
+  and the VFX-skins fan art stays. The written claims that cite
+  the images remain as the rumor record, reworded where they
+  pointed at a picture ("the portrait above"); the chain-of-
+  custody note in File 05 records the retirement and no longer
+  links the deleted originals. Lucielle's File 02 blurb was also
+  corrected in the same pass: her element is no longer "narrowed
+  to two options" — Spectro Pistols was announced Nov 20.
