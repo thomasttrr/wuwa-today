@@ -14,6 +14,9 @@
  *   - eventById("…") calls in the app that name an event that isn't there
  *   - tier list: every character file placed exactly once, no member
  *     without a character file, tier_badge letters matching placements
+ *     (pre-release characters — all five uncertain_or_prerelease flags set
+ *     and a tier_badge of "UNKNOWN" — are exempt: they have no placement
+ *     and no build data until launch, and a half-flagged file is an error)
  *   - an active redeem code that is also on the excluded/expired list
  *   - next.config.js and vercel.json redirects disagreeing
  * Warnings are printed but don't fail the build.
@@ -122,6 +125,7 @@ const REQUIRED = ["slug", "name", "game_version", "profile", "pull_verdict", "bu
 const loader = fs.readFileSync(rel("lib/characters.ts"), "utf8");
 const charFiles = fs.readdirSync(rel("data/characters")).filter((f) => f.endsWith(".json"));
 const slugs = new Set(charFiles.map((f) => f.replace(/\.json$/, "")));
+const preReleaseSlugs = new Set();
 
 for (const f of charFiles) {
   const w = `data/characters/${f}`;
@@ -150,9 +154,17 @@ for (const f of charFiles) {
   }
 
   const b = c.build ?? {};
-  if (!Array.isArray(b.ranked_weapons) || b.ranked_weapons.length === 0) err(w, "build.ranked_weapons is empty");
+  // Pre-release state, mirroring isPreRelease() in lib/characters.ts plus the
+  // UNKNOWN tier badge: an unlaunched character honestly has no build data
+  // and no tier placement. The state is all-or-nothing — a half-flagged file
+  // means a launch update was left half done.
+  const preFlags = [p.uncertain_or_prerelease, v.uncertain_or_prerelease, b.uncertain_or_prerelease, c.teams_meta?.uncertain_or_prerelease, c.tier_badge?.uncertain_or_prerelease];
+  const preRelease = preFlags.every(Boolean) && c.tier_badge?.tier === "UNKNOWN";
+  if (preFlags.some(Boolean) && !preRelease) err(w, "half-flagged pre-release state — either set all five uncertain_or_prerelease flags AND tier_badge.tier \"UNKNOWN\" (unlaunched), or clear every flag and fill in the launch data");
+  if (preRelease) preReleaseSlugs.add(f.replace(/\.json$/, ""));
+  if (!preRelease && (!Array.isArray(b.ranked_weapons) || b.ranked_weapons.length === 0)) err(w, "build.ranked_weapons is empty");
   for (const rw of b.ranked_weapons ?? []) if (rw.icon && !publicFile(rw.icon)) err(w, `weapon icon not found in public/: ${rw.icon}`);
-  if (!Array.isArray(b.echo_sets) || b.echo_sets.length === 0) err(w, "build.echo_sets is empty");
+  if (!preRelease && (!Array.isArray(b.echo_sets) || b.echo_sets.length === 0)) err(w, "build.echo_sets is empty");
 
   for (const t of c.teams ?? []) {
     for (const m of t.members ?? []) {
@@ -178,7 +190,7 @@ for (const t of tierList.tiers ?? []) {
   }
 }
 for (const slug of slugs) {
-  if (!placement.has(slug)) err(`data/characters/${slug}.json`, "has a character file but no tier placement — add them to a tier in data/tier-list.json");
+  if (!placement.has(slug) && !preReleaseSlugs.has(slug)) err(`data/characters/${slug}.json`, "has a character file but no tier placement — add them to a tier in data/tier-list.json");
 }
 for (const f of charFiles) {
   const slug = f.replace(/\.json$/, "");

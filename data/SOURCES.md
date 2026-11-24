@@ -902,3 +902,22 @@ Lily client verification Nov 11, 2026: role, skill, sequence and weapon text che
   (Gemberry78): Single leak. The overnight leak-watch runs
   initially lumped this post in with the Lost Beast Echo from
   the same team; they are distinct Echoes.
+
+- 2026-11-23: Anna and Lucielle character pages created at Tom's
+  order — confirmed facts only. Both are officially confirmed
+  Version 4.0 five-stars (Kuro's Nov 17 reveal; playable drips
+  Nov 18/19; elements and weapons settled Nov 20: Anna Fusion
+  Rectifier, Lucielle Spectro Pistols — cross-checked on Game8's
+  character pages, archives/638512 and 638517, and Kuro's
+  official gameplay reveal video). The pages carry the
+  pre-release state the site used for Lily before her launch:
+  no kit, build, team, or tier data, every section flagged
+  uncertain_or_prerelease, tier badge "UNKNOWN / Not ranked",
+  and a pull verdict of "Unreleased — Version 4.0" (kits and
+  banner phases are not announced; nothing leaked was used).
+  Portraits are face crops of Kuro's official character cards.
+  check-data.mjs gained the matching rule in the same change:
+  a file with all five pre-release flags AND an UNKNOWN badge
+  is exempt from the tier-placement and build-completeness
+  checks; a half-flagged file is now an error. Both pages are
+  linked from their Version 4.0 drip panels.

@@ -116,6 +116,7 @@ function CastCard({ c, delay }: { c: Resonator; delay: number }) {
    its art's own ratio and nothing is cropped. */
 interface Drip {
   name: string;
+  slug: string;
   date: string;
   quote: string;
   art: string;
@@ -130,6 +131,7 @@ interface Drip {
 const DRIPS: Drip[] = [
   {
     name: "Anna",
+    slug: "anna",
     date: "November 18",
     quote: "The night is long, and your desires are like wine.",
     art: "/images/leaks/official-drip-anna.webp",
@@ -150,6 +152,7 @@ const DRIPS: Drip[] = [
   },
   {
     name: "Lucielle",
+    slug: "lucielle",
     date: "November 19",
     quote: "Relax! From here on out, leave it all to me!",
     art: "/images/leaks/official-drip-lucielle.webp",
@@ -210,6 +213,9 @@ function DripPlate({ d }: { d: Drip }) {
         </div>
         <p className="v4-plate-quote">&ldquo;{d.quote}&rdquo;</p>
         <p className="v4-plate-note">{d.note}</p>
+        <p className="v4-plate-note">
+          <Link href={`/characters/${d.slug}`}>See {d.name}&rsquo;s character page →</Link>
+        </p>
       </figcaption>
     </figure>
   );

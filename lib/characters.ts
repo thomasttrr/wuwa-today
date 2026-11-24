@@ -29,6 +29,7 @@ export interface CharacterRecordLoose
 }
 
 import c_aemeath from "@/data/characters/aemeath.json";
+import c_anna from "@/data/characters/anna.json";
 import c_augusta from "@/data/characters/augusta.json";
 import c_buling from "@/data/characters/buling.json";
 import c_camellya from "@/data/characters/camellya.json";
@@ -48,6 +49,7 @@ import c_iuno from "@/data/characters/iuno.json";
 import c_jingran from "@/data/characters/jingran.json";
 import c_jinhsi from "@/data/characters/jinhsi.json";
 import c_jiyan from "@/data/characters/jiyan.json";
+import c_lucielle from "@/data/characters/lucielle.json";
 import c_lucilla from "@/data/characters/lucilla.json";
 import c_lucy from "@/data/characters/lucy.json";
 import c_lupa from "@/data/characters/lupa.json";
@@ -151,6 +153,8 @@ const ALL: CharacterRecordLoose[] = [
   c_aero_rover as CharacterRecordLoose,
   c_havoc_rover as CharacterRecordLoose,
   c_lily as CharacterRecordLoose,
+  c_anna as CharacterRecordLoose,
+  c_lucielle as CharacterRecordLoose,
 
 ];
 
