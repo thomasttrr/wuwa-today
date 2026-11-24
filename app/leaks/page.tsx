@@ -413,6 +413,16 @@ export default function LeaksPage() {
               post, nothing behind it yet.
             </Claim>
             <Claim tag="Single leak">
+              <strong>A new Matrix mechanic: &ldquo;Special Circuit.&rdquo;</strong> A
+              Team Gemberry screenshot relayed on Reddit (November 24, thread
+              flaired Reliable) describes a Version 4.0 addition to Endstate
+              Matrix: spend the stamina of three limited five-star characters
+              to gain one &ldquo;Computing Support&rdquo; stack — at most two stacks
+              per season — which raises the final damage enemies take. No
+              numbers came with it; marked subject to change, and the wording
+              is an unofficial translation.
+            </Claim>
+            <Claim tag="Single leak">
               <strong>One rerun name: Qingxiao</strong>, the Aero Sword main DPS from Version 3.6,
               tipped for a Phase 1 rerun — which would be her first.
             </Claim>

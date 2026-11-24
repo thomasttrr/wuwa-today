@@ -921,3 +921,14 @@ Lily client verification Nov 11, 2026: role, skill, sequence and weapon text che
   is exempt from the tier-placement and build-completeness
   checks; a half-flagged file is now an error. Both pages are
   linked from their Version 4.0 drip panels.
+
+- 2026-11-24: "Special Circuit" Matrix mechanic claim added to
+  File 03 at Tom's approval. Source: Team Gemberry78 screenshot
+  relayed on r/WutheringWavesLeaks (Nov 24, 2026, 03:15 ET,
+  flair Reliable):
+  https://www.reddit.com/r/WutheringWavesLeaks/comments/1y47t0c/40_new_matrix_mechanic_via_teamgemberry78/
+  — in Version 4.0's Endstate Matrix, spending the stamina of
+  three limited 5-star characters grants one "Computing
+  Support" stack (max 2 per season), raising the final damage
+  enemies take. No numbers given; STC; unofficial translation.
+  Single originator (Gemberry78): Single leak.
