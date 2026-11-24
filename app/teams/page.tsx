@@ -44,6 +44,11 @@ export default function TeamsPage() {
           buffs and proven teams — see the{" "}
           <Link href="/endstate-matrix">Endstate Matrix guide</Link>.
         </p>
+        <p>
+          For the score-attack endgame — the current cycle, its Golden Tokens, the
+          800-Astrite reward table and the best Torrents teams — see the{" "}
+          <Link href="/whimpering-wastes">Whimpering Wastes guide</Link>.
+        </p>
       </footer>
     </>
   );

@@ -1,0 +1,133 @@
+/* /whimpering-wastes — page-scoped layer on top of the Resonance system.
+   Imported by app/whimpering-wastes/page.tsx only. Solid content surfaces,
+   no glass on content, no page-local motion beyond the shared Reveal. */
+
+.ww-art {
+  margin: 0 0 1rem;
+}
+.ww-art img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: var(--rs-r-card);
+  border: 1px solid var(--rs-line);
+}
+.ww-art figcaption {
+  margin-top: 0.5rem;
+  font-size: var(--fs-2, 12px);
+  color: var(--rs-ink-2);
+}
+
+.ww-p {
+  line-height: 1.6;
+  color: var(--rs-ink-2);
+  max-width: 68ch;
+}
+.ww-p strong { color: var(--rs-ink); }
+.ww-foot { font-size: var(--fs-3, 13px); }
+
+.ww-cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+@media (min-width: 760px) {
+  .ww-cards { grid-template-columns: repeat(2, 1fr); }
+}
+.ww-card {
+  background: var(--rs-surface);
+  border: 1px solid var(--rs-line);
+  border-radius: var(--rs-r-card);
+  padding: 1.1rem 1.15rem;
+}
+.ww-card h3 { margin: 0 0 0.45rem; font-size: var(--fs-6); line-height: 1.3; }
+.ww-card p { margin: 0; color: var(--rs-ink-2); line-height: 1.55; }
+.ww-tag {
+  display: inline-block;
+  font-family: var(--rs-mono, ui-monospace, monospace);
+  font-size: var(--fs-2, 12px);
+  letter-spacing: 0.01em;
+  color: var(--el);
+  margin-bottom: 0.5rem;
+}
+
+.ww-table-wrap { overflow-x: auto; }
+.ww-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--rs-surface);
+  border: 1px solid var(--rs-line);
+  border-radius: var(--rs-r-card);
+  overflow: hidden;
+}
+.ww-table th,
+.ww-table td {
+  text-align: left;
+  padding: 0.7rem 0.9rem;
+  border-bottom: 1px solid var(--rs-line);
+  line-height: 1.45;
+}
+.ww-table th {
+  font-family: var(--rs-mono, ui-monospace, monospace);
+  font-size: var(--fs-2, 12px);
+  color: var(--el);
+  font-weight: 600;
+}
+.ww-table tbody tr:last-child td { border-bottom: none; }
+
+.ww-half-h {
+  font-size: var(--fs-7, 20px);
+  margin: 1.6rem 0 0.8rem;
+}
+.ww-teams {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+@media (min-width: 760px) {
+  .ww-teams { grid-template-columns: repeat(2, 1fr); }
+}
+.ww-team {
+  background: var(--rs-surface);
+  border: 1px solid var(--rs-line);
+  border-radius: var(--rs-r-card);
+  padding: 1.1rem 1.15rem;
+}
+.ww-team-head {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.8rem;
+}
+.ww-team-head h4 { margin: 0; font-size: var(--fs-6); line-height: 1.3; }
+.ww-badge {
+  font-family: var(--rs-mono, ui-monospace, monospace);
+  font-size: var(--fs-2, 12px);
+  color: var(--el);
+  border: 1px solid var(--el);
+  border-radius: var(--rs-r-ctl);
+  padding: 0.1rem 0.55rem;
+}
+.ww-members {
+  display: flex;
+  gap: 0.9rem;
+  margin: 0 0 0.8rem;
+  padding: 0;
+  list-style: none;
+}
+.ww-member {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  min-width: 0;
+}
+.ww-member-name { font-size: var(--fs-3, 13px); font-weight: 600; line-height: 1.3; }
+.ww-member-role { font-size: var(--fs-2, 12px); color: var(--rs-ink-2); line-height: 1.3; }
+.ww-how { margin: 0; color: var(--rs-ink-2); line-height: 1.55; }

@@ -932,3 +932,20 @@ Lily client verification Nov 11, 2026: role, skill, sequence and weapon text che
   Support" stack (max 2 per season), raising the final damage
   enemies take. No numbers given; STC; unofficial translation.
   Single originator (Gemberry78): Single leak.
+
+- 2026-11-24: Whimpering Wastes guide page built (preview branch
+  kit/whimpering-wastes-page; Tom approved the page on
+  2026-11-23, built from the Nov 24 reset farm). Cycle data
+  (Nov 23 - Dec 21, 2026; tokens; stage effect; team lists) is
+  the farm's two-source data in data/teams.json (Game8 WhiWa /
+  Infinite Torrents / Chasm guides, cross-checked against
+  genshin-builds Season 24, LDShop token list). The Fusion /
+  Spectro resistance warning is Game8-only so far and the page
+  says the warning comes from current guides. The Torch token's
+  Aero percentage is disputed (30% vs 35%), so the page prints
+  no Aero number for it. Rewards: Game8's WhiWa guide (Forbidden
+  Waters 800 one-time; Chasm 625 + Torrents 175 = 800 per
+  cycle), corroborated by WuWaBuild's and TopUpLive's 3.8
+  counts (800 per cycle). Key art: the mode's official art via
+  the Fandom wiki (Whimpering_Wastes_BG.jpg), downscaled to
+  1024 wide at public/images/whimpering-wastes.webp.
