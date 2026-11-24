@@ -51,6 +51,19 @@ export async function generateMetadata({
   const char = getCharacter(slug);
   if (!char) return { title: "Character not found" };
   const p = char.profile;
+  // Pre-release pages carry no build yet, so their search title must not
+  // promise one — the full build-guide title returns at launch, when the
+  // pre-release flags clear.
+  if (isPreRelease(char)) {
+    return {
+      title: `${char.name} — ${p.element} ${p.weapon_type}, unreleased`,
+      description:
+        `${char.name} is an unreleased ${p.element} ${p.weapon_type} Resonator ` +
+        `coming to Wuthering Waves. The confirmed facts so far — the full ` +
+        `build guide follows at release.`,
+      alternates: { canonical: `/characters/${slug}` },
+    };
+  }
   return {
     title: `${char.name} build guide — best weapons, echoes & teams`,
     description:
