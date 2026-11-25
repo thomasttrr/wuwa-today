@@ -5,24 +5,24 @@
       {
         "main_echo": "Nightmare: Mourning Aix",
         "name": "Eternal Radiance",
-        "note": "Tailor-made for her: 20% Crit Rate on inflicting Spectro Frazzle plus Spectro DMG Bonus scaling with Frazzle stacks. Nightmare: Mourning Aix boosts Spectro DMG by 12% and deals more damage to Frazzle-affected enemies. Conflict: Game8's Aug 2026 update now recommends Capitaneus as the main Echo instead.",
+        "note": "Tailor-made for her: 20% Crit Rate when she applies Spectro Frazzle, plus Spectro DMG Bonus that scales with Frazzle stacks. Nightmare: Mourning Aix boosts Spectro DMG by 12% and deals more damage to Frazzle-affected enemies. One conflict: Game8's Aug 2026 update now recommends Capitaneus as the main Echo instead.",
         "pieces": "5-pc",
         "usage": "best-in-slot"
       },
       {
         "main_echo": "Jue",
         "name": "Celestial Light",
-        "note": "Viable placeholder before Eternal Radiance is farmed; offers general Spectro DMG but lacks the Frazzle buffs.",
+        "note": "A workable placeholder before Eternal Radiance is farmed. It offers general Spectro DMG, but lacks the Frazzle buffs.",
         "pieces": "5-pc",
         "usage": "alternative"
       }
     ],
     "energy_regen_target": "125-130% via substats (110-120% acceptable for Absolution DPS per some sources)",
-    "fast_path": "Fast path: Luminous Hymn (signature; Stringmaster or Cosmic Ripples otherwise) + 5-piece Eternal Radiance in a 4-3-3-1-1 layout. Go Crit Rate/DMG on the 4-cost, Spectro DMG Bonus on both 3-costs, ATK% on both 1-costs, and aim for ~125% Energy Regen via substats. Her damage collapses without Spectro Frazzle on the target, so always pair her with a Frazzle applier like Spectro Rover or Zani.",
+    "fast_path": "Fast path: Luminous Hymn (her signature; Stringmaster or Cosmic Ripples otherwise) + 5-piece Eternal Radiance in a 4-3-3-1-1 layout. Go Crit Rate or Crit DMG on the 4-cost, Spectro DMG Bonus on both 3-costs, and ATK% on both 1-costs. Aim for ~125% Energy Regen from substats. Her damage collapses without Spectro Frazzle on the target, so always pair her with a Frazzle applier like Spectro Rover or Zani.",
     "ranked_weapons": [
       {
         "name": "Luminous Hymn",
-        "note": "Her signature. Crit Rate substat, ATK plus Basic/Heavy Attack DMG against Frazzle-affected enemies, and her Outro amplifies Spectro Frazzle damage by 30% for 30s.",
+        "note": "Her signature. Crit Rate substat, with ATK plus Basic and Heavy Attack DMG against Frazzle-affected enemies. Her Outro also boosts Spectro Frazzle damage by 30% for 30s.",
         "rank": 1,
         "rarity": 5,
         "signature": true,
@@ -30,7 +30,7 @@
       },
       {
         "name": "Stringmaster",
-        "note": "Yinlin's weapon; best 5-star alternative. Big Crit Rate plus all-attribute DMG and ATK buffs that Phoebe uses extremely well.",
+        "note": "Yinlin's weapon, and her best 5-star alternative. Big Crit Rate, plus All-Attribute DMG and ATK buffs that Phoebe uses extremely well.",
         "rank": 2,
         "rarity": 5,
         "signature": false,
@@ -38,7 +38,7 @@
       },
       {
         "name": "Rime-Draped Sprouts",
-        "note": "Zhezhi's signature; ranked #3 across multiple build guides as a strong general 5-star stat stick for Phoebe.",
+        "note": "Zhezhi's signature. Multiple build guides rank it #3 for her: a strong general 5-star stat stick.",
         "rank": 3,
         "rarity": 5,
         "signature": false,
@@ -46,7 +46,7 @@
       },
       {
         "name": "Cosmic Ripples",
-        "note": "Standard-banner and therefore accessible. ATK% substat with a Basic Attack DMG bonus and some Energy Regen.",
+        "note": "From the standard banner, so it is accessible. ATK% substat, with a Basic Attack DMG bonus and some Energy Regen.",
         "rank": 4,
         "rarity": 5,
         "signature": false,
@@ -54,7 +54,7 @@
       },
       {
         "name": "Ocean's Gift",
-        "note": "Event-exclusive 4-star; stacks Spectro DMG bonus when damaging Frazzle-affected enemies, tailored to her mechanic.",
+        "note": "An event-exclusive 4-star. It stacks Spectro DMG bonus when she damages Frazzle-affected enemies, tailored to her mechanic.",
         "rank": 5,
         "rarity": 4,
         "signature": false,
@@ -62,7 +62,7 @@
       },
       {
         "name": "Augment",
-        "note": "Game8's recommended 4-star alternative; accessible rectifier when no 5-star is available.",
+        "note": "Game8's recommended 4-star alternative. An accessible rectifier when no 5-star is available.",
         "rank": 6,
         "rarity": 4,
         "signature": false,
@@ -73,7 +73,7 @@
       {
         "alternates": [],
         "main_stat": "Crit Rate or Crit DMG",
-        "note": "Balance the Crit ratio; Eternal Radiance already grants 20% Crit Rate on Frazzle infliction.",
+        "note": "Balance the Crit ratio. Eternal Radiance already grants 20% Crit Rate when she applies Frazzle.",
         "piece": "4-cost"
       },
       {
@@ -109,7 +109,7 @@
     "portrait_url": "/images/chars/phoebe.webp",
     "rarity": 5,
     "role": "Sub-DPS",
-    "role_note": "Dual Confession (Sub-DPS)/Absolution (DPS) states; premier Spectro Frazzle applicator and Zani's best partner. Personal damage is notable in Absolution state.",
+    "role_note": "She has two states: Confession (sub-DPS) and Absolution (DPS). She is the top Spectro Frazzle applier and Zani's best partner. Her personal damage is also strong in Absolution state.",
     "uncertain_or_prerelease": false,
     "weapon_type": "Rectifier"
   },
@@ -118,7 +118,7 @@
     "published_at": "2026-10-14",
     "source_guide": "research: community build sources (no site pull guide exists)",
     "uncertain_or_prerelease": false,
-    "verdict": "On the 3.8 Starpath Reverbs II selector (Nov 12 - Dec 21, 2026; choose Camellya, Roccia, Phoebe, or Brant). Pick her only if you are building around Spectro Frazzle - she is Zani's best partner and enables the archetype. Otherwise she sits at A-tier and outside the current meta; most accounts get far more from Shorekeeper in this selector.",
+    "verdict": "Phoebe is on the 3.8 Starpath Reverbs II selector (Nov 12 - Dec 21, 2026), alongside Camellya, Roccia, and Brant. Pick her only if you are building around Spectro Frazzle: she is Zani's best partner and makes that team work. Otherwise she sits at A-tier, outside the current meta. Most accounts get far more from Shorekeeper in this selector.",
     "verdict_label": "3.8 selector — Zani's Frazzle partner"
   },
   "slug": "phoebe",
@@ -185,7 +185,7 @@
         }
       ],
       "name": "Premium: Zani + Phoebe + Shorekeeper",
-      "rotation": "Phoebe holds her Resonance Skill to enter Confession and stack/amplify Spectro Frazzle; Zani builds Redundant Energy and detonates the Frazzle stacks for the main damage window; Shorekeeper keeps Stellarealm deployed for Crit buffs and sustain.",
+      "rotation": "Phoebe holds her Resonance Skill to enter Confession and stack and boost Spectro Frazzle. Zani builds Redundant Energy and sets off the Frazzle stacks for the main damage window. Shorekeeper keeps Stellarealm up for Crit buffs and healing.",
       "tag": "Premium"
     },
     {
@@ -213,7 +213,7 @@
         }
       ],
       "name": "Alternative: Phoebe + Spectro Rover + Shorekeeper",
-      "rotation": "Spectro Rover opens to apply Spectro Frazzle; Phoebe enters Absolution and takes the on-field window with Heavy-attack combos; Shorekeeper deploys Stellarealm and detonates it before outroing back to Rover. Never continue the rotation if Frazzle is not applied - Phoebe's damage collapses without it.",
+      "rotation": "Spectro Rover opens to apply Spectro Frazzle. Phoebe enters Absolution and takes the on-field window with Heavy Attack combos. Shorekeeper sets up Stellarealm and sets it off before swapping back to Rover. Never continue the rotation if Frazzle is not applied — Phoebe's damage collapses without it.",
       "tag": "Alternative"
     }
   ],
@@ -223,7 +223,7 @@
   },
   "tier_badge": {
     "label": "Excellent",
-    "note": "S on the current 3.8 lists (Nov 2026); Oct 2026 (3.7) and Sep 2026 (3.6) lists had her at A. The meta no longer revolves around Spectro Frazzle, but she remains Zani's best partner.",
+    "note": "S on the current 3.8 lists (Nov 2026). The Oct 2026 (3.7) and Sep 2026 (3.6) lists had her at A. The meta no longer revolves around Spectro Frazzle, but she remains Zani's best partner.",
     "tier": "S",
     "uncertain_or_prerelease": false
   },
@@ -276,64 +276,64 @@
   },
   "sequences": {
     "status": "verified",
-    "verdict": "S0 is an excellent baseline. Go weapon before S1, stop at S3 for value, S6 only for whales.",
+    "verdict": "S0 is an excellent starting point. Get her weapon before S1, stop at S3 for value, and go S6 only for whales.",
     "pull_path": [
       {
         "stop": "S0",
         "tag": "F2P baseline",
-        "why": "Excellent baseline — top-tier Spectro DPS/sub-DPS at S0."
+        "why": "An excellent starting point: a top-tier Spectro DPS and sub-DPS at S0."
       },
       {
         "stop": "S1",
         "tag": "First real jump",
-        "why": "Must-pull burst button; enables the Confession burst."
+        "why": "A must-pull burst button. It enables the Confession burst."
       },
       {
         "stop": "S3",
         "tag": "Best value stop",
-        "why": "S0 to S3 is +64% DPS — the optimal stopping point."
+        "why": "Going from S0 to S3 is +64% DPS. It is the best stopping point."
       },
       {
         "stop": "S6",
         "tag": "Whale ceiling",
-        "why": "Luxury CC and damage; whale territory."
+        "why": "Luxury crowd control and damage. Whale territory."
       }
     ],
     "nodes": [
       {
         "n": 1,
         "name": "Warm Light and Bedside Wishes",
-        "effect": "Liberation multiplier jumps to 480% in Absolution; Confession Liberation applies max Frazzle stacks.",
+        "effect": "Her Liberation multiplier jumps to 480% in Absolution. Her Confession Liberation applies max Frazzle stacks.",
         "priority": "key"
       },
       {
         "n": 2,
         "name": "A Boat Adrift in Tears",
-        "effect": "Outro to Frazzle targets amplified 120% (Absolution); Silent Prayer Frazzle amp +120% (Confession).",
+        "effect": "Her Outro to Frazzle targets is boosted by 120% in Absolution. Silent Prayer's Frazzle boost is +120% in Confession.",
         "priority": "value"
       },
       {
         "n": 3,
         "name": "Daisy Wreaths and Dreams",
-        "effect": "Starflash multiplier +91% Absolution / +249% Confession — her best single sequence.",
+        "effect": "Starflash multiplier +91% in Absolution and +249% in Confession. Her best single sequence.",
         "priority": "key"
       },
       {
         "n": 4,
         "name": "Ringing Bells on Wings Aloft",
-        "effect": "Basics and dodge counters reduce enemy Spectro RES 10% for 30s.",
+        "effect": "Her basics and dodge counters cut enemy Spectro RES by 10% for 30s.",
         "priority": "comfort"
       },
       {
         "n": 5,
         "name": "Prayer to the Distant Light",
-        "effect": "Intro Skill grants 12% Spectro DMG Bonus for 15s — minor.",
+        "effect": "Her Intro Skill grants 12% Spectro DMG Bonus for 15s. Minor.",
         "priority": "skip"
       },
       {
         "n": 6,
         "name": "Whispering Chirps in Silence",
-        "effect": "Ring stagnation +2s; summoning a Ring grants 10% ATK and a free Starflash.",
+        "effect": "Ring stagnation +2s. Summoning a Ring grants 10% ATK and a free Starflash.",
         "priority": "whale"
       }
     ],
