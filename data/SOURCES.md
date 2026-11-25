@@ -949,3 +949,17 @@ Lily client verification Nov 11, 2026: role, skill, sequence and weapon text che
   counts (800 per cycle). Key art: the mode's official art via
   the Fandom wiki (Whimpering_Wastes_BG.jpg), downscaled to
   1024 wide at public/images/whimpering-wastes.webp.
+
+- 2026-11-24: Tideforge Reverbs II pick guide added to /banners
+  at Tom's approval (the Starpath selector already carried pick
+  lines; Tideforge had mechanics only). Each weapon's pick line
+  rests on the site's own character data: Red Spring,
+  Tragicomedy, Luminous Hymn and Unflickering Valor are the #1
+  ranked weapon on the Camellya, Roccia, Phoebe and Brant
+  character pages respectively, and the reasoning mirrors the
+  Starpath pick lines in data/banners.json (Roccia's only team
+  is Camellya's; Phoebe's value is the Zani pairing; Brant's
+  build scales with the Energy Regen from Unflickering Valor).
+  The old one-line Valor tile note was folded into its pick
+  line. SelectorCards' WeaponCard now renders the same
+  bn-sel-picks list as the Resonator card.

@@ -447,20 +447,27 @@
       "pool": [
         {
           "name": "Red Spring",
-          "forCharacter": "Camellya"
+          "forCharacter": "Camellya",
+          "pickIf": "you run Camellya",
+          "reason": "Her signature sword and her biggest single upgrade \u2014 its buffs feed the Basic Attack damage her whole kit is built on, and no standard sword comes close for her. It is a one-character weapon, though: without Camellya, leave it."
         },
         {
           "name": "Tragicomedy",
-          "forCharacter": "Roccia"
+          "forCharacter": "Roccia",
+          "pickIf": "you run Roccia alongside Camellya",
+          "reason": "Roccia\u2019s signature gauntlets, giving her the Crit Rate and Heavy Attack damage her buffing kit wants. The narrowest pick of the four \u2014 Roccia\u2019s only real team is Camellya\u2019s, so this only pays off if you run that pair."
         },
         {
           "name": "Luminous Hymn",
-          "forCharacter": "Phoebe"
+          "forCharacter": "Phoebe",
+          "pickIf": "you run Phoebe \u2014 mainly with Zani",
+          "reason": "Phoebe\u2019s signature rectifier, tuned for her Spectro Frazzle stacking, with extra damage against Frazzle-marked enemies. Its value rises and falls with the Zani pairing: a finished team core with her, a niche pick without."
         },
         {
           "name": "Unflickering Valor",
           "forCharacter": "Brant",
-          "note": "The one signature here that changes the build \u2014 Brant's best setup nearly requires it."
+          "pickIf": "you run Brant",
+          "reason": "The one signature here that changes the build \u2014 Brant\u2019s damage scales with Energy Regen, and this sword\u2019s huge Energy Regen substat is how his best setup reaches it. If Brant anchors your Lupa team, this is the strongest pick of the four."
         }
       ],
       "sources": [

@@ -128,6 +128,20 @@ function WeaponCard({ s }: { s: SelectorConvene }) {
           );
         })}
       </ul>
+      {s.pool.some((p) => p.pickIf) && (
+        <ul className="bn-sel-picks">
+          {s.pool
+            .filter((p) => p.pickIf)
+            .map((p) => (
+              <li key={p.name}>
+                <strong>
+                  Pick {p.name} if {p.pickIf}:
+                </strong>{" "}
+                {p.reason}
+              </li>
+            ))}
+        </ul>
+      )}
       <p className="bn-sel-note">{s.note}</p>
     </article>
   );
