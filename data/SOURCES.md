@@ -963,3 +963,18 @@ Lily client verification Nov 11, 2026: role, skill, sequence and weapon text che
   The old one-line Valor tile note was folded into its pick
   line. SelectorCards' WeaponCard now renders the same
   bn-sel-picks list as the Resonator card.
+
+- 2026-11-25: Simulsys cast row added to /leaks File 04 at
+  Tom's approval. Source: Seele, relayed by WuWa Universe
+  (@WuWa_Verse1) on X, November 24, 2026 23:02 ET —
+  https://x.com/WuWa_Verse1/status/2125439858176934279 —
+  claiming Simulsys for Version 4.3 as a 5-star Havoc
+  Resonator dealing Echo damage. Her 4.3 slot itself was
+  already on the page from Seele's November 17 banner chart;
+  the element and role are the new parts. Single leak: no
+  weapon, kit detail or second source. The same account
+  posted six minutes later pushing back on the Cairn Echo
+  DPS claim published November 22 ("no reliable source has
+  mentioned Cairn being a Havoc Echo DPS") — noted for the
+  record; that claim stands as published, graded Speculation
+  with the poster's own SUS flag.

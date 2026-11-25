@@ -618,6 +618,16 @@ export default function LeaksPage() {
             </div>
             <div className="lk-cast-row">
               <p>
+                <Chip tag="Single leak" /> <strong>Simulsys</strong> — a 5-star
+                Havoc Resonator dealing Echo damage, per Seele (relayed by WuWa
+                Universe, November 24). Her Version 4.3 slot comes from the chart
+                above; the element and the Echo-damage role are the new parts.
+                No weapon, kit detail or second source yet.
+              </p>
+              <span className="lk-ver">4.3?</span>
+            </div>
+            <div className="lk-cast-row">
+              <p>
                 <Chip tag="Repeated leak" />{" "}
                 <strong>Amethyst (also Aimoshesh / Aimoxishen)</strong> — an anti-Resonance
                 humanoid weapon, most often placed in Version 4.1 Phase 1. One leak graphic tags
