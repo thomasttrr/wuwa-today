@@ -81,6 +81,16 @@
 .bn-section-head h2 { margin: 0; font-size: clamp(1.4rem, 3vw, 1.9rem); font-weight: 750; }
 .bn-section-head p { margin: 0; color: var(--rs-ink-3); font-size: var(--fs-4); }
 
+/* --- how pulling works --- */
+.bn-pity { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin: 0; padding: 0; list-style: none; }
+.bn-pity-step { display: grid; gap: 0.5rem; align-content: start; padding: 1.1rem; border-radius: var(--rs-r-tile); background: var(--rs-surface); border: 1px solid var(--rs-line-soft); }
+.bn-pity-num { font-family: var(--rs-display); font-size: 2.2rem; font-weight: 700; line-height: 1; color: var(--el); }
+.bn-pity-step p { margin: 0; font-size: var(--fs-4); line-height: 1.55; color: var(--rs-ink-2); }
+.bn-pity-step strong { color: var(--rs-ink); }
+@media (max-width: 760px) {
+  .bn-pity { grid-template-columns: minmax(0, 1fr); }
+}
+
 /* --- lineup --- */
 .bn-lineup { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); }
 .bn-lineup > .reveal { display: grid; }
