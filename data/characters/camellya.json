@@ -27,7 +27,7 @@
         "name": "Red Spring",
         "rarity": 5,
         "signature": true,
-        "note": "Her signature. ATK% and Basic ATK DMG Bonus that stacks on Concerto Energy consumption — tailor-made for her kit and best in slot by far.",
+        "note": "Her signature. ATK% and Basic ATK DMG Bonus that stacks as she spends Concerto Energy — made for her kit, and best in slot by far.",
         "icon": "/images/weapons/red-spring.png"
       },
       {
@@ -35,7 +35,7 @@
         "name": "Emerald of Genesis",
         "rarity": 5,
         "signature": false,
-        "note": "Standard 5-star sword; solid all-around Crit Rate stat stick, the best F2P-friendly option per Prydwen.",
+        "note": "Standard 5-star sword. A solid all-around Crit Rate stat stick, and the best F2P-friendly option per Prydwen.",
         "icon": "/images/weapons/emerald-of-genesis.png"
       },
       {
@@ -61,7 +61,7 @@
         "pieces": "5-pc",
         "usage": "best-in-slot",
         "main_echo": "Nightmare: Crownless (or Dreamless)",
-        "note": "Flat Havoc DMG Bonus plus stacks on Basic/Heavy Attack — effectively made for her kit. Crownless adds extra Havoc DMG Bonus; Dreamless is simpler direct damage."
+        "note": "Flat Havoc DMG Bonus, plus stacks on Basic/Heavy Attack — made for her kit. Crownless adds extra Havoc DMG Bonus. Dreamless is simpler direct damage."
       },
       {
         "name": "Lingering Tunes",
@@ -103,7 +103,7 @@
       "ATK%",
       "Energy Regen"
     ],
-    "energy_regen_target": "No fixed breakpoint cited in current guides; a moderate amount so she can cast Liberation comfortably — prioritize Crit and Basic ATK DMG Bonus first.",
+    "energy_regen_target": "No fixed target in current guides. Run a moderate amount so she can cast Liberation comfortably. Prioritize Crit and Basic ATK DMG Bonus first.",
     "uncertain_or_prerelease": false
   },
   "teams": [
@@ -123,7 +123,7 @@
           "slug": "sanhua",
           "role": "Sub-DPS",
           "element": "Glacio",
-          "note": "Her Outro grants Camellya a huge 38% Basic ATK DMG buff — essentially mandatory; use Sanhua right before Camellya."
+          "note": "Her Outro grants Camellya a huge 38% Basic ATK DMG buff — she is essentially mandatory. Use Sanhua right before Camellya."
         },
         {
           "name": "Shorekeeper",
@@ -161,7 +161,7 @@
           "note": "Simple team-wide heals and ATK buffs; not as strong as Shorekeeper but free and easy to slot in."
         }
       ],
-      "rotation": "Verina buffs and heals first, Sanhua Outro into Camellya, then Camellya's full on-field window. Ensure both supports cast Liberation before Camellya enters so buffs are active."
+      "rotation": "Verina buffs and heals first, Sanhua Outro into Camellya, then Camellya's full on-field window. Make sure both supports cast Liberation before Camellya enters, so the buffs are active."
     },
     {
       "name": "Alternative: Camellya + Roccia + Shorekeeper",
@@ -199,7 +199,7 @@
   "tier_badge": {
     "tier": "A",
     "label": "Excellent",
-    "note": "Recent lists place her mostly at A; power creep and her long rotation have pushed the former meta carry down from her peak.",
+    "note": "Recent lists place her mostly at A. Power creep and her long rotation have pushed the former top carry down from her peak.",
     "uncertain_or_prerelease": false
   },
   "sources": [
@@ -278,7 +278,7 @@
   },
   "sequences": {
     "status": "verified",
-    "verdict": "S0 is a complete kit. S2 is the one dupe that matters (+120% Ephemeral burst); S6 only for whales.",
+    "verdict": "S0 is a complete kit. S2 is the one dupe that matters (+120% Ephemeral burst). S6 is only for whales.",
     "pull_path": [
       {
         "stop": "S0",

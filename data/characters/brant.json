@@ -12,7 +12,7 @@
       {
         "main_echo": "Nightmare: Inferno Rider",
         "name": "Molten Rift",
-        "note": "Up to 40% Fusion DMG with no Energy Regen requirement; Game8's recommendation when Unflickering Valor is unavailable.",
+        "note": "Up to 40% Fusion DMG, with no Energy Regen requirement. Game8's recommendation when Unflickering Valor is unavailable.",
         "pieces": "5-pc",
         "usage": "alternative"
       },
@@ -37,7 +37,7 @@
       {
         "icon": "/images/weapons/emerald-of-genesis.png",
         "name": "Emerald of Genesis",
-        "note": "Standard 5-star sword with a Crit Rate substat; solid stat stick whose skill also grants Energy Regen.",
+        "note": "Standard 5-star sword with a Crit Rate substat. A solid stat stick, and its skill also grants Energy Regen.",
         "rank": 2,
         "rarity": 5,
         "signature": false
@@ -108,7 +108,7 @@
     "portrait_url": "/images/chars/brant.webp",
     "rarity": 5,
     "role": "Sub-DPS",
-    "role_note": "Fusion sub-DPS with heals and shields; can flex to Main DPS in quickswap or Mono-Fusion setups.",
+    "role_note": "Fusion sub-DPS with heals and shields. He can also step up as Main DPS in quickswap or Mono-Fusion teams.",
     "uncertain_or_prerelease": false,
     "weapon_type": "Sword"
   },
@@ -117,7 +117,7 @@
     "published_at": "2026-10-15",
     "source_guide": "research: community build sources (no site pull guide exists)",
     "uncertain_or_prerelease": false,
-    "verdict": "An expensive but versatile Fusion sub-DPS with real damage, heals, and shields — a great fit for Fusion teams (especially with Lupa), but his best build nearly requires his signature weapon, so think twice before investing.",
+    "verdict": "A great fit for Fusion teams, especially with Lupa: real damage, heals, and shields in one slot. The catch is cost — his best build nearly requires his signature weapon. Think twice before investing.",
     "verdict_label": "3.8 selector — Fusion engine for Lupa teams"
   },
   "slug": "brant",
@@ -203,7 +203,7 @@
         {
           "element": "Fusion",
           "name": "Lupa",
-          "note": "Hyper-support for Fusion teams; Game8 calls Brant her natural partner for Mono Fusion.",
+          "note": "Top support for Fusion teams. Game8 calls Brant her natural partner for Mono Fusion.",
           "role": "Sub-DPS",
           "slug": "lupa"
         },
@@ -216,7 +216,7 @@
         }
       ],
       "name": "Mono Fusion: Encore + Lupa + Brant",
-      "rotation": "Lupa runs her Fusion buff rotation, Brant drops his Liberation and Outros for the Fusion and Resonance Skill DMG amps, then Encore takes the field for her combo window.",
+      "rotation": "Lupa runs her Fusion buff rotation. Brant drops his Liberation and Outros for the Fusion and Resonance Skill DMG amps. Then Encore takes the field for her combo window.",
       "tag": "Premium"
     },
     {
@@ -231,7 +231,7 @@
         {
           "element": "Fusion",
           "name": "Brant",
-          "note": "Flexible hybrid; weaves mid-air combos between teammates and can step up as the main damage dealer.",
+          "note": "Flexible hybrid. He weaves mid-air combos between teammates and can step up as the main damage dealer.",
           "role": "Sub-DPS",
           "slug": "brant"
         },
@@ -260,7 +260,7 @@
   },
   "sequences": {
     "status": "verified",
-    "verdict": "S0 is a complete hybrid kit. S2 is the clear best-value stop; S6 only for whales.",
+    "verdict": "S0 is a complete hybrid kit. S2 is the clear best-value stop. S6 is only for whales.",
     "pull_path": [
       {
         "stop": "S0",
