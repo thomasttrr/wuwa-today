@@ -143,7 +143,7 @@ function WeaponPlate({ weapon, bis }: { weapon: RankedWeapon; bis: boolean }) {
       <div className="og-weapon-main">
         <div className="og-weapon-head">
           <span className="og-weapon-name">{weapon.name}</span>
-          {bis && <span className="og-bis-pill">BiS</span>}
+          {bis && <span className="og-bis-pill">Best</span>}
           {weapon.signature && <span className="og-sig">Signature</span>}
           <span className="og-stars" aria-label={`${weapon.rarity} star`}>
             {"★".repeat(weapon.rarity)}

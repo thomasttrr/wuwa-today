@@ -240,7 +240,7 @@ export default function BannersPage() {
             <WaveProgress start={live.startsAt} end={live.endsAt} label="Phase time left" />
             <p className="bn-stage-dates">
               {formatServerDate(live.startsAt)} → {formatServerDate(live.endsAt)} · server time (UTC+8)
-              {live.uncertainFields?.length ? " · dates estimated" : ""}
+              {live.uncertainFields?.length ? " · some dates estimated" : ""}
             </p>
           </div>
         </section>
