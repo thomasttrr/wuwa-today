@@ -33,7 +33,7 @@ import "./banners.css";
 export const metadata: Metadata = {
   title: "Wuthering Waves banners — current, upcoming & history",
   description:
-    "Current Wuthering Waves banners with live countdowns — who's featured, who's worth pulling, what's next (official vs. leak labeled), plus the full timeline.",
+    "Current Wuthering Waves banners with live countdowns: who is featured, who is worth pulling, and what is next — official and leak info clearly labelled — plus the full timeline.",
   alternates: { canonical: "/banners" },
 };
 
@@ -299,6 +299,42 @@ export default function BannersPage() {
         </section>
       )}
 
+      {live && (
+        <section className="bn-section" aria-labelledby="bn-pity-h">
+          <header className="bn-section-head">
+            <h2 id="bn-pity-h">How pulling works</h2>
+            <p>The featured banner&apos;s rules, in three steps.</p>
+          </header>
+          <ol className="bn-pity">
+            <li className="bn-pity-step">
+              <span className="bn-pity-num" aria-hidden="true">
+                1
+              </span>
+              <p>
+                A 5-star is guaranteed within <strong>80 pulls</strong>.
+              </p>
+            </li>
+            <li className="bn-pity-step">
+              <span className="bn-pity-num" aria-hidden="true">
+                2
+              </span>
+              <p>
+                It is a <strong>50/50</strong>: you get the featured character, or a standard
+                5-star.
+              </p>
+            </li>
+            <li className="bn-pity-step">
+              <span className="bn-pity-num" aria-hidden="true">
+                3
+              </span>
+              <p>
+                Lost the 50/50? Your next 5-star is <strong>guaranteed</strong> to be the featured
+                character.
+              </p>
+            </li>
+          </ol>
+        </section>
+      )}
 
       <SelectorCards />
 
@@ -347,7 +383,7 @@ export default function BannersPage() {
                   <>
                     <span className="bn-node-ver">Next phase</span>
                     <span className="bn-node-name">Not announced</span>
-                    <span className="bn-node-date">Lands here once Kuro Games confirms it</span>
+                    <span className="bn-node-date">Shows up here once Kuro Games confirms it</span>
                   </>
                 )}
               </div>

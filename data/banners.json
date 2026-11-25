@@ -406,27 +406,27 @@
       "conveneLabel": "Reverb Resonator Convene",
       "startsAt": "2026-11-12T10:00:00+08:00",
       "endsAt": "2026-12-21T11:59:00+08:00",
-      "note": "Select one of the four as your rate-up and change your selection at any time. The 50/50 still applies \u2014 lose it and a standard 5-star can land instead. Pity and guarantee are shared only with other Reverb Resonator convenes; they do not touch the featured banners.",
+      "note": "Pick one of the four as your rate-up. You can change your pick at any time. The 50/50 still applies \u2014 lose it and you get a standard 5-star instead. Pity and your guarantee are shared only with other Reverb Resonator convenes. They do not carry over to the featured banners.",
       "pool": [
         {
           "name": "Phoebe",
           "pickIf": "you own Zani",
-          "reason": "She piles on the Spectro Frazzle stacks and Zani cashes them in \u2014 that pair is a finished team core. Without Zani she is a niche pick; with her, she is the reason to open this banner."
+          "reason": "She piles Spectro Frazzle stacks onto enemies, and Zani cashes them in for big damage \u2014 that pair is a finished team core. Without Zani she is a niche pick. With her, she is the reason to open this banner."
         },
         {
           "name": "Brant",
           "pickIf": "you own Lupa",
-          "reason": "Lupa's Fusion engine: her resistance shred and Fusion buffs, his damage, healing and shields. His best build wants his signature weapon \u2014 that is what Tideforge is for."
+          "reason": "He powers Lupa's Fusion team: she lowers enemy Fusion resistance and buffs Fusion damage, and he brings damage, healing and shields. His best build wants his signature weapon \u2014 that is what Tideforge is for."
         },
         {
           "name": "Camellya",
           "pickIf": "you need a Havoc carry",
-          "reason": "A real Havoc main DPS who works with Sanhua, who is free. Newer carries have power-crept her, so this is a playstyle pick or a second Havoc team for Tower and Wastes \u2014 not a meta pick."
+          "reason": "A real Havoc main DPS who works with Sanhua, who is free. Newer carries have overtaken her, so pick her for her playstyle, or as a second Havoc team for Tower and Wastes \u2014 not for raw power."
         },
         {
           "name": "Roccia",
           "pickIf": "you own Camellya",
-          "reason": "Camellya's best buffer: Havoc buffs and enemy grouping in one slot. Without Camellya she has no team \u2014 Sanhua covers everyone else for free."
+          "reason": "Camellya's best support: she buffs Havoc damage and pulls enemies together in one slot. Without Camellya she has no team \u2014 Sanhua covers everyone else for free."
         }
       ],
       "sources": [
@@ -442,8 +442,8 @@
       "conveneLabel": "Reverb Weapon Convene",
       "startsAt": "2026-11-12T10:00:00+08:00",
       "endsAt": "2026-12-21T11:59:00+08:00",
-      "note": "Select one of the four as your target and change your selection at any time. Pity is shared only with other Reverb Weapon convenes.",
-      "rule": "No 50/50 on weapons: the weapon you select is guaranteed within 80 pulls. Only pull the one that matches a character you own \u2014 each is that character's best-in-slot, and a small upgrade for anyone else.",
+      "note": "Pick one of the four as your target. You can change your pick at any time. Pity is shared only with other Reverb Weapon convenes.",
+      "rule": "No 50/50 on weapons: the weapon you pick is guaranteed within 80 pulls. Only pull the one that matches a character you own. Each one is that character's best weapon, and only a small upgrade for anyone else.",
       "pool": [
         {
           "name": "Red Spring",
@@ -455,7 +455,7 @@
           "name": "Tragicomedy",
           "forCharacter": "Roccia",
           "pickIf": "you run Roccia alongside Camellya",
-          "reason": "Roccia\u2019s signature gauntlets, giving her the Crit Rate and Heavy Attack damage her buffing kit wants. The narrowest pick of the four \u2014 Roccia\u2019s only real team is Camellya\u2019s, so this only pays off if you run that pair."
+          "reason": "Roccia\u2019s signature gauntlets, giving her the Crit Rate and Heavy Attack damage her support kit wants. The narrowest pick of the four \u2014 Roccia\u2019s only real team is Camellya\u2019s, so this only pays off if you run that pair."
         },
         {
           "name": "Luminous Hymn",
@@ -467,7 +467,7 @@
           "name": "Unflickering Valor",
           "forCharacter": "Brant",
           "pickIf": "you run Brant",
-          "reason": "The one signature here that changes the build \u2014 Brant\u2019s damage scales with Energy Regen, and this sword\u2019s huge Energy Regen substat is how his best setup reaches it. If Brant anchors your Lupa team, this is the strongest pick of the four."
+          "reason": "The one signature here that changes the build \u2014 Brant's damage scales with Energy Regen, and this sword's huge Energy Regen bonus is how his best setup reaches it. If Brant anchors your Lupa team, this is the strongest pick of the four."
         }
       ],
       "sources": [

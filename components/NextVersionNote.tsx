@@ -26,11 +26,11 @@ export default function NextVersionNote({
 
   const name = revealed && next.title ? next.title : "Not announced";
   const detail = launched
-    ? `Arrived ${next.launchLabel} · banners not entered yet`
+    ? `Arrived ${next.launchLabel} · banners not added yet`
     : revealed && next.launchLabel
       ? `Launches ${next.launchLabel} · banner order not announced`
       : revealed
-        ? "Broadcast aired — details being verified"
+        ? "The reveal has aired — details are being checked"
         : `Reveal ${next.revealLabel} · dates and reruns not announced`;
 
   if (variant === "node") {

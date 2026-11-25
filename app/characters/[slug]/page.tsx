@@ -337,6 +337,11 @@ export default async function CharacterPage({
 
   const visibleWeapons = build.ranked_weapons.slice(0, 4);
   const extraWeapons = build.ranked_weapons.slice(4);
+  /* Echo cost tiles: the digits of the first layout in cost_layout
+     ("4-3-3-1-1", "43311 (Glow) / 34311 (Flower)"). Anything that does
+     not parse to exactly five slot costs (empty, "not yet known")
+     renders no tiles — the code line above the tiles still shows. */
+  const costDigits = build.cost_layout.split("/")[0].match(/\d/g) ?? [];
 
   return (
     <>
@@ -589,6 +594,16 @@ export default async function CharacterPage({
           <Reveal>
             <h3 className="og-sub-h">Echo sets</h3>
             <p className="og-mono-line">Cost layout: {build.cost_layout}</p>
+            {costDigits.length === 5 && (
+              <ul className="cx-cost-tiles" aria-hidden="true">
+                {costDigits.map((d, i) => (
+                  <li key={i} className="cx-cost-tile">
+                    <span className="cx-cost-num">{d}</span>
+                    <span className="cx-cost-word">cost</span>
+                  </li>
+                ))}
+              </ul>
+            )}
             <div className="og-echo-plates">
               {build.echo_sets.map((s) => (
                 <EchoPlate key={s.name} set={s} />

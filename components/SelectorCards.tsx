@@ -161,8 +161,8 @@ export default function SelectorCards() {
       <header className="bn-section-head">
         <h2 id="bn-sel-h">Selector convenes — all of {bannerMeta.version}</h2>
         <p>
-          Two Reverb convenes run the whole version. You choose the rate-up yourself, and you can
-          change your mind at any time — here is who is worth choosing.
+          Two Reverb convenes run the whole version. You pick the rate-up yourself, and you can
+          change your pick at any time. Here is who is worth choosing.
         </p>
       </header>
       <div className="bn-sel-grid">
