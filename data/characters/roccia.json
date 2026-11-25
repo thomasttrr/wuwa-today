@@ -5,14 +5,14 @@
       {
         "main_echo": "Nightmare: Impermanence Heron",
         "name": "Midnight Veil",
-        "note": "Havoc DMG for her plus 15% Havoc DMG to the next character on Outro; the Nightmare Heron boosts the Heavy Attack DMG she scales off.",
+        "note": "Havoc DMG for her, plus 15% Havoc DMG for the next character on Outro. The Nightmare Heron boosts the Heavy Attack DMG she scales from.",
         "pieces": "5-pc",
         "usage": "best-in-slot"
       },
       {
         "main_echo": "Impermanence Heron",
         "name": "Moonlit Clouds",
-        "note": "General sub-DPS set: Energy Regen and 22.5% ATK to the next character. The better pick when she supports a non-Havoc DPS.",
+        "note": "A general sub-DPS set. It gives Energy Regen and 22.5% ATK to the next character. The better pick when she supports a non-Havoc DPS.",
         "pieces": "5-pc",
         "usage": "alternative"
       },
@@ -24,19 +24,19 @@
       }
     ],
     "energy_regen_target": "around 125% (Game8's recommended starting point; tune per team)",
-    "fast_path": "Fast path: Tragicomedy + 5-piece Midnight Veil in a 4-3-3-1-1 layout with Nightmare: Impermanence Heron in the main slot. Run a CRIT 4-cost, double Havoc DMG 3-costs (swap one to Energy Regen if her Liberation is not ready each rotation), ATK% 1-costs, and aim for around 125% Energy Regen with 70% Crit Rate to maximize her Liberation's team ATK buff.",
+    "fast_path": "Fast path: Tragicomedy + 5-piece Midnight Veil in a 4-3-3-1-1 layout, with Nightmare: Impermanence Heron in the main slot. Run a CRIT 4-cost and two Havoc DMG 3-costs — swap one to Energy Regen if her Liberation is not ready each rotation. Use ATK% 1-costs. Aim for around 125% Energy Regen and 70% Crit Rate, to get the most from her Liberation's team ATK buff.",
     "ranked_weapons": [
       {
         "icon": "/images/weapons/tragicomedy.png",
         "name": "Tragicomedy",
-        "note": "Her signature. CRIT Rate substat plus Heavy Attack DMG on Basic and Intro casts — everything her kit wants.",
+        "note": "Her signature. A CRIT Rate substat, plus Heavy Attack DMG on Basic and Intro casts. Everything her kit wants.",
         "rank": 1,
         "rarity": 5,
         "signature": true
       },
       {
         "name": "Blazing Justice",
-        "note": "ATK plus DEF ignore on Basic Attacks; Game8's top non-signature pick, rated slightly ahead of Verity's Handle.",
+        "note": "ATK, plus DEF ignore on Basic Attacks. Game8's top non-signature pick, rated slightly ahead of Verity's Handle.",
         "rank": 2,
         "rarity": 5,
         "signature": false
@@ -52,14 +52,14 @@
       {
         "icon": "/images/weapons/abyss-surges.png",
         "name": "Abyss Surges",
-        "note": "Standard 5-star gauntlet; its Energy Regen helps reach her 125% comfort zone.",
+        "note": "A standard 5-star gauntlet. Its Energy Regen helps her reach the 125% comfort zone.",
         "rank": 4,
         "rarity": 5,
         "signature": false
       },
       {
         "name": "Aether Strike",
-        "note": "Accessible 4-star that buffs ATK and Liberation DMG when her Liberation is cast.",
+        "note": "An easy-to-get 4-star. It buffs ATK and Liberation DMG when her Liberation is cast.",
         "rank": 5,
         "rarity": 4,
         "signature": false
@@ -71,7 +71,7 @@
           "CRIT DMG"
         ],
         "main_stat": "CRIT Rate",
-        "note": "70% Crit Rate target — her Liberation converts Crit Rate above 50% into team ATK (max 200).",
+        "note": "Target 70% Crit Rate. Her Liberation turns Crit Rate above 50% into team ATK (max 200).",
         "piece": "4-cost"
       },
       {
@@ -79,7 +79,7 @@
           "Energy Regen"
         ],
         "main_stat": "Havoc DMG",
-        "note": "Double Havoc DMG ideally; swap one to Energy Regen if her Liberation is not ready each rotation.",
+        "note": "Two Havoc DMG pieces is ideal. Swap one to Energy Regen if her Liberation is not ready each rotation.",
         "piece": "3-cost"
       },
       {
@@ -106,7 +106,7 @@
     "portrait_url": "/images/chars/roccia.webp",
     "rarity": 5,
     "role": "Sub-DPS",
-    "role_note": "Havoc and Basic Attack DMG buffer; her Liberation grants the team flat ATK and her Outro groups enemies.",
+    "role_note": "A Havoc and Basic Attack DMG buffer. Her Liberation gives the team flat ATK. Her Outro groups enemies.",
     "uncertain_or_prerelease": false,
     "weapon_type": "Gauntlets"
   },
@@ -115,7 +115,7 @@
     "published_at": "2026-10-15",
     "source_guide": "research: community build sources (no site pull guide exists)",
     "uncertain_or_prerelease": false,
-    "verdict": "The best buffer for Camellya and Havoc teams, but a narrow specialist — newer generalist sub-DPS units outclass her elsewhere, so only pull if you are building around her niche.",
+    "verdict": "The best buffer for Camellya and Havoc teams. But she is a narrow specialist. Newer all-round sub-DPS units beat her elsewhere. Only pull her if you are building around her niche.",
     "verdict_label": "3.8 selector — Camellya's buffer"
   },
   "slug": "roccia",
@@ -177,7 +177,7 @@
         }
       ],
       "name": "Premium: Camellya + Roccia + Shorekeeper",
-      "rotation": "Shorekeeper charges her Liberation, Roccia builds three Imagination stacks into plunge attacks and fires her Liberation for the team ATK buff, then Camellya swaps into the Havoc and Basic Attack DMG Outro buffs.",
+      "rotation": "Shorekeeper charges her Liberation. Roccia builds three Imagination stacks, lands her plunge attacks, and fires her Liberation for the team ATK buff. Then Camellya swaps in, into the Havoc and Basic Attack DMG Outro buffs.",
       "tag": "Premium"
     },
     {
@@ -205,7 +205,7 @@
         }
       ],
       "name": "Alternative: Phrolova + Cantarella + Roccia",
-      "rotation": "Phrolova opens and builds Volatile Notes, Roccia swaps in on the Outro to buff Cantarella, then Cantarella runs her Mirage combos and Outros into Phrolova for the carry window.",
+      "rotation": "Phrolova opens and builds Volatile Notes. Roccia swaps in on the Outro to buff Cantarella. Then Cantarella runs her Mirage combos and Outros into Phrolova for the carry window.",
       "tag": "Alternative"
     }
   ],
@@ -215,7 +215,7 @@
   },
   "tier_badge": {
     "label": "Excellent",
-    "note": "Rated A overall on the current 3.7 lists (A as a Sub-DPS, A in both Tower of Adversity and Whimpering Wastes); one 3.7 list places her in B.",
+    "note": "Rated A overall on the current 3.7 lists — A as a Sub-DPS, and A in both Tower of Adversity and Whimpering Wastes. One 3.7 list places her in B.",
     "tier": "A",
     "uncertain_or_prerelease": false
   },
@@ -268,7 +268,7 @@
   },
   "sequences": {
     "status": "verified",
-    "verdict": "S0 is a complete Havoc buffer. S2 is the standout team buff, S6 turns her into a main DPS for whales.",
+    "verdict": "S0 is a complete Havoc buffer. S2 is the standout team buff. S6 turns her into a main DPS, for whales.",
     "pull_path": [
       {
         "stop": "S0",
@@ -324,7 +324,7 @@
         "priority": "whale"
       }
     ],
-    "weapon_vs_dupes": "S2 before Tragicomedy for Havoc teams — the team-wide 40% Havoc DMG Bonus is her biggest spike; weapon first only for personal DPS.",
+    "weapon_vs_dupes": "For Havoc teams, get S2 before Tragicomedy. The team-wide 40% Havoc DMG Bonus is her biggest jump. Take the weapon first only for her personal DPS.",
     "sources": [
       "wuthering.gg",
       "gamingpromax"
