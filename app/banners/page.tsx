@@ -33,7 +33,7 @@ import "./banners.css";
 export const metadata: Metadata = {
   title: "Wuthering Waves banners — current, upcoming & history",
   description:
-    "Current Wuthering Waves banners with live countdowns: who is featured, who is worth pulling, and what is next — official and leak info clearly labelled — plus the full timeline.",
+    "Current Wuthering Waves banners with live countdowns: who is featured, who is worth pulling, and what is next, plus the full banner timeline.",
   alternates: { canonical: "/banners" },
 };
 

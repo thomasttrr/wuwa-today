@@ -10,7 +10,7 @@ import UpdatedStamp from "@/components/UpdatedStamp";
 export const metadata: Metadata = {
   title: "Echo sets guide — Sworn Vigil, Electric Reflection, Tinged Yearning (3.8)",
   description:
-    "Three Wuthering Waves Sonata Effects — Sworn Vigil, Electric Reflection, Tinged Yearning: set bonuses, member echoes, farming spots, and who each set is for in 3.8.",
+    "Wuthering Waves Sonata Effects in 3.8 — Sworn Vigil, Electric Reflection, Tinged Yearning: set bonuses, member echoes, farming spots and who suits each set.",
   alternates: { canonical: "/echo-sets" },
 };
 
