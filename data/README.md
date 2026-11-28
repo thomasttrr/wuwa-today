@@ -7,7 +7,7 @@ All game data lives in three JSON files. **Updating the site = editing these fil
 | File | What it holds | Page(s) that read it |
 |---|---|---|
 | `banners.json` | Banner phases: characters, weapons, dates, confidence | `/`, `/banners` |
-| `codes.json` | Active + expired redeem codes | `/`, `/codes` |
+| `codes.json` | Active + expired redeem codes | `/` (Today page; no standalone codes page) |
 | `events.json` | Active + upcoming events | `/`, `/events` |
 
 `SOURCES.md` (this folder) lists every source used to verify the current data.
