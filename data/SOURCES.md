@@ -978,3 +978,15 @@ Lily client verification Nov 11, 2026: role, skill, sequence and weapon text che
   mentioned Cairn being a Havoc Echo DPS") — noted for the
   record; that claim stands as published, graded Speculation
   with the poster's own SUS flag.
+
+- 2026-11-28: Mech-Suite upgrade claim added to /leaks File 03
+  at Tom's approval. Source: WuWa Timeline (@wuwaguy) on X,
+  November 27, 2026 21:51 ET —
+  https://x.com/wuwaguy/status/2126509292123832745 — citing
+  Tieba rumors: the 4.X Mech-Suite works only in certain
+  areas, upgrades like the Motorbike (upgrades change its
+  appearance and unlock abilities), and skins are planned.
+  The poster flags it as grain-of-salt / subject to change.
+  Single leak: the Strider Mechsuit itself is official from
+  Kuro's November 20 gameplay reveal; only the upgrade and
+  skin system is claimed here. No second source.

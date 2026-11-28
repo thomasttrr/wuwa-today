@@ -110,7 +110,7 @@ export default function LeaksPage() {
         ← Home
       </Link>
 
-      <PageHero kicker="Version 4.0 and later · Leaks and rumors · Last sweep Nov 23, 2026" title="4.0+ leaks"
+      <PageHero kicker="Version 4.0 and later · Leaks and rumors · Last sweep Nov 28, 2026" title="4.0+ leaks"
         meta={<><UpdatedStamp /><RevealAllSpoilers /></>}
       >
         Version 4.0 skips 3.9 entirely and opens a whole new region — the New Federation —
@@ -421,6 +421,16 @@ export default function LeaksPage() {
               per season — which raises the final damage enemies take. No
               numbers came with it; marked subject to change, and the wording
               is an unofficial translation.
+            </Claim>
+            <Claim tag="Single leak">
+              <strong>The Mech-Suite can be upgraded — and skinned.</strong> A
+              Tieba rumor relayed on X (November 27, @wuwaguy) claims the 4.X
+              Mech-Suite works only in certain areas, and that it upgrades
+              like the Motorbike: upgrades change how it looks and unlock new
+              abilities, and skins are planned for it. The Strider Mechsuit
+              itself is official from the November 20 gameplay reveal — the
+              upgrade and skin system is not. The poster flags it himself:
+              take with a grain of salt, all subject to change.
             </Claim>
             <Claim tag="Single leak">
               <strong>One rerun name: Qingxiao</strong>, the Aero Sword main DPS from Version 3.6,
